@@ -2308,6 +2308,7 @@ class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>,
   ClearAt_Time build() => _build();
 
   _$ClearAt_Time _build() {
+    ClearAt_Time._validate(this);
     final _$result = _$v ??
         _$ClearAt_Time._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'ClearAt_Time', 'data'),
@@ -4498,6 +4499,7 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data build() => _build();
 
   _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data _build() {
+    UserStatusRevertStatusResponseApplicationJson_Ocs_Data._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??

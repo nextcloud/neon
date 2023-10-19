@@ -9943,6 +9943,7 @@ class GroupDetails_UsercountBuilder
   GroupDetails_Usercount build() => _build();
 
   _$GroupDetails_Usercount _build() {
+    GroupDetails_Usercount._validate(this);
     final _$result = _$v ??
         _$GroupDetails_Usercount._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Usercount', 'data'),
@@ -10055,6 +10056,7 @@ class GroupDetails_DisabledBuilder
   GroupDetails_Disabled build() => _build();
 
   _$GroupDetails_Disabled _build() {
+    GroupDetails_Disabled._validate(this);
     final _$result = _$v ??
         _$GroupDetails_Disabled._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Disabled', 'data'),
@@ -11122,6 +11124,7 @@ class UserDetailsQuota_FreeBuilder
   UserDetailsQuota_Free build() => _build();
 
   _$UserDetailsQuota_Free _build() {
+    UserDetailsQuota_Free._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota_Free._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data'),
@@ -11250,6 +11253,7 @@ class UserDetailsQuota_QuotaBuilder
   UserDetailsQuota_Quota build() => _build();
 
   _$UserDetailsQuota_Quota _build() {
+    UserDetailsQuota_Quota._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota_Quota._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data'),
@@ -11365,6 +11369,7 @@ class UserDetailsQuota_RelativeBuilder
   UserDetailsQuota_Relative build() => _build();
 
   _$UserDetailsQuota_Relative _build() {
+    UserDetailsQuota_Relative._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota_Relative._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data'),
@@ -11477,6 +11482,7 @@ class UserDetailsQuota_TotalBuilder
   UserDetailsQuota_Total build() => _build();
 
   _$UserDetailsQuota_Total _build() {
+    UserDetailsQuota_Total._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota_Total._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data'),
@@ -11589,6 +11595,7 @@ class UserDetailsQuota_UsedBuilder
   UserDetailsQuota_Used build() => _build();
 
   _$UserDetailsQuota_Used _build() {
+    UserDetailsQuota_Used._validate(this);
     final _$result = _$v ??
         _$UserDetailsQuota_Used._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data'),
@@ -12731,6 +12738,7 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
 
   _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
+    GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
     _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
     try {
       _$result = _$v ??
@@ -15895,6 +15903,7 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
 
   _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
+    UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
     _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
     try {
       _$result = _$v ??
@@ -16485,6 +16494,7 @@ class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
 
   _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
     _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
     try {
       _$result = _$v ??

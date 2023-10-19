@@ -7453,6 +7453,7 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
   ShareInfo_Size build() => _build();
 
   _$ShareInfo_Size _build() {
+    ShareInfo_Size._validate(this);
     final _$result = _$v ??
         _$ShareInfo_Size._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data'), $int: $int, $double: $double);
@@ -7809,6 +7810,7 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
   Share_ItemSize build() => _build();
 
   _$Share_ItemSize _build() {
+    Share_ItemSize._validate(this);
     final _$result = _$v ??
         _$Share_ItemSize._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data'), $double: $double, $int: $int);
@@ -10573,6 +10575,7 @@ class ShareesapiSearchShareTypeBuilder
   ShareesapiSearchShareType build() => _build();
 
   _$ShareesapiSearchShareType _build() {
+    ShareesapiSearchShareType._validate(this);
     _$ShareesapiSearchShareType _$result;
     try {
       _$result = _$v ??
@@ -13812,6 +13815,7 @@ class ShareesapiFindRecommendedShareTypeBuilder
   ShareesapiFindRecommendedShareType build() => _build();
 
   _$ShareesapiFindRecommendedShareType _build() {
+    ShareesapiFindRecommendedShareType._validate(this);
     _$ShareesapiFindRecommendedShareType _$result;
     try {
       _$result = _$v ??

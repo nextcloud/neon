@@ -4795,6 +4795,18 @@ abstract class AutocompleteResult_Status
   static Serializer<AutocompleteResult_Status> get serializer => _$AutocompleteResult_StatusSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final AutocompleteResult_StatusBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._autocompleteResultStatus0, b._string].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of 'autocompleteResultStatus0', 'string' for ${b._data}");
+    }
+  }
 }
 
 class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<AutocompleteResult_Status> {
@@ -4820,19 +4832,14 @@ class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<Autoc
   }) {
     final result = AutocompleteResult_StatusBuilder()..data = JsonObject(data);
     try {
-      result._autocompleteResultStatus0 = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(AutocompleteResult_Status0),
-      )! as AutocompleteResult_Status0)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(AutocompleteResult_Status0))!
+          as AutocompleteResult_Status0;
+      result.autocompleteResultStatus0.replace(value);
     } catch (_) {}
     try {
-      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      result.string = value;
     } catch (_) {}
-    assert(
-      [result._autocompleteResultStatus0, result._string].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -5823,6 +5830,18 @@ abstract class NavigationEntry_Order
   static Serializer<NavigationEntry_Order> get serializer => _$NavigationEntry_OrderSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final NavigationEntry_OrderBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
+    }
+  }
 }
 
 class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<NavigationEntry_Order> {
@@ -5848,12 +5867,13 @@ class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<Navigatio
   }) {
     final result = NavigationEntry_OrderBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      result.string = value;
     } catch (_) {}
-    assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -7616,6 +7636,34 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
       _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [
+      b._commentsCapabilities,
+      b._davCapabilities,
+      b._filesCapabilities,
+      b._filesSharingCapabilities,
+      b._filesTrashbinCapabilities,
+      b._filesVersionsCapabilities,
+      b._notesCapabilities,
+      b._notificationsCapabilities,
+      b._provisioningApiCapabilities,
+      b._sharebymailCapabilities,
+      b._themingPublicCapabilities,
+      b._userStatusCapabilities,
+      b._weatherStatusCapabilities,
+    ].firstWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError(
+        "Need at least one of 'commentsCapabilities', 'davCapabilities', 'filesCapabilities', 'filesSharingCapabilities', 'filesTrashbinCapabilities', 'filesVersionsCapabilities', 'notesCapabilities', 'notificationsCapabilities', 'provisioningApiCapabilities', 'sharebymailCapabilities', 'themingPublicCapabilities', 'userStatusCapabilities', 'weatherStatusCapabilities' for ${b._data}",
+      );
+    }
+  }
 }
 
 class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer
@@ -7645,108 +7693,70 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerialize
   }) {
     final result = OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..data = JsonObject(data);
     try {
-      result._commentsCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(CommentsCapabilities),
-      )! as CommentsCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))!
+          as CommentsCapabilities;
+      result.commentsCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._davCapabilities =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities)
-              .toBuilder();
+      final value =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
+      result.davCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._filesCapabilities =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities)
-              .toBuilder();
+      final value =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
+      result.filesCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._filesSharingCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingCapabilities),
-      )! as FilesSharingCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
+          as FilesSharingCapabilities;
+      result.filesSharingCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._filesTrashbinCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesTrashbinCapabilities),
-      )! as FilesTrashbinCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesTrashbinCapabilities))!
+          as FilesTrashbinCapabilities;
+      result.filesTrashbinCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._filesVersionsCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesVersionsCapabilities),
-      )! as FilesVersionsCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesVersionsCapabilities))!
+          as FilesVersionsCapabilities;
+      result.filesVersionsCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._notesCapabilities =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities)
-              .toBuilder();
+      final value =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
+      result.notesCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._notificationsCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(NotificationsCapabilities),
-      )! as NotificationsCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(NotificationsCapabilities))!
+          as NotificationsCapabilities;
+      result.notificationsCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._provisioningApiCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(ProvisioningApiCapabilities),
-      )! as ProvisioningApiCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ProvisioningApiCapabilities))!
+          as ProvisioningApiCapabilities;
+      result.provisioningApiCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._sharebymailCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities),
-      )! as SharebymailCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
+          as SharebymailCapabilities;
+      result.sharebymailCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._themingPublicCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(ThemingPublicCapabilities),
-      )! as ThemingPublicCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ThemingPublicCapabilities))!
+          as ThemingPublicCapabilities;
+      result.themingPublicCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._userStatusCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UserStatusCapabilities),
-      )! as UserStatusCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
+          as UserStatusCapabilities;
+      result.userStatusCapabilities.replace(value);
     } catch (_) {}
     try {
-      result._weatherStatusCapabilities = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(WeatherStatusCapabilities),
-      )! as WeatherStatusCapabilities)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(WeatherStatusCapabilities))!
+          as WeatherStatusCapabilities;
+      result.weatherStatusCapabilities.replace(value);
     } catch (_) {}
-    assert(
-      [
-        result._commentsCapabilities,
-        result._davCapabilities,
-        result._filesCapabilities,
-        result._filesSharingCapabilities,
-        result._filesTrashbinCapabilities,
-        result._filesVersionsCapabilities,
-        result._notesCapabilities,
-        result._notificationsCapabilities,
-        result._provisioningApiCapabilities,
-        result._sharebymailCapabilities,
-        result._themingPublicCapabilities,
-        result._userStatusCapabilities,
-        result._weatherStatusCapabilities,
-      ].where((final x) => x != null).isNotEmpty,
-      'Need anyOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -9271,6 +9281,18 @@ abstract class UnifiedSearchSearchCursor
   static Serializer<UnifiedSearchSearchCursor> get serializer => _$UnifiedSearchSearchCursorSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UnifiedSearchSearchCursorBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
+    }
+  }
 }
 
 class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<UnifiedSearchSearchCursor> {
@@ -9296,12 +9318,13 @@ class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<Unifi
   }) {
     final result = UnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      result.string = value;
     } catch (_) {}
-    assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -9368,6 +9391,18 @@ abstract class UnifiedSearchResult_Cursor
   static Serializer<UnifiedSearchResult_Cursor> get serializer => _$UnifiedSearchResult_CursorSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UnifiedSearchResult_CursorBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
+    }
+  }
 }
 
 class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<UnifiedSearchResult_Cursor> {
@@ -9393,12 +9428,13 @@ class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<Unif
   }) {
     final result = UnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      result.string = value;
     } catch (_) {}
-    assert([result._$int, result._string].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }

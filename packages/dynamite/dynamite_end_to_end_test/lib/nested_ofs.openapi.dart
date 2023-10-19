@@ -7,6 +7,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
+import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 
@@ -33,7 +34,7 @@ class Client extends DynamiteClient {
 
 @BuiltValue(instantiable: false)
 abstract interface class BaseInterface {
-  String? get attribute;
+  String get attribute;
 }
 
 abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
@@ -57,7 +58,7 @@ abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
 @BuiltValue(instantiable: false)
 abstract interface class BaseAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute-allOf')
-  String? get attributeAllOf;
+  String get attributeAllOf;
 }
 
 @BuiltValue(instantiable: false)
@@ -84,7 +85,7 @@ abstract class BaseAllOf implements BaseAllOfInterface, Built<BaseAllOf, BaseAll
 @BuiltValue(instantiable: false)
 abstract interface class BaseOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
-  String? get attributeOneOf;
+  String get attributeOneOf;
 }
 
 abstract class BaseOneOf1 implements BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
@@ -130,6 +131,18 @@ abstract class BaseOneOf implements BaseOneOfInterface, Built<BaseOneOf, BaseOne
   static Serializer<BaseOneOf> get serializer => _$BaseOneOfSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final BaseOneOfBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._base, b._baseOneOf1].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of 'base', 'baseOneOf1' for ${b._data}");
+    }
+  }
 }
 
 class _$BaseOneOfSerializer implements PrimitiveSerializer<BaseOneOf> {
@@ -155,16 +168,13 @@ class _$BaseOneOfSerializer implements PrimitiveSerializer<BaseOneOf> {
   }) {
     final result = BaseOneOfBuilder()..data = JsonObject(data);
     try {
-      result._base = (_jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
+      result.base.replace(value);
     } catch (_) {}
     try {
-      result._baseOneOf1 =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+      result.baseOneOf1.replace(value);
     } catch (_) {}
-    assert(
-      [result._base, result._baseOneOf1].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -172,7 +182,7 @@ class _$BaseOneOfSerializer implements PrimitiveSerializer<BaseOneOf> {
 @BuiltValue(instantiable: false)
 abstract interface class BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
-  String? get attributeAnyOf;
+  String get attributeAnyOf;
 }
 
 abstract class BaseAnyOf1 implements BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
@@ -218,6 +228,18 @@ abstract class BaseAnyOf implements BaseAnyOfInterface, Built<BaseAnyOf, BaseAny
   static Serializer<BaseAnyOf> get serializer => _$BaseAnyOfSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final BaseAnyOfBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._base, b._baseAnyOf1].firstWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need at least one of 'base', 'baseAnyOf1' for ${b._data}");
+    }
+  }
 }
 
 class _$BaseAnyOfSerializer implements PrimitiveSerializer<BaseAnyOf> {
@@ -243,16 +265,13 @@ class _$BaseAnyOfSerializer implements PrimitiveSerializer<BaseAnyOf> {
   }) {
     final result = BaseAnyOfBuilder()..data = JsonObject(data);
     try {
-      result._base = (_jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
+      result.base.replace(value);
     } catch (_) {}
     try {
-      result._baseAnyOf1 =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
+      result.baseAnyOf1.replace(value);
     } catch (_) {}
-    assert(
-      [result._base, result._baseAnyOf1].where((final x) => x != null).isNotEmpty,
-      'Need anyOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -260,7 +279,7 @@ class _$BaseAnyOfSerializer implements PrimitiveSerializer<BaseAnyOf> {
 @BuiltValue(instantiable: false)
 abstract interface class BaseNestedAllOf_3Interface {
   @BuiltValueField(wireName: 'attribute-nested-allOf')
-  String? get attributeNestedAllOf;
+  String get attributeNestedAllOf;
 }
 
 @BuiltValue(instantiable: false)
@@ -289,7 +308,7 @@ abstract class BaseNestedAllOf implements BaseNestedAllOfInterface, Built<BaseNe
 @BuiltValue(instantiable: false)
 abstract interface class BaseNestedOneOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-oneOf')
-  String? get attributeNestedOneOf;
+  String get attributeNestedOneOf;
 }
 
 abstract class BaseNestedOneOf3 implements BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
@@ -339,6 +358,19 @@ abstract class BaseNestedOneOf implements BaseNestedOneOfInterface, Built<BaseNe
   static Serializer<BaseNestedOneOf> get serializer => _$BaseNestedOneOfSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final BaseNestedOneOfBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match =
+        [b._baseAllOf, b._baseOneOf, b._baseAnyOf, b._baseNestedOneOf3].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of 'baseAllOf', 'baseOneOf', 'baseAnyOf', 'baseNestedOneOf3' for ${b._data}");
+    }
+  }
 }
 
 class _$BaseNestedOneOfSerializer implements PrimitiveSerializer<BaseNestedOneOf> {
@@ -364,28 +396,22 @@ class _$BaseNestedOneOfSerializer implements PrimitiveSerializer<BaseNestedOneOf
   }) {
     final result = BaseNestedOneOfBuilder()..data = JsonObject(data);
     try {
-      result._baseAllOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      result.baseAllOf.replace(value);
     } catch (_) {}
     try {
-      result._baseOneOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf;
+      result.baseOneOf.replace(value);
     } catch (_) {}
     try {
-      result._baseAnyOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf;
+      result.baseAnyOf.replace(value);
     } catch (_) {}
     try {
-      result._baseNestedOneOf3 =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3)
-              .toBuilder();
+      final value =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
+      result.baseNestedOneOf3.replace(value);
     } catch (_) {}
-    assert(
-      [result._baseAllOf, result._baseOneOf, result._baseAnyOf, result._baseNestedOneOf3]
-          .where((final x) => x != null)
-          .isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -393,7 +419,7 @@ class _$BaseNestedOneOfSerializer implements PrimitiveSerializer<BaseNestedOneOf
 @BuiltValue(instantiable: false)
 abstract interface class BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
-  String? get attributeNestedAnyOf;
+  String get attributeNestedAnyOf;
 }
 
 abstract class BaseNestedAnyOf3 implements BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
@@ -443,6 +469,19 @@ abstract class BaseNestedAnyOf implements BaseNestedAnyOfInterface, Built<BaseNe
   static Serializer<BaseNestedAnyOf> get serializer => _$BaseNestedAnyOfSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final BaseNestedAnyOfBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match =
+        [b._baseAllOf, b._baseOneOf, b._baseAnyOf, b._baseNestedAnyOf3].firstWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need at least one of 'baseAllOf', 'baseOneOf', 'baseAnyOf', 'baseNestedAnyOf3' for ${b._data}");
+    }
+  }
 }
 
 class _$BaseNestedAnyOfSerializer implements PrimitiveSerializer<BaseNestedAnyOf> {
@@ -468,28 +507,22 @@ class _$BaseNestedAnyOfSerializer implements PrimitiveSerializer<BaseNestedAnyOf
   }) {
     final result = BaseNestedAnyOfBuilder()..data = JsonObject(data);
     try {
-      result._baseAllOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      result.baseAllOf.replace(value);
     } catch (_) {}
     try {
-      result._baseOneOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf;
+      result.baseOneOf.replace(value);
     } catch (_) {}
     try {
-      result._baseAnyOf =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf;
+      result.baseAnyOf.replace(value);
     } catch (_) {}
     try {
-      result._baseNestedAnyOf3 =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedAnyOf3))! as BaseNestedAnyOf3)
-              .toBuilder();
+      final value =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedAnyOf3))! as BaseNestedAnyOf3;
+      result.baseNestedAnyOf3.replace(value);
     } catch (_) {}
-    assert(
-      [result._baseAllOf, result._baseOneOf, result._baseAnyOf, result._baseNestedAnyOf3]
-          .where((final x) => x != null)
-          .isNotEmpty,
-      'Need anyOf for ${result._data}',
-    );
     return result.build();
   }
 }

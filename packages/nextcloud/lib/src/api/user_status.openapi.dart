@@ -1194,6 +1194,18 @@ abstract class ClearAt_Time implements ClearAt_TimeInterface, Built<ClearAt_Time
   static Serializer<ClearAt_Time> get serializer => _$ClearAt_TimeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ClearAt_TimeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._clearAtTimeType].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'clearAtTimeType' for ${b._data}");
+    }
+  }
 }
 
 class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
@@ -1219,16 +1231,14 @@ class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
   }) {
     final result = ClearAt_TimeBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._clearAtTimeType =
+      final value =
           _jsonSerializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
+      result.clearAtTimeType = value;
     } catch (_) {}
-    assert(
-      [result._$int, result._clearAtTimeType].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -1810,6 +1820,18 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
       _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._private, b._jsonObject].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of 'private', 'jsonObject' for ${b._data}");
+    }
+  }
 }
 
 class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
@@ -1839,16 +1861,13 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
   }) {
     final result = UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..data = JsonObject(data);
     try {
-      result._private =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
+      result.private.replace(value);
     } catch (_) {}
     try {
-      result._jsonObject = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
+      result.jsonObject = value;
     } catch (_) {}
-    assert(
-      [result._private, result._jsonObject].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }

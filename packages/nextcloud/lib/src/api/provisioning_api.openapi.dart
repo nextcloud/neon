@@ -5340,6 +5340,18 @@ abstract class GroupDetails_Usercount
   static Serializer<GroupDetails_Usercount> get serializer => _$GroupDetails_UsercountSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final GroupDetails_UsercountBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$bool, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$bool', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDetails_Usercount> {
@@ -5365,12 +5377,13 @@ class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDet
   }) {
     final result = GroupDetails_UsercountBuilder()..data = JsonObject(data);
     try {
-      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      result.$bool = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5402,6 +5415,18 @@ abstract class GroupDetails_Disabled
   static Serializer<GroupDetails_Disabled> get serializer => _$GroupDetails_DisabledSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final GroupDetails_DisabledBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$bool, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$bool', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$GroupDetails_DisabledSerializer implements PrimitiveSerializer<GroupDetails_Disabled> {
@@ -5427,12 +5452,13 @@ class _$GroupDetails_DisabledSerializer implements PrimitiveSerializer<GroupDeta
   }) {
     final result = GroupDetails_DisabledBuilder()..data = JsonObject(data);
     try {
-      result._$bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      result.$bool = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$bool, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5706,6 +5732,18 @@ abstract class UserDetailsQuota_Free
   static Serializer<UserDetailsQuota_Free> get serializer => _$UserDetailsQuota_FreeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuota_FreeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetailsQuota_Free> {
@@ -5731,12 +5769,13 @@ class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetai
   }) {
     final result = UserDetailsQuota_FreeBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5769,6 +5808,18 @@ abstract class UserDetailsQuota_Quota
   static Serializer<UserDetailsQuota_Quota> get serializer => _$UserDetailsQuota_QuotaSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuota_QuotaBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int, b._string].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int', 'string' for ${b._data}");
+    }
+  }
 }
 
 class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDetailsQuota_Quota> {
@@ -5794,18 +5845,17 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
   }) {
     final result = UserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      result.string = value;
     } catch (_) {}
-    assert(
-      [result._$double, result._$int, result._string].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -5838,6 +5888,18 @@ abstract class UserDetailsQuota_Relative
   static Serializer<UserDetailsQuota_Relative> get serializer => _$UserDetailsQuota_RelativeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuota_RelativeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserDetailsQuota_Relative> {
@@ -5863,12 +5925,13 @@ class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserD
   }) {
     final result = UserDetailsQuota_RelativeBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5900,6 +5963,18 @@ abstract class UserDetailsQuota_Total
   static Serializer<UserDetailsQuota_Total> get serializer => _$UserDetailsQuota_TotalSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuota_TotalBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDetailsQuota_Total> {
@@ -5925,12 +6000,13 @@ class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDeta
   }) {
     final result = UserDetailsQuota_TotalBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5962,6 +6038,18 @@ abstract class UserDetailsQuota_Used
   static Serializer<UserDetailsQuota_Used> get serializer => _$UserDetailsQuota_UsedSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuota_UsedBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetailsQuota_Used> {
@@ -5987,12 +6075,13 @@ class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetai
   }) {
     final result = UserDetailsQuota_UsedBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -6159,6 +6248,21 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
       _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._userDetails, b._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1]
+        .singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError(
+        "Need exactly one of 'userDetails', 'groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
+      );
+    }
+  }
 }
 
 class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
@@ -6188,22 +6292,16 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializ
   }) {
     final result = GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
     try {
-      result._userDetails =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      result.userDetails.replace(value);
     } catch (_) {}
     try {
-      result._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 = (_jsonSerializers.deserialize(
+      final value = _jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1)
-          .toBuilder();
+      )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+      result.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
     } catch (_) {}
-    assert(
-      [result._userDetails, result._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1]
-          .where((final x) => x != null)
-          .isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -7074,6 +7172,21 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
       _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._userDetails, b._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1]
+        .singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError(
+        "Need exactly one of 'userDetails', 'usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
+      );
+    }
+  }
 }
 
 class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
@@ -7103,22 +7216,16 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
   }) {
     final result = UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
     try {
-      result._userDetails =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      result.userDetails.replace(value);
     } catch (_) {}
     try {
-      result._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = (_jsonSerializers.deserialize(
+      final value = _jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1)
-          .toBuilder();
+      )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+      result.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
     } catch (_) {}
-    assert(
-      [result._userDetails, result._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1]
-          .where((final x) => x != null)
-          .isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -7284,6 +7391,21 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_User
       _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._userDetails, b._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1]
+        .singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError(
+        "Need exactly one of 'userDetails', 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
+      );
+    }
+  }
 }
 
 class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
@@ -7313,22 +7435,16 @@ class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerial
   }) {
     final result = UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
     try {
-      result._userDetails =
-          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails).toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      result.userDetails.replace(value);
     } catch (_) {}
     try {
-      result._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = (_jsonSerializers.deserialize(
+      final value = _jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1)
-          .toBuilder();
+      )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+      result.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
     } catch (_) {}
-    assert(
-      [result._userDetails, result._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1]
-          .where((final x) => x != null)
-          .isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
