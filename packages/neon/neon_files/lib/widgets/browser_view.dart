@@ -123,6 +123,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                               bloc: widget.filesBloc,
                               browserBloc: widget.bloc,
                               details: details,
+                              mode: widget.mode,
                             );
                           },
                           isLoading: filesSnapshot.isLoading,
