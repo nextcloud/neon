@@ -91,7 +91,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -175,7 +175,7 @@ class Client extends DynamiteClient {
     queryParameters['keepalive'] = keepalive.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,
@@ -255,7 +255,7 @@ class Client extends DynamiteClient {
     queryParameters['deviceName'] = deviceName;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,
@@ -331,7 +331,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -405,7 +405,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{deviceId}', Uri.encodeQueryComponent(deviceId));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'delete',
         uri,
         headers,
@@ -493,7 +493,7 @@ class Client extends DynamiteClient {
     queryParameters['appName'] = appName;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,
@@ -565,7 +565,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'delete',
         uri,
         headers,
@@ -641,7 +641,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -713,7 +713,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{token}', Uri.encodeQueryComponent(token));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PushResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -782,7 +782,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -851,7 +851,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,

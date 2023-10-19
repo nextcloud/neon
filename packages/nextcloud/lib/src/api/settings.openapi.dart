@@ -102,7 +102,7 @@ class LogSettingsClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,

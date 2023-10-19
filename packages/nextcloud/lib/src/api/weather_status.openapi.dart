@@ -118,7 +118,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -200,7 +200,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -282,7 +282,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -388,7 +388,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -472,7 +472,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -554,7 +554,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -642,7 +642,7 @@ class WeatherStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,

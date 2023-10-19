@@ -139,7 +139,7 @@ class ApiClient {
     path = path.replaceAll('{file}', Uri.encodeQueryComponent(file));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -225,7 +225,7 @@ class DirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -321,7 +321,7 @@ class DirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -429,7 +429,7 @@ class DirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -541,7 +541,7 @@ class DirectEditingClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -637,7 +637,7 @@ class OpenLocalEditorClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -733,7 +733,7 @@ class OpenLocalEditorClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -817,7 +817,7 @@ class TemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -923,7 +923,7 @@ class TemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -1023,7 +1023,7 @@ class TemplateClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -1127,7 +1127,7 @@ class TransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path0, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -1219,7 +1219,7 @@ class TransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -1311,7 +1311,7 @@ class TransferOwnershipClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,

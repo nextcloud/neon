@@ -405,13 +405,17 @@ class DynamiteClient {
   final List<DynamiteAuthentication> authentications;
 
   /// Makes a request against a given [path].
-  Future<HttpClientResponse> doRequest(
+  ///
+  /// The query parameters of the [baseURL] are added.
+  /// The [path] is resolved against the path of the [baseURL].
+  /// All [baseHeaders] are added to the request.
+  Future<HttpClientResponse> executeRequest(
     final String method,
     final Uri path,
     final Map<String, String> headers,
     final Uint8List? body,
     final Set<int>? validStatuses,
-  ) async {
+  ) {
     final queryParameters = {
       ...baseURL.queryParametersAll,
       ...path.queryParametersAll,
@@ -420,9 +424,25 @@ class DynamiteClient {
       path: '${baseURL.path}${path.path}',
       queryParameters: queryParameters.isNotEmpty ? queryParameters : null,
     );
+    return executeRawRequest(
+      method,
+      uri,
+      {...?baseHeaders, ...headers},
+      body,
+      validStatuses,
+    );
+  }
 
+  /// Executes a HTTP request against give full [uri].
+  Future<HttpClientResponse> executeRawRequest(
+    final String method,
+    final Uri uri,
+    final Map<String, String> headers,
+    final Uint8List? body,
+    final Set<int>? validStatuses,
+  ) async {
     final request = await httpClient.openUrl(method, uri);
-    for (final header in {...?baseHeaders, ...headers}.entries) {
+    for (final header in headers.entries) {
       request.headers.add(header.key, header.value);
     }
     if (body != null) {

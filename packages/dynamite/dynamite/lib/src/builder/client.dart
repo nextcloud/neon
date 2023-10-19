@@ -363,7 +363,7 @@ Iterable<Method> buildTags(
 
         code.writeln('''
   return DynamiteRawResponse<$returnDataType, $returnHeadersType>(
-    response: $client.doRequest(
+    response: $client.executeRequest(
       '$httpMethod',
       _uri,
       _headers,

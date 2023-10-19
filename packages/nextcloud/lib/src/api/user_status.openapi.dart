@@ -131,7 +131,7 @@ class HeartbeatClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -219,7 +219,7 @@ class PredefinedStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -323,7 +323,7 @@ class StatusesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -413,7 +413,7 @@ class StatusesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -503,7 +503,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -593,7 +593,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -691,7 +691,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -799,7 +799,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -881,7 +881,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -969,7 +969,7 @@ class UserStatusClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
