@@ -73,7 +73,7 @@ class FileListTile extends StatelessWidget {
           details: details,
           bloc: bloc,
         ),
-        trailing: !details.hasTask && mode != FilesBrowserMode.noActions
+        trailing: !details.hasTask && mode == FilesBrowserMode.browser
             ? FileActions(details: details)
             : const SizedBox.square(
                 dimension: largeIconSize,
