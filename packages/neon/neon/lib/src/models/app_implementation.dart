@@ -25,8 +25,8 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   LocalizationsDelegate<Object> get localizationsDelegate;
   Iterable<Locale> get supportedLocales;
 
-  String nameFromLocalization(final AppLocalizations localizations) => localizations.appImplementationName(id);
-  String name(final BuildContext context) => nameFromLocalization(AppLocalizations.of(context));
+  String nameFromLocalization(final NeonLocalizations localizations) => localizations.appImplementationName(id);
+  String name(final BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
   @protected
   late final AppStorage storage = AppStorage(StorageKeys.apps, id);
@@ -121,7 +121,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
               'assets/app.svg.vec',
               packageName: 'neon_$id',
             ),
-            semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
+            semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
           );
         },
       );

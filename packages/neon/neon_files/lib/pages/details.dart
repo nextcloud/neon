@@ -41,23 +41,23 @@ class FilesDetailsPage extends StatelessWidget {
                 rows: [
                   for (final entry in {
                     details.isDirectory
-                        ? AppLocalizations.of(context).detailsFolderName
-                        : AppLocalizations.of(context).detailsFileName: details.name,
-                    AppLocalizations.of(context).detailsParentFolder:
+                        ? FilesLocalizations.of(context).detailsFolderName
+                        : FilesLocalizations.of(context).detailsFileName: details.name,
+                    FilesLocalizations.of(context).detailsParentFolder:
                         details.path.length == 1 ? '/' : details.path.sublist(0, details.path.length - 1).join('/'),
                     if (details.size != null) ...{
                       details.isDirectory
-                          ? AppLocalizations.of(context).detailsFolderSize
-                          : AppLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
+                          ? FilesLocalizations.of(context).detailsFolderSize
+                          : FilesLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
                     },
                     if (details.lastModified != null) ...{
-                      AppLocalizations.of(context).detailsLastModified:
+                      FilesLocalizations.of(context).detailsLastModified:
                           details.lastModified!.toLocal().toIso8601String(),
                     },
                     if (details.isFavorite != null) ...{
-                      AppLocalizations.of(context).detailsIsFavorite: details.isFavorite!
-                          ? AppLocalizations.of(context).actionYes
-                          : AppLocalizations.of(context).actionNo,
+                      FilesLocalizations.of(context).detailsIsFavorite: details.isFavorite!
+                          ? FilesLocalizations.of(context).actionYes
+                          : FilesLocalizations.of(context).actionNo,
                     },
                   }.entries) ...[
                     DataRow(

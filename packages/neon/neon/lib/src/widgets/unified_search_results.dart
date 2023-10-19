@@ -86,7 +86,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
                   Icons.close,
                   size: largeIconSize,
                 ),
-                title: Text(AppLocalizations.of(context).searchNoResults),
+                title: Text(NeonLocalizations.of(context).searchNoResults),
               ),
             ],
             for (final entry in entries) ...[

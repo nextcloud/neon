@@ -27,12 +27,12 @@ class NextcloudAppSettingsPage extends StatelessWidget {
           onPressed: () async {
             if (await showConfirmationDialog(
               context,
-              AppLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
+              NeonLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
             )) {
               appImplementation.options.reset();
             }
           },
-          tooltip: AppLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
+          tooltip: NeonLocalizations.of(context).settingsResetFor(appImplementation.name(context)),
           icon: const Icon(MdiIcons.cogRefresh),
         ),
       ],
@@ -44,7 +44,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
           if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty) ...[
             SettingsCategory(
               title: Text(
-                category != null ? category.name(context) : AppLocalizations.of(context).optionsCategoryOther,
+                category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
               ),
               tiles: [
                 for (final option

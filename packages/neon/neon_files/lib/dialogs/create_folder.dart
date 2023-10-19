@@ -28,7 +28,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
 
   @override
   Widget build(final BuildContext context) => NeonDialog(
-        title: Text(AppLocalizations.of(context).folderCreate),
+        title: Text(FilesLocalizations.of(context).folderCreate),
         children: [
           Form(
             key: formKey,
@@ -38,7 +38,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
                 TextFormField(
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: AppLocalizations.of(context).folderName,
+                    hintText: FilesLocalizations.of(context).folderName,
                   ),
                   autofocus: true,
                   validator: (final input) => validateNotEmpty(context, input),
@@ -48,7 +48,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
                 ),
                 ElevatedButton(
                   onPressed: submit,
-                  child: Text(AppLocalizations.of(context).folderCreate),
+                  child: Text(FilesLocalizations.of(context).folderCreate),
                 ),
               ],
             ),

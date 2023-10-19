@@ -55,7 +55,7 @@ class NeonError extends StatelessWidget {
         content: Text(details.getText(context)),
         action: details.isUnauthorized
             ? SnackBarAction(
-                label: AppLocalizations.of(context).loginAgain,
+                label: NeonLocalizations.of(context).loginAgain,
                 onPressed: () => _openLoginPage(context),
               )
             : null,
@@ -79,7 +79,7 @@ class NeonError extends StatelessWidget {
     );
 
     final message =
-        details.isUnauthorized ? AppLocalizations.of(context).loginAgain : AppLocalizations.of(context).actionRetry;
+        details.isUnauthorized ? NeonLocalizations.of(context).loginAgain : NeonLocalizations.of(context).actionRetry;
 
     final onPressed = details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
 
@@ -143,41 +143,41 @@ class NeonError extends StatelessWidget {
       case DynamiteApiException():
         if (error.statusCode == 401) {
           return NeonExceptionDetails(
-            getText: (final context) => AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+            getText: (final context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
             isUnauthorized: true,
           );
         }
         if (error.statusCode >= 500 && error.statusCode <= 599) {
           return NeonExceptionDetails(
-            getText: (final context) => AppLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+            getText: (final context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
           );
         }
       case SocketException():
         return NeonExceptionDetails(
           getText: (final context) => error.address != null
-              ? AppLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
-              : AppLocalizations.of(context).errorUnableToReachServer,
+              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.address!.host)
+              : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case ClientException():
         return NeonExceptionDetails(
           getText: (final context) => error.uri != null
-              ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
-              : AppLocalizations.of(context).errorUnableToReachServer,
+              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
+              : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case HttpException():
         return NeonExceptionDetails(
           getText: (final context) => error.uri != null
-              ? AppLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
-              : AppLocalizations.of(context).errorUnableToReachServer,
+              ? NeonLocalizations.of(context).errorUnableToReachServerAt(error.uri!.host)
+              : NeonLocalizations.of(context).errorUnableToReachServer,
         );
       case TimeoutException():
         return NeonExceptionDetails(
-          getText: (final context) => AppLocalizations.of(context).errorConnectionTimedOut,
+          getText: (final context) => NeonLocalizations.of(context).errorConnectionTimedOut,
         );
     }
 
     return NeonExceptionDetails(
-      getText: (final context) => AppLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+      getText: (final context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
     );
   }
 

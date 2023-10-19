@@ -7,7 +7,7 @@ String? validateHttpUrl(
   final bool httpsOnly = false,
 }) {
   if (input == null || input.isEmpty) {
-    return AppLocalizations.of(context).errorInvalidURL;
+    return NeonLocalizations.of(context).errorInvalidURL;
   }
   final uri = Uri.tryParse(input);
 
@@ -21,12 +21,12 @@ String? validateHttpUrl(
     }
   }
 
-  return AppLocalizations.of(context).errorInvalidURL;
+  return NeonLocalizations.of(context).errorInvalidURL;
 }
 
 String? validateNotEmpty(final BuildContext context, final String? input) {
   if (input == null || input.isEmpty) {
-    return AppLocalizations.of(context).errorEmptyField;
+    return NeonLocalizations.of(context).errorEmptyField;
   }
 
   return null;

@@ -40,8 +40,9 @@ class FileActions extends StatelessWidget {
         }
         final result = await showRenameDialog(
           context: context,
-          title:
-              details.isDirectory ? AppLocalizations.of(context).folderRename : AppLocalizations.of(context).fileRename,
+          title: details.isDirectory
+              ? FilesLocalizations.of(context).folderRename
+              : FilesLocalizations.of(context).fileRename,
           value: details.name,
         );
         if (result != null) {
@@ -91,7 +92,7 @@ class FileActions extends StatelessWidget {
         if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
           if (!(await showConfirmationDialog(
             context,
-            AppLocalizations.of(context).downloadConfirmSizeWarning(
+            FilesLocalizations.of(context).downloadConfirmSizeWarning(
               filesize(sizeWarning),
               filesize(details.size),
             ),
@@ -107,8 +108,8 @@ class FileActions extends StatelessWidget {
         if (await showConfirmationDialog(
           context,
           details.isDirectory
-              ? AppLocalizations.of(context).folderDeleteConfirm(details.name)
-              : AppLocalizations.of(context).fileDeleteConfirm(details.name),
+              ? FilesLocalizations.of(context).folderDeleteConfirm(details.name)
+              : FilesLocalizations.of(context).fileDeleteConfirm(details.name),
         )) {
           bloc.delete(details.path);
         }
@@ -121,7 +122,7 @@ class FileActions extends StatelessWidget {
           if (!details.isDirectory && NeonPlatform.instance.canUseSharing) ...[
             PopupMenuItem(
               value: FilesFileAction.share,
-              child: Text(AppLocalizations.of(context).actionShare),
+              child: Text(FilesLocalizations.of(context).actionShare),
             ),
           ],
           if (details.isFavorite != null) ...[
@@ -129,37 +130,37 @@ class FileActions extends StatelessWidget {
               value: FilesFileAction.toggleFavorite,
               child: Text(
                 details.isFavorite!
-                    ? AppLocalizations.of(context).removeFromFavorites
-                    : AppLocalizations.of(context).addToFavorites,
+                    ? FilesLocalizations.of(context).removeFromFavorites
+                    : FilesLocalizations.of(context).addToFavorites,
               ),
             ),
           ],
           PopupMenuItem(
             value: FilesFileAction.details,
-            child: Text(AppLocalizations.of(context).details),
+            child: Text(FilesLocalizations.of(context).details),
           ),
           PopupMenuItem(
             value: FilesFileAction.rename,
-            child: Text(AppLocalizations.of(context).actionRename),
+            child: Text(FilesLocalizations.of(context).actionRename),
           ),
           PopupMenuItem(
             value: FilesFileAction.move,
-            child: Text(AppLocalizations.of(context).actionMove),
+            child: Text(FilesLocalizations.of(context).actionMove),
           ),
           PopupMenuItem(
             value: FilesFileAction.copy,
-            child: Text(AppLocalizations.of(context).actionCopy),
+            child: Text(FilesLocalizations.of(context).actionCopy),
           ),
           // TODO: https://github.com/provokateurin/nextcloud-neon/issues/4
           if (!details.isDirectory) ...[
             PopupMenuItem(
               value: FilesFileAction.sync,
-              child: Text(AppLocalizations.of(context).actionSync),
+              child: Text(FilesLocalizations.of(context).actionSync),
             ),
           ],
           PopupMenuItem(
             value: FilesFileAction.delete,
-            child: Text(AppLocalizations.of(context).actionDelete),
+            child: Text(FilesLocalizations.of(context).actionDelete),
           ),
         ],
         onSelected: (final action) async => onSelected(context, action),

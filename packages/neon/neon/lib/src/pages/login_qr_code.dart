@@ -68,6 +68,6 @@ class InvalidQRcodeException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (final context) => AppLocalizations.of(context).errorInvalidQRcode,
+        getText: (final context) => NeonLocalizations.of(context).errorInvalidQRcode,
       );
 }

@@ -17,7 +17,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
             onPressed: () {
               Navigator.of(context).pop(false);
             },
-            child: Text(AppLocalizations.of(context).actionNo),
+            child: Text(NeonLocalizations.of(context).actionNo),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -27,7 +27,7 @@ Future<bool> showConfirmationDialog(final BuildContext context, final String tit
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            child: Text(AppLocalizations.of(context).actionYes),
+            child: Text(NeonLocalizations.of(context).actionYes),
           ),
         ],
       ),

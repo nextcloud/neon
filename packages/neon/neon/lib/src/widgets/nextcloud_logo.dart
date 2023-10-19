@@ -25,6 +25,6 @@ class NextcloudLogo extends StatelessWidget {
           'assets/logo_nextcloud.svg.vec',
           packageName: 'neon',
         ),
-        semanticsLabel: AppLocalizations.of(context).nextcloudLogo,
+        semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
       );
 }

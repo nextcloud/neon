@@ -53,7 +53,7 @@ class NewsFoldersView extends StatelessWidget {
             ? Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor)
             : null,
       ),
-      subtitle: unreadCount > 0 ? Text(AppLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
+      subtitle: unreadCount > 0 ? Text(NewsLocalizations.of(context).articlesUnread(unreadCount)) : const SizedBox(),
       leading: SizedBox.square(
         dimension: largeIconSize,
         child: Stack(
@@ -78,11 +78,11 @@ class NewsFoldersView extends StatelessWidget {
         itemBuilder: (final context) => [
           PopupMenuItem(
             value: NewsFolderAction.delete,
-            child: Text(AppLocalizations.of(context).actionDelete),
+            child: Text(NewsLocalizations.of(context).actionDelete),
           ),
           PopupMenuItem(
             value: NewsFolderAction.rename,
-            child: Text(AppLocalizations.of(context).actionRename),
+            child: Text(NewsLocalizations.of(context).actionRename),
           ),
         ],
         onSelected: (final action) async {
@@ -90,7 +90,7 @@ class NewsFoldersView extends StatelessWidget {
             case NewsFolderAction.delete:
               if (await showConfirmationDialog(
                 context,
-                AppLocalizations.of(context).folderDeleteConfirm(folder.name),
+                NewsLocalizations.of(context).folderDeleteConfirm(folder.name),
               )) {
                 bloc.deleteFolder(folder.id);
               }
@@ -100,7 +100,7 @@ class NewsFoldersView extends StatelessWidget {
               }
               final result = await showRenameDialog(
                 context: context,
-                title: AppLocalizations.of(context).folderRename,
+                title: NewsLocalizations.of(context).folderRename,
                 value: folder.name,
               );
               if (result != null) {

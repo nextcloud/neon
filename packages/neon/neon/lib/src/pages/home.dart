@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
         return;
       }
 
-      final l10n = AppLocalizations.of(context);
+      final l10n = NeonLocalizations.of(context);
 
       final buffer = StringBuffer()..writeln();
 
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       final status = await _account.client.core.getStatus();
       if (status.body.maintenance && mounted) {
         await _showProblem(
-          AppLocalizations.of(context).errorServerInMaintenanceMode,
+          NeonLocalizations.of(context).errorServerInMaintenanceMode,
         );
       }
     } catch (e, s) {
@@ -114,7 +114,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text(AppLocalizations.of(context).actionClose),
+            child: Text(NeonLocalizations.of(context).actionClose),
           ),
         ],
       ),
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
             if (appImplementations.requireData.isEmpty) {
               return Center(
                 child: Text(
-                  AppLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
+                  NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
                   textAlign: TextAlign.center,
                 ),
               );

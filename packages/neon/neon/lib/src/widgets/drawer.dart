@@ -103,7 +103,7 @@ class __NeonDrawerState extends State<_NeonDrawer> {
         ...appDestinations,
         NavigationDrawerDestination(
           icon: const Icon(Icons.settings),
-          label: Text(AppLocalizations.of(context).settings),
+          label: Text(NeonLocalizations.of(context).settings),
         ),
       ],
     );

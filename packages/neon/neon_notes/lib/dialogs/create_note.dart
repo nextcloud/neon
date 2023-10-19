@@ -35,7 +35,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
         stream: widget.bloc.notesList,
         builder: (final context, final notes) => NeonDialog(
-          title: Text(AppLocalizations.of(context).noteCreate),
+          title: Text(NotesLocalizations.of(context).noteCreate),
           children: [
             Form(
               key: formKey,
@@ -46,7 +46,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                     autofocus: true,
                     controller: controller,
                     decoration: InputDecoration(
-                      hintText: AppLocalizations.of(context).noteTitle,
+                      hintText: NotesLocalizations.of(context).noteTitle,
                     ),
                     validator: (final input) => validateNotEmpty(context, input),
                     onFieldSubmitted: (final _) {
@@ -77,7 +77,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                   ],
                   ElevatedButton(
                     onPressed: submit,
-                    child: Text(AppLocalizations.of(context).noteCreate),
+                    child: Text(NotesLocalizations.of(context).noteCreate),
                   ),
                 ],
               ),

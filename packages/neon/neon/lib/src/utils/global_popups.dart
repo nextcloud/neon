@@ -58,9 +58,9 @@ class GlobalPopups {
 
           ScaffoldMessenger.of(_context).showSnackBar(
             SnackBar(
-              content: Text(AppLocalizations.of(_context).firstLaunchGoToSettingsToEnablePushNotifications),
+              content: Text(NeonLocalizations.of(_context).firstLaunchGoToSettingsToEnablePushNotifications),
               action: SnackBarAction(
-                label: AppLocalizations.of(_context).settings,
+                label: NeonLocalizations.of(_context).settings,
                 onPressed: () {
                   const SettingsRoute(initialCategory: SettingsCategories.pushNotifications).go(_context);
                 },
@@ -77,14 +77,14 @@ class GlobalPopups {
           await showDialog<void>(
             context: _context,
             builder: (final context) => AlertDialog(
-              title: Text(AppLocalizations.of(context).nextPushSupported),
-              content: Text(AppLocalizations.of(context).nextPushSupportedText),
+              title: Text(NeonLocalizations.of(context).nextPushSupported),
+              content: Text(NeonLocalizations.of(context).nextPushSupportedText),
               actions: [
                 OutlinedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(AppLocalizations.of(context).actionNo),
+                  child: Text(NeonLocalizations.of(context).actionNo),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -94,7 +94,7 @@ class GlobalPopups {
                       mode: LaunchMode.externalApplication,
                     );
                   },
-                  child: Text(AppLocalizations.of(context).nextPushSupportedInstall),
+                  child: Text(NeonLocalizations.of(context).nextPushSupportedInstall),
                 ),
               ],
             ),

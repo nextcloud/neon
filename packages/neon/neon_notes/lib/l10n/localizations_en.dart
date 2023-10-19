@@ -1,8 +1,8 @@
 import 'localizations.dart';
 
 /// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+class NotesLocalizationsEn extends NotesLocalizations {
+  NotesLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
   String get errorChangedOnServer => 'The note has been changed on the server. Please refresh and try again';

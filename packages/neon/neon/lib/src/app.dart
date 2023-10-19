@@ -301,13 +301,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                     return MaterialApp.router(
                       localizationsDelegates: [
                         ..._appImplementations.map((final app) => app.localizationsDelegate),
-                        ...AppLocalizations.localizationsDelegates,
+                        ...NeonLocalizations.localizationsDelegates,
                       ],
                       supportedLocales: {
                         ..._appImplementations
                             .map((final app) => app.supportedLocales)
                             .expand((final element) => element),
-                        ...AppLocalizations.supportedLocales,
+                        ...NeonLocalizations.supportedLocales,
                       },
                       themeMode: themeMode,
                       theme: appTheme.lightTheme,

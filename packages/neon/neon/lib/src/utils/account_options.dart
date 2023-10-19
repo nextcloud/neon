@@ -18,7 +18,7 @@ class AccountSpecificOptions extends OptionsCollection {
       }
 
       initialApp.values = {
-        null: (final context) => AppLocalizations.of(context).accountOptionsAutomatic,
+        null: (final context) => NeonLocalizations.of(context).accountOptionsAutomatic,
       }..addEntries(result.requireData.map((final app) => MapEntry(app.id, app.name)));
     });
   }
@@ -33,7 +33,7 @@ class AccountSpecificOptions extends OptionsCollection {
   late final initialApp = SelectOption<String?>(
     storage: storage,
     key: AccountOptionKeys.initialApp,
-    label: (final context) => AppLocalizations.of(context).accountOptionsInitialApp,
+    label: (final context) => NeonLocalizations.of(context).accountOptionsInitialApp,
     defaultValue: null,
     values: {},
   );

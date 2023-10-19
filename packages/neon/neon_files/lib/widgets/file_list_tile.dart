@@ -30,7 +30,7 @@ class FileListTile extends StatelessWidget {
       if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
         if (!(await showConfirmationDialog(
           context,
-          AppLocalizations.of(context).downloadConfirmSizeWarning(
+          FilesLocalizations.of(context).downloadConfirmSizeWarning(
             filesize(sizeWarning),
             filesize(details.size),
           ),

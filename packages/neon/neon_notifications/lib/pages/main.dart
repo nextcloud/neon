@@ -34,7 +34,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
               final unreadCount = snapshot.data ?? 0;
               return FloatingActionButton(
                 onPressed: unreadCount > 0 ? bloc.deleteAllNotifications : null,
-                tooltip: AppLocalizations.of(context).notificationsDismissAll,
+                tooltip: NotificationsLocalizations.of(context).notificationsDismissAll,
                 child: const Icon(MdiIcons.checkAll),
               );
             },
@@ -101,7 +101,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           await showDialog<void>(
             context: context,
             builder: (final context) => AlertDialog(
-              title: Text(AppLocalizations.of(context).notificationAppNotImplementedYet),
+              title: Text(NotificationsLocalizations.of(context).notificationAppNotImplementedYet),
               actions: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -111,7 +111,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   },
-                  child: Text(AppLocalizations.of(context).actionClose),
+                  child: Text(NotificationsLocalizations.of(context).actionClose),
                 ),
               ],
             ),

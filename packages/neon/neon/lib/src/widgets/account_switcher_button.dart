@@ -25,7 +25,7 @@ class AccountSwitcherButton extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.settings),
-            title: Text(AppLocalizations.of(context).settingsAccountManage),
+            title: Text(NeonLocalizations.of(context).settingsAccountManage),
             onTap: () {
               Navigator.of(context).pop();
               const SettingsRoute(initialCategory: SettingsCategories.accounts).push<void>(context);
@@ -47,7 +47,7 @@ class AccountSwitcherButton extends StatelessWidget {
 
     return IconButton(
       onPressed: () async => _onPressed(context),
-      tooltip: AppLocalizations.of(context).settingsAccount,
+      tooltip: NeonLocalizations.of(context).settingsAccount,
       icon: NeonUserAvatar(
         account: account,
       ),

@@ -71,7 +71,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                           final details = NeonError.getDetails(state.error);
                           return NeonValidationTile(
                             title: details.isUnauthorized
-                                ? AppLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
+                                ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
                                 : details.getText(context),
                             state: ValidationState.failure,
                           );
@@ -100,8 +100,8 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
                               },
                         child: Text(
                           state.hasData
-                              ? AppLocalizations.of(context).actionContinue
-                              : AppLocalizations.of(context).actionRetry,
+                              ? NeonLocalizations.of(context).actionContinue
+                              : NeonLocalizations.of(context).actionRetry,
                         ),
                       ),
                     ),
@@ -116,7 +116,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
   Widget _buildAccountTile(final Result<Account> result) {
     if (result.hasError) {
       return NeonValidationTile(
-        title: AppLocalizations.of(context).loginCheckingAccount,
+        title: NeonLocalizations.of(context).loginCheckingAccount,
         state: ValidationState.canceled,
       );
     }
@@ -129,7 +129,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
     }
 
     return NeonValidationTile(
-      title: AppLocalizations.of(context).loginCheckingAccount,
+      title: NeonLocalizations.of(context).loginCheckingAccount,
       state: ValidationState.loading,
     );
   }

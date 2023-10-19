@@ -34,7 +34,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
       if (stat.size > sizeWarning) {
         if (!(await showConfirmationDialog(
           context,
-          AppLocalizations.of(context).uploadConfirmSizeWarning(
+          FilesLocalizations.of(context).uploadConfirmSizeWarning(
             filesize(sizeWarning),
             filesize(stat.size),
           ),
@@ -54,7 +54,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.filePlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).uploadFiles),
+            title: Text(FilesLocalizations.of(context).uploadFiles),
             onTap: () async {
               await uploadFromPick(FileType.any);
 
@@ -68,7 +68,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.fileImagePlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).uploadImages),
+            title: Text(FilesLocalizations.of(context).uploadImages),
             onTap: () async {
               await uploadFromPick(FileType.image);
 
@@ -83,7 +83,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
                 MdiIcons.cameraPlus,
                 color: Theme.of(context).colorScheme.primary,
               ),
-              title: Text(AppLocalizations.of(context).uploadCamera),
+              title: Text(FilesLocalizations.of(context).uploadCamera),
               onTap: () async {
                 Navigator.of(context).pop();
 
@@ -100,7 +100,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               MdiIcons.folderPlus,
               color: Theme.of(context).colorScheme.primary,
             ),
-            title: Text(AppLocalizations.of(context).folderCreate),
+            title: Text(FilesLocalizations.of(context).folderCreate),
             onTap: () async {
               Navigator.of(context).pop();
 
