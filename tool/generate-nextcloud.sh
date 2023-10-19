@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 
 (
   cd packages/nextcloud
-  rm -rf .dart_tool/build
+  rm -rf .dart_tool/build/generated/dynamite
   fvm dart run nextcloud:generate_props
   fvm dart pub run build_runner build --delete-conflicting-outputs
   fvm dart run nextcloud:generate_exports
