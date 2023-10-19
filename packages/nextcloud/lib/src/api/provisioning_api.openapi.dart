@@ -124,7 +124,7 @@ class AppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -218,7 +218,7 @@ class AppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -326,7 +326,7 @@ class AppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -428,7 +428,7 @@ class AppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -528,7 +528,7 @@ class AppConfigClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -628,7 +628,7 @@ class AppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -720,7 +720,7 @@ class AppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -812,7 +812,7 @@ class AppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppsEnableResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -904,7 +904,7 @@ class AppsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<AppsDisableResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -1016,7 +1016,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1116,7 +1116,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -1222,7 +1222,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1315,7 +1315,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1428,7 +1428,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1521,7 +1521,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1612,7 +1612,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -1717,7 +1717,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -1810,7 +1810,7 @@ class GroupsClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -1918,7 +1918,7 @@ class PreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -2014,7 +2014,7 @@ class PreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -2115,7 +2115,7 @@ class PreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -2211,7 +2211,7 @@ class PreferencesClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -2323,7 +2323,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -2477,7 +2477,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersAddUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -2583,7 +2583,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -2687,7 +2687,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -2775,7 +2775,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -2875,7 +2875,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersEditUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -2963,7 +2963,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -3045,7 +3045,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -3127,7 +3127,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -3215,7 +3215,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -3326,7 +3326,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -3414,7 +3414,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -3502,7 +3502,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -3590,7 +3590,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -3678,7 +3678,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -3774,7 +3774,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -3868,7 +3868,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -3960,7 +3960,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -4058,7 +4058,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -4156,7 +4156,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -4244,7 +4244,7 @@ class UsersClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,

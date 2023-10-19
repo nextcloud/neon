@@ -116,7 +116,7 @@ class IconClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -196,7 +196,7 @@ class IconClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -287,7 +287,7 @@ class IconClient {
     path = path.replaceAll('{image}', Uri.encodeQueryComponent(image));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -393,7 +393,7 @@ class ThemingClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<String, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -485,7 +485,7 @@ class ThemingClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -563,7 +563,7 @@ class ThemingClient {
     path = path.replaceAll('{app}', Uri.encodeQueryComponent(app));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -649,7 +649,7 @@ class UserThemeClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Uint8List, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'get',
         uri,
         headers,
@@ -757,7 +757,7 @@ class UserThemeClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Background, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'post',
         uri,
         headers,
@@ -835,7 +835,7 @@ class UserThemeClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Background, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,
@@ -927,7 +927,7 @@ class UserThemeClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'put',
         uri,
         headers,
@@ -1019,7 +1019,7 @@ class UserThemeClient {
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
-      response: _rootClient.doRequest(
+      response: _rootClient.executeRequest(
         'delete',
         uri,
         headers,

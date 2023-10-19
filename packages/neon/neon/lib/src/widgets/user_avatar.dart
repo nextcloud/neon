@@ -59,7 +59,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             radius: size / 2,
             backgroundColor: widget.backgroundColor,
             child: ClipOval(
-              child: NeonApiImage.custom(
+              child: NeonApiImage.withAccount(
                 account: widget.account,
                 cacheKey: 'avatar-${widget.username}-$brightness$pixelSize',
                 getImage: (final client) async => switch (brightness) {

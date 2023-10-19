@@ -88,7 +88,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<SupportedAPIVersions, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -153,7 +153,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListFolders, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -227,7 +227,7 @@ class Client extends DynamiteClient {
     queryParameters['name'] = name;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListFolders, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -307,7 +307,7 @@ class Client extends DynamiteClient {
     queryParameters['name'] = name;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,
@@ -373,7 +373,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{folderId}', Uri.encodeQueryComponent(folderId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'delete',
         uri,
         headers,
@@ -453,7 +453,7 @@ class Client extends DynamiteClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -518,7 +518,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListFeeds, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -604,7 +604,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListFeeds, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -670,7 +670,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{feedId}', Uri.encodeQueryComponent(feedId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'delete',
         uri,
         headers,
@@ -752,7 +752,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -832,7 +832,7 @@ class Client extends DynamiteClient {
     queryParameters['feedTitle'] = feedTitle;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -912,7 +912,7 @@ class Client extends DynamiteClient {
     queryParameters['newestItemId'] = newestItemId.toString();
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -1032,7 +1032,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListArticles, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -1128,7 +1128,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<ListArticles, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -1194,7 +1194,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -1260,7 +1260,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -1326,7 +1326,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -1392,7 +1392,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{itemId}', Uri.encodeQueryComponent(itemId.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<void, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,

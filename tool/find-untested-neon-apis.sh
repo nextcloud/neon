@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 
 function find_apis() {
     path="$1"
-    grep -r "$path" --include "*\.dart" -e "client\.[^.]*.[^(]*(" -oh | sed "s/^client\.//" | sed "s/($//" | sed "s/Raw$//" | sort | uniq
+    grep -r "$path" --include "*\.dart" -e "client\.[^.]*.[^(]*(" -oh | sed "s/^client\.//" | sed "s/($//" | sed "s/Raw$//" | grep -v "^executeRawRequest" | sort | uniq
 }
 
 used_apis=("$(find_apis "packages/neon")")

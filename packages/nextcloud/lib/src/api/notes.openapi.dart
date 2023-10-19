@@ -144,7 +144,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<BuiltList<Note>, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -256,7 +256,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Note, void>(
-      response: doRequest(
+      response: executeRequest(
         'post',
         uri,
         headers,
@@ -348,7 +348,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Note, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -472,7 +472,7 @@ class Client extends DynamiteClient {
     }
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Note, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,
@@ -540,7 +540,7 @@ class Client extends DynamiteClient {
     path = path.replaceAll('{id}', Uri.encodeQueryComponent(id.toString()));
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<String, void>(
-      response: doRequest(
+      response: executeRequest(
         'delete',
         uri,
         headers,
@@ -605,7 +605,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Settings, void>(
-      response: doRequest(
+      response: executeRequest(
         'get',
         uri,
         headers,
@@ -675,7 +675,7 @@ class Client extends DynamiteClient {
         as Uint8List;
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
     return DynamiteRawResponse<Settings, void>(
-      response: doRequest(
+      response: executeRequest(
         'put',
         uri,
         headers,

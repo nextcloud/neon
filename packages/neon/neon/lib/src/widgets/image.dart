@@ -33,42 +33,15 @@ typedef ApiImageDownloader = FutureOr<DynamiteResponse<Uint8List, dynamic>> Func
 /// fetches.
 ///
 /// See:
-///  * [NeonApiImage] for an image from the [NextcloudClient]
+///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
+///  * [NeonUrlImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonCachedImage extends StatefulWidget {
-  /// Prints the data from [image] to the canvas.
-  ///
-  /// The data is not persisted in the cache.
-  NeonCachedImage({
-    required final Uint8List image,
-    required Key super.key,
-    this.isSvgHint = false,
-    this.size,
-    this.fit,
-    this.svgColorFilter,
-    this.errorBuilder,
-  }) : image = Future.value(image);
-
-  /// Fetches the image from [url].
-  ///
-  /// The image is automatically cached.
-  NeonCachedImage.url({
-    required final String url,
-    final Account? account,
-    final Key? key,
-    this.isSvgHint = false,
-    this.size,
-    this.fit,
-    this.svgColorFilter,
-    this.errorBuilder,
-  })  : image = _getImageFromUrl(url, account),
-        super(key: key ?? Key(url));
-
   /// Custom image implementation.
   ///
   /// It is possible to provide custom [reviver] and [writeCache] functions to
   /// adjust the caching.
-  NeonCachedImage.custom({
+  NeonCachedImage({
     required final ImageDownloader getImage,
     required final String cacheKey,
     final CacheReviver? reviver,
@@ -115,20 +88,6 @@ class NeonCachedImage extends StatefulWidget {
   /// Defaults to a [NeonError] awaiting [image] again onRetry.
   /// {@endtemplate}
   final ErrorWidgetBuilder? errorBuilder;
-
-  static Future<Uint8List> _getImageFromUrl(final String url, final Account? account) async {
-    var uri = Uri.parse(url);
-    if (account != null) {
-      uri = account.completeUri(uri);
-    }
-    final file = await _cacheManager.getSingleFile(
-      uri.toString(),
-      headers: account != null && uri.host == account.serverURL.host && account.client.authentications.isNotEmpty
-          ? account.client.authentications.first.headers
-          : null,
-    );
-    return file.readAsBytes();
-  }
 
   static Future<Uint8List> _customImageGetter(
     final CacheReviver? checkCache,
@@ -232,18 +191,16 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
       );
 }
 
-/// Nextcloud API image.
-///
-/// Extension for [NeonCachedImage] providing a [NextcloudClient] to the caller
-/// to retrieve the image.
+/// A widget painting an Image fetched from the Nextcloud API.
 ///
 /// See:
 ///  * [NeonCachedImage] for a customized image
+///  * [NeonUrlImage] for an image widget from an arbitrary URL.
 ///  * [NeonImageWrapper] for a wrapping widget for images
 class NeonApiImage extends StatelessWidget {
-  /// Creates a new Neon API image with the active account.
+  /// Creates a new Neon API image fetching the image with the currently active account.
   ///
-  /// Use [NeonApiImage.custom] to specify fetching the image with a different account.
+  /// See [NeonApiImage.withAccount] to fetch the image using a specific account.
   const NeonApiImage({
     required this.getImage,
     required this.cacheKey,
@@ -257,10 +214,10 @@ class NeonApiImage extends StatelessWidget {
     super.key,
   }) : account = null;
 
-  /// Creates a new Neon API image for a given account.
+  /// Creates a new Neon API image fetching the image with the given [account].
   ///
-  /// Use [NeonApiImage] to fetch the image with the currently active account.
-  const NeonApiImage.custom({
+  /// See [NeonApiImage] to fetch the image using the currently active account.
+  const NeonApiImage.withAccount({
     required this.getImage,
     required this.cacheKey,
     required Account this.account,
@@ -274,10 +231,9 @@ class NeonApiImage extends StatelessWidget {
     super.key,
   });
 
-  /// Optional account to use for the request.
+  /// The account to use for the request.
   ///
   /// Defaults to the currently active account in [AccountsBloc.activeAccount].
-  /// Use the [NeonApiImage.custom] constructor to specify a different account.
   final Account? account;
 
   /// Image downloader.
@@ -311,12 +267,115 @@ class NeonApiImage extends StatelessWidget {
   Widget build(final BuildContext context) {
     final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
-    return NeonCachedImage.custom(
+    return NeonCachedImage(
       getImage: () async {
         final response = await getImage(account.client);
         return response.body;
       },
       cacheKey: '${account.id}-$cacheKey',
+      reviver: reviver,
+      writeCache: writeCache,
+      isSvgHint: isSvgHint,
+      size: size,
+      fit: fit,
+      svgColorFilter: svgColorFilter,
+      errorBuilder: errorBuilder,
+    );
+  }
+}
+
+/// A widget painting an Image fetched from an arbitrary URL.
+///
+/// See:
+///  * [NeonCachedImage] for a customized image
+///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
+///  * [NeonImageWrapper] for a wrapping widget for images
+class NeonUrlImage extends StatelessWidget {
+  /// Creates a new Neon URL image with the active account.
+  ///
+  /// See [NeonUrlImage.withAccount] for using a specific account.
+  const NeonUrlImage({
+    required this.url,
+    this.reviver,
+    this.writeCache,
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
+    this.svgColorFilter,
+    this.errorBuilder,
+    super.key,
+  }) : account = null;
+
+  /// Creates a new Neon URL image with the given [account].
+  ///
+  /// See [NeonUrlImage] for using the active account.
+  const NeonUrlImage.withAccount({
+    required this.url,
+    required Account this.account,
+    this.reviver,
+    this.writeCache,
+    this.isSvgHint = false,
+    this.size,
+    this.fit,
+    this.svgColorFilter,
+    this.errorBuilder,
+    super.key,
+  });
+
+  /// The account to use for the request.
+  ///
+  /// Defaults to the currently active account in [AccountsBloc.activeAccount].
+  final Account? account;
+
+  /// Image url.
+  final String url;
+
+  /// Custom cache reviver function.
+  final CacheReviver? reviver;
+
+  /// Custom cache writer function.
+  final CacheWriter? writeCache;
+
+  /// {@macro NeonCachedImage.svgHint}
+  final bool isSvgHint;
+
+  /// {@macro NeonCachedImage.size}
+  final Size? size;
+
+  /// {@macro NeonCachedImage.fit}
+  final BoxFit? fit;
+
+  /// {@macro NeonCachedImage.svgColorFilter}
+  final ColorFilter? svgColorFilter;
+
+  /// {@macro NeonCachedImage.errorBuilder}
+  final ErrorWidgetBuilder? errorBuilder;
+
+  @override
+  Widget build(final BuildContext context) {
+    final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+
+    return NeonCachedImage(
+      getImage: () async {
+        final uri = account.completeUri(Uri.parse(url));
+        final headers = <String, String>{};
+
+        // Only send the authentication headers when sending the request to the server of the account
+        if (uri.toString().startsWith(account.serverURL.toString()) && account.client.authentications.isNotEmpty) {
+          headers.addAll(account.client.authentications.first.headers);
+        }
+
+        final response = await account.client.executeRawRequest(
+          'GET',
+          uri,
+          headers,
+          null,
+          const {200},
+        );
+
+        return response.bytes;
+      },
+      cacheKey: '${account.id}-$url',
       reviver: reviver,
       writeCache: writeCache,
       isSvgHint: isSvgHint,
@@ -334,7 +393,8 @@ class NeonApiImage extends StatelessWidget {
 ///
 /// See:
 ///  * [NeonCachedImage] for a customized image
-///  * [NeonApiImage] for an image widget from a [NextcloudClient].
+///  * [NeonApiImage] for an image widget from an Nextcloud API endpoint.
+///  * [NeonUrlImage] for an image widget from an arbitrary URL.
 class NeonImageWrapper extends StatelessWidget {
   /// Creates a new image wrapper.
   const NeonImageWrapper({
