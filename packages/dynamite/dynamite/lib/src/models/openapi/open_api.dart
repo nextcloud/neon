@@ -21,7 +21,7 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
 
   Info get info;
 
-  BuiltList<Server>? get servers;
+  BuiltList<Server> get servers;
 
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
@@ -32,6 +32,17 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
   BuiltMap<String, PathItem>? get paths;
 
   bool get hasAnySecurity => components?.securitySchemes?.isNotEmpty ?? false;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final OpenAPIBuilder b) {
+    if (b.servers.isEmpty) {
+      b.servers.add(
+        Server(
+          (final b) => b.url = '/',
+        ),
+      );
+    }
+  }
 
   Iterable<String> formattedTagsFor(final String? tag) sync* {
     final matchedTags = tags?.where((final t) => t.name == tag);

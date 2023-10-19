@@ -22,14 +22,10 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
       serializers.serialize(object.version, specifiedType: const FullType(String)),
       'info',
       serializers.serialize(object.info, specifiedType: const FullType(Info)),
+      'servers',
+      serializers.serialize(object.servers, specifiedType: const FullType(BuiltList, [FullType(Server)])),
     ];
     Object? value;
-    value = object.servers;
-    if (value != null) {
-      result
-        ..add('servers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Server)])));
-    }
     value = object.security;
     if (value != null) {
       result
@@ -119,7 +115,7 @@ class _$OpenAPI extends OpenAPI {
   @override
   final Info info;
   @override
-  final BuiltList<Server>? servers;
+  final BuiltList<Server> servers;
   @override
   final BuiltList<BuiltMap<String, BuiltList<String>>>? security;
   @override
@@ -132,10 +128,17 @@ class _$OpenAPI extends OpenAPI {
   factory _$OpenAPI([void Function(OpenAPIBuilder)? updates]) => (OpenAPIBuilder()..update(updates))._build();
 
   _$OpenAPI._(
-      {required this.version, required this.info, this.servers, this.security, this.tags, this.components, this.paths})
+      {required this.version,
+      required this.info,
+      required this.servers,
+      this.security,
+      this.tags,
+      this.components,
+      this.paths})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version');
     BuiltValueNullFieldError.checkNotNull(info, r'OpenAPI', 'info');
+    BuiltValueNullFieldError.checkNotNull(servers, r'OpenAPI', 'servers');
   }
 
   @override
@@ -224,7 +227,7 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
     if ($v != null) {
       _version = $v.version;
       _info = $v.info.toBuilder();
-      _servers = $v.servers?.toBuilder();
+      _servers = $v.servers.toBuilder();
       _security = $v.security?.toBuilder();
       _tags = $v.tags?.toBuilder();
       _components = $v.components?.toBuilder();
@@ -249,13 +252,14 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
   OpenAPI build() => _build();
 
   _$OpenAPI _build() {
+    OpenAPI._defaults(this);
     _$OpenAPI _$result;
     try {
       _$result = _$v ??
           _$OpenAPI._(
               version: BuiltValueNullFieldError.checkNotNull(version, r'OpenAPI', 'version'),
               info: info.build(),
-              servers: _servers?.build(),
+              servers: servers.build(),
               security: _security?.build(),
               tags: _tags?.build(),
               components: _components?.build(),
@@ -266,7 +270,7 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
         _$failedField = 'info';
         info.build();
         _$failedField = 'servers';
-        _servers?.build();
+        servers.build();
         _$failedField = 'security';
         _security?.build();
         _$failedField = 'tags';

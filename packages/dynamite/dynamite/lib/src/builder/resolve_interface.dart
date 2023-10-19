@@ -34,7 +34,7 @@ TypeResultObject resolveInterface(
                   '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
                   propertySchema,
                   nullable: isDartParameterNullable(
-                    schema.required?.contains(propertyName),
+                    schema.required.contains(propertyName),
                     propertySchema,
                   ),
                 );

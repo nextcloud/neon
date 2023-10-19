@@ -14,7 +14,12 @@ abstract class Header implements Built<Header, HeaderBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  bool? get required;
+  bool get required;
 
   Schema? get schema;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final HeaderBuilder b) {
+    b.required ??= false;
+  }
 }

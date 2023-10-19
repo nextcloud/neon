@@ -77,7 +77,7 @@ Iterable<String> resolveMimeTypeEncode(
         case 'application/x-www-form-urlencoded':
           final dartParameterRequired = isRequired(
             operation.requestBody!.required,
-            mediaType.schema?.$default,
+            mediaType.schema,
           );
           b.add(
             Parameter(
@@ -100,7 +100,7 @@ Iterable<String> resolveMimeTypeEncode(
         case 'application/octet-stream':
           final dartParameterRequired = isRequired(
             operation.requestBody!.required,
-            mediaType.schema?.$default,
+            mediaType.schema,
           );
           b.add(
             Parameter(

@@ -28,7 +28,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  bool? get deprecated;
+  bool get deprecated;
 
   String? get type;
 
@@ -42,7 +42,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   BuiltMap<String, Schema>? get properties;
 
-  BuiltList<String>? get required;
+  BuiltList<String> get required;
 
   Schema? get items;
 
@@ -65,4 +65,9 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 
   Iterable<String> get formattedDescription => descriptionToDocs(description);
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final SchemaBuilder b) {
+    b.deprecated ??= false;
+  }
 }

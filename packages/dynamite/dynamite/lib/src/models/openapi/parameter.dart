@@ -22,11 +22,16 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   @BuiltValueField(compare: false)
   String? get description;
 
-  bool? get required;
+  bool get required;
 
   Schema? get schema;
 
-  bool get isDartRequired => isRequired(required, schema?.$default);
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final ParameterBuilder b) {
+    b.required ??= false;
+  }
+
+  bool get isDartRequired => isRequired(required, schema);
 
   String get formattedDescription {
     final name = toDartName(this.name);

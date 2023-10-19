@@ -17,5 +17,10 @@ abstract class RequestBody implements Built<RequestBody, RequestBodyBuilder> {
 
   BuiltMap<String, MediaType>? get content;
 
-  bool? get required;
+  bool get required;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _defaults(final RequestBodyBuilder b) {
+    b.required ??= false;
+  }
 }
