@@ -32,6 +32,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
         final values = results.data?.entries.toList();
 
         return NeonListView(
+          scrollKey: 'unified-search',
           isLoading: results.isLoading,
           error: results.error,
           onRefresh: bloc.refresh,
