@@ -38,6 +38,7 @@ class DashboardMainPage extends StatelessWidget {
 
         return Center(
           child: NeonListView.custom(
+            scrollKey: 'dashboard',
             isLoading: snapshot.isLoading,
             error: snapshot.error,
             onRefresh: bloc.refresh,
