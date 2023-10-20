@@ -22,6 +22,7 @@ import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/localizations.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/utils/push_utils.dart';
+import 'package:neon/src/widgets/options_collection_builder.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:quick_actions/quick_actions.dart';
@@ -275,50 +276,42 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   @override
-  Widget build(final BuildContext context) => ValueListenableBuilder(
-        valueListenable: _globalOptions.themeMode,
-        builder: (final context, final themeMode, final _) => ValueListenableBuilder(
-          valueListenable: _globalOptions.themeOLEDAsDark,
-          builder: (final context, final themeOLEDAsDark, final _) => ValueListenableBuilder(
-            valueListenable: _globalOptions.themeKeepOriginalAccentColor,
-            builder: (final context, final themeKeepOriginalAccentColor, final _) => StreamBuilder<Account?>(
-              stream: _accountsBloc.activeAccount,
-              builder: (final context, final activeAccountSnapshot) {
-                FlutterNativeSplash.remove();
-                return ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
-                  stream: activeAccountSnapshot.hasData
-                      ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
-                      : null,
-                  builder: (final context, final capabilitiesSnapshot) {
-                    final appTheme = AppTheme(
-                      capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
-                      keepOriginalAccentColor: themeKeepOriginalAccentColor,
-                      oledAsDark: themeOLEDAsDark,
-                      appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
-                      neonTheme: widget.neonTheme,
-                    );
+  Widget build(final BuildContext context) => OptionsCollectionBuilder(
+        valueListenable: _globalOptions,
+        builder: (final context, final options, final _) => StreamBuilder<Account?>(
+          stream: _accountsBloc.activeAccount,
+          builder: (final context, final activeAccountSnapshot) {
+            FlutterNativeSplash.remove();
+            return ResultBuilder<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data?>.behaviorSubject(
+              stream: activeAccountSnapshot.hasData
+                  ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
+                  : null,
+              builder: (final context, final capabilitiesSnapshot) {
+                final appTheme = AppTheme(
+                  capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                  keepOriginalAccentColor: options.themeKeepOriginalAccentColor.value,
+                  oledAsDark: options.themeOLEDAsDark.value,
+                  appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
+                  neonTheme: widget.neonTheme,
+                );
 
-                    return MaterialApp.router(
-                      localizationsDelegates: [
-                        ..._appImplementations.map((final app) => app.localizationsDelegate),
-                        ...NeonLocalizations.localizationsDelegates,
-                      ],
-                      supportedLocales: {
-                        ..._appImplementations
-                            .map((final app) => app.supportedLocales)
-                            .expand((final element) => element),
-                        ...NeonLocalizations.supportedLocales,
-                      },
-                      themeMode: themeMode,
-                      theme: appTheme.lightTheme,
-                      darkTheme: appTheme.darkTheme,
-                      routerConfig: _routerDelegate,
-                    );
+                return MaterialApp.router(
+                  localizationsDelegates: [
+                    ..._appImplementations.map((final app) => app.localizationsDelegate),
+                    ...NeonLocalizations.localizationsDelegates,
+                  ],
+                  supportedLocales: {
+                    ..._appImplementations.map((final app) => app.supportedLocales).expand((final element) => element),
+                    ...NeonLocalizations.supportedLocales,
                   },
+                  themeMode: options.themeMode.value,
+                  theme: appTheme.lightTheme,
+                  darkTheme: appTheme.darkTheme,
+                  routerConfig: _routerDelegate,
                 );
               },
-            ),
-          ),
+            );
+          },
         ),
       );
 }

@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart';
 import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/settings/models/exportable.dart';
 import 'package:neon/src/settings/models/option.dart';
@@ -16,6 +16,9 @@ abstract class OptionsCollection implements Exportable, Disposable {
   /// Collection of options.
   @protected
   Iterable<Option<dynamic>> get options;
+
+  /// Return a [Listenable] that triggers when any of the given [options] themselves trigger.
+  Listenable get listenable => Listenable.merge(options.toList());
 
   /// Resets all [options].
   ///
