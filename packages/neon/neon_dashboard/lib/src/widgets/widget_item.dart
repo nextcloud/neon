@@ -25,10 +25,15 @@ class DashboardWidgetItem extends StatelessWidget {
       dimension: largeIconSize,
       child: NeonImageWrapper(
         borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : null,
-        child: NeonUrlImage(
-          url: item.iconUrl,
-          size: const Size.square(largeIconSize),
-        ),
+        child: item.iconUrl.isNotEmpty
+            ? NeonUrlImage(
+                url: item.iconUrl,
+                size: const Size.square(largeIconSize),
+              )
+            : Icon(
+                Icons.question_mark,
+                color: Theme.of(context).colorScheme.error,
+              ),
       ),
     );
     if (item.overlayIconUrl.isNotEmpty) {
