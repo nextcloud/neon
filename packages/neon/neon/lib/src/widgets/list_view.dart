@@ -8,8 +8,8 @@ class NeonListView extends StatelessWidget {
     required this.error,
     required this.onRefresh,
     required final NullableIndexedWidgetBuilder itemBuilder,
+    required this.scrollKey,
     final int? itemCount,
-    this.scrollKey,
     this.topFixedChildren,
     this.topScrollingChildren,
     super.key,
@@ -23,7 +23,7 @@ class NeonListView extends StatelessWidget {
     required this.error,
     required this.onRefresh,
     required this.sliver,
-    this.scrollKey,
+    required this.scrollKey,
     this.topFixedChildren,
     this.topScrollingChildren,
     super.key,
@@ -32,7 +32,7 @@ class NeonListView extends StatelessWidget {
   final bool isLoading;
   final Object? error;
   final RefreshCallback onRefresh;
-  final String? scrollKey;
+  final String scrollKey;
   final List<Widget>? topFixedChildren;
   final List<Widget>? topScrollingChildren;
   final Widget sliver;
@@ -46,7 +46,7 @@ class NeonListView extends StatelessWidget {
       key: refreshIndicatorKey,
       onRefresh: onRefresh,
       child: CustomScrollView(
-        key: scrollKey != null ? PageStorageKey<String>(scrollKey!) : null,
+        key: PageStorageKey<String>(scrollKey),
         primary: true,
         slivers: [
           if (topFixedChildren != null)

@@ -36,6 +36,7 @@ class DashboardWidget extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(12)),
           child: ListView(
             padding: const EdgeInsets.all(8),
+            key: PageStorageKey<String>('dashboard-${widget.id}'),
             children: [
               ListTile(
                 title: Text(
