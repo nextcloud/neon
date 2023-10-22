@@ -7356,9 +7356,6 @@ class RemoteUnshareResponseApplicationJsonBuilder
 abstract mixin class ShareInfo_SizeInterfaceBuilder {
   void replace(ShareInfo_SizeInterface other);
   void update(void Function(ShareInfo_SizeInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
@@ -7715,9 +7712,6 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInf
 abstract mixin class Share_ItemSizeInterfaceBuilder {
   void replace(Share_ItemSizeInterface other);
   void update(void Function(Share_ItemSizeInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   num? get $num;
   set $num(num? $num);
 
@@ -10475,9 +10469,6 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
 abstract mixin class ShareesapiSearchShareTypeInterfaceBuilder {
   void replace(ShareesapiSearchShareTypeInterface other);
   void update(void Function(ShareesapiSearchShareTypeInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
@@ -13717,9 +13708,6 @@ class ShareesapiSearchResponseApplicationJsonBuilder
 abstract mixin class ShareesapiFindRecommendedShareTypeInterfaceBuilder {
   void replace(ShareesapiFindRecommendedShareTypeInterface other);
   void update(void Function(ShareesapiFindRecommendedShareTypeInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 

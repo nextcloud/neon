@@ -9,6 +9,7 @@ const interfaceSuffix = 'Interface';
 Spec buildBuiltClass(
   final String className, {
   final Iterable<String>? defaults,
+  final Iterable<Method>? methods,
   final bool customSerializer = false,
 }) =>
     Class(
@@ -31,6 +32,10 @@ Spec buildBuiltClass(
             toJsonMethod,
             buildSerializer(className, isCustom: customSerializer),
           ]);
+
+        if (methods != null) {
+          b.methods.addAll(methods);
+        }
 
         if (defaults != null && defaults.isNotEmpty) {
           b.methods.add(

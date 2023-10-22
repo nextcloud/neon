@@ -9640,9 +9640,6 @@ class GroupsAddGroupResponseApplicationJsonBuilder
 abstract mixin class GroupDetails_UsercountInterfaceBuilder {
   void replace(GroupDetails_UsercountInterface other);
   void update(void Function(GroupDetails_UsercountInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   bool? get $bool;
   set $bool(bool? $bool);
 
@@ -9755,9 +9752,6 @@ class GroupDetails_UsercountBuilder
 abstract mixin class GroupDetails_DisabledInterfaceBuilder {
   void replace(GroupDetails_DisabledInterface other);
   void update(void Function(GroupDetails_DisabledInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   bool? get $bool;
   set $bool(bool? $bool);
 
@@ -10825,9 +10819,6 @@ class UserDetails_BackendCapabilitiesBuilder
 abstract mixin class UserDetailsQuota_QuotaInterfaceBuilder {
   void replace(UserDetailsQuota_QuotaInterface other);
   void update(void Function(UserDetailsQuota_QuotaInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   num? get $num;
   set $num(num? $num);
 
@@ -11946,9 +11937,6 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
 abstract mixin class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
   void replace(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
   void update(void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   UserDetailsBuilder get userDetails;
   set userDetails(UserDetailsBuilder? userDetails);
 
@@ -15114,9 +15102,6 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
 abstract mixin class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
   void replace(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
   void update(void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   UserDetailsBuilder get userDetails;
   set userDetails(UserDetailsBuilder? userDetails);
 

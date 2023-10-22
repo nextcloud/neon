@@ -5172,7 +5172,6 @@ abstract class GroupsAddGroupResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class GroupDetails_UsercountInterface {
-  JsonObject get data;
   bool? get $bool;
   int? get $int;
 }
@@ -5196,6 +5195,8 @@ abstract class GroupDetails_Usercount
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupDetails_Usercount> get serializer => _$GroupDetails_UsercountSerializer();
+
+  JsonObject get data;
 }
 
 class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDetails_Usercount> {
@@ -5233,7 +5234,6 @@ class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDet
 
 @BuiltValue(instantiable: false)
 abstract interface class GroupDetails_DisabledInterface {
-  JsonObject get data;
   bool? get $bool;
   int? get $int;
 }
@@ -5257,6 +5257,8 @@ abstract class GroupDetails_Disabled
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupDetails_Disabled> get serializer => _$GroupDetails_DisabledSerializer();
+
+  JsonObject get data;
 }
 
 class _$GroupDetails_DisabledSerializer implements PrimitiveSerializer<GroupDetails_Disabled> {
@@ -5536,7 +5538,6 @@ abstract class UserDetails_BackendCapabilities
 
 @BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_QuotaInterface {
-  JsonObject get data;
   num? get $num;
   int? get $int;
   String? get string;
@@ -5561,6 +5562,8 @@ abstract class UserDetailsQuota_Quota
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UserDetailsQuota_Quota> get serializer => _$UserDetailsQuota_QuotaSerializer();
+
+  JsonObject get data;
 }
 
 class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDetailsQuota_Quota> {
@@ -5732,7 +5735,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 
 @BuiltValue(instantiable: false)
 abstract interface class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
-  JsonObject get data;
   UserDetails? get userDetails;
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
       get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -5763,6 +5765,8 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
   @BuiltValueSerializer(custom: true)
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
       _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
+
+  JsonObject get data;
 }
 
 class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
@@ -6646,7 +6650,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 
 @BuiltValue(instantiable: false)
 abstract interface class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
-  JsonObject get data;
   UserDetails? get userDetails;
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
       get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
@@ -6677,6 +6680,8 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
   @BuiltValueSerializer(custom: true)
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
       _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
+
+  JsonObject get data;
 }
 
 class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
