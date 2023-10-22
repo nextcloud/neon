@@ -1,0 +1,129 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "nested ofs test",
+        "version": "0.0.1"
+    },
+    "components": {
+        "schemas": {
+            "Base": {
+                "type": "object",
+                "properties": {
+                    "attribute": {
+                        "type": "string"
+                    }
+                }
+            },
+            "BaseAllOf": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Base"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-allOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "BaseOneOf": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/Base"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-oneOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "BaseAnyOf": {
+                "anyOf": [
+                    {
+                        "$ref": "#/components/schemas/Base"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-anyOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "BaseNestedAllOf": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/BaseAllOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseOneOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseAnyOf"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-nested-allOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "BaseNestedOneOf": {
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/BaseAllOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseOneOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseAnyOf"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-nested-oneOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "BaseNestedAnyOf": {
+                "anyOf": [
+                    {
+                        "$ref": "#/components/schemas/BaseAllOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseOneOf"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseAnyOf"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "attribute-nested-anyOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "paths": {},
+    "tags": []
+}
