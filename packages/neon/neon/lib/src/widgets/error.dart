@@ -11,15 +11,32 @@ import 'package:neon/src/utils/provider.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:universal_io/io.dart';
 
+/// The display mode of the [NeonError] widget.
+enum NeonErrorType {
+  /// Only shows the error icon.
+  ///
+  /// This mode creates an IconButton that is usually used in size constrained
+  /// areas.
+  iconOnly,
+
+  /// Shows a column with the error message and a retry button.
+  column,
+
+  /// Shows a [ListTile] with the error.
+  listTile,
+}
+
 /// An indicator that an [error] has occurred.
 ///
 /// The action that lead to the error can be retried.
+/// The error can be indicated in various styles by providing [type] which
+/// defaults to `NeonErrorType.column`.
 class NeonError extends StatelessWidget {
   /// Creates a NeonError.
   const NeonError(
     this.error, {
     required this.onRetry,
-    this.onlyIcon = false,
+    this.type = NeonErrorType.column,
     this.iconSize,
     this.color,
     super.key,
@@ -33,9 +50,6 @@ class NeonError extends StatelessWidget {
   /// A function that's called when the user decides to retry the action that lead to the error.
   final VoidCallback onRetry;
 
-  /// Changes whether the text is displayed additionally or not.
-  final bool onlyIcon;
-
   /// The size of the icon in logical pixels.
   ///
   /// Defaults to a size of `30`.
@@ -45,6 +59,11 @@ class NeonError extends StatelessWidget {
   ///
   /// Defaults to the nearest [IconTheme]'s [ColorScheme.error].
   final Color? color;
+
+  /// The display mode of this widget.
+  ///
+  /// Defaults to `NeonErrorType.column`.
+  final NeonErrorType type;
 
   /// Shows a [SnackBar] popup for the [error].
   static void showSnackbar(final BuildContext context, final Object? error) {
@@ -71,63 +90,70 @@ class NeonError extends StatelessWidget {
 
     final details = getDetails(error);
     final color = this.color ?? Theme.of(context).colorScheme.error;
+    final textStyle = TextStyle(
+      color: color,
+    );
 
+    final message = details.getText(context);
     final errorIcon = Icon(
       Icons.error_outline,
       size: iconSize ?? 30,
       color: color,
     );
 
-    final message =
+    final actionMessage =
         details.isUnauthorized ? NeonLocalizations.of(context).loginAgain : NeonLocalizations.of(context).actionRetry;
 
     final onPressed = details.isUnauthorized ? () => _openLoginPage(context) : onRetry;
 
-    if (onlyIcon) {
-      return Semantics(
-        tooltip: details.getText(context),
-        child: IconButton(
-          icon: errorIcon,
-          padding: EdgeInsets.zero,
-          visualDensity: const VisualDensity(
-            horizontal: VisualDensity.minimumDensity,
-            vertical: VisualDensity.minimumDensity,
+    switch (type) {
+      case NeonErrorType.iconOnly:
+        return Semantics(
+          tooltip: details.getText(context),
+          child: IconButton(
+            icon: errorIcon,
+            padding: EdgeInsets.zero,
+            visualDensity: const VisualDensity(
+              horizontal: VisualDensity.minimumDensity,
+              vertical: VisualDensity.minimumDensity,
+            ),
+            tooltip: actionMessage,
+            onPressed: onPressed,
           ),
-          tooltip: message,
-          onPressed: onPressed,
-        ),
-      );
-    }
-
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
+        );
+      case NeonErrorType.column:
+        return Padding(
+          padding: const EdgeInsets.all(5),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              errorIcon,
-              const SizedBox(
-                width: 10,
-              ),
-              Flexible(
-                child: Text(
-                  details.getText(context),
-                  style: TextStyle(
-                    color: color,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  errorIcon,
+                  const SizedBox(
+                    width: 10,
                   ),
-                ),
+                  Flexible(
+                    child: Text(message, style: textStyle),
+                  ),
+                ],
+              ),
+              ElevatedButton(
+                onPressed: onPressed,
+                child: Text(actionMessage),
               ),
             ],
           ),
-          ElevatedButton(
-            onPressed: onPressed,
-            child: Text(message),
-          ),
-        ],
-      ),
-    );
+        );
+      case NeonErrorType.listTile:
+        return ListTile(
+          leading: errorIcon,
+          title: Text(message),
+          titleTextStyle: textStyle,
+          onTap: onPressed,
+        );
+    }
   }
 
   /// Gets the details for a given [error].

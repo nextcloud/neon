@@ -80,7 +80,7 @@ class NeonAccountTile extends StatelessWidget {
             if (userDetails.hasError)
               NeonError(
                 userDetails.error,
-                onlyIcon: true,
+                type: NeonErrorType.iconOnly,
                 iconSize: 24,
                 onRetry: userDetailsBloc.refresh,
               ),
