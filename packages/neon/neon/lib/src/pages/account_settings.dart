@@ -8,13 +8,13 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
-import 'package:neon/src/settings/widgets/select_settings_tile.dart';
+import 'package:neon/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
 import 'package:neon/src/theme/dialog.dart';
+import 'package:neon/src/utils/adaptive.dart';
 import 'package:neon/src/utils/confirmation_dialog.dart';
 import 'package:neon/src/widgets/error.dart';
-import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
 /// Account settings page.
@@ -84,61 +84,62 @@ class AccountSettingsPage extends StatelessWidget {
       ],
     );
 
-    final body = ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
-      subject: userDetailsBloc.userDetails,
-      builder: (final context, final userDetails) {
-        final quotaRelative = userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$double ?? 0;
-        final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$double ?? 0;
-        final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$double ?? 0;
+    final body = SettingsList(
+      categories: [
+        SettingsCategory(
+          title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
+          tiles: [
+            ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
+              subject: userDetailsBloc.userDetails,
+              builder: (final context, final userDetails) {
+                if (userDetails.hasError) {
+                  return NeonError(
+                    userDetails.error ?? 'Something went wrong',
+                    type: NeonErrorType.listTile,
+                    onRetry: userDetailsBloc.refresh,
+                  );
+                }
 
-        return SettingsList(
-          categories: [
-            SettingsCategory(
-              title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
-              tiles: [
-                CustomSettingsTile(
-                  title: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (userDetails.hasData) ...[
-                        LinearProgressIndicator(
-                          value: quotaRelative / 100,
-                          backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
-                            filesize(quotaUsed, 1),
-                            filesize(quotaTotal, 1),
-                            quotaRelative.toString(),
-                          ),
-                        ),
-                      ],
-                      NeonError(
-                        userDetails.error,
-                        onRetry: userDetailsBloc.refresh,
-                      ),
-                      NeonLinearProgressIndicator(
-                        visible: userDetails.isLoading,
-                      ),
-                    ],
+                double? value;
+                Widget? subtitle;
+                if (userDetails.hasData) {
+                  final quotaRelative =
+                      userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$double ?? 0;
+                  final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$double ?? 0;
+                  final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$double ?? 0;
+
+                  value = quotaRelative / 100;
+                  subtitle = Text(
+                    NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
+                      filesize(quotaUsed, 1),
+                      filesize(quotaTotal, 1),
+                      quotaRelative.toString(),
+                    ),
+                  );
+                }
+
+                return CustomSettingsTile(
+                  title: LinearProgressIndicator(
+                    value: value,
+                    minHeight: isCupertino(context) ? 15 : null,
+                    borderRadius: BorderRadius.circular(isCupertino(context) ? 5 : 3),
+                    backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                   ),
-                ),
-              ],
-            ),
-            SettingsCategory(
-              title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
-              tiles: [
-                SelectSettingsTile(
-                  option: options.initialApp,
-                ),
-              ],
+                  subtitle: subtitle,
+                );
+              },
             ),
           ],
-        );
-      },
+        ),
+        SettingsCategory(
+          title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
+          tiles: [
+            SelectSettingsTile(
+              option: options.initialApp,
+            ),
+          ],
+        ),
+      ],
     );
 
     return Scaffold(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon/src/settings/widgets/settings_category.dart';
+import 'package:neon/src/utils/adaptive.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 @visibleForTesting
@@ -10,7 +10,7 @@ class SettingsList extends StatelessWidget {
     super.key,
   });
 
-  final List<SettingsCategory> categories;
+  final List<Widget> categories;
   final String? initialCategory;
 
   int? _getIndex(final String? initialCategory) {
@@ -25,11 +25,14 @@ class SettingsList extends StatelessWidget {
   }
 
   @override
-  Widget build(final BuildContext context) => ScrollablePositionedList.separated(
-        padding: const EdgeInsets.all(20),
-        itemCount: categories.length,
-        initialScrollIndex: _getIndex(initialCategory) ?? 0,
-        itemBuilder: (final context, final index) => categories[index],
-        separatorBuilder: (final context, final index) => const Divider(),
-      );
+  Widget build(final BuildContext context) {
+    final hasPadding = !isCupertino(context);
+
+    return ScrollablePositionedList.builder(
+      padding: hasPadding ? const EdgeInsets.symmetric(horizontal: 20) : null,
+      itemCount: categories.length,
+      initialScrollIndex: _getIndex(initialCategory) ?? 0,
+      itemBuilder: (final context, final index) => categories[index],
+    );
+  }
 }
