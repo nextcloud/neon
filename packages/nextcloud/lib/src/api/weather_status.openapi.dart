@@ -9,7 +9,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/content_string.dart';
+import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
@@ -316,8 +316,8 @@ class WeatherStatusClient {
   ///  * [setLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
     final String? address,
-    final num? lat,
-    final num? lon,
+    final double? lat,
+    final double? lon,
     final bool oCSAPIRequest = true,
   }) async {
     final rawResponse = setLocationRaw(
@@ -351,8 +351,8 @@ class WeatherStatusClient {
   @experimental
   DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
     final String? address,
-    final num? lat,
-    final num? lon,
+    final double? lat,
+    final double? lon,
     final bool oCSAPIRequest = true,
   }) {
     final queryParameters = <String, dynamic>{};
@@ -785,8 +785,8 @@ abstract class WeatherStatusSetModeResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  num? get lat;
-  num? get lon;
+  double? get lat;
+  double? get lon;
   String? get address;
 }
 
@@ -881,8 +881,8 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface {
-  num get lat;
-  num get lon;
+  double get lat;
+  double get lon;
   String get address;
   int get mode;
 }
@@ -978,8 +978,8 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface {
   bool get success;
-  num? get lat;
-  num? get lon;
+  double? get lat;
+  double? get lon;
   String? get address;
 }
 
@@ -1074,31 +1074,31 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class Forecast_Data_Instant_DetailsInterface {
   @BuiltValueField(wireName: 'air_pressure_at_sea_level')
-  num get airPressureAtSeaLevel;
+  double get airPressureAtSeaLevel;
   @BuiltValueField(wireName: 'air_temperature')
-  num get airTemperature;
+  double get airTemperature;
   @BuiltValueField(wireName: 'cloud_area_fraction')
-  num get cloudAreaFraction;
+  double get cloudAreaFraction;
   @BuiltValueField(wireName: 'cloud_area_fraction_high')
-  num get cloudAreaFractionHigh;
+  double get cloudAreaFractionHigh;
   @BuiltValueField(wireName: 'cloud_area_fraction_low')
-  num get cloudAreaFractionLow;
+  double get cloudAreaFractionLow;
   @BuiltValueField(wireName: 'cloud_area_fraction_medium')
-  num get cloudAreaFractionMedium;
+  double get cloudAreaFractionMedium;
   @BuiltValueField(wireName: 'dew_point_temperature')
-  num get dewPointTemperature;
+  double get dewPointTemperature;
   @BuiltValueField(wireName: 'fog_area_fraction')
-  num get fogAreaFraction;
+  double get fogAreaFraction;
   @BuiltValueField(wireName: 'relative_humidity')
-  num get relativeHumidity;
+  double get relativeHumidity;
   @BuiltValueField(wireName: 'ultraviolet_index_clear_sky')
-  num get ultravioletIndexClearSky;
+  double get ultravioletIndexClearSky;
   @BuiltValueField(wireName: 'wind_from_direction')
-  num get windFromDirection;
+  double get windFromDirection;
   @BuiltValueField(wireName: 'wind_speed')
-  num get windSpeed;
+  double get windSpeed;
   @BuiltValueField(wireName: 'wind_speed_of_gust')
-  num get windSpeedOfGust;
+  double get windSpeedOfGust;
 }
 
 abstract class Forecast_Data_Instant_Details
@@ -1181,7 +1181,7 @@ abstract class Forecast_Data_Next12Hours_Summary
 @BuiltValue(instantiable: false)
 abstract interface class Forecast_Data_Next12Hours_DetailsInterface {
   @BuiltValueField(wireName: 'probability_of_precipitation')
-  num get probabilityOfPrecipitation;
+  double get probabilityOfPrecipitation;
 }
 
 abstract class Forecast_Data_Next12Hours_Details
@@ -1266,15 +1266,15 @@ abstract class Forecast_Data_Next1Hours_Summary
 @BuiltValue(instantiable: false)
 abstract interface class Forecast_Data_Next1Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
-  num get precipitationAmount;
+  double get precipitationAmount;
   @BuiltValueField(wireName: 'precipitation_amount_max')
-  num get precipitationAmountMax;
+  double get precipitationAmountMax;
   @BuiltValueField(wireName: 'precipitation_amount_min')
-  num get precipitationAmountMin;
+  double get precipitationAmountMin;
   @BuiltValueField(wireName: 'probability_of_precipitation')
-  num get probabilityOfPrecipitation;
+  double get probabilityOfPrecipitation;
   @BuiltValueField(wireName: 'probability_of_thunder')
-  num get probabilityOfThunder;
+  double get probabilityOfThunder;
 }
 
 abstract class Forecast_Data_Next1Hours_Details
@@ -1359,17 +1359,17 @@ abstract class Forecast_Data_Next6Hours_Summary
 @BuiltValue(instantiable: false)
 abstract interface class Forecast_Data_Next6Hours_DetailsInterface {
   @BuiltValueField(wireName: 'air_temperature_max')
-  num get airTemperatureMax;
+  double get airTemperatureMax;
   @BuiltValueField(wireName: 'air_temperature_min')
-  num get airTemperatureMin;
+  double get airTemperatureMin;
   @BuiltValueField(wireName: 'precipitation_amount')
-  num get precipitationAmount;
+  double get precipitationAmount;
   @BuiltValueField(wireName: 'precipitation_amount_max')
-  num get precipitationAmountMax;
+  double get precipitationAmountMax;
   @BuiltValueField(wireName: 'precipitation_amount_min')
-  num get precipitationAmountMin;
+  double get precipitationAmountMin;
   @BuiltValueField(wireName: 'probability_of_precipitation')
-  num get probabilityOfPrecipitation;
+  double get probabilityOfPrecipitation;
 }
 
 abstract class Forecast_Data_Next6Hours_Details
@@ -1881,6 +1881,7 @@ final Serializers _serializers = (Serializers().toBuilder()
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
+      ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();

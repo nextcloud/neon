@@ -315,13 +315,13 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataSerialize
     if (value != null) {
       result
         ..add('lat')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.lon;
     if (value != null) {
       result
         ..add('lon')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.address;
     if (value != null) {
@@ -348,10 +348,10 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataSerialize
           result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'lat':
-          result.lat = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.lat = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'lon':
-          result.lon = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.lon = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'address':
           result.address = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -476,9 +476,9 @@ class _$WeatherStatusGetLocationResponseApplicationJson_Ocs_DataSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'lat',
-      serializers.serialize(object.lat, specifiedType: const FullType(num)),
+      serializers.serialize(object.lat, specifiedType: const FullType(double)),
       'lon',
-      serializers.serialize(object.lon, specifiedType: const FullType(num)),
+      serializers.serialize(object.lon, specifiedType: const FullType(double)),
       'address',
       serializers.serialize(object.address, specifiedType: const FullType(String)),
       'mode',
@@ -501,10 +501,10 @@ class _$WeatherStatusGetLocationResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'lat':
-          result.lat = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.lat = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'lon':
-          result.lon = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.lon = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'address':
           result.address = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -636,13 +636,13 @@ class _$WeatherStatusSetLocationResponseApplicationJson_Ocs_DataSerializer
     if (value != null) {
       result
         ..add('lat')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.lon;
     if (value != null) {
       result
         ..add('lon')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(double)));
     }
     value = object.address;
     if (value != null) {
@@ -669,10 +669,10 @@ class _$WeatherStatusSetLocationResponseApplicationJson_Ocs_DataSerializer
           result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'lat':
-          result.lat = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.lat = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'lon':
-          result.lon = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.lon = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'address':
           result.address = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -790,31 +790,31 @@ class _$Forecast_Data_Instant_DetailsSerializer implements StructuredSerializer<
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'air_pressure_at_sea_level',
-      serializers.serialize(object.airPressureAtSeaLevel, specifiedType: const FullType(num)),
+      serializers.serialize(object.airPressureAtSeaLevel, specifiedType: const FullType(double)),
       'air_temperature',
-      serializers.serialize(object.airTemperature, specifiedType: const FullType(num)),
+      serializers.serialize(object.airTemperature, specifiedType: const FullType(double)),
       'cloud_area_fraction',
-      serializers.serialize(object.cloudAreaFraction, specifiedType: const FullType(num)),
+      serializers.serialize(object.cloudAreaFraction, specifiedType: const FullType(double)),
       'cloud_area_fraction_high',
-      serializers.serialize(object.cloudAreaFractionHigh, specifiedType: const FullType(num)),
+      serializers.serialize(object.cloudAreaFractionHigh, specifiedType: const FullType(double)),
       'cloud_area_fraction_low',
-      serializers.serialize(object.cloudAreaFractionLow, specifiedType: const FullType(num)),
+      serializers.serialize(object.cloudAreaFractionLow, specifiedType: const FullType(double)),
       'cloud_area_fraction_medium',
-      serializers.serialize(object.cloudAreaFractionMedium, specifiedType: const FullType(num)),
+      serializers.serialize(object.cloudAreaFractionMedium, specifiedType: const FullType(double)),
       'dew_point_temperature',
-      serializers.serialize(object.dewPointTemperature, specifiedType: const FullType(num)),
+      serializers.serialize(object.dewPointTemperature, specifiedType: const FullType(double)),
       'fog_area_fraction',
-      serializers.serialize(object.fogAreaFraction, specifiedType: const FullType(num)),
+      serializers.serialize(object.fogAreaFraction, specifiedType: const FullType(double)),
       'relative_humidity',
-      serializers.serialize(object.relativeHumidity, specifiedType: const FullType(num)),
+      serializers.serialize(object.relativeHumidity, specifiedType: const FullType(double)),
       'ultraviolet_index_clear_sky',
-      serializers.serialize(object.ultravioletIndexClearSky, specifiedType: const FullType(num)),
+      serializers.serialize(object.ultravioletIndexClearSky, specifiedType: const FullType(double)),
       'wind_from_direction',
-      serializers.serialize(object.windFromDirection, specifiedType: const FullType(num)),
+      serializers.serialize(object.windFromDirection, specifiedType: const FullType(double)),
       'wind_speed',
-      serializers.serialize(object.windSpeed, specifiedType: const FullType(num)),
+      serializers.serialize(object.windSpeed, specifiedType: const FullType(double)),
       'wind_speed_of_gust',
-      serializers.serialize(object.windSpeedOfGust, specifiedType: const FullType(num)),
+      serializers.serialize(object.windSpeedOfGust, specifiedType: const FullType(double)),
     ];
 
     return result;
@@ -832,43 +832,48 @@ class _$Forecast_Data_Instant_DetailsSerializer implements StructuredSerializer<
       final Object? value = iterator.current;
       switch (key) {
         case 'air_pressure_at_sea_level':
-          result.airPressureAtSeaLevel = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.airPressureAtSeaLevel =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'air_temperature':
-          result.airTemperature = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.airTemperature = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'cloud_area_fraction':
-          result.cloudAreaFraction = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.cloudAreaFraction = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'cloud_area_fraction_high':
-          result.cloudAreaFractionHigh = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.cloudAreaFractionHigh =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'cloud_area_fraction_low':
-          result.cloudAreaFractionLow = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.cloudAreaFractionLow =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'cloud_area_fraction_medium':
-          result.cloudAreaFractionMedium = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.cloudAreaFractionMedium =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'dew_point_temperature':
-          result.dewPointTemperature = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.dewPointTemperature = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'fog_area_fraction':
-          result.fogAreaFraction = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.fogAreaFraction = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'relative_humidity':
-          result.relativeHumidity = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.relativeHumidity = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'ultraviolet_index_clear_sky':
-          result.ultravioletIndexClearSky = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.ultravioletIndexClearSky =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'wind_from_direction':
-          result.windFromDirection = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.windFromDirection = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'wind_speed':
-          result.windSpeed = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.windSpeed = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'wind_speed_of_gust':
-          result.windSpeedOfGust = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.windSpeedOfGust = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
       }
     }
@@ -965,7 +970,7 @@ class _$Forecast_Data_Next12Hours_DetailsSerializer implements StructuredSeriali
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'probability_of_precipitation',
-      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(num)),
+      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(double)),
     ];
 
     return result;
@@ -984,7 +989,7 @@ class _$Forecast_Data_Next12Hours_DetailsSerializer implements StructuredSeriali
       switch (key) {
         case 'probability_of_precipitation':
           result.probabilityOfPrecipitation =
-              serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
       }
     }
@@ -1087,15 +1092,15 @@ class _$Forecast_Data_Next1Hours_DetailsSerializer implements StructuredSerializ
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'precipitation_amount',
-      serializers.serialize(object.precipitationAmount, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmount, specifiedType: const FullType(double)),
       'precipitation_amount_max',
-      serializers.serialize(object.precipitationAmountMax, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmountMax, specifiedType: const FullType(double)),
       'precipitation_amount_min',
-      serializers.serialize(object.precipitationAmountMin, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmountMin, specifiedType: const FullType(double)),
       'probability_of_precipitation',
-      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(num)),
+      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(double)),
       'probability_of_thunder',
-      serializers.serialize(object.probabilityOfThunder, specifiedType: const FullType(num)),
+      serializers.serialize(object.probabilityOfThunder, specifiedType: const FullType(double)),
     ];
 
     return result;
@@ -1113,20 +1118,23 @@ class _$Forecast_Data_Next1Hours_DetailsSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'precipitation_amount':
-          result.precipitationAmount = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmount = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'precipitation_amount_max':
-          result.precipitationAmountMax = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmountMax =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'precipitation_amount_min':
-          result.precipitationAmountMin = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmountMin =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'probability_of_precipitation':
           result.probabilityOfPrecipitation =
-              serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'probability_of_thunder':
-          result.probabilityOfThunder = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.probabilityOfThunder =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
       }
     }
@@ -1229,17 +1237,17 @@ class _$Forecast_Data_Next6Hours_DetailsSerializer implements StructuredSerializ
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'air_temperature_max',
-      serializers.serialize(object.airTemperatureMax, specifiedType: const FullType(num)),
+      serializers.serialize(object.airTemperatureMax, specifiedType: const FullType(double)),
       'air_temperature_min',
-      serializers.serialize(object.airTemperatureMin, specifiedType: const FullType(num)),
+      serializers.serialize(object.airTemperatureMin, specifiedType: const FullType(double)),
       'precipitation_amount',
-      serializers.serialize(object.precipitationAmount, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmount, specifiedType: const FullType(double)),
       'precipitation_amount_max',
-      serializers.serialize(object.precipitationAmountMax, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmountMax, specifiedType: const FullType(double)),
       'precipitation_amount_min',
-      serializers.serialize(object.precipitationAmountMin, specifiedType: const FullType(num)),
+      serializers.serialize(object.precipitationAmountMin, specifiedType: const FullType(double)),
       'probability_of_precipitation',
-      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(num)),
+      serializers.serialize(object.probabilityOfPrecipitation, specifiedType: const FullType(double)),
     ];
 
     return result;
@@ -1257,23 +1265,25 @@ class _$Forecast_Data_Next6Hours_DetailsSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'air_temperature_max':
-          result.airTemperatureMax = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.airTemperatureMax = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'air_temperature_min':
-          result.airTemperatureMin = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.airTemperatureMin = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'precipitation_amount':
-          result.precipitationAmount = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmount = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'precipitation_amount_max':
-          result.precipitationAmountMax = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmountMax =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'precipitation_amount_min':
-          result.precipitationAmountMin = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+          result.precipitationAmountMin =
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
         case 'probability_of_precipitation':
           result.probabilityOfPrecipitation =
-              serializers.deserialize(value, specifiedType: const FullType(num))! as num;
+              serializers.deserialize(value, specifiedType: const FullType(double))! as double;
           break;
       }
     }
@@ -2304,11 +2314,11 @@ abstract mixin class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_
   bool? get success;
   set success(bool? success);
 
-  num? get lat;
-  set lat(num? lat);
+  double? get lat;
+  set lat(double? lat);
 
-  num? get lon;
-  set lon(num? lon);
+  double? get lon;
+  set lon(double? lon);
 
   String? get address;
   set address(String? address);
@@ -2319,9 +2329,9 @@ class _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
   @override
   final bool success;
   @override
-  final num? lat;
+  final double? lat;
   @override
-  final num? lon;
+  final double? lon;
   @override
   final String? address;
 
@@ -2388,13 +2398,13 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  num? _lat;
-  num? get lat => _$this._lat;
-  set lat(covariant num? lat) => _$this._lat = lat;
+  double? _lat;
+  double? get lat => _$this._lat;
+  set lat(covariant double? lat) => _$this._lat = lat;
 
-  num? _lon;
-  num? get lon => _$this._lon;
-  set lon(covariant num? lon) => _$this._lon = lon;
+  double? _lon;
+  double? get lon => _$this._lon;
+  set lon(covariant double? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
@@ -2678,11 +2688,11 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
 abstract mixin class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  num? get lat;
-  set lat(num? lat);
+  double? get lat;
+  set lat(double? lat);
 
-  num? get lon;
-  set lon(num? lon);
+  double? get lon;
+  set lon(double? lon);
 
   String? get address;
   set address(String? address);
@@ -2694,9 +2704,9 @@ abstract mixin class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInt
 class _$WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
     extends WeatherStatusGetLocationResponseApplicationJson_Ocs_Data {
   @override
-  final num lat;
+  final double lat;
   @override
-  final num lon;
+  final double lon;
   @override
   final String address;
   @override
@@ -2764,13 +2774,13 @@ class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder
         WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs_Data? _$v;
 
-  num? _lat;
-  num? get lat => _$this._lat;
-  set lat(covariant num? lat) => _$this._lat = lat;
+  double? _lat;
+  double? get lat => _$this._lat;
+  set lat(covariant double? lat) => _$this._lat = lat;
 
-  num? _lon;
-  num? get lon => _$this._lon;
-  set lon(covariant num? lon) => _$this._lon = lon;
+  double? _lon;
+  double? get lon => _$this._lon;
+  set lon(covariant double? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
@@ -3059,11 +3069,11 @@ abstract mixin class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInt
   bool? get success;
   set success(bool? success);
 
-  num? get lat;
-  set lat(num? lat);
+  double? get lat;
+  set lat(double? lat);
 
-  num? get lon;
-  set lon(num? lon);
+  double? get lon;
+  set lon(double? lon);
 
   String? get address;
   set address(String? address);
@@ -3074,9 +3084,9 @@ class _$WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
   @override
   final bool success;
   @override
-  final num? lat;
+  final double? lat;
   @override
-  final num? lon;
+  final double? lon;
   @override
   final String? address;
 
@@ -3143,13 +3153,13 @@ class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder
   bool? get success => _$this._success;
   set success(covariant bool? success) => _$this._success = success;
 
-  num? _lat;
-  num? get lat => _$this._lat;
-  set lat(covariant num? lat) => _$this._lat = lat;
+  double? _lat;
+  double? get lat => _$this._lat;
+  set lat(covariant double? lat) => _$this._lat = lat;
 
-  num? _lon;
-  num? get lon => _$this._lon;
-  set lon(covariant num? lon) => _$this._lon = lon;
+  double? _lon;
+  double? get lon => _$this._lon;
+  set lon(covariant double? lon) => _$this._lon = lon;
 
   String? _address;
   String? get address => _$this._address;
@@ -3428,73 +3438,73 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
 abstract mixin class Forecast_Data_Instant_DetailsInterfaceBuilder {
   void replace(Forecast_Data_Instant_DetailsInterface other);
   void update(void Function(Forecast_Data_Instant_DetailsInterfaceBuilder) updates);
-  num? get airPressureAtSeaLevel;
-  set airPressureAtSeaLevel(num? airPressureAtSeaLevel);
+  double? get airPressureAtSeaLevel;
+  set airPressureAtSeaLevel(double? airPressureAtSeaLevel);
 
-  num? get airTemperature;
-  set airTemperature(num? airTemperature);
+  double? get airTemperature;
+  set airTemperature(double? airTemperature);
 
-  num? get cloudAreaFraction;
-  set cloudAreaFraction(num? cloudAreaFraction);
+  double? get cloudAreaFraction;
+  set cloudAreaFraction(double? cloudAreaFraction);
 
-  num? get cloudAreaFractionHigh;
-  set cloudAreaFractionHigh(num? cloudAreaFractionHigh);
+  double? get cloudAreaFractionHigh;
+  set cloudAreaFractionHigh(double? cloudAreaFractionHigh);
 
-  num? get cloudAreaFractionLow;
-  set cloudAreaFractionLow(num? cloudAreaFractionLow);
+  double? get cloudAreaFractionLow;
+  set cloudAreaFractionLow(double? cloudAreaFractionLow);
 
-  num? get cloudAreaFractionMedium;
-  set cloudAreaFractionMedium(num? cloudAreaFractionMedium);
+  double? get cloudAreaFractionMedium;
+  set cloudAreaFractionMedium(double? cloudAreaFractionMedium);
 
-  num? get dewPointTemperature;
-  set dewPointTemperature(num? dewPointTemperature);
+  double? get dewPointTemperature;
+  set dewPointTemperature(double? dewPointTemperature);
 
-  num? get fogAreaFraction;
-  set fogAreaFraction(num? fogAreaFraction);
+  double? get fogAreaFraction;
+  set fogAreaFraction(double? fogAreaFraction);
 
-  num? get relativeHumidity;
-  set relativeHumidity(num? relativeHumidity);
+  double? get relativeHumidity;
+  set relativeHumidity(double? relativeHumidity);
 
-  num? get ultravioletIndexClearSky;
-  set ultravioletIndexClearSky(num? ultravioletIndexClearSky);
+  double? get ultravioletIndexClearSky;
+  set ultravioletIndexClearSky(double? ultravioletIndexClearSky);
 
-  num? get windFromDirection;
-  set windFromDirection(num? windFromDirection);
+  double? get windFromDirection;
+  set windFromDirection(double? windFromDirection);
 
-  num? get windSpeed;
-  set windSpeed(num? windSpeed);
+  double? get windSpeed;
+  set windSpeed(double? windSpeed);
 
-  num? get windSpeedOfGust;
-  set windSpeedOfGust(num? windSpeedOfGust);
+  double? get windSpeedOfGust;
+  set windSpeedOfGust(double? windSpeedOfGust);
 }
 
 class _$Forecast_Data_Instant_Details extends Forecast_Data_Instant_Details {
   @override
-  final num airPressureAtSeaLevel;
+  final double airPressureAtSeaLevel;
   @override
-  final num airTemperature;
+  final double airTemperature;
   @override
-  final num cloudAreaFraction;
+  final double cloudAreaFraction;
   @override
-  final num cloudAreaFractionHigh;
+  final double cloudAreaFractionHigh;
   @override
-  final num cloudAreaFractionLow;
+  final double cloudAreaFractionLow;
   @override
-  final num cloudAreaFractionMedium;
+  final double cloudAreaFractionMedium;
   @override
-  final num dewPointTemperature;
+  final double dewPointTemperature;
   @override
-  final num fogAreaFraction;
+  final double fogAreaFraction;
   @override
-  final num relativeHumidity;
+  final double relativeHumidity;
   @override
-  final num ultravioletIndexClearSky;
+  final double ultravioletIndexClearSky;
   @override
-  final num windFromDirection;
+  final double windFromDirection;
   @override
-  final num windSpeed;
+  final double windSpeed;
   @override
-  final num windSpeedOfGust;
+  final double windSpeedOfGust;
 
   factory _$Forecast_Data_Instant_Details([void Function(Forecast_Data_Instant_DetailsBuilder)? updates]) =>
       (Forecast_Data_Instant_DetailsBuilder()..update(updates))._build();
@@ -3606,61 +3616,62 @@ class Forecast_Data_Instant_DetailsBuilder
         Forecast_Data_Instant_DetailsInterfaceBuilder {
   _$Forecast_Data_Instant_Details? _$v;
 
-  num? _airPressureAtSeaLevel;
-  num? get airPressureAtSeaLevel => _$this._airPressureAtSeaLevel;
-  set airPressureAtSeaLevel(covariant num? airPressureAtSeaLevel) =>
+  double? _airPressureAtSeaLevel;
+  double? get airPressureAtSeaLevel => _$this._airPressureAtSeaLevel;
+  set airPressureAtSeaLevel(covariant double? airPressureAtSeaLevel) =>
       _$this._airPressureAtSeaLevel = airPressureAtSeaLevel;
 
-  num? _airTemperature;
-  num? get airTemperature => _$this._airTemperature;
-  set airTemperature(covariant num? airTemperature) => _$this._airTemperature = airTemperature;
+  double? _airTemperature;
+  double? get airTemperature => _$this._airTemperature;
+  set airTemperature(covariant double? airTemperature) => _$this._airTemperature = airTemperature;
 
-  num? _cloudAreaFraction;
-  num? get cloudAreaFraction => _$this._cloudAreaFraction;
-  set cloudAreaFraction(covariant num? cloudAreaFraction) => _$this._cloudAreaFraction = cloudAreaFraction;
+  double? _cloudAreaFraction;
+  double? get cloudAreaFraction => _$this._cloudAreaFraction;
+  set cloudAreaFraction(covariant double? cloudAreaFraction) => _$this._cloudAreaFraction = cloudAreaFraction;
 
-  num? _cloudAreaFractionHigh;
-  num? get cloudAreaFractionHigh => _$this._cloudAreaFractionHigh;
-  set cloudAreaFractionHigh(covariant num? cloudAreaFractionHigh) =>
+  double? _cloudAreaFractionHigh;
+  double? get cloudAreaFractionHigh => _$this._cloudAreaFractionHigh;
+  set cloudAreaFractionHigh(covariant double? cloudAreaFractionHigh) =>
       _$this._cloudAreaFractionHigh = cloudAreaFractionHigh;
 
-  num? _cloudAreaFractionLow;
-  num? get cloudAreaFractionLow => _$this._cloudAreaFractionLow;
-  set cloudAreaFractionLow(covariant num? cloudAreaFractionLow) => _$this._cloudAreaFractionLow = cloudAreaFractionLow;
+  double? _cloudAreaFractionLow;
+  double? get cloudAreaFractionLow => _$this._cloudAreaFractionLow;
+  set cloudAreaFractionLow(covariant double? cloudAreaFractionLow) =>
+      _$this._cloudAreaFractionLow = cloudAreaFractionLow;
 
-  num? _cloudAreaFractionMedium;
-  num? get cloudAreaFractionMedium => _$this._cloudAreaFractionMedium;
-  set cloudAreaFractionMedium(covariant num? cloudAreaFractionMedium) =>
+  double? _cloudAreaFractionMedium;
+  double? get cloudAreaFractionMedium => _$this._cloudAreaFractionMedium;
+  set cloudAreaFractionMedium(covariant double? cloudAreaFractionMedium) =>
       _$this._cloudAreaFractionMedium = cloudAreaFractionMedium;
 
-  num? _dewPointTemperature;
-  num? get dewPointTemperature => _$this._dewPointTemperature;
-  set dewPointTemperature(covariant num? dewPointTemperature) => _$this._dewPointTemperature = dewPointTemperature;
+  double? _dewPointTemperature;
+  double? get dewPointTemperature => _$this._dewPointTemperature;
+  set dewPointTemperature(covariant double? dewPointTemperature) => _$this._dewPointTemperature = dewPointTemperature;
 
-  num? _fogAreaFraction;
-  num? get fogAreaFraction => _$this._fogAreaFraction;
-  set fogAreaFraction(covariant num? fogAreaFraction) => _$this._fogAreaFraction = fogAreaFraction;
+  double? _fogAreaFraction;
+  double? get fogAreaFraction => _$this._fogAreaFraction;
+  set fogAreaFraction(covariant double? fogAreaFraction) => _$this._fogAreaFraction = fogAreaFraction;
 
-  num? _relativeHumidity;
-  num? get relativeHumidity => _$this._relativeHumidity;
-  set relativeHumidity(covariant num? relativeHumidity) => _$this._relativeHumidity = relativeHumidity;
+  double? _relativeHumidity;
+  double? get relativeHumidity => _$this._relativeHumidity;
+  set relativeHumidity(covariant double? relativeHumidity) => _$this._relativeHumidity = relativeHumidity;
 
-  num? _ultravioletIndexClearSky;
-  num? get ultravioletIndexClearSky => _$this._ultravioletIndexClearSky;
-  set ultravioletIndexClearSky(covariant num? ultravioletIndexClearSky) =>
+  double? _ultravioletIndexClearSky;
+  double? get ultravioletIndexClearSky => _$this._ultravioletIndexClearSky;
+  set ultravioletIndexClearSky(covariant double? ultravioletIndexClearSky) =>
       _$this._ultravioletIndexClearSky = ultravioletIndexClearSky;
 
-  num? _windFromDirection;
-  num? get windFromDirection => _$this._windFromDirection;
-  set windFromDirection(covariant num? windFromDirection) => _$this._windFromDirection = windFromDirection;
+  double? _windFromDirection;
+  double? get windFromDirection => _$this._windFromDirection;
+  set windFromDirection(covariant double? windFromDirection) => _$this._windFromDirection = windFromDirection;
 
-  num? _windSpeed;
-  num? get windSpeed => _$this._windSpeed;
-  set windSpeed(covariant num? windSpeed) => _$this._windSpeed = windSpeed;
+  double? _windSpeed;
+  double? get windSpeed => _$this._windSpeed;
+  set windSpeed(covariant double? windSpeed) => _$this._windSpeed = windSpeed;
 
-  num? _windSpeedOfGust;
-  num? get windSpeedOfGust => _$this._windSpeedOfGust;
-  set windSpeedOfGust(covariant num? windSpeedOfGust) => _$this._windSpeedOfGust = windSpeedOfGust;
+  double? _windSpeedOfGust;
+  double? get windSpeedOfGust => _$this._windSpeedOfGust;
+  set windSpeedOfGust(covariant double? windSpeedOfGust) => _$this._windSpeedOfGust = windSpeedOfGust;
 
   Forecast_Data_Instant_DetailsBuilder();
 
@@ -3921,13 +3932,13 @@ class Forecast_Data_Next12Hours_SummaryBuilder
 abstract mixin class Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
   void replace(Forecast_Data_Next12Hours_DetailsInterface other);
   void update(void Function(Forecast_Data_Next12Hours_DetailsInterfaceBuilder) updates);
-  num? get probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
+  double? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(double? probabilityOfPrecipitation);
 }
 
 class _$Forecast_Data_Next12Hours_Details extends Forecast_Data_Next12Hours_Details {
   @override
-  final num probabilityOfPrecipitation;
+  final double probabilityOfPrecipitation;
 
   factory _$Forecast_Data_Next12Hours_Details([void Function(Forecast_Data_Next12Hours_DetailsBuilder)? updates]) =>
       (Forecast_Data_Next12Hours_DetailsBuilder()..update(updates))._build();
@@ -3972,9 +3983,9 @@ class Forecast_Data_Next12Hours_DetailsBuilder
         Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next12Hours_Details? _$v;
 
-  num? _probabilityOfPrecipitation;
-  num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
+  double? _probabilityOfPrecipitation;
+  double? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(covariant double? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
   Forecast_Data_Next12Hours_DetailsBuilder();
@@ -4223,33 +4234,33 @@ class Forecast_Data_Next1Hours_SummaryBuilder
 abstract mixin class Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
   void replace(Forecast_Data_Next1Hours_DetailsInterface other);
   void update(void Function(Forecast_Data_Next1Hours_DetailsInterfaceBuilder) updates);
-  num? get precipitationAmount;
-  set precipitationAmount(num? precipitationAmount);
+  double? get precipitationAmount;
+  set precipitationAmount(double? precipitationAmount);
 
-  num? get precipitationAmountMax;
-  set precipitationAmountMax(num? precipitationAmountMax);
+  double? get precipitationAmountMax;
+  set precipitationAmountMax(double? precipitationAmountMax);
 
-  num? get precipitationAmountMin;
-  set precipitationAmountMin(num? precipitationAmountMin);
+  double? get precipitationAmountMin;
+  set precipitationAmountMin(double? precipitationAmountMin);
 
-  num? get probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
+  double? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(double? probabilityOfPrecipitation);
 
-  num? get probabilityOfThunder;
-  set probabilityOfThunder(num? probabilityOfThunder);
+  double? get probabilityOfThunder;
+  set probabilityOfThunder(double? probabilityOfThunder);
 }
 
 class _$Forecast_Data_Next1Hours_Details extends Forecast_Data_Next1Hours_Details {
   @override
-  final num precipitationAmount;
+  final double precipitationAmount;
   @override
-  final num precipitationAmountMax;
+  final double precipitationAmountMax;
   @override
-  final num precipitationAmountMin;
+  final double precipitationAmountMin;
   @override
-  final num probabilityOfPrecipitation;
+  final double probabilityOfPrecipitation;
   @override
-  final num probabilityOfThunder;
+  final double probabilityOfThunder;
 
   factory _$Forecast_Data_Next1Hours_Details([void Function(Forecast_Data_Next1Hours_DetailsBuilder)? updates]) =>
       (Forecast_Data_Next1Hours_DetailsBuilder()..update(updates))._build();
@@ -4321,28 +4332,29 @@ class Forecast_Data_Next1Hours_DetailsBuilder
         Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next1Hours_Details? _$v;
 
-  num? _precipitationAmount;
-  num? get precipitationAmount => _$this._precipitationAmount;
-  set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
+  double? _precipitationAmount;
+  double? get precipitationAmount => _$this._precipitationAmount;
+  set precipitationAmount(covariant double? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
-  num? _precipitationAmountMax;
-  num? get precipitationAmountMax => _$this._precipitationAmountMax;
-  set precipitationAmountMax(covariant num? precipitationAmountMax) =>
+  double? _precipitationAmountMax;
+  double? get precipitationAmountMax => _$this._precipitationAmountMax;
+  set precipitationAmountMax(covariant double? precipitationAmountMax) =>
       _$this._precipitationAmountMax = precipitationAmountMax;
 
-  num? _precipitationAmountMin;
-  num? get precipitationAmountMin => _$this._precipitationAmountMin;
-  set precipitationAmountMin(covariant num? precipitationAmountMin) =>
+  double? _precipitationAmountMin;
+  double? get precipitationAmountMin => _$this._precipitationAmountMin;
+  set precipitationAmountMin(covariant double? precipitationAmountMin) =>
       _$this._precipitationAmountMin = precipitationAmountMin;
 
-  num? _probabilityOfPrecipitation;
-  num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
+  double? _probabilityOfPrecipitation;
+  double? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(covariant double? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
-  num? _probabilityOfThunder;
-  num? get probabilityOfThunder => _$this._probabilityOfThunder;
-  set probabilityOfThunder(covariant num? probabilityOfThunder) => _$this._probabilityOfThunder = probabilityOfThunder;
+  double? _probabilityOfThunder;
+  double? get probabilityOfThunder => _$this._probabilityOfThunder;
+  set probabilityOfThunder(covariant double? probabilityOfThunder) =>
+      _$this._probabilityOfThunder = probabilityOfThunder;
 
   Forecast_Data_Next1Hours_DetailsBuilder();
 
@@ -4600,38 +4612,38 @@ class Forecast_Data_Next6Hours_SummaryBuilder
 abstract mixin class Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
   void replace(Forecast_Data_Next6Hours_DetailsInterface other);
   void update(void Function(Forecast_Data_Next6Hours_DetailsInterfaceBuilder) updates);
-  num? get airTemperatureMax;
-  set airTemperatureMax(num? airTemperatureMax);
+  double? get airTemperatureMax;
+  set airTemperatureMax(double? airTemperatureMax);
 
-  num? get airTemperatureMin;
-  set airTemperatureMin(num? airTemperatureMin);
+  double? get airTemperatureMin;
+  set airTemperatureMin(double? airTemperatureMin);
 
-  num? get precipitationAmount;
-  set precipitationAmount(num? precipitationAmount);
+  double? get precipitationAmount;
+  set precipitationAmount(double? precipitationAmount);
 
-  num? get precipitationAmountMax;
-  set precipitationAmountMax(num? precipitationAmountMax);
+  double? get precipitationAmountMax;
+  set precipitationAmountMax(double? precipitationAmountMax);
 
-  num? get precipitationAmountMin;
-  set precipitationAmountMin(num? precipitationAmountMin);
+  double? get precipitationAmountMin;
+  set precipitationAmountMin(double? precipitationAmountMin);
 
-  num? get probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(num? probabilityOfPrecipitation);
+  double? get probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(double? probabilityOfPrecipitation);
 }
 
 class _$Forecast_Data_Next6Hours_Details extends Forecast_Data_Next6Hours_Details {
   @override
-  final num airTemperatureMax;
+  final double airTemperatureMax;
   @override
-  final num airTemperatureMin;
+  final double airTemperatureMin;
   @override
-  final num precipitationAmount;
+  final double precipitationAmount;
   @override
-  final num precipitationAmountMax;
+  final double precipitationAmountMax;
   @override
-  final num precipitationAmountMin;
+  final double precipitationAmountMin;
   @override
-  final num probabilityOfPrecipitation;
+  final double probabilityOfPrecipitation;
 
   factory _$Forecast_Data_Next6Hours_Details([void Function(Forecast_Data_Next6Hours_DetailsBuilder)? updates]) =>
       (Forecast_Data_Next6Hours_DetailsBuilder()..update(updates))._build();
@@ -4707,31 +4719,31 @@ class Forecast_Data_Next6Hours_DetailsBuilder
         Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next6Hours_Details? _$v;
 
-  num? _airTemperatureMax;
-  num? get airTemperatureMax => _$this._airTemperatureMax;
-  set airTemperatureMax(covariant num? airTemperatureMax) => _$this._airTemperatureMax = airTemperatureMax;
+  double? _airTemperatureMax;
+  double? get airTemperatureMax => _$this._airTemperatureMax;
+  set airTemperatureMax(covariant double? airTemperatureMax) => _$this._airTemperatureMax = airTemperatureMax;
 
-  num? _airTemperatureMin;
-  num? get airTemperatureMin => _$this._airTemperatureMin;
-  set airTemperatureMin(covariant num? airTemperatureMin) => _$this._airTemperatureMin = airTemperatureMin;
+  double? _airTemperatureMin;
+  double? get airTemperatureMin => _$this._airTemperatureMin;
+  set airTemperatureMin(covariant double? airTemperatureMin) => _$this._airTemperatureMin = airTemperatureMin;
 
-  num? _precipitationAmount;
-  num? get precipitationAmount => _$this._precipitationAmount;
-  set precipitationAmount(covariant num? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
+  double? _precipitationAmount;
+  double? get precipitationAmount => _$this._precipitationAmount;
+  set precipitationAmount(covariant double? precipitationAmount) => _$this._precipitationAmount = precipitationAmount;
 
-  num? _precipitationAmountMax;
-  num? get precipitationAmountMax => _$this._precipitationAmountMax;
-  set precipitationAmountMax(covariant num? precipitationAmountMax) =>
+  double? _precipitationAmountMax;
+  double? get precipitationAmountMax => _$this._precipitationAmountMax;
+  set precipitationAmountMax(covariant double? precipitationAmountMax) =>
       _$this._precipitationAmountMax = precipitationAmountMax;
 
-  num? _precipitationAmountMin;
-  num? get precipitationAmountMin => _$this._precipitationAmountMin;
-  set precipitationAmountMin(covariant num? precipitationAmountMin) =>
+  double? _precipitationAmountMin;
+  double? get precipitationAmountMin => _$this._precipitationAmountMin;
+  set precipitationAmountMin(covariant double? precipitationAmountMin) =>
       _$this._precipitationAmountMin = precipitationAmountMin;
 
-  num? _probabilityOfPrecipitation;
-  num? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
-  set probabilityOfPrecipitation(covariant num? probabilityOfPrecipitation) =>
+  double? _probabilityOfPrecipitation;
+  double? get probabilityOfPrecipitation => _$this._probabilityOfPrecipitation;
+  set probabilityOfPrecipitation(covariant double? probabilityOfPrecipitation) =>
       _$this._probabilityOfPrecipitation = probabilityOfPrecipitation;
 
   Forecast_Data_Next6Hours_DetailsBuilder();

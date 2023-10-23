@@ -10,7 +10,7 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/content_string.dart';
+import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
@@ -1729,6 +1729,7 @@ final Serializers _serializers = (Serializers().toBuilder()
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
+      ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();

@@ -10,8 +10,9 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/content_string.dart';
+import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/models.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
@@ -2895,7 +2896,7 @@ abstract class RemoteUnshareResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class ShareInfo_SizeInterface {
   int? get $int;
-  num? get $num;
+  double? get $double;
 }
 
 abstract class ShareInfo_Size implements ShareInfo_SizeInterface, Built<ShareInfo_Size, ShareInfo_SizeBuilder> {
@@ -2946,9 +2947,9 @@ class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> 
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
-    assert([result._$int, result._$num].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$int, result._$double].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -2987,7 +2988,7 @@ abstract class ShareInfo implements ShareInfoInterface, Built<ShareInfo, ShareIn
 
 @BuiltValue(instantiable: false)
 abstract interface class Share_ItemSizeInterface {
-  num? get $num;
+  double? get $double;
   int? get $int;
 }
 
@@ -3036,12 +3037,12 @@ class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> 
   }) {
     final result = Share_ItemSizeBuilder()..data = JsonObject(data);
     try {
-      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     try {
       result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -5376,6 +5377,7 @@ final Serializers _serializers = (Serializers().toBuilder()
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
+      ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
