@@ -194,7 +194,7 @@ packages:
     source: hosted
     version: "0.7.8"
   dependency_validator:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: dependency_validator
       sha256: f727a5627aa405965fab4aef4f468e50a9b632ba0737fd2f98c932fec6d712b9

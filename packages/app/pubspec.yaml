@@ -51,6 +51,7 @@ dev_dependencies:
       path: packages/nextcloud
   shared_preferences: any
   vector_graphics_compiler: any
+  dependency_validator: ^3.0.0
 
 flutter:
   uses-material-design: true
