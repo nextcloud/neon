@@ -163,6 +163,18 @@ Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs> _$usersGetUsersDetai
     _$UsersGetUsersDetailsResponseApplicationJson_OcsSerializer();
 Serializer<UsersGetUsersDetailsResponseApplicationJson> _$usersGetUsersDetailsResponseApplicationJsonSerializer =
     _$UsersGetUsersDetailsResponseApplicationJsonSerializer();
+Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1>
+    _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer =
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Serializer();
+Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data>
+    _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataSerializer =
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataSerializer();
+Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs>
+    _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsSerializer =
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_OcsSerializer();
+Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson>
+    _$usersGetDisabledUsersDetailsResponseApplicationJsonSerializer =
+    _$UsersGetDisabledUsersDetailsResponseApplicationJsonSerializer();
 Serializer<UsersSearchByPhoneNumbersResponseApplicationJson_Ocs>
     _$usersSearchByPhoneNumbersResponseApplicationJsonOcsSerializer =
     _$UsersSearchByPhoneNumbersResponseApplicationJson_OcsSerializer();
@@ -2292,7 +2304,7 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
     if (value != null) {
       result
         ..add('free')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsQuota_Free)));
     }
     value = object.quota;
     if (value != null) {
@@ -2304,19 +2316,19 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
     if (value != null) {
       result
         ..add('relative')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsQuota_Relative)));
     }
     value = object.total;
     if (value != null) {
       result
         ..add('total')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsQuota_Total)));
     }
     value = object.used;
     if (value != null) {
       result
         ..add('used')
-        ..add(serializers.serialize(value, specifiedType: const FullType(num)));
+        ..add(serializers.serialize(value, specifiedType: const FullType(UserDetailsQuota_Used)));
     }
     return result;
   }
@@ -2333,20 +2345,24 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
       final Object? value = iterator.current;
       switch (key) {
         case 'free':
-          result.free = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.free.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Free))!
+              as UserDetailsQuota_Free);
           break;
         case 'quota':
           result.quota.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Quota))!
               as UserDetailsQuota_Quota);
           break;
         case 'relative':
-          result.relative = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.relative.replace(serializers.deserialize(value,
+              specifiedType: const FullType(UserDetailsQuota_Relative))! as UserDetailsQuota_Relative);
           break;
         case 'total':
-          result.total = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.total.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Total))!
+              as UserDetailsQuota_Total);
           break;
         case 'used':
-          result.used = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
+          result.used.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Used))!
+              as UserDetailsQuota_Used);
           break;
       }
     }
@@ -4086,6 +4102,194 @@ class _$UsersGetUsersDetailsResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs))!
               as UsersGetUsersDetailsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Serializer
+    implements StructuredSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1,
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1
+  ];
+  @override
+  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data,
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'users',
+      serializers.serialize(object.users,
+          specifiedType: const FullType(BuiltMap,
+              [FullType(String), FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'users':
+          result.users.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap,
+                  [FullType(String), FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users)]))!);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs,
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data))!
+              as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJsonSerializer
+    implements StructuredSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetDisabledUsersDetailsResponseApplicationJson,
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UsersGetDisabledUsersDetailsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs))!
+              as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -10816,6 +11020,118 @@ class UserDetails_BackendCapabilitiesBuilder
   }
 }
 
+abstract mixin class UserDetailsQuota_FreeInterfaceBuilder {
+  void replace(UserDetailsQuota_FreeInterface other);
+  void update(void Function(UserDetailsQuota_FreeInterfaceBuilder) updates);
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
+class _$UserDetailsQuota_Free extends UserDetailsQuota_Free {
+  @override
+  final JsonObject data;
+  @override
+  final num? $num;
+  @override
+  final int? $int;
+
+  factory _$UserDetailsQuota_Free([void Function(UserDetailsQuota_FreeBuilder)? updates]) =>
+      (UserDetailsQuota_FreeBuilder()..update(updates))._build();
+
+  _$UserDetailsQuota_Free._({required this.data, this.$num, this.$int}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data');
+  }
+
+  @override
+  UserDetailsQuota_Free rebuild(void Function(UserDetailsQuota_FreeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserDetailsQuota_FreeBuilder toBuilder() => UserDetailsQuota_FreeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserDetailsQuota_Free && data == other.data && $num == other.$num && $int == other.$int;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Free')
+          ..add('data', data)
+          ..add('\$num', $num)
+          ..add('\$int', $int))
+        .toString();
+  }
+}
+
+class UserDetailsQuota_FreeBuilder
+    implements Builder<UserDetailsQuota_Free, UserDetailsQuota_FreeBuilder>, UserDetailsQuota_FreeInterfaceBuilder {
+  _$UserDetailsQuota_Free? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  num? _$num;
+  num? get $num => _$this._$num;
+  set $num(covariant num? $num) => _$this._$num = $num;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(covariant int? $int) => _$this._$int = $int;
+
+  UserDetailsQuota_FreeBuilder();
+
+  UserDetailsQuota_FreeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$num = $v.$num;
+      _$int = $v.$int;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserDetailsQuota_Free other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserDetailsQuota_Free;
+  }
+
+  @override
+  void update(void Function(UserDetailsQuota_FreeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserDetailsQuota_Free build() => _build();
+
+  _$UserDetailsQuota_Free _build() {
+    final _$result = _$v ??
+        _$UserDetailsQuota_Free._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data'),
+            $num: $num,
+            $int: $int);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class UserDetailsQuota_QuotaInterfaceBuilder {
   void replace(UserDetailsQuota_QuotaInterface other);
   void update(void Function(UserDetailsQuota_QuotaInterfaceBuilder) updates);
@@ -10945,36 +11261,374 @@ class UserDetailsQuota_QuotaBuilder
   }
 }
 
+abstract mixin class UserDetailsQuota_RelativeInterfaceBuilder {
+  void replace(UserDetailsQuota_RelativeInterface other);
+  void update(void Function(UserDetailsQuota_RelativeInterfaceBuilder) updates);
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
+class _$UserDetailsQuota_Relative extends UserDetailsQuota_Relative {
+  @override
+  final JsonObject data;
+  @override
+  final num? $num;
+  @override
+  final int? $int;
+
+  factory _$UserDetailsQuota_Relative([void Function(UserDetailsQuota_RelativeBuilder)? updates]) =>
+      (UserDetailsQuota_RelativeBuilder()..update(updates))._build();
+
+  _$UserDetailsQuota_Relative._({required this.data, this.$num, this.$int}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data');
+  }
+
+  @override
+  UserDetailsQuota_Relative rebuild(void Function(UserDetailsQuota_RelativeBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserDetailsQuota_RelativeBuilder toBuilder() => UserDetailsQuota_RelativeBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserDetailsQuota_Relative && data == other.data && $num == other.$num && $int == other.$int;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Relative')
+          ..add('data', data)
+          ..add('\$num', $num)
+          ..add('\$int', $int))
+        .toString();
+  }
+}
+
+class UserDetailsQuota_RelativeBuilder
+    implements
+        Builder<UserDetailsQuota_Relative, UserDetailsQuota_RelativeBuilder>,
+        UserDetailsQuota_RelativeInterfaceBuilder {
+  _$UserDetailsQuota_Relative? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  num? _$num;
+  num? get $num => _$this._$num;
+  set $num(covariant num? $num) => _$this._$num = $num;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(covariant int? $int) => _$this._$int = $int;
+
+  UserDetailsQuota_RelativeBuilder();
+
+  UserDetailsQuota_RelativeBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$num = $v.$num;
+      _$int = $v.$int;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserDetailsQuota_Relative other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserDetailsQuota_Relative;
+  }
+
+  @override
+  void update(void Function(UserDetailsQuota_RelativeBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserDetailsQuota_Relative build() => _build();
+
+  _$UserDetailsQuota_Relative _build() {
+    final _$result = _$v ??
+        _$UserDetailsQuota_Relative._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data'),
+            $num: $num,
+            $int: $int);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UserDetailsQuota_TotalInterfaceBuilder {
+  void replace(UserDetailsQuota_TotalInterface other);
+  void update(void Function(UserDetailsQuota_TotalInterfaceBuilder) updates);
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
+class _$UserDetailsQuota_Total extends UserDetailsQuota_Total {
+  @override
+  final JsonObject data;
+  @override
+  final num? $num;
+  @override
+  final int? $int;
+
+  factory _$UserDetailsQuota_Total([void Function(UserDetailsQuota_TotalBuilder)? updates]) =>
+      (UserDetailsQuota_TotalBuilder()..update(updates))._build();
+
+  _$UserDetailsQuota_Total._({required this.data, this.$num, this.$int}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data');
+  }
+
+  @override
+  UserDetailsQuota_Total rebuild(void Function(UserDetailsQuota_TotalBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserDetailsQuota_TotalBuilder toBuilder() => UserDetailsQuota_TotalBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserDetailsQuota_Total && data == other.data && $num == other.$num && $int == other.$int;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Total')
+          ..add('data', data)
+          ..add('\$num', $num)
+          ..add('\$int', $int))
+        .toString();
+  }
+}
+
+class UserDetailsQuota_TotalBuilder
+    implements Builder<UserDetailsQuota_Total, UserDetailsQuota_TotalBuilder>, UserDetailsQuota_TotalInterfaceBuilder {
+  _$UserDetailsQuota_Total? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  num? _$num;
+  num? get $num => _$this._$num;
+  set $num(covariant num? $num) => _$this._$num = $num;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(covariant int? $int) => _$this._$int = $int;
+
+  UserDetailsQuota_TotalBuilder();
+
+  UserDetailsQuota_TotalBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$num = $v.$num;
+      _$int = $v.$int;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserDetailsQuota_Total other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserDetailsQuota_Total;
+  }
+
+  @override
+  void update(void Function(UserDetailsQuota_TotalBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserDetailsQuota_Total build() => _build();
+
+  _$UserDetailsQuota_Total _build() {
+    final _$result = _$v ??
+        _$UserDetailsQuota_Total._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data'),
+            $num: $num,
+            $int: $int);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UserDetailsQuota_UsedInterfaceBuilder {
+  void replace(UserDetailsQuota_UsedInterface other);
+  void update(void Function(UserDetailsQuota_UsedInterfaceBuilder) updates);
+  num? get $num;
+  set $num(num? $num);
+
+  int? get $int;
+  set $int(int? $int);
+}
+
+class _$UserDetailsQuota_Used extends UserDetailsQuota_Used {
+  @override
+  final JsonObject data;
+  @override
+  final num? $num;
+  @override
+  final int? $int;
+
+  factory _$UserDetailsQuota_Used([void Function(UserDetailsQuota_UsedBuilder)? updates]) =>
+      (UserDetailsQuota_UsedBuilder()..update(updates))._build();
+
+  _$UserDetailsQuota_Used._({required this.data, this.$num, this.$int}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data');
+  }
+
+  @override
+  UserDetailsQuota_Used rebuild(void Function(UserDetailsQuota_UsedBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UserDetailsQuota_UsedBuilder toBuilder() => UserDetailsQuota_UsedBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UserDetailsQuota_Used && data == other.data && $num == other.$num && $int == other.$int;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, $num.hashCode);
+    _$hash = $jc(_$hash, $int.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Used')
+          ..add('data', data)
+          ..add('\$num', $num)
+          ..add('\$int', $int))
+        .toString();
+  }
+}
+
+class UserDetailsQuota_UsedBuilder
+    implements Builder<UserDetailsQuota_Used, UserDetailsQuota_UsedBuilder>, UserDetailsQuota_UsedInterfaceBuilder {
+  _$UserDetailsQuota_Used? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  num? _$num;
+  num? get $num => _$this._$num;
+  set $num(covariant num? $num) => _$this._$num = $num;
+
+  int? _$int;
+  int? get $int => _$this._$int;
+  set $int(covariant int? $int) => _$this._$int = $int;
+
+  UserDetailsQuota_UsedBuilder();
+
+  UserDetailsQuota_UsedBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _$num = $v.$num;
+      _$int = $v.$int;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UserDetailsQuota_Used other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UserDetailsQuota_Used;
+  }
+
+  @override
+  void update(void Function(UserDetailsQuota_UsedBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UserDetailsQuota_Used build() => _build();
+
+  _$UserDetailsQuota_Used _build() {
+    final _$result = _$v ??
+        _$UserDetailsQuota_Used._(
+            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data'),
+            $num: $num,
+            $int: $int);
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class UserDetailsQuotaInterfaceBuilder {
   void replace(UserDetailsQuotaInterface other);
   void update(void Function(UserDetailsQuotaInterfaceBuilder) updates);
-  num? get free;
-  set free(num? free);
+  UserDetailsQuota_FreeBuilder get free;
+  set free(UserDetailsQuota_FreeBuilder? free);
 
   UserDetailsQuota_QuotaBuilder get quota;
   set quota(UserDetailsQuota_QuotaBuilder? quota);
 
-  num? get relative;
-  set relative(num? relative);
+  UserDetailsQuota_RelativeBuilder get relative;
+  set relative(UserDetailsQuota_RelativeBuilder? relative);
 
-  num? get total;
-  set total(num? total);
+  UserDetailsQuota_TotalBuilder get total;
+  set total(UserDetailsQuota_TotalBuilder? total);
 
-  num? get used;
-  set used(num? used);
+  UserDetailsQuota_UsedBuilder get used;
+  set used(UserDetailsQuota_UsedBuilder? used);
 }
 
 class _$UserDetailsQuota extends UserDetailsQuota {
   @override
-  final num? free;
+  final UserDetailsQuota_Free? free;
   @override
   final UserDetailsQuota_Quota? quota;
   @override
-  final num? relative;
+  final UserDetailsQuota_Relative? relative;
   @override
-  final num? total;
+  final UserDetailsQuota_Total? total;
   @override
-  final num? used;
+  final UserDetailsQuota_Used? used;
 
   factory _$UserDetailsQuota([void Function(UserDetailsQuotaBuilder)? updates]) =>
       (UserDetailsQuotaBuilder()..update(updates))._build();
@@ -11026,36 +11680,36 @@ class UserDetailsQuotaBuilder
     implements Builder<UserDetailsQuota, UserDetailsQuotaBuilder>, UserDetailsQuotaInterfaceBuilder {
   _$UserDetailsQuota? _$v;
 
-  num? _free;
-  num? get free => _$this._free;
-  set free(covariant num? free) => _$this._free = free;
+  UserDetailsQuota_FreeBuilder? _free;
+  UserDetailsQuota_FreeBuilder get free => _$this._free ??= UserDetailsQuota_FreeBuilder();
+  set free(covariant UserDetailsQuota_FreeBuilder? free) => _$this._free = free;
 
   UserDetailsQuota_QuotaBuilder? _quota;
   UserDetailsQuota_QuotaBuilder get quota => _$this._quota ??= UserDetailsQuota_QuotaBuilder();
   set quota(covariant UserDetailsQuota_QuotaBuilder? quota) => _$this._quota = quota;
 
-  num? _relative;
-  num? get relative => _$this._relative;
-  set relative(covariant num? relative) => _$this._relative = relative;
+  UserDetailsQuota_RelativeBuilder? _relative;
+  UserDetailsQuota_RelativeBuilder get relative => _$this._relative ??= UserDetailsQuota_RelativeBuilder();
+  set relative(covariant UserDetailsQuota_RelativeBuilder? relative) => _$this._relative = relative;
 
-  num? _total;
-  num? get total => _$this._total;
-  set total(covariant num? total) => _$this._total = total;
+  UserDetailsQuota_TotalBuilder? _total;
+  UserDetailsQuota_TotalBuilder get total => _$this._total ??= UserDetailsQuota_TotalBuilder();
+  set total(covariant UserDetailsQuota_TotalBuilder? total) => _$this._total = total;
 
-  num? _used;
-  num? get used => _$this._used;
-  set used(covariant num? used) => _$this._used = used;
+  UserDetailsQuota_UsedBuilder? _used;
+  UserDetailsQuota_UsedBuilder get used => _$this._used ??= UserDetailsQuota_UsedBuilder();
+  set used(covariant UserDetailsQuota_UsedBuilder? used) => _$this._used = used;
 
   UserDetailsQuotaBuilder();
 
   UserDetailsQuotaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _free = $v.free;
+      _free = $v.free?.toBuilder();
       _quota = $v.quota?.toBuilder();
-      _relative = $v.relative;
-      _total = $v.total;
-      _used = $v.used;
+      _relative = $v.relative?.toBuilder();
+      _total = $v.total?.toBuilder();
+      _used = $v.used?.toBuilder();
       _$v = null;
     }
     return this;
@@ -11078,13 +11732,26 @@ class UserDetailsQuotaBuilder
   _$UserDetailsQuota _build() {
     _$UserDetailsQuota _$result;
     try {
-      _$result =
-          _$v ?? _$UserDetailsQuota._(free: free, quota: _quota?.build(), relative: relative, total: total, used: used);
+      _$result = _$v ??
+          _$UserDetailsQuota._(
+              free: _free?.build(),
+              quota: _quota?.build(),
+              relative: _relative?.build(),
+              total: _total?.build(),
+              used: _used?.build());
     } catch (_) {
       late String _$failedField;
       try {
+        _$failedField = 'free';
+        _free?.build();
         _$failedField = 'quota';
         _quota?.build();
+        _$failedField = 'relative';
+        _relative?.build();
+        _$failedField = 'total';
+        _total?.build();
+        _$failedField = 'used';
+        _used?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'UserDetailsQuota', _$failedField, e.toString());
       }
@@ -15580,6 +16247,604 @@ class UsersGetUsersDetailsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'UsersGetUsersDetailsResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  void replace(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface other);
+  void update(
+      void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1
+    extends UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 {
+  @override
+  final String id;
+
+  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1(
+          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder)? updates]) =>
+      (UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder()..update(updates))._build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1._({required this.id}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        id, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id');
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 rebuild(
+          void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder toBuilder() =>
+      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 && id == other.id;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1')
+          ..add('id', id))
+        .toString();
+  }
+}
+
+class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
+    implements
+        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder>,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1InterfaceBuilder {
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? _$v;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+  }
+
+  @override
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 build() => _build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1 _build() {
+    final _$result = _$v ??
+        _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1._(
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1', 'id'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
+  void replace(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
+  void update(
+      void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
+  UserDetailsBuilder get userDetails;
+  set userDetails(UserDetailsBuilder? userDetails);
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
+      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+  set usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1(
+      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+          usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1);
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users
+    extends UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users {
+  @override
+  final JsonObject data;
+  @override
+  final UserDetails? userDetails;
+  @override
+  final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+
+  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users(
+          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates]) =>
+      (UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..update(updates))._build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
+      {required this.data, this.userDetails, this.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data');
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users rebuild(
+          void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder toBuilder() =>
+      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users &&
+        data == other.data &&
+        userDetails == other.userDetails &&
+        usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 ==
+            other.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, userDetails.hashCode);
+    _$hash = $jc(_$hash, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users')
+          ..add('data', data)
+          ..add('userDetails', userDetails)
+          ..add('usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1',
+              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1))
+        .toString();
+  }
+}
+
+class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
+    implements
+        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  UserDetailsBuilder? _userDetails;
+  UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
+  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+      _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
+      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =>
+          _$this._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
+              UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
+  set usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1(
+          covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
+              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
+      _$this._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =
+          usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder();
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _userDetails = $v.userDetails?.toBuilder();
+      _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =
+          $v.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users;
+  }
+
+  @override
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
+    try {
+      _$result = _$v ??
+          _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data'),
+              userDetails: _userDetails?.build(),
+              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1:
+                  _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'userDetails';
+        _userDetails?.build();
+        _$failedField = 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1';
+        _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
+  set users(MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>? users);
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
+    extends UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltMap<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> users;
+
+  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data(
+          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._({required this.users}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        users, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data', 'users');
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data rebuild(
+          void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data && users == other.users;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, users.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data')
+          ..add('users', users))
+        .toString();
+  }
+}
+
+class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder>,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data? _$v;
+
+  MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>? _users;
+  MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users =>
+      _$this._users ??= MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>();
+  set users(covariant MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>? users) =>
+      _$this._users = users;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder();
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _users = $v.users.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data _build() {
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._(users: users.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'users';
+        users.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface other);
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
+    extends UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data data;
+
+  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs(
+          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder)? updates]) =>
+      (UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs rebuild(
+          void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder toBuilder() =>
+      UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder
+    implements
+        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder>,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterfaceBuilder {
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder? _data;
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder();
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs build() => _build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs _build() {
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder {
+  void replace(UsersGetDisabledUsersDetailsResponseApplicationJsonInterface other);
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder) updates);
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson
+    extends UsersGetDisabledUsersDetailsResponseApplicationJson {
+  @override
+  final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs ocs;
+
+  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson(
+          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder)? updates]) =>
+      (UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'UsersGetDisabledUsersDetailsResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson rebuild(
+          void Function(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder toBuilder() =>
+      UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder
+    implements
+        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson,
+            UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder>,
+        UsersGetDisabledUsersDetailsResponseApplicationJsonInterfaceBuilder {
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson? _$v;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder? _ocs;
+  UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder();
+  set ocs(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder();
+
+  UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson build() => _build();
+
+  _$UsersGetDisabledUsersDetailsResponseApplicationJson _build() {
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$UsersGetDisabledUsersDetailsResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'UsersGetDisabledUsersDetailsResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -79,53 +79,59 @@ class AccountSettingsPage extends StatelessWidget {
 
     final body = ResultBuilder<provisioning_api.UserDetails>.behaviorSubject(
       stream: userDetailsBloc.userDetails,
-      builder: (final context, final userDetails) => SettingsList(
-        categories: [
-          SettingsCategory(
-            title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
-            tiles: [
-              CustomSettingsTile(
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (userDetails.hasData) ...[
-                      LinearProgressIndicator(
-                        value: (userDetails.requireData.quota.relative ?? 0) / 100,
-                        backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
-                          filesize(userDetails.requireData.quota.used ?? 0, 1),
-                          filesize(userDetails.requireData.quota.total ?? 0, 1),
-                          (userDetails.requireData.quota.relative ?? 0).toString(),
+      builder: (final context, final userDetails) {
+        final quotaRelative = userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$num ?? 0;
+        final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$num ?? 0;
+        final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$num ?? 0;
+
+        return SettingsList(
+          categories: [
+            SettingsCategory(
+              title: Text(NeonLocalizations.of(context).accountOptionsCategoryStorageInfo),
+              tiles: [
+                CustomSettingsTile(
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (userDetails.hasData) ...[
+                        LinearProgressIndicator(
+                          value: quotaRelative / 100,
+                          backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.3),
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          NeonLocalizations.of(context).accountOptionsQuotaUsedOf(
+                            filesize(quotaUsed, 1),
+                            filesize(quotaTotal, 1),
+                            quotaRelative.toString(),
+                          ),
+                        ),
+                      ],
+                      NeonError(
+                        userDetails.error,
+                        onRetry: userDetailsBloc.refresh,
+                      ),
+                      NeonLinearProgressIndicator(
+                        visible: userDetails.isLoading,
                       ),
                     ],
-                    NeonError(
-                      userDetails.error,
-                      onRetry: userDetailsBloc.refresh,
-                    ),
-                    NeonLinearProgressIndicator(
-                      visible: userDetails.isLoading,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          SettingsCategory(
-            title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
-            tiles: [
-              SelectSettingsTile(
-                option: options.initialApp,
-              ),
-            ],
-          ),
-        ],
-      ),
+              ],
+            ),
+            SettingsCategory(
+              title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
+              tiles: [
+                SelectSettingsTile(
+                  option: options.initialApp,
+                ),
+              ],
+            ),
+          ],
+        );
+      },
     );
 
     return Scaffold(

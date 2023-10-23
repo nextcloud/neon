@@ -2621,6 +2621,105 @@ class UsersClient {
     );
   }
 
+  /// Get the list of disabled users and their details.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [limit] Limit the amount of users returned.
+  ///   * [offset] Offset. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Disabled users details returned
+  ///
+  /// See:
+  ///  * [getDisabledUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getDisabledUsersDetailsRaw(
+      limit: limit,
+      offset: offset,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Get the list of disabled users and their details.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [limit] Limit the amount of users returned.
+  ///   * [offset] Offset. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Disabled users details returned
+  ///
+  /// See:
+  ///  * [getDisabledUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void> getDisabledUsersDetailsRaw({
+    final int? limit,
+    final int offset = 0,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    if (limit != null) {
+      queryParameters['limit'] = limit.toString();
+    }
+    if (offset != 0) {
+      queryParameters['offset'] = offset.toString();
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    const path = '/ocs/v2.php/cloud/users/disabled';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
   /// Search users by their phone numbers.
   ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
@@ -5580,6 +5679,68 @@ abstract class UserDetails_BackendCapabilities
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class UserDetailsQuota_FreeInterface {
+  num? get $num;
+  int? get $int;
+}
+
+abstract class UserDetailsQuota_Free
+    implements UserDetailsQuota_FreeInterface, Built<UserDetailsQuota_Free, UserDetailsQuota_FreeBuilder> {
+  factory UserDetailsQuota_Free([final void Function(UserDetailsQuota_FreeBuilder)? b]) = _$UserDetailsQuota_Free;
+
+  // coverage:ignore-start
+  const UserDetailsQuota_Free._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UserDetailsQuota_Free.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserDetailsQuota_Free> get serializer => _$UserDetailsQuota_FreeSerializer();
+
+  JsonObject get data;
+}
+
+class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetailsQuota_Free> {
+  @override
+  final Iterable<Type> types = const [UserDetailsQuota_Free, _$UserDetailsQuota_Free];
+
+  @override
+  final String wireName = 'UserDetailsQuota_Free';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UserDetailsQuota_Free object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UserDetailsQuota_Free deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserDetailsQuota_FreeBuilder()..data = JsonObject(data);
+    try {
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+    } catch (_) {}
+    try {
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuota_QuotaInterface {
   num? get $num;
   int? get $int;
@@ -5649,12 +5810,199 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class UserDetailsQuota_RelativeInterface {
+  num? get $num;
+  int? get $int;
+}
+
+abstract class UserDetailsQuota_Relative
+    implements UserDetailsQuota_RelativeInterface, Built<UserDetailsQuota_Relative, UserDetailsQuota_RelativeBuilder> {
+  factory UserDetailsQuota_Relative([final void Function(UserDetailsQuota_RelativeBuilder)? b]) =
+      _$UserDetailsQuota_Relative;
+
+  // coverage:ignore-start
+  const UserDetailsQuota_Relative._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UserDetailsQuota_Relative.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserDetailsQuota_Relative> get serializer => _$UserDetailsQuota_RelativeSerializer();
+
+  JsonObject get data;
+}
+
+class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserDetailsQuota_Relative> {
+  @override
+  final Iterable<Type> types = const [UserDetailsQuota_Relative, _$UserDetailsQuota_Relative];
+
+  @override
+  final String wireName = 'UserDetailsQuota_Relative';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UserDetailsQuota_Relative object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UserDetailsQuota_Relative deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserDetailsQuota_RelativeBuilder()..data = JsonObject(data);
+    try {
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+    } catch (_) {}
+    try {
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UserDetailsQuota_TotalInterface {
+  num? get $num;
+  int? get $int;
+}
+
+abstract class UserDetailsQuota_Total
+    implements UserDetailsQuota_TotalInterface, Built<UserDetailsQuota_Total, UserDetailsQuota_TotalBuilder> {
+  factory UserDetailsQuota_Total([final void Function(UserDetailsQuota_TotalBuilder)? b]) = _$UserDetailsQuota_Total;
+
+  // coverage:ignore-start
+  const UserDetailsQuota_Total._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UserDetailsQuota_Total.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserDetailsQuota_Total> get serializer => _$UserDetailsQuota_TotalSerializer();
+
+  JsonObject get data;
+}
+
+class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDetailsQuota_Total> {
+  @override
+  final Iterable<Type> types = const [UserDetailsQuota_Total, _$UserDetailsQuota_Total];
+
+  @override
+  final String wireName = 'UserDetailsQuota_Total';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UserDetailsQuota_Total object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UserDetailsQuota_Total deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserDetailsQuota_TotalBuilder()..data = JsonObject(data);
+    try {
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+    } catch (_) {}
+    try {
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UserDetailsQuota_UsedInterface {
+  num? get $num;
+  int? get $int;
+}
+
+abstract class UserDetailsQuota_Used
+    implements UserDetailsQuota_UsedInterface, Built<UserDetailsQuota_Used, UserDetailsQuota_UsedBuilder> {
+  factory UserDetailsQuota_Used([final void Function(UserDetailsQuota_UsedBuilder)? b]) = _$UserDetailsQuota_Used;
+
+  // coverage:ignore-start
+  const UserDetailsQuota_Used._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UserDetailsQuota_Used.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UserDetailsQuota_Used> get serializer => _$UserDetailsQuota_UsedSerializer();
+
+  JsonObject get data;
+}
+
+class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetailsQuota_Used> {
+  @override
+  final Iterable<Type> types = const [UserDetailsQuota_Used, _$UserDetailsQuota_Used];
+
+  @override
+  final String wireName = 'UserDetailsQuota_Used';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UserDetailsQuota_Used object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UserDetailsQuota_Used deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UserDetailsQuota_UsedBuilder()..data = JsonObject(data);
+    try {
+      result._$num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+    } catch (_) {}
+    try {
+      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    assert([result._$num, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class UserDetailsQuotaInterface {
-  num? get free;
+  UserDetailsQuota_Free? get free;
   UserDetailsQuota_Quota? get quota;
-  num? get relative;
-  num? get total;
-  num? get used;
+  UserDetailsQuota_Relative? get relative;
+  UserDetailsQuota_Total? get total;
+  UserDetailsQuota_Used? get used;
 }
 
 abstract class UserDetailsQuota implements UserDetailsQuotaInterface, Built<UserDetailsQuota, UserDetailsQuotaBuilder> {
@@ -6864,6 +7212,218 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
 
   static Serializer<UsersGetUsersDetailsResponseApplicationJson> get serializer =>
       _$usersGetUsersDetailsResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface {
+  String get id;
+}
+
+abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1
+    implements
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Interface,
+        Built<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder> {
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1([
+    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
+      _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
+  UserDetails? get userDetails;
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+}
+
+abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users
+    implements
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
+        Built<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users([
+    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.fromJson(
+    final Map<String, dynamic> json,
+  ) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
+      _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
+
+  JsonObject get data;
+}
+
+class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
+    implements PrimitiveSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> {
+  @override
+  final Iterable<Type> types = const [
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
+    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
+  ];
+
+  @override
+  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
+    try {
+      result._userDetails =
+          (_jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails).toBuilder();
+    } catch (_) {}
+    try {
+      result._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = (_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1)
+          .toBuilder();
+    } catch (_) {}
+    assert(
+      [result._userDetails, result._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1]
+          .where((final x) => x != null)
+          .isNotEmpty,
+      'Need oneOf for ${result._data}',
+    );
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface {
+  BuiltMap<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
+}
+
+abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
+    implements
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface,
+        Built<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder> {
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data([
+    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
+      _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
+    implements
+        UsersGetDisabledUsersDetailsResponseApplicationJson_OcsInterface,
+        Built<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs,
+            UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder> {
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs([
+    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs> get serializer =>
+      _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class UsersGetDisabledUsersDetailsResponseApplicationJsonInterface {
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
+    implements
+        UsersGetDisabledUsersDetailsResponseApplicationJsonInterface,
+        Built<UsersGetDisabledUsersDetailsResponseApplicationJson,
+            UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder> {
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson([
+    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder)? b,
+  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson;
+
+  // coverage:ignore-start
+  const UsersGetDisabledUsersDetailsResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory UsersGetDisabledUsersDetailsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson> get serializer =>
+      _$usersGetDisabledUsersDetailsResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -8257,8 +8817,16 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(UserDetails_BackendCapabilities.serializer)
       ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuota.new)
       ..add(UserDetailsQuota.serializer)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Free), UserDetailsQuota_Free.new)
+      ..add(UserDetailsQuota_Free.serializer)
       ..addBuilderFactory(const FullType(UserDetailsQuota_Quota), UserDetailsQuota_Quota.new)
       ..add(UserDetailsQuota_Quota.serializer)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Relative), UserDetailsQuota_Relative.new)
+      ..add(UserDetailsQuota_Relative.serializer)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Total), UserDetailsQuota_Total.new)
+      ..add(UserDetailsQuota_Total.serializer)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Used), UserDetailsQuota_Used.new)
+      ..add(UserDetailsQuota_Used.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
         GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.new,
@@ -8425,6 +8993,38 @@ final Serializers _serializers = (Serializers().toBuilder()
           [FullType(String), FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users)],
         ),
         MapBuilder<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
+        UsersGetDisabledUsersDetailsResponseApplicationJson.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs),
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data),
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users),
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
+      ..addBuilderFactory(
+        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.new,
+      )
+      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
+      ..addBuilderFactory(
+        const FullType(
+          BuiltMap,
+          [FullType(String), FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users)],
+        ),
+        MapBuilder<String, UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users>.new,
       )
       ..addBuilderFactory(
         const FullType(BuiltMap, [
