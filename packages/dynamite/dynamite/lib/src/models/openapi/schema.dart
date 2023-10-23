@@ -60,7 +60,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   int? get maxLength;
 
-  bool? get nullable;
+  bool get nullable;
 
   bool get isContentString => type == 'string' && (contentMediaType?.isNotEmpty ?? false) && contentSchema != null;
 
@@ -68,6 +68,8 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(final SchemaBuilder b) {
-    b.deprecated ??= false;
+    b
+      ..deprecated ??= false
+      ..nullable ??= false;
   }
 }

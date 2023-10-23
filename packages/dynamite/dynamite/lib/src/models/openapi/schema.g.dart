@@ -21,6 +21,8 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       serializers.serialize(object.deprecated, specifiedType: const FullType(bool)),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'nullable',
+      serializers.serialize(object.nullable, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.ref;
@@ -132,12 +134,6 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
         ..add('maxLength')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.nullable;
-    if (value != null) {
-      result
-        ..add('nullable')
-        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     return result;
   }
 
@@ -222,7 +218,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'nullable':
-          result.nullable = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          result.nullable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
       }
     }
@@ -273,7 +269,7 @@ class _$Schema extends Schema {
   @override
   final int? maxLength;
   @override
-  final bool? nullable;
+  final bool nullable;
 
   factory _$Schema([void Function(SchemaBuilder)? updates]) => (SchemaBuilder()..update(updates))._build();
 
@@ -298,10 +294,11 @@ class _$Schema extends Schema {
       this.pattern,
       this.minLength,
       this.maxLength,
-      this.nullable})
+      required this.nullable})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(deprecated, r'Schema', 'deprecated');
     BuiltValueNullFieldError.checkNotNull(required, r'Schema', 'required');
+    BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable');
   }
 
   @override
@@ -549,7 +546,7 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
               pattern: pattern,
               minLength: minLength,
               maxLength: maxLength,
-              nullable: nullable);
+              nullable: BuiltValueNullFieldError.checkNotNull(nullable, r'Schema', 'nullable'));
     } catch (_) {
       late String _$failedField;
       try {

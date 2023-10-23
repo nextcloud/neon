@@ -61,7 +61,7 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned
@@ -88,7 +88,7 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Apps returned
@@ -145,8 +145,8 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Keys returned
@@ -176,8 +176,8 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Keys returned
@@ -239,10 +239,10 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [defaultValue] Default returned value if the value is empty
-  ///   * [app] ID of the app
-  ///   * [key] Key
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
+  ///   * [app] ID of the app.
+  ///   * [key] Key.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Value returned
@@ -276,10 +276,10 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [defaultValue] Default returned value if the value is empty
-  ///   * [app] ID of the app
-  ///   * [key] Key
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [defaultValue] Default returned value if the value is empty. Defaults to `''`.
+  ///   * [app] ID of the app.
+  ///   * [key] Key.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Value returned
@@ -345,10 +345,10 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] New value for the key
-  ///   * [app] ID of the app
-  ///   * [key] Key to update
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [value] New value for the key.
+  ///   * [app] ID of the app.
+  ///   * [key] Key to update.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Value updated successfully
@@ -380,10 +380,10 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [value] New value for the key
-  ///   * [app] ID of the app
-  ///   * [key] Key to update
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [value] New value for the key.
+  ///   * [app] ID of the app.
+  ///   * [key] Key to update.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Value updated successfully
@@ -449,9 +449,9 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [key] Key to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [key] Key to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Key deleted successfully
@@ -483,9 +483,9 @@ class AppConfigClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [key] Key to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [key] Key to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Key deleted successfully
@@ -555,8 +555,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter for enabled or disabled apps
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter for enabled or disabled apps.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Installed apps returned
@@ -585,8 +585,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [filter] Filter for enabled or disabled apps
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [filter] Filter for enabled or disabled apps.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Installed apps returned
@@ -649,8 +649,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App info returned
@@ -679,8 +679,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App info returned
@@ -741,8 +741,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App enabled successfully
@@ -771,8 +771,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App enabled successfully
@@ -833,8 +833,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App disabled successfully
@@ -863,8 +863,8 @@ class AppsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [app] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: App disabled successfully
@@ -929,10 +929,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Groups returned
@@ -963,10 +963,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Groups returned
@@ -1037,9 +1037,9 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [displayname] Display name of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [displayname] Display name of the group. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group created successfully
@@ -1070,9 +1070,9 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [displayname] Display name of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [displayname] Display name of the group. Defaults to `''`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group created successfully
@@ -1135,10 +1135,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Groups details returned
@@ -1169,10 +1169,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Groups details returned
@@ -1241,8 +1241,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User IDs returned
@@ -1271,8 +1271,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User IDs returned
@@ -1334,11 +1334,11 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group users details returned
@@ -1371,11 +1371,11 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group users details returned
@@ -1449,8 +1449,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sub admins returned
@@ -1479,8 +1479,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Sub admins returned
@@ -1540,8 +1540,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group users returned
@@ -1569,8 +1569,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group users returned
@@ -1633,10 +1633,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key to update, only 'displayname'
-  ///   * [value] New value for the key
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key to update, only 'displayname'.
+  ///   * [value] New value for the key.
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group updated successfully
@@ -1669,10 +1669,10 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key to update, only 'displayname'
-  ///   * [value] New value for the key
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key to update, only 'displayname'.
+  ///   * [value] New value for the key.
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group updated successfully
@@ -1738,8 +1738,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group deleted successfully
@@ -1768,8 +1768,8 @@ class GroupsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupId] ID of the group
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupId] ID of the group.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Group deleted successfully
@@ -1835,10 +1835,10 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configValue] New value
-  ///   * [appId] ID of the app
-  ///   * [configKey] Key of the preference
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configValue] New value.
+  ///   * [appId] ID of the app.
+  ///   * [configKey] Key of the preference.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preference updated successfully
@@ -1870,10 +1870,10 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configValue] New value
-  ///   * [appId] ID of the app
-  ///   * [configKey] Key of the preference
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configValue] New value.
+  ///   * [appId] ID of the app.
+  ///   * [configKey] Key of the preference.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preference updated successfully
@@ -1937,9 +1937,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [appId] ID of the app
-  ///   * [configKey] Key to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [appId] ID of the app.
+  ///   * [configKey] Key to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preference deleted successfully
@@ -1969,9 +1969,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [appId] ID of the app
-  ///   * [configKey] Key to delete
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [appId] ID of the app.
+  ///   * [configKey] Key to delete.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preference deleted successfully
@@ -2033,9 +2033,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configs] Key-value pairs of the preferences
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configs] Key-value pairs of the preferences.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preferences updated successfully
@@ -2065,9 +2065,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configs] Key-value pairs of the preferences
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configs] Key-value pairs of the preferences.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preferences updated successfully
@@ -2134,9 +2134,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configKeys] Keys to delete
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configKeys] Keys to delete.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preferences deleted successfully
@@ -2166,9 +2166,9 @@ class PreferencesClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [configKeys] Keys to delete
-  ///   * [appId] ID of the app
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [configKeys] Keys to delete.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Preferences deleted successfully
@@ -2236,10 +2236,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users returned
@@ -2270,10 +2270,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users returned
@@ -2342,16 +2342,16 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userid] ID of the user
-  ///   * [password] Password of the user
-  ///   * [displayName] Display name of the user
-  ///   * [email] Email of the user
-  ///   * [groups] Groups of the user
-  ///   * [subadmin] Groups where the user is subadmin
-  ///   * [quota] Quota of the user
-  ///   * [language] Language of the user
-  ///   * [manager] Manager of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userid] ID of the user.
+  ///   * [password] Password of the user. Defaults to `''`.
+  ///   * [displayName] Display name of the user. Defaults to `''`.
+  ///   * [email] Email of the user. Defaults to `''`.
+  ///   * [groups] Groups of the user. Defaults to `[]`.
+  ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
+  ///   * [quota] Quota of the user. Defaults to `''`.
+  ///   * [language] Language of the user. Defaults to `''`.
+  ///   * [manager] Manager of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added successfully
@@ -2395,16 +2395,16 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userid] ID of the user
-  ///   * [password] Password of the user
-  ///   * [displayName] Display name of the user
-  ///   * [email] Email of the user
-  ///   * [groups] Groups of the user
-  ///   * [subadmin] Groups where the user is subadmin
-  ///   * [quota] Quota of the user
-  ///   * [language] Language of the user
-  ///   * [manager] Manager of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userid] ID of the user.
+  ///   * [password] Password of the user. Defaults to `''`.
+  ///   * [displayName] Display name of the user. Defaults to `''`.
+  ///   * [email] Email of the user. Defaults to `''`.
+  ///   * [groups] Groups of the user. Defaults to `[]`.
+  ///   * [subadmin] Groups where the user is subadmin. Defaults to `[]`.
+  ///   * [quota] Quota of the user. Defaults to `''`.
+  ///   * [language] Language of the user. Defaults to `''`.
+  ///   * [manager] Manager of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added successfully
@@ -2496,10 +2496,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users details returned
@@ -2530,10 +2530,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [search] Text to search for
-  ///   * [limit] Limit the amount of groups returned
-  ///   * [offset] Offset for searching for groups
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [search] Text to search for. Defaults to `''`.
+  ///   * [limit] Limit the amount of groups returned.
+  ///   * [offset] Offset for searching for groups. Defaults to `0`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users details returned
@@ -2602,9 +2602,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [location] Location of the phone number (for country code)
-  ///   * [search] Phone numbers to search for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [location] Location of the phone number (for country code).
+  ///   * [search] Phone numbers to search for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users returned
@@ -2634,9 +2634,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [location] Location of the phone number (for country code)
-  ///   * [search] Phone numbers to search for
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [location] Location of the phone number (for country code).
+  ///   * [search] Phone numbers to search for.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users returned
@@ -2706,8 +2706,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User returned
@@ -2734,8 +2734,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User returned
@@ -2794,10 +2794,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated
-  ///   * [value] New value for the key
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key that will be updated.
+  ///   * [value] New value for the key.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User value edited successfully
@@ -2828,10 +2828,10 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated
-  ///   * [value] New value for the key
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key that will be updated.
+  ///   * [value] New value for the key.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User value edited successfully
@@ -2894,8 +2894,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User deleted successfully
@@ -2922,8 +2922,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User deleted successfully
@@ -2982,7 +2982,7 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Current user returned
@@ -3007,7 +3007,7 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Current user returned
@@ -3064,7 +3064,7 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Editable fields returned
@@ -3089,7 +3089,7 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Editable fields returned
@@ -3146,8 +3146,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Editable fields for user returned
@@ -3174,8 +3174,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Editable fields for user returned
@@ -3234,11 +3234,11 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated
-  ///   * [value] New value for the key
-  ///   * [userId] ID of the user
-  ///   * [collectionName] Collection to update
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key that will be updated.
+  ///   * [value] New value for the key.
+  ///   * [userId] ID of the user.
+  ///   * [collectionName] Collection to update.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User values edited successfully
@@ -3271,11 +3271,11 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [key] Key that will be updated
-  ///   * [value] New value for the key
-  ///   * [userId] ID of the user
-  ///   * [collectionName] Collection to update
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [key] Key that will be updated.
+  ///   * [value] New value for the key.
+  ///   * [userId] ID of the user.
+  ///   * [collectionName] Collection to update.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User values edited successfully
@@ -3345,8 +3345,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Wiped all user devices successfully
@@ -3373,8 +3373,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Wiped all user devices successfully
@@ -3433,8 +3433,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User enabled successfully
@@ -3461,8 +3461,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User enabled successfully
@@ -3521,8 +3521,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User disabled successfully
@@ -3549,8 +3549,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User disabled successfully
@@ -3609,8 +3609,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users groups returned
@@ -3637,8 +3637,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Users groups returned
@@ -3697,9 +3697,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group. Defaults to `''`.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added to group successfully
@@ -3728,9 +3728,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group. Defaults to `''`.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added to group successfully
@@ -3793,9 +3793,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User removed from group successfully
@@ -3824,9 +3824,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User removed from group successfully
@@ -3889,8 +3889,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID if the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User subadmin groups returned
@@ -3919,8 +3919,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID if the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User subadmin groups returned
@@ -3981,9 +3981,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added as group subadmin successfully
@@ -4014,9 +4014,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User added as group subadmin successfully
@@ -4079,9 +4079,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User removed as group subadmin successfully
@@ -4112,9 +4112,9 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [groupid] ID of the group
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [groupid] ID of the group.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: User removed as group subadmin successfully
@@ -4175,8 +4175,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID if the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Resent welcome message successfully
@@ -4203,8 +4203,8 @@ class UsersClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [userId] ID if the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [userId] ID if the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Resent welcome message successfully

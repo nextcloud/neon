@@ -58,11 +58,11 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [shortMessage] Subject of the notification
-  ///   * [longMessage] Message of the notification
-  ///   * [apiVersion]
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [shortMessage] Subject of the notification.
+  ///   * [longMessage] Message of the notification. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification generated successfully
@@ -100,11 +100,11 @@ class ApiClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [shortMessage] Subject of the notification
-  ///   * [longMessage] Message of the notification
-  ///   * [apiVersion]
-  ///   * [userId] ID of the user
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [shortMessage] Subject of the notification.
+  ///   * [longMessage] Message of the notification. Defaults to `''`.
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [userId] ID of the user.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification generated successfully
@@ -180,8 +180,8 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notifications returned
@@ -210,8 +210,8 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notifications returned
@@ -273,8 +273,8 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: All notifications deleted successfully
@@ -302,8 +302,8 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: All notifications deleted successfully
@@ -363,9 +363,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use
-  ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [id] ID of the notification.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification returned
@@ -395,9 +395,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion] Version of the API to use
-  ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [id] ID of the notification.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification returned
@@ -459,9 +459,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [id] ID of the notification.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification deleted successfully
@@ -492,9 +492,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [id] ID of the notification
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [id] ID of the notification.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Notification deleted successfully
@@ -557,9 +557,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [ids] IDs of the notifications to check
-  ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [ids] IDs of the notifications to check.
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Existing notification IDs returned
@@ -589,9 +589,9 @@ class EndpointClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [ids] IDs of the notifications to check
-  ///   * [apiVersion] Version of the API to use
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [ids] IDs of the notifications to check.
+  ///   * [apiVersion] Version of the API to use. Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Existing notification IDs returned
@@ -659,11 +659,11 @@ class PushClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [pushTokenHash] Hash of the push token
-  ///   * [devicePublicKey] Public key of the device
-  ///   * [proxyServer] Proxy server to be used
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [pushTokenHash] Hash of the push token.
+  ///   * [devicePublicKey] Public key of the device.
+  ///   * [proxyServer] Proxy server to be used.
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Device was already registered
@@ -699,11 +699,11 @@ class PushClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [pushTokenHash] Hash of the push token
-  ///   * [devicePublicKey] Public key of the device
-  ///   * [proxyServer] Proxy server to be used
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [pushTokenHash] Hash of the push token.
+  ///   * [devicePublicKey] Public key of the device.
+  ///   * [proxyServer] Proxy server to be used.
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Device was already registered
@@ -771,8 +771,8 @@ class PushClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: No device registered
@@ -802,8 +802,8 @@ class PushClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: No device registered
@@ -871,11 +871,11 @@ class SettingsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Personal settings updated
@@ -908,11 +908,11 @@ class SettingsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Personal settings updated
@@ -979,11 +979,11 @@ class SettingsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Admin settings updated
@@ -1018,11 +1018,11 @@ class SettingsClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4)
-  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no')
-  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no')
-  ///   * [apiVersion]
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass
+  ///   * [batchSetting] How often E-mails about missed notifications should be sent (hourly: 1; every three hours: 2; daily: 3; weekly: 4).
+  ///   * [soundNotification] Enable sound for notifications ('yes' or 'no').
+  ///   * [soundTalk] Enable sound for Talk notifications ('yes' or 'no').
+  ///   * [apiVersion] Defaults to `v2`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
   ///
   /// Status codes:
   ///   * 200: Admin settings updated
