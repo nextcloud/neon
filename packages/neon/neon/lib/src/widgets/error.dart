@@ -8,6 +8,7 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/utils/provider.dart';
+import 'package:neon/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:universal_io/io.dart';
 
@@ -22,7 +23,7 @@ enum NeonErrorType {
   /// Shows a column with the error message and a retry button.
   column,
 
-  /// Shows a [ListTile] with the error.
+  /// Shows a [AdaptiveListTile] with the error.
   listTile,
 }
 
@@ -147,10 +148,9 @@ class NeonError extends StatelessWidget {
           ),
         );
       case NeonErrorType.listTile:
-        return ListTile(
+        return AdaptiveListTile(
           leading: errorIcon,
-          title: Text(message),
-          titleTextStyle: textStyle,
+          title: Text(message, style: textStyle),
           onTap: onPressed,
         );
     }

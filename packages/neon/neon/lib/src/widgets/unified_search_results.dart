@@ -8,6 +8,7 @@ import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/theme/sizes.dart';
 import 'package:neon/src/utils/provider.dart';
+import 'package:neon/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
@@ -81,7 +82,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
               visible: result.isLoading,
             ),
             if (entries.isEmpty) ...[
-              ListTile(
+              AdaptiveListTile(
                 leading: const Icon(
                   Icons.close,
                   size: largeIconSize,
@@ -90,7 +91,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
               ),
             ],
             for (final entry in entries) ...[
-              ListTile(
+              AdaptiveListTile(
                 leading: NeonImageWrapper(
                   size: const Size.square(largeIconSize),
                   child: _buildThumbnail(context, accountsBloc.activeAccount.value!, entry),

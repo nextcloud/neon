@@ -7,6 +7,7 @@ import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/account_selection_dialog.dart';
+import 'package:neon/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
 
 @internal
@@ -23,7 +24,7 @@ class AccountSwitcherButton extends StatelessWidget {
       builder: (final context) => NeonAccountSelectionDialog(
         highlightActiveAccount: true,
         children: [
-          ListTile(
+          AdaptiveListTile(
             leading: const Icon(Icons.settings),
             title: Text(NeonLocalizations.of(context).settingsAccountManage),
             onTap: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neon/src/widgets/adaptive_widgets/list_tile.dart';
 
 /// Validation list tile.
 ///
@@ -48,7 +49,7 @@ class NeonValidationTile extends StatelessWidget {
           size: size,
         ),
     };
-    return ListTile(
+    return AdaptiveListTile(
       leading: leading,
       title: Text(
         title,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/models/account.dart';
@@ -18,11 +20,11 @@ class AccountSettingsTile extends SettingsTile {
   /// {@macro neon.AccountTile.account}
   final Account account;
 
-  /// {@macro neon.AccountTile.trailing}
+  /// {@macro neon.AdaptiveListTile.trailing}
   final Widget? trailing;
 
-  /// {@macro neon.AccountTile.onTap}
-  final GestureTapCallback? onTap;
+  /// {@macro neon.AdaptiveListTile.onTap}
+  final FutureOr<void> Function()? onTap;
 
   @override
   Widget build(final BuildContext context) => NeonAccountTile(
