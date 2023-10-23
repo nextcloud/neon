@@ -76,7 +76,6 @@ class LogSettingsClient {
   ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
-    const path = '/index.php/settings/admin/log/download';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/octet-stream',
@@ -100,7 +99,9 @@ class LogSettingsClient {
     }
 
 // coverage:ignore-end
+    const path = '/index.php/settings/admin/log/download';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.executeRequest(
         'get',

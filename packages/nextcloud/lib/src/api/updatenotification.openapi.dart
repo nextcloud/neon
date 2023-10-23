@@ -101,7 +101,6 @@ class ApiClient {
     final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
     final bool oCSAPIRequest = true,
   }) {
-    var path = '/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}';
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -125,10 +124,12 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    path = path.replaceAll('{newVersion}', Uri.encodeQueryComponent(newVersion));
-    path = path.replaceAll('{apiVersion}', Uri.encodeQueryComponent(apiVersion.name));
+    final newVersion0 = Uri.encodeQueryComponent(newVersion);
+    final apiVersion0 = Uri.encodeQueryComponent(apiVersion.name);
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final path = '/ocs/v2.php/apps/updatenotification/api/$apiVersion0/applist/$newVersion0';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
