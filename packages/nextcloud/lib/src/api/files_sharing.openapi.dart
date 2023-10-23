@@ -2873,7 +2873,6 @@ abstract class RemoteUnshareResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class ShareInfo_SizeInterface {
-  JsonObject get data;
   int? get $int;
   num? get $num;
 }
@@ -2896,6 +2895,8 @@ abstract class ShareInfo_Size implements ShareInfo_SizeInterface, Built<ShareInf
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareInfo_Size> get serializer => _$ShareInfo_SizeSerializer();
+
+  JsonObject get data;
 }
 
 class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> {
@@ -2965,7 +2966,6 @@ abstract class ShareInfo implements ShareInfoInterface, Built<ShareInfo, ShareIn
 
 @BuiltValue(instantiable: false)
 abstract interface class Share_ItemSizeInterface {
-  JsonObject get data;
   num? get $num;
   int? get $int;
 }
@@ -2988,6 +2988,8 @@ abstract class Share_ItemSize implements Share_ItemSizeInterface, Built<Share_It
 
   @BuiltValueSerializer(custom: true)
   static Serializer<Share_ItemSize> get serializer => _$Share_ItemSizeSerializer();
+
+  JsonObject get data;
 }
 
 class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> {
@@ -3647,7 +3649,6 @@ abstract class ShareapiAcceptShareResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class ShareesapiSearchShareTypeInterface {
-  JsonObject get data;
   int? get $int;
   BuiltList<int>? get builtListInt;
 }
@@ -3672,6 +3673,8 @@ abstract class ShareesapiSearchShareType
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiSearchShareType> get serializer => _$ShareesapiSearchShareTypeSerializer();
+
+  JsonObject get data;
 }
 
 class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<ShareesapiSearchShareType> {
@@ -4340,7 +4343,6 @@ abstract class ShareesapiSearchResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class ShareesapiFindRecommendedShareTypeInterface {
-  JsonObject get data;
   int? get $int;
   BuiltList<int>? get builtListInt;
 }
@@ -4368,6 +4370,8 @@ abstract class ShareesapiFindRecommendedShareType
   @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
       _$ShareesapiFindRecommendedShareTypeSerializer();
+
+  JsonObject get data;
 }
 
 class _$ShareesapiFindRecommendedShareTypeSerializer

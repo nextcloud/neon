@@ -104,8 +104,26 @@ TypeResult resolveOfs(
     state.output.addAll([
       buildInterface(
         identifier,
-        methods: BuiltList.build((final b) {
-          b.add(
+        methods: BuiltList.from(
+          results.map(
+            (final result) => Method(
+              (final b) {
+                final s = schema.ofs![results.indexOf(result)];
+                b
+                  ..name = fields[result.name]
+                  ..returns = refer(result.nullableName)
+                  ..type = MethodType.getter
+                  ..docs.addAll(s.formattedDescription);
+              },
+            ),
+          ),
+        ),
+      ),
+      buildBuiltClass(
+        identifier,
+        customSerializer: true,
+        methods: BuiltList.build(
+          (final b) => b.add(
             Method(
               (final b) {
                 b
@@ -114,27 +132,8 @@ TypeResult resolveOfs(
                   ..type = MethodType.getter;
               },
             ),
-          );
-
-          for (final result in results) {
-            b.add(
-              Method(
-                (final b) {
-                  final s = schema.ofs![results.indexOf(result)];
-                  b
-                    ..name = fields[result.name]
-                    ..returns = refer(result.nullableName)
-                    ..type = MethodType.getter
-                    ..docs.addAll(s.formattedDescription);
-                },
-              ),
-            );
-          }
-        }),
-      ),
-      buildBuiltClass(
-        identifier,
-        customSerializer: true,
+          ),
+        ),
       ),
       Class(
         (final b) => b

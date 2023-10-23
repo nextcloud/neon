@@ -4725,7 +4725,6 @@ abstract class AutocompleteResult_Status0
 
 @BuiltValue(instantiable: false)
 abstract interface class AutocompleteResult_StatusInterface {
-  JsonObject get data;
   AutocompleteResult_Status0? get autocompleteResultStatus0;
   String? get string;
 }
@@ -4750,6 +4749,8 @@ abstract class AutocompleteResult_Status
 
   @BuiltValueSerializer(custom: true)
   static Serializer<AutocompleteResult_Status> get serializer => _$AutocompleteResult_StatusSerializer();
+
+  JsonObject get data;
 }
 
 class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<AutocompleteResult_Status> {
@@ -5753,7 +5754,6 @@ abstract class HoverCardGetUserResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class NavigationEntry_OrderInterface {
-  JsonObject get data;
   int? get $int;
   String? get string;
 }
@@ -5777,6 +5777,8 @@ abstract class NavigationEntry_Order
 
   @BuiltValueSerializer(custom: true)
   static Serializer<NavigationEntry_Order> get serializer => _$NavigationEntry_OrderSerializer();
+
+  JsonObject get data;
 }
 
 class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<NavigationEntry_Order> {
@@ -7528,7 +7530,6 @@ abstract class WeatherStatusCapabilities
 
 @BuiltValue(instantiable: false)
 abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface {
-  JsonObject get data;
   CommentsCapabilities? get commentsCapabilities;
   DavCapabilities? get davCapabilities;
   FilesCapabilities? get filesCapabilities;
@@ -7569,6 +7570,8 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
   @BuiltValueSerializer(custom: true)
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
       _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
+
+  JsonObject get data;
 }
 
 class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer
@@ -9198,7 +9201,6 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedSearchSearchCursorInterface {
-  JsonObject get data;
   int? get $int;
   String? get string;
 }
@@ -9223,6 +9225,8 @@ abstract class UnifiedSearchSearchCursor
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedSearchSearchCursor> get serializer => _$UnifiedSearchSearchCursorSerializer();
+
+  JsonObject get data;
 }
 
 class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<UnifiedSearchSearchCursor> {
@@ -9292,7 +9296,6 @@ abstract class UnifiedSearchResultEntry
 
 @BuiltValue(instantiable: false)
 abstract interface class UnifiedSearchResult_CursorInterface {
-  JsonObject get data;
   int? get $int;
   String? get string;
 }
@@ -9319,6 +9322,8 @@ abstract class UnifiedSearchResult_Cursor
 
   @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedSearchResult_Cursor> get serializer => _$UnifiedSearchResult_CursorSerializer();
+
+  JsonObject get data;
 }
 
 class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<UnifiedSearchResult_Cursor> {

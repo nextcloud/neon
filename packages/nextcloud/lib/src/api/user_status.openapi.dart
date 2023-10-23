@@ -1161,7 +1161,6 @@ class ClearAtTimeType extends EnumClass {
 
 @BuiltValue(instantiable: false)
 abstract interface class ClearAt_TimeInterface {
-  JsonObject get data;
   int? get $int;
   ClearAtTimeType? get clearAtTimeType;
 }
@@ -1183,6 +1182,8 @@ abstract class ClearAt_Time implements ClearAt_TimeInterface, Built<ClearAt_Time
 
   @BuiltValueSerializer(custom: true)
   static Serializer<ClearAt_Time> get serializer => _$ClearAt_TimeSerializer();
+
+  JsonObject get data;
 }
 
 class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
@@ -1768,7 +1769,6 @@ abstract class UserStatusClearMessageResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface {
-  JsonObject get data;
   Private? get private;
   JsonObject? get jsonObject;
 }
@@ -1798,6 +1798,8 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
   @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
       _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer();
+
+  JsonObject get data;
 }
 
 class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer

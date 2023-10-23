@@ -2208,9 +2208,6 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
 abstract mixin class ClearAt_TimeInterfaceBuilder {
   void replace(ClearAt_TimeInterface other);
   void update(void Function(ClearAt_TimeInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
@@ -4391,9 +4388,6 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
 abstract mixin class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   PrivateBuilder get private;
   set private(PrivateBuilder? private);
 

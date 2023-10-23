@@ -9288,9 +9288,6 @@ class AutocompleteResult_Status0Builder
 abstract mixin class AutocompleteResult_StatusInterfaceBuilder {
   void replace(AutocompleteResult_StatusInterface other);
   void update(void Function(AutocompleteResult_StatusInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   AutocompleteResult_Status0Builder get autocompleteResultStatus0;
   set autocompleteResultStatus0(AutocompleteResult_Status0Builder? autocompleteResultStatus0);
 
@@ -12948,9 +12945,6 @@ class HoverCardGetUserResponseApplicationJsonBuilder
 abstract mixin class NavigationEntry_OrderInterfaceBuilder {
   void replace(NavigationEntry_OrderInterface other);
   void update(void Function(NavigationEntry_OrderInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
@@ -19888,9 +19882,6 @@ class WeatherStatusCapabilitiesBuilder
 abstract mixin class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder {
   void replace(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface other);
   void update(void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   CommentsCapabilitiesBuilder get commentsCapabilities;
   set commentsCapabilities(CommentsCapabilitiesBuilder? commentsCapabilities);
 
@@ -25909,9 +25900,6 @@ class UnifiedSearchGetProvidersResponseApplicationJsonBuilder
 abstract mixin class UnifiedSearchSearchCursorInterfaceBuilder {
   void replace(UnifiedSearchSearchCursorInterface other);
   void update(void Function(UnifiedSearchSearchCursorInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
@@ -26230,9 +26218,6 @@ class UnifiedSearchResultEntryBuilder
 abstract mixin class UnifiedSearchResult_CursorInterfaceBuilder {
   void replace(UnifiedSearchResult_CursorInterface other);
   void update(void Function(UnifiedSearchResult_CursorInterfaceBuilder) updates);
-  JsonObject? get data;
-  set data(JsonObject? data);
-
   int? get $int;
   set $int(int? $int);
 
