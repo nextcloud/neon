@@ -1,20 +1,5 @@
-dart:
-  commitHash: 0a567d0
+base:
   output: 'lib/src/base.yaml'
-  disabledRules:
-    - always_specify_types
-    - avoid_annotating_with_dynamic
-    - avoid_as
-    - avoid_catches_without_on_clauses
-    - avoid_final_parameters
-    - avoid_print
-    - diagnostic_describe_all_properties
-    - lines_longer_than_80_chars
-    - no_default_cases
-    - one_member_abstracts
-    - prefer_double_quotes
-    - prefer_relative_imports
-    - unnecessary_final
   preset:
     analyzer:
       language:
@@ -26,4 +11,18 @@ dart:
         todo: ignore
       exclude:
         - '**.g.dart'
-        - '**.mocks.dart'
+    linter:
+      rules:
+        always_specify_types: false
+        avoid_annotating_with_dynamic: false
+        avoid_as: false
+        avoid_catches_without_on_clauses: false
+        avoid_final_parameters: false
+        avoid_print: false
+        diagnostic_describe_all_properties: false
+        lines_longer_than_80_chars: false
+        no_default_cases: false
+        one_member_abstracts: false
+        prefer_double_quotes: false
+        prefer_relative_imports: false
+        unnecessary_final: false
