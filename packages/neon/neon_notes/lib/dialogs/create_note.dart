@@ -33,7 +33,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<notes.Note>>.behaviorSubject(
-        stream: widget.bloc.notesList,
+        subject: widget.bloc.notesList,
         builder: (final context, final notes) => NeonDialog(
           title: Text(NotesLocalizations.of(context).noteCreate),
           children: [

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/login_check_account.dart';
 import 'package:neon/src/models/account.dart';
@@ -61,7 +60,7 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
             child: ConstrainedBox(
               constraints: NeonDialogTheme.of(context).constraints,
               child: ResultBuilder.behaviorSubject(
-                stream: bloc.state,
+                subject: bloc.state,
                 builder: (final context, final state) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

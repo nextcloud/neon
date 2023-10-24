@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
@@ -63,7 +63,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-        stream: appsBloc.appImplementations,
+        subject: appsBloc.appImplementations,
         builder: (final context, final appImplementations) => StreamBuilder(
           stream: appsBloc.activeApp,
           builder: (final context, final activeAppSnapshot) => StreamBuilder(
@@ -242,7 +242,7 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<NotificationsAppInterface?>.behaviorSubject(
-        stream: _appsBloc.notificationsAppImplementation,
+        subject: _appsBloc.notificationsAppImplementation,
         builder: (final context, final notificationsAppImplementation) {
           if (!notificationsAppImplementation.hasData) {
             return const SizedBox.shrink();

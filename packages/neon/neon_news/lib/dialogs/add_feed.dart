@@ -50,7 +50,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<news.Folder>>.behaviorSubject(
-        stream: widget.bloc.folders,
+        subject: widget.bloc.folders,
         builder: (final context, final folders) => NeonDialog(
           title: Text(NewsLocalizations.of(context).feedAdd),
           children: [

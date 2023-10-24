@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/bloc/result_builder.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/models/account.dart';
@@ -27,7 +26,7 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final bloc = accountsBloc.activeUnifiedSearchBloc;
     return ResultBuilder.behaviorSubject(
-      stream: bloc.results,
+      subject: bloc.results,
       builder: (final context, final results) {
         final values = results.data?.entries.toList();
 

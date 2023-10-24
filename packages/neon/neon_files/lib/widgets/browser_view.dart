@@ -42,7 +42,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
 
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
-        stream: widget.bloc.files,
+        subject: widget.bloc.files,
         builder: (final context, final filesSnapshot) => StreamBuilder<List<String>>(
           stream: widget.bloc.path,
           builder: (final context, final pathSnapshot) => StreamBuilder<List<FilesTask>>(

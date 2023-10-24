@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/bloc/result_builder.dart';
+import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/login_flow.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/widgets/error.dart';
@@ -61,7 +61,7 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: ResultBuilder.behaviorSubject(
-              stream: bloc.init,
+              subject: bloc.init,
               builder: (final context, final init) => Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
