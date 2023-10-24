@@ -1,9 +1,7 @@
 import 'package:code_builder/code_builder.dart';
 import 'package:dynamite/src/builder/state.dart';
 
-List<Spec> buildSerializer(final State state) {
-  if (state.resolvedTypes.isNotEmpty) {
-    return [
+List<Spec> buildSerializer(final State state) => [
       const Code('// coverage:ignore-start'),
       const Code('final Serializers _serializers = (Serializers().toBuilder()'),
       ...state.resolvedTypes
@@ -18,7 +16,3 @@ List<Spec> buildSerializer(final State state) {
       ),
       const Code('// coverage:ignore-end'),
     ];
-  }
-
-  return [];
-}

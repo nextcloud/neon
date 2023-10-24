@@ -1,8 +1,9 @@
 import 'package:build/build.dart';
 import 'package:code_builder/code_builder.dart';
+import 'package:dynamite/src/builder/state.dart';
 import 'package:path/path.dart' as p;
 
-List<Spec> generateImports(final AssetId outputId) => [
+List<Spec> generateImports(final AssetId outputId, final State state) => [
       const Code('// ignore_for_file: camel_case_types'),
       const Code('// ignore_for_file: discarded_futures'),
       const Code('// ignore_for_file: public_member_api_docs'),
@@ -23,6 +24,8 @@ List<Spec> generateImports(final AssetId outputId) => [
       Directive.import('package:meta/meta.dart'),
       Directive.import('package:universal_io/io.dart'),
       const Code(''),
-      Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
-      const Code(''),
+      if (state.resolvedTypes.isNotEmpty) ...[
+        Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
+        const Code(''),
+      ],
     ];
