@@ -1,0 +1,51 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "parameters test",
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "content-string",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "contentMediaType": "application/json",
+                            "contentSchema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        }
+                    },
+                    {
+                        "name": "content-parameter",
+                        "in": "query",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": []
+}
