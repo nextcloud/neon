@@ -64,6 +64,8 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
       ..addBuilderFactory(
+          const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
+      ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(Header)]), () => MapBuilder<String, Header>())
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]),
           () => MapBuilder<String, SecurityScheme>())
