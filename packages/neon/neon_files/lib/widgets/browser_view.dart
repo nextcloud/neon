@@ -84,28 +84,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       },
                       input: files,
                       builder: (final context, final sorted) {
-                        final uploadingTasks = tasksSnapshot.requireData
-                            .whereType<FilesUploadTask>()
-                            .where(
-                              (final task) =>
-                                  sorted.where((final file) => _pathMatchesFile(task.path, file.name)).isEmpty,
-                            )
-                            .toList();
+                        final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
                         return NeonListView(
                           scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
-                          itemCount: uploadingTasks.length + sorted.length,
+                          itemCount: sorted.length,
                           itemBuilder: (final context, final index) {
-                            if (index < uploadingTasks.length) {
-                              return FileListTile(
-                                bloc: widget.filesBloc,
-                                browserBloc: widget.bloc,
-                                details: FileDetails.fromUploadTask(
-                                  task: uploadingTasks[index],
-                                ),
-                              );
-                            }
-                            final file = sorted[index - uploadingTasks.length];
+                            final file = sorted[index];
                             final matchingTask = tasksSnapshot.requireData
                                 .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
 
@@ -134,6 +119,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                               path: pathSnapshot.requireData,
                               bloc: widget.bloc,
                             ),
+                            ...uploadingTaskTiles,
                           ],
                         );
                       },
@@ -145,6 +131,22 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
           ),
         ),
       );
+
+  Iterable<Widget> buildUploadTasks(final List<FilesTask> tasks, final List<WebDavFile> files) sync* {
+    for (final task in tasks) {
+      if (task is! FilesUploadTask) {
+        continue;
+      }
+
+      yield FileListTile(
+        bloc: widget.filesBloc,
+        browserBloc: widget.bloc,
+        details: FileDetails.fromUploadTask(
+          task: task,
+        ),
+      );
+    }
+  }
 
   bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality<String>().equals(
         [...widget.bloc.path.value, name],
