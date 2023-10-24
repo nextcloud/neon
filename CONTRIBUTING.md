@@ -11,7 +11,18 @@ Currently included are:
 To set up all these tools run the `./tool/setup.sh` script.
 Note that you need to have Dart installed and [`~/.pub-cache/bin/` needs to be in your PATH](https://dart.dev/tools/pub/cmd/pub-global#running-a-script-from-your-path) before running the script.
 
-## Conventional commits
+You will need to have the following packages installed:
+- [yq](https://github.com/kislyuk/yq)
+- [sqlite3](https://pub.dev/packages/sqflite_common_ffi#getting-started)
+- [appindicator3](https://pub.dev/packages/tray_manager#quick-start)
+
+## Picking an issue
+You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
+
+## Commits
+All commits need to be signed and signed off to to be pass our tests.
+To sign off your commits use `git commit --signoff`.
+To setup commit signing please consult the [Github documentation](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
 We use conventional commits to have meaningful commit messages and be able to generate changelogs.
 A non-breaking feature contribution to `neon_notes` could look like this:
 ```bash
@@ -22,7 +33,8 @@ You can read the full documentation at https://www.conventionalcommits.org.
 ## Tools
 We maintain a collection of scripts in `./tool/`.
 They range from setting up a local Nextcloud server (`./tool/dev.sh`) to generating assets.
-
+Be aware that due to limitations in Apache the dev server will crash when you resize the terminal window.
+    
 ## Monorepo
 For easier development we use a monorepo structure.
 This means that we have multiple packages in one git repository.

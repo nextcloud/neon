@@ -47,6 +47,7 @@ plantuml
 precache
 puml
 rpath
+signoff
 startuml
 stdlib
 strconcat
