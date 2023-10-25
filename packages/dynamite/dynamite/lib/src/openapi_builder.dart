@@ -10,10 +10,15 @@ import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/imports.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
+import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
+  OpenAPIBuilder(
+    final BuilderOptions options,
+  ) : buildConfig = DynamiteConfig.fromJson(options.config);
+
   @override
   final buildExtensions = const {
     '.openapi.json': ['.openapi.dart'],
@@ -25,6 +30,9 @@ class OpenAPIBuilder implements Builder {
 
   /// The maximum openapi version supported by this builder.
   static final Version maxSupportedVersion = minSupportedVersion.incrementMajor();
+
+  /// The configuration for this builder.
+  final DynamiteConfig buildConfig;
 
   @override
   Future<void> build(final BuildStep buildStep) async {
@@ -54,7 +62,7 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI between $minSupportedVersion and $maxSupportedVersion are supported.');
       }
 
-      final state = State();
+      final state = State(buildConfig);
 
       // Imports need to be generated after everything else so we know if we need the local part directive,
       // but they need to be added to the beginning of the output.
@@ -64,28 +72,20 @@ class OpenAPIBuilder implements Builder {
         ..addAll(buildSerializer(state))
         ..insertAll(0, generateImports(outputId, state));
 
-      final patterns = [
-        RegExp(
-          r'const .*\._\(\);',
-        ),
-        RegExp(
-          r'factory .*\.fromJson\(Map<String, dynamic> json\) => _jsonSerializers\.deserializeWith\(serializer, json\)!;',
-        ),
-        RegExp(
-          r'Map<String, dynamic> toJson\(\) => _jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;',
-        ),
-        RegExp(
-          r'static BuiltSet<.*> get values => _\$.*Values;',
-        ),
-      ];
-
       var outputString = output.build().map((final e) => e.accept(emitter)).join('\n');
-      for (final pattern in patterns) {
-        outputString = outputString.replaceAllMapped(
-          pattern,
-          (final match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
-        );
+
+      final coverageIgnores = state.buildConfig.coverageIgnores;
+      if (coverageIgnores != null) {
+        for (final ignore in coverageIgnores) {
+          final pattern = RegExp(ignore);
+
+          outputString = outputString.replaceAllMapped(
+            pattern,
+            (final match) => '  // coverage:ignore-start\n${match.group(0)}\n  // coverage:ignore-end',
+          );
+        }
       }
+
       final formatter = DartFormatter(pageWidth: 120);
       await buildStep.writeAsString(
         outputId,
