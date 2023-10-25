@@ -22,6 +22,12 @@ class OpenAPIBuilder implements Builder {
     '.openapi.yaml': ['.openapi.dart'],
   };
 
+  /// The minimum openapi version supported by this builder.
+  static final Version minSupportedVersion = Version(3, 0, 0);
+
+  /// The maximum openapi version supported by this builder.
+  static final Version maxSupportedVersion = minSupportedVersion.incrementMajor();
+
   @override
   Future<void> build(final BuildStep buildStep) async {
     try {
@@ -45,8 +51,9 @@ class OpenAPIBuilder implements Builder {
         _ => throw StateError('Openapi specs can only be yaml or json.'),
       };
 
-      if (Version.parse(spec.version).major != 3) {
-        throw Exception('Only OpenAPI 3.0.0 and later are supported');
+      final version = Version.parse(spec.version);
+      if (version < minSupportedVersion || version > maxSupportedVersion) {
+        throw Exception('Only OpenAPI between $minSupportedVersion and $maxSupportedVersion are supported.');
       }
 
       final state = State();
