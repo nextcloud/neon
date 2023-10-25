@@ -51,9 +51,7 @@ class OpenAPIBuilder implements Builder {
 
       final state = State();
 
-      final output = ListBuilder<Spec>()
-        ..addAll(generateImports(outputId))
-        ..addAll(generateClients(spec, state));
+      final output = ListBuilder<Spec>();
 
       if (spec.components?.schemas != null) {
         for (final schema in spec.components!.schemas!.entries) {
@@ -86,9 +84,17 @@ class OpenAPIBuilder implements Builder {
         }
       }
 
+      // Imports need to be generated after everything else so we know if we need the local part directive,
+      // but they need to be added to the beginning of the output.
+      final clients = generateClients(spec, state);
+      final serializer = buildSerializer(state);
+      final imports = generateImports(outputId, state);
+
       output
+        ..addAll(imports)
+        ..addAll(clients)
         ..addAll(state.output)
-        ..addAll(buildSerializer(state));
+        ..addAll(serializer);
 
       final patterns = [
         RegExp(

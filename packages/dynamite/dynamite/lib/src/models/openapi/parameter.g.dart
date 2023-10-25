@@ -60,11 +60,18 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
         ..add('description')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
-    value = object.schema;
+    value = object.$schema;
     if (value != null) {
       result
         ..add('schema')
         ..add(serializers.serialize(value, specifiedType: const FullType(Schema)));
+    }
+    value = object.content;
+    if (value != null) {
+      result
+        ..add('content')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
     }
     return result;
   }
@@ -93,7 +100,11 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'schema':
-          result.schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          result.$schema.replace(serializers.deserialize(value, specifiedType: const FullType(Schema))! as Schema);
+          break;
+        case 'content':
+          result.content.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
           break;
       }
     }
@@ -128,11 +139,14 @@ class _$Parameter extends Parameter {
   @override
   final bool required;
   @override
-  final Schema? schema;
+  final Schema? $schema;
+  @override
+  final BuiltMap<String, MediaType>? content;
 
   factory _$Parameter([void Function(ParameterBuilder)? updates]) => (ParameterBuilder()..update(updates))._build();
 
-  _$Parameter._({required this.name, required this.$in, this.description, required this.required, this.schema})
+  _$Parameter._(
+      {required this.name, required this.$in, this.description, required this.required, this.$schema, this.content})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name');
     BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in');
@@ -152,7 +166,8 @@ class _$Parameter extends Parameter {
         name == other.name &&
         $in == other.$in &&
         required == other.required &&
-        schema == other.schema;
+        $schema == other.$schema &&
+        content == other.content;
   }
 
   @override
@@ -161,7 +176,8 @@ class _$Parameter extends Parameter {
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, $in.hashCode);
     _$hash = $jc(_$hash, required.hashCode);
-    _$hash = $jc(_$hash, schema.hashCode);
+    _$hash = $jc(_$hash, $schema.hashCode);
+    _$hash = $jc(_$hash, content.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -173,7 +189,8 @@ class _$Parameter extends Parameter {
           ..add('\$in', $in)
           ..add('description', description)
           ..add('required', required)
-          ..add('schema', schema))
+          ..add('\$schema', $schema)
+          ..add('content', content))
         .toString();
   }
 }
@@ -197,9 +214,13 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   bool? get required => _$this._required;
   set required(bool? required) => _$this._required = required;
 
-  SchemaBuilder? _schema;
-  SchemaBuilder get schema => _$this._schema ??= SchemaBuilder();
-  set schema(SchemaBuilder? schema) => _$this._schema = schema;
+  SchemaBuilder? _$schema;
+  SchemaBuilder get $schema => _$this._$schema ??= SchemaBuilder();
+  set $schema(SchemaBuilder? $schema) => _$this._$schema = $schema;
+
+  MapBuilder<String, MediaType>? _content;
+  MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
+  set content(MapBuilder<String, MediaType>? content) => _$this._content = content;
 
   ParameterBuilder();
 
@@ -210,7 +231,8 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
       _$in = $v.$in;
       _description = $v.description;
       _required = $v.required;
-      _schema = $v.schema?.toBuilder();
+      _$schema = $v.$schema?.toBuilder();
+      _content = $v.content?.toBuilder();
       _$v = null;
     }
     return this;
@@ -240,12 +262,15 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
               $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
               description: description,
               required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
-              schema: _schema?.build());
+              $schema: _$schema?.build(),
+              content: _content?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'schema';
-        _schema?.build();
+        _$failedField = '\$schema';
+        _$schema?.build();
+        _$failedField = 'content';
+        _content?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'Parameter', _$failedField, e.toString());
       }

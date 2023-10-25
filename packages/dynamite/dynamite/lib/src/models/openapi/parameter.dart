@@ -4,6 +4,7 @@ import 'package:built_value/serializer.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/exceptions.dart';
+import 'package:dynamite/src/models/openapi/media_type.dart';
 import 'package:dynamite/src/models/openapi/schema.dart';
 
 part 'parameter.g.dart';
@@ -25,7 +26,33 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
 
   bool get required;
 
-  Schema? get schema;
+  @Deprecated('Use [schema] instead which also automatically handles [content].')
+  @BuiltValueField(wireName: 'schema')
+  Schema? get $schema;
+
+  BuiltMap<String, MediaType>? get content;
+
+  Schema? get schema {
+    // ignore: deprecated_member_use_from_same_package
+    if ($schema != null) {
+      // ignore: deprecated_member_use_from_same_package
+      return $schema;
+    }
+
+    if (content != null && content!.isNotEmpty) {
+      if (content!.length > 1) {
+        print('Can not work with multiple mime types right now. Using the first supported.');
+      }
+      return Schema(
+        (final b) => b
+          ..type = SchemaType.string
+          ..contentMediaType = content!.entries.first.key
+          ..contentSchema = content!.entries.first.value.schema!.toBuilder(),
+      );
+    }
+
+    return null;
+  }
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(final ParameterBuilder b) {
@@ -34,8 +61,12 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       throw OpenAPISpecError('Path parameters must be required but ${b.name} is not.');
     }
 
-    if (b.required! && b.schema.$default != null) {
+    if (b.required! && b._$schema != null && b.$schema.$default != null) {
       print('Required parameters should not specify default values.');
+    }
+
+    if (b._$schema != null && b._content != null) {
+      throw OpenAPISpecError('Only one of schema or content must be set in parameter ${b.name}.');
     }
   }
 
