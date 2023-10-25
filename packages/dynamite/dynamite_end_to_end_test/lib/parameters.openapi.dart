@@ -116,7 +116,19 @@ class Client extends DynamiteClient {
 }
 
 // coverage:ignore-start
-final Serializers _serializers = Serializers().toBuilder().build();
+final Serializers _serializers = (Serializers().toBuilder()
+      ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        MapBuilder<String, JsonObject>.new,
+      )
+      ..addBuilderFactory(
+        const FullType(ContentString, [
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        ]),
+        ContentString<BuiltMap<String, JsonObject>>.new,
+      )
+      ..add(ContentString.serializer))
+    .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

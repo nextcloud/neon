@@ -6,13 +6,11 @@ import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/builder/client.dart';
+import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/imports.dart';
-import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
-import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
-import 'package:dynamite/src/models/type_result.dart';
 import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
@@ -58,50 +56,13 @@ class OpenAPIBuilder implements Builder {
 
       final state = State();
 
-      final output = ListBuilder<Spec>();
-
-      if (spec.components?.schemas != null) {
-        for (final schema in spec.components!.schemas!.entries) {
-          final identifier = toDartName(schema.key, uppercaseFirstCharacter: true);
-          if (schema.value.type == null && schema.value.ref == null && schema.value.ofs == null) {
-            output.add(
-              TypeDef(
-                (final b) => b
-                  ..name = identifier
-                  ..definition = refer('dynamic'),
-              ),
-            );
-          } else {
-            final result = resolveType(
-              spec,
-              state,
-              identifier,
-              schema.value,
-            );
-            if (result is TypeResultBase) {
-              output.add(
-                TypeDef(
-                  (final b) => b
-                    ..name = identifier
-                    ..definition = refer(result.name),
-                ),
-              );
-            }
-          }
-        }
-      }
-
       // Imports need to be generated after everything else so we know if we need the local part directive,
       // but they need to be added to the beginning of the output.
-      final clients = generateClients(spec, state);
-      final serializer = buildSerializer(state);
-      final imports = generateImports(outputId, state);
-
-      output
-        ..addAll(imports)
-        ..addAll(clients)
-        ..addAll(state.output)
-        ..addAll(serializer);
+      final output = ListBuilder<Spec>()
+        ..addAll(generateClients(spec, state))
+        ..addAll(generateSchemas(spec, state))
+        ..addAll(buildSerializer(state))
+        ..insertAll(0, generateImports(outputId, state));
 
       final patterns = [
         RegExp(
