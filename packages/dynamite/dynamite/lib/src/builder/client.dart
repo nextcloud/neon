@@ -183,19 +183,19 @@ Iterable<Method> buildTags(
     for (final operationEntry in pathEntry.value.operations.entries) {
       final httpMethod = operationEntry.key.name;
       final operation = operationEntry.value;
-      final operationId = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
+      final operationName = operation.operationId ?? toDartName('$httpMethod-${pathEntry.key}');
       final parameters = [
         ...?pathEntry.value.parameters,
         ...?operation.parameters,
       ]..sort(sortRequiredParameters);
-      final name = toDartName(filterMethodName(operationId, tag ?? ''));
+      final name = toDartName(filterMethodName(operationName, tag ?? ''));
 
       var responses = <openapi.Response, List<int>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
           final statusCode = int.tryParse(responseEntry.key);
           if (statusCode == null) {
-            print('Default responses are not supported right now. Skipping it for $operationId');
+            print('Default responses are not supported right now. Skipping it for $operationName');
             continue;
           }
           final response = responseEntry.value;
@@ -205,7 +205,7 @@ Iterable<Method> buildTags(
         }
 
         if (responses.length > 1) {
-          print('$operationId uses more than one response schema but we only generate the first one');
+          print('$operationName uses more than one response schema but we only generate the first one');
           responses = Map.fromEntries([responses.entries.first]);
         }
       }
@@ -251,7 +251,7 @@ Iterable<Method> buildTags(
           spec,
           state,
           toDartName(
-            '$operationId-${parameter.name}',
+            '$operationName-${parameter.name}',
             uppercaseFirstCharacter: true,
           ),
           parameter.schema!,
@@ -277,20 +277,26 @@ Iterable<Method> buildTags(
         buildPatternCheck(result, parameter).forEach(code.writeln);
         buildParameterSerialization(result, parameter).forEach(code.writeln);
       }
-      resolveMimeTypeEncode(operation, spec, state, operationId, operationParameters).forEach(code.writeln);
+      resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
 
       for (final responseEntry in responses.entries) {
         final response = responseEntry.key;
         final statusCodes = responseEntry.value;
 
         TypeResult? headersType;
+
         if (response.headers != null) {
-          final identifier =
-              '${tag != null ? toDartName(tag, uppercaseFirstCharacter: true) : null}${toDartName(operationId, uppercaseFirstCharacter: true)}Headers';
+          final identifierBuilder = StringBuffer();
+          if (tag != null) {
+            identifierBuilder.write(toDartName(tag, uppercaseFirstCharacter: true));
+          }
+          identifierBuilder
+            ..write(toDartName(operationName, uppercaseFirstCharacter: true))
+            ..write('Headers');
           headersType = resolveObject(
             spec,
             state,
-            identifier,
+            identifierBuilder.toString(),
             openapi.Schema(
               (final b) => b
                 ..properties.replace(
@@ -306,14 +312,20 @@ Iterable<Method> buildTags(
           );
         }
 
+        final identifierBuilder = StringBuffer()
+          ..write(operationName)
+          ..write('-response');
+        if (responses.entries.length > 1) {
+          identifierBuilder
+            ..write('-')
+            ..write(responses.entries.toList().indexOf(responseEntry));
+        }
+
         final dataType = resolveMimeTypeDecode(
           response,
           spec,
           state,
-          toDartName(
-            '$operationId-response${responses.entries.length > 1 ? '-${responses.entries.toList().indexOf(responseEntry)}' : ''}',
-            uppercaseFirstCharacter: true,
-          ),
+          toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
         );
 
         var path = pathEntry.key;
