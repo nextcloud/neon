@@ -1,6 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:neon/l10n/localizations.dart';
 
+/// Validates whether the given [input] is a valid HTTP(S) URL.
+///
+/// Set [httpsOnly] if you want to only allow HTTPS URLs.
+/// Returns `null` if the URL is valid or a localized error message if not.
 String? validateHttpUrl(
   final BuildContext context,
   final String? input, {
@@ -24,6 +28,9 @@ String? validateHttpUrl(
   return NeonLocalizations.of(context).errorInvalidURL;
 }
 
+/// Validates that the given [input] is neither null nor empty.
+///
+/// Returns `null` if not empty or a localized error message if empty.
 String? validateNotEmpty(final BuildContext context, final String? input) {
   if (input == null || input.isEmpty) {
     return NeonLocalizations.of(context).errorEmptyField;

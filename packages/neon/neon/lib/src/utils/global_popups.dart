@@ -12,15 +12,23 @@ import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+/// Singleton class managing global popups.
 @internal
 class GlobalPopups {
+  /// Returns the current instance.
+  ///
+  /// Instantiates a new one if not yet present.
   factory GlobalPopups() => instance ??= GlobalPopups._();
 
+  /// Returns the current instance.
+  ///
+  /// Instantiates a new one with a [mock]ed value if not yet present.
   @visibleForTesting
   factory GlobalPopups.mocked(final GlobalPopups mock) => instance ??= mock;
 
   GlobalPopups._();
 
+  /// The instance of this singleton.
   @visibleForTesting
   static GlobalPopups? instance;
 
@@ -28,6 +36,9 @@ class GlobalPopups {
   late BuildContext _context;
   final _subscriptions = <StreamSubscription<dynamic>>[];
 
+  /// Disposes this instance and cancels all active subscriptions.
+  ///
+  /// The instance will be reset. Subsequent calls will instantiate a new one.
   void dispose() {
     for (final subscription in _subscriptions) {
       unawaited(subscription.cancel());
@@ -37,6 +48,9 @@ class GlobalPopups {
     instance = null;
   }
 
+  /// Registers the global backups to the given [context].
+  ///
+  /// Subsequent calls will update the cached `context` but will not run the registration again.
   void register(final BuildContext context) {
     _context = context;
     if (_registered) {

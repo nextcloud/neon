@@ -5,9 +5,11 @@ import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
 
+/// Account related options.
 @internal
 @immutable
 class AccountSpecificOptions extends OptionsCollection {
+  /// Creates a new account options collection.
   AccountSpecificOptions(
     super.storage,
     this._appsBloc,
@@ -30,6 +32,9 @@ class AccountSpecificOptions extends OptionsCollection {
     initialApp,
   ];
 
+  /// The initial app to show on app start.
+  ///
+  /// Defaults to `null` letting the framework choose one.
   late final initialApp = SelectOption<String?>(
     storage: storage,
     key: AccountOptionKeys.initialApp,
@@ -39,8 +44,10 @@ class AccountSpecificOptions extends OptionsCollection {
   );
 }
 
+/// Storage keys for the [AccountSpecificOptions].
 @internal
 enum AccountOptionKeys implements Storable {
+  /// The storage key for [AccountSpecificOptions.initialApp]
   initialApp._('initial-app');
 
   const AccountOptionKeys._(this.value);
