@@ -15,8 +15,13 @@ import 'package:neon/src/widgets/image.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/core.dart' as core;
 
+/// A custom pre populated [Drawer] side panel.
+///
+/// Displays an entry for every registered and supported client and one for
+/// the settings page.
 @internal
 class NeonDrawer extends StatelessWidget {
+  /// Created a new Neon drawer.
   const NeonDrawer({
     super.key,
   });
@@ -112,8 +117,14 @@ class __NeonDrawerState extends State<_NeonDrawer> {
   }
 }
 
+/// Custom styled [DrawerHeader] used inside a [Drawer] or [NeonDrawer].
+///
+/// The neon drawer will display the [core.ThemingPublicCapabilities_Theming.name]
+/// and [core.ThemingPublicCapabilities_Theming.logo] and automatically rebuild
+/// when the current theme changes.
 @internal
 class NeonDrawerHeader extends StatelessWidget {
+  /// Creates a new Neon drawer header.
   const NeonDrawerHeader({super.key});
 
   @override
