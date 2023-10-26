@@ -7,7 +7,4 @@ environment:
   sdk: '>=3.1.0 <4.0.0'
 
 dev_dependencies:
-  lint_maker:
-    git:
-      url: https://github.com/Leptopoda/lint_maker
-      ref: 15bfdd3881bffc1516975368e86e6ec7d60aa991
+  lint_maker: ^0.2.0
