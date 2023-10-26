@@ -530,7 +530,6 @@ void main() {
         // props: Most of them are either not applicable or hard/impossible to implement because we don't allow just writing any props
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }

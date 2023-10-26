@@ -426,8 +426,7 @@ void main() {
         expect(response.body.items, hasLength(0));
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }
 

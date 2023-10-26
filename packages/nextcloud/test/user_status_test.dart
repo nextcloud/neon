@@ -197,7 +197,6 @@ void main() {
         expect(response.body.ocs.data.statusIsUserDefined, false);
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }

@@ -85,7 +85,6 @@ void main() {
 
       // Deleting an app, sending a notification (also via matrix gateway) or listening for notifications is not possible because redis is not set up
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }

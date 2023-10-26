@@ -178,7 +178,6 @@ void main() {
         expect(response.body.noteMode, notes.Settings_NoteMode.preview);
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }

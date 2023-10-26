@@ -140,7 +140,6 @@ void main() {
         await client.notifications.push.removeDevice();
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }

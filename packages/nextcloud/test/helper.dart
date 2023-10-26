@@ -8,9 +8,6 @@ import 'package:process_run/cmd_run.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
 
-const retryCount = 3;
-const timeout = Timeout(Duration(seconds: 30));
-
 class DockerContainer {
   DockerContainer({
     required this.id,

@@ -6,11 +6,10 @@ import 'package:test/test.dart';
 import 'helper.dart';
 
 Future<void> main() async {
-  await run(await getDockerImage());
-}
-
-Future<void> run(final DockerImage image) async {
   group('settings', () {
+    late DockerImage image;
+    setUpAll(() async => image = await getDockerImage());
+
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {

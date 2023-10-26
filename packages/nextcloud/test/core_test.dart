@@ -177,7 +177,6 @@ void main() {
         );
       });
     },
-    retry: retryCount,
-    timeout: timeout,
+    tags: 'integration',
   );
 }
