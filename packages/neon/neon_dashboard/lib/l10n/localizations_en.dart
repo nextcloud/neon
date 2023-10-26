@@ -1,8 +1,8 @@
 import 'localizations.dart';
 
 /// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+class DashboardLocalizationsEn extends DashboardLocalizations {
+  DashboardLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
   String get noEntries => 'No entries';

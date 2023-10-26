@@ -17,8 +17,8 @@ import 'package:rxdart/rxdart.dart';
 class MockAccountsBloc extends Mock implements AccountsBloc {}
 
 Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: DashboardLocalizations.localizationsDelegates,
+      supportedLocales: DashboardLocalizations.supportedLocales,
       home: Scaffold(
         backgroundColor: Colors.transparent,
         body: NeonProvider<AccountsBloc>.value(

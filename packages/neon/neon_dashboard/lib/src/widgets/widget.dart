@@ -60,7 +60,7 @@ class DashboardWidget extends StatelessWidget {
               if (halfEmptyContentMessage != null) halfEmptyContentMessage,
               if (emptyContentMessage != null) emptyContentMessage,
               if (halfEmptyContentMessage == null && emptyContentMessage == null && (items?.items.isEmpty ?? true))
-                _renderMessage(AppLocalizations.of(context).noEntries)!,
+                _renderMessage(DashboardLocalizations.of(context).noEntries)!,
               ...?items?.items.map(
                 (final item) => DashboardWidgetItem(
                   item: item,
