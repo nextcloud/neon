@@ -26,25 +26,56 @@ import 'package:neon/src/widgets/error.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+/// Categories of the [SettingsPage].
+///
+/// Used with [SettingsPage.initialCategory] to scroll to a specific section.
+/// Values are in order of appearance but are not guaranteed to be included on
+/// the settings page.
 @internal
 enum SettingsCategories {
+  /// `NextcloudAppOptions` category.
+  ///
+  /// Each activated `AppImplementation` has an entry if it has any options specified.
   apps,
+
+  /// Theming category.
   theme,
+
+  /// Device navigation category.
   navigation,
+
+  /// Push notifications category.
   pushNotifications,
+
+  /// Startup category.
   startup,
+
+  /// System tray category.
   systemTray,
+
+  /// Account management category.
+  ///
+  /// Also includes the `AccountSpecificOptions`.
   accounts,
+
+  /// Other category.
+  ///
+  /// Contains legal information and various links.
   other,
 }
 
+/// Settings page.
+///
+/// Settings are specified as `Option`s.
 @internal
 class SettingsPage extends StatefulWidget {
+  /// Creates a new settings page.
   const SettingsPage({
     this.initialCategory,
     super.key,
   });
 
+  /// The optional initial category to show.
   final SettingsCategories? initialCategory;
 
   @override
