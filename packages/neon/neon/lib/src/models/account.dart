@@ -22,9 +22,11 @@ abstract interface class Credentials {
   abstract final String? password;
 }
 
+/// Account data.
 @JsonSerializable()
 @immutable
 class Account implements Credentials {
+  /// Creates a new account.
   Account({
     required this.serverURL,
     required this.username,
@@ -39,8 +41,10 @@ class Account implements Credentials {
           cookieJar: CookieJar(),
         );
 
+  /// Creates a new account object from the given [json] data.
   factory Account.fromJson(final Map<String, dynamic> json) => _$AccountFromJson(json);
 
+  /// Parses this object into a json like map.
   Map<String, dynamic> toJson() => _$AccountToJson(this);
 
   @override
@@ -49,6 +53,8 @@ class Account implements Credentials {
   final String username;
   @override
   final String? password;
+
+  /// The user agent to use.
   final String? userAgent;
 
   @override
@@ -62,8 +68,13 @@ class Account implements Credentials {
   @override
   int get hashCode => serverURL.hashCode + username.hashCode;
 
+  /// An authenticated API client.
   final NextcloudClient client;
 
+  /// The unique ID of the account.
+  ///
+  /// Implemented in a primitive way hashing the [username] and [serverURL].
+  /// IDs are globally cached in [_idCache].
   String get id {
     final key = '$username@$serverURL';
 
@@ -108,10 +119,20 @@ class Account implements Credentials {
   Uri stripUri(final Uri uri) => Uri.parse(uri.toString().replaceFirst(serverURL.toString(), ''));
 }
 
+/// Global [Account.id] cache.
 Map<String, String> _idCache = {};
 
+/// Extension to find an account by id in a Iterable.
 extension AccountFind on Iterable<Account> {
+  /// Returns the first [Account] matching [accountID] by [Account.id].
+  ///
+  /// If no `Account` was found `null` is returned.
   Account? tryFind(final String? accountID) => firstWhereOrNull((final account) => account.id == accountID);
+
+  /// Returns the first [Account] matching [accountID] by [Account.id].
+  ///
+  /// Throws a [StateError] if no `Account` was found.
+  /// Use [tryFind] to get a nullable result.
   Account find(final String accountID) => firstWhere((final account) => account.id == accountID);
 }
 
