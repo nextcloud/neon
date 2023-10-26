@@ -7,17 +7,17 @@ part of 'routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $notificationsAppRoute,
+      $notificationsClientRoute,
     ];
 
-RouteBase get $notificationsAppRoute => GoRouteData.$route(
+RouteBase get $notificationsClientRoute => GoRouteData.$route(
       path: '/apps/notifications',
       name: 'notifications',
-      factory: $NotificationsAppRouteExtension._fromState,
+      factory: $NotificationsClientRouteExtension._fromState,
     );
 
-extension $NotificationsAppRouteExtension on NotificationsAppRoute {
-  static NotificationsAppRoute _fromState(GoRouterState state) => const NotificationsAppRoute();
+extension $NotificationsClientRouteExtension on NotificationsClientRoute {
+  static NotificationsClientRoute _fromState(GoRouterState state) => const NotificationsClientRoute();
 
   String get location => GoRouteData.$location(
         '/apps/notifications',

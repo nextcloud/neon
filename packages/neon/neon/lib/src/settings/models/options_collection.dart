@@ -11,7 +11,7 @@ abstract class OptionsCollection implements Exportable, Disposable {
 
   /// Storage backend to use.
   @protected
-  final AppStorage storage;
+  final ClientStorage storage;
 
   /// Collection of options.
   @protected
@@ -56,9 +56,9 @@ abstract class OptionsCollection implements Exportable, Disposable {
   }
 }
 
-/// OptionsCollection for a neon app.
-abstract class NextcloudAppOptions extends OptionsCollection {
-  NextcloudAppOptions(super.storage);
+/// OptionsCollection for a neon client.
+abstract class NextcloudClientOptions extends OptionsCollection {
+  NextcloudClientOptions(super.storage);
 
   /// Collection of categories to display the options in the settings.
   late final Iterable<OptionsCategory> categories;

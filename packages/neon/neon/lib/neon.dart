@@ -8,7 +8,7 @@ import 'package:neon/src/blocs/first_launch.dart';
 import 'package:neon/src/blocs/next_push.dart';
 import 'package:neon/src/blocs/push_notifications.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/models/disposable.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -21,7 +21,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
 Future<void> runNeon({
-  required final Set<AppImplementation> appImplementations,
+  required final Set<ClientImplementation> clientImplementations,
   required final NeonTheme theme,
   @visibleForTesting final WidgetsBinding? bindingOverride,
   @visibleForTesting final Account? account,
@@ -44,7 +44,7 @@ Future<void> runNeon({
 
   final accountsBloc = AccountsBloc(
     globalOptions,
-    appImplementations,
+    clientImplementations,
   );
   if (account != null) {
     accountsBloc
@@ -71,9 +71,9 @@ Future<void> runNeon({
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
-        Provider<Iterable<AppImplementation>>(
-          create: (final _) => appImplementations,
-          dispose: (final _, final appImplementations) => appImplementations.disposeAll(),
+        Provider<Iterable<ClientImplementation>>(
+          create: (final _) => clientImplementations,
+          dispose: (final _, final clientImplementations) => clientImplementations.disposeAll(),
         ),
         Provider<PackageInfo>.value(value: packageInfo),
       ],

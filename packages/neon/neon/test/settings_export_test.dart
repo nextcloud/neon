@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/settings/models/exportable.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/utils/settings_export_helper.dart';
@@ -13,9 +13,9 @@ import 'package:rxdart/rxdart.dart';
 import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
-class FakeAppImplementation extends Mock implements AppImplementation {}
+class FakeAppImplementation extends Mock implements ClientImplementation {}
 
-class NextcloudAppOptionsMock extends Mock implements NextcloudAppOptions {}
+class NextcloudAppOptionsMock extends Mock implements NextcloudClientOptions {}
 
 class AccountsBlocMock extends Mock implements AccountsBloc {}
 
@@ -29,14 +29,14 @@ class ExporterMock extends Mock implements Exportable {}
 void main() {
   group('Exporter', () {
     test('AccountsBlocExporter', () {
-      var exporter = const AppImplementationsExporter([]);
+      var exporter = const ClientImplementationsExporter([]);
 
       var export = exporter.export();
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
       final fakeApp = FakeAppImplementation();
       final fakeOptions = NextcloudAppOptionsMock();
-      exporter = AppImplementationsExporter([fakeApp]);
+      exporter = ClientImplementationsExporter([fakeApp]);
 
       const appValue = MapEntry('appID', 'value');
       const appExport = {

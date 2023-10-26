@@ -5,9 +5,9 @@ import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/blocs/clients.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/global_options.dart' as global_options;
 import 'package:neon/src/utils/global_popups.dart';
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
   late Account _account;
   late GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
-  late AppsBloc _appsBloc;
+  late ClientsBloc _clientsBloc;
   late StreamSubscription<Map<String, String?>> _versionCheckSubscription;
 
   @override
@@ -44,9 +44,9 @@ class _HomePageState extends State<HomePage> {
     _globalOptions = NeonProvider.of<GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _account = _accountsBloc.activeAccount.value!;
-    _appsBloc = _accountsBloc.activeAppsBloc;
+    _clientsBloc = _accountsBloc.activeClientsBloc;
 
-    _versionCheckSubscription = _appsBloc.appVersions.listen((final values) {
+    _versionCheckSubscription = _clientsBloc.clientVersions.listen((final values) {
       if (!mounted) {
         return;
       }
@@ -56,12 +56,12 @@ class _HomePageState extends State<HomePage> {
       final buffer = StringBuffer()..writeln();
 
       for (final error in values.entries) {
-        final appId = error.key;
+        final clientId = error.key;
         final minVersion = error.value;
-        final appName = l10n.appImplementationName(appId);
+        final clientName = l10n.clientImplementationName(clientId);
 
-        if (appName.isNotEmpty && minVersion != null) {
-          buffer.writeln('- $appName $minVersion');
+        if (clientName.isNotEmpty && minVersion != null) {
+          buffer.writeln('- $clientName $minVersion');
         }
       }
 
@@ -126,20 +126,20 @@ class _HomePageState extends State<HomePage> {
     const drawer = NeonDrawer();
     const appBar = NeonAppBar();
 
-    final appView = StreamBuilder(
+    final clientView = StreamBuilder(
       stream: _accountsBloc.activeUnifiedSearchBloc.enabled,
       builder: (final context, final unifiedSearchEnabledSnapshot) {
         if (unifiedSearchEnabledSnapshot.data ?? false) {
           return const NeonUnifiedSearchResults();
         }
-        return ResultBuilder<Iterable<AppImplementation>>.behaviorSubject(
-          subject: _appsBloc.appImplementations,
-          builder: (final context, final appImplementations) {
-            if (!appImplementations.hasData) {
+        return ResultBuilder<Iterable<ClientImplementation>>.behaviorSubject(
+          subject: _clientsBloc.clientImplementations,
+          builder: (final context, final clientImplementations) {
+            if (!clientImplementations.hasData) {
               return const SizedBox();
             }
 
-            if (appImplementations.requireData.isEmpty) {
+            if (clientImplementations.requireData.isEmpty) {
               return Center(
                 child: Text(
                   NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
@@ -149,13 +149,13 @@ class _HomePageState extends State<HomePage> {
             }
 
             return StreamBuilder(
-              stream: _appsBloc.activeApp,
-              builder: (final context, final activeAppIDSnapshot) {
-                if (!activeAppIDSnapshot.hasData) {
+              stream: _clientsBloc.activeClient,
+              builder: (final context, final activeClientIDSnapshot) {
+                if (!activeClientIDSnapshot.hasData) {
                   return const SizedBox();
                 }
 
-                return activeAppIDSnapshot.requireData.page;
+                return activeClientIDSnapshot.requireData.page;
               },
             );
           },
@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> {
           resizeToAvoidBottomInset: false,
           drawer: !drawerAlwaysVisible ? drawer : null,
           appBar: appBar,
-          body: appView,
+          body: clientView,
         );
 
         if (drawerAlwaysVisible) {
@@ -205,7 +205,7 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: MultiProvider(
-        providers: _appsBloc.appBlocProviders,
+        providers: _clientsBloc.clientBlocProviders,
         child: body,
       ),
     );

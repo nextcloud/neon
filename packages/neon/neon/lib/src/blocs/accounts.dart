@@ -5,14 +5,14 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/bloc/bloc.dart';
-import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/blocs/capabilities.dart';
+import 'package:neon/src/blocs/clients.dart';
 import 'package:neon/src/blocs/unified_search.dart';
 import 'package:neon/src/blocs/user_details.dart';
 import 'package:neon/src/blocs/user_statuses.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/account_cache.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/account_options.dart';
 import 'package:neon/src/utils/global_options.dart';
@@ -62,7 +62,7 @@ abstract interface class AccountsBlocStates {
 class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
   AccountsBloc(
     this._globalOptions,
-    this._allAppImplementations,
+    this._allClientImplementations,
   ) {
     const lastUsedStorage = SingleValueStorage(StorageKeys.lastUsedAccount);
 
@@ -103,22 +103,22 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 
     accounts.listen((final accounts) {
       _accountsOptions.pruneAgainst(accounts);
-      _appsBlocs.pruneAgainst(accounts);
+      _clientsBlocs.pruneAgainst(accounts);
       _capabilitiesBlocs.pruneAgainst(accounts);
       _userDetailsBlocs.pruneAgainst(accounts);
       _userStatusesBlocs.pruneAgainst(accounts);
       _unifiedSearchBlocs.pruneAgainst(accounts);
-      for (final app in _allAppImplementations) {
-        app.blocsCache.pruneAgainst(accounts);
+      for (final client in _allClientImplementations) {
+        client.blocsCache.pruneAgainst(accounts);
       }
     });
   }
 
   final GlobalOptions _globalOptions;
-  final Iterable<AppImplementation> _allAppImplementations;
+  final Iterable<ClientImplementation> _allClientImplementations;
 
   final _accountsOptions = AccountCache<AccountSpecificOptions>();
-  final _appsBlocs = AccountCache<AppsBloc>();
+  final _clientsBlocs = AccountCache<ClientsBloc>();
   final _capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
   final _userDetailsBlocs = AccountCache<UserDetailsBloc>();
   final _userStatusesBlocs = AccountCache<UserStatusesBloc>();
@@ -128,7 +128,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   void dispose() {
     unawaited(activeAccount.close());
     unawaited(accounts.close());
-    _appsBlocs.dispose();
+    _clientsBlocs.dispose();
     _capabilitiesBlocs.dispose();
     _userDetailsBlocs.dispose();
     _userStatusesBlocs.dispose();
@@ -226,23 +226,23 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   ///
   /// Use [activeOptions] to get them for the [activeAccount].
   AccountSpecificOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountSpecificOptions(
-        AppStorage(StorageKeys.accounts, account.id),
-        getAppsBlocFor(account),
+        ClientStorage(StorageKeys.accounts, account.id),
+        getClientsBlocFor(account),
       );
 
-  /// The appsBloc for the [activeAccount].
+  /// The clientsBloc for the [activeAccount].
   ///
-  /// Convenience method for [getAppsBlocFor] with the currently active account.
-  AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
+  /// Convenience method for [getClientsBlocFor] with the currently active account.
+  ClientsBloc get activeClientsBloc => getClientsBlocFor(aa);
 
-  /// The appsBloc for the specified [account].
+  /// The clientsBloc for the specified [account].
   ///
-  /// Use [activeAppsBloc] to get them for the [activeAccount].
-  AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account] ??= AppsBloc(
+  /// Use [activeClientsBloc] to get them for the [activeAccount].
+  ClientsBloc getClientsBlocFor(final Account account) => _clientsBlocs[account] ??= ClientsBloc(
         getCapabilitiesBlocFor(account),
         this,
         account,
-        _allAppImplementations,
+        _allClientImplementations,
       );
 
   /// The capabilitiesBloc for the [activeAccount].
@@ -288,7 +288,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
   UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) =>
       _unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
-        getAppsBlocFor(account),
+        getClientsBlocFor(account),
         account,
       );
 }
@@ -297,7 +297,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
 ///
 /// It is not checked whether the stored information is still valid.
 List<Account> loadAccounts() {
-  const storage = AppStorage(StorageKeys.accounts);
+  const storage = ClientStorage(StorageKeys.accounts);
 
   if (storage.containsKey(_keyAccounts)) {
     return storage
@@ -310,7 +310,7 @@ List<Account> loadAccounts() {
 
 /// Saves the given [accounts] to the storage.
 Future<void> saveAccounts(final List<Account> accounts) async {
-  const storage = AppStorage(StorageKeys.accounts);
+  const storage = ClientStorage(StorageKeys.accounts);
   final values = accounts.map((final a) => json.encode(a.toJson())).toList();
 
   await storage.setStringList(_keyAccounts, values);

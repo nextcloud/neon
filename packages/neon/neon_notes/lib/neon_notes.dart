@@ -43,8 +43,8 @@ part 'widgets/category_select.dart';
 part 'widgets/notes_floating_action_button.dart';
 part 'widgets/notes_view.dart';
 
-class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
-  NotesApp();
+class NotesClient extends ClientImplementation<NotesBloc, NotesClientSpecificOptions> {
+  NotesClient();
 
   @override
   final String id = AppIDs.notes;
@@ -56,7 +56,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   final LocalizationsDelegate<NotesLocalizations> localizationsDelegate = NotesLocalizations.delegate;
 
   @override
-  late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);
+  late final NotesClientSpecificOptions options = NotesClientSpecificOptions(storage);
 
   @override
   NotesBloc buildBloc(final Account account) => NotesBloc(
@@ -68,7 +68,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   final Widget page = const NotesMainPage();
 
   @override
-  final RouteBase route = $notesAppRoute;
+  final RouteBase route = $notesClientRoute;
 
   @override
   (bool? supported, String? minimumVersion) isSupported(

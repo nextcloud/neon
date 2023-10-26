@@ -22,9 +22,9 @@ RouteBase get $homeRoute => GoRouteData.$route(
           factory: $SettingsRouteExtension._fromState,
           routes: [
             GoRouteData.$route(
-              path: 'apps/:appid',
-              name: 'NextcloudAppSettings',
-              factory: $NextcloudAppSettingsRouteExtension._fromState,
+              path: 'apps/:clientid',
+              name: 'NextcloudClientSettings',
+              factory: $NextcloudClientSettingsRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'account/add',
@@ -98,7 +98,7 @@ extension $SettingsRouteExtension on SettingsRoute {
 }
 
 const _$SettingsCategoriesEnumMap = {
-  SettingsCategories.apps: 'apps',
+  SettingsCategories.clients: 'clients',
   SettingsCategories.theme: 'theme',
   SettingsCategories.navigation: 'navigation',
   SettingsCategories.pushNotifications: 'push-notifications',
@@ -108,13 +108,13 @@ const _$SettingsCategoriesEnumMap = {
   SettingsCategories.other: 'other',
 };
 
-extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {
-  static NextcloudAppSettingsRoute _fromState(GoRouterState state) => NextcloudAppSettingsRoute(
-        appid: state.pathParameters['appid']!,
+extension $NextcloudClientSettingsRouteExtension on NextcloudClientSettingsRoute {
+  static NextcloudClientSettingsRoute _fromState(GoRouterState state) => NextcloudClientSettingsRoute(
+        clientid: state.pathParameters['clientid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/settings/apps/${Uri.encodeComponent(appid)}',
+        '/settings/apps/${Uri.encodeComponent(clientid)}',
       );
 
   void go(BuildContext context) => context.go(location);

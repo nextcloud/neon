@@ -46,8 +46,8 @@ part 'widgets/browser_view.dart';
 part 'widgets/file_preview.dart';
 part 'widgets/navigator.dart';
 
-class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
-  FilesApp();
+class FilesClient extends ClientImplementation<FilesBloc, FilesClientSpecificOptions> {
+  FilesClient();
 
   @override
   final String id = AppIDs.files;
@@ -59,7 +59,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   final List<Locale> supportedLocales = FilesLocalizations.supportedLocales;
 
   @override
-  late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);
+  late final FilesClientSpecificOptions options = FilesClientSpecificOptions(storage);
 
   @override
   FilesBloc buildBloc(final Account account) => FilesBloc(
@@ -71,7 +71,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   final Widget page = const FilesMainPage();
 
   @override
-  final RouteBase route = $filesAppRoute;
+  final RouteBase route = $filesClientRoute;
 
   @override
   (bool? supported, String? minimumVersion) isSupported(

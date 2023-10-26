@@ -6,13 +6,13 @@ import 'package:nextcloud/nextcloud.dart';
 
 part 'routes.g.dart';
 
-@TypedGoRoute<FilesAppRoute>(
-  path: '$appsBaseRoutePrefix${AppIDs.files}',
+@TypedGoRoute<FilesClientRoute>(
+  path: '$clientsBaseRoutePrefix${AppIDs.files}',
   name: AppIDs.files,
 )
 @immutable
-class FilesAppRoute extends NeonBaseAppRoute {
-  const FilesAppRoute();
+class FilesClientRoute extends NeonBaseClientRoute {
+  const FilesClientRoute();
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) => const FilesMainPage();

@@ -125,7 +125,7 @@ class AccountSettingsPage extends StatelessWidget {
               title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
               tiles: [
                 SelectSettingsTile(
-                  option: options.initialApp,
+                  option: options.initialClient,
                 ),
               ],
             ),

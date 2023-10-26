@@ -35,7 +35,7 @@ class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents,
   }
 
   final AccountsBloc _accountsBloc;
-  late final _storage = const AppStorage(StorageKeys.lastEndpoint);
+  late final _storage = const ClientStorage(StorageKeys.lastEndpoint);
   final GlobalOptions _globalOptions;
 
   StreamSubscription<List<Account>>? _accountsListener;

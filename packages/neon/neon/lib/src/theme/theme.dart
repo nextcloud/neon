@@ -13,13 +13,13 @@ class AppTheme {
     required this.neonTheme,
     final bool keepOriginalAccentColor = false,
     this.oledAsDark = false,
-    this.appThemes,
+    this.clientThemes,
   }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
 
   final core.ThemingPublicCapabilities_Theming? nextcloudTheme;
   final bool keepOriginalAccentColor;
   final bool oledAsDark;
-  final Iterable<ThemeExtension>? appThemes;
+  final Iterable<ThemeExtension>? clientThemes;
   final NeonTheme neonTheme;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
@@ -51,7 +51,7 @@ class AppTheme {
       inputDecorationTheme: _inputDecorationTheme,
       extensions: [
         neonTheme,
-        ...?appThemes,
+        ...?clientThemes,
       ],
     );
   }

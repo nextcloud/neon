@@ -22,11 +22,11 @@ part 'blocs/notifications.dart';
 part 'options.dart';
 part 'pages/main.dart';
 
-class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
+class NotificationsClient extends ClientImplementation<NotificationsBloc, NotificationsClientSpecificOptions>
     implements
         // ignore: avoid_implementing_value_types
-        NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
-  NotificationsApp();
+        NotificationsClientInterface<NotificationsBloc, NotificationsClientSpecificOptions> {
+  NotificationsClient();
 
   @override
   final String id = AppIDs.notifications;
@@ -38,7 +38,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final List<Locale> supportedLocales = NotificationsLocalizations.supportedLocales;
 
   @override
-  late final NotificationsAppSpecificOptions options = NotificationsAppSpecificOptions(storage);
+  late final NotificationsClientSpecificOptions options = NotificationsClientSpecificOptions(storage);
 
   @override
   NotificationsBloc buildBloc(final Account account) => NotificationsBloc(
@@ -50,7 +50,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final Widget page = const NotificationsMainPage();
 
   @override
-  final RouteBase route = $notificationsAppRoute;
+  final RouteBase route = $notificationsClientRoute;
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;

@@ -20,24 +20,24 @@ import 'package:rxdart/rxdart.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 @immutable
-abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable {
+abstract class ClientImplementation<T extends Bloc, R extends NextcloudClientOptions> implements Disposable {
   String get id;
   LocalizationsDelegate<Object> get localizationsDelegate;
   Iterable<Locale> get supportedLocales;
 
-  String nameFromLocalization(final NeonLocalizations localizations) => localizations.appImplementationName(id);
+  String nameFromLocalization(final NeonLocalizations localizations) => localizations.clientImplementationName(id);
   String name(final BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
   @protected
-  late final AppStorage storage = AppStorage(StorageKeys.apps, id);
+  late final ClientStorage storage = ClientStorage(StorageKeys.clients, id);
 
   @mustBeOverridden
   R get options;
 
-  /// Checks if the app is supported on the server of the [account].
+  /// Checks if the client is supported on the server of the [account].
   ///
-  /// A `supported` value of `null` means that it can not be known if the app is supported.
-  /// This is the case for apps that depend on the server version like files and we assume that the app is supported.
+  /// A `supported` value of `null` means that it can not be known if the client is supported.
+  /// This is the case for clients that depend on the server version like files and we assume that the client is supported.
   /// The server support is handled differently.
   ///
   /// The first value of the record is the supported status and the second value is the supported minimum version.
@@ -87,13 +87,13 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
         ],
       );
 
-  /// Route for the app.
+  /// Route for the client.
   ///
-  /// All pages of the app must be specified as subroutes.
+  /// All pages of the client must be specified as subroutes.
   /// If this is not [GoRoute] an initial route name must be specified by overriding [initialRouteName].
   RouteBase get route;
 
-  /// Name of the initial route for this app.
+  /// Name of the initial route for this client.
   ///
   /// Subclasses that don't provide a [GoRoute] for [route] must override this.
   String get initialRouteName {
@@ -139,13 +139,13 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   final ThemeExtension? theme = null;
 
   @override
-  bool operator ==(final Object other) => other is AppImplementation && other.id == id;
+  bool operator ==(final Object other) => other is ClientImplementation && other.id == id;
 
   @override
   int get hashCode => id.hashCode;
 }
 
-extension AppImplementationFind on Iterable<AppImplementation> {
-  AppImplementation? tryFind(final String? appID) => firstWhereOrNull((final app) => app.id == appID);
-  AppImplementation find(final String appID) => firstWhere((final app) => app.id == appID);
+extension ClientImplementationFind on Iterable<ClientImplementation> {
+  ClientImplementation? tryFind(final String? clientID) => firstWhereOrNull((final client) => client.id == clientID);
+  ClientImplementation find(final String clientID) => firstWhere((final client) => client.id == clientID);
 }

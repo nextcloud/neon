@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
-import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/blocs/clients.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/options_collection.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -10,29 +10,29 @@ import 'package:neon/src/settings/models/storage.dart';
 class AccountSpecificOptions extends OptionsCollection {
   AccountSpecificOptions(
     super.storage,
-    this._appsBloc,
+    this._clientsBloc,
   ) {
-    _appsBloc.appImplementations.listen((final result) {
+    _clientsBloc.clientImplementations.listen((final result) {
       if (!result.hasData) {
         return;
       }
 
-      initialApp.values = {
+      initialClient.values = {
         null: (final context) => NeonLocalizations.of(context).accountOptionsAutomatic,
-      }..addEntries(result.requireData.map((final app) => MapEntry(app.id, app.name)));
+      }..addEntries(result.requireData.map((final client) => MapEntry(client.id, client.name)));
     });
   }
 
-  final AppsBloc _appsBloc;
+  final ClientsBloc _clientsBloc;
 
   @override
   late final List<Option<dynamic>> options = [
-    initialApp,
+    initialClient,
   ];
 
-  late final initialApp = SelectOption<String?>(
+  late final initialClient = SelectOption<String?>(
     storage: storage,
-    key: AccountOptionKeys.initialApp,
+    key: AccountOptionKeys.initialClient,
     label: (final context) => NeonLocalizations.of(context).accountOptionsInitialApp,
     defaultValue: null,
     values: {},
@@ -41,7 +41,7 @@ class AccountSpecificOptions extends OptionsCollection {
 
 @internal
 enum AccountOptionKeys implements Storable {
-  initialApp._('initial-app');
+  initialClient._('initial-app');
 
   const AccountOptionKeys._(this.value);
 

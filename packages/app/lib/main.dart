@@ -4,7 +4,7 @@ import 'package:neon/neon.dart';
 
 Future<void> main() async {
   await runNeon(
-    appImplementations: appImplementations,
+    clientImplementations: clientImplementations,
     theme: neonTheme,
   );
 }

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 
 @internal
-class NeonAppImplementationIcon extends StatelessWidget {
-  const NeonAppImplementationIcon({
-    required this.appImplementation,
+class NeonClientImplementationIcon extends StatelessWidget {
+  const NeonClientImplementationIcon({
+    required this.clientImplementation,
     this.unreadCount,
     this.color,
     this.size,
     super.key,
   });
 
-  final AppImplementation appImplementation;
+  final ClientImplementation clientImplementation;
 
   final int? unreadCount;
 
@@ -29,7 +29,7 @@ class NeonAppImplementationIcon extends StatelessWidget {
 
     final icon = Container(
       margin: const EdgeInsets.all(5),
-      child: appImplementation.buildIcon(
+      child: clientImplementation.buildIcon(
         size: size,
         color: color,
       ),

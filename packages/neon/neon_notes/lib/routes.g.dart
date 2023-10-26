@@ -7,17 +7,17 @@ part of 'routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $notesAppRoute,
+      $notesClientRoute,
     ];
 
-RouteBase get $notesAppRoute => GoRouteData.$route(
+RouteBase get $notesClientRoute => GoRouteData.$route(
       path: '/apps/notes',
       name: 'notes',
-      factory: $NotesAppRouteExtension._fromState,
+      factory: $NotesClientRouteExtension._fromState,
     );
 
-extension $NotesAppRouteExtension on NotesAppRoute {
-  static NotesAppRoute _fromState(GoRouterState state) => const NotesAppRoute();
+extension $NotesClientRouteExtension on NotesClientRoute {
+  static NotesClientRoute _fromState(GoRouterState state) => const NotesClientRoute();
 
   String get location => GoRouteData.$location(
         '/apps/notes',

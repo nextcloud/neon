@@ -25,7 +25,7 @@ class PushUtils {
   const PushUtils._();
 
   static notifications.RSAKeypair loadRSAKeypair() {
-    const storage = AppStorage(StorageKeys.notifications);
+    const storage = ClientStorage(StorageKeys.notifications);
     const keyDevicePrivateKey = 'device-private-key';
 
     final notifications.RSAKeypair keypair;
@@ -132,11 +132,11 @@ class PushUtils {
         }
 
         if (notification?.shouldNotify ?? true) {
-          final appID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
-          String? appName = localizations.appImplementationName(appID);
-          if (appName.isEmpty) {
-            debugPrint('Missing app name for $appID');
-            appName = null;
+          final clientID = notification?.app ?? pushNotification.subject.app ?? 'nextcloud';
+          String? clientName = localizations.clientImplementationName(clientID);
+          if (clientName.isEmpty) {
+            debugPrint('Missing client name for $clientID');
+            clientName = null;
           }
           final title = (notification?.subject ?? pushNotification.subject.subject)!;
           final message = (notification?.message.isNotEmpty ?? false) ? notification!.message : null;
@@ -144,14 +144,14 @@ class PushUtils {
 
           await localNotificationsPlugin.show(
             _getNotificationID(instance, pushNotification),
-            message != null && appName != null ? '$appName: $title' : title,
+            message != null && clientName != null ? '$clientName: $title' : title,
             message,
             NotificationDetails(
               android: AndroidNotificationDetails(
-                appID,
-                appName ?? appID,
+                clientID,
+                clientName ?? clientID,
                 subText: accounts.length > 1 && account != null ? account.humanReadableID : null,
-                groupKey: 'app_$appID',
+                groupKey: 'app_$clientID',
                 icon: '@mipmap/ic_launcher',
                 largeIcon: largeIconBitmap,
                 when: when?.millisecondsSinceEpoch,

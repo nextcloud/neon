@@ -7,17 +7,17 @@ part of 'routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $filesAppRoute,
+      $filesClientRoute,
     ];
 
-RouteBase get $filesAppRoute => GoRouteData.$route(
+RouteBase get $filesClientRoute => GoRouteData.$route(
       path: '/apps/files',
       name: 'files',
-      factory: $FilesAppRouteExtension._fromState,
+      factory: $FilesClientRouteExtension._fromState,
     );
 
-extension $FilesAppRouteExtension on FilesAppRoute {
-  static FilesAppRoute _fromState(GoRouterState state) => const FilesAppRoute();
+extension $FilesClientRouteExtension on FilesClientRoute {
+  static FilesClientRoute _fromState(GoRouterState state) => const FilesClientRoute();
 
   String get location => GoRouteData.$location(
         '/apps/files',

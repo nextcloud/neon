@@ -17,12 +17,12 @@ void main() {
 
   group('AppStorage', () {
     test('formatKey', () async {
-      var appStorage = const AppStorage(StorageKeys.accounts);
+      var appStorage = const ClientStorage(StorageKeys.accounts);
       var key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-key');
       expect(appStorage.id, StorageKeys.accounts.value);
 
-      appStorage = const AppStorage(StorageKeys.accounts, 'test-suffix');
+      appStorage = const ClientStorage(StorageKeys.accounts, 'test-suffix');
       key = appStorage.formatKey('test-key');
       expect(key, 'accounts-test-suffix-test-key');
       expect(appStorage.id, 'test-suffix');
@@ -31,7 +31,7 @@ void main() {
     test('interface', () async {
       final sharedPreferences = SharedPreferencesMock();
       NeonStorage.mock(sharedPreferences);
-      const appStorage = AppStorage(StorageKeys.accounts);
+      const appStorage = ClientStorage(StorageKeys.accounts);
       const key = 'key';
       final formattedKey = appStorage.formatKey(key);
 

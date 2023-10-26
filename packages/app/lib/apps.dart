@@ -6,10 +6,10 @@ import 'package:neon_notes/neon_notes.dart';
 import 'package:neon_notifications/neon_notifications.dart';
 
 /// The collection of clients enabled for the Neon app.
-final Set<AppImplementation> appImplementations = {
-  DashboardApp(),
-  FilesApp(),
-  NewsApp(),
-  NotesApp(),
-  NotificationsApp(),
+final Set<ClientImplementation> clientImplementations = {
+  DashboardClient(),
+  FilesClient(),
+  NewsClient(),
+  NotesClient(),
+  NotificationsClient(),
 };

@@ -2,8 +2,8 @@
   "@@locale": "en",
   "nextcloud": "Nextcloud",
   "nextcloudLogo": "Nextcloud logo",
-  "appImplementationName": "{app, select, nextcloud{Nextcloud} core{Server} dashboard{Dashboard} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}",
-  "@appImplementationName": {
+  "clientImplementationName": "{app, select, nextcloud{Nextcloud} core{Server} dashboard{Dashboard} files{Files} news{News} notes{Notes} notifications{Notifications} other{}}",
+  "@clientImplementationName": {
     "placeholders": {
       "app": {}
     }

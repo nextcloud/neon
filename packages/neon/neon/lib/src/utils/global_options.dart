@@ -18,7 +18,7 @@ const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 class GlobalOptions extends OptionsCollection {
   GlobalOptions(
     this._packageInfo,
-  ) : super(const AppStorage(StorageKeys.global)) {
+  ) : super(const ClientStorage(StorageKeys.global)) {
     pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
     rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
   }

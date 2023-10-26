@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart' show Account, AccountFind;
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/settings/models/exportable.dart';
 import 'package:neon/src/settings/models/option.dart';
 import 'package:neon/src/settings/models/storage.dart';
@@ -73,22 +73,22 @@ class SettingsExportHelper {
   Map<String, Object?> exportToJson() => Map.fromEntries(exportables.map((final e) => e.export()));
 }
 
-/// Helper class to export [AppImplementation]s implementing the [Exportable] interface.
+/// Helper class to export [ClientImplementation]s implementing the [Exportable] interface.
 @internal
 @immutable
-class AppImplementationsExporter implements Exportable {
-  const AppImplementationsExporter(this.appImplementations);
+class ClientImplementationsExporter implements Exportable {
+  const ClientImplementationsExporter(this.clientImplementations);
 
-  /// List of apps to export.
-  final Iterable<AppImplementation> appImplementations;
+  /// List of clients to export.
+  final Iterable<ClientImplementation> clientImplementations;
 
   /// Key the exported value will be stored at.
-  static final _key = StorageKeys.apps.value;
+  static final _key = StorageKeys.clients.value;
 
   @override
   MapEntry<String, Object?> export() => MapEntry(
         _key,
-        Map.fromEntries(appImplementations.map((final app) => app.options.export())),
+        Map.fromEntries(clientImplementations.map((final client) => client.options.export())),
       );
 
   @override
@@ -100,10 +100,10 @@ class AppImplementationsExporter implements Exportable {
     }
 
     for (final element in values.entries) {
-      final app = appImplementations.tryFind(element.key);
+      final client = clientImplementations.tryFind(element.key);
 
-      if (app != null) {
-        app.options.import(values);
+      if (client != null) {
+        client.options.import(values);
       }
     }
   }

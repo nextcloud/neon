@@ -6,13 +6,13 @@ import 'package:nextcloud/nextcloud.dart';
 
 part 'routes.g.dart';
 
-@TypedGoRoute<NotificationsAppRoute>(
-  path: '$appsBaseRoutePrefix${AppIDs.notifications}',
+@TypedGoRoute<NotificationsClientRoute>(
+  path: '$clientsBaseRoutePrefix${AppIDs.notifications}',
   name: AppIDs.notifications,
 )
 @immutable
-class NotificationsAppRoute extends NeonBaseAppRoute {
-  const NotificationsAppRoute();
+class NotificationsClientRoute extends NeonBaseClientRoute {
+  const NotificationsClientRoute();
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) => const NotificationsMainPage();

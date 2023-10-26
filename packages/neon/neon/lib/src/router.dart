@@ -8,15 +8,15 @@ import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/pages/account_settings.dart';
+import 'package:neon/src/pages/client_settings.dart';
 import 'package:neon/src/pages/home.dart';
 import 'package:neon/src/pages/login.dart';
 import 'package:neon/src/pages/login_check_account.dart';
 import 'package:neon/src/pages/login_check_server_status.dart';
 import 'package:neon/src/pages/login_flow.dart';
 import 'package:neon/src/pages/login_qr_code.dart';
-import 'package:neon/src/pages/nextcloud_app_settings.dart';
 import 'package:neon/src/pages/route_not_found.dart';
 import 'package:neon/src/pages/settings.dart';
 import 'package:neon/src/utils/provider.dart';
@@ -96,9 +96,9 @@ class AccountSettingsRoute extends GoRouteData {
       path: 'settings',
       name: 'Settings',
       routes: [
-        TypedGoRoute<NextcloudAppSettingsRoute>(
-          path: 'apps/:appid',
-          name: 'NextcloudAppSettings',
+        TypedGoRoute<NextcloudClientSettingsRoute>(
+          path: 'apps/:clientid',
+          name: 'NextcloudClientSettings',
         ),
         TypedGoRoute<_AddAccountRoute>(
           path: 'account/add',
@@ -365,19 +365,19 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
 }
 
 @immutable
-class NextcloudAppSettingsRoute extends GoRouteData {
-  const NextcloudAppSettingsRoute({
-    required this.appid,
+class NextcloudClientSettingsRoute extends GoRouteData {
+  const NextcloudClientSettingsRoute({
+    required this.clientid,
   });
 
-  final String appid;
+  final String clientid;
 
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
-    final appImplementation = appImplementations.tryFind(appid)!;
+    final clientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
+    final clientImplementation = clientImplementations.tryFind(clientid)!;
 
-    return NextcloudAppSettingsPage(appImplementation: appImplementation);
+    return NextcloudClientSettingsPage(clientImplementation: clientImplementation);
   }
 }
 

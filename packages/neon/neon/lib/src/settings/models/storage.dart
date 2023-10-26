@@ -22,7 +22,7 @@ abstract interface class Storable {
 
 @internal
 enum StorageKeys implements Storable {
-  apps._('app'),
+  clients._('app'),
   accounts._('accounts'),
   global._('global'),
   lastUsedAccount._('last-used-account'),
@@ -100,8 +100,8 @@ final class SingleValueStorage {
 
 @immutable
 @internal
-final class AppStorage implements SettingsStorage {
-  const AppStorage(
+final class ClientStorage implements SettingsStorage {
+  const ClientStorage(
     this.groupKey, [
     this.suffix,
   ]);

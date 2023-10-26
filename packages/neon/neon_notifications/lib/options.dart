@@ -1,7 +1,7 @@
 part of 'neon_notifications.dart';
 
-class NotificationsAppSpecificOptions extends NextcloudAppOptions implements NotificationsOptionsInterface {
-  NotificationsAppSpecificOptions(super.storage) {
+class NotificationsClientSpecificOptions extends NextcloudClientOptions implements NotificationsOptionsInterface {
+  NotificationsClientSpecificOptions(super.storage) {
     super.categories = [];
     super.options = [];
   }

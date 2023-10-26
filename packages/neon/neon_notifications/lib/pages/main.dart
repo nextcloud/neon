@@ -54,7 +54,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
     final BuildContext context,
     final notifications.Notification notification,
   ) {
-    final app = NeonProvider.of<Iterable<AppImplementation>>(context).tryFind(notification.app);
+    final client = NeonProvider.of<Iterable<ClientImplementation>>(context).tryFind(notification.app);
 
     return ListTile(
       title: Text(notification.subject),
@@ -75,8 +75,8 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           ),
         ],
       ),
-      leading: app != null
-          ? app.buildIcon(
+      leading: client != null
+          ? client.buildIcon(
               size: largeIconSize,
             )
           : SizedBox.fromSize(
@@ -91,10 +91,10 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         if (notification.app == AppIDs.notifications) {
           return;
         }
-        if (app != null) {
+        if (client != null) {
           // TODO: use go_router once implemented
           final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-          await accountsBloc.activeAppsBloc.setActiveApp(app.id);
+          await accountsBloc.activeClientsBloc.setActiveClient(client.id);
         } else {
           final colorScheme = Theme.of(context).colorScheme;
 

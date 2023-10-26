@@ -10,9 +10,9 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 
 /// Implementation of the server `dashboard` app.
-class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecificOptions> {
-  /// Creates a new Dashboard app implementation instance.
-  DashboardApp();
+class DashboardClient extends ClientImplementation<DashboardBloc, DashboardClientSpecificOptions> {
+  /// Creates a new Dashboard client implementation instance.
+  DashboardClient();
 
   @override
   final String id = AppIDs.dashboard;
@@ -24,7 +24,7 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecific
   final List<Locale> supportedLocales = DashboardLocalizations.supportedLocales;
 
   @override
-  late final DashboardAppSpecificOptions options = DashboardAppSpecificOptions(storage);
+  late final DashboardClientSpecificOptions options = DashboardClientSpecificOptions(storage);
 
   @override
   DashboardBloc buildBloc(final Account account) => DashboardBloc(account);
@@ -33,7 +33,7 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecific
   final Widget page = const DashboardMainPage();
 
   @override
-  final RouteBase route = $dashboardAppRoute;
+  final RouteBase route = $dashboardClientRoute;
 
   @override
   (bool?, String?) isSupported(

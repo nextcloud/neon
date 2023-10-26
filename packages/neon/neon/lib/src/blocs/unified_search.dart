@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:neon/models.dart';
 import 'package:neon/src/bloc/bloc.dart';
 import 'package:neon/src/bloc/result.dart';
-import 'package:neon/src/blocs/apps.dart';
+import 'package:neon/src/blocs/clients.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
@@ -29,17 +29,17 @@ abstract interface class UnifiedSearchBlocStates {
 @internal
 class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEvents, UnifiedSearchBlocStates {
   UnifiedSearchBloc(
-    this._appsBloc,
+    this._clientsBloc,
     this._account,
   ) {
-    _appsBloc.activeApp.listen((final _) {
+    _clientsBloc.activeClient.listen((final _) {
       if (enabled.value) {
         disable();
       }
     });
   }
 
-  final AppsBloc _appsBloc;
+  final ClientsBloc _clientsBloc;
   final Account _account;
   String _term = '';
 
@@ -141,19 +141,19 @@ class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEven
   Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _sortResults(
     final Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
   ) sync* {
-    final activeApp = _appsBloc.activeApp.value;
+    final activeClient = _clientsBloc.activeClient.value;
 
     yield* results.entries
-        .where((final entry) => _providerMatchesApp(entry.key, activeApp))
+        .where((final entry) => _providerMatchesClient(entry.key, activeClient))
         .sorted((final a, final b) => _sortEntriesCount(a.value, b.value));
     yield* results.entries
-        .whereNot((final entry) => _providerMatchesApp(entry.key, activeApp))
+        .whereNot((final entry) => _providerMatchesClient(entry.key, activeClient))
         .where((final entry) => _hasEntries(entry.value))
         .sorted((final a, final b) => _sortEntriesCount(a.value, b.value));
   }
 
-  bool _providerMatchesApp(final core.UnifiedSearchProvider provider, final AppImplementation app) =>
-      provider.id == app.id || provider.id.startsWith('${app.id}_');
+  bool _providerMatchesClient(final core.UnifiedSearchProvider provider, final ClientImplementation client) =>
+      provider.id == client.id || provider.id.startsWith('${client.id}_');
 
   bool _hasEntries(final Result<core.UnifiedSearchResult> result) =>
       !result.hasData || result.requireData.entries.isNotEmpty;

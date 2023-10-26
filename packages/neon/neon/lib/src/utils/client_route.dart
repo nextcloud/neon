@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-/// [RouteData] for the initial page of an app.
+/// [RouteData] for the initial page of a client.
 ///
 /// Subclasses must override one of [build] or [redirect].
-/// Routes should be prefixed with [appsBaseRoutePrefix].
+/// Routes should be prefixed with [clientsBaseRoutePrefix].
 @immutable
-abstract class NeonBaseAppRoute extends GoRouteData {
-  /// Creates a new app base route.
-  const NeonBaseAppRoute();
+abstract class NeonBaseClientRoute extends GoRouteData {
+  /// Creates a new client base route.
+  const NeonBaseClientRoute();
 
   @override
   Page<void> buildPage(final BuildContext context, final GoRouterState state) => NoTransitionPage(
@@ -16,5 +16,5 @@ abstract class NeonBaseAppRoute extends GoRouteData {
       );
 }
 
-/// Prefix for [NeonBaseAppRoute]s.
-const appsBaseRoutePrefix = '/apps/';
+/// Prefix for [NeonBaseClientRoute]s.
+const clientsBaseRoutePrefix = '/apps/';

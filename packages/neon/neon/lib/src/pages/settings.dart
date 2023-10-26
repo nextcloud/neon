@@ -4,7 +4,7 @@ import 'package:flutter_material_design_icons/flutter_material_design_icons.dart
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/settings/utils/settings_export_helper.dart';
@@ -28,7 +28,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
 enum SettingsCategories {
-  apps,
+  clients,
   theme,
   navigation,
   pushNotifications,
@@ -56,7 +56,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(final BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final clientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
     final branding = Branding.of(context);
 
     final appBar = AppBar(
@@ -67,8 +67,8 @@ class _SettingsPageState extends State<SettingsPage> {
             if (await showConfirmationDialog(context, NeonLocalizations.of(context).settingsResetAllConfirmation)) {
               globalOptions.reset();
 
-              for (final appImplementation in appImplementations) {
-                appImplementation.options.reset();
+              for (final clientImplementation in clientImplementations) {
+                clientImplementation.options.reset();
               }
 
               for (final account in accountsBloc.accounts.value) {
@@ -100,15 +100,15 @@ class _SettingsPageState extends State<SettingsPage> {
           categories: [
             SettingsCategory(
               title: Text(NeonLocalizations.of(context).settingsApps),
-              key: ValueKey(SettingsCategories.apps.name),
+              key: ValueKey(SettingsCategories.clients.name),
               tiles: <SettingsTile>[
-                for (final appImplementation in appImplementations) ...[
-                  if (appImplementation.options.options.isNotEmpty) ...[
+                for (final clientImplementation in clientImplementations) ...[
+                  if (clientImplementation.options.options.isNotEmpty) ...[
                     CustomSettingsTile(
-                      leading: appImplementation.buildIcon(),
-                      title: Text(appImplementation.name(context)),
+                      leading: clientImplementation.buildIcon(),
+                      title: Text(clientImplementation.name(context)),
                       onTap: () {
-                        NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
+                        NextcloudClientSettingsRoute(clientid: clientImplementation.id).go(context);
                       },
                     ),
                   ],
@@ -351,13 +351,13 @@ class _SettingsPageState extends State<SettingsPage> {
   SettingsExportHelper _buildSettingsExportHelper(final BuildContext context) {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final clientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
 
     return SettingsExportHelper(
       exportables: {
         globalOptions,
         AccountsBlocExporter(accountsBloc),
-        AppImplementationsExporter(appImplementations),
+        ClientImplementationsExporter(clientImplementations),
       },
     );
   }

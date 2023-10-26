@@ -10,7 +10,7 @@ import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/models/notifications_interface.dart';
 import 'package:neon/src/models/push_notification.dart';
 import 'package:neon/src/platform/platform.dart';
@@ -46,7 +46,7 @@ class NeonApp extends StatefulWidget {
 class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.TrayListener, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
-  late final Iterable<AppImplementation> _appImplementations;
+  late final Iterable<ClientImplementation> _clientImplementations;
   late final GlobalOptions _globalOptions;
   late final AccountsBloc _accountsBloc;
   late final _routerDelegate = buildAppRouter(
@@ -60,7 +60,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   void initState() {
     super.initState();
 
-    _appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    _clientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
     _globalOptions = NeonProvider.of<GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
@@ -81,12 +81,12 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
       if (NeonPlatform.instance.canUseQuickActions) {
         const quickActions = QuickActions();
         await quickActions.setShortcutItems(
-          _appImplementations
+          _clientImplementations
               .map(
-                (final app) => ShortcutItem(
-                  type: 'app_${app.id}',
-                  localizedTitle: app.nameFromLocalization(localizations),
-                  icon: 'app_${app.id}',
+                (final client) => ShortcutItem(
+                  type: 'app_${client.id}',
+                  localizedTitle: client.nameFromLocalization(localizations),
+                  icon: 'app_${client.id}',
                 ),
               )
               .toList(),
@@ -111,10 +111,10 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
               await tray.trayManager.setContextMenu(
                 tray.Menu(
                   items: [
-                    for (final app in _appImplementations) ...[
+                    for (final client in _clientImplementations) ...[
                       tray.MenuItem(
-                        key: 'app_${app.id}',
-                        label: app.nameFromLocalization(localizations),
+                        key: 'app_${client.id}',
+                        label: client.nameFromLocalization(localizations),
                         // TODO: Add icons which should work on macOS and Windows
                       ),
                     ],
@@ -145,14 +145,14 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
             return;
           }
 
-          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
-          final app = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
+          final allClientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
+          final client = allClientImplementations.tryFind(AppIDs.notifications) as NotificationsClientInterface?;
 
-          if (app == null) {
+          if (client == null) {
             return;
           }
 
-          await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
+          await _accountsBloc.getClientsBlocFor(account).getClientBloc<NotificationsBlocInterface>(client).refresh();
         };
         Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
           final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
@@ -161,22 +161,24 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
           }
           _accountsBloc.setActiveAccount(account);
 
-          final allAppImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+          final allClientImplementations = NeonProvider.of<Iterable<ClientImplementation>>(context);
 
-          final notificationsApp = allAppImplementations.tryFind(AppIDs.notifications) as NotificationsAppInterface?;
-          if (notificationsApp != null) {
+          final notificationsClient =
+              allClientImplementations.tryFind(AppIDs.notifications) as NotificationsClientInterface?;
+          if (notificationsClient != null) {
             _accountsBloc
-                .getAppsBlocFor(account)
-                .getAppBloc<NotificationsBlocInterface>(notificationsApp)
+                .getClientsBlocFor(account)
+                .getClientBloc<NotificationsBlocInterface>(notificationsClient)
                 .deleteNotification(pushNotificationWithAccountID.subject.nid!);
           }
 
-          final app = allAppImplementations.tryFind(pushNotificationWithAccountID.subject.app) ?? notificationsApp;
-          if (app == null) {
+          final client =
+              allClientImplementations.tryFind(pushNotificationWithAccountID.subject.app) ?? notificationsClient;
+          if (client == null) {
             return;
           }
 
-          await _openAppFromExternal(account, app.id);
+          await _openAppFromExternal(account, client.id);
         };
 
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
@@ -235,7 +237,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   Future<void> _openAppFromExternal(final Account account, final String id) async {
-    await _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
+    await _accountsBloc.getClientsBlocFor(account).setActiveClient(id);
     _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
     await _showAndRestoreWindow();
   }
@@ -291,17 +293,19 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                   capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
                   keepOriginalAccentColor: options.themeKeepOriginalAccentColor.value,
                   oledAsDark: options.themeOLEDAsDark.value,
-                  appThemes: _appImplementations.map((final a) => a.theme).whereNotNull(),
+                  clientThemes: _clientImplementations.map((final c) => c.theme).whereNotNull(),
                   neonTheme: widget.neonTheme,
                 );
 
                 return MaterialApp.router(
                   localizationsDelegates: [
-                    ..._appImplementations.map((final app) => app.localizationsDelegate),
+                    ..._clientImplementations.map((final client) => client.localizationsDelegate),
                     ...NeonLocalizations.localizationsDelegates,
                   ],
                   supportedLocales: {
-                    ..._appImplementations.map((final app) => app.supportedLocales).expand((final element) => element),
+                    ..._clientImplementations
+                        .map((final client) => client.supportedLocales)
+                        .expand((final element) => element),
                     ...NeonLocalizations.supportedLocales,
                   },
                   themeMode: options.themeMode.value,

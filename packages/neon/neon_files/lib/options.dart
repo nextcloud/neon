@@ -1,7 +1,7 @@
 part of 'neon_files.dart';
 
-class FilesAppSpecificOptions extends NextcloudAppOptions {
-  FilesAppSpecificOptions(super.storage) {
+class FilesClientSpecificOptions extends NextcloudClientOptions {
+  FilesClientSpecificOptions(super.storage) {
     super.categories = [
       generalCategory,
     ];

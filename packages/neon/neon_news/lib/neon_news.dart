@@ -54,8 +54,8 @@ part 'widgets/folder_select.dart';
 part 'widgets/folder_view.dart';
 part 'widgets/folders_view.dart';
 
-class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
-  NewsApp();
+class NewsClient extends ClientImplementation<NewsBloc, NewsClientSpecificOptions> {
+  NewsClient();
 
   @override
   final String id = AppIDs.news;
@@ -67,7 +67,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   final List<Locale> supportedLocales = NewsLocalizations.supportedLocales;
 
   @override
-  late final NewsAppSpecificOptions options = NewsAppSpecificOptions(storage);
+  late final NewsClientSpecificOptions options = NewsClientSpecificOptions(storage);
 
   @override
   NewsBloc buildBloc(final Account account) => NewsBloc(
@@ -79,7 +79,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   final Widget page = const NewsMainPage();
 
   @override
-  final RouteBase route = $newsAppRoute;
+  final RouteBase route = $newsClientRoute;
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NewsBloc bloc) => bloc.unreadCounter;

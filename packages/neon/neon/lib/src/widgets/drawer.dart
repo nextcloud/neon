@@ -5,8 +5,8 @@ import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
-import 'package:neon/src/blocs/apps.dart';
-import 'package:neon/src/models/app_implementation.dart';
+import 'package:neon/src/blocs/clients.dart';
+import 'package:neon/src/models/client_implementation.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
@@ -24,17 +24,17 @@ class NeonDrawer extends StatelessWidget {
   @override
   Widget build(final BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final appsBloc = accountsBloc.activeAppsBloc;
+    final clientsBloc = accountsBloc.activeClientsBloc;
 
     return ResultBuilder.behaviorSubject(
-      subject: appsBloc.appImplementations,
+      subject: clientsBloc.clientImplementations,
       builder: (final context, final snapshot) {
         if (!snapshot.hasData) {
           return const SizedBox.shrink();
         }
 
         return _NeonDrawer(
-          apps: snapshot.requireData,
+          clients: snapshot.requireData,
         );
       },
     );
@@ -43,10 +43,10 @@ class NeonDrawer extends StatelessWidget {
 
 class _NeonDrawer extends StatefulWidget {
   const _NeonDrawer({
-    required this.apps,
+    required this.clients,
   });
 
-  final Iterable<AppImplementation> apps;
+  final Iterable<ClientImplementation> clients;
 
   @override
   State<_NeonDrawer> createState() => __NeonDrawerState();
@@ -54,53 +54,53 @@ class _NeonDrawer extends StatefulWidget {
 
 class __NeonDrawerState extends State<_NeonDrawer> {
   late AccountsBloc _accountsBloc;
-  late AppsBloc _appsBloc;
-  late List<AppImplementation> _apps;
+  late ClientsBloc _clientsBloc;
+  late List<ClientImplementation> _clients;
 
-  late int _activeApp;
+  late int _activeClient;
 
   @override
   void initState() {
     super.initState();
 
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    _appsBloc = _accountsBloc.activeAppsBloc;
+    _clientsBloc = _accountsBloc.activeClientsBloc;
 
-    _apps = widget.apps.toList();
-    _activeApp = _apps.indexWhere((final app) => app.id == _appsBloc.activeApp.valueOrNull?.id);
+    _clients = widget.clients.toList();
+    _activeClient = _clients.indexWhere((final client) => client.id == _clientsBloc.activeClient.valueOrNull?.id);
   }
 
-  void onAppChange(final int index) {
+  void onDestinationSelected(final int index) {
     Scaffold.maybeOf(context)?.closeDrawer();
 
-    // selected item is not a registered app like the SettingsPage
-    if (index >= _apps.length) {
+    // selected item is not a registered client like the SettingsPage
+    if (index >= _clients.length) {
       const SettingsRoute().go(context);
       return;
     }
 
     setState(() {
-      _activeApp = index;
+      _activeClient = index;
     });
 
-    unawaited(_appsBloc.setActiveApp(_apps[index].id));
+    unawaited(_clientsBloc.setActiveClient(_clients[index].id));
     //context.goNamed(apps[index].routeName);
   }
 
   @override
   Widget build(final BuildContext context) {
-    final appDestinations = _apps.map(
-      (final app) => NavigationDrawerDestinationExtension.fromNeonDestination(
-        app.destination(context),
+    final clientDestinations = _clients.map(
+      (final client) => NavigationDrawerDestinationExtension.fromNeonDestination(
+        client.destination(context),
       ),
     );
 
     final drawer = NavigationDrawer(
-      selectedIndex: _activeApp,
-      onDestinationSelected: onAppChange,
+      selectedIndex: _activeClient,
+      onDestinationSelected: onDestinationSelected,
       children: [
         const NeonDrawerHeader(),
-        ...appDestinations,
+        ...clientDestinations,
         NavigationDrawerDestination(
           icon: const Icon(Icons.settings),
           label: Text(NeonLocalizations.of(context).settings),

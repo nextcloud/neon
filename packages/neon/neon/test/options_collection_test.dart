@@ -6,8 +6,8 @@ import 'package:test/test.dart';
 // ignore: missing_override_of_must_be_overridden
 class OptionMock extends Mock implements ToggleOption {}
 
-class Collection extends NextcloudAppOptions {
-  Collection(final List<Option<Object>> options) : super(const AppStorage(StorageKeys.apps)) {
+class Collection extends NextcloudClientOptions {
+  Collection(final List<Option<Object>> options) : super(const ClientStorage(StorageKeys.clients)) {
     super.options = options;
   }
 }

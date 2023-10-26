@@ -1,7 +1,7 @@
 part of 'neon_news.dart';
 
-class NewsAppSpecificOptions extends NextcloudAppOptions {
-  NewsAppSpecificOptions(super.storage) {
+class NewsClientSpecificOptions extends NextcloudClientOptions {
+  NewsClientSpecificOptions(super.storage) {
     super.categories = [
       generalCategory,
       articlesCategory,

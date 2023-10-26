@@ -13,7 +13,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get nextcloudLogo => 'Nextcloud logo';
 
   @override
-  String appImplementationName(String app) {
+  String clientImplementationName(String app) {
     String _temp0 = intl.Intl.selectLogic(
       app,
       {

@@ -47,7 +47,7 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   NewsBloc get _newsBloc => this;
   @override
-  final NewsAppSpecificOptions options;
+  final NewsClientSpecificOptions options;
   @override
   @override
   final Account account;

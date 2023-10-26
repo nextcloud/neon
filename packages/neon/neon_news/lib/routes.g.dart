@@ -7,17 +7,17 @@ part of 'routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $newsAppRoute,
+      $newsClientRoute,
     ];
 
-RouteBase get $newsAppRoute => GoRouteData.$route(
+RouteBase get $newsClientRoute => GoRouteData.$route(
       path: '/apps/news',
       name: 'news',
-      factory: $NewsAppRouteExtension._fromState,
+      factory: $NewsClientRouteExtension._fromState,
     );
 
-extension $NewsAppRouteExtension on NewsAppRoute {
-  static NewsAppRoute _fromState(GoRouterState state) => const NewsAppRoute();
+extension $NewsClientRouteExtension on NewsClientRoute {
+  static NewsClientRoute _fromState(GoRouterState state) => const NewsClientRoute();
 
   String get location => GoRouteData.$location(
         '/apps/news',
