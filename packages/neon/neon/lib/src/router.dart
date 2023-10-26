@@ -24,6 +24,7 @@ import 'package:neon/src/utils/stream_listenable.dart';
 
 part 'router.g.dart';
 
+/// Internal router for the Neon framework.
 @internal
 GoRouter buildAppRouter({
   required final GlobalKey<NavigatorState> navigatorKey,
@@ -68,12 +69,19 @@ Page<void> _buildErrorPage(final BuildContext context, final GoRouterState state
       ),
     );
 
+/// {@template AppRoutes.AccountSettingsRoute}
+/// Route for the [AccountSettingsPage].
+/// {@endtemplate}
 @immutable
 class AccountSettingsRoute extends GoRouteData {
+  /// {@macro AppRoutes.AccountSettingsRoute}
   const AccountSettingsRoute({
     required this.accountID,
   });
 
+  /// The id of the account to show the settings for.
+  ///
+  /// Passed to [AccountSettingsPage.account].
   final String accountID;
 
   @override
@@ -88,6 +96,9 @@ class AccountSettingsRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.HomeRoute}
+/// Route for the the [HomePage].
+/// {@endtemplate}
 @TypedGoRoute<HomeRoute>(
   path: '/',
   name: 'home',
@@ -128,6 +139,7 @@ class AccountSettingsRoute extends GoRouteData {
 )
 @immutable
 class HomeRoute extends GoRouteData {
+  /// {@macro AppRoutes.HomeRoute}
   const HomeRoute();
 
   @override
@@ -139,6 +151,13 @@ class HomeRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.LoginRoute}
+/// Route for the the initial [LoginPage].
+///
+/// All routes related to the login flow are subroutes of this.
+/// All subroutes redirect to subroutes of [HomeRoute] if a at least one
+/// account is already logged in and further accounts should be added.
+/// {@endtemplate}
 @TypedGoRoute<LoginRoute>(
   path: '/login',
   name: 'login',
@@ -159,6 +178,7 @@ class HomeRoute extends GoRouteData {
 )
 @immutable
 class LoginRoute extends GoRouteData {
+  /// {@macro AppRoutes.LoginRoute}
   const LoginRoute();
 
   @override
@@ -176,12 +196,22 @@ class LoginRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.LoginFlowRoute}
+/// Route for the the [LoginFlowPage].
+///
+/// Redirects to [_AddAccountFlowRoute] when at least one account is already
+/// logged in.
+/// {@endtemplate}
 @immutable
 class LoginFlowRoute extends GoRouteData {
+  /// {@macro AppRoutes.LoginFlowRoute}
   const LoginFlowRoute({
     required this.serverUrl,
   });
 
+  /// {@template AppRoutes.LoginFlow.serverUrl}
+  /// The url of the server to initiate the login flow for.
+  /// {@endtemplate}
   final Uri serverUrl;
 
   @override
@@ -199,8 +229,15 @@ class LoginFlowRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.LoginQRcodeRoute}
+/// Route for the the [LoginQRcodePage].
+///
+/// Redirects to [_AddAccountQRcodeRoute] when at least one account is already
+/// logged in.
+/// {@endtemplate}
 @immutable
 class LoginQRcodeRoute extends GoRouteData {
+  /// {@macro AppRoutes.LoginQRcodeRoute}
   const LoginQRcodeRoute();
 
   @override
@@ -218,22 +255,47 @@ class LoginQRcodeRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.LoginCheckServerStatusRoute}
+/// Route for the the [LoginCheckServerStatusPage].
+///
+/// Redirects to [_AddAccountCheckServerStatusRoute] when at least one account
+/// is already logged in.
+/// {@endtemplate}
 @immutable
 class LoginCheckServerStatusRoute extends GoRouteData {
+  /// {@macro AppRoutes.LoginCheckServerStatusRoute}
+  ///
+  /// [loginName] and [password] must both be null.
+  /// Use [LoginCheckServerStatusRoute.withCredentials] to specify credentials.
   const LoginCheckServerStatusRoute({
     required this.serverUrl,
     this.loginName,
     this.password,
-  });
+  }) : assert(
+          loginName == null && password == null,
+          'loginName and password must be null. Use LoginCheckServerStatusRoute.withCredentials instead.',
+        );
 
+  /// {@macro AppRoutes.LoginCheckServerStatusRoute}
+  ///
+  /// See [LoginCheckServerStatusRoute] for a route without initial credentials.
   const LoginCheckServerStatusRoute.withCredentials({
     required this.serverUrl,
     required String this.loginName,
     required String this.password,
   }) : assert(!kIsWeb, 'Might leak the password to the browser history');
 
+  /// {@macro AppRoutes.LoginFlow.serverUrl}
   final Uri serverUrl;
+
+  /// {@template AppRoutes.LoginFlow.loginName}
+  /// The login name of the credentials.
+  /// {@endtemplate}
   final String? loginName;
+
+  /// {@template AppRoutes.LoginFlow.password}
+  /// The password of the credentials.
+  /// {@endtemplate}
   final String? password;
 
   @override
@@ -273,16 +335,28 @@ class LoginCheckServerStatusRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.LoginCheckAccountRoute}
+/// Route for the the [LoginCheckAccountPage].
+///
+/// Redirects to [_AddAccountCheckAccountRoute] when at least one account
+/// is already logged in.
+/// {@endtemplate}
 @immutable
 class LoginCheckAccountRoute extends GoRouteData {
+  /// {@macro AppRoutes.LoginCheckAccountRoute}
   const LoginCheckAccountRoute({
     required this.serverUrl,
     required this.loginName,
     required this.password,
   }) : assert(!kIsWeb, 'Might leak the password to the browser history');
 
+  /// {@macro AppRoutes.LoginFlow.serverUrl}
   final Uri serverUrl;
+
+  /// {@macro AppRoutes.LoginFlow.loginName}
   final String loginName;
+
+  /// {@macro AppRoutes.LoginFlow.password}
   final String password;
 
   @override
@@ -364,12 +438,17 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
   String get password => super.password;
 }
 
+/// {@template AppRoutes.NextcloudAppSettingsRoute}
+/// Route for the the [NextcloudAppSettingsPage].
+/// {@endtemplate}
 @immutable
 class NextcloudAppSettingsRoute extends GoRouteData {
+  /// {@macro AppRoutes.NextcloudAppSettingsRoute}
   const NextcloudAppSettingsRoute({
     required this.appid,
   });
 
+  /// The id of the app to display the settings for.
   final String appid;
 
   @override
@@ -381,9 +460,15 @@ class NextcloudAppSettingsRoute extends GoRouteData {
   }
 }
 
+/// {@template AppRoutes.SettingsRoute}
+/// Route for the the [SettingsPage].
+/// {@endtemplate}
 @immutable
 class SettingsRoute extends GoRouteData {
-  const SettingsRoute({this.initialCategory});
+  /// {@macro AppRoutes.SettingsRoute}
+  const SettingsRoute({
+    this.initialCategory,
+  });
 
   /// The initial category to show.
   final SettingsCategories? initialCategory;
