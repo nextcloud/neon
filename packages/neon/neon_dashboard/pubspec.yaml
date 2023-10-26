@@ -28,7 +28,7 @@ dev_dependencies:
   built_collection: ^5.1.1
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.3.3
+  go_router_builder: ^2.3.4
   mocktail: ^1.0.1
   neon_lints:
     git:
