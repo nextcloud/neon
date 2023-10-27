@@ -36,6 +36,7 @@ dependencies:
   vector_graphics: any
 
 dev_dependencies:
+  dependency_validator: ^3.0.0
   flutter_material_design_icons: any
   flutter_test:
     sdk: flutter
@@ -51,7 +52,7 @@ dev_dependencies:
       path: packages/nextcloud
   shared_preferences: any
   vector_graphics_compiler: any
-  dependency_validator: ^3.0.0
+  
 
 flutter:
   uses-material-design: true
