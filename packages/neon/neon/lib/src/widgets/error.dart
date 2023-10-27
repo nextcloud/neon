@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -10,6 +9,7 @@ import 'package:neon/src/router.dart';
 import 'package:neon/src/utils/exceptions.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:universal_io/io.dart';
 
 /// An indicator that an [error] has occurred.
 ///
