@@ -8,7 +8,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   built_value: ^8.0.1
-  cookie_jar: ^4.0.0
+  cookie_jar: ^4.0.7
   meta: ^1.0.0
   universal_io: ^2.0.0
 
