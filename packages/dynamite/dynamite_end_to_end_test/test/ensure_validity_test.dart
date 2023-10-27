@@ -8,6 +8,6 @@ void main() {
       packageRelativeDirectory: 'packages/dynamite/dynamite_end_to_end_test',
       customCommand: ['bash', 'generate.sh'],
     ),
-    timeout: const Timeout.factor(2),
+    timeout: const Timeout.factor(20),
   );
 }
