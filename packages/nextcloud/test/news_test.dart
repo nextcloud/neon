@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
+import 'package:universal_io/io.dart';
 
 import 'helper.dart';
 

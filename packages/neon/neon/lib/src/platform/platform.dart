@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:meta/meta.dart';
 import 'package:neon/src/platform/android.dart';
 import 'package:neon/src/platform/linux.dart';
+import 'package:universal_io/io.dart';
 
 /// Implements platform specific functionality and exposes the availability of certain features.
 @immutable

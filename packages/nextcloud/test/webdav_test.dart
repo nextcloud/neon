@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
+import 'package:universal_io/io.dart';
 
 import 'helper.dart';
 

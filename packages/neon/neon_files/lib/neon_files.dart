@@ -1,7 +1,6 @@
 library neon_files;
 
 import 'dart:async';
-import 'dart:io';
 
 import 'package:collection/collection.dart';
 import 'package:file_icons/file_icons.dart';
@@ -30,6 +29,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:universal_io/io.dart';
 
 part 'blocs/browser.dart';
 part 'blocs/files.dart';

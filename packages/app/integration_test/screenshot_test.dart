@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:app/apps.dart';
 import 'package:app/branding.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +15,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notes.dart' as notes;
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:universal_io/io.dart';
 
 Future<void> runTestApp(
   final WidgetTester tester,
