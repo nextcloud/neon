@@ -194,6 +194,26 @@ Serializer<SharebymailCapabilities_FilesSharing_Sharebymail>
 Serializer<SharebymailCapabilities_FilesSharing> _$sharebymailCapabilitiesFilesSharingSerializer =
     _$SharebymailCapabilities_FilesSharingSerializer();
 Serializer<SharebymailCapabilities> _$sharebymailCapabilitiesSerializer = _$SharebymailCapabilitiesSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Attachments>
+    _$spreedPublicCapabilities0SpreedConfigAttachmentsSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Call> _$spreedPublicCapabilities0SpreedConfigCallSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Chat> _$spreedPublicCapabilities0SpreedConfigChatSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Conversations>
+    _$spreedPublicCapabilities0SpreedConfigConversationsSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Previews> _$spreedPublicCapabilities0SpreedConfigPreviewsSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config_Signaling>
+    _$spreedPublicCapabilities0SpreedConfigSignalingSerializer =
+    _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed_Config> _$spreedPublicCapabilities0SpreedConfigSerializer =
+    _$SpreedPublicCapabilities0_Spreed_ConfigSerializer();
+Serializer<SpreedPublicCapabilities0_Spreed> _$spreedPublicCapabilities0SpreedSerializer =
+    _$SpreedPublicCapabilities0_SpreedSerializer();
+Serializer<SpreedPublicCapabilities0> _$spreedPublicCapabilities0Serializer = _$SpreedPublicCapabilities0Serializer();
 Serializer<ThemingPublicCapabilities_Theming> _$themingPublicCapabilitiesThemingSerializer =
     _$ThemingPublicCapabilities_ThemingSerializer();
 Serializer<ThemingPublicCapabilities> _$themingPublicCapabilitiesSerializer = _$ThemingPublicCapabilitiesSerializer();
@@ -4698,6 +4718,542 @@ class _$SharebymailCapabilitiesSerializer implements StructuredSerializer<Shareb
           result.filesSharing.replace(
               serializers.deserialize(value, specifiedType: const FullType(SharebymailCapabilities_FilesSharing))!
                   as SharebymailCapabilities_FilesSharing);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Attachments> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Attachments,
+    _$SpreedPublicCapabilities0_Spreed_Config_Attachments
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Attachments';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Attachments object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'allowed',
+      serializers.serialize(object.allowed, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.folder;
+    if (value != null) {
+      result
+        ..add('folder')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Attachments deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'allowed':
+          result.allowed = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'folder':
+          result.folder = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Call> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Call,
+    _$SpreedPublicCapabilities0_Spreed_Config_Call
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Call';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Call object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'breakout-rooms',
+      serializers.serialize(object.breakoutRooms, specifiedType: const FullType(bool)),
+      'recording',
+      serializers.serialize(object.recording, specifiedType: const FullType(bool)),
+      'supported-reactions',
+      serializers.serialize(object.supportedReactions, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'predefined-backgrounds',
+      serializers.serialize(object.predefinedBackgrounds, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'can-upload-background',
+      serializers.serialize(object.canUploadBackground, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.recordingConsent;
+    if (value != null) {
+      result
+        ..add('recording-consent')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.sipEnabled;
+    if (value != null) {
+      result
+        ..add('sip-enabled')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.sipDialoutEnabled;
+    if (value != null) {
+      result
+        ..add('sip-dialout-enabled')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.canEnableSip;
+    if (value != null) {
+      result
+        ..add('can-enable-sip')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Call deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_CallBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'breakout-rooms':
+          result.breakoutRooms = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'recording':
+          result.recording = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'recording-consent':
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'supported-reactions':
+          result.supportedReactions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'predefined-backgrounds':
+          result.predefinedBackgrounds.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'can-upload-background':
+          result.canUploadBackground = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'sip-enabled':
+          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'sip-dialout-enabled':
+          result.sipDialoutEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'can-enable-sip':
+          result.canEnableSip = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Chat> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Chat,
+    _$SpreedPublicCapabilities0_Spreed_Config_Chat
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Chat';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Chat object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'max-length',
+      serializers.serialize(object.maxLength, specifiedType: const FullType(int)),
+      'read-privacy',
+      serializers.serialize(object.readPrivacy, specifiedType: const FullType(int)),
+      'typing-privacy',
+      serializers.serialize(object.typingPrivacy, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.hasTranslationProviders;
+    if (value != null) {
+      result
+        ..add('has-translation-providers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.translations;
+    if (value != null) {
+      result
+        ..add('translations')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Chat deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_ChatBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'max-length':
+          result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'read-privacy':
+          result.readPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'has-translation-providers':
+          result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+        case 'typing-privacy':
+          result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'translations':
+          result.translations.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_ConversationsSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Conversations> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Conversations,
+    _$SpreedPublicCapabilities0_Spreed_Config_Conversations
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Conversations';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Conversations object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'can-create',
+      serializers.serialize(object.canCreate, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Conversations deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'can-create':
+          result.canCreate = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_PreviewsSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Previews> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Previews,
+    _$SpreedPublicCapabilities0_Spreed_Config_Previews
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Previews';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Previews object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'max-gif-size',
+      serializers.serialize(object.maxGifSize, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Previews deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'max-gif-size':
+          result.maxGifSize = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_SignalingSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config_Signaling> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config_Signaling,
+    _$SpreedPublicCapabilities0_Spreed_Config_Signaling
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config_Signaling';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config_Signaling object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'session-ping-limit',
+      serializers.serialize(object.sessionPingLimit, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.helloV2TokenKey;
+    if (value != null) {
+      result
+        ..add('hello-v2-token-key')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Signaling deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'session-ping-limit':
+          result.sessionPingLimit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'hello-v2-token-key':
+          result.helloV2TokenKey = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_Spreed_ConfigSerializer
+    implements StructuredSerializer<SpreedPublicCapabilities0_Spreed_Config> {
+  @override
+  final Iterable<Type> types = const [
+    SpreedPublicCapabilities0_Spreed_Config,
+    _$SpreedPublicCapabilities0_Spreed_Config
+  ];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed_Config';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed_Config object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'attachments',
+      serializers.serialize(object.attachments,
+          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments)),
+      'call',
+      serializers.serialize(object.call, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Call)),
+      'chat',
+      serializers.serialize(object.chat, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat)),
+      'conversations',
+      serializers.serialize(object.conversations,
+          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations)),
+      'previews',
+      serializers.serialize(object.previews,
+          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews)),
+      'signaling',
+      serializers.serialize(object.signaling,
+          specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_Spreed_ConfigBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'attachments':
+          result.attachments.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments))!
+              as SpreedPublicCapabilities0_Spreed_Config_Attachments);
+          break;
+        case 'call':
+          result.call.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Call))!
+              as SpreedPublicCapabilities0_Spreed_Config_Call);
+          break;
+        case 'chat':
+          result.chat.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat))!
+              as SpreedPublicCapabilities0_Spreed_Config_Chat);
+          break;
+        case 'conversations':
+          result.conversations.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations))!
+              as SpreedPublicCapabilities0_Spreed_Config_Conversations);
+          break;
+        case 'previews':
+          result.previews.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews))!
+              as SpreedPublicCapabilities0_Spreed_Config_Previews);
+          break;
+        case 'signaling':
+          result.signaling.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling))!
+              as SpreedPublicCapabilities0_Spreed_Config_Signaling);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0_SpreedSerializer implements StructuredSerializer<SpreedPublicCapabilities0_Spreed> {
+  @override
+  final Iterable<Type> types = const [SpreedPublicCapabilities0_Spreed, _$SpreedPublicCapabilities0_Spreed];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0_Spreed';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0_Spreed object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'features',
+      serializers.serialize(object.features, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'config',
+      serializers.serialize(object.config, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0_SpreedBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'features':
+          result.features.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'config':
+          result.config.replace(
+              serializers.deserialize(value, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed_Config))!
+                  as SpreedPublicCapabilities0_Spreed_Config);
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SpreedPublicCapabilities0Serializer implements StructuredSerializer<SpreedPublicCapabilities0> {
+  @override
+  final Iterable<Type> types = const [SpreedPublicCapabilities0, _$SpreedPublicCapabilities0];
+  @override
+  final String wireName = 'SpreedPublicCapabilities0';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, SpreedPublicCapabilities0 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'spreed',
+      serializers.serialize(object.spreed, specifiedType: const FullType(SpreedPublicCapabilities0_Spreed)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SpreedPublicCapabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SpreedPublicCapabilities0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'spreed':
+          result.spreed.replace(serializers.deserialize(value,
+              specifiedType: const FullType(SpreedPublicCapabilities0_Spreed))! as SpreedPublicCapabilities0_Spreed);
           break;
       }
     }
@@ -19053,6 +19609,1445 @@ class SharebymailCapabilitiesBuilder
   }
 }
 
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder) updates);
+  bool? get allowed;
+  set allowed(bool? allowed);
+
+  String? get folder;
+  set folder(String? folder);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Attachments
+    extends SpreedPublicCapabilities0_Spreed_Config_Attachments {
+  @override
+  final bool allowed;
+  @override
+  final String? folder;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Attachments(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Attachments._({required this.allowed, this.folder}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(allowed, r'SpreedPublicCapabilities0_Spreed_Config_Attachments', 'allowed');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Attachments rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Attachments &&
+        allowed == other.allowed &&
+        folder == other.folder;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, allowed.hashCode);
+    _$hash = $jc(_$hash, folder.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Attachments')
+          ..add('allowed', allowed)
+          ..add('folder', folder))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Attachments,
+            SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Attachments? _$v;
+
+  bool? _allowed;
+  bool? get allowed => _$this._allowed;
+  set allowed(covariant bool? allowed) => _$this._allowed = allowed;
+
+  String? _folder;
+  String? get folder => _$this._folder;
+  set folder(covariant String? folder) => _$this._folder = folder;
+
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _allowed = $v.allowed;
+      _folder = $v.folder;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Attachments other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Attachments;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Attachments build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Attachments _build() {
+    final _$result = _$v ??
+        _$SpreedPublicCapabilities0_Spreed_Config_Attachments._(
+            allowed: BuiltValueNullFieldError.checkNotNull(
+                allowed, r'SpreedPublicCapabilities0_Spreed_Config_Attachments', 'allowed'),
+            folder: folder);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_CallInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder) updates);
+  bool? get enabled;
+  set enabled(bool? enabled);
+
+  bool? get breakoutRooms;
+  set breakoutRooms(bool? breakoutRooms);
+
+  bool? get recording;
+  set recording(bool? recording);
+
+  int? get recordingConsent;
+  set recordingConsent(int? recordingConsent);
+
+  ListBuilder<String> get supportedReactions;
+  set supportedReactions(ListBuilder<String>? supportedReactions);
+
+  ListBuilder<String> get predefinedBackgrounds;
+  set predefinedBackgrounds(ListBuilder<String>? predefinedBackgrounds);
+
+  bool? get canUploadBackground;
+  set canUploadBackground(bool? canUploadBackground);
+
+  bool? get sipEnabled;
+  set sipEnabled(bool? sipEnabled);
+
+  bool? get sipDialoutEnabled;
+  set sipDialoutEnabled(bool? sipDialoutEnabled);
+
+  bool? get canEnableSip;
+  set canEnableSip(bool? canEnableSip);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabilities0_Spreed_Config_Call {
+  @override
+  final bool enabled;
+  @override
+  final bool breakoutRooms;
+  @override
+  final bool recording;
+  @override
+  final int? recordingConsent;
+  @override
+  final BuiltList<String> supportedReactions;
+  @override
+  final BuiltList<String> predefinedBackgrounds;
+  @override
+  final bool canUploadBackground;
+  @override
+  final bool? sipEnabled;
+  @override
+  final bool? sipDialoutEnabled;
+  @override
+  final bool? canEnableSip;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Call(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_CallBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Call._(
+      {required this.enabled,
+      required this.breakoutRooms,
+      required this.recording,
+      this.recordingConsent,
+      required this.supportedReactions,
+      required this.predefinedBackgrounds,
+      required this.canUploadBackground,
+      this.sipEnabled,
+      this.sipDialoutEnabled,
+      this.canEnableSip})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(
+        breakoutRooms, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'breakoutRooms');
+    BuiltValueNullFieldError.checkNotNull(recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording');
+    BuiltValueNullFieldError.checkNotNull(
+        supportedReactions, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'supportedReactions');
+    BuiltValueNullFieldError.checkNotNull(
+        predefinedBackgrounds, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'predefinedBackgrounds');
+    BuiltValueNullFieldError.checkNotNull(
+        canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Call rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_CallBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Call &&
+        enabled == other.enabled &&
+        breakoutRooms == other.breakoutRooms &&
+        recording == other.recording &&
+        recordingConsent == other.recordingConsent &&
+        supportedReactions == other.supportedReactions &&
+        predefinedBackgrounds == other.predefinedBackgrounds &&
+        canUploadBackground == other.canUploadBackground &&
+        sipEnabled == other.sipEnabled &&
+        sipDialoutEnabled == other.sipDialoutEnabled &&
+        canEnableSip == other.canEnableSip;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, enabled.hashCode);
+    _$hash = $jc(_$hash, breakoutRooms.hashCode);
+    _$hash = $jc(_$hash, recording.hashCode);
+    _$hash = $jc(_$hash, recordingConsent.hashCode);
+    _$hash = $jc(_$hash, supportedReactions.hashCode);
+    _$hash = $jc(_$hash, predefinedBackgrounds.hashCode);
+    _$hash = $jc(_$hash, canUploadBackground.hashCode);
+    _$hash = $jc(_$hash, sipEnabled.hashCode);
+    _$hash = $jc(_$hash, sipDialoutEnabled.hashCode);
+    _$hash = $jc(_$hash, canEnableSip.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Call')
+          ..add('enabled', enabled)
+          ..add('breakoutRooms', breakoutRooms)
+          ..add('recording', recording)
+          ..add('recordingConsent', recordingConsent)
+          ..add('supportedReactions', supportedReactions)
+          ..add('predefinedBackgrounds', predefinedBackgrounds)
+          ..add('canUploadBackground', canUploadBackground)
+          ..add('sipEnabled', sipEnabled)
+          ..add('sipDialoutEnabled', sipDialoutEnabled)
+          ..add('canEnableSip', canEnableSip))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Call, SpreedPublicCapabilities0_Spreed_Config_CallBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_CallInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Call? _$v;
+
+  bool? _enabled;
+  bool? get enabled => _$this._enabled;
+  set enabled(covariant bool? enabled) => _$this._enabled = enabled;
+
+  bool? _breakoutRooms;
+  bool? get breakoutRooms => _$this._breakoutRooms;
+  set breakoutRooms(covariant bool? breakoutRooms) => _$this._breakoutRooms = breakoutRooms;
+
+  bool? _recording;
+  bool? get recording => _$this._recording;
+  set recording(covariant bool? recording) => _$this._recording = recording;
+
+  int? _recordingConsent;
+  int? get recordingConsent => _$this._recordingConsent;
+  set recordingConsent(covariant int? recordingConsent) => _$this._recordingConsent = recordingConsent;
+
+  ListBuilder<String>? _supportedReactions;
+  ListBuilder<String> get supportedReactions => _$this._supportedReactions ??= ListBuilder<String>();
+  set supportedReactions(covariant ListBuilder<String>? supportedReactions) =>
+      _$this._supportedReactions = supportedReactions;
+
+  ListBuilder<String>? _predefinedBackgrounds;
+  ListBuilder<String> get predefinedBackgrounds => _$this._predefinedBackgrounds ??= ListBuilder<String>();
+  set predefinedBackgrounds(covariant ListBuilder<String>? predefinedBackgrounds) =>
+      _$this._predefinedBackgrounds = predefinedBackgrounds;
+
+  bool? _canUploadBackground;
+  bool? get canUploadBackground => _$this._canUploadBackground;
+  set canUploadBackground(covariant bool? canUploadBackground) => _$this._canUploadBackground = canUploadBackground;
+
+  bool? _sipEnabled;
+  bool? get sipEnabled => _$this._sipEnabled;
+  set sipEnabled(covariant bool? sipEnabled) => _$this._sipEnabled = sipEnabled;
+
+  bool? _sipDialoutEnabled;
+  bool? get sipDialoutEnabled => _$this._sipDialoutEnabled;
+  set sipDialoutEnabled(covariant bool? sipDialoutEnabled) => _$this._sipDialoutEnabled = sipDialoutEnabled;
+
+  bool? _canEnableSip;
+  bool? get canEnableSip => _$this._canEnableSip;
+  set canEnableSip(covariant bool? canEnableSip) => _$this._canEnableSip = canEnableSip;
+
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _enabled = $v.enabled;
+      _breakoutRooms = $v.breakoutRooms;
+      _recording = $v.recording;
+      _recordingConsent = $v.recordingConsent;
+      _supportedReactions = $v.supportedReactions.toBuilder();
+      _predefinedBackgrounds = $v.predefinedBackgrounds.toBuilder();
+      _canUploadBackground = $v.canUploadBackground;
+      _sipEnabled = $v.sipEnabled;
+      _sipDialoutEnabled = $v.sipDialoutEnabled;
+      _canEnableSip = $v.canEnableSip;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Call other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Call;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Call build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Call _build() {
+    _$SpreedPublicCapabilities0_Spreed_Config_Call _$result;
+    try {
+      _$result = _$v ??
+          _$SpreedPublicCapabilities0_Spreed_Config_Call._(
+              enabled: BuiltValueNullFieldError.checkNotNull(
+                  enabled, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'enabled'),
+              breakoutRooms: BuiltValueNullFieldError.checkNotNull(
+                  breakoutRooms, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'breakoutRooms'),
+              recording: BuiltValueNullFieldError.checkNotNull(
+                  recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording'),
+              recordingConsent: recordingConsent,
+              supportedReactions: supportedReactions.build(),
+              predefinedBackgrounds: predefinedBackgrounds.build(),
+              canUploadBackground: BuiltValueNullFieldError.checkNotNull(
+                  canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground'),
+              sipEnabled: sipEnabled,
+              sipDialoutEnabled: sipDialoutEnabled,
+              canEnableSip: canEnableSip);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'supportedReactions';
+        supportedReactions.build();
+        _$failedField = 'predefinedBackgrounds';
+        predefinedBackgrounds.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config_Call', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_ChatInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder) updates);
+  int? get maxLength;
+  set maxLength(int? maxLength);
+
+  int? get readPrivacy;
+  set readPrivacy(int? readPrivacy);
+
+  bool? get hasTranslationProviders;
+  set hasTranslationProviders(bool? hasTranslationProviders);
+
+  int? get typingPrivacy;
+  set typingPrivacy(int? typingPrivacy);
+
+  ListBuilder<String> get translations;
+  set translations(ListBuilder<String>? translations);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabilities0_Spreed_Config_Chat {
+  @override
+  final int maxLength;
+  @override
+  final int readPrivacy;
+  @override
+  final bool? hasTranslationProviders;
+  @override
+  final int typingPrivacy;
+  @override
+  final BuiltList<String>? translations;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Chat(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_ChatBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Chat._(
+      {required this.maxLength,
+      required this.readPrivacy,
+      this.hasTranslationProviders,
+      required this.typingPrivacy,
+      this.translations})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'maxLength');
+    BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy');
+    BuiltValueNullFieldError.checkNotNull(
+        typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Chat rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_ChatBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Chat &&
+        maxLength == other.maxLength &&
+        readPrivacy == other.readPrivacy &&
+        hasTranslationProviders == other.hasTranslationProviders &&
+        typingPrivacy == other.typingPrivacy &&
+        translations == other.translations;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, maxLength.hashCode);
+    _$hash = $jc(_$hash, readPrivacy.hashCode);
+    _$hash = $jc(_$hash, hasTranslationProviders.hashCode);
+    _$hash = $jc(_$hash, typingPrivacy.hashCode);
+    _$hash = $jc(_$hash, translations.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Chat')
+          ..add('maxLength', maxLength)
+          ..add('readPrivacy', readPrivacy)
+          ..add('hasTranslationProviders', hasTranslationProviders)
+          ..add('typingPrivacy', typingPrivacy)
+          ..add('translations', translations))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Chat, SpreedPublicCapabilities0_Spreed_Config_ChatBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_ChatInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Chat? _$v;
+
+  int? _maxLength;
+  int? get maxLength => _$this._maxLength;
+  set maxLength(covariant int? maxLength) => _$this._maxLength = maxLength;
+
+  int? _readPrivacy;
+  int? get readPrivacy => _$this._readPrivacy;
+  set readPrivacy(covariant int? readPrivacy) => _$this._readPrivacy = readPrivacy;
+
+  bool? _hasTranslationProviders;
+  bool? get hasTranslationProviders => _$this._hasTranslationProviders;
+  set hasTranslationProviders(covariant bool? hasTranslationProviders) =>
+      _$this._hasTranslationProviders = hasTranslationProviders;
+
+  int? _typingPrivacy;
+  int? get typingPrivacy => _$this._typingPrivacy;
+  set typingPrivacy(covariant int? typingPrivacy) => _$this._typingPrivacy = typingPrivacy;
+
+  ListBuilder<String>? _translations;
+  ListBuilder<String> get translations => _$this._translations ??= ListBuilder<String>();
+  set translations(covariant ListBuilder<String>? translations) => _$this._translations = translations;
+
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _maxLength = $v.maxLength;
+      _readPrivacy = $v.readPrivacy;
+      _hasTranslationProviders = $v.hasTranslationProviders;
+      _typingPrivacy = $v.typingPrivacy;
+      _translations = $v.translations?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Chat other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Chat;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Chat build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Chat _build() {
+    _$SpreedPublicCapabilities0_Spreed_Config_Chat _$result;
+    try {
+      _$result = _$v ??
+          _$SpreedPublicCapabilities0_Spreed_Config_Chat._(
+              maxLength: BuiltValueNullFieldError.checkNotNull(
+                  maxLength, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'maxLength'),
+              readPrivacy: BuiltValueNullFieldError.checkNotNull(
+                  readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy'),
+              hasTranslationProviders: hasTranslationProviders,
+              typingPrivacy: BuiltValueNullFieldError.checkNotNull(
+                  typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy'),
+              translations: _translations?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'translations';
+        _translations?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config_Chat', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder) updates);
+  bool? get canCreate;
+  set canCreate(bool? canCreate);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Conversations
+    extends SpreedPublicCapabilities0_Spreed_Config_Conversations {
+  @override
+  final bool canCreate;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Conversations(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Conversations._({required this.canCreate}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        canCreate, r'SpreedPublicCapabilities0_Spreed_Config_Conversations', 'canCreate');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Conversations rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Conversations && canCreate == other.canCreate;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, canCreate.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Conversations')
+          ..add('canCreate', canCreate))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Conversations,
+            SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_ConversationsInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Conversations? _$v;
+
+  bool? _canCreate;
+  bool? get canCreate => _$this._canCreate;
+  set canCreate(covariant bool? canCreate) => _$this._canCreate = canCreate;
+
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _canCreate = $v.canCreate;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Conversations other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Conversations;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Conversations build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Conversations _build() {
+    final _$result = _$v ??
+        _$SpreedPublicCapabilities0_Spreed_Config_Conversations._(
+            canCreate: BuiltValueNullFieldError.checkNotNull(
+                canCreate, r'SpreedPublicCapabilities0_Spreed_Config_Conversations', 'canCreate'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder) updates);
+  int? get maxGifSize;
+  set maxGifSize(int? maxGifSize);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Previews extends SpreedPublicCapabilities0_Spreed_Config_Previews {
+  @override
+  final int maxGifSize;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Previews(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Previews._({required this.maxGifSize}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        maxGifSize, r'SpreedPublicCapabilities0_Spreed_Config_Previews', 'maxGifSize');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Previews rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Previews && maxGifSize == other.maxGifSize;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, maxGifSize.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Previews')
+          ..add('maxGifSize', maxGifSize))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Previews,
+            SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_PreviewsInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Previews? _$v;
+
+  int? _maxGifSize;
+  int? get maxGifSize => _$this._maxGifSize;
+  set maxGifSize(covariant int? maxGifSize) => _$this._maxGifSize = maxGifSize;
+
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _maxGifSize = $v.maxGifSize;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Previews other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Previews;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Previews build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Previews _build() {
+    final _$result = _$v ??
+        _$SpreedPublicCapabilities0_Spreed_Config_Previews._(
+            maxGifSize: BuiltValueNullFieldError.checkNotNull(
+                maxGifSize, r'SpreedPublicCapabilities0_Spreed_Config_Previews', 'maxGifSize'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_Config_SignalingInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder) updates);
+  int? get sessionPingLimit;
+  set sessionPingLimit(int? sessionPingLimit);
+
+  String? get helloV2TokenKey;
+  set helloV2TokenKey(String? helloV2TokenKey);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config_Signaling extends SpreedPublicCapabilities0_Spreed_Config_Signaling {
+  @override
+  final int sessionPingLimit;
+  @override
+  final String? helloV2TokenKey;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config_Signaling(
+          [void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Signaling._({required this.sessionPingLimit, this.helloV2TokenKey})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        sessionPingLimit, r'SpreedPublicCapabilities0_Spreed_Config_Signaling', 'sessionPingLimit');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Signaling rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config_Signaling &&
+        sessionPingLimit == other.sessionPingLimit &&
+        helloV2TokenKey == other.helloV2TokenKey;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, sessionPingLimit.hashCode);
+    _$hash = $jc(_$hash, helloV2TokenKey.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config_Signaling')
+          ..add('sessionPingLimit', sessionPingLimit)
+          ..add('helloV2TokenKey', helloV2TokenKey))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config_Signaling,
+            SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder>,
+        SpreedPublicCapabilities0_Spreed_Config_SignalingInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config_Signaling? _$v;
+
+  int? _sessionPingLimit;
+  int? get sessionPingLimit => _$this._sessionPingLimit;
+  set sessionPingLimit(covariant int? sessionPingLimit) => _$this._sessionPingLimit = sessionPingLimit;
+
+  String? _helloV2TokenKey;
+  String? get helloV2TokenKey => _$this._helloV2TokenKey;
+  set helloV2TokenKey(covariant String? helloV2TokenKey) => _$this._helloV2TokenKey = helloV2TokenKey;
+
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder();
+
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _sessionPingLimit = $v.sessionPingLimit;
+      _helloV2TokenKey = $v.helloV2TokenKey;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config_Signaling other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config_Signaling;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config_Signaling build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config_Signaling _build() {
+    final _$result = _$v ??
+        _$SpreedPublicCapabilities0_Spreed_Config_Signaling._(
+            sessionPingLimit: BuiltValueNullFieldError.checkNotNull(
+                sessionPingLimit, r'SpreedPublicCapabilities0_Spreed_Config_Signaling', 'sessionPingLimit'),
+            helloV2TokenKey: helloV2TokenKey);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_Spreed_ConfigInterface other);
+  void update(void Function(SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder) updates);
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get attachments;
+  set attachments(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? attachments);
+
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get call;
+  set call(SpreedPublicCapabilities0_Spreed_Config_CallBuilder? call);
+
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get chat;
+  set chat(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? chat);
+
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get conversations;
+  set conversations(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? conversations);
+
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get previews;
+  set previews(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? previews);
+
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get signaling;
+  set signaling(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? signaling);
+}
+
+class _$SpreedPublicCapabilities0_Spreed_Config extends SpreedPublicCapabilities0_Spreed_Config {
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Attachments attachments;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Call call;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Chat chat;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Conversations conversations;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Previews previews;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config_Signaling signaling;
+
+  factory _$SpreedPublicCapabilities0_Spreed_Config(
+          [void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_Spreed_ConfigBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config._(
+      {required this.attachments,
+      required this.call,
+      required this.chat,
+      required this.conversations,
+      required this.previews,
+      required this.signaling})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(attachments, r'SpreedPublicCapabilities0_Spreed_Config', 'attachments');
+    BuiltValueNullFieldError.checkNotNull(call, r'SpreedPublicCapabilities0_Spreed_Config', 'call');
+    BuiltValueNullFieldError.checkNotNull(chat, r'SpreedPublicCapabilities0_Spreed_Config', 'chat');
+    BuiltValueNullFieldError.checkNotNull(conversations, r'SpreedPublicCapabilities0_Spreed_Config', 'conversations');
+    BuiltValueNullFieldError.checkNotNull(previews, r'SpreedPublicCapabilities0_Spreed_Config', 'previews');
+    BuiltValueNullFieldError.checkNotNull(signaling, r'SpreedPublicCapabilities0_Spreed_Config', 'signaling');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config rebuild(
+          void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder toBuilder() =>
+      SpreedPublicCapabilities0_Spreed_ConfigBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed_Config &&
+        attachments == other.attachments &&
+        call == other.call &&
+        chat == other.chat &&
+        conversations == other.conversations &&
+        previews == other.previews &&
+        signaling == other.signaling;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, attachments.hashCode);
+    _$hash = $jc(_$hash, call.hashCode);
+    _$hash = $jc(_$hash, chat.hashCode);
+    _$hash = $jc(_$hash, conversations.hashCode);
+    _$hash = $jc(_$hash, previews.hashCode);
+    _$hash = $jc(_$hash, signaling.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed_Config')
+          ..add('attachments', attachments)
+          ..add('call', call)
+          ..add('chat', chat)
+          ..add('conversations', conversations)
+          ..add('previews', previews)
+          ..add('signaling', signaling))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_Spreed_ConfigBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed_Config, SpreedPublicCapabilities0_Spreed_ConfigBuilder>,
+        SpreedPublicCapabilities0_Spreed_ConfigInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed_Config? _$v;
+
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? _attachments;
+  SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder get attachments =>
+      _$this._attachments ??= SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+  set attachments(covariant SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder? attachments) =>
+      _$this._attachments = attachments;
+
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder? _call;
+  SpreedPublicCapabilities0_Spreed_Config_CallBuilder get call =>
+      _$this._call ??= SpreedPublicCapabilities0_Spreed_Config_CallBuilder();
+  set call(covariant SpreedPublicCapabilities0_Spreed_Config_CallBuilder? call) => _$this._call = call;
+
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? _chat;
+  SpreedPublicCapabilities0_Spreed_Config_ChatBuilder get chat =>
+      _$this._chat ??= SpreedPublicCapabilities0_Spreed_Config_ChatBuilder();
+  set chat(covariant SpreedPublicCapabilities0_Spreed_Config_ChatBuilder? chat) => _$this._chat = chat;
+
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? _conversations;
+  SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder get conversations =>
+      _$this._conversations ??= SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder();
+  set conversations(covariant SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder? conversations) =>
+      _$this._conversations = conversations;
+
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? _previews;
+  SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder get previews =>
+      _$this._previews ??= SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder();
+  set previews(covariant SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder? previews) =>
+      _$this._previews = previews;
+
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? _signaling;
+  SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder get signaling =>
+      _$this._signaling ??= SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder();
+  set signaling(covariant SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder? signaling) =>
+      _$this._signaling = signaling;
+
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder();
+
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _attachments = $v.attachments.toBuilder();
+      _call = $v.call.toBuilder();
+      _chat = $v.chat.toBuilder();
+      _conversations = $v.conversations.toBuilder();
+      _previews = $v.previews.toBuilder();
+      _signaling = $v.signaling.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed_Config other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed_Config;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed_Config build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed_Config _build() {
+    _$SpreedPublicCapabilities0_Spreed_Config _$result;
+    try {
+      _$result = _$v ??
+          _$SpreedPublicCapabilities0_Spreed_Config._(
+              attachments: attachments.build(),
+              call: call.build(),
+              chat: chat.build(),
+              conversations: conversations.build(),
+              previews: previews.build(),
+              signaling: signaling.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'attachments';
+        attachments.build();
+        _$failedField = 'call';
+        call.build();
+        _$failedField = 'chat';
+        chat.build();
+        _$failedField = 'conversations';
+        conversations.build();
+        _$failedField = 'previews';
+        previews.build();
+        _$failedField = 'signaling';
+        signaling.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0_SpreedInterfaceBuilder {
+  void replace(SpreedPublicCapabilities0_SpreedInterface other);
+  void update(void Function(SpreedPublicCapabilities0_SpreedInterfaceBuilder) updates);
+  ListBuilder<String> get features;
+  set features(ListBuilder<String>? features);
+
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder get config;
+  set config(SpreedPublicCapabilities0_Spreed_ConfigBuilder? config);
+
+  String? get version;
+  set version(String? version);
+}
+
+class _$SpreedPublicCapabilities0_Spreed extends SpreedPublicCapabilities0_Spreed {
+  @override
+  final BuiltList<String> features;
+  @override
+  final SpreedPublicCapabilities0_Spreed_Config config;
+  @override
+  final String version;
+
+  factory _$SpreedPublicCapabilities0_Spreed([void Function(SpreedPublicCapabilities0_SpreedBuilder)? updates]) =>
+      (SpreedPublicCapabilities0_SpreedBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0_Spreed._({required this.features, required this.config, required this.version})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(features, r'SpreedPublicCapabilities0_Spreed', 'features');
+    BuiltValueNullFieldError.checkNotNull(config, r'SpreedPublicCapabilities0_Spreed', 'config');
+    BuiltValueNullFieldError.checkNotNull(version, r'SpreedPublicCapabilities0_Spreed', 'version');
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed rebuild(void Function(SpreedPublicCapabilities0_SpreedBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0_SpreedBuilder toBuilder() => SpreedPublicCapabilities0_SpreedBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0_Spreed &&
+        features == other.features &&
+        config == other.config &&
+        version == other.version;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, features.hashCode);
+    _$hash = $jc(_$hash, config.hashCode);
+    _$hash = $jc(_$hash, version.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0_Spreed')
+          ..add('features', features)
+          ..add('config', config)
+          ..add('version', version))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilities0_SpreedBuilder
+    implements
+        Builder<SpreedPublicCapabilities0_Spreed, SpreedPublicCapabilities0_SpreedBuilder>,
+        SpreedPublicCapabilities0_SpreedInterfaceBuilder {
+  _$SpreedPublicCapabilities0_Spreed? _$v;
+
+  ListBuilder<String>? _features;
+  ListBuilder<String> get features => _$this._features ??= ListBuilder<String>();
+  set features(covariant ListBuilder<String>? features) => _$this._features = features;
+
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder? _config;
+  SpreedPublicCapabilities0_Spreed_ConfigBuilder get config =>
+      _$this._config ??= SpreedPublicCapabilities0_Spreed_ConfigBuilder();
+  set config(covariant SpreedPublicCapabilities0_Spreed_ConfigBuilder? config) => _$this._config = config;
+
+  String? _version;
+  String? get version => _$this._version;
+  set version(covariant String? version) => _$this._version = version;
+
+  SpreedPublicCapabilities0_SpreedBuilder();
+
+  SpreedPublicCapabilities0_SpreedBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _features = $v.features.toBuilder();
+      _config = $v.config.toBuilder();
+      _version = $v.version;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0_Spreed other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0_Spreed;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0_SpreedBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0_Spreed build() => _build();
+
+  _$SpreedPublicCapabilities0_Spreed _build() {
+    _$SpreedPublicCapabilities0_Spreed _$result;
+    try {
+      _$result = _$v ??
+          _$SpreedPublicCapabilities0_Spreed._(
+              features: features.build(),
+              config: config.build(),
+              version: BuiltValueNullFieldError.checkNotNull(version, r'SpreedPublicCapabilities0_Spreed', 'version'));
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'features';
+        features.build();
+        _$failedField = 'config';
+        config.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilities0InterfaceBuilder {
+  void replace(SpreedPublicCapabilities0Interface other);
+  void update(void Function(SpreedPublicCapabilities0InterfaceBuilder) updates);
+  SpreedPublicCapabilities0_SpreedBuilder get spreed;
+  set spreed(SpreedPublicCapabilities0_SpreedBuilder? spreed);
+}
+
+class _$SpreedPublicCapabilities0 extends SpreedPublicCapabilities0 {
+  @override
+  final SpreedPublicCapabilities0_Spreed spreed;
+
+  factory _$SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? updates]) =>
+      (SpreedPublicCapabilities0Builder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities0._({required this.spreed}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(spreed, r'SpreedPublicCapabilities0', 'spreed');
+  }
+
+  @override
+  SpreedPublicCapabilities0 rebuild(void Function(SpreedPublicCapabilities0Builder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilities0Builder toBuilder() => SpreedPublicCapabilities0Builder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities0 && spreed == other.spreed;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, spreed.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities0')..add('spreed', spreed)).toString();
+  }
+}
+
+class SpreedPublicCapabilities0Builder
+    implements
+        Builder<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder>,
+        SpreedPublicCapabilities0InterfaceBuilder {
+  _$SpreedPublicCapabilities0? _$v;
+
+  SpreedPublicCapabilities0_SpreedBuilder? _spreed;
+  SpreedPublicCapabilities0_SpreedBuilder get spreed => _$this._spreed ??= SpreedPublicCapabilities0_SpreedBuilder();
+  set spreed(covariant SpreedPublicCapabilities0_SpreedBuilder? spreed) => _$this._spreed = spreed;
+
+  SpreedPublicCapabilities0Builder();
+
+  SpreedPublicCapabilities0Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _spreed = $v.spreed.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities0 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities0;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilities0Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities0 build() => _build();
+
+  _$SpreedPublicCapabilities0 _build() {
+    _$SpreedPublicCapabilities0 _$result;
+    try {
+      _$result = _$v ?? _$SpreedPublicCapabilities0._(spreed: spreed.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'spreed';
+        spreed.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SpreedPublicCapabilitiesInterfaceBuilder {
+  void replace(SpreedPublicCapabilitiesInterface other);
+  void update(void Function(SpreedPublicCapabilitiesInterfaceBuilder) updates);
+  SpreedPublicCapabilities0Builder get spreedPublicCapabilities0;
+  set spreedPublicCapabilities0(SpreedPublicCapabilities0Builder? spreedPublicCapabilities0);
+
+  ListBuilder<JsonObject> get builtListJsonObject;
+  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
+}
+
+class _$SpreedPublicCapabilities extends SpreedPublicCapabilities {
+  @override
+  final JsonObject data;
+  @override
+  final SpreedPublicCapabilities0? spreedPublicCapabilities0;
+  @override
+  final BuiltList<JsonObject>? builtListJsonObject;
+
+  factory _$SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? updates]) =>
+      (SpreedPublicCapabilitiesBuilder()..update(updates))._build();
+
+  _$SpreedPublicCapabilities._({required this.data, this.spreedPublicCapabilities0, this.builtListJsonObject})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'SpreedPublicCapabilities', 'data');
+  }
+
+  @override
+  SpreedPublicCapabilities rebuild(void Function(SpreedPublicCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SpreedPublicCapabilitiesBuilder toBuilder() => SpreedPublicCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SpreedPublicCapabilities &&
+        data == other.data &&
+        spreedPublicCapabilities0 == other.spreedPublicCapabilities0 &&
+        builtListJsonObject == other.builtListJsonObject;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, spreedPublicCapabilities0.hashCode);
+    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities')
+          ..add('data', data)
+          ..add('spreedPublicCapabilities0', spreedPublicCapabilities0)
+          ..add('builtListJsonObject', builtListJsonObject))
+        .toString();
+  }
+}
+
+class SpreedPublicCapabilitiesBuilder
+    implements
+        Builder<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder>,
+        SpreedPublicCapabilitiesInterfaceBuilder {
+  _$SpreedPublicCapabilities? _$v;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  SpreedPublicCapabilities0Builder? _spreedPublicCapabilities0;
+  SpreedPublicCapabilities0Builder get spreedPublicCapabilities0 =>
+      _$this._spreedPublicCapabilities0 ??= SpreedPublicCapabilities0Builder();
+  set spreedPublicCapabilities0(covariant SpreedPublicCapabilities0Builder? spreedPublicCapabilities0) =>
+      _$this._spreedPublicCapabilities0 = spreedPublicCapabilities0;
+
+  ListBuilder<JsonObject>? _builtListJsonObject;
+  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
+  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
+      _$this._builtListJsonObject = builtListJsonObject;
+
+  SpreedPublicCapabilitiesBuilder();
+
+  SpreedPublicCapabilitiesBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _data = $v.data;
+      _spreedPublicCapabilities0 = $v.spreedPublicCapabilities0?.toBuilder();
+      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SpreedPublicCapabilities other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SpreedPublicCapabilities;
+  }
+
+  @override
+  void update(void Function(SpreedPublicCapabilitiesBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SpreedPublicCapabilities build() => _build();
+
+  _$SpreedPublicCapabilities _build() {
+    SpreedPublicCapabilities._validate(this);
+    _$SpreedPublicCapabilities _$result;
+    try {
+      _$result = _$v ??
+          _$SpreedPublicCapabilities._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'SpreedPublicCapabilities', 'data'),
+              spreedPublicCapabilities0: _spreedPublicCapabilities0?.build(),
+              builtListJsonObject: _builtListJsonObject?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'spreedPublicCapabilities0';
+        _spreedPublicCapabilities0?.build();
+        _$failedField = 'builtListJsonObject';
+        _builtListJsonObject?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
 abstract mixin class ThemingPublicCapabilities_ThemingInterfaceBuilder {
   void replace(ThemingPublicCapabilities_ThemingInterface other);
   void update(void Function(ThemingPublicCapabilities_ThemingInterfaceBuilder) updates);
@@ -19914,6 +21909,9 @@ abstract mixin class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabili
   SharebymailCapabilitiesBuilder get sharebymailCapabilities;
   set sharebymailCapabilities(SharebymailCapabilitiesBuilder? sharebymailCapabilities);
 
+  SpreedPublicCapabilitiesBuilder get spreedPublicCapabilities;
+  set spreedPublicCapabilities(SpreedPublicCapabilitiesBuilder? spreedPublicCapabilities);
+
   ThemingPublicCapabilitiesBuilder get themingPublicCapabilities;
   set themingPublicCapabilities(ThemingPublicCapabilitiesBuilder? themingPublicCapabilities);
 
@@ -19949,6 +21947,8 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
   @override
   final SharebymailCapabilities? sharebymailCapabilities;
   @override
+  final SpreedPublicCapabilities? spreedPublicCapabilities;
+  @override
   final ThemingPublicCapabilities? themingPublicCapabilities;
   @override
   final UserStatusCapabilities? userStatusCapabilities;
@@ -19971,6 +21971,7 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
       this.notificationsCapabilities,
       this.provisioningApiCapabilities,
       this.sharebymailCapabilities,
+      this.spreedPublicCapabilities,
       this.themingPublicCapabilities,
       this.userStatusCapabilities,
       this.weatherStatusCapabilities})
@@ -20003,6 +22004,7 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
         notificationsCapabilities == other.notificationsCapabilities &&
         provisioningApiCapabilities == other.provisioningApiCapabilities &&
         sharebymailCapabilities == other.sharebymailCapabilities &&
+        spreedPublicCapabilities == other.spreedPublicCapabilities &&
         themingPublicCapabilities == other.themingPublicCapabilities &&
         userStatusCapabilities == other.userStatusCapabilities &&
         weatherStatusCapabilities == other.weatherStatusCapabilities;
@@ -20022,6 +22024,7 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
     _$hash = $jc(_$hash, notificationsCapabilities.hashCode);
     _$hash = $jc(_$hash, provisioningApiCapabilities.hashCode);
     _$hash = $jc(_$hash, sharebymailCapabilities.hashCode);
+    _$hash = $jc(_$hash, spreedPublicCapabilities.hashCode);
     _$hash = $jc(_$hash, themingPublicCapabilities.hashCode);
     _$hash = $jc(_$hash, userStatusCapabilities.hashCode);
     _$hash = $jc(_$hash, weatherStatusCapabilities.hashCode);
@@ -20043,6 +22046,7 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
           ..add('notificationsCapabilities', notificationsCapabilities)
           ..add('provisioningApiCapabilities', provisioningApiCapabilities)
           ..add('sharebymailCapabilities', sharebymailCapabilities)
+          ..add('spreedPublicCapabilities', spreedPublicCapabilities)
           ..add('themingPublicCapabilities', themingPublicCapabilities)
           ..add('userStatusCapabilities', userStatusCapabilities)
           ..add('weatherStatusCapabilities', weatherStatusCapabilities))
@@ -20117,6 +22121,12 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
   set sharebymailCapabilities(covariant SharebymailCapabilitiesBuilder? sharebymailCapabilities) =>
       _$this._sharebymailCapabilities = sharebymailCapabilities;
 
+  SpreedPublicCapabilitiesBuilder? _spreedPublicCapabilities;
+  SpreedPublicCapabilitiesBuilder get spreedPublicCapabilities =>
+      _$this._spreedPublicCapabilities ??= SpreedPublicCapabilitiesBuilder();
+  set spreedPublicCapabilities(covariant SpreedPublicCapabilitiesBuilder? spreedPublicCapabilities) =>
+      _$this._spreedPublicCapabilities = spreedPublicCapabilities;
+
   ThemingPublicCapabilitiesBuilder? _themingPublicCapabilities;
   ThemingPublicCapabilitiesBuilder get themingPublicCapabilities =>
       _$this._themingPublicCapabilities ??= ThemingPublicCapabilitiesBuilder();
@@ -20151,6 +22161,7 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
       _notificationsCapabilities = $v.notificationsCapabilities?.toBuilder();
       _provisioningApiCapabilities = $v.provisioningApiCapabilities?.toBuilder();
       _sharebymailCapabilities = $v.sharebymailCapabilities?.toBuilder();
+      _spreedPublicCapabilities = $v.spreedPublicCapabilities?.toBuilder();
       _themingPublicCapabilities = $v.themingPublicCapabilities?.toBuilder();
       _userStatusCapabilities = $v.userStatusCapabilities?.toBuilder();
       _weatherStatusCapabilities = $v.weatherStatusCapabilities?.toBuilder();
@@ -20191,6 +22202,7 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
               notificationsCapabilities: _notificationsCapabilities?.build(),
               provisioningApiCapabilities: _provisioningApiCapabilities?.build(),
               sharebymailCapabilities: _sharebymailCapabilities?.build(),
+              spreedPublicCapabilities: _spreedPublicCapabilities?.build(),
               themingPublicCapabilities: _themingPublicCapabilities?.build(),
               userStatusCapabilities: _userStatusCapabilities?.build(),
               weatherStatusCapabilities: _weatherStatusCapabilities?.build());
@@ -20217,6 +22229,8 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
         _provisioningApiCapabilities?.build();
         _$failedField = 'sharebymailCapabilities';
         _sharebymailCapabilities?.build();
+        _$failedField = 'spreedPublicCapabilities';
+        _spreedPublicCapabilities?.build();
         _$failedField = 'themingPublicCapabilities';
         _themingPublicCapabilities?.build();
         _$failedField = 'userStatusCapabilities';

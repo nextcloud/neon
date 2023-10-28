@@ -11,7 +11,7 @@ function generate_spec() {
     composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
 }
 
-for dir in external/nextcloud-server external/nextcloud-notifications; do
+for dir in external/nextcloud-server external/nextcloud-notifications external/nextcloud-spreed; do
   (
     cd "$dir"
     composer install
@@ -48,6 +48,10 @@ done
 (
   cd external/nextcloud-notifications
   generate_spec "." "notifications"
+)
+(
+  cd external/nextcloud-spreed
+  generate_spec "." "spreed"
 )
 
 for spec in packages/nextcloud/lib/src/api/*.openapi.json; do

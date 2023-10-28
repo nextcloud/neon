@@ -48,6 +48,9 @@ final class AppIDs {
   /// ID for the sharebymail app.
   static const sharebymail = 'sharebymail';
 
+  /// ID for the spreed app.
+  static const spreed = 'spreed';
+
   /// ID for the theming app.
   static const theming = 'theming';
 
