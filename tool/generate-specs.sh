@@ -50,6 +50,17 @@ done
   generate_spec "." "notifications"
 )
 
+for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
+  name="$(basename "$spec" | cut -d "." -f 1)"
+  dir="packages/nextcloud/lib/src/patches/$name"
+  if [ -d "$dir" ]; then
+    for patch in "$dir/"*; do
+      cp "$spec" "/tmp/nextcloud-neon/$name.json"
+      jsonpatch --indent 4 "/tmp/nextcloud-neon/$name.json" "$patch" > "$spec"
+    done
+  fi
+done
+
 (
   cd external/nextcloud-server
   composer exec merge-specs -- --core ../../packages/nextcloud/lib/src/api/core.openapi.json --merged /tmp/nextcloud-neon/merged.json ../../packages/nextcloud/lib/src/api/*.openapi.json --openapi-version 3.1.0

@@ -11,10 +11,15 @@ Currently included are:
 To set up all these tools run the `./tool/setup.sh` script.
 Note that you need to have Dart installed and [`~/.pub-cache/bin/` needs to be in your PATH](https://dart.dev/tools/pub/cmd/pub-global#running-a-script-from-your-path) before running the script.
 
-You will need to have the following packages installed:
+You will need to have the following dependencies installed to get the app running:
 - [yq](https://github.com/kislyuk/yq)
 - [sqlite3](https://pub.dev/packages/sqflite_common_ffi#getting-started)
 - [appindicator3](https://pub.dev/packages/tray_manager#quick-start)
+
+For working with lower levels like generating the OpenAPI specifications a few more dependencies are required:
+- [jsonpatch](https://pypi.org/project/jsonpatch)
+- [PHP](https://www.php.net)
+- [composer](https://getcomposer.org)
 
 ## Picking an issue
 You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)
