@@ -1,6 +1,11 @@
 /// Signature of a function returning a [Comparable].
 typedef ComparableGetter<T> = Comparable<Object> Function(T);
 
+/// The box to sort by.
+///
+/// A box contains a property and a corresponding order.
+typedef Box<T> = ({T property, SortBoxOrder order});
+
 /// Sorting Box to sort [List]s on multiple properties.
 class SortBox<T extends Enum, R> {
   /// Constructs a new SortBox.
@@ -17,7 +22,7 @@ class SortBox<T extends Enum, R> {
   /// A mapping of values [T] to their *Boxes*.
   ///
   /// The Boxes are applied if two elements are considered equal regarding their property [T].
-  final Map<T, Set<(T property, SortBoxOrder order)>> _boxes;
+  final Map<T, Set<Box<T>>> _boxes;
 
   /// Sorts the [input] list according to their [box].
   ///
@@ -28,8 +33,8 @@ class SortBox<T extends Enum, R> {
   /// This function sorts the input in place and a reference to it mutating the provided list.
   List<R> sort(
     final List<R> input,
-    final (T property, SortBoxOrder order) box, [
-    final Set<(T property, SortBoxOrder order)>? presort,
+    final Box<T> box, [
+    final Set<Box<T>>? presort,
   ]) {
     if (input.length <= 1) {
       return input;
@@ -38,7 +43,7 @@ class SortBox<T extends Enum, R> {
     final boxes = {
       ...?presort,
       box,
-      ...?_boxes[box.$1],
+      ...?_boxes[box.property],
     };
 
     final sorted = input..sort((final item1, final item2) => _compare(item1, item2, boxes.iterator..moveNext()));
@@ -49,16 +54,15 @@ class SortBox<T extends Enum, R> {
   int _compare(
     final R item1,
     final R item2,
-    final Iterator<(T property, SortBoxOrder order)> iterator,
+    final Iterator<Box<T>> iterator,
   ) {
     final box = iterator.current;
-    final (property, sortBoxOrder) = box;
-    final comparableGetter = _properties[property]!;
+    final comparableGetter = _properties[box.property]!;
 
     final comparable1 = comparableGetter(item1);
     final comparable2 = comparableGetter(item2);
 
-    final order = switch (sortBoxOrder) {
+    final order = switch (box.order) {
       SortBoxOrder.ascending => comparable1.compareTo(comparable2),
       SortBoxOrder.descending => comparable2.compareTo(comparable1),
     };

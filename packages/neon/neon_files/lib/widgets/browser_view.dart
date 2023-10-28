@@ -80,7 +80,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                       sortProperty: widget.bloc.options.filesSortPropertyOption,
                       sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
                       presort: const {
-                        (FilesSortProperty.isFolder, SortBoxOrder.ascending),
+                        (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
                       },
                       input: files,
                       builder: (final context, final sorted) {

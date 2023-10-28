@@ -16,7 +16,7 @@ class NotesView extends StatelessWidget {
         builder: (final context, final notesList) => SortBoxBuilder<NotesSortProperty, notes.Note>(
           sortBox: notesSortBox,
           presort: const {
-            (NotesSortProperty.favorite, SortBoxOrder.ascending),
+            (property: NotesSortProperty.favorite, order: SortBoxOrder.ascending),
           },
           sortProperty: bloc.options.notesSortPropertyOption,
           sortBoxOrder: bloc.options.notesSortBoxOrderOption,

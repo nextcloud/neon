@@ -2,17 +2,17 @@ part of '../neon_news.dart';
 
 final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
   {
-    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.$1.name.toLowerCase(),
-    FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => folderFeedsWrapper.$3,
+    FoldersSortProperty.alphabetical: (final folderFeedsWrapper) => folderFeedsWrapper.folder.name.toLowerCase(),
+    FoldersSortProperty.unreadCount: (final folderFeedsWrapper) => folderFeedsWrapper.unreadCount,
   },
   {
     FoldersSortProperty.alphabetical: {
-      (FoldersSortProperty.unreadCount, SortBoxOrder.descending),
+      (property: FoldersSortProperty.unreadCount, order: SortBoxOrder.descending),
     },
     FoldersSortProperty.unreadCount: {
-      (FoldersSortProperty.alphabetical, SortBoxOrder.ascending),
+      (property: FoldersSortProperty.alphabetical, order: SortBoxOrder.ascending),
     },
   },
 );
 
-typedef FolderFeedsWrapper = (news.Folder folder, int feedCount, int unreadCount);
+typedef FolderFeedsWrapper = ({news.Folder folder, int feedCount, int unreadCount});
