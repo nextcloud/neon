@@ -16,7 +16,7 @@ RUN OC_PASS="demo" ./occ user:add --password-from-env --display-name "Demo" demo
 
 ADD dev/install_app_version /usr/local/bin/
 
-ARG NEWS_VERSION=23.0.0
+ARG NEWS_VERSION=24.0.0
 RUN install_app_version news https://github.com/nextcloud/news/releases/download/$NEWS_VERSION/news.tar.gz
 
 ARG NOTES_VERSION=4.8.1
