@@ -13,7 +13,6 @@ import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:neon_notifications/routes.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
@@ -54,11 +53,4 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
 
   @override
   BehaviorSubject<int> getUnreadCounter(final NotificationsBloc bloc) => bloc.unreadCounter;
-
-  @override
-  (bool? supported, String? minimumVersion) isSupported(
-    final Account account,
-    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
-      const (null, null);
 }

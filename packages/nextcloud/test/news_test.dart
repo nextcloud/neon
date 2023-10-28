@@ -38,8 +38,8 @@ void main() {
           );
 
       test('Is supported', () async {
-        final (supported, _) = await client.news.isSupported();
-        expect(supported, isTrue);
+        final result = await client.news.isSupported();
+        expect(result.isSupported, isTrue);
       });
 
       test('Add feed', () async {

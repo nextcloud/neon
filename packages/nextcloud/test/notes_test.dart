@@ -25,8 +25,8 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        final (supported, _) = client.notes.isSupported(response.body.ocs.data);
-        expect(supported, isTrue);
+        final result = client.notes.isSupported(response.body.ocs.data);
+        expect(result.isSupported, isTrue);
       });
 
       test('Create note favorite', () async {

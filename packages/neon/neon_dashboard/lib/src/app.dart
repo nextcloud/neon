@@ -6,7 +6,6 @@ import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_dashboard/src/options.dart';
 import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_dashboard/src/routes.dart';
-import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 
 /// Implementation of the server `dashboard` app.
@@ -34,11 +33,4 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecific
 
   @override
   final RouteBase route = $dashboardAppRoute;
-
-  @override
-  (bool?, String?) isSupported(
-    final Account account,
-    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
-      const (null, null);
 }
