@@ -38,7 +38,7 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
   final SortBoxWidgetBuilder<R> builder;
 
   /// Pre sorts input.
-  final Set<(T property, SortBoxOrder order)>? presort;
+  final Set<Box<T>>? presort;
 
   @override
   Widget build(final BuildContext context) {
@@ -52,7 +52,7 @@ class SortBoxBuilder<T extends Enum, R> extends StatelessWidget {
       builder: (final context, final property, final _) => ValueListenableBuilder<SortBoxOrder>(
         valueListenable: sortBoxOrder,
         builder: (final context, final order, final _) {
-          final box = (property, order);
+          final box = (property: property, order: order);
 
           return builder(context, sortBox.sort(input, box, presort));
         },

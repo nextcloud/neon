@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:nextcloud/src/api/core.openapi.dart' as core;
+import 'package:nextcloud/src/helpers/common.dart';
 
 /// Version of core/Server supported
 const supportedVersion = 27;
@@ -9,9 +10,12 @@ extension CoreVersionSupported on core.Client {
   /// Check if the core/Server version is supported by this client
   ///
   /// Also returns the supported version number
-  (bool, int) isSupported(final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) => (
-        capabilities.version.major == supportedVersion,
-        supportedVersion,
+  VersionSupported<int> isSupported(
+    final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
+  ) =>
+      (
+        isSupported: capabilities.version.major == supportedVersion,
+        minimumVersion: supportedVersion,
       );
 }
 

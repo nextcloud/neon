@@ -23,7 +23,7 @@ class NewsFoldersView extends StatelessWidget {
                     final feedCount = feedsInFolder.length;
                     final unreadCount = feedsInFolder.fold(0, (final a, final b) => a + b.unreadCount!);
 
-                    return (folder, feedCount, unreadCount);
+                    return (folder: folder, feedCount: feedCount, unreadCount: unreadCount);
                   }).toList()
                 : null,
             builder: (final context, final sorted) => NeonListView(
@@ -45,7 +45,7 @@ class NewsFoldersView extends StatelessWidget {
     final BuildContext context,
     final FolderFeedsWrapper folderFeedsWrapper,
   ) {
-    final (folder, feedCount, unreadCount) = folderFeedsWrapper;
+    final (folder: folder, feedCount: feedCount, unreadCount: unreadCount) = folderFeedsWrapper;
     return ListTile(
       title: Text(
         folder.name,

@@ -7,7 +7,7 @@ final categoriesSortBox = SortBox<CategoriesSortProperty, NoteCategory>(
   },
   {
     CategoriesSortProperty.notesCount: {
-      (CategoriesSortProperty.alphabetical, SortBoxOrder.ascending),
+      (property: CategoriesSortProperty.alphabetical, order: SortBoxOrder.ascending),
     },
   },
 );

@@ -123,9 +123,9 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     final notSupported = <String, String?>{};
 
     try {
-      final (coreSupported, coreMinimumVersion) = _account.client.core.isSupported(capabilities.requireData);
-      if (!coreSupported) {
-        notSupported['core'] = coreMinimumVersion.toString();
+      final coreCheck = _account.client.core.isSupported(capabilities.requireData);
+      if (!coreCheck.isSupported) {
+        notSupported['core'] = coreCheck.minimumVersion.toString();
       }
     } catch (e, s) {
       debugPrint(e.toString());
@@ -134,9 +134,14 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
     for (final app in apps.requireData) {
       try {
-        final (supported, minimumVersion) = await app.isSupported(_account, capabilities.requireData);
-        if (!(supported ?? true)) {
-          notSupported[app.id] = minimumVersion;
+        final check = await app.isSupported(_account, capabilities.requireData);
+
+        if (check == null) {
+          continue;
+        }
+
+        if (!check.isSupported) {
+          notSupported[app.id] = check.minimumVersion;
         }
       } catch (e, s) {
         debugPrint(e.toString());

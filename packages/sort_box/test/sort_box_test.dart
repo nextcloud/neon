@@ -31,14 +31,14 @@ void main() {
     },
     {
       FruitSort.alphabetical: {
-        (FruitSort.count, SortBoxOrder.ascending),
+        (property: FruitSort.count, order: SortBoxOrder.ascending),
       },
       FruitSort.count: {
-        (FruitSort.alphabetical, SortBoxOrder.ascending),
+        (property: FruitSort.alphabetical, order: SortBoxOrder.ascending),
       },
       FruitSort.price: {
-        (FruitSort.alphabetical, SortBoxOrder.descending),
-        (FruitSort.count, SortBoxOrder.ascending),
+        (property: FruitSort.alphabetical, order: SortBoxOrder.descending),
+        (property: FruitSort.count, order: SortBoxOrder.ascending),
       },
     },
   );
@@ -52,7 +52,7 @@ void main() {
         const Fruit('Banana', 4),
         const Fruit('Apple', 5),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.alphabetical, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
 
       for (var i = 0; i < 3; i++) {
         expect(sorted[i].name, 'Apple');
@@ -70,7 +70,7 @@ void main() {
         const Fruit('Banana', 2),
         const Fruit('Apple', 3),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.count, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Apple', 'Apple', 'Banana'];
       for (var i = 0; i < 5; i++) {
@@ -91,7 +91,7 @@ void main() {
         const Fruit('Banana', 1),
         const Fruit('Apple', 2),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.count, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Apple', 'Apple', 'Banana'];
       for (var i = 0; i < 5; i++) {
@@ -112,7 +112,7 @@ void main() {
         const Fruit('Banana', 2),
         const Fruit('Apple', 5),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.alphabetical, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.alphabetical, order: SortBoxOrder.ascending));
 
       for (var i = 0; i < 3; i++) {
         expect(sorted[i].name, 'Apple');
@@ -134,7 +134,7 @@ void main() {
         const Fruit('Elderberry', 1),
         const Fruit('Damson', 1),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.count, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.count, order: SortBoxOrder.ascending));
 
       final names = ['Apple', 'Banana', 'Coconut', 'Damson', 'Elderberry'];
       for (var i = 0; i < 5; i++) {
@@ -152,7 +152,7 @@ void main() {
         const Fruit('Banana', 1, 3),
         const Fruit('Apple', 2, 3),
       ];
-      final sorted = sortBox.sort(fruits, (FruitSort.price, SortBoxOrder.ascending));
+      final sorted = sortBox.sort(fruits, (property: FruitSort.price, order: SortBoxOrder.ascending));
 
       final price = [0, 2, 3, 3, 3];
       for (var i = 0; i < 5; i++) {

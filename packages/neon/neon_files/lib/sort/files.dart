@@ -9,10 +9,10 @@ final filesSortBox = SortBox<FilesSortProperty, WebDavFile>(
   },
   {
     FilesSortProperty.modifiedDate: {
-      (FilesSortProperty.name, SortBoxOrder.ascending),
+      (property: FilesSortProperty.name, order: SortBoxOrder.ascending),
     },
     FilesSortProperty.size: {
-      (FilesSortProperty.name, SortBoxOrder.ascending),
+      (property: FilesSortProperty.name, order: SortBoxOrder.ascending),
     },
   },
 );

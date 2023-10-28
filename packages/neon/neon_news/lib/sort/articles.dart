@@ -8,10 +8,10 @@ final articlesSortBox = SortBox<ArticlesSortProperty, news.Article>(
   },
   {
     ArticlesSortProperty.alphabetical: {
-      (ArticlesSortProperty.publishDate, SortBoxOrder.descending),
+      (property: ArticlesSortProperty.publishDate, order: SortBoxOrder.descending),
     },
     ArticlesSortProperty.byFeed: {
-      (ArticlesSortProperty.alphabetical, SortBoxOrder.ascending),
+      (property: ArticlesSortProperty.alphabetical, order: SortBoxOrder.ascending),
     },
   },
 );

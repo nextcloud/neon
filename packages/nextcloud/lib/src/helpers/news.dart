@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:nextcloud/src/api/news.openapi.dart' as news;
+import 'package:nextcloud/src/helpers/common.dart';
 
 /// API version of the news app supported
 const supportedVersion = 'v1-3';
@@ -9,11 +10,11 @@ extension NewsVersionSupported on news.Client {
   /// Check if the news app version is supported by this client
   ///
   /// Also returns the supported API version number
-  Future<(bool, String)> isSupported() async {
+  Future<VersionSupported<String>> isSupported() async {
     final response = await getSupportedApiVersions();
     return (
-      response.body.apiLevels!.contains(supportedVersion),
-      supportedVersion,
+      isSupported: response.body.apiLevels!.contains(supportedVersion),
+      minimumVersion: supportedVersion,
     );
   }
 }
