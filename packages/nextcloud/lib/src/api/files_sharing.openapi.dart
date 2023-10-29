@@ -2919,6 +2919,18 @@ abstract class ShareInfo_Size implements ShareInfo_SizeInterface, Built<ShareInf
   static Serializer<ShareInfo_Size> get serializer => _$ShareInfo_SizeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ShareInfo_SizeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._$double].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', '$double' for ${b._data}");
+    }
+  }
 }
 
 class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> {
@@ -2944,12 +2956,13 @@ class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> 
   }) {
     final result = ShareInfo_SizeBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
-    assert([result._$int, result._$double].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -3012,6 +3025,18 @@ abstract class Share_ItemSize implements Share_ItemSizeInterface, Built<Share_It
   static Serializer<Share_ItemSize> get serializer => _$Share_ItemSizeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final Share_ItemSizeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
+    }
+  }
 }
 
 class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> {
@@ -3037,12 +3062,13 @@ class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> 
   }) {
     final result = Share_ItemSizeBuilder()..data = JsonObject(data);
     try {
-      result._$double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      result.$double = value;
     } catch (_) {}
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
-    assert([result._$double, result._$int].where((final x) => x != null).isNotEmpty, 'Need oneOf for ${result._data}');
     return result.build();
   }
 }
@@ -3697,6 +3723,18 @@ abstract class ShareesapiSearchShareType
   static Serializer<ShareesapiSearchShareType> get serializer => _$ShareesapiSearchShareTypeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ShareesapiSearchShareTypeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._builtListInt].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'builtListInt' for ${b._data}");
+    }
+  }
 }
 
 class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<ShareesapiSearchShareType> {
@@ -3722,19 +3760,14 @@ class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<Share
   }) {
     final result = ShareesapiSearchShareTypeBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._builtListInt = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(int)]),
-      )! as BuiltList<int>)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
+      result.builtListInt.replace(value);
     } catch (_) {}
-    assert(
-      [result._$int, result._builtListInt].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }
@@ -4394,6 +4427,18 @@ abstract class ShareesapiFindRecommendedShareType
       _$ShareesapiFindRecommendedShareTypeSerializer();
 
   JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ShareesapiFindRecommendedShareTypeBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._$int, b._builtListInt].singleWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need exactly one of '$int', 'builtListInt' for ${b._data}");
+    }
+  }
 }
 
 class _$ShareesapiFindRecommendedShareTypeSerializer
@@ -4420,19 +4465,14 @@ class _$ShareesapiFindRecommendedShareTypeSerializer
   }) {
     final result = ShareesapiFindRecommendedShareTypeBuilder()..data = JsonObject(data);
     try {
-      result._$int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      result.$int = value;
     } catch (_) {}
     try {
-      result._builtListInt = (_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(int)]),
-      )! as BuiltList<int>)
-          .toBuilder();
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
+      result.builtListInt.replace(value);
     } catch (_) {}
-    assert(
-      [result._$int, result._builtListInt].where((final x) => x != null).isNotEmpty,
-      'Need oneOf for ${result._data}',
-    );
     return result.build();
   }
 }

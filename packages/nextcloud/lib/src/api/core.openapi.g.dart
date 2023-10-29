@@ -9394,6 +9394,7 @@ class AutocompleteResult_StatusBuilder
   AutocompleteResult_Status build() => _build();
 
   _$AutocompleteResult_Status _build() {
+    AutocompleteResult_Status._validate(this);
     _$AutocompleteResult_Status _$result;
     try {
       _$result = _$v ??
@@ -13044,6 +13045,7 @@ class NavigationEntry_OrderBuilder
   NavigationEntry_Order build() => _build();
 
   _$NavigationEntry_Order _build() {
+    NavigationEntry_Order._validate(this);
     final _$result = _$v ??
         _$NavigationEntry_Order._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'NavigationEntry_Order', 'data'),
@@ -20172,6 +20174,7 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities build() => _build();
 
   _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _build() {
+    OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._validate(this);
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _$result;
     try {
       _$result = _$v ??
@@ -26001,6 +26004,7 @@ class UnifiedSearchSearchCursorBuilder
   UnifiedSearchSearchCursor build() => _build();
 
   _$UnifiedSearchSearchCursor _build() {
+    UnifiedSearchSearchCursor._validate(this);
     final _$result = _$v ??
         _$UnifiedSearchSearchCursor._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchSearchCursor', 'data'),
@@ -26319,6 +26323,7 @@ class UnifiedSearchResult_CursorBuilder
   UnifiedSearchResult_Cursor build() => _build();
 
   _$UnifiedSearchResult_Cursor _build() {
+    UnifiedSearchResult_Cursor._validate(this);
     final _$result = _$v ??
         _$UnifiedSearchResult_Cursor._(
             data: BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchResult_Cursor', 'data'),

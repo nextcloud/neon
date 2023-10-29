@@ -9,6 +9,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   built_value: ^8.0.0
+  collection: ^1.0.0
   dynamite_runtime:
     git:
       url: https://github.com/nextcloud/neon
