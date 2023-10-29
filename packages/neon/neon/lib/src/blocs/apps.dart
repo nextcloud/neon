@@ -16,6 +16,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Events for the [AppsBloc].
 @internal
 abstract interface class AppsBlocEvents {
   /// Sets the active app using the [appID].
@@ -25,21 +26,31 @@ abstract interface class AppsBlocEvents {
   void setActiveApp(final String appID, {final bool skipAlreadySet = false});
 }
 
+/// States for the [AppsBloc].
 @internal
 abstract interface class AppsBlocStates {
+  /// A collection of clients used in the app drawer.
+  ///
+  /// It does not contain clients for that are specially handled like for the notifications.
   BehaviorSubject<Result<Iterable<AppImplementation>>> get appImplementations;
 
+  /// The interface of the notifications app.
   BehaviorSubject<Result<NotificationsAppInterface?>> get notificationsAppImplementation;
 
+  /// The currently active app.
   BehaviorSubject<AppImplementation> get activeApp;
 
+  /// A subject emitting an event when the notifications page should be opened.
   BehaviorSubject<void> get openNotifications;
 
+  /// A collection of unsupported apps and their minimum required version.
   BehaviorSubject<Map<String, String?>> get appVersions;
 }
 
+/// The Bloc responsible for managing the [AppImplementation]s.
 @internal
 class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
+  /// Creates a new apps bloc.
   AppsBloc(
     this._capabilitiesBloc,
     this._accountsBloc,
@@ -229,9 +240,13 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     }
   }
 
+  /// Returns the active [Bloc] for the given [appImplementation].
+  ///
+  /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
   T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
       appImplementation.getBloc(_account);
 
+  /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
   List<Provider<Bloc>> get appBlocProviders =>
       _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
 }
