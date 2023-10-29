@@ -7,6 +7,7 @@ import 'package:neon/src/settings/models/storage.dart';
 
 /// Collection of [Option]s.
 abstract class OptionsCollection implements Exportable, Disposable {
+  /// Creates a new collection of options.
   OptionsCollection(this.storage);
 
   /// Storage backend to use.
@@ -56,8 +57,9 @@ abstract class OptionsCollection implements Exportable, Disposable {
   }
 }
 
-/// OptionsCollection for a neon app.
+/// OptionsCollection primarily used by `AppImplementation`s.
 abstract class NextcloudAppOptions extends OptionsCollection {
+  /// Creates a new Nextcloud options collection.
   NextcloudAppOptions(super.storage);
 
   /// Collection of categories to display the options in the settings.

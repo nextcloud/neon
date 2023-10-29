@@ -97,7 +97,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     notifyListeners();
   }
 
-  /// Resets the option to its [default] value.
+  /// Resets the option to its [defaultValue] value.
   @mustBeOverridden
   void reset() {
     value = defaultValue;
@@ -216,6 +216,9 @@ class SelectOption<T> extends Option<T> {
   /// * [value] for the currently selected one
   Map<T, LabelBuilder> get values => _values;
 
+  /// Updates the collection of possible values.
+  ///
+  /// It is up to the caller to also change the [value] if it is no longer supported.
   set values(final Map<T, LabelBuilder> newValues) {
     if (_values == newValues) {
       return;
