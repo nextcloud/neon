@@ -10,11 +10,14 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:universal_io/io.dart';
 
+/// The package id of the NextPush UnifiedPush distributor.
 const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 
+/// Global options for the Neon framework.
 @internal
 @immutable
 class GlobalOptions extends OptionsCollection {
+  /// Creates a new global options collection.
   GlobalOptions(
     this._packageInfo,
   ) : super(const AppStorage(StorageKeys.global)) {
@@ -89,6 +92,9 @@ class GlobalOptions extends OptionsCollection {
     rememberLastUsedAccount.removeListener(_rememberLastUsedAccountListener);
   }
 
+  /// Updates the available values of [initialAccount].
+  ///
+  /// If the current `initialAccount` is not supported anymore the option will be reset.
   void updateAccounts(final List<Account> accounts) {
     initialAccount.values = Map.fromEntries(
       accounts.map(
@@ -101,6 +107,10 @@ class GlobalOptions extends OptionsCollection {
     }
   }
 
+  /// Updates the values of [pushNotificationsDistributor].
+  ///
+  /// If the new `distributors` does not contain the currently active one
+  /// both [pushNotificationsDistributor] and [pushNotificationsEnabled] will be reset.
   void updateDistributors(final List<String> distributors) {
     pushNotificationsDistributor.values = Map.fromEntries(
       distributors.map(
@@ -116,6 +126,7 @@ class GlobalOptions extends OptionsCollection {
     }
   }
 
+  /// The theme mode of the app implementing the Neon framework.
   late final themeMode = SelectOption(
     storage: storage,
     key: GlobalOptionKeys.themeMode,
@@ -128,6 +139,10 @@ class GlobalOptions extends OptionsCollection {
     },
   );
 
+  /// Whether the [ThemeMode.dark] should use a plain black background.
+  ///
+  /// This is commonly used for OLED screens.
+  /// Defaults to `false`.
   late final themeOLEDAsDark = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeOLEDAsDark,
@@ -135,6 +150,9 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
+  /// Whether the `ColorScheme` should keep the accent color provided by the Nextcloud server.
+  ///
+  /// Defaults to `false` generating a Material 3 style color.
   late final themeKeepOriginalAccentColor = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.themeKeepOriginalAccentColor,
@@ -142,6 +160,12 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
+  /// Whether to enable the push notifications plugin.
+  ///
+  /// Setting this option to true will request the permission to show notifications.
+  /// Disabling this option will reset [pushNotificationsDistributor].
+  ///
+  /// Defaults to `false`.
   late final pushNotificationsEnabled = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsEnabled,
@@ -149,6 +173,7 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
+  /// The registered distributor for push notifications.
   late final pushNotificationsDistributor = SelectOption<String?>.depend(
     storage: storage,
     key: GlobalOptionKeys.pushNotificationsDistributor,
@@ -158,6 +183,13 @@ class GlobalOptions extends OptionsCollection {
     enabled: pushNotificationsEnabled,
   );
 
+  /// Whether to start the app minimized.
+  ///
+  /// Defaults to `false`.
+  ///
+  /// See:
+  ///   * [minimizeInsteadOfExit]: for an option to minimize instead of closing the app.
+  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
   late final startupMinimized = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimized,
@@ -165,6 +197,13 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
+  /// Whether to minimize app instead of closing it.
+  ///
+  /// Defaults to `false`.
+  ///
+  /// See:
+  ///   * [startupMinimized]: for an option to startup in the minimized state.
+  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
@@ -174,6 +213,12 @@ class GlobalOptions extends OptionsCollection {
 
   // TODO: Autostart option
 
+  /// Whether to enable the system tray.
+  ///
+  /// Defaults to `false`.
+  ///
+  /// See:
+  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
   late final systemTrayEnabled = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.systemTrayEnabled,
@@ -181,6 +226,15 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
+  /// Whether to minimize to the system tray or not.
+  ///
+  /// Requires [systemTrayEnabled] to be true.
+  /// Defaults to `true`.
+  ///
+  /// See:
+  ///   * [systemTrayEnabled]: to enable the system tray.
+  ///   * [startupMinimized]: for an option to startup in the minimized state.
+  ///   * [minimizeInsteadOfExit]: for an option to minimize instead of closing the app.
   late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
     storage: storage,
     key: GlobalOptionKeys.systemTrayHideToTrayWhenMinimized,
@@ -189,6 +243,10 @@ class GlobalOptions extends OptionsCollection {
     enabled: systemTrayEnabled,
   );
 
+  /// Whether to remember the last active account.
+  ///
+  /// Enabling this option will reset the [initialAccount].
+  /// Defaults to `true`.
   late final rememberLastUsedAccount = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.rememberLastUsedAccount,
@@ -196,6 +254,7 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: true,
   );
 
+  /// The initial account to use when opening the app.
   late final initialAccount = SelectOption<String?>(
     storage: storage,
     key: GlobalOptionKeys.initialAccount,
@@ -218,19 +277,43 @@ class GlobalOptions extends OptionsCollection {
   );
 }
 
+/// The storage keys for the [GlobalOptions].
 @internal
 enum GlobalOptionKeys implements Storable {
+  /// The storage key for [GlobalOptions.themeMode]
   themeMode._('theme-mode'),
+
+  /// The storage key for [GlobalOptions.themeOLEDAsDark]
   themeOLEDAsDark._('theme-oled-as-dark'),
+
+  /// The storage key for [GlobalOptions.themeKeepOriginalAccentColor]
   themeKeepOriginalAccentColor._('theme-keep-original-accent-color'),
+
+  /// The storage key for [GlobalOptions.pushNotificationsEnabled]
   pushNotificationsEnabled._('push-notifications-enabled'),
+
+  /// The storage key for [GlobalOptions.pushNotificationsDistributor]
   pushNotificationsDistributor._('push-notifications-distributor'),
+
+  /// The storage key for [GlobalOptions.startupMinimized]
   startupMinimized._('startup-minimized'),
+
+  /// The storage key for [GlobalOptions.startupMinimizeInsteadOfExit]
   startupMinimizeInsteadOfExit._('startup-minimize-instead-of-exit'),
+
+  /// The storage key for [GlobalOptions.systemTrayEnabled]
   systemTrayEnabled._('system-tray-enabled'),
+
+  /// The storage key for [GlobalOptions.systemTrayHideToTrayWhenMinimized]
   systemTrayHideToTrayWhenMinimized._('system-tray-hide-to-tray-when-minimized'),
+
+  /// The storage key for [GlobalOptions.rememberLastUsedAccount]
   rememberLastUsedAccount._('remember-last-used-account'),
+
+  /// The storage key for [GlobalOptions.initialAccount]
   initialAccount._('initial-account'),
+
+  /// The storage key for [GlobalOptions.navigationMode]
   navigationMode._('navigation-mode');
 
   const GlobalOptionKeys._(this.value);
@@ -239,8 +322,16 @@ enum GlobalOptionKeys implements Storable {
   final String value;
 }
 
+/// App navigation modes.
 @internal
 enum NavigationMode {
+  /// Drawer behind a hamburger menu.
+  ///
+  /// The default for small screen sizes.
   drawer,
+
+  /// Persistent drawer on the leading edge.
+  ///
+  /// The default on large screen sizes.
   drawerAlwaysVisible,
 }

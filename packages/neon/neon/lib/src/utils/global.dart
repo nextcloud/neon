@@ -1,6 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:neon/src/models/push_notification.dart';
 
+/// Global states handling notification callbacks.
 @internal
 class Global {
   const Global._();
