@@ -1,0 +1,87 @@
+name: Generate
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: generate-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Check changes
+    runs-on: ubuntu-22.04
+    outputs:
+      src: ${{ steps.changes.outputs.src}}
+    steps:
+      - uses: dorny/paths-filter@v2
+        id: changes
+        continue-on-error: true
+        with:
+          filters: |
+            src:
+              - external/**
+              - tool/**
+              - packages/dynamite/**
+              - packages/nextcloud/**
+
+  dart:
+    name: Dart
+    runs-on: ubuntu-22.04
+    needs: changes
+    if: needs.changes.outputs.src != 'false'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Install dart
+        uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1
+      - name: Setup
+        run: ./tool/setup.sh
+
+      - name: Generate dynamite end to end test
+        run: |
+          ./tool/generate-dynamite-e2e-test.sh
+          if [ -n "$(git status --porcelain)" ]; then
+            git --no-pager diff
+            exit 1
+          fi
+
+      - name: Generate nextcloud
+        run: |
+          ./tool/generate-nextcloud.sh
+          if [ -n "$(git status --porcelain)" ]; then
+            git --no-pager diff
+            exit 1
+          fi
+
+  openapi:
+    name: OpenAPI
+    runs-on: ubuntu-22.04
+    needs: changes
+    if: needs.changes.outputs.src != 'false'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0
+      - name: Submodules
+        run: git submodule update --init --depth 0
+
+      - name: Install php
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+
+      - name: Generate specs
+        run: |
+          ./tool/generate-specs.sh
+          if [ -n "$(git status --porcelain)" ]; then
+            git --no-pager diff
+            exit 1
+          fi
