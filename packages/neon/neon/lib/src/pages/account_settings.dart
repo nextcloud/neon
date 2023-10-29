@@ -17,15 +17,22 @@ import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
+/// Account settings page.
+///
+/// Displays settings for an [Account]. Settings are specified as `Option`s.
 @internal
 class AccountSettingsPage extends StatelessWidget {
+  /// Creates a new account settings page for the given [account].
   const AccountSettingsPage({
     required this.bloc,
     required this.account,
     super.key,
   });
 
+  /// The bloc managing the accounts and their settings.
   final AccountsBloc bloc;
+
+  /// The account to display the settings for.
   final Account account;
 
   @override
