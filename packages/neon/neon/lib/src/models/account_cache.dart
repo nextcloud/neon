@@ -3,6 +3,7 @@ import 'package:neon/src/models/disposable.dart';
 
 /// Cache for [Account] specific [Disposable] objects.
 class AccountCache<T extends Disposable> implements Disposable {
+  /// Creates a new account cache.
   AccountCache();
 
   final Map<String, T> _cache = {};

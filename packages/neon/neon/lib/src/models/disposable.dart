@@ -11,6 +11,7 @@ abstract interface class Disposable {
   void dispose();
 }
 
+/// Extension on [Disposable] iterables.
 extension DisposableIterableBloc on Iterable<Disposable> {
   /// Calls [Disposable.dispose] on all entries.
   ///
@@ -22,6 +23,7 @@ extension DisposableIterableBloc on Iterable<Disposable> {
   }
 }
 
+/// Extension on [Disposable] maps.
 extension DisposableMapBloc on Map<dynamic, Disposable> {
   /// Calls [Disposable.dispose] on all entries.
   ///

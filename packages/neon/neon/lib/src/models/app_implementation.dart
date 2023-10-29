@@ -20,18 +20,39 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
+/// Base implementation of a Neon app.
+///
+/// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
+/// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
 @immutable
 abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable {
+  /// The unique id of an app.
+  ///
+  /// It is common to specify them in `AppIDs`.
   String get id;
+
+  /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
   LocalizationsDelegate<Object> get localizationsDelegate;
+
+  /// {@macro flutter.widgets.widgetsApp.supportedLocales}
   Iterable<Locale> get supportedLocales;
 
+  /// Default localized app name used in [name].
+  ///
+  /// Defaults to the frameworks mapping of the [id] to a localized name.
   String nameFromLocalization(final NeonLocalizations localizations) => localizations.appImplementationName(id);
+
+  /// Localized name of this app.
   String name(final BuildContext context) => nameFromLocalization(NeonLocalizations.of(context));
 
+  /// The [SettingsStorage] for this app.
   @protected
   late final AppStorage storage = AppStorage(StorageKeys.apps, id);
 
+  /// The options associated with this app.
+  ///
+  /// Options will be added to the settings page providing a global place to
+  /// adjust the behavior of an app.
   @mustBeOverridden
   R get options;
 
@@ -46,13 +67,25 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   ) =>
       null;
 
+  /// Cache for all blocs.
+  ///
+  /// To access a bloc use [getBloc] instead.
   final blocsCache = AccountCache<T>();
 
+  /// Returns a bloc [T] from the [blocsCache] or builds a new one if absent.
   T getBloc(final Account account) => blocsCache[account] ??= buildBloc(account);
 
+  /// Build the bloc [T] for the given [account].
+  ///
+  /// Blocs are long lived and should not be rebuilt for subsequent calls.
+  /// Use [getBloc] which also handles caching.
   @protected
   T buildBloc(final Account account);
 
+  /// The [Provider] building the bloc [T] the currently active account.
+  ///
+  /// Blocs will not be disposed on disposal of the provider. You must handle
+  /// the [blocsCache] manually.
   Provider<T> get blocProvider => Provider<T>(
         create: (final context) {
           final accountsBloc = NeonProvider.of<AccountsBloc>(context);
@@ -62,10 +95,17 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
         },
       );
 
+  /// The count of unread notifications.
+  ///
+  /// If `null` no label will be displayed.
   BehaviorSubject<int>? getUnreadCounter(final T bloc) => null;
 
+  /// The main page of this app.
+  ///
+  /// The framework will insert [blocProvider] into the widget tree before.
   Widget get page;
 
+  /// The drawer destination used in widgets like [NavigationDrawer].
   NeonNavigationDestination destination(final BuildContext context) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final account = accountsBloc.activeAccount.value!;
@@ -89,7 +129,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   /// Route for the app.
   ///
-  /// All pages of the app must be specified as subroutes.
+  /// All pages of the app must be specified as sub routes.
   /// If this is not [GoRoute] an initial route name must be specified by overriding [initialRouteName].
   RouteBase get route;
 
@@ -106,6 +146,10 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
     throw FlutterError('No name for the initial route provided.');
   }
 
+  /// Builds the app icon.
+  ///
+  /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
+  /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
   Widget buildIcon({
     final double? size,
     final Color? color,
@@ -145,7 +189,16 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   int get hashCode => id.hashCode;
 }
 
+/// Extension to find an app implementation by id in a Iterable.
 extension AppImplementationFind on Iterable<AppImplementation> {
+  /// Returns the first [AppImplementation] matching [appID] by [AppImplementation.id].
+  ///
+  /// If no `AppImplementation` was found `null` is returned.
   AppImplementation? tryFind(final String? appID) => firstWhereOrNull((final app) => app.id == appID);
+
+  /// Returns the first [AppImplementation] matching [appID] by [AppImplementation.id].
+  ///
+  /// Throws a [StateError] if no `AppImplementation` was found.
+  /// Use [tryFind] to get a nullable result.
   AppImplementation find(final String appID) => firstWhere((final app) => app.id == appID);
 }
