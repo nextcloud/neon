@@ -138,7 +138,7 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        expect(response.body.ocs.data, hasLength(13));
+        expect(response.body.ocs.data, hasLength(14));
       });
 
       test('Unified search', () async {
