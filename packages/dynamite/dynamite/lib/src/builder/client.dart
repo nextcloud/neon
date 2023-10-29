@@ -190,14 +190,10 @@ Iterable<Method> buildTags(
       ]..sort(sortRequiredParameters);
       final name = toDartName(filterMethodName(operationName, tag ?? ''));
 
-      var responses = <openapi.Response, List<int>>{};
+      var responses = <openapi.Response, List<String>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
-          final statusCode = int.tryParse(responseEntry.key);
-          if (statusCode == null) {
-            print('Default responses are not supported right now. Skipping it for $operationName');
-            continue;
-          }
+          final statusCode = responseEntry.key;
           final response = responseEntry.value;
 
           responses[response] ??= [];
@@ -225,7 +221,6 @@ Iterable<Method> buildTags(
   ''');
 
       buildAuthCheck(
-        responses,
         pathEntry,
         operation,
         spec,
@@ -357,8 +352,12 @@ final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _qu
 ''');
 
         if (responses.values.isNotEmpty) {
-          final codes = statusCodes.join(',');
-          code.writeln('const {$codes},');
+          if (statusCodes.contains('default')) {
+            code.writeln('null,');
+          } else {
+            final codes = statusCodes.join(',');
+            code.writeln('const {$codes},');
+          }
         }
 
         code.writeln('''
@@ -478,7 +477,6 @@ Iterable<String> buildPatternCheck(
 }
 
 Iterable<String> buildAuthCheck(
-  final Map<openapi.Response, List<int>> responses,
   final MapEntry<String, openapi.PathItem> pathEntry,
   final openapi.Operation operation,
   final openapi.OpenAPI spec,
