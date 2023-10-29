@@ -185,17 +185,11 @@ abstract interface class GetHeadersInterface {
 abstract class GetHeaders implements GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
   factory GetHeaders([final void Function(GetHeadersBuilder)? b]) = _$GetHeaders;
 
-  // coverage:ignore-start
   const GetHeaders._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory GetHeaders.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GetHeaders> get serializer => _$GetHeadersSerializer();
@@ -253,18 +247,12 @@ abstract class WithContentOperationIdHeaders
   factory WithContentOperationIdHeaders([final void Function(WithContentOperationIdHeadersBuilder)? b]) =
       _$WithContentOperationIdHeaders;
 
-  // coverage:ignore-start
   const WithContentOperationIdHeaders._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory WithContentOperationIdHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<WithContentOperationIdHeaders> get serializer => _$WithContentOperationIdHeadersSerializer();
@@ -319,18 +307,12 @@ abstract class GetWithContentHeaders
     implements GetWithContentHeadersInterface, Built<GetWithContentHeaders, GetWithContentHeadersBuilder> {
   factory GetWithContentHeaders([final void Function(GetWithContentHeadersBuilder)? b]) = _$GetWithContentHeaders;
 
-  // coverage:ignore-start
   const GetWithContentHeaders._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory GetWithContentHeaders.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<GetWithContentHeaders> get serializer => _$GetWithContentHeadersSerializer();

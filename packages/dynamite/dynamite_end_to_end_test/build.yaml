@@ -1,0 +1,12 @@
+targets:
+  $default:
+    builders:
+      built_value_generator|built_value:
+        enabled: true
+      dynamite:
+        options:
+          analyzer_ignores:
+            - camel_case_types
+            - discarded_futures
+            - public_member_api_docs
+            - unreachable_switch_case

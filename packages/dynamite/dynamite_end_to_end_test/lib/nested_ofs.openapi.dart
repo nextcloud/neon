@@ -39,17 +39,11 @@ abstract interface class BaseInterface {
 abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
   factory Base([final void Function(BaseBuilder)? b]) = _$Base;
 
-  // coverage:ignore-start
   const Base._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory Base.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<Base> get serializer => _$baseSerializer;
 }
@@ -66,17 +60,11 @@ abstract interface class BaseAllOfInterface implements BaseInterface, BaseAllOf_
 abstract class BaseAllOf implements BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
   factory BaseAllOf([final void Function(BaseAllOfBuilder)? b]) = _$BaseAllOf;
 
-  // coverage:ignore-start
   const BaseAllOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseAllOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseAllOf> get serializer => _$baseAllOfSerializer;
 }
@@ -90,17 +78,11 @@ abstract interface class BaseOneOf1Interface {
 abstract class BaseOneOf1 implements BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
   factory BaseOneOf1([final void Function(BaseOneOf1Builder)? b]) = _$BaseOneOf1;
 
-  // coverage:ignore-start
   const BaseOneOf1._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseOneOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
 }
@@ -114,17 +96,11 @@ abstract interface class BaseOneOfInterface {
 abstract class BaseOneOf implements BaseOneOfInterface, Built<BaseOneOf, BaseOneOfBuilder> {
   factory BaseOneOf([final void Function(BaseOneOfBuilder)? b]) = _$BaseOneOf;
 
-  // coverage:ignore-start
   const BaseOneOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseOneOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseOneOf> get serializer => _$BaseOneOfSerializer();
@@ -178,17 +154,11 @@ abstract interface class BaseAnyOf1Interface {
 abstract class BaseAnyOf1 implements BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
   factory BaseAnyOf1([final void Function(BaseAnyOf1Builder)? b]) = _$BaseAnyOf1;
 
-  // coverage:ignore-start
   const BaseAnyOf1._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseAnyOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
 }
@@ -202,17 +172,11 @@ abstract interface class BaseAnyOfInterface {
 abstract class BaseAnyOf implements BaseAnyOfInterface, Built<BaseAnyOf, BaseAnyOfBuilder> {
   factory BaseAnyOf([final void Function(BaseAnyOfBuilder)? b]) = _$BaseAnyOf;
 
-  // coverage:ignore-start
   const BaseAnyOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseAnyOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseAnyOf> get serializer => _$BaseAnyOfSerializer();
@@ -270,18 +234,12 @@ abstract interface class BaseNestedAllOfInterface
 abstract class BaseNestedAllOf implements BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
   factory BaseNestedAllOf([final void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;
 
-  // coverage:ignore-start
   const BaseNestedAllOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseNestedAllOf.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseNestedAllOf> get serializer => _$baseNestedAllOfSerializer;
 }
@@ -295,18 +253,12 @@ abstract interface class BaseNestedOneOf3Interface {
 abstract class BaseNestedOneOf3 implements BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
   factory BaseNestedOneOf3([final void Function(BaseNestedOneOf3Builder)? b]) = _$BaseNestedOneOf3;
 
-  // coverage:ignore-start
   const BaseNestedOneOf3._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseNestedOneOf3.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
 }
@@ -322,18 +274,12 @@ abstract interface class BaseNestedOneOfInterface {
 abstract class BaseNestedOneOf implements BaseNestedOneOfInterface, Built<BaseNestedOneOf, BaseNestedOneOfBuilder> {
   factory BaseNestedOneOf([final void Function(BaseNestedOneOfBuilder)? b]) = _$BaseNestedOneOf;
 
-  // coverage:ignore-start
   const BaseNestedOneOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseNestedOneOf.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseNestedOneOf> get serializer => _$BaseNestedOneOfSerializer();
@@ -399,18 +345,12 @@ abstract interface class BaseNestedAnyOf3Interface {
 abstract class BaseNestedAnyOf3 implements BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
   factory BaseNestedAnyOf3([final void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
 
-  // coverage:ignore-start
   const BaseNestedAnyOf3._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseNestedAnyOf3.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
 }
@@ -426,18 +366,12 @@ abstract interface class BaseNestedAnyOfInterface {
 abstract class BaseNestedAnyOf implements BaseNestedAnyOfInterface, Built<BaseNestedAnyOf, BaseNestedAnyOfBuilder> {
   factory BaseNestedAnyOf([final void Function(BaseNestedAnyOfBuilder)? b]) = _$BaseNestedAnyOf;
 
-  // coverage:ignore-start
   const BaseNestedAnyOf._();
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   factory BaseNestedAnyOf.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
 
-  // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
 
   @BuiltValueSerializer(custom: true)
   static Serializer<BaseNestedAnyOf> get serializer => _$BaseNestedAnyOfSerializer();

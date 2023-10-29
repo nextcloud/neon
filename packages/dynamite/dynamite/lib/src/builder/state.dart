@@ -1,8 +1,11 @@
 import 'package:code_builder/code_builder.dart';
+import 'package:dynamite/src/models/dynamite_config/config.dart';
 import 'package:dynamite/src/models/type_result.dart';
 
 class State {
-  State();
+  State(this.buildConfig);
+
+  final DynamiteConfig buildConfig;
 
   final output = <Spec>[];
   final resolvedTypes = <TypeResult>{};
