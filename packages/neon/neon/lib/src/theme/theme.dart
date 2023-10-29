@@ -5,9 +5,11 @@ import 'package:neon/src/theme/neon.dart';
 import 'package:neon/src/utils/hex_color.dart';
 import 'package:nextcloud/core.dart' as core;
 
+/// Custom theme used for the Neon app.
 @internal
 @immutable
 class AppTheme {
+  /// Creates a new Neon app theme.
   const AppTheme(
     this.nextcloudTheme, {
     required this.neonTheme,
@@ -16,10 +18,19 @@ class AppTheme {
     this.appThemes,
   }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
 
+  /// The theme provided by the Nextcloud server.
   final core.ThemingPublicCapabilities_Theming? nextcloudTheme;
+
+  /// Whether to force the use of the Nextcloud accent color.
   final bool keepOriginalAccentColor;
+
+  /// Whether to use [NcColors.oledBackground] in the dark theme.
   final bool oledAsDark;
+
+  /// The theme extensions provided by the `AppImplementation`s.
   final Iterable<ThemeExtension>? appThemes;
+
+  /// The base theme for the Neon app.
   final NeonTheme neonTheme;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
@@ -56,7 +67,14 @@ class AppTheme {
     );
   }
 
+  /// Returns a new theme for [Brightness.light].
+  ///
+  /// Used in [MaterialApp.theme].
   ThemeData get lightTheme => _getTheme(Brightness.light);
+
+  /// Returns a new theme for [Brightness.dark].
+  ///
+  /// Used in [MaterialApp.darkTheme].
   ThemeData get darkTheme => _getTheme(Brightness.dark);
 
   static const _snackBarTheme = SnackBarThemeData(

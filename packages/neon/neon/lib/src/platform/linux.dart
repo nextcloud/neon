@@ -1,12 +1,19 @@
 import 'package:meta/meta.dart';
+import 'package:neon/src/platform/android.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:path/path.dart' as p;
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:universal_io/io.dart';
 
+/// Linux specific platform information.
+///
+/// See:
+///   * [NeonPlatform] to initialize and acquire an instance
+///   * [AndroidNeonPlatform] for the Android implementation
 @immutable
 @internal
 class LinuxNeonPlatform implements NeonPlatform {
+  /// Creates a new Linux Neon platform.
   const LinuxNeonPlatform();
 
   @override

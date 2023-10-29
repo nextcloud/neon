@@ -20,6 +20,9 @@ import 'package:neon/src/utils/user_agent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 
+/// Runs Neon with the given [appImplementations].
+///
+/// Optionally provide a [theme] to set the default style.
 Future<void> runNeon({
   required final Set<AppImplementation> appImplementations,
   required final NeonTheme theme,

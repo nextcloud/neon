@@ -29,13 +29,21 @@ import 'package:tray_manager/tray_manager.dart' as tray;
 import 'package:universal_io/io.dart';
 import 'package:window_manager/window_manager.dart';
 
+/// Main Neon widget.
+///
+/// Sets up all needed callbacks and creates a new [MaterialApp.router].
+/// This widget must be the first in the widget tree.
 @internal
 class NeonApp extends StatefulWidget {
+  /// Creates a new Neon app.
   const NeonApp({
     required this.neonTheme,
     super.key,
   });
 
+  /// The base Neon theme.
+  ///
+  /// This is used to seed the [AppTheme] used by [MaterialApp.theme].
   final NeonTheme neonTheme;
 
   @override

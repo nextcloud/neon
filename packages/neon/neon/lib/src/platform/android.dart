@@ -1,13 +1,20 @@
 import 'package:meta/meta.dart';
+import 'package:neon/src/platform/linux.dart';
 import 'package:neon/src/platform/platform.dart';
 import 'package:neon/src/utils/exceptions.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+/// Android specific platform information.
+///
+/// See:
+///   * [NeonPlatform] to initialize and acquire an instance
+///   * [LinuxNeonPlatform] for the Linux implementation
 @immutable
 @internal
 class AndroidNeonPlatform implements NeonPlatform {
+  /// Creates a new Android Neon platform.
   const AndroidNeonPlatform();
 
   @override
