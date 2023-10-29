@@ -46,7 +46,7 @@ void main() {
       });
 
       group('Apps', () {
-        test('Get apps', () async {
+        test('Get', () async {
           final response = await client.provisioningApi.apps.getApps();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
