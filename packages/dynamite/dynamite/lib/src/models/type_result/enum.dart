@@ -6,6 +6,7 @@ class TypeResultEnum extends TypeResult {
     super.className,
     this.subType, {
     super.nullable,
+    super.isTypeDef,
   });
 
   final TypeResult subType;

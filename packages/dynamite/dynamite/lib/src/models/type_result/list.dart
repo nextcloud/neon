@@ -6,6 +6,7 @@ class TypeResultList extends TypeResult {
     super.className,
     final TypeResult subType, {
     super.nullable,
+    super.isTypeDef,
   }) : super(generics: [subType]);
 
   TypeResult get subType => generics.first;

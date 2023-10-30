@@ -22,13 +22,15 @@ TypeResult resolveType(
   }
   if (schema.ref != null) {
     final name = schema.ref!.split('/').last;
-    result = resolveType(
+    final subResult = resolveType(
       spec,
       state,
       name,
       spec.components!.schemas![name]!,
       nullable: nullable,
     );
+
+    result = subResult.asTypeDef;
   } else if (schema.allOf != null) {
     result = resolveAllOf(
       spec,
