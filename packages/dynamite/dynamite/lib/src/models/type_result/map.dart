@@ -6,6 +6,7 @@ class TypeResultMap extends TypeResult {
     super.className,
     final TypeResult subType, {
     super.nullable,
+    super.isTypeDef,
   }) : super(generics: [TypeResultBase('String'), subType]);
 
   TypeResult get subType => generics[1];

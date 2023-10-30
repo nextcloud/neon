@@ -13,12 +13,16 @@ sealed class TypeResult {
     this.className, {
     this.generics = const [],
     this.nullable = false,
+    this.isTypeDef = false,
   })  : assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
         assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;
   final List<TypeResult> generics;
   final bool nullable;
+
+  /// Whether this type should be represented as a typedef.
+  final bool isTypeDef;
 
   String get name {
     if (generics.isNotEmpty) {
@@ -44,6 +48,10 @@ sealed class TypeResult {
   }
 
   Iterable<String> get serializers sync* {
+    if (isTypeDef) {
+      return;
+    }
+
     for (final class_ in generics) {
       yield* class_.serializers;
     }
@@ -103,6 +111,44 @@ sealed class TypeResult {
   /// Native dart type equivalent
   // ignore: avoid_returning_this
   TypeResult get dartType => this;
+
+  /// Returns `this` with a `true` value for [isTypeDef].
+  TypeResult get asTypeDef {
+    final $this = this;
+
+    // We need to preserve the original runtime type.
+    return switch ($this) {
+      TypeResultBase() => TypeResultBase(
+          className,
+          nullable: nullable,
+          isTypeDef: true,
+        ),
+      TypeResultEnum() => TypeResultEnum(
+          className,
+          $this.subType,
+          nullable: nullable,
+          isTypeDef: true,
+        ),
+      TypeResultList() => TypeResultList(
+          className,
+          $this.subType,
+          nullable: nullable,
+          isTypeDef: true,
+        ),
+      TypeResultMap() => TypeResultMap(
+          className,
+          $this.subType,
+          nullable: nullable,
+          isTypeDef: true,
+        ),
+      TypeResultObject() => TypeResultObject(
+          className,
+          generics: generics,
+          nullable: nullable,
+          isTypeDef: true,
+        ),
+    };
+  }
 
   @override
   bool operator ==(final Object other) =>

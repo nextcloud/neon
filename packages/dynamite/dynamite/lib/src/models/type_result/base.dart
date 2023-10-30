@@ -5,6 +5,7 @@ class TypeResultBase extends TypeResult {
   TypeResultBase(
     super.className, {
     super.nullable,
+    super.isTypeDef,
   });
 
   @override

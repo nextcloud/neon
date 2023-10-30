@@ -8,6 +8,7 @@ class TypeResultObject extends TypeResult {
     super.className, {
     super.generics,
     super.nullable,
+    super.isTypeDef,
   }) : assert(
           className != 'JsonObject' && className != 'Object' && className != 'dynamic',
           'Use TypeResultBase instead',
