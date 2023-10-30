@@ -8,6 +8,7 @@ package "Neon framework" {
 }
 
 package "Clients" {
+    component neon_dashboard
     component neon_files
     component neon_news
     component neon_notes
@@ -21,6 +22,7 @@ package "OpenAPI" {
 
 component app
 
+app ..> neon_dashboard
 app ..> neon_files
 app ..> neon_news
 app ..> neon_notes
