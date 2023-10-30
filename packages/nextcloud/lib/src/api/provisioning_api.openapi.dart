@@ -5379,10 +5379,12 @@ class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDet
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
       result.$bool = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -5454,10 +5456,12 @@ class _$GroupDetails_DisabledSerializer implements PrimitiveSerializer<GroupDeta
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
       result.$bool = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -5771,10 +5775,12 @@ class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetai
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -5847,14 +5853,17 @@ class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDeta
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
       result.string = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -5927,10 +5936,12 @@ class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserD
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -6002,10 +6013,12 @@ class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDeta
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -6077,10 +6090,12 @@ class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetai
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -6294,6 +6309,7 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializ
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
       result.userDetails.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(
@@ -6301,6 +6317,7 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializ
         specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
       result.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -7218,6 +7235,7 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
       result.userDetails.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(
@@ -7225,6 +7243,7 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
         specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
       result.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -7437,6 +7456,7 @@ class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerial
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
       result.userDetails.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(
@@ -7444,6 +7464,7 @@ class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerial
         specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
       result.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }

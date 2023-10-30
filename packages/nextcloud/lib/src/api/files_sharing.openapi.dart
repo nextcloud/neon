@@ -2958,10 +2958,12 @@ class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> 
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -3064,10 +3066,12 @@ class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> 
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
       result.$double = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -3762,11 +3766,13 @@ class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<Share
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
           as BuiltList<int>;
       result.builtListInt.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -4467,11 +4473,13 @@ class _$ShareesapiFindRecommendedShareTypeSerializer
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
           as BuiltList<int>;
       result.builtListInt.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }

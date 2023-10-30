@@ -1,0 +1,47 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "some ofs test",
+    "version": "0.0.1"
+  },
+  "components": {
+    "schemas": {
+      "Base": {
+        "type": "object",
+        "required": [
+          "attribute"
+        ],
+        "properties": {
+          "attribute": {
+            "type": "string"
+          }
+        }
+      },
+      "OneOfUnspecifiedArray": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Base"
+          },
+          {
+            "type": "array"
+          }
+        ]
+      },
+      "OneOfStringArray": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Base"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "paths": {},
+  "tags": []
+}

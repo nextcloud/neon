@@ -1233,11 +1233,13 @@ class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value =
           _jsonSerializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
       result.clearAtTimeType = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -1863,10 +1865,12 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
       result.private.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
       result.jsonObject = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }

@@ -290,6 +290,7 @@ TypeResult resolveOfs(
                       'result.${fields[result.name]!} = value;'
                     else
                       'result.${fields[result.name]!}.replace(value);',
+                    if (schema.oneOf != null) 'return result.build();',
                     '} catch (_) {',
                     if (schema.discriminator != null) ...[
                       'rethrow;',

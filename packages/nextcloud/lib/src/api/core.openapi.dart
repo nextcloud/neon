@@ -4835,10 +4835,12 @@ class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<Autoc
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(AutocompleteResult_Status0))!
           as AutocompleteResult_Status0;
       result.autocompleteResultStatus0.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
       result.string = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -5869,10 +5871,12 @@ class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<Navigatio
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
       result.string = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -9320,10 +9324,12 @@ class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<Unifi
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
       result.string = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -9430,10 +9436,12 @@ class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<Unif
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
       result.$int = value;
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
       result.string = value;
+      return result.build();
     } catch (_) {}
     return result.build();
   }

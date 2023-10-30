@@ -146,10 +146,12 @@ class _$BaseOneOfSerializer implements PrimitiveSerializer<BaseOneOf> {
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
       result.base.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
       result.baseOneOf1.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }
@@ -344,19 +346,23 @@ class _$BaseNestedOneOfSerializer implements PrimitiveSerializer<BaseNestedOneOf
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
       result.baseAllOf.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf;
       result.baseOneOf.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf;
       result.baseAnyOf.replace(value);
+      return result.build();
     } catch (_) {}
     try {
       final value =
           _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
       result.baseNestedOneOf3.replace(value);
+      return result.build();
     } catch (_) {}
     return result.build();
   }
