@@ -50,7 +50,7 @@ void main() {
           final response = await client.provisioningApi.apps.getApps();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data.apps, hasLength(40));
+          expect(response.body.ocs.data.apps, hasLength(41));
 
           for (final id in response.body.ocs.data.apps) {
             final app = await client.provisioningApi.apps.getAppInfo(app: id);

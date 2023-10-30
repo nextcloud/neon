@@ -140,11 +140,15 @@ Future<TestNextcloudClient> getTestClient(
     try {
       await client.core.getStatus();
       break;
-    } on DynamiteApiException catch (error) {
-      i++;
-      await Future<void>.delayed(const Duration(milliseconds: 100));
-      if (i >= 30) {
-        throw TimeoutException('Failed to get the status of the Server. $error');
+    } catch (error) {
+      if (error is HttpException || error is DynamiteApiException) {
+        i++;
+        await Future<void>.delayed(const Duration(milliseconds: 100));
+        if (i >= 300) {
+          throw TimeoutException('Failed to get the status of the Server. $error');
+        }
+      } else {
+        rethrow;
       }
     }
   }

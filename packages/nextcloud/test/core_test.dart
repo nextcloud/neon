@@ -70,6 +70,7 @@ void main() {
           expect(response.body.ocs.data.capabilities.notificationsCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.provisioningApiCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.sharebymailCapabilities, isNotNull);
+          expect(response.body.ocs.data.capabilities.spreedPublicCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.themingPublicCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.userStatusCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.weatherStatusCapabilities, isNotNull);
@@ -81,14 +82,15 @@ void main() {
           final response = await client.core.navigation.getAppsNavigation();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(6));
+          expect(response.body.ocs.data, hasLength(7));
 
           expect(response.body.ocs.data[0].id, 'dashboard');
           expect(response.body.ocs.data[1].id, 'files');
           expect(response.body.ocs.data[2].id, 'photos');
           expect(response.body.ocs.data[3].id, 'activity');
-          expect(response.body.ocs.data[4].id, 'notes');
-          expect(response.body.ocs.data[5].id, 'news');
+          expect(response.body.ocs.data[4].id, 'spreed');
+          expect(response.body.ocs.data[5].id, 'notes');
+          expect(response.body.ocs.data[6].id, 'news');
         });
       });
 
@@ -151,7 +153,7 @@ void main() {
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
-          expect(response.body.ocs.data, hasLength(14));
+          expect(response.body.ocs.data, hasLength(17));
         });
 
         test('Search', () async {

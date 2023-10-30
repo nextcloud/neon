@@ -30,6 +30,7 @@ icudtl
 inkscape
 intellij
 jetbrains
+jsonpatch
 jvmargs
 klass
 lcov
@@ -43,12 +44,15 @@ libsqlite
 mipmap
 ndebug
 nproc
+openrelay
+openrelayprojectsecret
 plantuml
 precache
 puml
 rpath
 signoff
 startuml
+staticauth
 stdlib
 strconcat
 strdupv

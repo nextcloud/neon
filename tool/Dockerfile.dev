@@ -25,6 +25,10 @@ RUN install_app_version notes https://github.com/nextcloud-releases/notes/releas
 ARG UPPUSH_VERSION=1.4.0
 RUN install_app_version uppush https://codeberg.org/NextPush/uppush/archive/$UPPUSH_VERSION.tar.gz
 
+ARG SPREED_VERSION=17.1.2
+RUN install_app_version spreed https://github.com/nextcloud-releases/spreed/releases/download/v$SPREED_VERSION/spreed-v$SPREED_VERSION.tar.gz
+RUN ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
+
 RUN ./occ app:enable password_policy
 RUN (sh /entrypoint.sh php -S 0.0.0.0:8080 &) && \
     until curl -s -o /dev/null http://localhost:8080/status.php; do true; done && \

@@ -10,11 +10,14 @@ commenters
 csapi
 datetime
 deletedshares
+dialin
+dialout
 displayname
 etag
 fediverse
 getapppassword
 groupid
+hostedsignalingserver
 hovercard
 iscustomavatar
 itemsperpage
@@ -24,6 +27,7 @@ lastmod
 licence
 logfile
 logoheader
+matterbridge
 mimetypes
 mountpoint
 navigations
@@ -34,12 +38,14 @@ organisation
 prio
 productname
 publicpreview
+publicshare
+publicshareauth
+replyable
+requesttrial
 reshares
 resharing
 rgdnvw
-r'sharebymail
-r'updatenotification
-r'uppush
+setsip
 shareapi
 sharebymail
 sharee
@@ -47,6 +53,7 @@ shareesapi
 shareinfo
 statuscode
 stime
+stunservers
 stylesheet
 subadmin
 subadmins
@@ -57,6 +64,7 @@ textprocessing
 totalitems
 transferownership
 trashbin
+turnservers
 undelete
 unifiedpush
 unsharing

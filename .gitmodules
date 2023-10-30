@@ -10,3 +10,6 @@
 [submodule "external/flathub-shared-modules"]
 	path = external/flathub-shared-modules
 	url = https://github.com/flathub/shared-modules.git
+[submodule "external/nextcloud-spreed"]
+	path = external/nextcloud-spreed
+	url = https://github.com/nextcloud/spreed

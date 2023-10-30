@@ -1,0 +1,12 @@
+[
+  {
+    "op": "move",
+    "from": "/components/schemas/PublicCapabilities/oneOf",
+    "path": "/components/schemas/PublicCapabilities/anyOf"
+  },
+  {
+    "op": "move",
+    "from": "/components/schemas/Room/properties/lastMessage/oneOf",
+    "path": "/components/schemas/Room/properties/lastMessage/anyOf"
+  }
+]

@@ -11,10 +11,10 @@ function generate_spec() {
     composer exec generate-spec -- "$path" "../../packages/nextcloud/lib/src/api/$codename.openapi.json" --first-content-type --openapi-version 3.1.0
 }
 
-for dir in external/nextcloud-server external/nextcloud-notifications; do
+for dir in external/nextcloud-server external/nextcloud-notifications external/nextcloud-spreed; do
   (
     cd "$dir"
-    composer update
+    composer install
     composer install --no-dev
     git checkout . # Remove changed files
   )
@@ -49,6 +49,21 @@ done
   cd external/nextcloud-notifications
   generate_spec "." "notifications"
 )
+(
+  cd external/nextcloud-spreed
+  generate_spec "." "spreed"
+)
+
+for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
+  name="$(basename "$spec" | cut -d "." -f 1)"
+  dir="packages/nextcloud/lib/src/patches/$name"
+  if [ -d "$dir" ]; then
+    for patch in "$dir/"*; do
+      cp "$spec" "/tmp/nextcloud-neon/$name.json"
+      jsonpatch --indent 4 "/tmp/nextcloud-neon/$name.json" "$patch" > "$spec"
+    done
+  fi
+done
 
 (
   cd external/nextcloud-server

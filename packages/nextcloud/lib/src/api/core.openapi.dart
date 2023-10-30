@@ -7406,6 +7406,392 @@ abstract class SharebymailCapabilities
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface {
+  bool get allowed;
+  String? get folder;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Attachments
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Attachments,
+            SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Attachments([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Attachments;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Attachments._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Attachments.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Attachments> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigAttachmentsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_CallInterface {
+  bool get enabled;
+  @BuiltValueField(wireName: 'breakout-rooms')
+  bool get breakoutRooms;
+  bool get recording;
+  @BuiltValueField(wireName: 'recording-consent')
+  int? get recordingConsent;
+  @BuiltValueField(wireName: 'supported-reactions')
+  BuiltList<String> get supportedReactions;
+  @BuiltValueField(wireName: 'predefined-backgrounds')
+  BuiltList<String> get predefinedBackgrounds;
+  @BuiltValueField(wireName: 'can-upload-background')
+  bool get canUploadBackground;
+  @BuiltValueField(wireName: 'sip-enabled')
+  bool? get sipEnabled;
+  @BuiltValueField(wireName: 'sip-dialout-enabled')
+  bool? get sipDialoutEnabled;
+  @BuiltValueField(wireName: 'can-enable-sip')
+  bool? get canEnableSip;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Call
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_CallInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Call, SpreedPublicCapabilities0_Spreed_Config_CallBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Call([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Call;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Call._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Call.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Call> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigCallSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_ChatInterface {
+  @BuiltValueField(wireName: 'max-length')
+  int get maxLength;
+  @BuiltValueField(wireName: 'read-privacy')
+  int get readPrivacy;
+  @BuiltValueField(wireName: 'has-translation-providers')
+  bool? get hasTranslationProviders;
+  @BuiltValueField(wireName: 'typing-privacy')
+  int get typingPrivacy;
+  BuiltList<String>? get translations;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Chat
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_ChatInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Chat, SpreedPublicCapabilities0_Spreed_Config_ChatBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Chat([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Chat;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Chat._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Chat.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Chat> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigChatSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface {
+  @BuiltValueField(wireName: 'can-create')
+  bool get canCreate;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Conversations
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_ConversationsInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Conversations,
+            SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Conversations([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Conversations;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Conversations._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Conversations.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Conversations> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigConversationsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface {
+  @BuiltValueField(wireName: 'max-gif-size')
+  int get maxGifSize;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Previews
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_PreviewsInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Previews,
+            SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Previews([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Previews;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Previews._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Previews.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Previews> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigPreviewsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_Config_SignalingInterface {
+  @BuiltValueField(wireName: 'session-ping-limit')
+  int get sessionPingLimit;
+  @BuiltValueField(wireName: 'hello-v2-token-key')
+  String? get helloV2TokenKey;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config_Signaling
+    implements
+        SpreedPublicCapabilities0_Spreed_Config_SignalingInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config_Signaling,
+            SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config_Signaling([
+    final void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config_Signaling;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config_Signaling._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config_Signaling.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config_Signaling> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigSignalingSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_Spreed_ConfigInterface {
+  SpreedPublicCapabilities0_Spreed_Config_Attachments get attachments;
+  SpreedPublicCapabilities0_Spreed_Config_Call get call;
+  SpreedPublicCapabilities0_Spreed_Config_Chat get chat;
+  SpreedPublicCapabilities0_Spreed_Config_Conversations get conversations;
+  SpreedPublicCapabilities0_Spreed_Config_Previews get previews;
+  SpreedPublicCapabilities0_Spreed_Config_Signaling get signaling;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed_Config
+    implements
+        SpreedPublicCapabilities0_Spreed_ConfigInterface,
+        Built<SpreedPublicCapabilities0_Spreed_Config, SpreedPublicCapabilities0_Spreed_ConfigBuilder> {
+  factory SpreedPublicCapabilities0_Spreed_Config([
+    final void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? b,
+  ]) = _$SpreedPublicCapabilities0_Spreed_Config;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed_Config._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed_Config.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed_Config> get serializer =>
+      _$spreedPublicCapabilities0SpreedConfigSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0_SpreedInterface {
+  BuiltList<String> get features;
+  SpreedPublicCapabilities0_Spreed_Config get config;
+  String get version;
+}
+
+abstract class SpreedPublicCapabilities0_Spreed
+    implements
+        SpreedPublicCapabilities0_SpreedInterface,
+        Built<SpreedPublicCapabilities0_Spreed, SpreedPublicCapabilities0_SpreedBuilder> {
+  factory SpreedPublicCapabilities0_Spreed([final void Function(SpreedPublicCapabilities0_SpreedBuilder)? b]) =
+      _$SpreedPublicCapabilities0_Spreed;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0_Spreed._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0_Spreed.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0_Spreed> get serializer => _$spreedPublicCapabilities0SpreedSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilities0Interface {
+  SpreedPublicCapabilities0_Spreed get spreed;
+}
+
+abstract class SpreedPublicCapabilities0
+    implements SpreedPublicCapabilities0Interface, Built<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder> {
+  factory SpreedPublicCapabilities0([final void Function(SpreedPublicCapabilities0Builder)? b]) =
+      _$SpreedPublicCapabilities0;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities0._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities0.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SpreedPublicCapabilities0> get serializer => _$spreedPublicCapabilities0Serializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SpreedPublicCapabilitiesInterface {
+  SpreedPublicCapabilities0? get spreedPublicCapabilities0;
+  BuiltList<JsonObject>? get builtListJsonObject;
+}
+
+abstract class SpreedPublicCapabilities
+    implements SpreedPublicCapabilitiesInterface, Built<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder> {
+  factory SpreedPublicCapabilities([final void Function(SpreedPublicCapabilitiesBuilder)? b]) =
+      _$SpreedPublicCapabilities;
+
+  // coverage:ignore-start
+  const SpreedPublicCapabilities._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SpreedPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SpreedPublicCapabilities> get serializer => _$SpreedPublicCapabilitiesSerializer();
+
+  JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final SpreedPublicCapabilitiesBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._spreedPublicCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need at least one of 'spreedPublicCapabilities0', 'builtListJsonObject' for ${b._data}");
+    }
+  }
+}
+
+class _$SpreedPublicCapabilitiesSerializer implements PrimitiveSerializer<SpreedPublicCapabilities> {
+  @override
+  final Iterable<Type> types = const [SpreedPublicCapabilities, _$SpreedPublicCapabilities];
+
+  @override
+  final String wireName = 'SpreedPublicCapabilities';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final SpreedPublicCapabilities object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  SpreedPublicCapabilities deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SpreedPublicCapabilitiesBuilder()..data = JsonObject(data);
+    try {
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities0))!
+          as SpreedPublicCapabilities0;
+      result.spreedPublicCapabilities0.replace(value);
+    } catch (_) {}
+    try {
+      final value = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+      result.builtListJsonObject.replace(value);
+    } catch (_) {}
+    return result.build();
+  }
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
@@ -7604,6 +7990,7 @@ abstract interface class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capa
   NotificationsCapabilities? get notificationsCapabilities;
   ProvisioningApiCapabilities? get provisioningApiCapabilities;
   SharebymailCapabilities? get sharebymailCapabilities;
+  SpreedPublicCapabilities? get spreedPublicCapabilities;
   ThemingPublicCapabilities? get themingPublicCapabilities;
   UserStatusCapabilities? get userStatusCapabilities;
   WeatherStatusCapabilities? get weatherStatusCapabilities;
@@ -7654,13 +8041,14 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
       b._notificationsCapabilities,
       b._provisioningApiCapabilities,
       b._sharebymailCapabilities,
+      b._spreedPublicCapabilities,
       b._themingPublicCapabilities,
       b._userStatusCapabilities,
       b._weatherStatusCapabilities,
     ].firstWhereOrNull((final x) => x != null);
     if (match == null) {
       throw StateError(
-        "Need at least one of 'commentsCapabilities', 'davCapabilities', 'filesCapabilities', 'filesSharingCapabilities', 'filesTrashbinCapabilities', 'filesVersionsCapabilities', 'notesCapabilities', 'notificationsCapabilities', 'provisioningApiCapabilities', 'sharebymailCapabilities', 'themingPublicCapabilities', 'userStatusCapabilities', 'weatherStatusCapabilities' for ${b._data}",
+        "Need at least one of 'commentsCapabilities', 'davCapabilities', 'filesCapabilities', 'filesSharingCapabilities', 'filesTrashbinCapabilities', 'filesVersionsCapabilities', 'notesCapabilities', 'notificationsCapabilities', 'provisioningApiCapabilities', 'sharebymailCapabilities', 'spreedPublicCapabilities', 'themingPublicCapabilities', 'userStatusCapabilities', 'weatherStatusCapabilities' for ${b._data}",
       );
     }
   }
@@ -7741,6 +8129,11 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerialize
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
           as SharebymailCapabilities;
       result.sharebymailCapabilities.replace(value);
+    } catch (_) {}
+    try {
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities))!
+          as SpreedPublicCapabilities;
+      result.spreedPublicCapabilities.replace(value);
     } catch (_) {}
     try {
       final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ThemingPublicCapabilities))!
@@ -10132,6 +10525,47 @@ final Serializers _serializers = (Serializers().toBuilder()
         SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.new,
       )
       ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilities.new)
+      ..add(SpreedPublicCapabilities.serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0.new)
+      ..add(SpreedPublicCapabilities0.serializer)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_Spreed.new)
+      ..add(SpreedPublicCapabilities0_Spreed.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config),
+        SpreedPublicCapabilities0_Spreed_Config.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments),
+        SpreedPublicCapabilities0_Spreed_Config_Attachments.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Attachments.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Call),
+        SpreedPublicCapabilities0_Spreed_Config_Call.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Call.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat),
+        SpreedPublicCapabilities0_Spreed_Config_Chat.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Chat.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations),
+        SpreedPublicCapabilities0_Spreed_Config_Conversations.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Conversations.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews),
+        SpreedPublicCapabilities0_Spreed_Config_Previews.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Previews.serializer)
+      ..addBuilderFactory(
+        const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling),
+        SpreedPublicCapabilities0_Spreed_Config_Signaling.new,
+      )
+      ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilities.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities_Theming), ThemingPublicCapabilities_Theming.new)
