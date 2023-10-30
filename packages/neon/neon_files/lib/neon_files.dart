@@ -1,4 +1,28 @@
-library neon_files;
+/// The Neon client for the files app.
+///
+/// Add `FilesApp()` to your runNeon command to execute this app.
+///
+/// A basic implementation could look like:
+///```dart
+///Future<void> main() async {
+///  await runNeon(
+///    appImplementations: {
+///      FilesApp()
+///    },
+///    theme: NeonTheme(
+///      branding: Branding(
+///       name: 'Files',
+///       logo: VectorGraphic(
+///         loader: AssetBytesLoader(
+///           'assets/logo.svg.vec',
+///         ),
+///       ),
+///      ),
+///    ),
+///  );
+/// }
+///```
+library files;
 
 import 'dart:async';
 

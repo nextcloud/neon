@@ -34,7 +34,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
   LocalizationsDelegate<Object> get localizationsDelegate;
 
-  /// {@macro flutter.widgets.widgetsApp.supportedLocales}
+  /// The list of locales that this app has been localized for.
   Iterable<Locale> get supportedLocales;
 
   /// Default localized app name used in [name].

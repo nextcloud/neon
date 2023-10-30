@@ -1,3 +1,27 @@
+/// The Neon client for the notes app.
+///
+/// Add `NotesApp()` to your runNeon command to execute this app.
+///
+/// A basic implementation could look like:
+///```dart
+///Future<void> main() async {
+///  await runNeon(
+///    appImplementations: {
+///      NotesApp()
+///    },
+///    theme: NeonTheme(
+///      branding: Branding(
+///       name: 'Notes',
+///       logo: VectorGraphic(
+///         loader: AssetBytesLoader(
+///           'assets/logo.svg.vec',
+///         ),
+///       ),
+///      ),
+///    ),
+///  );
+/// }
+///```
 library notes;
 
 import 'dart:async';

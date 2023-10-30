@@ -13,7 +13,7 @@ sealed class FilesTask {
   @protected
   final streamController = StreamController<double>();
 
-  /// Task progress in percent [0, 1].
+  /// Task progress in percent `[0, 1]`.
   late final progress = streamController.stream.asBroadcastStream();
 }
 
