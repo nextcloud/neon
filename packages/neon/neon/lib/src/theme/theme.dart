@@ -10,8 +10,10 @@ import 'package:nextcloud/core.dart' as core;
 @immutable
 class AppTheme {
   /// Creates a new Neon app theme.
-  const AppTheme(
-    this.nextcloudTheme, {
+  const AppTheme({
+    required this.nextcloudTheme,
+    required this.deviceThemeLight,
+    required this.deviceThemeDark,
     required this.neonTheme,
     final bool useNextcloudTheme = false,
     this.oledAsDark = false,
@@ -24,6 +26,12 @@ class AppTheme {
   /// Whether to use of the Nextcloud theme.
   final bool useNextcloudTheme;
 
+  /// The light theme provided by the device.
+  final ColorScheme? deviceThemeLight;
+
+  /// The dark theme provided by the device.
+  final ColorScheme? deviceThemeDark;
+
   /// Whether to use [NcColors.oledBackground] in the dark theme.
   final bool oledAsDark;
 
@@ -34,19 +42,39 @@ class AppTheme {
   final NeonTheme neonTheme;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
-    final primaryColor =
-        nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color) : neonTheme.colorScheme.primary;
-    final primaryColorOverride = useNextcloudTheme ? primaryColor : null;
-    final oledBackgroundOverride = oledAsDark && brightness == Brightness.dark ? NcColors.oledBackground : null;
+    ColorScheme? colorScheme;
 
-    return ColorScheme.fromSeed(
-      seedColor: primaryColor,
+    if (nextcloudTheme != null && useNextcloudTheme) {
+      final primaryColor = HexColor(nextcloudTheme!.color);
+      final onPrimaryColor = HexColor(nextcloudTheme!.colorText);
+
+      colorScheme = ColorScheme.fromSeed(
+        seedColor: primaryColor,
+        brightness: brightness,
+      ).copyWith(
+        primary: primaryColor,
+        onPrimary: onPrimaryColor,
+        secondary: primaryColor,
+        onSecondary: onPrimaryColor,
+        tertiary: primaryColor,
+        onTertiary: onPrimaryColor,
+      );
+    } else {
+      colorScheme = brightness == Brightness.dark ? deviceThemeDark : deviceThemeLight;
+    }
+
+    colorScheme ??= ColorScheme.fromSeed(
+      seedColor: NcColors.primary,
       brightness: brightness,
-    ).copyWith(
-      background: oledBackgroundOverride,
-      primary: primaryColorOverride,
-      secondary: primaryColorOverride,
     );
+
+    if (oledAsDark && brightness == Brightness.dark) {
+      colorScheme = colorScheme.copyWith(
+        background: NcColors.oledBackground,
+      );
+    }
+
+    return colorScheme;
   }
 
   ThemeData _getTheme(final Brightness brightness) {
@@ -56,7 +84,8 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: colorScheme.background,
-      cardColor: colorScheme.background, // For LicensePage
+      cardColor: colorScheme.background,
+      // For LicensePage
       snackBarTheme: _snackBarTheme,
       dividerTheme: _dividerTheme,
       scrollbarTheme: _scrollbarTheme,
