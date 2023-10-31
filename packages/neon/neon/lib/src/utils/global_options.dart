@@ -72,7 +72,7 @@ class GlobalOptions extends OptionsCollection {
   late final List<Option<dynamic>> options = [
     themeMode,
     themeOLEDAsDark,
-    themeKeepOriginalAccentColor,
+    themeUseNextcloudTheme,
     pushNotificationsEnabled,
     pushNotificationsDistributor,
     startupMinimized,
@@ -150,14 +150,14 @@ class GlobalOptions extends OptionsCollection {
     defaultValue: false,
   );
 
-  /// Whether the `ColorScheme` should keep the accent color provided by the Nextcloud server.
+  /// Whether the `ColorScheme` should keep the colors provided by the Nextcloud server.
   ///
   /// Defaults to `false` generating a Material 3 style color.
-  late final themeKeepOriginalAccentColor = ToggleOption(
+  late final themeUseNextcloudTheme = ToggleOption(
     storage: storage,
-    key: GlobalOptionKeys.themeKeepOriginalAccentColor,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeKeepOriginalAccentColor,
-    defaultValue: false,
+    key: GlobalOptionKeys.themeUseNextcloudTheme,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeUseNextcloudTheme,
+    defaultValue: true,
   );
 
   /// Whether to enable the push notifications plugin.
@@ -286,8 +286,8 @@ enum GlobalOptionKeys implements Storable {
   /// The storage key for [GlobalOptions.themeOLEDAsDark]
   themeOLEDAsDark._('theme-oled-as-dark'),
 
-  /// The storage key for [GlobalOptions.themeKeepOriginalAccentColor]
-  themeKeepOriginalAccentColor._('theme-keep-original-accent-color'),
+  /// The storage key for [GlobalOptions.themeUseNextcloudTheme]
+  themeUseNextcloudTheme._('theme-use-nextcloud-theme'),
 
   /// The storage key for [GlobalOptions.pushNotificationsEnabled]
   pushNotificationsEnabled._('push-notifications-enabled'),

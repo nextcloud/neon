@@ -252,7 +252,7 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsThemeOLEDAsDark => 'OLED theme as dark theme';
 
   @override
-  String get globalOptionsThemeKeepOriginalAccentColor => 'Keep the original accent color';
+  String get globalOptionsThemeUseNextcloudTheme => 'Use Nextcloud theme';
 
   @override
   String get globalOptionsPushNotificationsEnabled => 'Enabled';

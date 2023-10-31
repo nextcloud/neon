@@ -131,7 +131,7 @@
   "globalOptionsThemeModeDark": "Dark",
   "globalOptionsThemeModeAutomatic": "Automatic",
   "globalOptionsThemeOLEDAsDark": "OLED theme as dark theme",
-  "globalOptionsThemeKeepOriginalAccentColor": "Keep the original accent color",
+  "globalOptionsThemeUseNextcloudTheme": "Use Nextcloud theme",
   "globalOptionsPushNotificationsEnabled": "Enabled",
   "globalOptionsPushNotificationsEnabledDisabledNotice": "No UnifiedPush distributor could be found or you denied the permission for showing notifications. Please go to the app settings and allow notifications and go to https://unifiedpush.org/users/distributors and setup any of the listed distributors. Then re-open this app and you should be able to enable notifications",
   "globalOptionsPushNotificationsDistributor": "UnifiedPush Distributor",

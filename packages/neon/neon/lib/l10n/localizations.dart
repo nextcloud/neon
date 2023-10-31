@@ -509,11 +509,11 @@ abstract class NeonLocalizations {
   /// **'OLED theme as dark theme'**
   String get globalOptionsThemeOLEDAsDark;
 
-  /// No description provided for @globalOptionsThemeKeepOriginalAccentColor.
+  /// No description provided for @globalOptionsThemeUseNextcloudTheme.
   ///
   /// In en, this message translates to:
-  /// **'Keep the original accent color'**
-  String get globalOptionsThemeKeepOriginalAccentColor;
+  /// **'Use Nextcloud theme'**
+  String get globalOptionsThemeUseNextcloudTheme;
 
   /// No description provided for @globalOptionsPushNotificationsEnabled.
   ///

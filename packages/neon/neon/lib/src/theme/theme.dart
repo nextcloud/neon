@@ -13,16 +13,16 @@ class AppTheme {
   const AppTheme(
     this.nextcloudTheme, {
     required this.neonTheme,
-    final bool keepOriginalAccentColor = false,
+    final bool useNextcloudTheme = false,
     this.oledAsDark = false,
     this.appThemes,
-  }) : keepOriginalAccentColor = nextcloudTheme == null || keepOriginalAccentColor;
+  }) : useNextcloudTheme = nextcloudTheme == null || useNextcloudTheme;
 
   /// The theme provided by the Nextcloud server.
   final core.ThemingPublicCapabilities_Theming? nextcloudTheme;
 
-  /// Whether to force the use of the Nextcloud accent color.
-  final bool keepOriginalAccentColor;
+  /// Whether to use of the Nextcloud theme.
+  final bool useNextcloudTheme;
 
   /// Whether to use [NcColors.oledBackground] in the dark theme.
   final bool oledAsDark;
@@ -34,17 +34,18 @@ class AppTheme {
   final NeonTheme neonTheme;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
-    final primary = nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color) : neonTheme.colorScheme.primary;
-    final keepOriginalAccentColorOverride = keepOriginalAccentColor ? primary : null;
+    final primaryColor =
+        nextcloudTheme?.color != null ? HexColor(nextcloudTheme!.color) : neonTheme.colorScheme.primary;
+    final primaryColorOverride = useNextcloudTheme ? primaryColor : null;
     final oledBackgroundOverride = oledAsDark && brightness == Brightness.dark ? NcColors.oledBackground : null;
 
     return ColorScheme.fromSeed(
-      seedColor: primary,
+      seedColor: primaryColor,
       brightness: brightness,
     ).copyWith(
       background: oledBackgroundOverride,
-      primary: keepOriginalAccentColorOverride,
-      secondary: keepOriginalAccentColorOverride,
+      primary: primaryColorOverride,
+      secondary: primaryColorOverride,
     );
   }
 
