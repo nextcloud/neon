@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
-import 'package:universal_io/io.dart';
 
 import 'helper.dart';
 
@@ -12,12 +11,9 @@ void main() {
     'news',
     () {
       late DockerImage image;
-      late HttpServer rssServer;
       setUpAll(() async {
         image = await getDockerImage();
-        rssServer = await getRssServer();
       });
-      tearDownAll(() async => rssServer.close(force: true));
 
       late DockerContainer container;
       late TestNextcloudClient client;
@@ -29,12 +25,12 @@ void main() {
 
       Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([final int? folderID]) async =>
           client.news.addFeed(
-            url: 'http://host.docker.internal:${rssServer.port}/wikipedia.xml',
+            url: 'http://localhost/static/wikipedia.xml',
             folderId: folderID,
           );
 
       Future<DynamiteResponse<news.ListFeeds, void>> addNasaFeed() async => client.news.addFeed(
-            url: 'http://host.docker.internal:${rssServer.port}/nasa.xml',
+            url: 'http://localhost/static/nasa.xml',
           );
 
       test('Is supported', () async {
@@ -58,7 +54,7 @@ void main() {
         expect(response.body.starredCount, null);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
 
         response = await client.news.listFeeds();
         expect(response.statusCode, 200);
@@ -67,7 +63,7 @@ void main() {
         expect(response.body.starredCount, 0);
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
-        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
       });
 
       test('Delete feed', () async {
@@ -401,7 +397,7 @@ void main() {
         expect(response.body.newestItemId, isNotNull);
         expect(response.body.feeds, hasLength(1));
         expect(response.body.feeds[0].folderId, 1);
-        expect(response.body.feeds[0].url, 'http://host.docker.internal:${rssServer.port}/wikipedia.xml');
+        expect(response.body.feeds[0].url, 'http://localhost/static/wikipedia.xml');
       });
 
       test('Mark folder as read', () async {
@@ -429,29 +425,4 @@ void main() {
     retry: retryCount,
     timeout: timeout,
   );
-}
-
-Future<HttpServer> getRssServer() async {
-  final wikipediaRss = File('test/files/wikipedia.xml').readAsStringSync();
-  final nasaRss = File('test/files/nasa.xml').readAsStringSync();
-  while (true) {
-    try {
-      final port = randomPort();
-      final server = await HttpServer.bind(InternetAddress.anyIPv6, port);
-      unawaited(
-        server.forEach((final request) async {
-          switch (request.uri.path) {
-            case '/wikipedia.xml':
-              request.response.write(wikipediaRss);
-            case '/nasa.xml':
-              request.response.write(nasaRss);
-            default:
-              request.response.statusCode = HttpStatus.badRequest;
-          }
-          await request.response.close();
-        }),
-      );
-      return server;
-    } catch (_) {}
-  }
 }

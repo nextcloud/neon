@@ -13,7 +13,7 @@
     "external",
     "packages/file_icons/lib/src/data.dart",
     "packages/neon_lints/lib",
-    "packages/nextcloud/test/files"
+    "tool/dev/static"
   ],
   "dictionaries": [
     "bash",
