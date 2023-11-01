@@ -1,4 +1,28 @@
-library neon_news;
+/// The Neon client for the news app.
+///
+/// Add `NewsApp()` to your runNeon command to execute this app.
+///
+/// A basic implementation could look like:
+///```dart
+///Future<void> main() async {
+///  await runNeon(
+///    appImplementations: {
+///      NewsApp()
+///    },
+///    theme: NeonTheme(
+///      branding: Branding(
+///       name: 'News',
+///       logo: VectorGraphic(
+///         loader: AssetBytesLoader(
+///           'assets/logo.svg.vec',
+///         ),
+///       ),
+///      ),
+///    ),
+///  );
+/// }
+///```
+library news;
 
 import 'dart:async';
 

@@ -1,3 +1,27 @@
+/// The Neon client for the notifications app.
+///
+/// Add `NotificationsApp()` to your runNeon command to execute this app.
+///
+/// A basic implementation could look like:
+///```dart
+///Future<void> main() async {
+///  await runNeon(
+///    appImplementations: {
+///      NotificationsApp()
+///    },
+///    theme: NeonTheme(
+///      branding: Branding(
+///       name: 'Notifications',
+///       logo: VectorGraphic(
+///         loader: AssetBytesLoader(
+///           'assets/logo.svg.vec',
+///         ),
+///       ),
+///      ),
+///    ),
+///  );
+/// }
+///```
 library notifications;
 
 import 'dart:async';

@@ -10,6 +10,7 @@ classpath
 cloc
 commitlint
 dapplication
+dartdoc
 dists
 dockerenv
 endforeach
@@ -43,6 +44,7 @@ libindicator
 libsqlite
 mipmap
 ndebug
+nodoc
 nproc
 openrelay
 openrelayprojectsecret

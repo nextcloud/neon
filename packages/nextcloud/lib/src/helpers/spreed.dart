@@ -49,7 +49,7 @@ enum RoomType {
 
 /// Types of chat messages.
 ///
-/// Use [name] to get the string representation that is used in the API.
+/// Use `name` to get the string representation that is used in the API.
 /// See https://github.com/nextcloud/spreed/blob/master/lib/Chat/ChatManager.php.
 enum MessageType {
   /// Message.
@@ -79,7 +79,7 @@ enum MessageType {
 
 /// Actor types of chat messages.
 ///
-/// Use [name] to get the string representation that is used in the API.
+/// Use `name` to get the string representation that is used in the API.
 /// See https://github.com/nextcloud/spreed/blob/master/lib/Model/Attendee.php.
 enum ActorType {
   /// Logged-in users.
