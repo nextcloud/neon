@@ -156,8 +156,24 @@ Future<TestNextcloudClient> getTestClient(
   return client;
 }
 
-Future<DockerContainer> getDockerContainer(final DockerImage image) async {
-  late ProcessResult result;
+Future<DockerContainer> getDockerContainer() async {
+  const dockerImageName = 'ghcr.io/nextcloud/neon/dev';
+
+  var result = await runExecutableArguments(
+    'docker',
+    [
+      'images',
+      '-q',
+      dockerImageName,
+    ],
+  );
+  if (result.exitCode != 0) {
+    throw Exception('Querying docker image failed: ${result.stderr}');
+  }
+  if (result.stdout.toString().isEmpty) {
+    throw Exception('Missing docker image $dockerImageName. Please build it using ./tool/build-dev-container.sh');
+  }
+
   late int port;
   while (true) {
     port = randomPort();
@@ -171,7 +187,7 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
         'host.docker.internal:host-gateway',
         '-p',
         '$port:80',
-        image,
+        dockerImageName,
       ],
     );
     // 125 means the docker run command itself has failed which indicated the port is already used
@@ -188,35 +204,6 @@ Future<DockerContainer> getDockerContainer(final DockerImage image) async {
     id: result.stdout.toString().replaceAll('\n', ''),
     port: port,
   );
-}
-
-typedef DockerImage = String;
-
-Future<DockerImage> getDockerImage() async {
-  const dockerImageName = 'nextcloud-neon-dev';
-
-  final inputStream = StreamController<List<int>>();
-  final process = runExecutableArguments(
-    'docker',
-    [
-      'build',
-      '-t',
-      dockerImageName,
-      '-f',
-      '-',
-      '../../tool',
-    ],
-    stdin: inputStream.stream,
-  );
-  inputStream.add(utf8.encode(File('../../tool/Dockerfile.dev').readAsStringSync()));
-  await inputStream.close();
-
-  final result = await process;
-  if (result.exitCode != 0) {
-    throw Exception('Failed to build docker image');
-  }
-
-  return dockerImageName;
 }
 
 class TestNextcloudUser {
