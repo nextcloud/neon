@@ -18,10 +18,7 @@ void main() {
       late DockerContainer container;
       late TestNextcloudClient client1;
       setUp(() async {
-        container = await getDockerContainer(
-          image,
-          useApache: true,
-        );
+        container = await getDockerContainer(image);
         client1 = await getTestClient(container);
       });
       tearDown(() => container.destroy());
