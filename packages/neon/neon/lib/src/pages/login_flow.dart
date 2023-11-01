@@ -57,32 +57,34 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: ResultBuilder.behaviorSubject(
-              subject: bloc.init,
-              builder: (final context, final init) => Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  NeonLinearProgressIndicator(
-                    visible: init.isLoading,
-                  ),
-                  NeonError(
-                    init.error,
-                    onRetry: bloc.refresh,
-                  ),
-                  if (init.hasData) ...[
-                    Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
-                    const SizedBox(
-                      height: 10,
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: ResultBuilder.behaviorSubject(
+                subject: bloc.init,
+                builder: (final context, final init) => Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    NeonLinearProgressIndicator(
+                      visible: init.isLoading,
                     ),
-                    ElevatedButton(
-                      onPressed: bloc.refresh,
-                      child: Text(NeonLocalizations.of(context).loginOpenAgain),
+                    NeonError(
+                      init.error,
+                      onRetry: bloc.refresh,
                     ),
+                    if (init.hasData) ...[
+                      Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      ElevatedButton(
+                        onPressed: bloc.refresh,
+                        child: Text(NeonLocalizations.of(context).loginOpenAgain),
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),

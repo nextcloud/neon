@@ -141,42 +141,44 @@ class _NotesNotePageState extends State<NotesNotePage> {
               ),
             ],
           ),
-          body: GestureDetector(
-            onTap: () {
-              setState(() {
-                _showEditor = true;
-              });
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: _showEditor ? 20 : 10,
+          body: SafeArea(
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _showEditor = true;
+                });
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: _showEditor ? 20 : 10,
+                ),
+                color: Colors.transparent,
+                constraints: const BoxConstraints.expand(),
+                child: _showEditor
+                    ? TextField(
+                        controller: _contentController,
+                        focusNode: _contentFocusNode,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: const InputDecoration(
+                          border: InputBorder.none,
+                        ),
+                      )
+                    : SingleChildScrollView(
+                        child: MarkdownBody(
+                          data: _contentController.text,
+                          onTapLink: (final text, final href, final title) async {
+                            if (href != null) {
+                              await launchUrlString(
+                                href,
+                                mode: LaunchMode.externalApplication,
+                              );
+                            }
+                          },
+                        ),
+                      ),
               ),
-              color: Colors.transparent,
-              constraints: const BoxConstraints.expand(),
-              child: _showEditor
-                  ? TextField(
-                      controller: _contentController,
-                      focusNode: _contentFocusNode,
-                      keyboardType: TextInputType.multiline,
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
-                      ),
-                    )
-                  : SingleChildScrollView(
-                      child: MarkdownBody(
-                        data: _contentController.text,
-                        onTapLink: (final text, final href, final title) async {
-                          if (href != null) {
-                            await launchUrlString(
-                              href,
-                              mode: LaunchMode.externalApplication,
-                            );
-                          }
-                        },
-                      ),
-                    ),
             ),
           ),
         ),

@@ -51,41 +51,43 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: ConstrainedBox(
-              constraints: NeonDialogTheme.of(context).constraints,
-              child: ResultBuilder.behaviorSubject(
-                subject: bloc.state,
-                builder: (final context, final state) {
-                  final success = state.hasData && state.requireData.isSupported && !state.requireData.maintenance;
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: ConstrainedBox(
+                constraints: NeonDialogTheme.of(context).constraints,
+                child: ResultBuilder.behaviorSubject(
+                  subject: bloc.state,
+                  builder: (final context, final state) {
+                    final success = state.hasData && state.requireData.isSupported && !state.requireData.maintenance;
 
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      if (state.hasError) ...[
-                        NeonValidationTile(
-                          title: NeonError.getDetails(state.error).getText(context),
-                          state: ValidationState.failure,
-                        ),
-                      ],
-                      _buildServerVersionTile(state),
-                      _buildMaintenanceModeTile(state),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: ElevatedButton(
-                          onPressed: success ? _onContinue : bloc.refresh,
-                          child: Text(
-                            success
-                                ? NeonLocalizations.of(context).actionContinue
-                                : NeonLocalizations.of(context).actionRetry,
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (state.hasError) ...[
+                          NeonValidationTile(
+                            title: NeonError.getDetails(state.error).getText(context),
+                            state: ValidationState.failure,
+                          ),
+                        ],
+                        _buildServerVersionTile(state),
+                        _buildMaintenanceModeTile(state),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: ElevatedButton(
+                            onPressed: success ? _onContinue : bloc.refresh,
+                            child: Text(
+                              success
+                                  ? NeonLocalizations.of(context).actionContinue
+                                  : NeonLocalizations.of(context).actionRetry,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ),

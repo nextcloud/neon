@@ -59,8 +59,10 @@ class _RouteNotFoundPageState extends State<RouteNotFoundPage> {
             },
           ),
         ),
-        body: Center(
-          child: Text(NeonLocalizations.of(context).errorRouteNotFound(widget.uri.toString())),
+        body: SafeArea(
+          child: Center(
+            child: Text(NeonLocalizations.of(context).errorRouteNotFound(widget.uri.toString())),
+          ),
         ),
       );
 }

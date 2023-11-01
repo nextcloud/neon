@@ -233,7 +233,9 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
           ],
         ),
       ),
-      body: app.page,
+      body: SafeArea(
+        child: app.page,
+      ),
     );
 
     await Navigator.of(context).push(

@@ -23,41 +23,43 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: ReaderWidget(
-          codeFormat: Format.qrCode,
-          showGallery: false,
-          showToggleCamera: false,
-          showScannerOverlay: false,
-          tryHarder: true,
-          cropPercent: 0,
-          scanDelaySuccess: const Duration(seconds: 3),
-          onScan: (final code) async {
-            String? url;
-            try {
-              url = code.text;
-              if (url == null) {
-                throw const InvalidQRcodeException();
-              }
-              final match = LoginQRcode.tryParse(url);
-              if (match == null) {
-                throw const InvalidQRcodeException();
-              }
+        body: SafeArea(
+          child: ReaderWidget(
+            codeFormat: Format.qrCode,
+            showGallery: false,
+            showToggleCamera: false,
+            showScannerOverlay: false,
+            tryHarder: true,
+            cropPercent: 0,
+            scanDelaySuccess: const Duration(seconds: 3),
+            onScan: (final code) async {
+              String? url;
+              try {
+                url = code.text;
+                if (url == null) {
+                  throw const InvalidQRcodeException();
+                }
+                final match = LoginQRcode.tryParse(url);
+                if (match == null) {
+                  throw const InvalidQRcodeException();
+                }
 
-              LoginCheckServerStatusRoute.withCredentials(
-                serverUrl: match.serverURL,
-                loginName: match.username,
-                password: match.password,
-              ).pushReplacement(context);
-            } catch (e, s) {
-              if (_lastErrorURL != url) {
-                debugPrint(e.toString());
-                debugPrint(s.toString());
+                LoginCheckServerStatusRoute.withCredentials(
+                  serverUrl: match.serverURL,
+                  loginName: match.username,
+                  password: match.password,
+                ).pushReplacement(context);
+              } catch (e, s) {
+                if (_lastErrorURL != url) {
+                  debugPrint(e.toString());
+                  debugPrint(s.toString());
 
-                _lastErrorURL = url;
-                NeonError.showSnackbar(context, e);
+                  _lastErrorURL = url;
+                  NeonError.showSnackbar(context, e);
+                }
               }
-            }
-          },
+            },
+          ),
         ),
       );
 }

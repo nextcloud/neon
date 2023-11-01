@@ -167,28 +167,30 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
               ],
             ],
           ),
-          body: widget.useWebView
-              ? WebViewWidget(
-                  controller: _webviewController!,
-                )
-              : SingleChildScrollView(
-                  padding: const EdgeInsets.all(10),
-                  child: Html(
-                    data: widget.bodyData,
-                    onLinkTap: (
-                      final url,
-                      final attributes,
-                      final element,
-                    ) async {
-                      if (url != null) {
-                        await launchUrlString(
-                          url,
-                          mode: LaunchMode.externalApplication,
-                        );
-                      }
-                    },
+          body: SafeArea(
+            child: widget.useWebView
+                ? WebViewWidget(
+                    controller: _webviewController!,
+                  )
+                : SingleChildScrollView(
+                    padding: const EdgeInsets.all(10),
+                    child: Html(
+                      data: widget.bodyData,
+                      onLinkTap: (
+                        final url,
+                        final attributes,
+                        final element,
+                      ) async {
+                        if (url != null) {
+                          await launchUrlString(
+                            url,
+                            mode: LaunchMode.externalApplication,
+                          );
+                        }
+                      },
+                    ),
                   ),
-                ),
+          ),
         ),
       );
 }

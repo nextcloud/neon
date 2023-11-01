@@ -157,7 +157,9 @@ class _HomePageState extends State<HomePage> {
                   return const SizedBox();
                 }
 
-                return activeAppIDSnapshot.requireData.page;
+                return SafeArea(
+                  child: activeAppIDSnapshot.requireData.page,
+                );
               },
             );
           },
