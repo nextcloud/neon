@@ -54,57 +54,59 @@ class _LoginCheckAccountPageState extends State<LoginCheckAccountPage> {
   @override
   Widget build(final BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: ConstrainedBox(
-              constraints: NeonDialogTheme.of(context).constraints,
-              child: ResultBuilder.behaviorSubject(
-                subject: bloc.state,
-                builder: (final context, final state) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (state.hasError) ...[
-                      Builder(
-                        builder: (final context) {
-                          final details = NeonError.getDetails(state.error);
-                          return NeonValidationTile(
-                            title: details.isUnauthorized
-                                ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
-                                : details.getText(context),
-                            state: ValidationState.failure,
-                          );
-                        },
-                      ),
-                    ],
-                    _buildAccountTile(state),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: ElevatedButton(
-                        onPressed: state.hasData
-                            ? () {
-                                NeonProvider.of<AccountsBloc>(context)
-                                  ..updateAccount(state.requireData)
-                                  ..setActiveAccount(state.requireData);
+        body: SafeArea(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: ConstrainedBox(
+                constraints: NeonDialogTheme.of(context).constraints,
+                child: ResultBuilder.behaviorSubject(
+                  subject: bloc.state,
+                  builder: (final context, final state) => Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      if (state.hasError) ...[
+                        Builder(
+                          builder: (final context) {
+                            final details = NeonError.getDetails(state.error);
+                            return NeonValidationTile(
+                              title: details.isUnauthorized
+                                  ? NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch
+                                  : details.getText(context),
+                              state: ValidationState.failure,
+                            );
+                          },
+                        ),
+                      ],
+                      _buildAccountTile(state),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: ElevatedButton(
+                          onPressed: state.hasData
+                              ? () {
+                                  NeonProvider.of<AccountsBloc>(context)
+                                    ..updateAccount(state.requireData)
+                                    ..setActiveAccount(state.requireData);
 
-                                const HomeRoute().go(context);
-                              }
-                            : () {
-                                if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
-                                  Navigator.pop(context);
-                                  return;
+                                  const HomeRoute().go(context);
                                 }
+                              : () {
+                                  if (state.hasError && NeonError.getDetails(state.error).isUnauthorized) {
+                                    Navigator.pop(context);
+                                    return;
+                                  }
 
-                                unawaited(bloc.refresh());
-                              },
-                        child: Text(
-                          state.hasData
-                              ? NeonLocalizations.of(context).actionContinue
-                              : NeonLocalizations.of(context).actionRetry,
+                                  unawaited(bloc.refresh());
+                                },
+                          child: Text(
+                            state.hasData
+                                ? NeonLocalizations.of(context).actionContinue
+                                : NeonLocalizations.of(context).actionRetry,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

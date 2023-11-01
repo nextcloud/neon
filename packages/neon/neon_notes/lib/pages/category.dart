@@ -16,9 +16,11 @@ class NotesCategoryPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
         ),
-        body: NotesView(
-          bloc: bloc,
-          category: category.name,
+        body: SafeArea(
+          child: NotesView(
+            bloc: bloc,
+            category: category.name,
+          ),
         ),
         floatingActionButton: NotesFloatingActionButton(
           bloc: bloc,

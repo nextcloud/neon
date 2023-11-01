@@ -51,72 +51,74 @@ class _LoginPageState extends State<LoginPage> {
               leading: const CloseButton(),
             )
           : null,
-      body: Center(
-        child: ConstrainedBox(
-          constraints: NeonDialogTheme.of(context).constraints,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(10),
-            primary: true,
-            child: Column(
-              children: [
-                ExcludeSemantics(
-                  child: branding.logo,
-                ),
-                Text(
-                  branding.name,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                if (branding.showLoginWithNextcloud) ...[
-                  const SizedBox(
-                    height: 10,
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: NeonDialogTheme.of(context).constraints,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(10),
+              primary: true,
+              child: Column(
+                children: [
+                  ExcludeSemantics(
+                    child: branding.logo,
                   ),
-                  Text(NeonLocalizations.of(context).loginWorksWith),
-                  const SizedBox(
-                    height: 10,
+                  Text(
+                    branding.name,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  Semantics(
-                    label: NeonLocalizations.of(context).nextcloud,
-                    child: const NextcloudLogo(),
-                  ),
-                ],
-                const SizedBox(
-                  height: 50,
-                ),
-                Form(
-                  key: _formKey,
-                  child: TextFormField(
-                    focusNode: _focusNode,
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      hintText: 'https://...',
-                      labelText: NeonLocalizations.of(context).loginUsingServerAddress,
-                      suffixIcon: IconButton(
-                        icon: const Icon(Icons.arrow_forward),
-                        onPressed: () {
-                          login(_controller.text);
-                        },
-                      ),
+                  if (branding.showLoginWithNextcloud) ...[
+                    const SizedBox(
+                      height: 10,
                     ),
-                    keyboardType: TextInputType.url,
-                    validator: (final input) => validateHttpUrl(context, input),
-                    onFieldSubmitted: login,
-                    autofillHints: const [AutofillHints.url],
-                  ),
-                ),
-                if (NeonPlatform.instance.canUseCamera) ...[
+                    Text(NeonLocalizations.of(context).loginWorksWith),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Semantics(
+                      label: NeonLocalizations.of(context).nextcloud,
+                      child: const NextcloudLogo(),
+                    ),
+                  ],
                   const SizedBox(
                     height: 50,
                   ),
-                  IconButton(
-                    tooltip: NeonLocalizations.of(context).loginUsingQRcode,
-                    icon: const Icon(
-                      Icons.qr_code_scanner_rounded,
-                      size: 60,
+                  Form(
+                    key: _formKey,
+                    child: TextFormField(
+                      focusNode: _focusNode,
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        hintText: 'https://...',
+                        labelText: NeonLocalizations.of(context).loginUsingServerAddress,
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.arrow_forward),
+                          onPressed: () {
+                            login(_controller.text);
+                          },
+                        ),
+                      ),
+                      keyboardType: TextInputType.url,
+                      validator: (final input) => validateHttpUrl(context, input),
+                      onFieldSubmitted: login,
+                      autofillHints: const [AutofillHints.url],
                     ),
-                    onPressed: () => const LoginQRcodeRoute().go(context),
                   ),
+                  if (NeonPlatform.instance.canUseCamera) ...[
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    IconButton(
+                      tooltip: NeonLocalizations.of(context).loginUsingQRcode,
+                      icon: const Icon(
+                        Icons.qr_code_scanner_rounded,
+                        size: 60,
+                      ),
+                      onPressed: () => const LoginQRcodeRoute().go(context),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
         ),

@@ -370,10 +370,12 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appBar,
-      body: Center(
-        child: ConstrainedBox(
-          constraints: NeonDialogTheme.of(context).constraints,
-          child: body,
+      body: SafeArea(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: NeonDialogTheme.of(context).constraints,
+            child: body,
+          ),
         ),
       ),
     );

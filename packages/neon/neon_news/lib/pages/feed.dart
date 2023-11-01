@@ -16,15 +16,17 @@ class NewsFeedPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(feed.title),
         ),
-        body: NewsArticlesView(
-          bloc: NewsArticlesBloc(
-            bloc,
-            bloc.options,
-            bloc.account,
-            id: feed.id,
-            listType: ListType.feed,
+        body: SafeArea(
+          child: NewsArticlesView(
+            bloc: NewsArticlesBloc(
+              bloc,
+              bloc.options,
+              bloc.account,
+              id: feed.id,
+              listType: ListType.feed,
+            ),
+            newsBloc: bloc,
           ),
-          newsBloc: bloc,
         ),
       );
 }

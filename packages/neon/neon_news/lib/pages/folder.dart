@@ -16,9 +16,11 @@ class NewsFolderPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(folder.name),
         ),
-        body: NewsFolderView(
-          bloc: bloc,
-          folder: folder,
+        body: SafeArea(
+          child: NewsFolderView(
+            bloc: bloc,
+            folder: folder,
+          ),
         ),
         floatingActionButton: NewsFeedFloatingActionButton(
           bloc: bloc,
