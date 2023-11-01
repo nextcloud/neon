@@ -12,16 +12,10 @@ void main() {
   group(
     'spreed',
     () {
-      late DockerImage image;
-      setUpAll(() async => image = await getDockerImage());
-
       late DockerContainer container;
       late TestNextcloudClient client1;
       setUp(() async {
-        container = await getDockerContainer(
-          image,
-          useApache: true,
-        );
+        container = await getDockerContainer();
         client1 = await getTestClient(container);
       });
       tearDown(() => container.destroy());

@@ -1,9 +1,7 @@
-ARG SERVER_VERSION=27.1.3@sha256:4ab3159b25310ffdb699f532d45f706d5d949100ed7ac11820d83467f29678b9
+ARG SERVER_VERSION=27.1.3-fpm-alpine@sha256:70ddd4abb804bc061a4f882a81cc62a219b262c0ed1784439e66b091ef26104b
 FROM nextcloud:$SERVER_VERSION
 
 WORKDIR /usr/src/nextcloud
-RUN chown -R www-data:www-data .
-USER www-data
 
 RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com
 RUN ./occ config:system:set allow_local_remote_servers --value=true
@@ -30,8 +28,11 @@ RUN install_app_version spreed https://github.com/nextcloud-releases/spreed/rele
 RUN ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
 
 RUN ./occ app:enable password_policy
-RUN (sh /entrypoint.sh php -S 0.0.0.0:8080 &) && \
-    until curl -s -o /dev/null http://localhost:8080/status.php; do true; done && \
+RUN (sh /entrypoint.sh php -S 0.0.0.0:80 &) && \
+    until curl -s -o /dev/null http://localhost/status.php; do true; done && \
     # Do not setup the demo user here
-    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost:8080/ocs/v2.php/cloud/user; done
-COPY --chown=www-data:www-data overlay /usr/src/nextcloud/
+    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
+COPY --chown=www-data:www-data dev/static /usr/src/nextcloud/static
+
+ENV PHP_CLI_SERVER_WORKERS=10
+CMD ["php", "-S", "0.0.0.0:80"]

@@ -38,8 +38,7 @@ You can read the full documentation at https://www.conventionalcommits.org.
 ## Tools
 We maintain a collection of scripts in `./tool/`.
 They range from setting up a local Nextcloud server (`./tool/dev.sh`) to generating assets.
-Be aware that due to limitations in Apache the dev server will crash when you resize the terminal window.
-    
+
 ## Monorepo
 For easier development we use a monorepo structure.
 This means that we have multiple packages in one git repository.

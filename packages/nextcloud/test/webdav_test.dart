@@ -26,14 +26,11 @@ void main() {
   group(
     'webdav',
     () {
-      late DockerImage image;
-      setUpAll(() async => image = await getDockerImage());
-
       late DockerContainer container;
       late TestNextcloudClient client;
 
       setUp(() async {
-        container = await getDockerContainer(image);
+        container = await getDockerContainer();
         client = await getTestClient(container);
       });
       tearDown(() => container.destroy());

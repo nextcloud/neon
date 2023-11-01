@@ -7,13 +7,10 @@ import 'helper.dart';
 
 void main() {
   group('notifications', () {
-    late DockerImage image;
-    setUpAll(() async => image = await getDockerImage());
-
     late DockerContainer container;
     late TestNextcloudClient client;
     setUp(() async {
-      container = await getDockerContainer(image);
+      container = await getDockerContainer();
       client = await getTestClient(
         container,
         username: 'admin',
@@ -103,13 +100,10 @@ void main() {
     });
 
     group('Push', () {
-      late DockerImage image;
-      setUpAll(() async => image = await getDockerImage());
-
       late DockerContainer container;
       late TestNextcloudClient client;
       setUp(() async {
-        container = await getDockerContainer(image);
+        container = await getDockerContainer();
         client = await getTestClient(
           container,
           username: 'admin',
