@@ -61,15 +61,14 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (notification.message.isNotEmpty) ...[
-            Text(
-              notification.message,
-              overflow: TextOverflow.ellipsis,
+          if (notification.message.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Text(
+                notification.message,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-          ],
           RelativeTime(
             date: DateTime.parse(notification.datetime),
           ),
