@@ -94,7 +94,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                                 NeonError(
                                   appImplementations.error,
                                   onRetry: appsBloc.refresh,
-                                  onlyIcon: true,
+                                  type: NeonErrorType.iconOnly,
                                 ),
                               ],
                               if (appImplementations.isLoading) ...[

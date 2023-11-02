@@ -186,7 +186,7 @@ class _NeonCachedImageState extends State<NeonCachedImage> {
         onRetry: () {
           setState(() {});
         },
-        onlyIcon: true,
+        type: NeonErrorType.iconOnly,
         iconSize: widget.size?.shortestSide,
       );
 }
