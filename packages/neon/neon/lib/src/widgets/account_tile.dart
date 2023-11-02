@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
@@ -5,6 +7,7 @@ import 'package:neon/src/bloc/result.dart';
 import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/utils/provider.dart';
+import 'package:neon/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
 import 'package:neon/src/widgets/user_avatar.dart';
@@ -27,23 +30,11 @@ class NeonAccountTile extends StatelessWidget {
   /// {@endtemplate}
   final Account account;
 
-  /// {@template neon.AccountTile.trailing}
-  /// A widget to display after the title.
-  ///
-  /// Typically an [Icon] widget.
-  ///
-  /// To show right-aligned metadata (assuming left-to-right reading order;
-  /// left-aligned for right-to-left reading order), consider using a [Row] with
-  /// [CrossAxisAlignment.baseline] alignment whose first item is [Expanded] and
-  /// whose second child is the metadata text, instead of using the [trailing]
-  /// property.
-  /// {@endtemplate}
+  /// {@macro neon.AdaptiveListTile.trailing}
   final Widget? trailing;
 
-  /// {@template neon.AccountTile.onTap}
-  /// Called when the user taps this list tile.
-  /// {@endtemplate}
-  final GestureTapCallback? onTap;
+  /// {@macro neon.AdaptiveListTile.onTap}
+  final FutureOr<void> Function()? onTap;
 
   /// Whether to also show the status on the avatar.
   ///
@@ -55,7 +46,7 @@ class NeonAccountTile extends StatelessWidget {
   Widget build(final BuildContext context) {
     final userDetailsBloc = NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(account);
 
-    return ListTile(
+    return AdaptiveListTile(
       onTap: onTap,
       leading: NeonUserAvatar(
         account: account,

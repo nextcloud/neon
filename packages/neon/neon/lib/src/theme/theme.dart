@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/src/theme/colors.dart';
@@ -90,6 +91,10 @@ class AppTheme {
       dividerTheme: _dividerTheme,
       scrollbarTheme: _scrollbarTheme,
       inputDecorationTheme: _inputDecorationTheme,
+      cupertinoOverrideTheme: CupertinoThemeData(
+        brightness: brightness,
+        textTheme: const CupertinoTextThemeData(),
+      ),
       extensions: [
         neonTheme,
         ...?appThemes,
