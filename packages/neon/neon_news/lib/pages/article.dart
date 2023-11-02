@@ -146,7 +146,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   );
                 },
               ),
-              if (widget.url != null) ...[
+              if (widget.url != null)
                 IconButton(
                   onPressed: () async {
                     await launchUrlString(
@@ -157,6 +157,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   tooltip: NewsLocalizations.of(context).articleOpenLink,
                   icon: const Icon(Icons.open_in_new),
                 ),
+              if (widget.url != null)
                 IconButton(
                   onPressed: () async {
                     await Share.share(await _getURL());
@@ -164,7 +165,6 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                   tooltip: NewsLocalizations.of(context).articleShare,
                   icon: const Icon(Icons.share),
                 ),
-              ],
             ],
           ),
           body: SafeArea(

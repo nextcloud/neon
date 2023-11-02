@@ -53,28 +53,25 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                       submit();
                     },
                   ),
-                  if (widget.category == null) ...[
+                  if (widget.category == null && notes.hasError)
                     Center(
                       child: NeonError(
                         notes.error,
                         onRetry: widget.bloc.refresh,
                       ),
                     ),
-                    Center(
-                      child: NeonLinearProgressIndicator(
-                        visible: notes.isLoading,
-                      ),
+                  if (widget.category == null && notes.isLoading)
+                    const Center(
+                      child: NeonLinearProgressIndicator(),
                     ),
-                    if (notes.hasData) ...[
-                      NotesCategorySelect(
-                        categories: notes.requireData.map((final note) => note.category).toSet().toList(),
-                        onChanged: (final category) {
-                          selectedCategory = category;
-                        },
-                        onSubmitted: submit,
-                      ),
-                    ],
-                  ],
+                  if (widget.category == null && notes.hasData)
+                    NotesCategorySelect(
+                      categories: notes.requireData.map((final note) => note.category).toSet().toList(),
+                      onChanged: (final category) {
+                        selectedCategory = category;
+                      },
+                      onSubmitted: submit,
+                    ),
                   ElevatedButton(
                     onPressed: submit,
                     child: Text(NotesLocalizations.of(context).noteCreate),

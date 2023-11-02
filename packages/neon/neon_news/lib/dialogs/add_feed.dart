@@ -71,30 +71,29 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
                       submit();
                     },
                   ),
-                  if (widget.folderID == null) ...[
+                  if (widget.folderID == null && folders.hasError)
                     Center(
                       child: NeonError(
                         folders.error,
                         onRetry: widget.bloc.refresh,
                       ),
                     ),
+                  if (widget.folderID == null)
                     Center(
                       child: NeonLinearProgressIndicator(
                         visible: folders.isLoading,
                       ),
                     ),
-                    if (folders.hasData) ...[
-                      NewsFolderSelect(
-                        folders: folders.requireData,
-                        value: folder,
-                        onChanged: (final f) {
-                          setState(() {
-                            folder = f;
-                          });
-                        },
-                      ),
-                    ],
-                  ],
+                  if (widget.folderID == null && folders.hasData)
+                    NewsFolderSelect(
+                      folders: folders.requireData,
+                      value: folder,
+                      onChanged: (final f) {
+                        setState(() {
+                          folder = f;
+                        });
+                      },
+                    ),
                   ElevatedButton(
                     onPressed: folders.hasData ? submit : null,
                     child: Text(NewsLocalizations.of(context).feedAdd),

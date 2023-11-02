@@ -63,30 +63,20 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                       isExpanded: true,
                       value: selectedFilterTypeSnapshot.data,
                       items: [
-                        FilterType.all,
-                        FilterType.unread,
-                        if (widget.bloc.listType == null) ...[
-                          FilterType.starred,
-                        ],
-                      ].map<DropdownMenuItem<FilterType>>(
-                        (final a) {
-                          late final String label;
-                          switch (a) {
-                            case FilterType.all:
-                              label = NewsLocalizations.of(context).articlesFilterAll;
-                            case FilterType.unread:
-                              label = NewsLocalizations.of(context).articlesFilterUnread;
-                            case FilterType.starred:
-                              label = NewsLocalizations.of(context).articlesFilterStarred;
-                            default:
-                              throw Exception('FilterType $a should not be shown');
-                          }
-                          return DropdownMenuItem(
-                            value: a,
-                            child: Text(label),
-                          );
-                        },
-                      ).toList(),
+                        _buildDropdownItem(
+                          FilterType.all,
+                          NewsLocalizations.of(context).articlesFilterAll,
+                        ),
+                        _buildDropdownItem(
+                          FilterType.unread,
+                          NewsLocalizations.of(context).articlesFilterUnread,
+                        ),
+                        if (widget.bloc.listType == null)
+                          _buildDropdownItem(
+                            FilterType.starred,
+                            NewsLocalizations.of(context).articlesFilterStarred,
+                          ),
+                      ],
                       onChanged: (final value) {
                         widget.bloc.setFilterType(value!);
                       },
@@ -97,6 +87,11 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             ),
           ),
         ),
+      );
+
+  DropdownMenuItem<FilterType> _buildDropdownItem(final FilterType value, final String label) => DropdownMenuItem(
+        value: value,
+        child: Text(label),
       );
 
   Widget _buildArticle(
@@ -116,13 +111,12 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                     : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
               ),
             ),
-            if (article.mediaThumbnail != null) ...[
+            if (article.mediaThumbnail != null)
               NeonUrlImage(
                 url: article.mediaThumbnail!,
                 size: const Size(100, 50),
                 fit: BoxFit.cover,
               ),
-            ],
           ],
         ),
         subtitle: Row(
