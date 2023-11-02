@@ -39,23 +39,7 @@ class NextcloudAppSettingsPage extends StatelessWidget {
     );
 
     final body = SettingsList(
-      categories: [
-        for (final category in [...appImplementation.options.categories, null]) ...[
-          if (appImplementation.options.options.where((final option) => option.category == category).isNotEmpty) ...[
-            SettingsCategory(
-              title: Text(
-                category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
-              ),
-              tiles: [
-                for (final option
-                    in appImplementation.options.options.where((final option) => option.category == category)) ...[
-                  OptionSettingsTile(option: option),
-                ],
-              ],
-            ),
-          ],
-        ],
-      ],
+      categories: _buildCategories(context).toList(),
     );
 
     return Scaffold(
@@ -70,5 +54,26 @@ class NextcloudAppSettingsPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Iterable<Widget> _buildCategories(final BuildContext context) sync* {
+    final appOptions = appImplementation.options;
+    final categories = [...appOptions.categories, null];
+
+    for (final category in categories) {
+      final matchedOptions = appOptions.options.where((final option) => option.category == category);
+      if (matchedOptions.isNotEmpty) {
+        yield SettingsCategory(
+          title: Text(
+            category != null ? category.name(context) : NeonLocalizations.of(context).optionsCategoryOther,
+          ),
+          tiles: [
+            ...matchedOptions.map(
+              (final option) => OptionSettingsTile(option: option),
+            ),
+          ],
+        );
+      }
+    }
   }
 }

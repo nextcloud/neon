@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
 import 'package:neon/l10n/localizations.dart';
 import 'package:neon/src/bloc/result.dart';
@@ -72,53 +73,47 @@ class _NeonAppBarState extends State<NeonAppBar> {
             stream: unifiedSearchBloc.enabled,
             builder: (final context, final unifiedSearchEnabledSnapshot) {
               final unifiedSearchEnabled = unifiedSearchEnabledSnapshot.data ?? false;
-              return AppBar(
-                title: unifiedSearchEnabled
-                    ? null
-                    : Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              if (activeAppSnapshot.hasData) ...[
-                                Flexible(
-                                  child: Text(
-                                    activeAppSnapshot.requireData.name(context),
-                                  ),
-                                ),
-                              ],
-                              if (appImplementations.hasError) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                NeonError(
-                                  appImplementations.error,
-                                  onRetry: appsBloc.refresh,
-                                  type: NeonErrorType.iconOnly,
-                                ),
-                              ],
-                              if (appImplementations.isLoading) ...[
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Expanded(
-                                  child: NeonLinearProgressIndicator(
-                                    color: Theme.of(context).appBarTheme.foregroundColor,
-                                  ),
-                                ),
-                              ],
-                            ],
-                          ),
-                          if (accounts.length > 1) ...[
-                            Text(
-                              account.humanReadableID,
-                              style: Theme.of(context).textTheme.bodySmall,
-                            ),
-                          ],
-                        ],
+
+              Widget header = Row(
+                children: [
+                  if (activeAppSnapshot.hasData)
+                    Flexible(
+                      child: Text(
+                        activeAppSnapshot.requireData.name(context),
                       ),
+                    ),
+                  if (appImplementations.hasError)
+                    NeonError(
+                      appImplementations.error,
+                      onRetry: appsBloc.refresh,
+                      type: NeonErrorType.iconOnly,
+                    ),
+                  if (appImplementations.isLoading)
+                    Expanded(
+                      child: NeonLinearProgressIndicator(
+                        color: Theme.of(context).appBarTheme.foregroundColor,
+                      ),
+                    ),
+                ].intersperse(const SizedBox(width: 8)).toList(),
+              );
+
+              if (accounts.length > 1) {
+                header = Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    header,
+                    Text(
+                      account.humanReadableID,
+                      style: Theme.of(context).textTheme.bodySmall,
+                    ),
+                  ],
+                );
+              }
+
+              return AppBar(
+                title: unifiedSearchEnabled ? null : header,
                 actions: [
-                  if (unifiedSearchEnabled) ...[
+                  if (unifiedSearchEnabled)
                     Flexible(
                       child: SearchBar(
                         focusNode: _searchBarFocusNode,
@@ -137,10 +132,9 @@ class _NeonAppBarState extends State<NeonAppBar> {
                           ),
                         ],
                       ),
-                    ),
-                  ] else ...[
+                    )
+                  else
                     const SearchIconButton(),
-                  ],
                   const NotificationIconButton(),
                   const AccountSwitcherButton(),
                 ],
@@ -217,21 +211,25 @@ class _NotificationIconButtonState extends State<NotificationIconButton> {
   Future<void> _openNotifications(
     final NotificationsAppInterface app,
   ) async {
+    Widget title = Text(app.name(context));
+
+    if (_accounts.length > 1) {
+      title = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          title,
+          Text(
+            _account.humanReadableID,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+        ],
+      );
+    }
+
     final page = Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(app.name(context)),
-            if (_accounts.length > 1) ...[
-              Text(
-                _account.humanReadableID,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ],
-          ],
-        ),
+        title: title,
       ),
       body: SafeArea(
         child: app.page,

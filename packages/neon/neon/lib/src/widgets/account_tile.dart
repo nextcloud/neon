@@ -64,10 +64,11 @@ class NeonAccountTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-            if (userDetails.isLoading)
-              const Expanded(
-                child: NeonLinearProgressIndicator(),
+            Expanded(
+              child: NeonLinearProgressIndicator(
+                visible: userDetails.isLoading,
               ),
+            ),
             if (userDetails.hasError)
               NeonError(
                 userDetails.error,

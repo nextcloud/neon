@@ -6,6 +6,7 @@ import 'package:neon/src/blocs/login_flow.dart';
 import 'package:neon/src/router.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/linear_progress_indicator.dart';
+import 'package:nextcloud/core.dart' as core;
 import 'package:url_launcher/url_launcher_string.dart';
 
 @internal
@@ -65,29 +66,35 @@ class _LoginFlowPageState extends State<LoginFlowPage> {
                 subject: bloc.init,
                 builder: (final context, final init) => Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    NeonLinearProgressIndicator(
-                      visible: init.isLoading,
-                    ),
-                    NeonError(
-                      init.error,
-                      onRetry: bloc.refresh,
-                    ),
-                    if (init.hasData) ...[
-                      Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      ElevatedButton(
-                        onPressed: bloc.refresh,
-                        child: Text(NeonLocalizations.of(context).loginOpenAgain),
-                      ),
-                    ],
-                  ],
+                  children: _buildChildren(init).toList(),
                 ),
               ),
             ),
           ),
         ),
       );
+
+  Iterable<Widget> _buildChildren(final Result<core.LoginFlowV2> init) sync* {
+    yield NeonLinearProgressIndicator(
+      visible: init.isLoading,
+    );
+
+    if (init.hasError) {
+      yield NeonError(
+        init.error,
+        onRetry: bloc.refresh,
+      );
+    }
+
+    if (init.hasData) {
+      yield Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow);
+      yield Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: ElevatedButton(
+          onPressed: bloc.refresh,
+          child: Text(NeonLocalizations.of(context).loginOpenAgain),
+        ),
+      );
+    }
+  }
 }

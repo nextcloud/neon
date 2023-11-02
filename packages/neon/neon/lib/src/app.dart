@@ -120,13 +120,13 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
               await tray.trayManager.setContextMenu(
                 tray.Menu(
                   items: [
-                    for (final app in _appImplementations) ...[
-                      tray.MenuItem(
+                    ..._appImplementations.map(
+                      (final app) => tray.MenuItem(
                         key: 'app_${app.id}',
                         label: app.nameFromLocalization(localizations),
                         // TODO: Add icons which should work on macOS and Windows
                       ),
-                    ],
+                    ),
                     tray.MenuItem.separator(),
                     tray.MenuItem(
                       key: 'show_hide',

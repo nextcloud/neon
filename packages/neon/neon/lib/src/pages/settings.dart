@@ -14,7 +14,6 @@ import 'package:neon/src/settings/widgets/custom_settings_tile.dart';
 import 'package:neon/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon/src/settings/widgets/settings_category.dart';
 import 'package:neon/src/settings/widgets/settings_list.dart';
-import 'package:neon/src/settings/widgets/settings_tile.dart';
 import 'package:neon/src/settings/widgets/text_settings_tile.dart';
 import 'package:neon/src/theme/branding.dart';
 import 'package:neon/src/theme/dialog.dart';
@@ -89,7 +88,6 @@ class _SettingsPageState extends State<SettingsPage> {
     final globalOptions = NeonProvider.of<GlobalOptions>(context);
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
     final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
-    final branding = Branding.of(context);
 
     final appBar = AppBar(
       title: Text(NeonLocalizations.of(context).settings),
@@ -116,24 +114,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final body = SettingsList(
       initialCategory: widget.initialCategory?.name,
       categories: [
-        SettingsCategory(
-          hasLeading: true,
-          title: Text(NeonLocalizations.of(context).settingsApps),
-          key: ValueKey(SettingsCategories.apps.name),
-          tiles: <SettingsTile>[
-            for (final appImplementation in appImplementations) ...[
-              if (appImplementation.options.options.isNotEmpty) ...[
-                CustomSettingsTile(
-                  leading: appImplementation.buildIcon(),
-                  title: Text(appImplementation.name(context)),
-                  onTap: () {
-                    NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
-                  },
-                ),
-              ],
-            ],
-          ],
-        ),
+        buildAppCategory(),
         SettingsCategory(
           title: Text(NeonLocalizations.of(context).optionsCategoryTheme),
           key: ValueKey(SettingsCategories.theme.name),
@@ -159,7 +140,7 @@ class _SettingsPageState extends State<SettingsPage> {
           ],
         ),
         if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(),
-        if (NeonPlatform.instance.canUseWindowManager) ...[
+        if (NeonPlatform.instance.canUseWindowManager)
           SettingsCategory(
             title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
             key: ValueKey(SettingsCategories.startup.name),
@@ -172,8 +153,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-        ],
-        if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray) ...[
+        if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray)
           SettingsCategory(
             title: Text(NeonLocalizations.of(context).optionsCategorySystemTray),
             key: ValueKey(SettingsCategories.systemTray.name),
@@ -186,120 +166,8 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
             ],
           ),
-        ],
         ...buildAccountCategory(),
-        SettingsCategory(
-          hasLeading: true,
-          title: Text(NeonLocalizations.of(context).optionsCategoryOther),
-          key: ValueKey(SettingsCategories.other.name),
-          tiles: [
-            if (branding.sourceCodeURL != null)
-              CustomSettingsTile(
-                leading: Icon(
-                  Icons.code,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                title: Text(NeonLocalizations.of(context).sourceCode),
-                onTap: () async {
-                  await launchUrlString(
-                    branding.sourceCodeURL!,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-            if (branding.issueTrackerURL != null)
-              CustomSettingsTile(
-                leading: Icon(
-                  MdiIcons.textBoxEditOutline,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                title: Text(NeonLocalizations.of(context).issueTracker),
-                onTap: () async {
-                  await launchUrlString(
-                    branding.issueTrackerURL!,
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-              ),
-            CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.scriptText,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              title: Text(NeonLocalizations.of(context).licenses),
-              onTap: () async {
-                showLicensePage(
-                  context: context,
-                  applicationName: branding.name,
-                  applicationIcon: branding.logo,
-                  applicationLegalese: branding.legalese,
-                  applicationVersion: NeonProvider.of<PackageInfo>(context).version,
-                );
-              },
-            ),
-            CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.export,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              title: Text(NeonLocalizations.of(context).settingsExport),
-              onTap: () async {
-                final settingsExportHelper = _buildSettingsExportHelper(context);
-
-                try {
-                  final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
-
-                  final data = settingsExportHelper.exportToFile();
-                  await saveFileWithPickDialog(fileName, data);
-                } catch (e, s) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
-                  if (mounted) {
-                    NeonError.showSnackbar(context, e);
-                  }
-                }
-              },
-            ),
-            CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.import,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              title: Text(NeonLocalizations.of(context).settingsImport),
-              onTap: () async {
-                final settingsExportHelper = _buildSettingsExportHelper(context);
-
-                try {
-                  final result = await FilePicker.platform.pickFiles(
-                    withReadStream: true,
-                  );
-
-                  if (result == null) {
-                    return;
-                  }
-
-                  if (!result.files.single.path!.endsWith('.json')) {
-                    if (mounted) {
-                      NeonError.showSnackbar(
-                        context,
-                        NeonLocalizations.of(context).settingsImportWrongFileExtension,
-                      );
-                    }
-                    return;
-                  }
-
-                  await settingsExportHelper.applyFromFile(result.files.single.readStream);
-                } catch (e, s) {
-                  debugPrint(e.toString());
-                  debugPrint(s.toString());
-                  if (mounted) {
-                    NeonError.showSnackbar(context, e);
-                  }
-                }
-              },
-            ),
-          ],
-        ),
+        buildOtherCategory(),
       ],
     );
 
@@ -314,6 +182,30 @@ class _SettingsPageState extends State<SettingsPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget buildAppCategory() {
+    final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
+    final appsWithOptions = appImplementations.where(
+      (final app) => app.options.options.isNotEmpty,
+    );
+
+    final tiles = appsWithOptions.map(
+      (final appImplementation) => CustomSettingsTile(
+        leading: appImplementation.buildIcon(),
+        title: Text(appImplementation.name(context)),
+        onTap: () {
+          NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
+        },
+      ),
+    );
+
+    return SettingsCategory(
+      hasLeading: true,
+      title: Text(NeonLocalizations.of(context).settingsApps),
+      key: ValueKey(SettingsCategories.apps.name),
+      tiles: tiles.toList(),
     );
   }
 
@@ -414,6 +306,123 @@ class _SettingsPageState extends State<SettingsPage> {
         ],
       );
     }
+  }
+
+  Widget buildOtherCategory() {
+    final branding = Branding.of(context);
+
+    return SettingsCategory(
+      hasLeading: true,
+      title: Text(NeonLocalizations.of(context).optionsCategoryOther),
+      key: ValueKey(SettingsCategories.other.name),
+      tiles: [
+        if (branding.sourceCodeURL != null)
+          CustomSettingsTile(
+            leading: Icon(
+              Icons.code,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            title: Text(NeonLocalizations.of(context).sourceCode),
+            onTap: () async {
+              await launchUrlString(
+                branding.sourceCodeURL!,
+                mode: LaunchMode.externalApplication,
+              );
+            },
+          ),
+        if (branding.issueTrackerURL != null)
+          CustomSettingsTile(
+            leading: Icon(
+              MdiIcons.textBoxEditOutline,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            title: Text(NeonLocalizations.of(context).issueTracker),
+            onTap: () async {
+              await launchUrlString(
+                branding.issueTrackerURL!,
+                mode: LaunchMode.externalApplication,
+              );
+            },
+          ),
+        CustomSettingsTile(
+          leading: Icon(
+            MdiIcons.scriptText,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(NeonLocalizations.of(context).licenses),
+          onTap: () async {
+            showLicensePage(
+              context: context,
+              applicationName: branding.name,
+              applicationIcon: branding.logo,
+              applicationLegalese: branding.legalese,
+              applicationVersion: NeonProvider.of<PackageInfo>(context).version,
+            );
+          },
+        ),
+        CustomSettingsTile(
+          leading: Icon(
+            MdiIcons.export,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(NeonLocalizations.of(context).settingsExport),
+          onTap: () async {
+            final settingsExportHelper = _buildSettingsExportHelper(context);
+
+            try {
+              final fileName = 'nextcloud-neon-settings-${DateTime.now().millisecondsSinceEpoch ~/ 1000}.json';
+
+              final data = settingsExportHelper.exportToFile();
+              await saveFileWithPickDialog(fileName, data);
+            } catch (e, s) {
+              debugPrint(e.toString());
+              debugPrint(s.toString());
+              if (mounted) {
+                NeonError.showSnackbar(context, e);
+              }
+            }
+          },
+        ),
+        CustomSettingsTile(
+          leading: Icon(
+            MdiIcons.import,
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          title: Text(NeonLocalizations.of(context).settingsImport),
+          onTap: () async {
+            final settingsExportHelper = _buildSettingsExportHelper(context);
+
+            try {
+              final result = await FilePicker.platform.pickFiles(
+                withReadStream: true,
+              );
+
+              if (result == null) {
+                return;
+              }
+
+              if (!result.files.single.path!.endsWith('.json')) {
+                if (mounted) {
+                  NeonError.showSnackbar(
+                    context,
+                    NeonLocalizations.of(context).settingsImportWrongFileExtension,
+                  );
+                }
+                return;
+              }
+
+              await settingsExportHelper.applyFromFile(result.files.single.readStream);
+            } catch (e, s) {
+              debugPrint(e.toString());
+              debugPrint(s.toString());
+              if (mounted) {
+                NeonError.showSnackbar(context, e);
+              }
+            }
+          },
+        ),
+      ],
+    );
   }
 
   SettingsExportHelper _buildSettingsExportHelper(final BuildContext context) {
