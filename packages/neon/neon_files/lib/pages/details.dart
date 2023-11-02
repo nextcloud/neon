@@ -11,66 +11,72 @@ class FilesDetailsPage extends StatelessWidget {
   final FileDetails details;
 
   @override
-  Widget build(final BuildContext context) => Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(details.name),
-        ),
-        body: SafeArea(
-          child: ListView(
-            primary: true,
-            children: [
-              ColoredBox(
-                color: Theme.of(context).colorScheme.primary,
-                child: FilePreview(
-                  bloc: bloc,
-                  details: details,
-                  color: Theme.of(context).colorScheme.onPrimary,
-                  size: Size(
-                    MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height / 4,
-                  ),
+  Widget build(final BuildContext context) {
+    final l10n = FilesLocalizations.of(context);
+
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(details.name),
+      ),
+      body: SafeArea(
+        child: ListView(
+          primary: true,
+          children: [
+            ColoredBox(
+              color: Theme.of(context).colorScheme.primary,
+              child: FilePreview(
+                bloc: bloc,
+                details: details,
+                color: Theme.of(context).colorScheme.onPrimary,
+                size: Size(
+                  MediaQuery.of(context).size.width,
+                  MediaQuery.of(context).size.height / 4,
                 ),
               ),
-              DataTable(
-                headingRowHeight: 0,
-                columns: const [
-                  DataColumn(label: SizedBox()),
-                  DataColumn(label: SizedBox()),
-                ],
-                rows: [
-                  for (final entry in {
-                    details.isDirectory
-                        ? FilesLocalizations.of(context).detailsFolderName
-                        : FilesLocalizations.of(context).detailsFileName: details.name,
-                    FilesLocalizations.of(context).detailsParentFolder:
-                        details.path.length == 1 ? '/' : details.path.sublist(0, details.path.length - 1).join('/'),
-                    if (details.size != null) ...{
-                      details.isDirectory
-                          ? FilesLocalizations.of(context).detailsFolderSize
-                          : FilesLocalizations.of(context).detailsFileSize: filesize(details.size, 1),
-                    },
-                    if (details.lastModified != null) ...{
-                      FilesLocalizations.of(context).detailsLastModified:
-                          details.lastModified!.toLocal().toIso8601String(),
-                    },
-                    if (details.isFavorite != null) ...{
-                      FilesLocalizations.of(context).detailsIsFavorite: details.isFavorite!
-                          ? FilesLocalizations.of(context).actionYes
-                          : FilesLocalizations.of(context).actionNo,
-                    },
-                  }.entries) ...[
-                    DataRow(
-                      cells: [
-                        DataCell(Text(entry.key)),
-                        DataCell(Text(entry.value)),
-                      ],
-                    ),
-                  ],
-                ],
-              ),
-            ],
-          ),
+            ),
+            DataTable(
+              headingRowHeight: 0,
+              columns: const [
+                DataColumn(label: SizedBox()),
+                DataColumn(label: SizedBox()),
+              ],
+              rows: [
+                _buildDataRow(
+                  details.isDirectory ? l10n.detailsFolderName : l10n.detailsFileName,
+                  details.name,
+                ),
+                _buildDataRow(
+                  l10n.detailsParentFolder,
+                  details.path.length == 1 ? '/' : details.path.sublist(0, details.path.length - 1).join('/'),
+                ),
+                if (details.size != null)
+                  _buildDataRow(
+                    details.isDirectory ? l10n.detailsFolderSize : l10n.detailsFileSize,
+                    filesize(details.size, 1),
+                  ),
+                if (details.lastModified != null)
+                  _buildDataRow(
+                    l10n.detailsLastModified,
+                    details.lastModified!.toLocal().toIso8601String(),
+                  ),
+                if (details.isFavorite != null)
+                  _buildDataRow(
+                    l10n.detailsIsFavorite,
+                    details.isFavorite! ? l10n.actionYes : l10n.actionNo,
+                  ),
+              ],
+            ),
+          ],
         ),
+      ),
+    );
+  }
+
+  DataRow _buildDataRow(final String key, final String value) => DataRow(
+        cells: [
+          DataCell(Text(key)),
+          DataCell(Text(value)),
+        ],
       );
 }

@@ -56,17 +56,16 @@ class FileListTile extends StatelessWidget {
               RelativeTime(
                 date: details.lastModified!,
               ),
-            if (details.size != null && details.size! > 0) ...[
-              const SizedBox(
-                width: 10,
+            if (details.size != null && details.size! > 0)
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  filesize(details.size, 1),
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        color: Colors.grey,
+                      ),
+                ),
               ),
-              Text(
-                filesize(details.size, 1),
-                style: DefaultTextStyle.of(context).style.copyWith(
-                      color: Colors.grey,
-                    ),
-              ),
-            ],
           ],
         ),
         leading: _FileIcon(

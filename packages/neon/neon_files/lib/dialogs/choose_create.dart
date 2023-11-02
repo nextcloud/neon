@@ -77,7 +77,7 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
               }
             },
           ),
-          if (NeonPlatform.instance.canUseCamera) ...[
+          if (NeonPlatform.instance.canUseCamera)
             ListTile(
               leading: Icon(
                 MdiIcons.cameraPlus,
@@ -94,7 +94,6 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
                 }
               },
             ),
-          ],
           ListTile(
             leading: Icon(
               MdiIcons.folderPlus,
