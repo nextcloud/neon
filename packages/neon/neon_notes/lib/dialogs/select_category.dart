@@ -36,18 +36,19 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Center(
-                    child: NeonError(
-                      notes.error,
-                      onRetry: widget.bloc.refresh,
+                  if (notes.hasError)
+                    Center(
+                      child: NeonError(
+                        notes.error,
+                        onRetry: widget.bloc.refresh,
+                      ),
                     ),
-                  ),
                   Center(
                     child: NeonLinearProgressIndicator(
                       visible: notes.isLoading,
                     ),
                   ),
-                  if (notes.hasData) ...[
+                  if (notes.hasData)
                     NotesCategorySelect(
                       categories: notes.requireData.map((final note) => note.category).toSet().toList(),
                       initialValue: widget.initialCategory,
@@ -56,7 +57,6 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
                       },
                       onSubmitted: submit,
                     ),
-                  ],
                   ElevatedButton(
                     onPressed: submit,
                     child: Text(NotesLocalizations.of(context).noteSetCategory),

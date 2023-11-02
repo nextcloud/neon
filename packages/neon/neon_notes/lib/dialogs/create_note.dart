@@ -60,9 +60,11 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
                         onRetry: widget.bloc.refresh,
                       ),
                     ),
-                  if (widget.category == null && notes.isLoading)
-                    const Center(
-                      child: NeonLinearProgressIndicator(),
+                  if (widget.category == null)
+                    Center(
+                      child: NeonLinearProgressIndicator(
+                        visible: notes.isLoading,
+                      ),
                     ),
                   if (widget.category == null && notes.hasData)
                     NotesCategorySelect(

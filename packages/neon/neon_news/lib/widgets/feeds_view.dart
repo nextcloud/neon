@@ -57,12 +57,11 @@ class NewsFeedsView extends StatelessWidget {
           value: NewsFeedAction.rename,
           child: Text(NewsLocalizations.of(context).actionRename),
         ),
-        if (folders.isNotEmpty) ...[
+        if (folders.isNotEmpty)
           PopupMenuItem(
             value: NewsFeedAction.move,
             child: Text(NewsLocalizations.of(context).actionMove),
           ),
-        ],
       ],
       onSelected: (final action) async {
         switch (action) {

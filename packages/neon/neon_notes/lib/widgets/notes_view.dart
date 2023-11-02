@@ -45,20 +45,20 @@ class NotesView extends StatelessWidget {
             RelativeTime(
               date: DateTime.fromMillisecondsSinceEpoch(note.modified * 1000),
             ),
-            if (note.category.isNotEmpty) ...[
-              const SizedBox(
-                width: 8,
+            if (note.category.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Icon(
+                  MdiIcons.tag,
+                  size: smallIconSize,
+                  color: NotesCategoryColor.compute(note.category),
+                ),
               ),
-              Icon(
-                MdiIcons.tag,
-                size: smallIconSize,
-                color: NotesCategoryColor.compute(note.category),
+            if (note.category.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 2),
+                child: Text(note.category),
               ),
-              const SizedBox(
-                width: 2,
-              ),
-              Text(note.category),
-            ],
           ],
         ),
         trailing: IconButton(
