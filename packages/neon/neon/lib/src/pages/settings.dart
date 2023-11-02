@@ -157,7 +157,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   option: globalOptions.themeOLEDAsDark,
                 ),
                 ToggleSettingsTile(
-                  option: globalOptions.themeKeepOriginalAccentColor,
+                  option: globalOptions.themeUseNextcloudTheme,
                 ),
               ],
             ),
