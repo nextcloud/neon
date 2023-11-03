@@ -43,7 +43,7 @@ abstract class InteractiveBloc extends Bloc {
     _errorsStreamController.add(error);
   }
 
-  /// Wraps the action [call].
+  /// Wraps the given [action].
   ///
   /// If [disableTimeout] is `true` [RequestManager] will apply the default
   /// timeout. On success the state will be refreshed through the [refresh]
@@ -52,15 +52,15 @@ abstract class InteractiveBloc extends Bloc {
   @protected
   // ignore: avoid_void_async
   void wrapAction(
-    final AsyncCallback call, {
+    final AsyncCallback action, {
     final bool disableTimeout = false,
     final AsyncCallback? refresh,
   }) async {
     try {
       if (disableTimeout) {
-        await call();
+        await action();
       } else {
-        await RequestManager.instance.timeout(call);
+        await RequestManager.instance.timeout(action);
       }
 
       await (refresh ?? this.refresh)();
