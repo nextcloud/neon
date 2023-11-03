@@ -4,6 +4,7 @@ import 'package:neon/platform.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/neon_files.dart';
+import 'package:nextcloud/webdav.dart';
 
 class FileActions extends StatelessWidget {
   const FileActions({
@@ -18,12 +19,12 @@ class FileActions extends StatelessWidget {
     final browserBloc = bloc.browser;
     switch (action) {
       case FilesFileAction.share:
-        bloc.shareFileNative(details.path, details.etag!);
+        bloc.shareFileNative(details.uri, details.etag!);
       case FilesFileAction.toggleFavorite:
         if (details.isFavorite ?? false) {
-          bloc.removeFavorite(details.path);
+          bloc.removeFavorite(details.uri);
         } else {
-          bloc.addFavorite(details.path);
+          bloc.addFavorite(details.uri);
         }
       case FilesFileAction.details:
         await Navigator.of(context).push(
@@ -46,15 +47,15 @@ class FileActions extends StatelessWidget {
           value: details.name,
         );
         if (result != null) {
-          bloc.rename(details.path, result);
+          bloc.rename(details.uri, result);
         }
       case FilesFileAction.move:
         if (!context.mounted) {
           return;
         }
-        final originalPath = details.path.sublist(0, details.path.length - 1);
-        final b = bloc.getNewFilesBrowserBloc(initialPath: originalPath);
-        final result = await showDialog<List<String>?>(
+        final originalPath = details.uri.parent!;
+        final b = bloc.getNewFilesBrowserBloc(initialUri: originalPath);
+        final result = await showDialog<PathUri>(
           context: context,
           builder: (final context) => FilesChooseFolderDialog(
             bloc: b,
@@ -64,15 +65,15 @@ class FileActions extends StatelessWidget {
         );
         b.dispose();
         if (result != null) {
-          bloc.move(details.path, result..add(details.name));
+          bloc.move(details.uri, result.join(PathUri.parse(details.name)));
         }
       case FilesFileAction.copy:
         if (!context.mounted) {
           return;
         }
-        final originalPath = details.path.sublist(0, details.path.length - 1);
-        final b = bloc.getNewFilesBrowserBloc(initialPath: originalPath);
-        final result = await showDialog<List<String>?>(
+        final originalPath = details.uri.parent!;
+        final b = bloc.getNewFilesBrowserBloc(initialUri: originalPath);
+        final result = await showDialog<PathUri>(
           context: context,
           builder: (final context) => FilesChooseFolderDialog(
             bloc: b,
@@ -82,7 +83,7 @@ class FileActions extends StatelessWidget {
         );
         b.dispose();
         if (result != null) {
-          bloc.copy(details.path, result..add(details.name));
+          bloc.copy(details.uri, result.join(PathUri.parse(details.name)));
         }
       case FilesFileAction.sync:
         if (!context.mounted) {
@@ -100,7 +101,7 @@ class FileActions extends StatelessWidget {
             return;
           }
         }
-        bloc.syncFile(details.path);
+        bloc.syncFile(details.uri);
       case FilesFileAction.delete:
         if (!context.mounted) {
           return;
@@ -111,7 +112,7 @@ class FileActions extends StatelessWidget {
               ? FilesLocalizations.of(context).folderDeleteConfirm(details.name)
               : FilesLocalizations.of(context).fileDeleteConfirm(details.name),
         )) {
-          bloc.delete(details.path);
+          bloc.delete(details.uri);
         }
     }
   }

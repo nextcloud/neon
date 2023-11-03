@@ -4,6 +4,7 @@ import 'package:nextcloud/src/webdav/client.dart';
 
 export 'src/webdav/client.dart';
 export 'src/webdav/file.dart';
+export 'src/webdav/path_uri.dart';
 export 'src/webdav/props.dart';
 export 'src/webdav/webdav.dart';
 

@@ -1,25 +1,25 @@
 part of '../neon_files.dart';
 
 abstract interface class FilesBlocEvents {
-  void uploadFile(final List<String> path, final String localPath);
+  void uploadFile(final PathUri uri, final String localPath);
 
-  void syncFile(final List<String> path);
+  void syncFile(final PathUri uri);
 
-  void openFile(final List<String> path, final String etag, final String? mimeType);
+  void openFile(final PathUri uri, final String etag, final String? mimeType);
 
-  void shareFileNative(final List<String> path, final String etag);
+  void shareFileNative(final PathUri uri, final String etag);
 
-  void delete(final List<String> path);
+  void delete(final PathUri uri);
 
-  void rename(final List<String> path, final String name);
+  void rename(final PathUri uri, final String name);
 
-  void move(final List<String> path, final List<String> destination);
+  void move(final PathUri uri, final PathUri destination);
 
-  void copy(final List<String> path, final List<String> destination);
+  void copy(final PathUri uri, final PathUri destination);
 
-  void addFavorite(final List<String> path);
+  void addFavorite(final PathUri uri);
 
-  void removeFavorite(final List<String> path);
+  void removeFavorite(final PathUri uri);
 }
 
 abstract interface class FilesBlocStates {
@@ -58,35 +58,35 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   BehaviorSubject<List<FilesTask>> tasks = BehaviorSubject<List<FilesTask>>.seeded([]);
 
   @override
-  void addFavorite(final List<String> path) {
+  void addFavorite(final PathUri uri) {
     wrapAction(
       () async => account.client.webdav.proppatch(
-        Uri(pathSegments: path),
+        uri,
         set: WebDavProp(ocfavorite: 1),
       ),
     );
   }
 
   @override
-  void copy(final List<String> path, final List<String> destination) {
-    wrapAction(() async => account.client.webdav.copy(Uri(pathSegments: path), Uri(pathSegments: destination)));
+  void copy(final PathUri uri, final PathUri destination) {
+    wrapAction(() async => account.client.webdav.copy(uri, destination));
   }
 
   @override
-  void delete(final List<String> path) {
-    wrapAction(() async => account.client.webdav.delete(Uri(pathSegments: path)));
+  void delete(final PathUri uri) {
+    wrapAction(() async => account.client.webdav.delete(uri));
   }
 
   @override
-  void move(final List<String> path, final List<String> destination) {
-    wrapAction(() async => account.client.webdav.move(Uri(pathSegments: path), Uri(pathSegments: destination)));
+  void move(final PathUri uri, final PathUri destination) {
+    wrapAction(() async => account.client.webdav.move(uri, destination));
   }
 
   @override
-  void openFile(final List<String> path, final String etag, final String? mimeType) {
+  void openFile(final PathUri uri, final String etag, final String? mimeType) {
     wrapAction(
       () async {
-        final file = await _cacheFile(path, etag);
+        final file = await _cacheFile(uri, etag);
 
         final result = await OpenFile.open(file.path, type: mimeType);
         if (result.type != ResultType.done) {
@@ -98,10 +98,10 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   @override
-  void shareFileNative(final List<String> path, final String etag) {
+  void shareFileNative(final PathUri uri, final String etag) {
     wrapAction(
       () async {
-        final file = await _cacheFile(path, etag);
+        final file = await _cacheFile(uri, etag);
 
         await Share.shareXFiles([XFile(file.path)]);
       },
@@ -115,52 +115,52 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   @override
-  void removeFavorite(final List<String> path) {
+  void removeFavorite(final PathUri uri) {
     wrapAction(
       () async => account.client.webdav.proppatch(
-        Uri(pathSegments: path),
+        uri,
         set: WebDavProp(ocfavorite: 0),
       ),
     );
   }
 
   @override
-  void rename(final List<String> path, final String name) {
+  void rename(final PathUri uri, final String name) {
     wrapAction(
       () async => account.client.webdav.move(
-        Uri(pathSegments: path),
-        Uri(pathSegments: List.from(path)..last = name),
+        uri,
+        uri.rename(name),
       ),
     );
   }
 
   @override
-  void syncFile(final List<String> path) {
+  void syncFile(final PathUri uri) {
     wrapAction(
       () async {
         final file = File(
-          p.join(
+          p.joinAll([
             await NeonPlatform.instance.userAccessibleAppDataPath,
             account.humanReadableID,
             'files',
-            path.join(Platform.pathSeparator),
-          ),
+            ...uri.pathSegments,
+          ]),
         );
         if (!file.parent.existsSync()) {
           file.parent.createSync(recursive: true);
         }
-        await _downloadFile(path, file);
+        await _downloadFile(uri, file);
       },
       disableTimeout: true,
     );
   }
 
   @override
-  void uploadFile(final List<String> path, final String localPath) {
+  void uploadFile(final PathUri uri, final String localPath) {
     wrapAction(
       () async {
         final task = FilesUploadTask(
-          path: path,
+          uri: uri,
           file: File(localPath),
         );
         tasks.add(tasks.value..add(task));
@@ -171,27 +171,27 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     );
   }
 
-  Future<File> _cacheFile(final List<String> path, final String etag) async {
+  Future<File> _cacheFile(final PathUri uri, final String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
-    final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), path.last));
+    final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
 
     if (!file.existsSync()) {
-      debugPrint('Downloading ${Uri(pathSegments: path)} since it does not exist');
+      debugPrint('Downloading $uri since it does not exist');
       if (!file.parent.existsSync()) {
         await file.parent.create(recursive: true);
       }
-      await _downloadFile(path, file);
+      await _downloadFile(uri, file);
     }
 
     return file;
   }
 
   Future<void> _downloadFile(
-    final List<String> path,
+    final PathUri uri,
     final File file,
   ) async {
     final task = FilesDownloadTask(
-      path: path,
+      uri: uri,
       file: file,
     );
     tasks.add(tasks.value..add(task));
@@ -200,12 +200,12 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
   }
 
   FilesBrowserBloc getNewFilesBrowserBloc({
-    final List<String>? initialPath,
+    final PathUri? initialUri,
   }) =>
       FilesBrowserBloc(
         options,
         account,
-        initialPath: initialPath,
+        initialPath: initialUri,
       );
 
   void _downloadParallelismListener() {

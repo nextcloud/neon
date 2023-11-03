@@ -22,7 +22,7 @@ class _FilesCreateFolderDialogState extends State<FilesCreateFolderDialog> {
 
   void submit() {
     if (formKey.currentState!.validate()) {
-      Navigator.of(context).pop(controller.text.split('/'));
+      Navigator.of(context).pop(controller.text);
     }
   }
 

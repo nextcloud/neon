@@ -76,14 +76,12 @@ class FilePreviewImage extends NeonApiImage {
   }) {
     final width = size.width.toInt();
     final height = size.height.toInt();
-    final path = file.path.join('/');
-    final cacheKey = 'preview-$path-$width-$height';
+    final cacheKey = 'preview-${file.uri.path}-$width-$height';
 
     return FilePreviewImage._(
       file: file,
       size: size,
       cacheKey: cacheKey,
-      path: path,
       width: width,
       height: height,
     );
@@ -93,12 +91,11 @@ class FilePreviewImage extends NeonApiImage {
     required final FileDetails file,
     required Size super.size,
     required super.cacheKey,
-    required final String path,
     required final int width,
     required final int height,
   }) : super(
           getImage: (final client) async => client.core.preview.getPreview(
-            file: path,
+            file: file.uri.path,
             x: width,
             y: height,
           ),

@@ -3,8 +3,7 @@ part of '../neon_files.dart';
 @immutable
 class FileDetails {
   const FileDetails({
-    required this.path,
-    required this.isDirectory,
+    required this.uri,
     required this.size,
     required this.etag,
     required this.mimeType,
@@ -15,9 +14,7 @@ class FileDetails {
 
   FileDetails.fromWebDav({
     required final WebDavFile file,
-    required final List<String> path,
-  })  : path = List.from(path)..add(file.name),
-        isDirectory = file.isDirectory,
+  })  : uri = file.path,
         size = file.size,
         etag = file.etag,
         mimeType = file.mimeType,
@@ -28,10 +25,9 @@ class FileDetails {
 
   FileDetails.fromUploadTask({
     required FilesUploadTask this.task,
-  })  : path = task.path,
+  })  : uri = task.uri,
         size = task.stat.size,
         lastModified = task.stat.modified,
-        isDirectory = false,
         etag = null,
         mimeType = null,
         hasPreview = null,
@@ -40,8 +36,7 @@ class FileDetails {
   FileDetails.fromDownloadTask({
     required FilesDownloadTask this.task,
     required final WebDavFile file,
-  })  : path = task.path,
-        isDirectory = file.isDirectory,
+  })  : uri = task.uri,
         size = file.size,
         etag = file.etag,
         mimeType = file.mimeType,
@@ -64,11 +59,11 @@ class FileDetails {
     }
   }
 
-  String get name => path.last;
+  String get name => uri.name;
 
-  final List<String> path;
+  bool get isDirectory => uri.isDirectory;
 
-  final bool isDirectory;
+  final PathUri uri;
 
   final int? size;
 

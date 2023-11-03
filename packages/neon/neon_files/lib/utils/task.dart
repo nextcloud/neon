@@ -2,11 +2,11 @@ part of '../neon_files.dart';
 
 sealed class FilesTask {
   FilesTask({
-    required this.path,
+    required this.uri,
     required this.file,
   });
 
-  final List<String> path;
+  final PathUri uri;
 
   final File file;
 
@@ -19,13 +19,13 @@ sealed class FilesTask {
 
 class FilesDownloadTask extends FilesTask {
   FilesDownloadTask({
-    required super.path,
+    required super.uri,
     required super.file,
   });
 
   Future<void> execute(final NextcloudClient client) async {
     await client.webdav.getFile(
-      Uri(pathSegments: path),
+      uri,
       file,
       onProgress: streamController.add,
     );
@@ -35,7 +35,7 @@ class FilesDownloadTask extends FilesTask {
 
 class FilesUploadTask extends FilesTask {
   FilesUploadTask({
-    required super.path,
+    required super.uri,
     required super.file,
   });
 
@@ -46,7 +46,7 @@ class FilesUploadTask extends FilesTask {
     await client.webdav.putFile(
       file,
       stat,
-      Uri(pathSegments: path),
+      uri,
       lastModified: stat.modified,
       onProgress: streamController.add,
     );

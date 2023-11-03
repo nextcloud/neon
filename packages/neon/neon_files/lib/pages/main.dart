@@ -34,7 +34,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
               context: context,
               builder: (final context) => FilesChooseCreateDialog(
                 bloc: bloc,
-                basePath: bloc.browser.path.value,
+                basePath: bloc.browser.uri.value,
               ),
             );
           },

@@ -19,15 +19,120 @@ void main() {
       final baseURL = Uri.parse(values.$1);
       final sanitizedBaseURL = Uri.parse(values.$2);
 
-      test('$baseURL', () {
-        expect(WebDavClient.constructUri(baseURL).toString(), '$sanitizedBaseURL$webdavBase');
-        expect(WebDavClient.constructUri(baseURL, Uri(path: '/')).toString(), '$sanitizedBaseURL$webdavBase');
-        expect(WebDavClient.constructUri(baseURL, Uri(path: 'test')).toString(), '$sanitizedBaseURL$webdavBase/test');
-        expect(WebDavClient.constructUri(baseURL, Uri(path: 'test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
-        expect(WebDavClient.constructUri(baseURL, Uri(path: '/test')).toString(), '$sanitizedBaseURL$webdavBase/test');
-        expect(WebDavClient.constructUri(baseURL, Uri(path: '/test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
+      test(baseURL, () {
+        expect(
+          WebDavClient.constructUri(baseURL).toString(),
+          '$sanitizedBaseURL$webdavBase',
+        );
+        expect(
+          WebDavClient.constructUri(baseURL, PathUri.parse('/')).toString(),
+          '$sanitizedBaseURL$webdavBase',
+        );
+        expect(
+          WebDavClient.constructUri(baseURL, PathUri.parse('test')).toString(),
+          '$sanitizedBaseURL$webdavBase/test',
+        );
+        expect(
+          WebDavClient.constructUri(baseURL, PathUri.parse('test/')).toString(),
+          '$sanitizedBaseURL$webdavBase/test',
+        );
+        expect(
+          WebDavClient.constructUri(baseURL, PathUri.parse('/test')).toString(),
+          '$sanitizedBaseURL$webdavBase/test',
+        );
+        expect(
+          WebDavClient.constructUri(baseURL, PathUri.parse('/test/')).toString(),
+          '$sanitizedBaseURL$webdavBase/test',
+        );
       });
     }
+  });
+
+  group('PathUri', () {
+    test('isAbsolute', () {
+      expect(PathUri.parse('').isAbsolute, false);
+      expect(PathUri.parse('/').isAbsolute, true);
+      expect(PathUri.parse('test').isAbsolute, false);
+      expect(PathUri.parse('test/').isAbsolute, false);
+      expect(PathUri.parse('/test').isAbsolute, true);
+      expect(PathUri.parse('/test/').isAbsolute, true);
+    });
+
+    test('isDirectory', () {
+      expect(PathUri.parse('').isDirectory, true);
+      expect(PathUri.parse('/').isDirectory, true);
+      expect(PathUri.parse('test').isDirectory, false);
+      expect(PathUri.parse('test/').isDirectory, true);
+      expect(PathUri.parse('/test').isDirectory, false);
+      expect(PathUri.parse('/test/').isDirectory, true);
+    });
+
+    test('pathSegments', () {
+      expect(PathUri.parse('').pathSegments, isEmpty);
+      expect(PathUri.parse('/').pathSegments, isEmpty);
+      expect(PathUri.parse('test').pathSegments, ['test']);
+      expect(PathUri.parse('test/').pathSegments, ['test']);
+      expect(PathUri.parse('/test').pathSegments, ['test']);
+      expect(PathUri.parse('/test/').pathSegments, ['test']);
+    });
+
+    test('path', () {
+      expect(PathUri.parse('').path, '');
+      expect(PathUri.parse('/').path, '/');
+      expect(PathUri.parse('test').path, 'test');
+      expect(PathUri.parse('test/').path, 'test/');
+      expect(PathUri.parse('/test').path, '/test');
+      expect(PathUri.parse('/test/').path, '/test/');
+    });
+
+    test('normalization', () {
+      expect(PathUri.parse('/test/abc/').path, '/test/abc/');
+      expect(PathUri.parse('//test//abc//').path, '/test/abc/');
+      expect(PathUri.parse('///test///abc///').path, '/test/abc/');
+    });
+
+    test('name', () {
+      expect(PathUri.parse('').name, '');
+      expect(PathUri.parse('test').name, 'test');
+      expect(PathUri.parse('/test/').name, 'test');
+      expect(PathUri.parse('abc/test').name, 'test');
+      expect(PathUri.parse('/abc/test/').name, 'test');
+    });
+
+    test('parent', () {
+      expect(PathUri.parse('').parent, null);
+      expect(PathUri.parse('/').parent, null);
+      expect(PathUri.parse('test').parent, PathUri.parse(''));
+      expect(PathUri.parse('test/abc').parent, PathUri.parse('test/'));
+      expect(PathUri.parse('test/abc/').parent, PathUri.parse('test/'));
+      expect(PathUri.parse('/test/abc').parent, PathUri.parse('/test/'));
+      expect(PathUri.parse('/test/abc/').parent, PathUri.parse('/test/'));
+    });
+
+    test('join', () {
+      expect(PathUri.parse('').join(PathUri.parse('test')), PathUri.parse('test'));
+      expect(PathUri.parse('/').join(PathUri.parse('test')), PathUri.parse('/test'));
+      expect(() => PathUri.parse('test').join(PathUri.parse('abc')), throwsA(isA<StateError>()));
+      expect(PathUri.parse('test/').join(PathUri.parse('abc')), PathUri.parse('test/abc'));
+      expect(PathUri.parse('test/').join(PathUri.parse('abc/123')), PathUri.parse('test/abc/123'));
+      expect(PathUri.parse('/test/').join(PathUri.parse('abc')), PathUri.parse('/test/abc'));
+      expect(PathUri.parse('/test/').join(PathUri.parse('/abc')), PathUri.parse('/test/abc'));
+      expect(PathUri.parse('/test/').join(PathUri.parse('/abc/')), PathUri.parse('/test/abc/'));
+    });
+
+    test('rename', () {
+      expect(PathUri.parse('').rename('test'), PathUri.parse(''));
+      expect(PathUri.parse('test').rename('abc'), PathUri.parse('abc'));
+      expect(PathUri.parse('test/').rename('abc'), PathUri.parse('abc/'));
+      expect(PathUri.parse('test/abc').rename('123'), PathUri.parse('test/123'));
+      expect(PathUri.parse('test/abc/').rename('123'), PathUri.parse('test/123/'));
+      expect(() => PathUri.parse('test').rename('abc/'), throwsA(isA<Exception>()));
+      expect(() => PathUri.parse('test/').rename('abc/'), throwsA(isA<Exception>()));
+      expect(() => PathUri.parse('test').rename('/abc'), throwsA(isA<Exception>()));
+      expect(() => PathUri.parse('test/').rename('/abc'), throwsA(isA<Exception>()));
+      expect(() => PathUri.parse('test').rename('abc/123'), throwsA(isA<Exception>()));
+      expect(() => PathUri.parse('test/').rename('abc/123'), throwsA(isA<Exception>()));
+    });
   });
 
   group(
@@ -44,7 +149,7 @@ void main() {
 
       test('List directory', () async {
         final responses = (await client.webdav.propfind(
-          Uri(path: '/'),
+          PathUri.parse('/'),
           prop: WebDavPropWithoutValues.fromBools(
             nchaspreview: true,
             davgetcontenttype: true,
@@ -64,7 +169,7 @@ void main() {
 
       test('List directory recursively', () async {
         final responses = (await client.webdav.propfind(
-          Uri(path: '/'),
+          PathUri.parse('/'),
           depth: WebDavDepth.infinity,
         ))
             .responses;
@@ -73,7 +178,7 @@ void main() {
 
       test('Get file props', () async {
         final response = (await client.webdav.propfind(
-          Uri(path: 'Nextcloud.png'),
+          PathUri.parse('Nextcloud.png'),
           prop: WebDavPropWithoutValues.fromBools(
             davgetlastmodified: true,
             davgetetag: true,
@@ -107,7 +212,7 @@ void main() {
             .toWebDavFiles()
             .single;
 
-        expect(response.path, Uri(path: 'Nextcloud.png'));
+        expect(response.path, PathUri.parse('Nextcloud.png'));
         expect(response.id, isNotEmpty);
         expect(response.fileId, isNotEmpty);
         expect(response.isCollection, isFalse);
@@ -156,11 +261,11 @@ void main() {
 
       test('Get directory props', () async {
         final data = utf8.encode('test') as Uint8List;
-        await client.webdav.mkcol(Uri(path: 'test'));
-        await client.webdav.put(data, Uri(path: 'test/test.txt'));
+        await client.webdav.mkcol(PathUri.parse('test'));
+        await client.webdav.put(data, PathUri.parse('test/test.txt'));
 
         final response = (await client.webdav.propfind(
-          Uri(path: 'test'),
+          PathUri.parse('test'),
           prop: WebDavPropWithoutValues.fromBools(
             davgetcontenttype: true,
             davgetlastmodified: true,
@@ -172,7 +277,7 @@ void main() {
             .toWebDavFiles()
             .single;
 
-        expect(response.path, Uri(path: 'test/'));
+        expect(response.path, PathUri.parse('test/'));
         expect(response.isCollection, isTrue);
         expect(response.mimeType, isNull);
         expect(response.size, data.lengthInBytes);
@@ -187,17 +292,17 @@ void main() {
       });
 
       test('Filter files', () async {
-        final response = await client.webdav.put(utf8.encode('test') as Uint8List, Uri(path: 'test.txt'));
+        final response = await client.webdav.put(utf8.encode('test') as Uint8List, PathUri.parse('test.txt'));
         final id = response.headers['oc-fileid']!.first;
         await client.webdav.proppatch(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           set: WebDavProp(
             ocfavorite: 1,
           ),
         );
 
         final responses = (await client.webdav.report(
-          Uri(path: '/'),
+          PathUri.parse('/'),
           WebDavOcFilterRules(
             ocfavorite: 1,
           ),
@@ -221,13 +326,13 @@ void main() {
 
         await client.webdav.put(
           utf8.encode('test') as Uint8List,
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           lastModified: lastModifiedDate,
           created: createdDate,
         );
 
         final updated = await client.webdav.proppatch(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           set: WebDavProp(
             ocfavorite: 1,
           ),
@@ -235,7 +340,7 @@ void main() {
         expect(updated, isTrue);
 
         final props = (await client.webdav.propfind(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           prop: WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
             davgetlastmodified: true,
@@ -255,10 +360,10 @@ void main() {
       });
 
       test('Remove properties', () async {
-        await client.webdav.put(utf8.encode('test') as Uint8List, Uri(path: 'test.txt'));
+        await client.webdav.put(utf8.encode('test') as Uint8List, PathUri.parse('test.txt'));
 
         var updated = await client.webdav.proppatch(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           set: WebDavProp(
             ocfavorite: 1,
           ),
@@ -266,7 +371,7 @@ void main() {
         expect(updated, isTrue);
 
         var props = (await client.webdav.propfind(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           prop: WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
             nccreationtime: true,
@@ -281,7 +386,7 @@ void main() {
         expect(props.ocfavorite, 1);
 
         updated = await client.webdav.proppatch(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           remove: WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
           ),
@@ -289,7 +394,7 @@ void main() {
         expect(updated, isFalse);
 
         props = (await client.webdav.propfind(
-          Uri(path: 'test.txt'),
+          PathUri.parse('test.txt'),
           prop: WebDavPropWithoutValues.fromBools(
             ocfavorite: true,
           ),
@@ -311,11 +416,11 @@ void main() {
         await client.webdav.putFile(
           source,
           source.statSync(),
-          Uri(path: 'test.png'),
+          PathUri.parse('test.png'),
           onProgress: progressValues.add,
         );
         await client.webdav.getFile(
-          Uri(path: 'test.png'),
+          PathUri.parse('test.png'),
           destination,
           onProgress: progressValues.add,
         );
@@ -343,32 +448,32 @@ void main() {
             test(name, () async {
               final content = utf8.encode('This is a test file') as Uint8List;
 
-              final response = await client.webdav.put(content, Uri(path: path));
+              final response = await client.webdav.put(content, PathUri.parse(path));
               expect(response.statusCode, 201);
 
-              final downloadedContent = await client.webdav.get(Uri(path: path));
+              final downloadedContent = await client.webdav.get(PathUri.parse(path));
               expect(downloadedContent, equals(content));
             });
           }
 
           test('put_no_parent', () async {
             expect(
-              () => client.webdav.put(Uint8List(0), Uri(path: '409me/noparent.txt')),
+              () => client.webdav.put(Uint8List(0), PathUri.parse('409me/noparent.txt')),
               // https://github.com/nextcloud/server/issues/39625
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
             );
           });
 
           test('delete', () async {
-            await client.webdav.put(Uint8List(0), Uri(path: 'test.txt'));
+            await client.webdav.put(Uint8List(0), PathUri.parse('test.txt'));
 
-            final response = await client.webdav.delete(Uri(path: 'test.txt'));
+            final response = await client.webdav.delete(PathUri.parse('test.txt'));
             expect(response.statusCode, 204);
           });
 
           test('delete_null', () async {
             expect(
-              () => client.webdav.delete(Uri(path: 'test.txt')),
+              () => client.webdav.delete(PathUri.parse('test.txt')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 404)),
             );
           });
@@ -376,29 +481,29 @@ void main() {
           // delete_fragment: This test is not applicable because the fragment is already removed on the client side
 
           test('mkcol', () async {
-            final response = await client.webdav.mkcol(Uri(path: 'test'));
+            final response = await client.webdav.mkcol(PathUri.parse('test'));
             expect(response.statusCode, 201);
           });
 
           test('mkcol_again', () async {
-            await client.webdav.mkcol(Uri(path: 'test'));
+            await client.webdav.mkcol(PathUri.parse('test'));
 
             expect(
-              () => client.webdav.mkcol(Uri(path: 'test')),
+              () => client.webdav.mkcol(PathUri.parse('test')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 405)),
             );
           });
 
           test('delete_coll', () async {
-            var response = await client.webdav.mkcol(Uri(path: 'test'));
+            var response = await client.webdav.mkcol(PathUri.parse('test'));
 
-            response = await client.webdav.delete(Uri(path: 'test'));
+            response = await client.webdav.delete(PathUri.parse('test'));
             expect(response.statusCode, 204);
           });
 
           test('mkcol_no_parent', () async {
             expect(
-              () => client.webdav.mkcol(Uri(path: '409me/noparent')),
+              () => client.webdav.mkcol(PathUri.parse('409me/noparent')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
             );
           });
@@ -408,110 +513,110 @@ void main() {
 
         group('copymove', () {
           test('copy_simple', () async {
-            await client.webdav.mkcol(Uri(path: 'src'));
+            await client.webdav.mkcol(PathUri.parse('src'));
 
-            final response = await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst'));
+            final response = await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst'));
             expect(response.statusCode, 201);
           });
 
           test('copy_overwrite', () async {
-            await client.webdav.mkcol(Uri(path: 'src'));
-            await client.webdav.mkcol(Uri(path: 'dst'));
+            await client.webdav.mkcol(PathUri.parse('src'));
+            await client.webdav.mkcol(PathUri.parse('dst'));
 
             expect(
-              () => client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst')),
+              () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
             );
 
-            final response = await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst'), overwrite: true);
+            final response = await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst'), overwrite: true);
             expect(response.statusCode, 204);
           });
 
           test('copy_nodestcoll', () async {
-            await client.webdav.mkcol(Uri(path: 'src'));
+            await client.webdav.mkcol(PathUri.parse('src'));
 
             expect(
-              () => client.webdav.copy(Uri(path: 'src'), Uri(path: 'nonesuch/dst')),
+              () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('nonesuch/dst')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
             );
           });
 
           test('copy_coll', () async {
-            await client.webdav.mkcol(Uri(path: 'src'));
-            await client.webdav.mkcol(Uri(path: 'src/sub'));
+            await client.webdav.mkcol(PathUri.parse('src'));
+            await client.webdav.mkcol(PathUri.parse('src/sub'));
             for (var i = 0; i < 10; i++) {
-              await client.webdav.put(Uint8List(0), Uri(path: 'src/$i.txt'));
+              await client.webdav.put(Uint8List(0), PathUri.parse('src/$i.txt'));
             }
-            await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst1'));
-            await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst2'));
+            await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst1'));
+            await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst2'));
 
             expect(
-              () => client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst1')),
+              () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst1')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
             );
 
-            var response = await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst2'), overwrite: true);
+            var response = await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst2'), overwrite: true);
             expect(response.statusCode, 204);
 
             for (var i = 0; i < 10; i++) {
-              response = await client.webdav.delete(Uri(path: 'dst1/$i.txt'));
+              response = await client.webdav.delete(PathUri.parse('dst1/$i.txt'));
               expect(response.statusCode, 204);
             }
 
-            response = await client.webdav.delete(Uri(path: 'dst1/sub'));
+            response = await client.webdav.delete(PathUri.parse('dst1/sub'));
             expect(response.statusCode, 204);
 
-            response = await client.webdav.delete(Uri(path: 'dst2'));
+            response = await client.webdav.delete(PathUri.parse('dst2'));
             expect(response.statusCode, 204);
           });
 
           // copy_shallow: Does not work on litmus, let's wait for https://github.com/nextcloud/server/issues/39627
 
           test('move', () async {
-            await client.webdav.put(Uint8List(0), Uri(path: 'src1.txt'));
-            await client.webdav.put(Uint8List(0), Uri(path: 'src2.txt'));
-            await client.webdav.mkcol(Uri(path: 'coll'));
+            await client.webdav.put(Uint8List(0), PathUri.parse('src1.txt'));
+            await client.webdav.put(Uint8List(0), PathUri.parse('src2.txt'));
+            await client.webdav.mkcol(PathUri.parse('coll'));
 
-            var response = await client.webdav.move(Uri(path: 'src1.txt'), Uri(path: 'dst.txt'));
+            var response = await client.webdav.move(PathUri.parse('src1.txt'), PathUri.parse('dst.txt'));
             expect(response.statusCode, 201);
 
             expect(
-              () => client.webdav.move(Uri(path: 'src2.txt'), Uri(path: 'dst.txt')),
+              () => client.webdav.move(PathUri.parse('src2.txt'), PathUri.parse('dst.txt')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
             );
 
-            response = await client.webdav.move(Uri(path: 'src2.txt'), Uri(path: 'dst.txt'), overwrite: true);
+            response = await client.webdav.move(PathUri.parse('src2.txt'), PathUri.parse('dst.txt'), overwrite: true);
             expect(response.statusCode, 204);
           });
 
           test('move_coll', () async {
-            await client.webdav.mkcol(Uri(path: 'src'));
-            await client.webdav.mkcol(Uri(path: 'src/sub'));
+            await client.webdav.mkcol(PathUri.parse('src'));
+            await client.webdav.mkcol(PathUri.parse('src/sub'));
             for (var i = 0; i < 10; i++) {
-              await client.webdav.put(Uint8List(0), Uri(path: 'src/$i.txt'));
+              await client.webdav.put(Uint8List(0), PathUri.parse('src/$i.txt'));
             }
-            await client.webdav.put(Uint8List(0), Uri(path: 'noncoll'));
-            await client.webdav.copy(Uri(path: 'src'), Uri(path: 'dst2'));
-            await client.webdav.move(Uri(path: 'src'), Uri(path: 'dst1'));
+            await client.webdav.put(Uint8List(0), PathUri.parse('noncoll'));
+            await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst2'));
+            await client.webdav.move(PathUri.parse('src'), PathUri.parse('dst1'));
 
             expect(
-              () => client.webdav.move(Uri(path: 'dst1'), Uri(path: 'dst2')),
+              () => client.webdav.move(PathUri.parse('dst1'), PathUri.parse('dst2')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
             );
 
-            await client.webdav.move(Uri(path: 'dst2'), Uri(path: 'dst1'), overwrite: true);
-            await client.webdav.copy(Uri(path: 'dst1'), Uri(path: 'dst2'));
+            await client.webdav.move(PathUri.parse('dst2'), PathUri.parse('dst1'), overwrite: true);
+            await client.webdav.copy(PathUri.parse('dst1'), PathUri.parse('dst2'));
 
             for (var i = 0; i < 10; i++) {
-              final response = await client.webdav.delete(Uri(path: 'dst1/$i.txt'));
+              final response = await client.webdav.delete(PathUri.parse('dst1/$i.txt'));
               expect(response.statusCode, 204);
             }
 
-            final response = await client.webdav.delete(Uri(path: 'dst1/sub'));
+            final response = await client.webdav.delete(PathUri.parse('dst1/sub'));
             expect(response.statusCode, 204);
 
             expect(
-              () => client.webdav.move(Uri(path: 'dst2'), Uri(path: 'noncoll')),
+              () => client.webdav.move(PathUri.parse('dst2'), PathUri.parse('noncoll')),
               throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
             );
           });
@@ -523,10 +628,10 @@ void main() {
           // large_put: Already covered by large_get
 
           test('large_get', () async {
-            final response = await client.webdav.put(Uint8List(largefileSize), Uri(path: 'test.txt'));
+            final response = await client.webdav.put(Uint8List(largefileSize), PathUri.parse('test.txt'));
             expect(response.statusCode, 201);
 
-            final downloadedContent = await client.webdav.get(Uri(path: 'test.txt'));
+            final downloadedContent = await client.webdav.get(PathUri.parse('test.txt'));
             expect(downloadedContent, hasLength(largefileSize));
           });
         });
