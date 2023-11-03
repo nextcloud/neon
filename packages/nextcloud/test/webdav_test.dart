@@ -9,18 +9,25 @@ import 'package:universal_io/io.dart';
 import 'helper.dart';
 
 void main() {
-  test('constructUri', () {
-    var baseURL = Uri.parse('http://cloud.example.com');
-    expect(WebDavClient.constructUri(baseURL).toString(), '$baseURL$webdavBasePath');
-    expect(WebDavClient.constructUri(baseURL, Uri(path: '/')).toString(), '$baseURL$webdavBasePath');
-    expect(WebDavClient.constructUri(baseURL, Uri(path: 'test')).toString(), '$baseURL$webdavBasePath/test');
+  group('constructUri', () {
+    for (final values in [
+      ('http://cloud.example.com', 'http://cloud.example.com'),
+      ('http://cloud.example.com/', 'http://cloud.example.com'),
+      ('http://cloud.example.com/subdir', 'http://cloud.example.com/subdir'),
+      ('http://cloud.example.com/subdir/', 'http://cloud.example.com/subdir'),
+    ]) {
+      final baseURL = Uri.parse(values.$1);
+      final sanitizedBaseURL = Uri.parse(values.$2);
 
-    baseURL = Uri.parse('http://cloud.example.com/subdir');
-    expect(WebDavClient.constructUri(baseURL, Uri(path: 'test')).toString(), '$baseURL$webdavBasePath/test');
-
-    expect(() => WebDavClient.constructUri(baseURL, Uri(path: '/test')), throwsA(isA<AssertionError>()));
-    baseURL = Uri.parse('http://cloud.example.com/');
-    expect(() => WebDavClient.constructUri(baseURL), throwsA(isA<AssertionError>()));
+      test('$baseURL', () {
+        expect(WebDavClient.constructUri(baseURL).toString(), '$sanitizedBaseURL$webdavBase');
+        expect(WebDavClient.constructUri(baseURL, Uri(path: '/')).toString(), '$sanitizedBaseURL$webdavBase');
+        expect(WebDavClient.constructUri(baseURL, Uri(path: 'test')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(WebDavClient.constructUri(baseURL, Uri(path: 'test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(WebDavClient.constructUri(baseURL, Uri(path: '/test')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(WebDavClient.constructUri(baseURL, Uri(path: '/test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
+      });
+    }
   });
 
   group(
@@ -100,7 +107,7 @@ void main() {
             .toWebDavFiles()
             .single;
 
-        expect(response.path, '/Nextcloud.png');
+        expect(response.path, Uri(path: 'Nextcloud.png'));
         expect(response.id, isNotEmpty);
         expect(response.fileId, isNotEmpty);
         expect(response.isCollection, isFalse);
@@ -165,7 +172,7 @@ void main() {
             .toWebDavFiles()
             .single;
 
-        expect(response.path, '/test/');
+        expect(response.path, Uri(path: 'test/'));
         expect(response.isCollection, isTrue);
         expect(response.mimeType, isNull);
         expect(response.size, data.lengthInBytes);

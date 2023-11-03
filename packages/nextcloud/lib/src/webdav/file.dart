@@ -25,8 +25,8 @@ class WebDavFile {
       _response.propstats.singleWhere((final propstat) => propstat.status.contains('200')).prop;
 
   /// The path of file
-  late final String path =
-      Uri.decodeFull(_response.href!.substring(Uri.encodeFull(webdavBasePath).length, _response.href!.length));
+  late final Uri path =
+      Uri(pathSegments: Uri(path: _response.href).pathSegments.sublist(webdavBase.pathSegments.length));
 
   /// The fileid namespaced by the instance id, globally unique
   late final String? id = props.ocid;
@@ -79,17 +79,11 @@ class WebDavFile {
   late final bool? hasPreview = props.nchaspreview;
 
   /// Returns the decoded name of the file / folder without the whole path
-  late final String name = () {
-    // normalized path (remove trailing slash)
-    final end = path.endsWith('/') ? path.length - 1 : path.length;
-    final segments = Uri.parse(path, 0, end).pathSegments;
-
-    return segments.lastOrNull ?? '';
-  }();
+  late final String name = path.pathSegments.where((final s) => s.isNotEmpty).lastOrNull ?? '';
 
   /// Whether the file is hidden.
   late final bool isHidden = name.startsWith('.');
 
   /// Whether the file is a directory
-  late final bool isDirectory = (isCollection ?? false) || path.endsWith('/');
+  late final bool isDirectory = (isCollection ?? false) || path.pathSegments.last.isEmpty;
 }
