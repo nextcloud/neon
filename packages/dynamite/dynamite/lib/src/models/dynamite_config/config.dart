@@ -30,6 +30,9 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   /// All matches will be wrapped in `// coverage:ignore-start` and `// coverage:ignore-end` blocks.
   @BuiltValueField(wireName: 'coverage_ignores')
   BuiltSet<String>? get coverageIgnores;
+
+  /// The specified line with the formatter should use.
+  int? get pageWidth;
 }
 
 @SerializersFor([
