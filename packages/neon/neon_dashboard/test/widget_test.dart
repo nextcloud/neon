@@ -4,6 +4,8 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_dashboard/l10n/localizations.dart' show DashboardLocalizations;
+import 'package:neon_dashboard/l10n/localizations.dart';
+import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_dashboard/src/widgets/widget.dart';
 import 'package:neon_dashboard/src/widgets/widget_button.dart';
 import 'package:neon_dashboard/src/widgets/widget_item.dart';
@@ -263,9 +265,15 @@ void main() {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget,
-            items: items,
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widget,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widget,
+                items: items,
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -299,12 +307,19 @@ void main() {
     });
 
     testWidgets('Without widgetUrl', (final tester) async {
+      final widgetEmptyURL = widget.rebuild((final b) => b.widgetUrl = '');
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget.rebuild((final b) => b.widgetUrl = ''),
-            items: items,
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widgetEmptyURL,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widgetEmptyURL,
+                items: items,
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -320,12 +335,19 @@ void main() {
     });
 
     testWidgets('Not round', (final tester) async {
+      final widgetNotRound = widget.rebuild((final b) => b.itemIconsRound = false);
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget.rebuild((final b) => b.itemIconsRound = false),
-            items: items,
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widgetNotRound,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widgetNotRound,
+                items: items,
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -346,9 +368,15 @@ void main() {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget,
-            items: items.rebuild((final b) => b.halfEmptyContentMessage = 'Half empty'),
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widget,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widget,
+                items: items.rebuild((final b) => b.halfEmptyContentMessage = 'Half empty'),
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -363,9 +391,15 @@ void main() {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget,
-            items: items.rebuild((final b) => b.emptyContentMessage = 'Empty'),
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widget,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widget,
+                items: items.rebuild((final b) => b.emptyContentMessage = 'Empty'),
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -380,9 +414,15 @@ void main() {
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget,
-            items: null,
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widget,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widget,
+                items: null,
+              ).toList(),
+            ),
           ),
         ),
       );
@@ -394,12 +434,19 @@ void main() {
     });
 
     testWidgets('Without buttons', (final tester) async {
+      final widgetWithoutButtons = widget.rebuild((final b) => b.buttons.clear());
       await tester.pumpWidget(
         wrapWidget(
           accountsBloc,
-          DashboardWidget(
-            widget: widget.rebuild((final b) => b.buttons.clear()),
-            items: items,
+          Builder(
+            builder: (final context) => DashboardWidget(
+              widget: widgetWithoutButtons,
+              children: DashboardMainPage.buildWidgetItems(
+                context: context,
+                widget: widgetWithoutButtons,
+                items: null,
+              ).toList(),
+            ),
           ),
         ),
       );
