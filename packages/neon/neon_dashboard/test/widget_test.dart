@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/blocs.dart';
@@ -16,6 +17,8 @@ import 'package:rxdart/rxdart.dart';
 
 class MockAccountsBloc extends Mock implements AccountsBloc {}
 
+class MockCacheManager extends Mock implements DefaultCacheManager {}
+
 Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => MaterialApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
@@ -29,6 +32,8 @@ Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => Materi
     );
 
 void main() {
+  NeonCachedImage.cacheManager = MockCacheManager();
+
   final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (final invocation) => BehaviorSubject.seeded(
