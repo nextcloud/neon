@@ -1,5 +1,6 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon/blocs.dart';
@@ -16,6 +17,8 @@ import 'package:rxdart/rxdart.dart';
 
 class MockAccountsBloc extends Mock implements AccountsBloc {}
 
+class MockCacheManager extends Mock implements DefaultCacheManager {}
+
 Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => MaterialApp(
       localizationsDelegates: DashboardLocalizations.localizationsDelegates,
       supportedLocales: DashboardLocalizations.supportedLocales,
@@ -29,6 +32,8 @@ Widget wrapWidget(final AccountsBloc accountsBloc, final Widget child) => Materi
     );
 
 void main() {
+  NeonCachedImage.cacheManager = MockCacheManager();
+
   final accountsBloc = MockAccountsBloc();
   when(() => accountsBloc.activeAccount).thenAnswer(
     (final invocation) => BehaviorSubject.seeded(
@@ -83,7 +88,7 @@ void main() {
       );
       expect(find.byType(NeonCachedImage), findsNWidgets(2));
 
-      expect(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
+      await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item.png'));
     });
 
     testWidgets('Not round', (final tester) async {
@@ -106,7 +111,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item_not_round.png'));
+      await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item_not_round.png'));
     });
 
     testWidgets('Without link', (final tester) async {
@@ -166,7 +171,7 @@ void main() {
       expect(find.byIcon(Icons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      expect(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_new.png'));
+      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_new.png'));
     });
 
     testWidgets('More', (final tester) async {
@@ -182,7 +187,7 @@ void main() {
       expect(find.byIcon(Icons.more_outlined), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      expect(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_more.png'));
+      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_more.png'));
     });
 
     testWidgets('Setup', (final tester) async {
@@ -198,7 +203,7 @@ void main() {
       expect(find.byIcon(Icons.launch), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      expect(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_setup.png'));
+      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_setup.png'));
     });
 
     testWidgets('Invalid', (final tester) async {
@@ -214,7 +219,7 @@ void main() {
       expect(find.byType(Icon), findsNothing);
       expect(find.text('Button'), findsOneWidget);
 
-      expect(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_invalid.png'));
+      await expectLater(find.byType(DashboardWidgetButton), matchesGoldenFile('goldens/widget_button_invalid.png'));
     });
   });
 
@@ -290,7 +295,7 @@ void main() {
       expect(find.byIcon(Icons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget.png'));
     });
 
     testWidgets('Without widgetUrl', (final tester) async {
@@ -334,7 +339,7 @@ void main() {
         ),
       );
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_not_round.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_not_round.png'));
     });
 
     testWidgets('With halfEmptyContentMessage', (final tester) async {
@@ -351,7 +356,7 @@ void main() {
       expect(find.text('Half empty'), findsOneWidget);
       expect(find.byIcon(Icons.check), findsOneWidget);
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_half_empty.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_half_empty.png'));
     });
 
     testWidgets('With emptyContentMessage', (final tester) async {
@@ -368,7 +373,7 @@ void main() {
       expect(find.text('Empty'), findsOneWidget);
       expect(find.byIcon(Icons.check), findsOneWidget);
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_with_empty.png'));
     });
 
     testWidgets('Without items', (final tester) async {
@@ -385,7 +390,7 @@ void main() {
       expect(find.text('No entries'), findsOneWidget);
       expect(find.byIcon(Icons.check), findsOneWidget);
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_items.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_items.png'));
     });
 
     testWidgets('Without buttons', (final tester) async {
@@ -401,7 +406,7 @@ void main() {
 
       expect(find.bySubtype<FilledButton>(), findsNothing);
 
-      expect(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_buttons.png'));
+      await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_without_buttons.png'));
     });
   });
 }
