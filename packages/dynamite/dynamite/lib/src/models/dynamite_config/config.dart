@@ -33,6 +33,56 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
 
   /// The specified line with the formatter should use.
   int? get pageWidth;
+
+  /// A collection of dynamite configs for a specific file.
+  ///
+  /// This parameter is only supported for the top level config.
+  // overrides is reserved in the build.yaml
+  BuiltMap<String, DynamiteConfig>? get overrides;
+
+  /// Gets the config for the given [uri].
+  ///
+  /// Returns this if no override is set.
+  DynamiteConfig configFor(final String uri) {
+    if (overrides == null) {
+      return this;
+    }
+
+    DynamiteConfig? override;
+    for (final entry in overrides!.entries) {
+      if (entry.key == uri) {
+        override = entry.value;
+        break;
+      }
+    }
+
+    if (override == null) {
+      return this;
+    }
+
+    return merge(override);
+  }
+
+  /// Merges `this` config with the given [override].
+  ///
+  /// Throws a [ArgumentError] if the override has overrides itself.
+  DynamiteConfig merge(final DynamiteConfig other) {
+    if (other.overrides != null) {
+      throw ArgumentError('Configs can only be merged with a config that does not have further overrides');
+    }
+
+    return rebuild((final b) {
+      final analyzerIgnores = other.analyzerIgnores;
+      if (analyzerIgnores != null) {
+        b.analyzerIgnores.replace(analyzerIgnores);
+      }
+
+      final coverageIgnores = other.coverageIgnores;
+      if (coverageIgnores != null) {
+        b.coverageIgnores.replace(coverageIgnores);
+      }
+    });
+  }
 }
 
 @SerializersFor([
