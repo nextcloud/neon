@@ -15,6 +15,7 @@ targets:
           # Options configure how source code is generated.
           #
           # The following are sensible default values that ignores the schemas for the coverage.
+          pageWidth: 120
           analyzer_ignores:
             - camel_case_types
             - discarded_futures

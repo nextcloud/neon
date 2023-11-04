@@ -36,6 +36,12 @@ class _$DynamiteConfigSerializer implements StructuredSerializer<DynamiteConfig>
         ..add('coverage_ignores')
         ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(String)])));
     }
+    value = object.pageWidth;
+    if (value != null) {
+      result
+        ..add('pageWidth')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -58,6 +64,9 @@ class _$DynamiteConfigSerializer implements StructuredSerializer<DynamiteConfig>
           result.coverageIgnores.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltSet, [FullType(String)]))! as BuiltSet<Object?>);
           break;
+        case 'pageWidth':
+          result.pageWidth = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
       }
     }
 
@@ -70,11 +79,13 @@ class _$DynamiteConfig extends DynamiteConfig {
   final BuiltSet<String>? analyzerIgnores;
   @override
   final BuiltSet<String>? coverageIgnores;
+  @override
+  final int? pageWidth;
 
   factory _$DynamiteConfig([void Function(DynamiteConfigBuilder)? updates]) =>
       (DynamiteConfigBuilder()..update(updates))._build();
 
-  _$DynamiteConfig._({this.analyzerIgnores, this.coverageIgnores}) : super._();
+  _$DynamiteConfig._({this.analyzerIgnores, this.coverageIgnores, this.pageWidth}) : super._();
 
   @override
   DynamiteConfig rebuild(void Function(DynamiteConfigBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -87,7 +98,8 @@ class _$DynamiteConfig extends DynamiteConfig {
     if (identical(other, this)) return true;
     return other is DynamiteConfig &&
         analyzerIgnores == other.analyzerIgnores &&
-        coverageIgnores == other.coverageIgnores;
+        coverageIgnores == other.coverageIgnores &&
+        pageWidth == other.pageWidth;
   }
 
   @override
@@ -95,6 +107,7 @@ class _$DynamiteConfig extends DynamiteConfig {
     var _$hash = 0;
     _$hash = $jc(_$hash, analyzerIgnores.hashCode);
     _$hash = $jc(_$hash, coverageIgnores.hashCode);
+    _$hash = $jc(_$hash, pageWidth.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -103,7 +116,8 @@ class _$DynamiteConfig extends DynamiteConfig {
   String toString() {
     return (newBuiltValueToStringHelper(r'DynamiteConfig')
           ..add('analyzerIgnores', analyzerIgnores)
-          ..add('coverageIgnores', coverageIgnores))
+          ..add('coverageIgnores', coverageIgnores)
+          ..add('pageWidth', pageWidth))
         .toString();
   }
 }
@@ -119,6 +133,10 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
   SetBuilder<String> get coverageIgnores => _$this._coverageIgnores ??= SetBuilder<String>();
   set coverageIgnores(SetBuilder<String>? coverageIgnores) => _$this._coverageIgnores = coverageIgnores;
 
+  int? _pageWidth;
+  int? get pageWidth => _$this._pageWidth;
+  set pageWidth(int? pageWidth) => _$this._pageWidth = pageWidth;
+
   DynamiteConfigBuilder();
 
   DynamiteConfigBuilder get _$this {
@@ -126,6 +144,7 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
     if ($v != null) {
       _analyzerIgnores = $v.analyzerIgnores?.toBuilder();
       _coverageIgnores = $v.coverageIgnores?.toBuilder();
+      _pageWidth = $v.pageWidth;
       _$v = null;
     }
     return this;
@@ -149,7 +168,10 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
     _$DynamiteConfig _$result;
     try {
       _$result = _$v ??
-          _$DynamiteConfig._(analyzerIgnores: _analyzerIgnores?.build(), coverageIgnores: _coverageIgnores?.build());
+          _$DynamiteConfig._(
+              analyzerIgnores: _analyzerIgnores?.build(),
+              coverageIgnores: _coverageIgnores?.build(),
+              pageWidth: pageWidth);
     } catch (_) {
       late String _$failedField;
       try {

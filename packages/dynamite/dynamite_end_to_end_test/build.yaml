@@ -5,6 +5,7 @@ targets:
         enabled: true
       dynamite:
         options:
+          pageWidth: 120
           analyzer_ignores:
             - camel_case_types
             - discarded_futures
