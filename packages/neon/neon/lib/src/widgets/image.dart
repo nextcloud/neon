@@ -95,20 +95,20 @@ class NeonCachedImage extends StatefulWidget {
     final CacheWriter? writeCache,
     final String cacheKey,
   ) async {
-    final cached = await checkCache?.call(_cacheManager) ?? await _defaultCacheReviver(cacheKey);
+    final cached = await checkCache?.call(cacheManager) ?? await _defaultCacheReviver(cacheKey);
     if (cached != null) {
       return cached;
     }
 
     final data = await getImage();
 
-    unawaited(writeCache?.call(_cacheManager, data) ?? _defaultCacheWriter(data, cacheKey));
+    unawaited(writeCache?.call(cacheManager, data) ?? _defaultCacheWriter(data, cacheKey));
 
     return data;
   }
 
   static Future<Uint8List?> _defaultCacheReviver(final String cacheKey) async {
-    final cacheFile = await _cacheManager.getFileFromCache(cacheKey);
+    final cacheFile = await cacheManager.getFileFromCache(cacheKey);
     if (cacheFile != null && cacheFile.validTill.isAfter(DateTime.now())) {
       return cacheFile.file.readAsBytes();
     }
@@ -120,14 +120,15 @@ class NeonCachedImage extends StatefulWidget {
     final Uint8List data,
     final String cacheKey,
   ) async {
-    await _cacheManager.putFile(
+    await cacheManager.putFile(
       cacheKey,
       data,
       maxAge: const Duration(days: 7),
     );
   }
 
-  static final _cacheManager = DefaultCacheManager();
+  @visibleForTesting
+  static DefaultCacheManager cacheManager = DefaultCacheManager();
 
   @override
   State<NeonCachedImage> createState() => _NeonCachedImageState();
