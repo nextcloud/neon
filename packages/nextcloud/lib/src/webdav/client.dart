@@ -10,7 +10,7 @@ import 'package:universal_io/io.dart';
 import 'package:xml/xml.dart' as xml;
 
 /// Base path used on the server
-const String webdavBasePath = '/remote.php/webdav';
+final webdavBase = Uri(path: '/remote.php/webdav');
 
 /// WebDavClient class
 class WebDavClient {
@@ -65,20 +65,11 @@ class WebDavClient {
   @visibleForTesting
   // ignore: public_member_api_docs
   static Uri constructUri(final Uri baseURL, [final Uri? path]) {
-    assert(
-      path == null || path.path == '/' || !path.path.startsWith('/'),
-      "The path should not start a '/' unless indicating the root folder.",
-    );
-    assert(!baseURL.path.endsWith('/'), "The baseURL should not end with a '/'.");
-
-    final pathBuffer = StringBuffer(baseURL.path)..write(webdavBasePath);
-    if (path != null && path.path != '/') {
-      pathBuffer
-        ..write('/')
-        ..write(path.path);
+    final segments = baseURL.pathSegments.toList()..addAll(webdavBase.pathSegments);
+    if (path != null) {
+      segments.addAll(path.pathSegments);
     }
-
-    return baseURL.replace(path: pathBuffer.toString());
+    return baseURL.replace(pathSegments: segments.where((final s) => s.isNotEmpty));
   }
 
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
