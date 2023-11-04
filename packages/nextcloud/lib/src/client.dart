@@ -30,6 +30,7 @@ class NextcloudClient extends DynamiteClient {
     final String? language,
     final AppType appType = AppType.unknown,
     final String? userAgentOverride,
+    super.httpClient,
     super.cookieJar,
   }) : super(
           baseHeaders: language != null ? {'Accept-Language': language} : null,

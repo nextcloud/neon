@@ -29,7 +29,7 @@ class WebDavClient {
   }) async {
     assert(dataStream == null || data == null, 'Only one of dataStream or data can be specified.');
 
-    final request = await HttpClient().openUrl(method, url)
+    final request = await rootClient.httpClient.openUrl(method, url)
       ..persistentConnection = true;
     for (final header in {
       HttpHeaders.contentTypeHeader: 'application/xml',
