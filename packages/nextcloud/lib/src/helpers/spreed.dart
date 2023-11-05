@@ -23,7 +23,7 @@ extension SpreedVersionSupported on spreed.Client {
 /// Conversation types.
 ///
 /// Use [value] to get the integer representation that is used in the API.
-/// See https://github.com/nextcloud/spreed/blob/master/lib/Room.php.
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Room.php.
 enum RoomType {
   /// Room between two participants.
   oneToOne,
@@ -45,12 +45,22 @@ enum RoomType {
 
   /// Integer representation of the [ParticipantType].
   int get value => index + 1;
+
+  /// Converts the integer [value] representation of a [RoomType] into a [RoomType].
+  static RoomType fromValue(final int value) => RoomType.values[value - 1];
+
+  /// Whether the room is only with one other user.
+  bool get isSingleUser => switch (this) {
+        RoomType.oneToOne || RoomType.changelog || RoomType.oneToOneFormer || RoomType.noteToSelf => true,
+        _ => false,
+      };
 }
 
 /// Types of chat messages.
 ///
-/// Use `name` to get the string representation that is used in the API.
-/// See https://github.com/nextcloud/spreed/blob/master/lib/Chat/ChatManager.php.
+/// Use [EnumName.name] to get the string representation that is used in the API.
+/// Use [EnumByName.byName] to convert the string representation into a [MessageType].
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Chat/ChatManager.php.
 enum MessageType {
   /// Message.
   comment,
@@ -79,8 +89,9 @@ enum MessageType {
 
 /// Actor types of chat messages.
 ///
-/// Use `name` to get the string representation that is used in the API.
-/// See https://github.com/nextcloud/spreed/blob/master/lib/Model/Attendee.php.
+/// Use [EnumName.name] to get the string representation that is used in the API.
+/// Use [EnumByName.byName] to convert the string representation into a [ActorType].
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Model/Attendee.php.
 enum ActorType {
   /// Logged-in users.
   users,
@@ -114,7 +125,7 @@ enum ActorType {
 /// Participant types.
 ///
 /// Use [value] to get the integer representation that is used in the API.
-/// See https://github.com/nextcloud/spreed/blob/master/lib/Participant.php.
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Participant.php.
 enum ParticipantType {
   /// Owner.
   owner,
@@ -136,15 +147,18 @@ enum ParticipantType {
 
   /// Integer representation of the [ParticipantType].
   int get value => index + 1;
+
+  /// Converts the integer [value] representation of a [ParticipantType] into a [ParticipantType].
+  static ParticipantType fromValue(final int value) => ParticipantType.values[value - 1];
 }
 
 /// Attendee permissions.
 ///
-/// Use [fromValue] to convert the integer representation into this enum representation.
-/// Use [value] to get the integer representation that is used in the API.
-/// Use [ParticipantPermissionsValue.value] to convert multiple [ParticipantPermission] into the integer representation.
+/// Use [EnumByBinary.byBinary] to convert the binary representation into multiple [ParticipantPermission]s.
+/// Use [EnumBinary.binary] to get the binary representation that is used in the API.
+/// Use [EnumCollectionBinary.binary] to convert multiple [ParticipantPermission]s into the binary representation.
 ///
-/// See https://github.com/nextcloud/spreed/blob/master/lib/Model/Attendee.php.
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Model/Attendee.php.
 enum ParticipantPermission {
   /// Default permissions.
   $default,
@@ -172,32 +186,71 @@ enum ParticipantPermission {
 
   /// Can post chat message, share items and do reactions.
   canSendMessageAndShareAndReact;
+}
 
-  /// Integer representation of the [ParticipantPermission].
-  int get value => index == 0 ? 0 : 1 << (index - 1);
+/// Participant in-call flags.
+///
+/// Use [EnumByBinary.byBinary] to convert the binary representation into multiple [ParticipantInCallFlag]s.
+/// Use [EnumBinary.binary] to get the binary representation that is used in the API.
+/// Use [EnumCollectionBinary.binary] to convert multiple [ParticipantInCallFlag]s into the binary representation.
+///
+/// See https://github.com/nextcloud/spreed/blob/main/lib/Participant.php.
+enum ParticipantInCallFlag {
+  /// Not connected to the call.
+  disconnected,
 
-  /// Converts the integer representation of multiple [ParticipantPermission]s to the corresponding [ParticipantPermission]s.
-  static Set<ParticipantPermission> fromValue(final int value) {
-    final permissions = <ParticipantPermission>{};
+  /// Connected to the call.
+  inCall,
+
+  /// Connected to the call with audio.
+  providesAudio,
+
+  /// Connected to the call with video.
+  providesVideo,
+
+  /// Connected to the call using SIP dial-in.
+  sipDialIn;
+}
+
+/// An extension to convert the binary representation of an enum into enum values.
+///
+/// See [EnumBinary.binary] for getting the binary representation of a single enum value.
+/// See [EnumCollectionBinary.binary] for getting the binary representation of multiple enum values.
+extension EnumByBinary<T extends Enum> on List<T> {
+  /// Converts the binary representation of an enum into enum values.
+  Set<T> byBinary(final int value) {
+    final result = <T>{};
 
     var v = value;
-    for (var i = 1; i <= ParticipantPermission.values.length - 1; i++) {
+    for (var i = 1; i <= length - 1; i++) {
       if (v.isOdd) {
-        permissions.add(ParticipantPermission.values[i]);
+        result.add(this[i]);
       }
       v = v >> 1;
     }
 
-    if (permissions.isEmpty) {
-      permissions.add(ParticipantPermission.$default);
+    if (result.isEmpty) {
+      result.add(first);
     }
 
-    return permissions;
+    return result;
   }
 }
 
-/// Extension for the integer representation of multiple [ParticipantPermission]s.
-extension ParticipantPermissionsValue on Set<ParticipantPermission> {
-  /// Gets the integer representation of multiple [ParticipantPermission]s.
-  int get value => map((final p) => p.value).reduce((final a, final b) => a | b);
+/// An extension to get the binary representation of an enum value based on its index.
+extension EnumBinary on Enum {
+  /// Gets the binary representation of the [index].
+  ///
+  /// See [EnumCollectionBinary.binary] for getting the binary representation of multiple enum values.
+  /// See [EnumByBinary.byBinary] for converting the binary representation into the enum values.
+  int get binary => index == 0 ? 0 : 1 << (index - 1);
+}
+
+/// An extension to get the binary representation of enum values based on their indexes.
+extension EnumCollectionBinary<T extends Enum> on Set<T> {
+  /// Gets the binary representation of the indexes.
+  ///
+  /// See [EnumBinary.binary] for getting the binary representation of a single enum value.
+  /// See [EnumByBinary.byBinary] for converting the binary representation into enum values.
+  int get binary => map((final p) => p.binary).reduce((final a, final b) => a | b);
 }
