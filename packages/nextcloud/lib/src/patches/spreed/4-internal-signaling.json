@@ -1,0 +1,342 @@
+[
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1signaling~1{token}/get/responses/200/content/application~1json/schema/properties/ocs/properties/data/items",
+    "value": {
+      "$ref": "#/components/schemas/SignalingData"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1signaling~1{token}/get/responses/404/content/application~1json/schema/properties/ocs/properties/data/items",
+    "value": {
+      "$ref": "#/components/schemas/SignalingData"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1signaling~1{token}/get/responses/409/content/application~1json/schema/properties/ocs/properties/data/items",
+    "value": {
+      "$ref": "#/components/schemas/SignalingData"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/paths/~1ocs~1v2.php~1apps~1spreed~1api~1{apiVersion}~1signaling~1{token}/post/parameters/0",
+    "value": {
+      "name": "messages",
+      "in": "query",
+      "description": "JSON encoded messages",
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "ev",
+                "fn",
+                "sessionId"
+              ],
+              "properties": {
+                "ev": {
+                  "type": "string",
+                  "default": "message"
+                },
+                "fn": {
+                  "type": "string",
+                  "contentMediaType": "application/json",
+                  "contentSchema": {
+                    "$ref": "#/components/schemas/SignalingMessage"
+                  }
+                },
+                "sessionId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingSessions",
+    "value": {
+      "type": "object",
+      "required": [
+        "type",
+        "data"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/SignalingSession"
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingData",
+    "value": {
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "usersInRoom": "#/components/schemas/SignalingSessions",
+          "message": "#/components/schemas/SignalingMessageWrapper"
+        }
+      },
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SignalingSessions"
+        },
+        {
+          "$ref": "#/components/schemas/SignalingMessageWrapper"
+        }
+      ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingMessageWrapper",
+    "value": {
+      "type": "object",
+      "required": [
+        "type",
+        "data"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string",
+          "contentMediaType": "application/json",
+          "contentSchema": {
+            "$ref": "#/components/schemas/SignalingMessage"
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingMessageType",
+    "value": {
+      "type": "string",
+      "enum": [
+        "offer",
+        "answer",
+        "candidate",
+        "unshareScreen",
+        "remove-candidates",
+        "control",
+        "forceMute",
+        "mute",
+        "unmute",
+        "nickChanged"
+      ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingMessage",
+    "value": {
+      "discriminator": {
+        "propertyName": "type",
+        "mapping": {
+          "offer": "#/components/schemas/SignalingSessionDescriptionMessage",
+          "answer": "#/components/schemas/SignalingSessionDescriptionMessage",
+          "candidate": "#/components/schemas/SignalingICECandidateMessage",
+          "mute": "#/components/schemas/SignalingMuteMessage",
+          "unmute": "#/components/schemas/SignalingMuteMessage"
+        }
+      },
+      "oneOf": [
+        {
+          "$ref": "#/components/schemas/SignalingSessionDescriptionMessage"
+        },
+        {
+          "$ref": "#/components/schemas/SignalingICECandidateMessage"
+        },
+        {
+          "$ref": "#/components/schemas/SignalingMuteMessage"
+        }
+      ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingRoomType",
+    "value": {
+      "type": "string",
+      "enum": [
+        "video",
+        "screen"
+      ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingSessionDescriptionMessage",
+    "value": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "type",
+        "payload"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/components/schemas/SignalingMessageType"
+        },
+        "roomType": {
+          "$ref": "#/components/schemas/SignalingRoomType"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "type",
+            "sdp",
+            "nick"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "offer",
+                "answer"
+              ]
+            },
+            "sdp": {
+              "type": "string"
+            },
+            "nick": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingICECandidateMessage",
+    "value": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "type",
+        "payload"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/components/schemas/SignalingMessageType"
+        },
+        "roomType": {
+          "$ref": "#/components/schemas/SignalingRoomType"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "candidate"
+          ],
+          "properties": {
+            "candidate": {
+              "type": "object",
+              "required": [
+                "sdpMLineIndex",
+                "sdpMid",
+                "candidate"
+              ],
+              "properties": {
+                "sdpMLineIndex": {
+                  "type": "integer"
+                },
+                "sdpMid": {
+                  "type": "string"
+                },
+                "candidate": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "op": "add",
+    "path": "/components/schemas/SignalingMuteMessage",
+    "value": {
+      "type": "object",
+      "required": [
+        "from",
+        "to",
+        "type",
+        "payload"
+      ],
+      "properties": {
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/components/schemas/SignalingMessageType"
+        },
+        "roomType": {
+          "$ref": "#/components/schemas/SignalingRoomType"
+        },
+        "sid": {
+          "type": "string"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "enum": [
+                "audio",
+                "video"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+]
