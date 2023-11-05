@@ -13,3 +13,9 @@
 [submodule "external/nextcloud-spreed"]
 	path = external/nextcloud-spreed
 	url = https://github.com/nextcloud/spreed
+[submodule "external/nextcloud-news"]
+	path = external/nextcloud-news
+	url = https://github.com/nextcloud/news
+[submodule "external/nextcloud-notes"]
+	path = external/nextcloud-notes
+	url = https://github.com/nextcloud/notes
