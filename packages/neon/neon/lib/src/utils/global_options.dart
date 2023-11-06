@@ -118,9 +118,9 @@ class GlobalOptions extends OptionsCollection {
       ),
     );
 
-    final allowed = pushNotificationsDistributor.values.containsKey(pushNotificationsDistributor.value);
-    pushNotificationsEnabled.enabled = allowed;
-    if (!allowed) {
+    final enabled = pushNotificationsDistributor.values.isNotEmpty;
+    pushNotificationsEnabled.enabled = enabled;
+    if (!enabled) {
       pushNotificationsDistributor.reset();
       pushNotificationsEnabled.reset();
     }
