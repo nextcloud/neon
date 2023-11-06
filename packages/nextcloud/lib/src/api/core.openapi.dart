@@ -8023,9 +8023,9 @@ abstract class SharebymailCapabilities
       return;
     }
 
-    final match = [b._sharebymailCapabilities0, b._builtListJsonObject].singleWhereOrNull((final x) => x != null);
+    final match = [b._sharebymailCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
     if (match == null) {
-      throw StateError("Need exactly one of 'sharebymailCapabilities0', 'builtListJsonObject' for ${b._data}");
+      throw StateError("Need at least one of 'sharebymailCapabilities0', 'builtListJsonObject' for ${b._data}");
     }
   }
 }

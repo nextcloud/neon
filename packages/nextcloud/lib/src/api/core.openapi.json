@@ -1039,7 +1039,7 @@
         }
       },
       "SharebymailCapabilities": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "object",
             "required": [

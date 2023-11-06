@@ -817,7 +817,7 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {
-                                                    "oneOf": [
+                                                    "anyOf": [
                                                         {
                                                             "$ref": "#/components/schemas/Private"
                                                         },

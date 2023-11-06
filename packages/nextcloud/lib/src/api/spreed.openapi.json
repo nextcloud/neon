@@ -12896,7 +12896,7 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {
-                                                    "oneOf": [
+                                                    "anyOf": [
                                                         {
                                                             "type": "object",
                                                             "required": [
