@@ -8398,14 +8398,14 @@ class _$FederationInviteSerializer implements StructuredSerializer<FederationInv
       serializers.serialize(object.accessToken, specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'remote_id',
-      serializers.serialize(object.remoteId, specifiedType: const FullType(String)),
-      'remote_server',
-      serializers.serialize(object.remoteServer, specifiedType: const FullType(String)),
+      'local_room_id',
+      serializers.serialize(object.localRoomId, specifiedType: const FullType(int)),
+      'remote_attendee_id',
+      serializers.serialize(object.remoteAttendeeId, specifiedType: const FullType(String)),
+      'remote_server_url',
+      serializers.serialize(object.remoteServerUrl, specifiedType: const FullType(String)),
       'remote_token',
       serializers.serialize(object.remoteToken, specifiedType: const FullType(String)),
-      'room_id',
-      serializers.serialize(object.roomId, specifiedType: const FullType(int)),
       'user_id',
       serializers.serialize(object.userId, specifiedType: const FullType(String)),
     ];
@@ -8430,17 +8430,17 @@ class _$FederationInviteSerializer implements StructuredSerializer<FederationInv
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
-        case 'remote_id':
-          result.remoteId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'local_room_id':
+          result.localRoomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
-        case 'remote_server':
-          result.remoteServer = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'remote_attendee_id':
+          result.remoteAttendeeId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'remote_server_url':
+          result.remoteServerUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'remote_token':
           result.remoteToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'room_id':
-          result.roomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'user_id':
           result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -31211,17 +31211,17 @@ abstract mixin class FederationInviteInterfaceBuilder {
   int? get id;
   set id(int? id);
 
-  String? get remoteId;
-  set remoteId(String? remoteId);
+  int? get localRoomId;
+  set localRoomId(int? localRoomId);
 
-  String? get remoteServer;
-  set remoteServer(String? remoteServer);
+  String? get remoteAttendeeId;
+  set remoteAttendeeId(String? remoteAttendeeId);
+
+  String? get remoteServerUrl;
+  set remoteServerUrl(String? remoteServerUrl);
 
   String? get remoteToken;
   set remoteToken(String? remoteToken);
-
-  int? get roomId;
-  set roomId(int? roomId);
 
   String? get userId;
   set userId(String? userId);
@@ -31233,13 +31233,13 @@ class _$FederationInvite extends FederationInvite {
   @override
   final int id;
   @override
-  final String remoteId;
+  final int localRoomId;
   @override
-  final String remoteServer;
+  final String remoteAttendeeId;
+  @override
+  final String remoteServerUrl;
   @override
   final String remoteToken;
-  @override
-  final int roomId;
   @override
   final String userId;
 
@@ -31249,18 +31249,18 @@ class _$FederationInvite extends FederationInvite {
   _$FederationInvite._(
       {required this.accessToken,
       required this.id,
-      required this.remoteId,
-      required this.remoteServer,
+      required this.localRoomId,
+      required this.remoteAttendeeId,
+      required this.remoteServerUrl,
       required this.remoteToken,
-      required this.roomId,
       required this.userId})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken');
     BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id');
-    BuiltValueNullFieldError.checkNotNull(remoteId, r'FederationInvite', 'remoteId');
-    BuiltValueNullFieldError.checkNotNull(remoteServer, r'FederationInvite', 'remoteServer');
+    BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId');
+    BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId');
+    BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl');
     BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken');
-    BuiltValueNullFieldError.checkNotNull(roomId, r'FederationInvite', 'roomId');
     BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId');
   }
 
@@ -31276,10 +31276,10 @@ class _$FederationInvite extends FederationInvite {
     return other is FederationInvite &&
         accessToken == other.accessToken &&
         id == other.id &&
-        remoteId == other.remoteId &&
-        remoteServer == other.remoteServer &&
+        localRoomId == other.localRoomId &&
+        remoteAttendeeId == other.remoteAttendeeId &&
+        remoteServerUrl == other.remoteServerUrl &&
         remoteToken == other.remoteToken &&
-        roomId == other.roomId &&
         userId == other.userId;
   }
 
@@ -31288,10 +31288,10 @@ class _$FederationInvite extends FederationInvite {
     var _$hash = 0;
     _$hash = $jc(_$hash, accessToken.hashCode);
     _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, remoteId.hashCode);
-    _$hash = $jc(_$hash, remoteServer.hashCode);
+    _$hash = $jc(_$hash, localRoomId.hashCode);
+    _$hash = $jc(_$hash, remoteAttendeeId.hashCode);
+    _$hash = $jc(_$hash, remoteServerUrl.hashCode);
     _$hash = $jc(_$hash, remoteToken.hashCode);
-    _$hash = $jc(_$hash, roomId.hashCode);
     _$hash = $jc(_$hash, userId.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -31302,10 +31302,10 @@ class _$FederationInvite extends FederationInvite {
     return (newBuiltValueToStringHelper(r'FederationInvite')
           ..add('accessToken', accessToken)
           ..add('id', id)
-          ..add('remoteId', remoteId)
-          ..add('remoteServer', remoteServer)
+          ..add('localRoomId', localRoomId)
+          ..add('remoteAttendeeId', remoteAttendeeId)
+          ..add('remoteServerUrl', remoteServerUrl)
           ..add('remoteToken', remoteToken)
-          ..add('roomId', roomId)
           ..add('userId', userId))
         .toString();
   }
@@ -31323,21 +31323,21 @@ class FederationInviteBuilder
   int? get id => _$this._id;
   set id(covariant int? id) => _$this._id = id;
 
-  String? _remoteId;
-  String? get remoteId => _$this._remoteId;
-  set remoteId(covariant String? remoteId) => _$this._remoteId = remoteId;
+  int? _localRoomId;
+  int? get localRoomId => _$this._localRoomId;
+  set localRoomId(covariant int? localRoomId) => _$this._localRoomId = localRoomId;
 
-  String? _remoteServer;
-  String? get remoteServer => _$this._remoteServer;
-  set remoteServer(covariant String? remoteServer) => _$this._remoteServer = remoteServer;
+  String? _remoteAttendeeId;
+  String? get remoteAttendeeId => _$this._remoteAttendeeId;
+  set remoteAttendeeId(covariant String? remoteAttendeeId) => _$this._remoteAttendeeId = remoteAttendeeId;
+
+  String? _remoteServerUrl;
+  String? get remoteServerUrl => _$this._remoteServerUrl;
+  set remoteServerUrl(covariant String? remoteServerUrl) => _$this._remoteServerUrl = remoteServerUrl;
 
   String? _remoteToken;
   String? get remoteToken => _$this._remoteToken;
   set remoteToken(covariant String? remoteToken) => _$this._remoteToken = remoteToken;
-
-  int? _roomId;
-  int? get roomId => _$this._roomId;
-  set roomId(covariant int? roomId) => _$this._roomId = roomId;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -31350,10 +31350,10 @@ class FederationInviteBuilder
     if ($v != null) {
       _accessToken = $v.accessToken;
       _id = $v.id;
-      _remoteId = $v.remoteId;
-      _remoteServer = $v.remoteServer;
+      _localRoomId = $v.localRoomId;
+      _remoteAttendeeId = $v.remoteAttendeeId;
+      _remoteServerUrl = $v.remoteServerUrl;
       _remoteToken = $v.remoteToken;
-      _roomId = $v.roomId;
       _userId = $v.userId;
       _$v = null;
     }
@@ -31379,10 +31379,12 @@ class FederationInviteBuilder
         _$FederationInvite._(
             accessToken: BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken'),
             id: BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id'),
-            remoteId: BuiltValueNullFieldError.checkNotNull(remoteId, r'FederationInvite', 'remoteId'),
-            remoteServer: BuiltValueNullFieldError.checkNotNull(remoteServer, r'FederationInvite', 'remoteServer'),
+            localRoomId: BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId'),
+            remoteAttendeeId:
+                BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId'),
+            remoteServerUrl:
+                BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl'),
             remoteToken: BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken'),
-            roomId: BuiltValueNullFieldError.checkNotNull(roomId, r'FederationInvite', 'roomId'),
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId'));
     replace(_$result);
     return _$result;

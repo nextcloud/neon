@@ -16609,14 +16609,14 @@ abstract interface class FederationInviteInterface {
   @BuiltValueField(wireName: 'access_token')
   String get accessToken;
   int get id;
-  @BuiltValueField(wireName: 'remote_id')
-  String get remoteId;
-  @BuiltValueField(wireName: 'remote_server')
-  String get remoteServer;
+  @BuiltValueField(wireName: 'local_room_id')
+  int get localRoomId;
+  @BuiltValueField(wireName: 'remote_attendee_id')
+  String get remoteAttendeeId;
+  @BuiltValueField(wireName: 'remote_server_url')
+  String get remoteServerUrl;
   @BuiltValueField(wireName: 'remote_token')
   String get remoteToken;
-  @BuiltValueField(wireName: 'room_id')
-  int get roomId;
   @BuiltValueField(wireName: 'user_id')
   String get userId;
 }
