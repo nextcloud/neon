@@ -38,12 +38,13 @@ class PushNotification {
   /// Use [PushNotification.fromJson] when the [subject] is not encrypted.
   factory PushNotification.fromEncrypted(
     final Map<String, dynamic> json,
+    final String accountID,
     final RSAPrivateKey privateKey,
   ) {
     final subject = decryptPushNotificationSubject(privateKey, json[_subjectKey] as String);
 
     return PushNotification(
-      accountID: json[_accountIDKey] as String,
+      accountID: accountID,
       priority: json[_priorityKey] as String,
       type: json[_typeKey] as String,
       subject: subject,
