@@ -143,7 +143,6 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   @BuiltValueSerializer(custom: true)
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
       _$LogSettingsLogSettingsDownloadHeadersSerializer();

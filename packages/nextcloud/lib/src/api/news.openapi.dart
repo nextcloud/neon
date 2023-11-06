@@ -1445,7 +1445,6 @@ abstract class SupportedAPIVersions
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<SupportedAPIVersions> get serializer => _$supportedAPIVersionsSerializer;
 }
 
@@ -1487,7 +1486,6 @@ abstract class Article implements ArticleInterface, Built<Article, ArticleBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Article> get serializer => _$articleSerializer;
 }
 
@@ -1522,7 +1520,6 @@ abstract class Feed implements FeedInterface, Built<Feed, FeedBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Feed> get serializer => _$feedSerializer;
 }
 
@@ -1550,7 +1547,6 @@ abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Folder> get serializer => _$folderSerializer;
 }
 
@@ -1573,7 +1569,6 @@ abstract class ListFolders implements ListFoldersInterface, Built<ListFolders, L
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ListFolders> get serializer => _$listFoldersSerializer;
 }
 
@@ -1598,7 +1593,6 @@ abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFee
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
 }
 
@@ -1621,7 +1615,6 @@ abstract class ListArticles implements ListArticlesInterface, Built<ListArticles
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ListArticles> get serializer => _$listArticlesSerializer;
 }
 
@@ -1648,7 +1641,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1672,7 +1664,6 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
 }
 
@@ -1695,7 +1686,6 @@ abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 

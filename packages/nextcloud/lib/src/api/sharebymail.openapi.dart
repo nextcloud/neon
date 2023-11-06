@@ -57,7 +57,6 @@ abstract class Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$capabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
 }
@@ -88,7 +87,6 @@ abstract class Capabilities_FilesSharing_Sharebymail_Password
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_FilesSharing_Sharebymail_Password> get serializer =>
       _$capabilitiesFilesSharingSharebymailPasswordSerializer;
 }
@@ -120,7 +118,6 @@ abstract class Capabilities_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingSharebymailExpireDateSerializer;
 }
@@ -157,7 +154,6 @@ abstract class Capabilities_FilesSharing_Sharebymail
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_FilesSharing_Sharebymail> get serializer =>
       _$capabilitiesFilesSharingSharebymailSerializer;
 }
@@ -184,7 +180,6 @@ abstract class Capabilities_FilesSharing
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_FilesSharing> get serializer => _$capabilitiesFilesSharingSerializer;
 }
 
@@ -208,7 +203,6 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 

@@ -151,7 +151,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -163,9 +162,7 @@ class Mount_Type extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<Mount_Type> get values => _$mountTypeValues;
   // coverage:ignore-end
-
   static Mount_Type valueOf(final String name) => _$valueOfMount_Type(name);
-
   static Serializer<Mount_Type> get serializer => _$mountTypeSerializer;
 }
 
@@ -179,9 +176,7 @@ class Mount_Scope extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<Mount_Scope> get values => _$mountScopeValues;
   // coverage:ignore-end
-
   static Mount_Scope valueOf(final String name) => _$valueOfMount_Scope(name);
-
   static Serializer<Mount_Scope> get serializer => _$mountScopeSerializer;
 }
 
@@ -195,9 +190,7 @@ class StorageConfig_Type extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<StorageConfig_Type> get values => _$storageConfigTypeValues;
   // coverage:ignore-end
-
   static StorageConfig_Type valueOf(final String name) => _$valueOfStorageConfig_Type(name);
-
   static Serializer<StorageConfig_Type> get serializer => _$storageConfigTypeSerializer;
 }
 
@@ -233,7 +226,6 @@ abstract class StorageConfig implements StorageConfigInterface, Built<StorageCon
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<StorageConfig> get serializer => _$storageConfigSerializer;
 }
 
@@ -265,7 +257,6 @@ abstract class Mount implements MountInterface, Built<Mount, MountBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Mount> get serializer => _$mountSerializer;
 }
 
@@ -295,7 +286,6 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonOcsSerializer;
 }
@@ -325,7 +315,6 @@ abstract class ApiGetUserMountsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ApiGetUserMountsResponseApplicationJson> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonSerializer;
 }

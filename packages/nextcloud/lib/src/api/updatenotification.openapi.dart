@@ -153,9 +153,7 @@ class ApiGetAppListApiVersion extends EnumClass {
   // coverage:ignore-start
   static BuiltSet<ApiGetAppListApiVersion> get values => _$apiGetAppListApiVersionValues;
   // coverage:ignore-end
-
   static ApiGetAppListApiVersion valueOf(final String name) => _$valueOfApiGetAppListApiVersion(name);
-
   static Serializer<ApiGetAppListApiVersion> get serializer => _$apiGetAppListApiVersionSerializer;
 }
 
@@ -182,7 +180,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -206,7 +203,6 @@ abstract class App implements AppInterface, Built<App, AppBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<App> get serializer => _$appSerializer;
 }
 
@@ -236,7 +232,6 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
       _$apiGetAppListResponseApplicationJsonOcsDataSerializer;
 }
@@ -267,7 +262,6 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs> get serializer =>
       _$apiGetAppListResponseApplicationJsonOcsSerializer;
 }
@@ -296,7 +290,6 @@ abstract class ApiGetAppListResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ApiGetAppListResponseApplicationJson> get serializer =>
       _$apiGetAppListResponseApplicationJsonSerializer;
 }

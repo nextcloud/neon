@@ -169,7 +169,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -198,7 +197,6 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsDataSerializer;
 }
@@ -229,7 +227,6 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsSerializer;
 }
@@ -258,7 +255,6 @@ abstract class DirectGetUrlResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DirectGetUrlResponseApplicationJson> get serializer =>
       _$directGetUrlResponseApplicationJsonSerializer;
 }
@@ -284,7 +280,6 @@ abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capa
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_Dav> get serializer => _$capabilitiesDavSerializer;
 }
 
@@ -307,7 +302,6 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 

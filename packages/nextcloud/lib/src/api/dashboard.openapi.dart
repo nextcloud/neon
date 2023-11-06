@@ -375,7 +375,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -401,7 +400,6 @@ abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_B
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
 }
 
@@ -439,7 +437,6 @@ abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Widget> get serializer => _$widgetSerializer;
 }
 
@@ -470,7 +467,6 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
 }
@@ -500,7 +496,6 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
 }
@@ -529,7 +524,6 @@ abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, Widg
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
 }
 
@@ -560,7 +554,6 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
 }
@@ -591,7 +584,6 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
 }
@@ -617,7 +609,6 @@ abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, W
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
 }
 
@@ -648,7 +639,6 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
 }
@@ -679,7 +669,6 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
       _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
 }

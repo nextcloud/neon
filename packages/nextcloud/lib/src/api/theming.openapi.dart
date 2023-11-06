@@ -38,9 +38,7 @@ class Client extends DynamiteClient {
         );
 
   IconClient get icon => IconClient(this);
-
   ThemingClient get theming => ThemingClient(this);
-
   UserThemeClient get userTheme => UserThemeClient(this);
 }
 
@@ -1071,7 +1069,6 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
       _$themingGetManifestResponseApplicationJsonIconsSerializer;
 }
@@ -1112,7 +1109,6 @@ abstract class ThemingGetManifestResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
       _$themingGetManifestResponseApplicationJsonSerializer;
 }
@@ -1138,7 +1134,6 @@ abstract class Background implements BackgroundInterface, Built<Background, Back
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Background> get serializer => _$backgroundSerializer;
 }
 
@@ -1165,7 +1160,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1195,7 +1189,6 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -1225,7 +1218,6 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<UserThemeEnableThemeResponseApplicationJson> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonSerializer;
 }
@@ -1257,7 +1249,6 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -1287,7 +1278,6 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<UserThemeDisableThemeResponseApplicationJson> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonSerializer;
 }
@@ -1335,7 +1325,6 @@ abstract class PublicCapabilities_Theming
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<PublicCapabilities_Theming> get serializer => _$publicCapabilitiesThemingSerializer;
 }
 
@@ -1360,7 +1349,6 @@ abstract class PublicCapabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
 }
 

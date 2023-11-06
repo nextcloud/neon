@@ -686,7 +686,6 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -716,7 +715,6 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs_Data> get serializer =>
       _$weatherStatusSetModeResponseApplicationJsonOcsDataSerializer;
 }
@@ -747,7 +745,6 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetModeResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetModeResponseApplicationJsonOcsSerializer;
 }
@@ -777,7 +774,6 @@ abstract class WeatherStatusSetModeResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetModeResponseApplicationJson> get serializer =>
       _$weatherStatusSetModeResponseApplicationJsonSerializer;
 }
@@ -811,7 +807,6 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data> get serializer =>
       _$weatherStatusUsePersonalAddressResponseApplicationJsonOcsDataSerializer;
 }
@@ -843,7 +838,6 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusUsePersonalAddressResponseApplicationJsonOcsSerializer;
 }
@@ -874,7 +868,6 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusUsePersonalAddressResponseApplicationJson> get serializer =>
       _$weatherStatusUsePersonalAddressResponseApplicationJsonSerializer;
 }
@@ -908,7 +901,6 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data> get serializer =>
       _$weatherStatusGetLocationResponseApplicationJsonOcsDataSerializer;
 }
@@ -940,7 +932,6 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetLocationResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetLocationResponseApplicationJsonOcsSerializer;
 }
@@ -970,7 +961,6 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetLocationResponseApplicationJson> get serializer =>
       _$weatherStatusGetLocationResponseApplicationJsonSerializer;
 }
@@ -1004,7 +994,6 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data> get serializer =>
       _$weatherStatusSetLocationResponseApplicationJsonOcsDataSerializer;
 }
@@ -1036,7 +1025,6 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetLocationResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetLocationResponseApplicationJsonOcsSerializer;
 }
@@ -1066,7 +1054,6 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetLocationResponseApplicationJson> get serializer =>
       _$weatherStatusSetLocationResponseApplicationJsonSerializer;
 }
@@ -1120,7 +1107,6 @@ abstract class Forecast_Data_Instant_Details
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Instant_Details> get serializer => _$forecastDataInstantDetailsSerializer;
 }
 
@@ -1145,7 +1131,6 @@ abstract class Forecast_Data_Instant
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Instant> get serializer => _$forecastDataInstantSerializer;
 }
 
@@ -1174,7 +1159,6 @@ abstract class Forecast_Data_Next12Hours_Summary
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next12Hours_Summary> get serializer => _$forecastDataNext12HoursSummarySerializer;
 }
 
@@ -1203,7 +1187,6 @@ abstract class Forecast_Data_Next12Hours_Details
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next12Hours_Details> get serializer => _$forecastDataNext12HoursDetailsSerializer;
 }
 
@@ -1230,7 +1213,6 @@ abstract class Forecast_Data_Next12Hours
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next12Hours> get serializer => _$forecastDataNext12HoursSerializer;
 }
 
@@ -1259,7 +1241,6 @@ abstract class Forecast_Data_Next1Hours_Summary
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next1Hours_Summary> get serializer => _$forecastDataNext1HoursSummarySerializer;
 }
 
@@ -1296,7 +1277,6 @@ abstract class Forecast_Data_Next1Hours_Details
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next1Hours_Details> get serializer => _$forecastDataNext1HoursDetailsSerializer;
 }
 
@@ -1323,7 +1303,6 @@ abstract class Forecast_Data_Next1Hours
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next1Hours> get serializer => _$forecastDataNext1HoursSerializer;
 }
 
@@ -1352,7 +1331,6 @@ abstract class Forecast_Data_Next6Hours_Summary
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next6Hours_Summary> get serializer => _$forecastDataNext6HoursSummarySerializer;
 }
 
@@ -1391,7 +1369,6 @@ abstract class Forecast_Data_Next6Hours_Details
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next6Hours_Details> get serializer => _$forecastDataNext6HoursDetailsSerializer;
 }
 
@@ -1418,7 +1395,6 @@ abstract class Forecast_Data_Next6Hours
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data_Next6Hours> get serializer => _$forecastDataNext6HoursSerializer;
 }
 
@@ -1448,7 +1424,6 @@ abstract class Forecast_Data implements Forecast_DataInterface, Built<Forecast_D
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast_Data> get serializer => _$forecastDataSerializer;
 }
 
@@ -1472,7 +1447,6 @@ abstract class Forecast implements ForecastInterface, Built<Forecast, ForecastBu
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Forecast> get serializer => _$forecastSerializer;
 }
 
@@ -1503,7 +1477,6 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetForecastResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonOcsSerializer;
 }
@@ -1533,7 +1506,6 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetForecastResponseApplicationJson> get serializer =>
       _$weatherStatusGetForecastResponseApplicationJsonSerializer;
 }
@@ -1565,7 +1537,6 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusGetFavoritesResponseApplicationJsonOcsSerializer;
 }
@@ -1596,7 +1567,6 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusGetFavoritesResponseApplicationJson> get serializer =>
       _$weatherStatusGetFavoritesResponseApplicationJsonSerializer;
 }
@@ -1627,7 +1597,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data> get serializer =>
       _$weatherStatusSetFavoritesResponseApplicationJsonOcsDataSerializer;
 }
@@ -1659,7 +1628,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetFavoritesResponseApplicationJson_Ocs> get serializer =>
       _$weatherStatusSetFavoritesResponseApplicationJsonOcsSerializer;
 }
@@ -1690,7 +1658,6 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<WeatherStatusSetFavoritesResponseApplicationJson> get serializer =>
       _$weatherStatusSetFavoritesResponseApplicationJsonSerializer;
 }
@@ -1719,7 +1686,6 @@ abstract class Capabilities_WeatherStatus
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities_WeatherStatus> get serializer => _$capabilitiesWeatherStatusSerializer;
 }
 
@@ -1743,7 +1709,6 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
   // coverage:ignore-start
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
-
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
