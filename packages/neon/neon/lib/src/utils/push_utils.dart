@@ -79,7 +79,11 @@ class PushUtils {
     final keypair = loadRSAKeypair();
     for (final message in Uri(query: utf8.decode(messages)).queryParameters.values) {
       final data = json.decode(message) as Map<String, dynamic>;
-      final pushNotification = PushNotification.fromEncrypted(data, keypair.privateKey);
+      final pushNotification = PushNotification.fromEncrypted(
+        data,
+        instance,
+        keypair.privateKey,
+      );
 
       if (pushNotification.subject.delete ?? false) {
         await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
