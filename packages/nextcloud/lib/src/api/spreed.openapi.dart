@@ -20582,10 +20582,10 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
     }
 
     final match = [b._roomAddParticipantToRoomResponseApplicationJsonOcsData0, b._builtListJsonObject]
-        .singleWhereOrNull((final x) => x != null);
+        .firstWhereOrNull((final x) => x != null);
     if (match == null) {
       throw StateError(
-        "Need exactly one of 'roomAddParticipantToRoomResponseApplicationJsonOcsData0', 'builtListJsonObject' for ${b._data}",
+        "Need at least one of 'roomAddParticipantToRoomResponseApplicationJsonOcsData0', 'builtListJsonObject' for ${b._data}",
       );
     }
   }

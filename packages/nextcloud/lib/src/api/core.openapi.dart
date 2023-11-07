@@ -68,6 +68,8 @@ class Client extends DynamiteClient {
 
   TextProcessingApiClient get textProcessingApi => TextProcessingApiClient(this);
 
+  TextToImageApiClient get textToImageApi => TextToImageApiClient(this);
+
   TranslationApiClient get translationApi => TranslationApiClient(this);
 
   UnifiedSearchClient get unifiedSearch => UnifiedSearchClient(this);
@@ -3661,6 +3663,586 @@ class TextProcessingApiClient {
   }
 }
 
+class TextToImageApiClient {
+  TextToImageApiClient(this._rootClient);
+
+  final Client _rootClient;
+
+  /// Check whether this feature is available.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Returns availability status
+  ///
+  /// See:
+  ///  * [isAvailableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<TextToImageApiIsAvailableResponseApplicationJson, void>> isAvailable({
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = isAvailableRaw(
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// Check whether this feature is available.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Returns availability status
+  ///
+  /// See:
+  ///  * [isAvailable] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    const path = '/ocs/v2.php/text2image/is_available';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(TextToImageApiIsAvailableResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint allows scheduling a text to image task.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [numberOfImages] The number of images to generate. Defaults to `8`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 412: Scheduling task is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<TextToImageApiScheduleResponseApplicationJson, void>> schedule({
+    required final String input,
+    required final String appId,
+    final String identifier = '',
+    final int numberOfImages = 8,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = scheduleRaw(
+      input: input,
+      appId: appId,
+      identifier: identifier,
+      numberOfImages: numberOfImages,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows scheduling a text to image task.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [input] Input text.
+  ///   * [appId] ID of the app that will execute the task.
+  ///   * [identifier] An arbitrary identifier for the task. Defaults to `''`.
+  ///   * [numberOfImages] The number of images to generate. Defaults to `8`.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task scheduled successfully
+  ///   * 412: Scheduling task is not possible
+  ///   * 500
+  ///
+  /// See:
+  ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void> scheduleRaw({
+    required final String input,
+    required final String appId,
+    final String identifier = '',
+    final int numberOfImages = 8,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    queryParameters['input'] = input;
+    queryParameters['appId'] = appId;
+    if (identifier != '') {
+      queryParameters['identifier'] = identifier;
+    }
+    if (numberOfImages != 8) {
+      queryParameters['numberOfImages'] = numberOfImages.toString();
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    const path = '/ocs/v2.php/text2image/schedule';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'post',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(TextToImageApiScheduleResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<TextToImageApiGetTaskResponseApplicationJson, void>> getTask({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows checking the status and results of a task. Tasks are removed 1 week after receiving their last update.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void> getTaskRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    final id0 = Uri.encodeQueryComponent(id.toString());
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final path = '/ocs/v2.php/text2image/task/$id0';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(TextToImageApiGetTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>> deleteTask({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = deleteTaskRaw(
+      id: id,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows to delete a scheduled task for a user.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task returned
+  ///   * 404: Task not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
+    required final int id,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final id0 = Uri.encodeQueryComponent(id.toString());
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final path = '/ocs/v2.php/text2image/task/$id0';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'delete',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint allows downloading the resulting image of a task.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [index] The index of the image to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Task or image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getImageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<Uint8List, void>> getImage({
+    required final int id,
+    required final int index,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = getImageRaw(
+      id: id,
+      index: index,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint allows downloading the resulting image of a task.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [id] The id of the task.
+  ///   * [index] The index of the image to retrieve.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Image returned
+  ///   * 404: Task or image not found
+  ///   * 500
+  ///
+  /// See:
+  ///  * [getImage] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<Uint8List, void> getImageRaw({
+    required final int id,
+    required final int index,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': '*/*',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    }
+
+// coverage:ignore-end
+    final id0 = Uri.encodeQueryComponent(id.toString());
+    final index0 = Uri.encodeQueryComponent(index.toString());
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final path = '/ocs/v2.php/text2image/task/$id0/image/$index0';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<Uint8List, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(Uint8List),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
+    required final String appId,
+    final String? identifier,
+    final bool oCSAPIRequest = true,
+  }) async {
+    final rawResponse = listTasksByAppRaw(
+      appId: appId,
+      identifier: identifier,
+      oCSAPIRequest: oCSAPIRequest,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This endpoint returns a list of tasks of a user that are related with a specific appId and optionally with an identifier.
+  ///
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Parameters:
+  ///   * [identifier] An arbitrary identifier for the task.
+  ///   * [appId] ID of the app.
+  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
+  ///
+  /// Status codes:
+  ///   * 200: Task list returned
+  ///   * 500
+  ///
+  /// See:
+  ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
+    required final String appId,
+    final String? identifier,
+    final bool oCSAPIRequest = true,
+  }) {
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+// coverage:ignore-start
+    final authentication = _rootClient.authentications.firstWhereOrNull(
+      (final auth) => switch (auth) {
+        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
+        _ => false,
+      },
+    );
+
+    if (authentication != null) {
+      headers.addAll(
+        authentication.headers,
+      );
+    } else {
+      throw Exception('Missing authentication for bearer_auth or basic_auth');
+    }
+
+// coverage:ignore-end
+    final appId0 = Uri.encodeQueryComponent(appId);
+    if (identifier != null) {
+      queryParameters['identifier'] = identifier;
+    }
+    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    final path = '/ocs/v2.php/text2image/tasks/app/$appId0';
+    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+
+    return DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>(
+      response: _rootClient.executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+}
+
 class TranslationApiClient {
   TranslationApiClient(this._rootClient);
 
@@ -7218,25 +7800,25 @@ abstract class ProvisioningApiCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
+abstract interface class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
 }
 
-abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
-  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
+    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
-  const SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._();
+  const SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7244,63 +7826,31 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer;
+  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
+      _$sharebymailCapabilities0FilesSharingSharebymailUploadFilesDropSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface {
-  bool get enabled;
-  bool get enforced;
-}
-
-abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
-    implements
-        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password([
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
-  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
-
-  // coverage:ignore-start
-  const SharebymailCapabilities_FilesSharing_Sharebymail_Password._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> get serializer =>
-      _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface {
+abstract interface class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
 }
 
-abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
     implements
-        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
-    final void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
-  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+        SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface,
+        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password([
+    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
+  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
-  const SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._();
+  const SharebymailCapabilities0_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7308,37 +7858,69 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer;
+  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password> get serializer =>
+      _$sharebymailCapabilities0FilesSharingSharebymailPasswordSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SharebymailCapabilities_FilesSharing_SharebymailInterface {
+abstract interface class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+  bool get enabled;
+  bool get enforced;
+}
+
+abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
+    implements
+        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
+        Built<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate([
+    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
+
+  // coverage:ignore-start
+  const SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
+      _$sharebymailCapabilities0FilesSharingSharebymailExpireDateSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SharebymailCapabilities0_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
   @BuiltValueField(wireName: 'upload_files_drop')
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
-  SharebymailCapabilities_FilesSharing_Sharebymail_Password get password;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop get uploadFilesDrop;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_Password get password;
   @BuiltValueField(wireName: 'expire_date')
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate get expireDate;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate get expireDate;
 }
 
-abstract class SharebymailCapabilities_FilesSharing_Sharebymail
+abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
     implements
-        SharebymailCapabilities_FilesSharing_SharebymailInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail,
-            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
-  factory SharebymailCapabilities_FilesSharing_Sharebymail([
-    final void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
-  ]) = _$SharebymailCapabilities_FilesSharing_Sharebymail;
+        SharebymailCapabilities0_FilesSharing_SharebymailInterface,
+        Built<SharebymailCapabilities0_FilesSharing_Sharebymail,
+            SharebymailCapabilities0_FilesSharing_SharebymailBuilder> {
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail([
+    final void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? b,
+  ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
-  const SharebymailCapabilities_FilesSharing_Sharebymail._();
+  const SharebymailCapabilities0_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7346,28 +7928,29 @@ abstract class SharebymailCapabilities_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SharebymailCapabilities_FilesSharing_Sharebymail> get serializer =>
-      _$sharebymailCapabilitiesFilesSharingSharebymailSerializer;
+  static Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail> get serializer =>
+      _$sharebymailCapabilities0FilesSharingSharebymailSerializer;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SharebymailCapabilities_FilesSharingInterface {
-  SharebymailCapabilities_FilesSharing_Sharebymail get sharebymail;
+abstract interface class SharebymailCapabilities0_FilesSharingInterface {
+  SharebymailCapabilities0_FilesSharing_Sharebymail get sharebymail;
 }
 
-abstract class SharebymailCapabilities_FilesSharing
+abstract class SharebymailCapabilities0_FilesSharing
     implements
-        SharebymailCapabilities_FilesSharingInterface,
-        Built<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder> {
-  factory SharebymailCapabilities_FilesSharing([final void Function(SharebymailCapabilities_FilesSharingBuilder)? b]) =
-      _$SharebymailCapabilities_FilesSharing;
+        SharebymailCapabilities0_FilesSharingInterface,
+        Built<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder> {
+  factory SharebymailCapabilities0_FilesSharing([
+    final void Function(SharebymailCapabilities0_FilesSharingBuilder)? b,
+  ]) = _$SharebymailCapabilities0_FilesSharing;
 
   // coverage:ignore-start
-  const SharebymailCapabilities_FilesSharing._();
+  const SharebymailCapabilities0_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing.fromJson(final Map<String, dynamic> json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7375,14 +7958,41 @@ abstract class SharebymailCapabilities_FilesSharing
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SharebymailCapabilities_FilesSharing> get serializer =>
-      _$sharebymailCapabilitiesFilesSharingSerializer;
+  static Serializer<SharebymailCapabilities0_FilesSharing> get serializer =>
+      _$sharebymailCapabilities0FilesSharingSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class SharebymailCapabilities0Interface {
+  @BuiltValueField(wireName: 'files_sharing')
+  SharebymailCapabilities0_FilesSharing get filesSharing;
+}
+
+abstract class SharebymailCapabilities0
+    implements SharebymailCapabilities0Interface, Built<SharebymailCapabilities0, SharebymailCapabilities0Builder> {
+  factory SharebymailCapabilities0([final void Function(SharebymailCapabilities0Builder)? b]) =
+      _$SharebymailCapabilities0;
+
+  // coverage:ignore-start
+  const SharebymailCapabilities0._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory SharebymailCapabilities0.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<SharebymailCapabilities0> get serializer => _$sharebymailCapabilities0Serializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class SharebymailCapabilitiesInterface {
-  @BuiltValueField(wireName: 'files_sharing')
-  SharebymailCapabilities_FilesSharing get filesSharing;
+  SharebymailCapabilities0? get sharebymailCapabilities0;
+  BuiltList<JsonObject>? get builtListJsonObject;
 }
 
 abstract class SharebymailCapabilities
@@ -7402,7 +8012,60 @@ abstract class SharebymailCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SharebymailCapabilities> get serializer => _$sharebymailCapabilitiesSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SharebymailCapabilities> get serializer => _$SharebymailCapabilitiesSerializer();
+
+  JsonObject get data;
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final SharebymailCapabilitiesBuilder b) {
+    // When this is rebuild from another builder
+    if (b._data == null) {
+      return;
+    }
+
+    final match = [b._sharebymailCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
+    if (match == null) {
+      throw StateError("Need at least one of 'sharebymailCapabilities0', 'builtListJsonObject' for ${b._data}");
+    }
+  }
+}
+
+class _$SharebymailCapabilitiesSerializer implements PrimitiveSerializer<SharebymailCapabilities> {
+  @override
+  final Iterable<Type> types = const [SharebymailCapabilities, _$SharebymailCapabilities];
+
+  @override
+  final String wireName = 'SharebymailCapabilities';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final SharebymailCapabilities object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) =>
+      object.data.value;
+
+  @override
+  SharebymailCapabilities deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SharebymailCapabilitiesBuilder()..data = JsonObject(data);
+    try {
+      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities0))!
+          as SharebymailCapabilities0;
+      result.sharebymailCapabilities0.replace(value);
+    } catch (_) {}
+    try {
+      final value = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+      result.builtListJsonObject.replace(value);
+    } catch (_) {}
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -9335,6 +9998,504 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface {
+  bool get isAvailable;
+}
+
+abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
+    implements
+        TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface,
+        Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
+            TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data([
+    final void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textToImageApiIsAvailableResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiIsAvailableResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs
+    implements
+        TextToImageApiIsAvailableResponseApplicationJson_OcsInterface,
+        Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs,
+            TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder> {
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs([
+    final void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextToImageApiIsAvailableResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TextToImageApiIsAvailableResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs> get serializer =>
+      _$textToImageApiIsAvailableResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiIsAvailableResponseApplicationJsonInterface {
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class TextToImageApiIsAvailableResponseApplicationJson
+    implements
+        TextToImageApiIsAvailableResponseApplicationJsonInterface,
+        Built<TextToImageApiIsAvailableResponseApplicationJson,
+            TextToImageApiIsAvailableResponseApplicationJsonBuilder> {
+  factory TextToImageApiIsAvailableResponseApplicationJson([
+    final void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? b,
+  ]) = _$TextToImageApiIsAvailableResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TextToImageApiIsAvailableResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiIsAvailableResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiIsAvailableResponseApplicationJson> get serializer =>
+      _$textToImageApiIsAvailableResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageTaskInterface {
+  int? get id;
+  int get status;
+  String? get userId;
+  String get appId;
+  String get input;
+  String? get identifier;
+  int get numberOfImages;
+  int? get completionExpectedAt;
+}
+
+abstract class TextToImageTask implements TextToImageTaskInterface, Built<TextToImageTask, TextToImageTaskBuilder> {
+  factory TextToImageTask([final void Function(TextToImageTaskBuilder)? b]) = _$TextToImageTask;
+
+  // coverage:ignore-start
+  const TextToImageTask._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageTask.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageTask> get serializer => _$textToImageTaskSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface {
+  TextToImageTask get task;
+}
+
+abstract class TextToImageApiScheduleResponseApplicationJson_Ocs_Data
+    implements
+        TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface,
+        Built<TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
+            TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data([
+    final void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TextToImageApiScheduleResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiScheduleResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textToImageApiScheduleResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiScheduleResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextToImageApiScheduleResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class TextToImageApiScheduleResponseApplicationJson_Ocs
+    implements
+        TextToImageApiScheduleResponseApplicationJson_OcsInterface,
+        Built<TextToImageApiScheduleResponseApplicationJson_Ocs,
+            TextToImageApiScheduleResponseApplicationJson_OcsBuilder> {
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs([
+    final void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextToImageApiScheduleResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TextToImageApiScheduleResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiScheduleResponseApplicationJson_Ocs> get serializer =>
+      _$textToImageApiScheduleResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiScheduleResponseApplicationJsonInterface {
+  TextToImageApiScheduleResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class TextToImageApiScheduleResponseApplicationJson
+    implements
+        TextToImageApiScheduleResponseApplicationJsonInterface,
+        Built<TextToImageApiScheduleResponseApplicationJson, TextToImageApiScheduleResponseApplicationJsonBuilder> {
+  factory TextToImageApiScheduleResponseApplicationJson([
+    final void Function(TextToImageApiScheduleResponseApplicationJsonBuilder)? b,
+  ]) = _$TextToImageApiScheduleResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TextToImageApiScheduleResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiScheduleResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiScheduleResponseApplicationJson> get serializer =>
+      _$textToImageApiScheduleResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface {
+  TextToImageTask get task;
+}
+
+abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
+    implements
+        TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
+            TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data([
+    final void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textToImageApiGetTaskResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiGetTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs
+    implements
+        TextToImageApiGetTaskResponseApplicationJson_OcsInterface,
+        Built<TextToImageApiGetTaskResponseApplicationJson_Ocs,
+            TextToImageApiGetTaskResponseApplicationJson_OcsBuilder> {
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs([
+    final void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextToImageApiGetTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TextToImageApiGetTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiGetTaskResponseApplicationJson_Ocs> get serializer =>
+      _$textToImageApiGetTaskResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiGetTaskResponseApplicationJsonInterface {
+  TextToImageApiGetTaskResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class TextToImageApiGetTaskResponseApplicationJson
+    implements
+        TextToImageApiGetTaskResponseApplicationJsonInterface,
+        Built<TextToImageApiGetTaskResponseApplicationJson, TextToImageApiGetTaskResponseApplicationJsonBuilder> {
+  factory TextToImageApiGetTaskResponseApplicationJson([
+    final void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TextToImageApiGetTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TextToImageApiGetTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiGetTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiGetTaskResponseApplicationJson> get serializer =>
+      _$textToImageApiGetTaskResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface {
+  TextToImageTask get task;
+}
+
+abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
+    implements
+        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface,
+        Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
+            TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data([
+    final void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textToImageApiDeleteTaskResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs
+    implements
+        TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface,
+        Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
+            TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs([
+    final void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TextToImageApiDeleteTaskResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs> get serializer =>
+      _$textToImageApiDeleteTaskResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiDeleteTaskResponseApplicationJsonInterface {
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class TextToImageApiDeleteTaskResponseApplicationJson
+    implements
+        TextToImageApiDeleteTaskResponseApplicationJsonInterface,
+        Built<TextToImageApiDeleteTaskResponseApplicationJson, TextToImageApiDeleteTaskResponseApplicationJsonBuilder> {
+  factory TextToImageApiDeleteTaskResponseApplicationJson([
+    final void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder)? b,
+  ]) = _$TextToImageApiDeleteTaskResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TextToImageApiDeleteTaskResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiDeleteTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiDeleteTaskResponseApplicationJson> get serializer =>
+      _$textToImageApiDeleteTaskResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface {
+  BuiltList<TextToImageTask> get tasks;
+}
+
+abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
+    implements
+        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
+        Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data([
+    final void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
+  ]) = _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data;
+
+  // coverage:ignore-start
+  const TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data> get serializer =>
+      _$textToImageApiListTasksByAppResponseApplicationJsonOcsDataSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface {
+  OCSMeta get meta;
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data get data;
+}
+
+abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs
+    implements
+        TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface,
+        Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
+            TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs([
+    final void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
+  ]) = _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs;
+
+  // coverage:ignore-start
+  const TextToImageApiListTasksByAppResponseApplicationJson_Ocs._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs> get serializer =>
+      _$textToImageApiListTasksByAppResponseApplicationJsonOcsSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class TextToImageApiListTasksByAppResponseApplicationJsonInterface {
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs get ocs;
+}
+
+abstract class TextToImageApiListTasksByAppResponseApplicationJson
+    implements
+        TextToImageApiListTasksByAppResponseApplicationJsonInterface,
+        Built<TextToImageApiListTasksByAppResponseApplicationJson,
+            TextToImageApiListTasksByAppResponseApplicationJsonBuilder> {
+  factory TextToImageApiListTasksByAppResponseApplicationJson([
+    final void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? b,
+  ]) = _$TextToImageApiListTasksByAppResponseApplicationJson;
+
+  // coverage:ignore-start
+  const TextToImageApiListTasksByAppResponseApplicationJson._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory TextToImageApiListTasksByAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<TextToImageApiListTasksByAppResponseApplicationJson> get serializer =>
+      _$textToImageApiListTasksByAppResponseApplicationJsonSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface {
   String get from;
   String get fromLabel;
@@ -10500,31 +11661,33 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
       ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilities.new)
       ..add(SharebymailCapabilities.serializer)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0.new)
+      ..add(SharebymailCapabilities0.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing),
-        SharebymailCapabilities_FilesSharing.new,
+        const FullType(SharebymailCapabilities0_FilesSharing),
+        SharebymailCapabilities0_FilesSharing.new,
       )
-      ..add(SharebymailCapabilities_FilesSharing.serializer)
+      ..add(SharebymailCapabilities0_FilesSharing.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
-        SharebymailCapabilities_FilesSharing_Sharebymail.new,
+        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail),
+        SharebymailCapabilities0_FilesSharing_Sharebymail.new,
       )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
+      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
-        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.new,
+        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
+        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.new,
       )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
-        SharebymailCapabilities_FilesSharing_Sharebymail_Password.new,
+        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password),
+        SharebymailCapabilities0_FilesSharing_Sharebymail_Password.new,
       )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
+      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
-        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.new,
+        const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate),
+        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.new,
       )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
+      ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilities.new)
       ..add(SpreedPublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0.new)
@@ -10760,6 +11923,84 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(TextProcessingTask)]),
         ListBuilder<TextProcessingTask>.new,
       )
+      ..addBuilderFactory(
+        const FullType(TextToImageApiIsAvailableResponseApplicationJson),
+        TextToImageApiIsAvailableResponseApplicationJson.new,
+      )
+      ..add(TextToImageApiIsAvailableResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs),
+        TextToImageApiIsAvailableResponseApplicationJson_Ocs.new,
+      )
+      ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data),
+        TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiScheduleResponseApplicationJson),
+        TextToImageApiScheduleResponseApplicationJson.new,
+      )
+      ..add(TextToImageApiScheduleResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs),
+        TextToImageApiScheduleResponseApplicationJson_Ocs.new,
+      )
+      ..add(TextToImageApiScheduleResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data),
+        TextToImageApiScheduleResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(TextToImageApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTask.new)
+      ..add(TextToImageTask.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiGetTaskResponseApplicationJson),
+        TextToImageApiGetTaskResponseApplicationJson.new,
+      )
+      ..add(TextToImageApiGetTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs),
+        TextToImageApiGetTaskResponseApplicationJson_Ocs.new,
+      )
+      ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data),
+        TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
+        TextToImageApiDeleteTaskResponseApplicationJson.new,
+      )
+      ..add(TextToImageApiDeleteTaskResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs),
+        TextToImageApiDeleteTaskResponseApplicationJson_Ocs.new,
+      )
+      ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data),
+        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
+        TextToImageApiListTasksByAppResponseApplicationJson.new,
+      )
+      ..add(TextToImageApiListTasksByAppResponseApplicationJson.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs),
+        TextToImageApiListTasksByAppResponseApplicationJson_Ocs.new,
+      )
+      ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+      ..addBuilderFactory(
+        const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data),
+        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.new,
+      )
+      ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(TextToImageTask)]), ListBuilder<TextToImageTask>.new)
       ..addBuilderFactory(
         const FullType(TranslationApiLanguagesResponseApplicationJson),
         TranslationApiLanguagesResponseApplicationJson.new,

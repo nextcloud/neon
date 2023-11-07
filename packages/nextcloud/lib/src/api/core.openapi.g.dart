@@ -179,21 +179,21 @@ Serializer<ProvisioningApiCapabilities_ProvisioningApi> _$provisioningApiCapabil
     _$ProvisioningApiCapabilities_ProvisioningApiSerializer();
 Serializer<ProvisioningApiCapabilities> _$provisioningApiCapabilitiesSerializer =
     _$ProvisioningApiCapabilitiesSerializer();
-Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop>
-    _$sharebymailCapabilitiesFilesSharingSharebymailUploadFilesDropSerializer =
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer();
-Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password>
-    _$sharebymailCapabilitiesFilesSharingSharebymailPasswordSerializer =
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer();
-Serializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate>
-    _$sharebymailCapabilitiesFilesSharingSharebymailExpireDateSerializer =
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer();
-Serializer<SharebymailCapabilities_FilesSharing_Sharebymail>
-    _$sharebymailCapabilitiesFilesSharingSharebymailSerializer =
-    _$SharebymailCapabilities_FilesSharing_SharebymailSerializer();
-Serializer<SharebymailCapabilities_FilesSharing> _$sharebymailCapabilitiesFilesSharingSerializer =
-    _$SharebymailCapabilities_FilesSharingSerializer();
-Serializer<SharebymailCapabilities> _$sharebymailCapabilitiesSerializer = _$SharebymailCapabilitiesSerializer();
+Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop>
+    _$sharebymailCapabilities0FilesSharingSharebymailUploadFilesDropSerializer =
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password>
+    _$sharebymailCapabilities0FilesSharingSharebymailPasswordSerializer =
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer();
+Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate>
+    _$sharebymailCapabilities0FilesSharingSharebymailExpireDateSerializer =
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
+Serializer<SharebymailCapabilities0_FilesSharing_Sharebymail>
+    _$sharebymailCapabilities0FilesSharingSharebymailSerializer =
+    _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer();
+Serializer<SharebymailCapabilities0_FilesSharing> _$sharebymailCapabilities0FilesSharingSerializer =
+    _$SharebymailCapabilities0_FilesSharingSerializer();
+Serializer<SharebymailCapabilities0> _$sharebymailCapabilities0Serializer = _$SharebymailCapabilities0Serializer();
 Serializer<SpreedPublicCapabilities0_Spreed_Config_Attachments>
     _$spreedPublicCapabilities0SpreedConfigAttachmentsSerializer =
     _$SpreedPublicCapabilities0_Spreed_Config_AttachmentsSerializer();
@@ -323,6 +323,50 @@ Serializer<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs>
 Serializer<TextProcessingApiListTasksByAppResponseApplicationJson>
     _$textProcessingApiListTasksByAppResponseApplicationJsonSerializer =
     _$TextProcessingApiListTasksByAppResponseApplicationJsonSerializer();
+Serializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data>
+    _$textToImageApiIsAvailableResponseApplicationJsonOcsDataSerializer =
+    _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs>
+    _$textToImageApiIsAvailableResponseApplicationJsonOcsSerializer =
+    _$TextToImageApiIsAvailableResponseApplicationJson_OcsSerializer();
+Serializer<TextToImageApiIsAvailableResponseApplicationJson>
+    _$textToImageApiIsAvailableResponseApplicationJsonSerializer =
+    _$TextToImageApiIsAvailableResponseApplicationJsonSerializer();
+Serializer<TextToImageTask> _$textToImageTaskSerializer = _$TextToImageTaskSerializer();
+Serializer<TextToImageApiScheduleResponseApplicationJson_Ocs_Data>
+    _$textToImageApiScheduleResponseApplicationJsonOcsDataSerializer =
+    _$TextToImageApiScheduleResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TextToImageApiScheduleResponseApplicationJson_Ocs>
+    _$textToImageApiScheduleResponseApplicationJsonOcsSerializer =
+    _$TextToImageApiScheduleResponseApplicationJson_OcsSerializer();
+Serializer<TextToImageApiScheduleResponseApplicationJson> _$textToImageApiScheduleResponseApplicationJsonSerializer =
+    _$TextToImageApiScheduleResponseApplicationJsonSerializer();
+Serializer<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data>
+    _$textToImageApiGetTaskResponseApplicationJsonOcsDataSerializer =
+    _$TextToImageApiGetTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TextToImageApiGetTaskResponseApplicationJson_Ocs>
+    _$textToImageApiGetTaskResponseApplicationJsonOcsSerializer =
+    _$TextToImageApiGetTaskResponseApplicationJson_OcsSerializer();
+Serializer<TextToImageApiGetTaskResponseApplicationJson> _$textToImageApiGetTaskResponseApplicationJsonSerializer =
+    _$TextToImageApiGetTaskResponseApplicationJsonSerializer();
+Serializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data>
+    _$textToImageApiDeleteTaskResponseApplicationJsonOcsDataSerializer =
+    _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs>
+    _$textToImageApiDeleteTaskResponseApplicationJsonOcsSerializer =
+    _$TextToImageApiDeleteTaskResponseApplicationJson_OcsSerializer();
+Serializer<TextToImageApiDeleteTaskResponseApplicationJson>
+    _$textToImageApiDeleteTaskResponseApplicationJsonSerializer =
+    _$TextToImageApiDeleteTaskResponseApplicationJsonSerializer();
+Serializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data>
+    _$textToImageApiListTasksByAppResponseApplicationJsonOcsDataSerializer =
+    _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer();
+Serializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs>
+    _$textToImageApiListTasksByAppResponseApplicationJsonOcsSerializer =
+    _$TextToImageApiListTasksByAppResponseApplicationJson_OcsSerializer();
+Serializer<TextToImageApiListTasksByAppResponseApplicationJson>
+    _$textToImageApiListTasksByAppResponseApplicationJsonSerializer =
+    _$TextToImageApiListTasksByAppResponseApplicationJsonSerializer();
 Serializer<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>
     _$translationApiLanguagesResponseApplicationJsonOcsDataLanguagesSerializer =
     _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesSerializer();
@@ -4432,19 +4476,19 @@ class _$ProvisioningApiCapabilitiesSerializer implements StructuredSerializer<Pr
   }
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializer
-    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop> {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
+    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
+    SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   ];
   @override
-  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop';
+  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object,
+      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4455,10 +4499,10 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializ
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4476,18 +4520,19 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropSerializ
   }
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer
-    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_Password> {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordSerializer
+    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_Password> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities_FilesSharing_Sharebymail_Password,
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
+    SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password
   ];
   @override
-  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_Password';
+  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_Password';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_Password object,
+  Iterable<Object?> serialize(
+      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_Password object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4500,10 +4545,10 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_Password deserialize(
+  SharebymailCapabilities0_FilesSharing_Sharebymail_Password deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4524,19 +4569,19 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_PasswordSerializer
   }
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer
-    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate> {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
+    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-    _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
+    SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
   ];
   @override
-  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate';
+  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object,
+      Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4549,10 +4594,10 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate deserialize(
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+    final result = SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4573,18 +4618,18 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateSerializer
   }
 }
 
-class _$SharebymailCapabilities_FilesSharing_SharebymailSerializer
-    implements StructuredSerializer<SharebymailCapabilities_FilesSharing_Sharebymail> {
+class _$SharebymailCapabilities0_FilesSharing_SharebymailSerializer
+    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing_Sharebymail> {
   @override
   final Iterable<Type> types = const [
-    SharebymailCapabilities_FilesSharing_Sharebymail,
-    _$SharebymailCapabilities_FilesSharing_Sharebymail
+    SharebymailCapabilities0_FilesSharing_Sharebymail,
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail
   ];
   @override
-  final String wireName = 'SharebymailCapabilities_FilesSharing_Sharebymail';
+  final String wireName = 'SharebymailCapabilities0_FilesSharing_Sharebymail';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing_Sharebymail object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0_FilesSharing_Sharebymail object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'enabled',
@@ -4593,22 +4638,22 @@ class _$SharebymailCapabilities_FilesSharing_SharebymailSerializer
       serializers.serialize(object.sendPasswordByMail, specifiedType: const FullType(bool)),
       'upload_files_drop',
       serializers.serialize(object.uploadFilesDrop,
-          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop)),
+          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop)),
       'password',
       serializers.serialize(object.password,
-          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password)),
+          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password)),
       'expire_date',
       serializers.serialize(object.expireDate,
-          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate)),
+          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate)),
     ];
 
     return result;
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities0_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities_FilesSharing_SharebymailBuilder();
+    final result = SharebymailCapabilities0_FilesSharing_SharebymailBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4624,18 +4669,18 @@ class _$SharebymailCapabilities_FilesSharing_SharebymailSerializer
           break;
         case 'upload_files_drop':
           result.uploadFilesDrop.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop))!
-              as SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop);
+                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop))!
+              as SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop);
           break;
         case 'password':
           result.password.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password))!
-              as SharebymailCapabilities_FilesSharing_Sharebymail_Password);
+                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password))!
+              as SharebymailCapabilities0_FilesSharing_Sharebymail_Password);
           break;
         case 'expire_date':
           result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate))!
-              as SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate);
+                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate))!
+              as SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate);
           break;
       }
     }
@@ -4644,29 +4689,29 @@ class _$SharebymailCapabilities_FilesSharing_SharebymailSerializer
   }
 }
 
-class _$SharebymailCapabilities_FilesSharingSerializer
-    implements StructuredSerializer<SharebymailCapabilities_FilesSharing> {
+class _$SharebymailCapabilities0_FilesSharingSerializer
+    implements StructuredSerializer<SharebymailCapabilities0_FilesSharing> {
   @override
-  final Iterable<Type> types = const [SharebymailCapabilities_FilesSharing, _$SharebymailCapabilities_FilesSharing];
+  final Iterable<Type> types = const [SharebymailCapabilities0_FilesSharing, _$SharebymailCapabilities0_FilesSharing];
   @override
-  final String wireName = 'SharebymailCapabilities_FilesSharing';
+  final String wireName = 'SharebymailCapabilities0_FilesSharing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities_FilesSharing object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0_FilesSharing object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'sharebymail',
       serializers.serialize(object.sharebymail,
-          specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail)),
+          specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail)),
     ];
 
     return result;
   }
 
   @override
-  SharebymailCapabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities0_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilities_FilesSharingBuilder();
+    final result = SharebymailCapabilities0_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4676,8 +4721,8 @@ class _$SharebymailCapabilities_FilesSharingSerializer
       switch (key) {
         case 'sharebymail':
           result.sharebymail.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SharebymailCapabilities_FilesSharing_Sharebymail))!
-              as SharebymailCapabilities_FilesSharing_Sharebymail);
+                  specifiedType: const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail))!
+              as SharebymailCapabilities0_FilesSharing_Sharebymail);
           break;
       }
     }
@@ -4686,27 +4731,27 @@ class _$SharebymailCapabilities_FilesSharingSerializer
   }
 }
 
-class _$SharebymailCapabilitiesSerializer implements StructuredSerializer<SharebymailCapabilities> {
+class _$SharebymailCapabilities0Serializer implements StructuredSerializer<SharebymailCapabilities0> {
   @override
-  final Iterable<Type> types = const [SharebymailCapabilities, _$SharebymailCapabilities];
+  final Iterable<Type> types = const [SharebymailCapabilities0, _$SharebymailCapabilities0];
   @override
-  final String wireName = 'SharebymailCapabilities';
+  final String wireName = 'SharebymailCapabilities0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities object,
+  Iterable<Object?> serialize(Serializers serializers, SharebymailCapabilities0 object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'files_sharing',
-      serializers.serialize(object.filesSharing, specifiedType: const FullType(SharebymailCapabilities_FilesSharing)),
+      serializers.serialize(object.filesSharing, specifiedType: const FullType(SharebymailCapabilities0_FilesSharing)),
     ];
 
     return result;
   }
 
   @override
-  SharebymailCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+  SharebymailCapabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = SharebymailCapabilitiesBuilder();
+    final result = SharebymailCapabilities0Builder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -4716,8 +4761,8 @@ class _$SharebymailCapabilitiesSerializer implements StructuredSerializer<Shareb
       switch (key) {
         case 'files_sharing':
           result.filesSharing.replace(
-              serializers.deserialize(value, specifiedType: const FullType(SharebymailCapabilities_FilesSharing))!
-                  as SharebymailCapabilities_FilesSharing);
+              serializers.deserialize(value, specifiedType: const FullType(SharebymailCapabilities0_FilesSharing))!
+                  as SharebymailCapabilities0_FilesSharing);
           break;
       }
     }
@@ -7420,6 +7465,792 @@ class _$TextProcessingApiListTasksByAppResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs))!
               as TextProcessingApiListTasksByAppResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
+    _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'isAvailable',
+      serializers.serialize(object.isAvailable, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'isAvailable':
+          result.isAvailable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TextToImageApiIsAvailableResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiIsAvailableResponseApplicationJson_Ocs,
+    _$TextToImageApiIsAvailableResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TextToImageApiIsAvailableResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiIsAvailableResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data))!
+              as TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJsonSerializer
+    implements StructuredSerializer<TextToImageApiIsAvailableResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiIsAvailableResponseApplicationJson,
+    _$TextToImageApiIsAvailableResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TextToImageApiIsAvailableResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiIsAvailableResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiIsAvailableResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs))!
+              as TextToImageApiIsAvailableResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageTaskSerializer implements StructuredSerializer<TextToImageTask> {
+  @override
+  final Iterable<Type> types = const [TextToImageTask, _$TextToImageTask];
+  @override
+  final String wireName = 'TextToImageTask';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageTask object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(int)),
+      'appId',
+      serializers.serialize(object.appId, specifiedType: const FullType(String)),
+      'input',
+      serializers.serialize(object.input, specifiedType: const FullType(String)),
+      'numberOfImages',
+      serializers.serialize(object.numberOfImages, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.userId;
+    if (value != null) {
+      result
+        ..add('userId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.identifier;
+    if (value != null) {
+      result
+        ..add('identifier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.completionExpectedAt;
+    if (value != null) {
+      result
+        ..add('completionExpectedAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  TextToImageTask deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageTaskBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'appId':
+          result.appId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'input':
+          result.input = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'identifier':
+          result.identifier = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'numberOfImages':
+          result.numberOfImages = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'completionExpectedAt':
+          result.completionExpectedAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiScheduleResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TextToImageApiScheduleResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
+    _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TextToImageApiScheduleResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiScheduleResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TextToImageTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TextToImageTask))! as TextToImageTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiScheduleResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TextToImageApiScheduleResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiScheduleResponseApplicationJson_Ocs,
+    _$TextToImageApiScheduleResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TextToImageApiScheduleResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiScheduleResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiScheduleResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data))!
+              as TextToImageApiScheduleResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiScheduleResponseApplicationJsonSerializer
+    implements StructuredSerializer<TextToImageApiScheduleResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiScheduleResponseApplicationJson,
+    _$TextToImageApiScheduleResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TextToImageApiScheduleResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiScheduleResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiScheduleResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs))!
+              as TextToImageApiScheduleResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
+    _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TextToImageApiGetTaskResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiGetTaskResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TextToImageTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TextToImageTask))! as TextToImageTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TextToImageApiGetTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiGetTaskResponseApplicationJson_Ocs,
+    _$TextToImageApiGetTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TextToImageApiGetTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiGetTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiGetTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data))!
+              as TextToImageApiGetTaskResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TextToImageApiGetTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiGetTaskResponseApplicationJson,
+    _$TextToImageApiGetTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TextToImageApiGetTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiGetTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiGetTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs))!
+              as TextToImageApiGetTaskResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
+    _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'task',
+      serializers.serialize(object.task, specifiedType: const FullType(TextToImageTask)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'task':
+          result.task.replace(
+              serializers.deserialize(value, specifiedType: const FullType(TextToImageTask))! as TextToImageTask);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TextToImageApiDeleteTaskResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
+    _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TextToImageApiDeleteTaskResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiDeleteTaskResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data))!
+              as TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJsonSerializer
+    implements StructuredSerializer<TextToImageApiDeleteTaskResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiDeleteTaskResponseApplicationJson,
+    _$TextToImageApiDeleteTaskResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TextToImageApiDeleteTaskResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiDeleteTaskResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiDeleteTaskResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs))!
+              as TextToImageApiDeleteTaskResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
+    _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
+  ];
+  @override
+  final String wireName = 'TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'tasks',
+      serializers.serialize(object.tasks, specifiedType: const FullType(BuiltList, [FullType(TextToImageTask)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'tasks':
+          result.tasks.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(TextToImageTask)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TextToImageApiListTasksByAppResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
+    _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'TextToImageApiListTasksByAppResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiListTasksByAppResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data))!
+              as TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJsonSerializer
+    implements StructuredSerializer<TextToImageApiListTasksByAppResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    TextToImageApiListTasksByAppResponseApplicationJson,
+    _$TextToImageApiListTasksByAppResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'TextToImageApiListTasksByAppResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, TextToImageApiListTasksByAppResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = TextToImageApiListTasksByAppResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs))!
+              as TextToImageApiListTasksByAppResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -18881,40 +19712,40 @@ class ProvisioningApiCapabilitiesBuilder
   }
 }
 
-abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface other);
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
+abstract mixin class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  void replace(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface other);
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
-    extends SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+    extends SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop {
   @override
   final bool enabled;
 
-  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop(
-          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
-      (SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop(
+          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates]) =>
+      (SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._({required this.enabled}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled');
+        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled');
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop rebuild(
-          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder) updates) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop rebuild(
+          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
-      SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder toBuilder() =>
+      SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop && enabled == other.enabled;
+    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop && enabled == other.enabled;
   }
 
   @override
@@ -18927,26 +19758,26 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop')
           ..add('enabled', enabled))
         .toString();
   }
 }
 
-class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
+class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
     implements
-        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
-        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
+        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
   set enabled(covariant bool? enabled) => _$this._enabled = enabled;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -18956,32 +19787,32 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop other) {
+  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop;
+    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop build() => _build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop _build() {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop _build() {
     final _$result = _$v ??
-        _$SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop._(
+        _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'));
+                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop', 'enabled'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface other);
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
+abstract mixin class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  void replace(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterface other);
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -18989,38 +19820,38 @@ abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordIn
   set enforced(bool? enforced);
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
-    extends SharebymailCapabilities_FilesSharing_Sharebymail_Password {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password
+    extends SharebymailCapabilities0_FilesSharing_Sharebymail_Password {
   @override
   final bool enabled;
   @override
   final bool enforced;
 
-  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_Password(
-          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
-      (SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password(
+          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? updates]) =>
+      (SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced})
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password._({required this.enabled, required this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled');
+        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced');
+        enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced');
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_Password rebuild(
-          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder) updates) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail_Password rebuild(
+          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
-      SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder toBuilder() =>
+      SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities_FilesSharing_Sharebymail_Password &&
+    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_Password &&
         enabled == other.enabled &&
         enforced == other.enforced;
   }
@@ -19036,19 +19867,19 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_Password
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_Password')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password')
           ..add('enabled', enabled)
           ..add('enforced', enforced))
         .toString();
   }
 }
 
-class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
+class SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder
     implements
-        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder>,
-        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password? _$v;
+        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder>,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -19058,9 +19889,9 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder();
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get _$this {
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -19071,34 +19902,34 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_Password other) {
+  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_Password other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_Password;
+    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_Password build() => _build();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_Password build() => _build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_Password _build() {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password _build() {
     final _$result = _$v ??
-        _$SharebymailCapabilities_FilesSharing_Sharebymail_Password._(
+        _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enabled'),
+                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enabled'),
             enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_Password', 'enforced'));
+                enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_Password', 'enforced'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
-  void replace(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface other);
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
+abstract mixin class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  void replace(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterface other);
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -19106,38 +19937,38 @@ abstract mixin class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
   set enforced(bool? enforced);
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
-    extends SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
+    extends SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate {
   @override
   final bool enabled;
   @override
   final bool enforced;
 
-  factory _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate(
-          [void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
-      (SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate(
+          [void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? updates]) =>
+      (SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced})
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._({required this.enabled, required this.enforced})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled');
+        enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced');
+        enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced');
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate rebuild(
-          void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder) updates) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate rebuild(
+          void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
-      SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder toBuilder() =>
+      SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate &&
+    return other is SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate &&
         enabled == other.enabled &&
         enforced == other.enforced;
   }
@@ -19153,19 +19984,19 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate')
           ..add('enabled', enabled)
           ..add('enforced', enforced))
         .toString();
   }
 }
 
-class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
+class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
     implements
-        Builder<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder>,
-        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate? _$v;
+        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
+            SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder>,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -19175,9 +20006,9 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
   bool? get enforced => _$this._enforced;
   set enforced(covariant bool? enforced) => _$this._enforced = enforced;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -19188,96 +20019,96 @@ class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate other) {
+  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate;
+    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate build() => _build();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate build() => _build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate _build() {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate _build() {
     final _$result = _$v ??
-        _$SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate._(
+        _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate._(
             enabled: BuiltValueNullFieldError.checkNotNull(
-                enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
+                enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enabled'),
             enforced: BuiltValueNullFieldError.checkNotNull(
-                enforced, r'SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate', 'enforced'));
+                enforced, r'SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate', 'enforced'));
     replace(_$result);
     return _$result;
   }
 }
 
-abstract mixin class SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
-  void replace(SharebymailCapabilities_FilesSharing_SharebymailInterface other);
-  void update(void Function(SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder) updates);
+abstract mixin class SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder {
+  void replace(SharebymailCapabilities0_FilesSharing_SharebymailInterface other);
+  void update(void Function(SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
   bool? get sendPasswordByMail;
   set sendPasswordByMail(bool? sendPasswordByMail);
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
-  set uploadFilesDrop(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop;
+  set uploadFilesDrop(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop);
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password;
-  set password(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get password;
+  set password(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? password);
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
-  set expireDate(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate;
+  set expireDate(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate);
 }
 
-class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapabilities_FilesSharing_Sharebymail {
+class _$SharebymailCapabilities0_FilesSharing_Sharebymail extends SharebymailCapabilities0_FilesSharing_Sharebymail {
   @override
   final bool enabled;
   @override
   final bool sendPasswordByMail;
   @override
-  final SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
+  final SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop uploadFilesDrop;
   @override
-  final SharebymailCapabilities_FilesSharing_Sharebymail_Password password;
+  final SharebymailCapabilities0_FilesSharing_Sharebymail_Password password;
   @override
-  final SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate expireDate;
+  final SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate expireDate;
 
-  factory _$SharebymailCapabilities_FilesSharing_Sharebymail(
-          [void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates]) =>
-      (SharebymailCapabilities_FilesSharing_SharebymailBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0_FilesSharing_Sharebymail(
+          [void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? updates]) =>
+      (SharebymailCapabilities0_FilesSharing_SharebymailBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail._(
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail._(
       {required this.enabled,
       required this.sendPasswordByMail,
       required this.uploadFilesDrop,
       required this.password,
       required this.expireDate})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'enabled');
+    BuiltValueNullFieldError.checkNotNull(enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled');
     BuiltValueNullFieldError.checkNotNull(
-        sendPasswordByMail, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail');
+        sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail');
     BuiltValueNullFieldError.checkNotNull(
-        uploadFilesDrop, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'uploadFilesDrop');
-    BuiltValueNullFieldError.checkNotNull(password, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'password');
+        uploadFilesDrop, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'uploadFilesDrop');
+    BuiltValueNullFieldError.checkNotNull(password, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'password');
     BuiltValueNullFieldError.checkNotNull(
-        expireDate, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'expireDate');
+        expireDate, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'expireDate');
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail rebuild(
-          void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder) updates) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail rebuild(
+          void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder toBuilder() =>
-      SharebymailCapabilities_FilesSharing_SharebymailBuilder()..replace(this);
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder toBuilder() =>
+      SharebymailCapabilities0_FilesSharing_SharebymailBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities_FilesSharing_Sharebymail &&
+    return other is SharebymailCapabilities0_FilesSharing_Sharebymail &&
         enabled == other.enabled &&
         sendPasswordByMail == other.sendPasswordByMail &&
         uploadFilesDrop == other.uploadFilesDrop &&
@@ -19299,7 +20130,7 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapa
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing_Sharebymail')
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing_Sharebymail')
           ..add('enabled', enabled)
           ..add('sendPasswordByMail', sendPasswordByMail)
           ..add('uploadFilesDrop', uploadFilesDrop)
@@ -19309,12 +20140,12 @@ class _$SharebymailCapabilities_FilesSharing_Sharebymail extends SharebymailCapa
   }
 }
 
-class SharebymailCapabilities_FilesSharing_SharebymailBuilder
+class SharebymailCapabilities0_FilesSharing_SharebymailBuilder
     implements
-        Builder<SharebymailCapabilities_FilesSharing_Sharebymail,
-            SharebymailCapabilities_FilesSharing_SharebymailBuilder>,
-        SharebymailCapabilities_FilesSharing_SharebymailInterfaceBuilder {
-  _$SharebymailCapabilities_FilesSharing_Sharebymail? _$v;
+        Builder<SharebymailCapabilities0_FilesSharing_Sharebymail,
+            SharebymailCapabilities0_FilesSharing_SharebymailBuilder>,
+        SharebymailCapabilities0_FilesSharing_SharebymailInterfaceBuilder {
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail? _$v;
 
   bool? _enabled;
   bool? get enabled => _$this._enabled;
@@ -19324,28 +20155,28 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
   bool? get sendPasswordByMail => _$this._sendPasswordByMail;
   set sendPasswordByMail(covariant bool? sendPasswordByMail) => _$this._sendPasswordByMail = sendPasswordByMail;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
-  SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
-      _$this._uploadFilesDrop ??= SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? _uploadFilesDrop;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder get uploadFilesDrop =>
+      _$this._uploadFilesDrop ??= SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
   set uploadFilesDrop(
-          covariant SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
+          covariant SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder? uploadFilesDrop) =>
       _$this._uploadFilesDrop = uploadFilesDrop;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? _password;
-  SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder get password =>
-      _$this._password ??= SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder();
-  set password(covariant SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder? password) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? _password;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder get password =>
+      _$this._password ??= SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+  set password(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder? password) =>
       _$this._password = password;
 
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
-  SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
-      _$this._expireDate ??= SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder();
-  set expireDate(covariant SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? _expireDate;
+  SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder get expireDate =>
+      _$this._expireDate ??= SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+  set expireDate(covariant SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder? expireDate) =>
       _$this._expireDate = expireDate;
 
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder();
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder();
 
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder get _$this {
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _enabled = $v.enabled;
@@ -19359,28 +20190,28 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities_FilesSharing_Sharebymail other) {
+  void replace(covariant SharebymailCapabilities0_FilesSharing_Sharebymail other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities_FilesSharing_Sharebymail;
+    _$v = other as _$SharebymailCapabilities0_FilesSharing_Sharebymail;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities_FilesSharing_Sharebymail build() => _build();
+  SharebymailCapabilities0_FilesSharing_Sharebymail build() => _build();
 
-  _$SharebymailCapabilities_FilesSharing_Sharebymail _build() {
-    _$SharebymailCapabilities_FilesSharing_Sharebymail _$result;
+  _$SharebymailCapabilities0_FilesSharing_Sharebymail _build() {
+    _$SharebymailCapabilities0_FilesSharing_Sharebymail _$result;
     try {
       _$result = _$v ??
-          _$SharebymailCapabilities_FilesSharing_Sharebymail._(
+          _$SharebymailCapabilities0_FilesSharing_Sharebymail._(
               enabled: BuiltValueNullFieldError.checkNotNull(
-                  enabled, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'enabled'),
+                  enabled, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'enabled'),
               sendPasswordByMail: BuiltValueNullFieldError.checkNotNull(
-                  sendPasswordByMail, r'SharebymailCapabilities_FilesSharing_Sharebymail', 'sendPasswordByMail'),
+                  sendPasswordByMail, r'SharebymailCapabilities0_FilesSharing_Sharebymail', 'sendPasswordByMail'),
               uploadFilesDrop: uploadFilesDrop.build(),
               password: password.build(),
               expireDate: expireDate.build());
@@ -19395,7 +20226,7 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
         expireDate.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'SharebymailCapabilities_FilesSharing_Sharebymail', _$failedField, e.toString());
+            r'SharebymailCapabilities0_FilesSharing_Sharebymail', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19404,37 +20235,37 @@ class SharebymailCapabilities_FilesSharing_SharebymailBuilder
   }
 }
 
-abstract mixin class SharebymailCapabilities_FilesSharingInterfaceBuilder {
-  void replace(SharebymailCapabilities_FilesSharingInterface other);
-  void update(void Function(SharebymailCapabilities_FilesSharingInterfaceBuilder) updates);
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail;
-  set sharebymail(SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail);
+abstract mixin class SharebymailCapabilities0_FilesSharingInterfaceBuilder {
+  void replace(SharebymailCapabilities0_FilesSharingInterface other);
+  void update(void Function(SharebymailCapabilities0_FilesSharingInterfaceBuilder) updates);
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get sharebymail;
+  set sharebymail(SharebymailCapabilities0_FilesSharing_SharebymailBuilder? sharebymail);
 }
 
-class _$SharebymailCapabilities_FilesSharing extends SharebymailCapabilities_FilesSharing {
+class _$SharebymailCapabilities0_FilesSharing extends SharebymailCapabilities0_FilesSharing {
   @override
-  final SharebymailCapabilities_FilesSharing_Sharebymail sharebymail;
+  final SharebymailCapabilities0_FilesSharing_Sharebymail sharebymail;
 
-  factory _$SharebymailCapabilities_FilesSharing(
-          [void Function(SharebymailCapabilities_FilesSharingBuilder)? updates]) =>
-      (SharebymailCapabilities_FilesSharingBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0_FilesSharing(
+          [void Function(SharebymailCapabilities0_FilesSharingBuilder)? updates]) =>
+      (SharebymailCapabilities0_FilesSharingBuilder()..update(updates))._build();
 
-  _$SharebymailCapabilities_FilesSharing._({required this.sharebymail}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(sharebymail, r'SharebymailCapabilities_FilesSharing', 'sharebymail');
+  _$SharebymailCapabilities0_FilesSharing._({required this.sharebymail}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(sharebymail, r'SharebymailCapabilities0_FilesSharing', 'sharebymail');
   }
 
   @override
-  SharebymailCapabilities_FilesSharing rebuild(void Function(SharebymailCapabilities_FilesSharingBuilder) updates) =>
+  SharebymailCapabilities0_FilesSharing rebuild(void Function(SharebymailCapabilities0_FilesSharingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilities_FilesSharingBuilder toBuilder() =>
-      SharebymailCapabilities_FilesSharingBuilder()..replace(this);
+  SharebymailCapabilities0_FilesSharingBuilder toBuilder() =>
+      SharebymailCapabilities0_FilesSharingBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities_FilesSharing && sharebymail == other.sharebymail;
+    return other is SharebymailCapabilities0_FilesSharing && sharebymail == other.sharebymail;
   }
 
   @override
@@ -19447,26 +20278,26 @@ class _$SharebymailCapabilities_FilesSharing extends SharebymailCapabilities_Fil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities_FilesSharing')..add('sharebymail', sharebymail))
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0_FilesSharing')..add('sharebymail', sharebymail))
         .toString();
   }
 }
 
-class SharebymailCapabilities_FilesSharingBuilder
+class SharebymailCapabilities0_FilesSharingBuilder
     implements
-        Builder<SharebymailCapabilities_FilesSharing, SharebymailCapabilities_FilesSharingBuilder>,
-        SharebymailCapabilities_FilesSharingInterfaceBuilder {
-  _$SharebymailCapabilities_FilesSharing? _$v;
+        Builder<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder>,
+        SharebymailCapabilities0_FilesSharingInterfaceBuilder {
+  _$SharebymailCapabilities0_FilesSharing? _$v;
 
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder? _sharebymail;
-  SharebymailCapabilities_FilesSharing_SharebymailBuilder get sharebymail =>
-      _$this._sharebymail ??= SharebymailCapabilities_FilesSharing_SharebymailBuilder();
-  set sharebymail(covariant SharebymailCapabilities_FilesSharing_SharebymailBuilder? sharebymail) =>
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder? _sharebymail;
+  SharebymailCapabilities0_FilesSharing_SharebymailBuilder get sharebymail =>
+      _$this._sharebymail ??= SharebymailCapabilities0_FilesSharing_SharebymailBuilder();
+  set sharebymail(covariant SharebymailCapabilities0_FilesSharing_SharebymailBuilder? sharebymail) =>
       _$this._sharebymail = sharebymail;
 
-  SharebymailCapabilities_FilesSharingBuilder();
+  SharebymailCapabilities0_FilesSharingBuilder();
 
-  SharebymailCapabilities_FilesSharingBuilder get _$this {
+  SharebymailCapabilities0_FilesSharingBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _sharebymail = $v.sharebymail.toBuilder();
@@ -19476,30 +20307,30 @@ class SharebymailCapabilities_FilesSharingBuilder
   }
 
   @override
-  void replace(covariant SharebymailCapabilities_FilesSharing other) {
+  void replace(covariant SharebymailCapabilities0_FilesSharing other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities_FilesSharing;
+    _$v = other as _$SharebymailCapabilities0_FilesSharing;
   }
 
   @override
-  void update(void Function(SharebymailCapabilities_FilesSharingBuilder)? updates) {
+  void update(void Function(SharebymailCapabilities0_FilesSharingBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SharebymailCapabilities_FilesSharing build() => _build();
+  SharebymailCapabilities0_FilesSharing build() => _build();
 
-  _$SharebymailCapabilities_FilesSharing _build() {
-    _$SharebymailCapabilities_FilesSharing _$result;
+  _$SharebymailCapabilities0_FilesSharing _build() {
+    _$SharebymailCapabilities0_FilesSharing _$result;
     try {
-      _$result = _$v ?? _$SharebymailCapabilities_FilesSharing._(sharebymail: sharebymail.build());
+      _$result = _$v ?? _$SharebymailCapabilities0_FilesSharing._(sharebymail: sharebymail.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'sharebymail';
         sharebymail.build();
       } catch (e) {
-        throw BuiltValueNestedFieldError(r'SharebymailCapabilities_FilesSharing', _$failedField, e.toString());
+        throw BuiltValueNestedFieldError(r'SharebymailCapabilities0_FilesSharing', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -19508,35 +20339,35 @@ class SharebymailCapabilities_FilesSharingBuilder
   }
 }
 
-abstract mixin class SharebymailCapabilitiesInterfaceBuilder {
-  void replace(SharebymailCapabilitiesInterface other);
-  void update(void Function(SharebymailCapabilitiesInterfaceBuilder) updates);
-  SharebymailCapabilities_FilesSharingBuilder get filesSharing;
-  set filesSharing(SharebymailCapabilities_FilesSharingBuilder? filesSharing);
+abstract mixin class SharebymailCapabilities0InterfaceBuilder {
+  void replace(SharebymailCapabilities0Interface other);
+  void update(void Function(SharebymailCapabilities0InterfaceBuilder) updates);
+  SharebymailCapabilities0_FilesSharingBuilder get filesSharing;
+  set filesSharing(SharebymailCapabilities0_FilesSharingBuilder? filesSharing);
 }
 
-class _$SharebymailCapabilities extends SharebymailCapabilities {
+class _$SharebymailCapabilities0 extends SharebymailCapabilities0 {
   @override
-  final SharebymailCapabilities_FilesSharing filesSharing;
+  final SharebymailCapabilities0_FilesSharing filesSharing;
 
-  factory _$SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? updates]) =>
-      (SharebymailCapabilitiesBuilder()..update(updates))._build();
+  factory _$SharebymailCapabilities0([void Function(SharebymailCapabilities0Builder)? updates]) =>
+      (SharebymailCapabilities0Builder()..update(updates))._build();
 
-  _$SharebymailCapabilities._({required this.filesSharing}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(filesSharing, r'SharebymailCapabilities', 'filesSharing');
+  _$SharebymailCapabilities0._({required this.filesSharing}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(filesSharing, r'SharebymailCapabilities0', 'filesSharing');
   }
 
   @override
-  SharebymailCapabilities rebuild(void Function(SharebymailCapabilitiesBuilder) updates) =>
+  SharebymailCapabilities0 rebuild(void Function(SharebymailCapabilities0Builder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SharebymailCapabilitiesBuilder toBuilder() => SharebymailCapabilitiesBuilder()..replace(this);
+  SharebymailCapabilities0Builder toBuilder() => SharebymailCapabilities0Builder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SharebymailCapabilities && filesSharing == other.filesSharing;
+    return other is SharebymailCapabilities0 && filesSharing == other.filesSharing;
   }
 
   @override
@@ -19549,7 +20380,125 @@ class _$SharebymailCapabilities extends SharebymailCapabilities {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities')..add('filesSharing', filesSharing)).toString();
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities0')..add('filesSharing', filesSharing)).toString();
+  }
+}
+
+class SharebymailCapabilities0Builder
+    implements
+        Builder<SharebymailCapabilities0, SharebymailCapabilities0Builder>,
+        SharebymailCapabilities0InterfaceBuilder {
+  _$SharebymailCapabilities0? _$v;
+
+  SharebymailCapabilities0_FilesSharingBuilder? _filesSharing;
+  SharebymailCapabilities0_FilesSharingBuilder get filesSharing =>
+      _$this._filesSharing ??= SharebymailCapabilities0_FilesSharingBuilder();
+  set filesSharing(covariant SharebymailCapabilities0_FilesSharingBuilder? filesSharing) =>
+      _$this._filesSharing = filesSharing;
+
+  SharebymailCapabilities0Builder();
+
+  SharebymailCapabilities0Builder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _filesSharing = $v.filesSharing.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant SharebymailCapabilities0 other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SharebymailCapabilities0;
+  }
+
+  @override
+  void update(void Function(SharebymailCapabilities0Builder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SharebymailCapabilities0 build() => _build();
+
+  _$SharebymailCapabilities0 _build() {
+    _$SharebymailCapabilities0 _$result;
+    try {
+      _$result = _$v ?? _$SharebymailCapabilities0._(filesSharing: filesSharing.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'filesSharing';
+        filesSharing.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'SharebymailCapabilities0', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class SharebymailCapabilitiesInterfaceBuilder {
+  void replace(SharebymailCapabilitiesInterface other);
+  void update(void Function(SharebymailCapabilitiesInterfaceBuilder) updates);
+  SharebymailCapabilities0Builder get sharebymailCapabilities0;
+  set sharebymailCapabilities0(SharebymailCapabilities0Builder? sharebymailCapabilities0);
+
+  ListBuilder<JsonObject> get builtListJsonObject;
+  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
+}
+
+class _$SharebymailCapabilities extends SharebymailCapabilities {
+  @override
+  final JsonObject data;
+  @override
+  final SharebymailCapabilities0? sharebymailCapabilities0;
+  @override
+  final BuiltList<JsonObject>? builtListJsonObject;
+
+  factory _$SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? updates]) =>
+      (SharebymailCapabilitiesBuilder()..update(updates))._build();
+
+  _$SharebymailCapabilities._({required this.data, this.sharebymailCapabilities0, this.builtListJsonObject})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(data, r'SharebymailCapabilities', 'data');
+  }
+
+  @override
+  SharebymailCapabilities rebuild(void Function(SharebymailCapabilitiesBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SharebymailCapabilitiesBuilder toBuilder() => SharebymailCapabilitiesBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SharebymailCapabilities &&
+        data == other.data &&
+        sharebymailCapabilities0 == other.sharebymailCapabilities0 &&
+        builtListJsonObject == other.builtListJsonObject;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jc(_$hash, sharebymailCapabilities0.hashCode);
+    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SharebymailCapabilities')
+          ..add('data', data)
+          ..add('sharebymailCapabilities0', sharebymailCapabilities0)
+          ..add('builtListJsonObject', builtListJsonObject))
+        .toString();
   }
 }
 
@@ -19559,18 +20508,29 @@ class SharebymailCapabilitiesBuilder
         SharebymailCapabilitiesInterfaceBuilder {
   _$SharebymailCapabilities? _$v;
 
-  SharebymailCapabilities_FilesSharingBuilder? _filesSharing;
-  SharebymailCapabilities_FilesSharingBuilder get filesSharing =>
-      _$this._filesSharing ??= SharebymailCapabilities_FilesSharingBuilder();
-  set filesSharing(covariant SharebymailCapabilities_FilesSharingBuilder? filesSharing) =>
-      _$this._filesSharing = filesSharing;
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  SharebymailCapabilities0Builder? _sharebymailCapabilities0;
+  SharebymailCapabilities0Builder get sharebymailCapabilities0 =>
+      _$this._sharebymailCapabilities0 ??= SharebymailCapabilities0Builder();
+  set sharebymailCapabilities0(covariant SharebymailCapabilities0Builder? sharebymailCapabilities0) =>
+      _$this._sharebymailCapabilities0 = sharebymailCapabilities0;
+
+  ListBuilder<JsonObject>? _builtListJsonObject;
+  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
+  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
+      _$this._builtListJsonObject = builtListJsonObject;
 
   SharebymailCapabilitiesBuilder();
 
   SharebymailCapabilitiesBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _filesSharing = $v.filesSharing.toBuilder();
+      _data = $v.data;
+      _sharebymailCapabilities0 = $v.sharebymailCapabilities0?.toBuilder();
+      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
       _$v = null;
     }
     return this;
@@ -19591,14 +20551,21 @@ class SharebymailCapabilitiesBuilder
   SharebymailCapabilities build() => _build();
 
   _$SharebymailCapabilities _build() {
+    SharebymailCapabilities._validate(this);
     _$SharebymailCapabilities _$result;
     try {
-      _$result = _$v ?? _$SharebymailCapabilities._(filesSharing: filesSharing.build());
+      _$result = _$v ??
+          _$SharebymailCapabilities._(
+              data: BuiltValueNullFieldError.checkNotNull(data, r'SharebymailCapabilities', 'data'),
+              sharebymailCapabilities0: _sharebymailCapabilities0?.build(),
+              builtListJsonObject: _builtListJsonObject?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'filesSharing';
-        filesSharing.build();
+        _$failedField = 'sharebymailCapabilities0';
+        _sharebymailCapabilities0?.build();
+        _$failedField = 'builtListJsonObject';
+        _builtListJsonObject?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SharebymailCapabilities', _$failedField, e.toString());
       }
@@ -26714,6 +27681,1869 @@ class TextProcessingApiListTasksByAppResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'TextProcessingApiListTasksByAppResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  bool? get isAvailable;
+  set isAvailable(bool? isAvailable);
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
+    extends TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data {
+  @override
+  final bool isAvailable;
+
+  factory _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data(
+          [void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data._({required this.isAvailable}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        isAvailable, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data', 'isAvailable');
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data && isAvailable == other.isAvailable;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, isAvailable.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data')
+          ..add('isAvailable', isAvailable))
+        .toString();
+  }
+}
+
+class TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
+            TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder>,
+        TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data? _$v;
+
+  bool? _isAvailable;
+  bool? get isAvailable => _$this._isAvailable;
+  set isAvailable(covariant bool? isAvailable) => _$this._isAvailable = isAvailable;
+
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder();
+
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _isAvailable = $v.isAvailable;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data _build() {
+    final _$result = _$v ??
+        _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data._(
+            isAvailable: BuiltValueNullFieldError.checkNotNull(
+                isAvailable, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data', 'isAvailable'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiIsAvailableResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TextToImageApiIsAvailableResponseApplicationJson_OcsInterface other);
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJson_Ocs
+    extends TextToImageApiIsAvailableResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data data;
+
+  factory _$TextToImageApiIsAvailableResponseApplicationJson_Ocs(
+          [void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TextToImageApiIsAvailableResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs rebuild(
+          void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder toBuilder() =>
+      TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiIsAvailableResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiIsAvailableResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TextToImageApiIsAvailableResponseApplicationJson_Ocs,
+            TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder>,
+        TextToImageApiIsAvailableResponseApplicationJson_OcsInterfaceBuilder {
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder? _data;
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder();
+
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiIsAvailableResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiIsAvailableResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson_Ocs build() => _build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson_Ocs _build() {
+    _$TextToImageApiIsAvailableResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TextToImageApiIsAvailableResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiIsAvailableResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiIsAvailableResponseApplicationJsonInterfaceBuilder {
+  void replace(TextToImageApiIsAvailableResponseApplicationJsonInterface other);
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJsonInterfaceBuilder) updates);
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TextToImageApiIsAvailableResponseApplicationJson extends TextToImageApiIsAvailableResponseApplicationJson {
+  @override
+  final TextToImageApiIsAvailableResponseApplicationJson_Ocs ocs;
+
+  factory _$TextToImageApiIsAvailableResponseApplicationJson(
+          [void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? updates]) =>
+      (TextToImageApiIsAvailableResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TextToImageApiIsAvailableResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson rebuild(
+          void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJsonBuilder toBuilder() =>
+      TextToImageApiIsAvailableResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiIsAvailableResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiIsAvailableResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TextToImageApiIsAvailableResponseApplicationJsonBuilder
+    implements
+        Builder<TextToImageApiIsAvailableResponseApplicationJson,
+            TextToImageApiIsAvailableResponseApplicationJsonBuilder>,
+        TextToImageApiIsAvailableResponseApplicationJsonInterfaceBuilder {
+  _$TextToImageApiIsAvailableResponseApplicationJson? _$v;
+
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder? _ocs;
+  TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TextToImageApiIsAvailableResponseApplicationJsonBuilder();
+
+  TextToImageApiIsAvailableResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiIsAvailableResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiIsAvailableResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiIsAvailableResponseApplicationJson build() => _build();
+
+  _$TextToImageApiIsAvailableResponseApplicationJson _build() {
+    _$TextToImageApiIsAvailableResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiIsAvailableResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiIsAvailableResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageTaskInterfaceBuilder {
+  void replace(TextToImageTaskInterface other);
+  void update(void Function(TextToImageTaskInterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  int? get status;
+  set status(int? status);
+
+  String? get userId;
+  set userId(String? userId);
+
+  String? get appId;
+  set appId(String? appId);
+
+  String? get input;
+  set input(String? input);
+
+  String? get identifier;
+  set identifier(String? identifier);
+
+  int? get numberOfImages;
+  set numberOfImages(int? numberOfImages);
+
+  int? get completionExpectedAt;
+  set completionExpectedAt(int? completionExpectedAt);
+}
+
+class _$TextToImageTask extends TextToImageTask {
+  @override
+  final int? id;
+  @override
+  final int status;
+  @override
+  final String? userId;
+  @override
+  final String appId;
+  @override
+  final String input;
+  @override
+  final String? identifier;
+  @override
+  final int numberOfImages;
+  @override
+  final int? completionExpectedAt;
+
+  factory _$TextToImageTask([void Function(TextToImageTaskBuilder)? updates]) =>
+      (TextToImageTaskBuilder()..update(updates))._build();
+
+  _$TextToImageTask._(
+      {this.id,
+      required this.status,
+      this.userId,
+      required this.appId,
+      required this.input,
+      this.identifier,
+      required this.numberOfImages,
+      this.completionExpectedAt})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(status, r'TextToImageTask', 'status');
+    BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageTask', 'appId');
+    BuiltValueNullFieldError.checkNotNull(input, r'TextToImageTask', 'input');
+    BuiltValueNullFieldError.checkNotNull(numberOfImages, r'TextToImageTask', 'numberOfImages');
+  }
+
+  @override
+  TextToImageTask rebuild(void Function(TextToImageTaskBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageTaskBuilder toBuilder() => TextToImageTaskBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageTask &&
+        id == other.id &&
+        status == other.status &&
+        userId == other.userId &&
+        appId == other.appId &&
+        input == other.input &&
+        identifier == other.identifier &&
+        numberOfImages == other.numberOfImages &&
+        completionExpectedAt == other.completionExpectedAt;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, appId.hashCode);
+    _$hash = $jc(_$hash, input.hashCode);
+    _$hash = $jc(_$hash, identifier.hashCode);
+    _$hash = $jc(_$hash, numberOfImages.hashCode);
+    _$hash = $jc(_$hash, completionExpectedAt.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageTask')
+          ..add('id', id)
+          ..add('status', status)
+          ..add('userId', userId)
+          ..add('appId', appId)
+          ..add('input', input)
+          ..add('identifier', identifier)
+          ..add('numberOfImages', numberOfImages)
+          ..add('completionExpectedAt', completionExpectedAt))
+        .toString();
+  }
+}
+
+class TextToImageTaskBuilder
+    implements Builder<TextToImageTask, TextToImageTaskBuilder>, TextToImageTaskInterfaceBuilder {
+  _$TextToImageTask? _$v;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  int? _status;
+  int? get status => _$this._status;
+  set status(covariant int? status) => _$this._status = status;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _appId;
+  String? get appId => _$this._appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
+
+  String? _input;
+  String? get input => _$this._input;
+  set input(covariant String? input) => _$this._input = input;
+
+  String? _identifier;
+  String? get identifier => _$this._identifier;
+  set identifier(covariant String? identifier) => _$this._identifier = identifier;
+
+  int? _numberOfImages;
+  int? get numberOfImages => _$this._numberOfImages;
+  set numberOfImages(covariant int? numberOfImages) => _$this._numberOfImages = numberOfImages;
+
+  int? _completionExpectedAt;
+  int? get completionExpectedAt => _$this._completionExpectedAt;
+  set completionExpectedAt(covariant int? completionExpectedAt) => _$this._completionExpectedAt = completionExpectedAt;
+
+  TextToImageTaskBuilder();
+
+  TextToImageTaskBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _id = $v.id;
+      _status = $v.status;
+      _userId = $v.userId;
+      _appId = $v.appId;
+      _input = $v.input;
+      _identifier = $v.identifier;
+      _numberOfImages = $v.numberOfImages;
+      _completionExpectedAt = $v.completionExpectedAt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageTask other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageTask;
+  }
+
+  @override
+  void update(void Function(TextToImageTaskBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageTask build() => _build();
+
+  _$TextToImageTask _build() {
+    final _$result = _$v ??
+        _$TextToImageTask._(
+            id: id,
+            status: BuiltValueNullFieldError.checkNotNull(status, r'TextToImageTask', 'status'),
+            userId: userId,
+            appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextToImageTask', 'appId'),
+            input: BuiltValueNullFieldError.checkNotNull(input, r'TextToImageTask', 'input'),
+            identifier: identifier,
+            numberOfImages: BuiltValueNullFieldError.checkNotNull(numberOfImages, r'TextToImageTask', 'numberOfImages'),
+            completionExpectedAt: completionExpectedAt);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TextToImageTaskBuilder get task;
+  set task(TextToImageTaskBuilder? task);
+}
+
+class _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data
+    extends TextToImageApiScheduleResponseApplicationJson_Ocs_Data {
+  @override
+  final TextToImageTask task;
+
+  factory _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data(
+          [void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TextToImageApiScheduleResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiScheduleResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiScheduleResponseApplicationJson_Ocs_Data')..add('task', task))
+        .toString();
+  }
+}
+
+class TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
+            TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder>,
+        TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data? _$v;
+
+  TextToImageTaskBuilder? _task;
+  TextToImageTaskBuilder get task => _$this._task ??= TextToImageTaskBuilder();
+  set task(covariant TextToImageTaskBuilder? task) => _$this._task = task;
+
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiScheduleResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data _build() {
+    _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiScheduleResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TextToImageApiScheduleResponseApplicationJson_OcsInterface other);
+  void update(void Function(TextToImageApiScheduleResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TextToImageApiScheduleResponseApplicationJson_Ocs extends TextToImageApiScheduleResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TextToImageApiScheduleResponseApplicationJson_Ocs_Data data;
+
+  factory _$TextToImageApiScheduleResponseApplicationJson_Ocs(
+          [void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TextToImageApiScheduleResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TextToImageApiScheduleResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TextToImageApiScheduleResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs rebuild(
+          void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder toBuilder() =>
+      TextToImageApiScheduleResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiScheduleResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiScheduleResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TextToImageApiScheduleResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TextToImageApiScheduleResponseApplicationJson_Ocs,
+            TextToImageApiScheduleResponseApplicationJson_OcsBuilder>,
+        TextToImageApiScheduleResponseApplicationJson_OcsInterfaceBuilder {
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder? _data;
+  TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder();
+
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiScheduleResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiScheduleResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson_Ocs build() => _build();
+
+  _$TextToImageApiScheduleResponseApplicationJson_Ocs _build() {
+    _$TextToImageApiScheduleResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiScheduleResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiScheduleResponseApplicationJsonInterfaceBuilder {
+  void replace(TextToImageApiScheduleResponseApplicationJsonInterface other);
+  void update(void Function(TextToImageApiScheduleResponseApplicationJsonInterfaceBuilder) updates);
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TextToImageApiScheduleResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TextToImageApiScheduleResponseApplicationJson extends TextToImageApiScheduleResponseApplicationJson {
+  @override
+  final TextToImageApiScheduleResponseApplicationJson_Ocs ocs;
+
+  factory _$TextToImageApiScheduleResponseApplicationJson(
+          [void Function(TextToImageApiScheduleResponseApplicationJsonBuilder)? updates]) =>
+      (TextToImageApiScheduleResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TextToImageApiScheduleResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TextToImageApiScheduleResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson rebuild(
+          void Function(TextToImageApiScheduleResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiScheduleResponseApplicationJsonBuilder toBuilder() =>
+      TextToImageApiScheduleResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiScheduleResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiScheduleResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TextToImageApiScheduleResponseApplicationJsonBuilder
+    implements
+        Builder<TextToImageApiScheduleResponseApplicationJson, TextToImageApiScheduleResponseApplicationJsonBuilder>,
+        TextToImageApiScheduleResponseApplicationJsonInterfaceBuilder {
+  _$TextToImageApiScheduleResponseApplicationJson? _$v;
+
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder? _ocs;
+  TextToImageApiScheduleResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TextToImageApiScheduleResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TextToImageApiScheduleResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TextToImageApiScheduleResponseApplicationJsonBuilder();
+
+  TextToImageApiScheduleResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiScheduleResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiScheduleResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TextToImageApiScheduleResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiScheduleResponseApplicationJson build() => _build();
+
+  _$TextToImageApiScheduleResponseApplicationJson _build() {
+    _$TextToImageApiScheduleResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiScheduleResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TextToImageApiScheduleResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TextToImageTaskBuilder get task;
+  set task(TextToImageTaskBuilder? task);
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
+    extends TextToImageApiGetTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final TextToImageTask task;
+
+  factory _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data(
+          [void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TextToImageApiGetTaskResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiGetTaskResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiGetTaskResponseApplicationJson_Ocs_Data')..add('task', task))
+        .toString();
+  }
+}
+
+class TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
+            TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder>,
+        TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  TextToImageTaskBuilder? _task;
+  TextToImageTaskBuilder get task => _$this._task ??= TextToImageTaskBuilder();
+  set task(covariant TextToImageTaskBuilder? task) => _$this._task = task;
+
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiGetTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data _build() {
+    _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiGetTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TextToImageApiGetTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJson_Ocs extends TextToImageApiGetTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TextToImageApiGetTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$TextToImageApiGetTaskResponseApplicationJson_Ocs(
+          [void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TextToImageApiGetTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TextToImageApiGetTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TextToImageApiGetTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TextToImageApiGetTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiGetTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiGetTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TextToImageApiGetTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TextToImageApiGetTaskResponseApplicationJson_Ocs,
+            TextToImageApiGetTaskResponseApplicationJson_OcsBuilder>,
+        TextToImageApiGetTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder();
+
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiGetTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiGetTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson_Ocs _build() {
+    _$TextToImageApiGetTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiGetTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  void replace(TextToImageApiGetTaskResponseApplicationJsonInterface other);
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TextToImageApiGetTaskResponseApplicationJson extends TextToImageApiGetTaskResponseApplicationJson {
+  @override
+  final TextToImageApiGetTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TextToImageApiGetTaskResponseApplicationJson(
+          [void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TextToImageApiGetTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TextToImageApiGetTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson rebuild(
+          void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJsonBuilder toBuilder() =>
+      TextToImageApiGetTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiGetTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiGetTaskResponseApplicationJson')..add('ocs', ocs)).toString();
+  }
+}
+
+class TextToImageApiGetTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TextToImageApiGetTaskResponseApplicationJson, TextToImageApiGetTaskResponseApplicationJsonBuilder>,
+        TextToImageApiGetTaskResponseApplicationJsonInterfaceBuilder {
+  _$TextToImageApiGetTaskResponseApplicationJson? _$v;
+
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TextToImageApiGetTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TextToImageApiGetTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TextToImageApiGetTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TextToImageApiGetTaskResponseApplicationJsonBuilder();
+
+  TextToImageApiGetTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiGetTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiGetTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiGetTaskResponseApplicationJson build() => _build();
+
+  _$TextToImageApiGetTaskResponseApplicationJson _build() {
+    _$TextToImageApiGetTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiGetTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'TextToImageApiGetTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  TextToImageTaskBuilder get task;
+  set task(TextToImageTaskBuilder? task);
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
+    extends TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data {
+  @override
+  final TextToImageTask task;
+
+  factory _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data(
+          [void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._({required this.task}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(task, r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data', 'task');
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data && task == other.task;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, task.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data')..add('task', task))
+        .toString();
+  }
+}
+
+class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
+            TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder>,
+        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data? _$v;
+
+  TextToImageTaskBuilder? _task;
+  TextToImageTaskBuilder get task => _$this._task ??= TextToImageTaskBuilder();
+  set task(covariant TextToImageTaskBuilder? task) => _$this._task = task;
+
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
+
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _task = $v.task.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data _build() {
+    _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data._(task: task.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'task';
+        task.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface other);
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs
+    extends TextToImageApiDeleteTaskResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data data;
+
+  factory _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs(
+          [void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs rebuild(
+          void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder toBuilder() =>
+      TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiDeleteTaskResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
+            TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder>,
+        TextToImageApiDeleteTaskResponseApplicationJson_OcsInterfaceBuilder {
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? _data;
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder();
+
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiDeleteTaskResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson_Ocs build() => _build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs _build() {
+    _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiDeleteTaskResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  void replace(TextToImageApiDeleteTaskResponseApplicationJsonInterface other);
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJsonInterfaceBuilder) updates);
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TextToImageApiDeleteTaskResponseApplicationJson extends TextToImageApiDeleteTaskResponseApplicationJson {
+  @override
+  final TextToImageApiDeleteTaskResponseApplicationJson_Ocs ocs;
+
+  factory _$TextToImageApiDeleteTaskResponseApplicationJson(
+          [void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder)? updates]) =>
+      (TextToImageApiDeleteTaskResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TextToImageApiDeleteTaskResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson rebuild(
+          void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJsonBuilder toBuilder() =>
+      TextToImageApiDeleteTaskResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiDeleteTaskResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiDeleteTaskResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TextToImageApiDeleteTaskResponseApplicationJsonBuilder
+    implements
+        Builder<TextToImageApiDeleteTaskResponseApplicationJson,
+            TextToImageApiDeleteTaskResponseApplicationJsonBuilder>,
+        TextToImageApiDeleteTaskResponseApplicationJsonInterfaceBuilder {
+  _$TextToImageApiDeleteTaskResponseApplicationJson? _$v;
+
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder? _ocs;
+  TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TextToImageApiDeleteTaskResponseApplicationJsonBuilder();
+
+  TextToImageApiDeleteTaskResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiDeleteTaskResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiDeleteTaskResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiDeleteTaskResponseApplicationJson build() => _build();
+
+  _$TextToImageApiDeleteTaskResponseApplicationJson _build() {
+    _$TextToImageApiDeleteTaskResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiDeleteTaskResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiDeleteTaskResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+  ListBuilder<TextToImageTask> get tasks;
+  set tasks(ListBuilder<TextToImageTask>? tasks);
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
+    extends TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data {
+  @override
+  final BuiltList<TextToImageTask> tasks;
+
+  factory _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data(
+          [void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
+      (TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._({required this.tasks}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        tasks, r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data', 'tasks');
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data rebuild(
+          void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
+      TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data && tasks == other.tasks;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, tasks.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data')
+          ..add('tasks', tasks))
+        .toString();
+  }
+}
+
+class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
+    implements
+        Builder<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
+            TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder>,
+        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data? _$v;
+
+  ListBuilder<TextToImageTask>? _tasks;
+  ListBuilder<TextToImageTask> get tasks => _$this._tasks ??= ListBuilder<TextToImageTask>();
+  set tasks(covariant ListBuilder<TextToImageTask>? tasks) => _$this._tasks = tasks;
+
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _tasks = $v.tasks.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data;
+  }
+
+  @override
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data build() => _build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data _build() {
+    _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data._(tasks: tasks.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'tasks';
+        tasks.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  void replace(TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface other);
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data;
+  set data(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data);
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs
+    extends TextToImageApiListTasksByAppResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data data;
+
+  factory _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs(
+          [void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates]) =>
+      (TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs rebuild(
+          void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder toBuilder() =>
+      TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiListTasksByAppResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder
+    implements
+        Builder<TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
+            TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder>,
+        TextToImageApiListTasksByAppResponseApplicationJson_OcsInterfaceBuilder {
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? _data;
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder get data =>
+      _$this._data ??= TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder();
+  set data(covariant TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder();
+
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiListTasksByAppResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson_Ocs build() => _build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs _build() {
+    _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiListTasksByAppResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class TextToImageApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  void replace(TextToImageApiListTasksByAppResponseApplicationJsonInterface other);
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJsonInterfaceBuilder) updates);
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$TextToImageApiListTasksByAppResponseApplicationJson
+    extends TextToImageApiListTasksByAppResponseApplicationJson {
+  @override
+  final TextToImageApiListTasksByAppResponseApplicationJson_Ocs ocs;
+
+  factory _$TextToImageApiListTasksByAppResponseApplicationJson(
+          [void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? updates]) =>
+      (TextToImageApiListTasksByAppResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'TextToImageApiListTasksByAppResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson rebuild(
+          void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJsonBuilder toBuilder() =>
+      TextToImageApiListTasksByAppResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is TextToImageApiListTasksByAppResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'TextToImageApiListTasksByAppResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class TextToImageApiListTasksByAppResponseApplicationJsonBuilder
+    implements
+        Builder<TextToImageApiListTasksByAppResponseApplicationJson,
+            TextToImageApiListTasksByAppResponseApplicationJsonBuilder>,
+        TextToImageApiListTasksByAppResponseApplicationJsonInterfaceBuilder {
+  _$TextToImageApiListTasksByAppResponseApplicationJson? _$v;
+
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder? _ocs;
+  TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder();
+  set ocs(covariant TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  TextToImageApiListTasksByAppResponseApplicationJsonBuilder();
+
+  TextToImageApiListTasksByAppResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant TextToImageApiListTasksByAppResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$TextToImageApiListTasksByAppResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  TextToImageApiListTasksByAppResponseApplicationJson build() => _build();
+
+  _$TextToImageApiListTasksByAppResponseApplicationJson _build() {
+    _$TextToImageApiListTasksByAppResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$TextToImageApiListTasksByAppResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'TextToImageApiListTasksByAppResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }

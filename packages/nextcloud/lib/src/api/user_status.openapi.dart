@@ -1790,7 +1790,7 @@ abstract class UserStatusClearMessageResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface {
   Private? get private;
-  JsonObject? get jsonObject;
+  BuiltList<JsonObject>? get builtListJsonObject;
 }
 
 abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
@@ -1827,9 +1827,9 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
       return;
     }
 
-    final match = [b._private, b._jsonObject].singleWhereOrNull((final x) => x != null);
+    final match = [b._private, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
     if (match == null) {
-      throw StateError("Need exactly one of 'private', 'jsonObject' for ${b._data}");
+      throw StateError("Need at least one of 'private', 'builtListJsonObject' for ${b._data}");
     }
   }
 }
@@ -1865,8 +1865,11 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
       result.private.replace(value);
     } catch (_) {}
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
-      result.jsonObject = value;
+      final value = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+      result.builtListJsonObject.replace(value);
     } catch (_) {}
     return result.build();
   }
@@ -2106,6 +2109,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         UserStatusRevertStatusResponseApplicationJson_Ocs_Data.new,
       )
       ..add(UserStatusRevertStatusResponseApplicationJson_Ocs_Data.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatus.new)

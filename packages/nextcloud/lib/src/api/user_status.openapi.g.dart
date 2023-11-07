@@ -4392,8 +4392,8 @@ abstract mixin class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInter
   PrivateBuilder get private;
   set private(PrivateBuilder? private);
 
-  JsonObject? get jsonObject;
-  set jsonObject(JsonObject? jsonObject);
+  ListBuilder<JsonObject> get builtListJsonObject;
+  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
 }
 
 class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
@@ -4403,13 +4403,14 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
   @override
   final Private? private;
   @override
-  final JsonObject? jsonObject;
+  final BuiltList<JsonObject>? builtListJsonObject;
 
   factory _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data(
           [void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
       (UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data._({required this.data, this.private, this.jsonObject})
+  _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data._(
+      {required this.data, this.private, this.builtListJsonObject})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(data, r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', 'data');
   }
@@ -4429,7 +4430,7 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
     return other is UserStatusRevertStatusResponseApplicationJson_Ocs_Data &&
         data == other.data &&
         private == other.private &&
-        jsonObject == other.jsonObject;
+        builtListJsonObject == other.builtListJsonObject;
   }
 
   @override
@@ -4437,7 +4438,7 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
     var _$hash = 0;
     _$hash = $jc(_$hash, data.hashCode);
     _$hash = $jc(_$hash, private.hashCode);
-    _$hash = $jc(_$hash, jsonObject.hashCode);
+    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -4447,7 +4448,7 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
     return (newBuiltValueToStringHelper(r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data')
           ..add('data', data)
           ..add('private', private)
-          ..add('jsonObject', jsonObject))
+          ..add('builtListJsonObject', builtListJsonObject))
         .toString();
   }
 }
@@ -4467,9 +4468,10 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
   PrivateBuilder get private => _$this._private ??= PrivateBuilder();
   set private(covariant PrivateBuilder? private) => _$this._private = private;
 
-  JsonObject? _jsonObject;
-  JsonObject? get jsonObject => _$this._jsonObject;
-  set jsonObject(covariant JsonObject? jsonObject) => _$this._jsonObject = jsonObject;
+  ListBuilder<JsonObject>? _builtListJsonObject;
+  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
+  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
+      _$this._builtListJsonObject = builtListJsonObject;
 
   UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder();
 
@@ -4478,7 +4480,7 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
     if ($v != null) {
       _data = $v.data;
       _private = $v.private?.toBuilder();
-      _jsonObject = $v.jsonObject;
+      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
       _$v = null;
     }
     return this;
@@ -4507,12 +4509,14 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
               data: BuiltValueNullFieldError.checkNotNull(
                   data, r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', 'data'),
               private: _private?.build(),
-              jsonObject: jsonObject);
+              builtListJsonObject: _builtListJsonObject?.build());
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'private';
         _private?.build();
+        _$failedField = 'builtListJsonObject';
+        _builtListJsonObject?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
