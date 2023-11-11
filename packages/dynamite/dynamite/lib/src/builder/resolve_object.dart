@@ -1,3 +1,4 @@
+import 'package:dynamite/src/builder/built_object_serializer.dart';
 import 'package:dynamite/src/builder/header_serializer.dart';
 import 'package:dynamite/src/builder/resolve_interface.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
@@ -47,12 +48,14 @@ TypeResultObject resolveObject(
       buildBuiltClass(
         identifier,
         defaults: defaults,
-        customSerializer: isHeader,
+        customSerializer: true,
       ),
     );
 
     if (isHeader) {
       state.output.add(buildHeaderSerializer(state, identifier, spec, schema));
+    } else {
+      state.output.add(buildBuiltClassSerializer(state, identifier, spec, schema));
     }
   }
   return result;
