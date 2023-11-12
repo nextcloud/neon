@@ -7,12 +7,10 @@ class TypeResultMap extends TypeResult {
     final TypeResult subType, {
     super.nullable,
     super.isTypeDef,
+    super.builderName = 'MapBuilder',
   }) : super(generics: [TypeResultBase('String'), subType]);
 
   TypeResult get subType => generics[1];
-
-  @override
-  String? get _builderFactory => '..addBuilderFactory($fullType, MapBuilder<String, ${subType.className}>.new)';
 
   @override
   String? get _serializer => null;

@@ -23659,7 +23659,7 @@ final Serializers _serializers = (Serializers().toBuilder()
           FullType(String),
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
-        MapBuilder<String, BuiltMap>.new,
+        MapBuilder<String, BuiltMap<String, JsonObject>>.new,
       )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
@@ -24136,7 +24136,7 @@ final Serializers _serializers = (Serializers().toBuilder()
           FullType(String),
           FullType(BuiltList, [FullType(ChatMessage)]),
         ]),
-        MapBuilder<String, BuiltList>.new,
+        MapBuilder<String, BuiltList<ChatMessage>>.new,
       )
       ..add(FederationAcceptShareApiVersion.serializer)
       ..addBuilderFactory(
@@ -24258,7 +24258,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
-        ListBuilder<BuiltMap>.new,
+        ListBuilder<BuiltMap<String, JsonObject>>.new,
       )
       ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessState.new)
       ..add(MatterbridgeProcessState.serializer)
@@ -24411,7 +24411,7 @@ final Serializers _serializers = (Serializers().toBuilder()
           FullType(String),
           FullType(BuiltList, [FullType(Reaction)]),
         ]),
-        MapBuilder<String, BuiltList>.new,
+        MapBuilder<String, BuiltList<Reaction>>.new,
       )
       ..add(ReactionReactApiVersion.serializer)
       ..addBuilderFactory(

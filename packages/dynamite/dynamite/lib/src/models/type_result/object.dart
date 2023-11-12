@@ -15,12 +15,6 @@ class TypeResultObject extends TypeResult {
         );
 
   @override
-  String? get _builderFactory => '..addBuilderFactory($fullType, $name.new)';
-
-  @override
-  String? get _serializer => '..add($className.serializer)';
-
-  @override
   String encode(
     final String object, {
     final bool onlyChildren = false,

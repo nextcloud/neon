@@ -7,12 +7,10 @@ class TypeResultList extends TypeResult {
     final TypeResult subType, {
     super.nullable,
     super.isTypeDef,
+    super.builderName = 'ListBuilder',
   }) : super(generics: [subType]);
 
   TypeResult get subType => generics.first;
-
-  @override
-  String? get _builderFactory => '..addBuilderFactory($fullType, ListBuilder<${subType.className}>.new)';
 
   @override
   String? get _serializer => null;
