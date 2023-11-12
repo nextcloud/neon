@@ -39,13 +39,13 @@ void main() {
         });
 
         test('Participant permissions', () async {
-          expect(spreed.ParticipantPermission.$default.value, 0);
-          expect(spreed.ParticipantPermission.fromValue(0), {spreed.ParticipantPermission.$default});
-          expect({spreed.ParticipantPermission.$default}.value, 0);
+          expect(spreed.ParticipantPermission.$default.binary, 0);
+          expect(spreed.ParticipantPermission.values.byBinary(0), {spreed.ParticipantPermission.$default});
+          expect({spreed.ParticipantPermission.$default}.binary, 0);
 
-          expect(spreed.ParticipantPermission.custom.value, 1);
-          expect(spreed.ParticipantPermission.canSendMessageAndShareAndReact.value, 128);
-          expect(spreed.ParticipantPermission.fromValue(129), {
+          expect(spreed.ParticipantPermission.custom.binary, 1);
+          expect(spreed.ParticipantPermission.canSendMessageAndShareAndReact.binary, 128);
+          expect(spreed.ParticipantPermission.values.byBinary(129), {
             spreed.ParticipantPermission.custom,
             spreed.ParticipantPermission.canSendMessageAndShareAndReact,
           });
@@ -53,7 +53,7 @@ void main() {
             {
               spreed.ParticipantPermission.custom,
               spreed.ParticipantPermission.canSendMessageAndShareAndReact,
-            }.value,
+            }.binary,
             129,
           );
         });
@@ -69,7 +69,7 @@ void main() {
           expect(response.body.ocs.data[0].name, 'user1');
           expect(response.body.ocs.data[0].displayName, 'Talk updates ✅');
           expect(response.body.ocs.data[0].participantType, spreed.ParticipantType.user.value);
-          expect(spreed.ParticipantPermission.fromValue(response.body.ocs.data[0].permissions), {
+          expect(spreed.ParticipantPermission.values.byBinary(response.body.ocs.data[0].permissions), {
             spreed.ParticipantPermission.startCall,
             spreed.ParticipantPermission.joinCall,
             spreed.ParticipantPermission.canPublishAudio,
@@ -107,7 +107,7 @@ void main() {
             expect(response.body.ocs.data.name, 'user2');
             expect(response.body.ocs.data.displayName, 'User Two');
             expect(response.body.ocs.data.participantType, spreed.ParticipantType.owner.value);
-            expect(spreed.ParticipantPermission.fromValue(response.body.ocs.data.permissions), {
+            expect(spreed.ParticipantPermission.values.byBinary(response.body.ocs.data.permissions), {
               spreed.ParticipantPermission.startCall,
               spreed.ParticipantPermission.joinCall,
               spreed.ParticipantPermission.canIgnoreLobby,
@@ -129,7 +129,7 @@ void main() {
             expect(response.body.ocs.data.name, 'admin');
             expect(response.body.ocs.data.displayName, 'admin');
             expect(response.body.ocs.data.participantType, spreed.ParticipantType.owner.value);
-            expect(spreed.ParticipantPermission.fromValue(response.body.ocs.data.permissions), {
+            expect(spreed.ParticipantPermission.values.byBinary(response.body.ocs.data.permissions), {
               spreed.ParticipantPermission.startCall,
               spreed.ParticipantPermission.joinCall,
               spreed.ParticipantPermission.canIgnoreLobby,
@@ -151,7 +151,7 @@ void main() {
             expect(response.body.ocs.data.name, 'abc');
             expect(response.body.ocs.data.displayName, 'abc');
             expect(response.body.ocs.data.participantType, spreed.ParticipantType.owner.value);
-            expect(spreed.ParticipantPermission.fromValue(response.body.ocs.data.permissions), {
+            expect(spreed.ParticipantPermission.values.byBinary(response.body.ocs.data.permissions), {
               spreed.ParticipantPermission.startCall,
               spreed.ParticipantPermission.joinCall,
               spreed.ParticipantPermission.canIgnoreLobby,
