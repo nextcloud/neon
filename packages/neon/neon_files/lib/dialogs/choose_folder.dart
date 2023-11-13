@@ -11,7 +11,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
 
-  final List<String> originalPath;
+  final PathUri originalPath;
 
   @override
   Widget build(final BuildContext context) => AlertDialog(
@@ -28,9 +28,9 @@ class FilesChooseFolderDialog extends StatelessWidget {
                   mode: FilesBrowserMode.selectDirectory,
                 ),
               ),
-              StreamBuilder<List<String>>(
-                stream: bloc.path,
-                builder: (final context, final pathSnapshot) => pathSnapshot.hasData
+              StreamBuilder<PathUri>(
+                stream: bloc.uri,
+                builder: (final context, final uriSnapshot) => uriSnapshot.hasData
                     ? Container(
                         margin: const EdgeInsets.all(10),
                         child: Row(
@@ -38,19 +38,19 @@ class FilesChooseFolderDialog extends StatelessWidget {
                           children: [
                             ElevatedButton(
                               onPressed: () async {
-                                final result = await showDialog<List<String>>(
+                                final result = await showDialog<String>(
                                   context: context,
                                   builder: (final context) => const FilesCreateFolderDialog(),
                                 );
                                 if (result != null) {
-                                  bloc.createFolder([...pathSnapshot.requireData, ...result]);
+                                  bloc.createFolder(uriSnapshot.requireData.join(PathUri.parse(result)));
                                 }
                               },
                               child: Text(FilesLocalizations.of(context).folderCreate),
                             ),
                             ElevatedButton(
-                              onPressed: !(const ListEquality<String>().equals(originalPath, pathSnapshot.data))
-                                  ? () => Navigator.of(context).pop(pathSnapshot.data)
+                              onPressed: originalPath != uriSnapshot.requireData
+                                  ? () => Navigator.of(context).pop(uriSnapshot.requireData)
                                   : null,
                               child: Text(FilesLocalizations.of(context).folderChoose),
                             ),

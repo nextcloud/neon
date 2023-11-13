@@ -1,25 +1,25 @@
 part of '../neon_files.dart';
 
 abstract interface class FilesBrowserBlocEvents {
-  void setPath(final List<String> path);
+  void setPath(final PathUri uri);
 
-  void createFolder(final List<String> path);
+  void createFolder(final PathUri uri);
 }
 
 abstract interface class FilesBrowserBlocStates {
   BehaviorSubject<Result<List<WebDavFile>>> get files;
 
-  BehaviorSubject<List<String>> get path;
+  BehaviorSubject<PathUri> get uri;
 }
 
 class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
   FilesBrowserBloc(
     this.options,
     this.account, {
-    final List<String>? initialPath,
+    final PathUri? initialPath,
   }) {
     if (initialPath != null) {
-      path.add(initialPath);
+      uri.add(initialPath);
     }
 
     unawaited(refresh());
@@ -31,7 +31,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   @override
   void dispose() {
     unawaited(files.close());
-    unawaited(path.close());
+    unawaited(uri.close());
     super.dispose();
   }
 
@@ -39,16 +39,16 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   BehaviorSubject<Result<List<WebDavFile>>> files = BehaviorSubject<Result<List<WebDavFile>>>();
 
   @override
-  BehaviorSubject<List<String>> path = BehaviorSubject<List<String>>.seeded([]);
+  BehaviorSubject<PathUri> uri = BehaviorSubject.seeded(PathUri.cwd());
 
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapWebDav<List<WebDavFile>>(
       account.id,
-      'files-${path.value.join('/')}',
+      'files-${uri.value.path}',
       files,
       () => account.client.webdav.propfind(
-        Uri(pathSegments: path.value),
+        uri.value,
         prop: WebDavPropWithoutValues.fromBools(
           davgetcontenttype: true,
           davgetetag: true,
@@ -65,13 +65,13 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
   }
 
   @override
-  void setPath(final List<String> p) {
-    path.add(p);
+  void setPath(final PathUri uri) {
+    this.uri.add(uri);
     unawaited(refresh());
   }
 
   @override
-  void createFolder(final List<String> path) {
-    wrapAction(() async => account.client.webdav.mkcol(Uri(pathSegments: path)));
+  void createFolder(final PathUri uri) {
+    wrapAction(() async => account.client.webdav.mkcol(uri));
   }
 }

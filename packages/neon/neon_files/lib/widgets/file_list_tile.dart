@@ -24,7 +24,7 @@ class FileListTile extends StatelessWidget {
 
   Future<void> _onTap(final BuildContext context, final FileDetails details) async {
     if (details.isDirectory) {
-      browserBloc.setPath(details.path);
+      browserBloc.setPath(details.uri);
     } else if (mode == FilesBrowserMode.browser) {
       final sizeWarning = bloc.options.downloadSizeWarning.value;
       if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
@@ -38,7 +38,7 @@ class FileListTile extends StatelessWidget {
           return;
         }
       }
-      bloc.openFile(details.path, details.etag!, details.mimeType);
+      bloc.openFile(details.uri, details.etag!, details.mimeType);
     }
   }
 

@@ -1,4 +1,5 @@
 import 'package:nextcloud/src/webdav/client.dart';
+import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 
@@ -25,8 +26,14 @@ class WebDavFile {
       _response.propstats.singleWhere((final propstat) => propstat.status.contains('200')).prop;
 
   /// The path of file
-  late final Uri path =
-      Uri(pathSegments: Uri(path: _response.href).pathSegments.sublist(webdavBase.pathSegments.length));
+  late final PathUri path = () {
+    final href = PathUri.parse(Uri.decodeFull(_response.href!));
+    return PathUri(
+      isAbsolute: false,
+      isDirectory: href.isDirectory,
+      pathSegments: href.pathSegments.sublist(webdavBase.pathSegments.length),
+    );
+  }();
 
   /// The fileid namespaced by the instance id, globally unique
   late final String? id = props.ocid;
@@ -79,11 +86,11 @@ class WebDavFile {
   late final bool? hasPreview = props.nchaspreview;
 
   /// Returns the decoded name of the file / folder without the whole path
-  late final String name = path.pathSegments.where((final s) => s.isNotEmpty).lastOrNull ?? '';
+  late final String name = path.name;
 
   /// Whether the file is hidden.
   late final bool isHidden = name.startsWith('.');
 
   /// Whether the file is a directory
-  late final bool isDirectory = (isCollection ?? false) || path.pathSegments.last.isEmpty;
+  late final bool isDirectory = (isCollection ?? false) || path.isDirectory;
 }

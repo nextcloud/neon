@@ -2,12 +2,12 @@ part of '../neon_files.dart';
 
 class FilesBrowserNavigator extends StatelessWidget {
   const FilesBrowserNavigator({
-    required this.path,
+    required this.uri,
     required this.bloc,
     super.key,
   });
 
-  final List<String> path;
+  final PathUri uri;
   final FilesBrowserBloc bloc;
 
   @override
@@ -18,7 +18,7 @@ class FilesBrowserNavigator extends StatelessWidget {
             horizontal: 10,
           ),
           scrollDirection: Axis.horizontal,
-          itemCount: path.length + 1,
+          itemCount: uri.pathSegments.length + 1,
           itemBuilder: (final context, final index) {
             if (index == 0) {
               return IconButton(
@@ -30,21 +30,23 @@ class FilesBrowserNavigator extends StatelessWidget {
                 tooltip: FilesLocalizations.of(context).goToPath(''),
                 icon: const Icon(Icons.house),
                 onPressed: () {
-                  bloc.setPath([]);
+                  bloc.setPath(PathUri.cwd());
                 },
               );
             }
 
-            final path = this.path.sublist(0, index);
-            final label = path.join('/');
-
+            final partialPath = PathUri(
+              isAbsolute: uri.isAbsolute,
+              isDirectory: uri.isDirectory,
+              pathSegments: uri.pathSegments.sublist(0, index),
+            );
             return TextButton(
               onPressed: () {
-                bloc.setPath(path);
+                bloc.setPath(partialPath);
               },
               child: Text(
-                path.last,
-                semanticsLabel: FilesLocalizations.of(context).goToPath(label),
+                partialPath.name,
+                semanticsLabel: FilesLocalizations.of(context).goToPath(partialPath.name),
               ),
             );
           },

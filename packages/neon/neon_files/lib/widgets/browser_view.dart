@@ -43,12 +43,12 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   @override
   Widget build(final BuildContext context) => ResultBuilder<List<WebDavFile>>.behaviorSubject(
         subject: widget.bloc.files,
-        builder: (final context, final filesSnapshot) => StreamBuilder<List<String>>(
-          stream: widget.bloc.path,
-          builder: (final context, final pathSnapshot) => StreamBuilder<List<FilesTask>>(
+        builder: (final context, final filesSnapshot) => StreamBuilder<PathUri>(
+          stream: widget.bloc.uri,
+          builder: (final context, final uriSnapshot) => StreamBuilder<List<FilesTask>>(
             stream: widget.filesBloc.tasks,
             builder: (final context, final tasksSnapshot) {
-              if (!pathSnapshot.hasData || !tasksSnapshot.hasData) {
+              if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
                 return const SizedBox();
               }
               return ValueListenableBuilder(
@@ -68,9 +68,9 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
 
                   return BackButtonListener(
                     onBackButtonPressed: () async {
-                      final path = pathSnapshot.requireData;
-                      if (path.isNotEmpty) {
-                        widget.bloc.setPath(path.sublist(0, path.length - 1));
+                      final parent = uriSnapshot.requireData.parent;
+                      if (parent != null) {
+                        widget.bloc.setPath(parent);
                         return true;
                       }
                       return false;
@@ -87,12 +87,13 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                         final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
                         return NeonListView(
-                          scrollKey: 'files-${pathSnapshot.requireData.join('/')}',
+                          scrollKey: 'files-${uriSnapshot.requireData.path}',
                           itemCount: sorted.length,
                           itemBuilder: (final context, final index) {
                             final file = sorted[index];
-                            final matchingTask = tasksSnapshot.requireData
-                                .firstWhereOrNull((final task) => _pathMatchesFile(task.path, file.name));
+                            final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
+                              (final task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
+                            );
 
                             final details = matchingTask != null
                                 ? FileDetails.fromTask(
@@ -101,7 +102,6 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                                   )
                                 : FileDetails.fromWebDav(
                                     file: file,
-                                    path: widget.bloc.path.value,
                                   );
 
                             return FileListTile(
@@ -116,7 +116,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
                           onRefresh: widget.bloc.refresh,
                           topScrollingChildren: [
                             FilesBrowserNavigator(
-                              path: pathSnapshot.requireData,
+                              uri: uriSnapshot.requireData,
                               bloc: widget.bloc,
                             ),
                             ...uploadingTaskTiles,
@@ -147,9 +147,4 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
       );
     }
   }
-
-  bool _pathMatchesFile(final List<String> path, final String name) => const ListEquality<String>().equals(
-        [...widget.bloc.path.value, name],
-        path,
-      );
 }

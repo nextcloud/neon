@@ -8,7 +8,7 @@ class FilesChooseCreateDialog extends StatefulWidget {
   });
 
   final FilesBloc bloc;
-  final List<String> basePath;
+  final PathUri basePath;
 
   @override
   State<FilesChooseCreateDialog> createState() => _FilesChooseCreateDialogState();
@@ -43,7 +43,10 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
         }
       }
     }
-    widget.bloc.uploadFile([...widget.basePath, p.basename(file.path)], file.path);
+    widget.bloc.uploadFile(
+      widget.basePath.join(PathUri.parse(p.basename(file.path))),
+      file.path,
+    );
   }
 
   @override
@@ -104,12 +107,12 @@ class _FilesChooseCreateDialogState extends State<FilesChooseCreateDialog> {
             onTap: () async {
               Navigator.of(context).pop();
 
-              final result = await showDialog<List<String>>(
+              final result = await showDialog<String>(
                 context: context,
                 builder: (final context) => const FilesCreateFolderDialog(),
               );
               if (result != null) {
-                widget.bloc.browser.createFolder([...widget.basePath, ...result]);
+                widget.bloc.browser.createFolder(widget.basePath.join(PathUri.parse(result)));
               }
             },
           ),

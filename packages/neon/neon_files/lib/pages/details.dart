@@ -43,8 +43,8 @@ class FilesDetailsPage extends StatelessWidget {
                     details.isDirectory
                         ? FilesLocalizations.of(context).detailsFolderName
                         : FilesLocalizations.of(context).detailsFileName: details.name,
-                    FilesLocalizations.of(context).detailsParentFolder:
-                        details.path.length == 1 ? '/' : details.path.sublist(0, details.path.length - 1).join('/'),
+                    if (details.uri.parent != null)
+                      FilesLocalizations.of(context).detailsParentFolder: details.uri.parent!.path,
                     if (details.size != null) ...{
                       details.isDirectory
                           ? FilesLocalizations.of(context).detailsFolderSize
