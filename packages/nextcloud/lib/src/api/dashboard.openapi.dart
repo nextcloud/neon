@@ -738,7 +738,7 @@ final Serializers _serializers = (Serializers().toBuilder()
           FullType(String),
           FullType(BuiltList, [FullType(WidgetItem)]),
         ]),
-        MapBuilder<String, BuiltList>.new,
+        MapBuilder<String, BuiltList<WidgetItem>>.new,
       )
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),

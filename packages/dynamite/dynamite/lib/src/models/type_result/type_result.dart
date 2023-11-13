@@ -1,4 +1,3 @@
-import 'package:intersperse/intersperse.dart';
 import 'package:meta/meta.dart';
 
 part 'base.dart';
@@ -14,20 +13,24 @@ sealed class TypeResult {
     this.generics = const [],
     this.nullable = false,
     this.isTypeDef = false,
-  })  : assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
+    final String? builderName,
+  })  : builderName = builderName ?? className,
+        assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
         assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;
+  final String builderName;
   final List<TypeResult> generics;
   final bool nullable;
 
   /// Whether this type should be represented as a typedef.
   final bool isTypeDef;
 
+  @nonVirtual
   String get name {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('$className<')
-        ..writeAll(generics.map((final c) => c.name).intersperse(', '))
+        ..writeAll(generics.map((final c) => c.name), ', ')
         ..write('>');
       return buffer.toString();
     }
@@ -35,10 +38,23 @@ sealed class TypeResult {
     return className;
   }
 
+  @nonVirtual
+  String get builder {
+    if (generics.isNotEmpty) {
+      final buffer = StringBuffer('$builderName<')
+        ..writeAll(generics.map((final c) => c.name), ', ')
+        ..write('>');
+      return buffer.toString();
+    }
+
+    return builderName;
+  }
+
+  @nonVirtual
   String get fullType {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('FullType($className, [')
-        ..writeAll(generics.map((final c) => c.fullType).intersperse(', '))
+        ..writeAll(generics.map((final c) => c.fullType), ', ')
         ..write('])');
 
       return buffer.toString();
@@ -64,9 +80,9 @@ sealed class TypeResult {
     }
   }
 
-  String? get _serializer;
+  String? get _serializer => '..add($className.serializer)';
 
-  String? get _builderFactory;
+  String? get _builderFactory => '..addBuilderFactory($fullType, $builder.new)';
 
   /// Serializes the variable named [object].
   ///

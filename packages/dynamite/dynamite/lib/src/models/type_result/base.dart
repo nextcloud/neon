@@ -15,9 +15,6 @@ class TypeResultBase extends TypeResult {
   String? get _serializer => null;
 
   @override
-  String serialize(final String object) => object;
-
-  @override
   String encode(
     final String object, {
     final bool onlyChildren = false,

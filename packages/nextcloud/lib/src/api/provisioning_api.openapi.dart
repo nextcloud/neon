@@ -9148,7 +9148,7 @@ final Serializers _serializers = (Serializers().toBuilder()
           FullType(String),
           FullType(BuiltList, [FullType(String)]),
         ]),
-        MapBuilder<String, BuiltList>.new,
+        MapBuilder<String, BuiltList<String>>.new,
       )
       ..addBuilderFactory(
         const FullType(ContentString, [

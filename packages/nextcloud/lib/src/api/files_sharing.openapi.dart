@@ -5186,7 +5186,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
-        ListBuilder<BuiltMap>.new,
+        ListBuilder<BuiltMap<String, JsonObject>>.new,
       )
       ..addBuilderFactory(
         const FullType(ShareapiGetSharesResponseApplicationJson),
