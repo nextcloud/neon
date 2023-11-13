@@ -77,12 +77,6 @@
                         "$ref": "#/components/schemas/BaseAllOf"
                     },
                     {
-                        "$ref": "#/components/schemas/BaseOneOf"
-                    },
-                    {
-                        "$ref": "#/components/schemas/BaseAnyOf"
-                    },
-                    {
                         "type": "object",
                         "required": [
                             "attribute-nested-allOf"

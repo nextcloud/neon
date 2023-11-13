@@ -241,14 +241,13 @@ class _$BaseAnyOfSerializer implements PrimitiveSerializer<BaseAnyOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAllOf_3Interface {
+abstract interface class BaseNestedAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute-nested-allOf')
   String get attributeNestedAllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAllOfInterface
-    implements BaseAllOfInterface, BaseOneOfInterface, BaseAnyOfInterface, BaseNestedAllOf_3Interface {}
+abstract interface class BaseNestedAllOfInterface implements BaseAllOfInterface, BaseNestedAllOf_1Interface {}
 
 abstract class BaseNestedAllOf implements BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
   factory BaseNestedAllOf([final void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;

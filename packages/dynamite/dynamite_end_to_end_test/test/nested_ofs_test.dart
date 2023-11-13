@@ -9,24 +9,12 @@ void main() {
       (final b) => b
         ..attribute = 'attributeValue'
         ..attributeAllOf = 'attributeAllOfValue'
-        ..attributeNestedAllOf = 'attributeNestedAllOf'
-        ..base.update(
-          (final b) => b..attribute = 'baseAttributeValue',
-        )
-        ..baseAnyOf1.update(
-          (final b) => b..attributeAnyOf = 'baseAnyOfAttributeAnyOfValue',
-        )
-        ..baseOneOf1.update(
-          (final b) => b..attributeOneOf = 'baseAnyOfAttributeOneOfValue',
-        ),
+        ..attributeNestedAllOf = 'attributeNestedAllOf',
     );
 
     final json = {
       'attribute': 'attributeValue',
       'attribute-allOf': 'attributeAllOfValue',
-      'base': {'attribute': 'baseAttributeValue'},
-      'baseOneOf1': {'attribute-oneOf': 'baseAnyOfAttributeOneOfValue'},
-      'baseAnyOf1': {'attribute-anyOf': 'baseAnyOfAttributeAnyOfValue'},
       'attribute-nested-allOf': 'attributeNestedAllOf',
     };
 
