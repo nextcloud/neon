@@ -30,7 +30,14 @@ class TypeResultBase extends TypeResult {
           return '$object.toString()';
         }
       case 'application/octet-stream':
-        return 'utf8.encode($object) as Uint8List';
+        switch (className) {
+          case 'Uint8List':
+            return object;
+          case 'String':
+            return '(utf8.encode($object) as Uint8List)';
+          default:
+            throw Exception('"$mimeType" can only be Uint8List or String');
+        }
       default:
         throw Exception('Can not encode mime type "$mimeType"');
     }
