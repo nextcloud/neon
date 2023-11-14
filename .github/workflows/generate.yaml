@@ -34,6 +34,8 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
         with:
           fetch-depth: 0
+      - name: Submodules
+        run: git submodule update --init --depth 0
 
       - name: Install dart
         uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1
@@ -43,6 +45,14 @@ jobs:
       - name: Generate dynamite end to end test
         run: |
           ./tool/generate-dynamite-e2e-test.sh
+          if [ -n "$(git status --porcelain)" ]; then
+            git --no-pager diff
+            exit 1
+          fi
+
+      - name: Generate dynamite petstore example
+        run: |
+          ./tool/generate-dynamite-petstore-example.sh
           if [ -n "$(git status --porcelain)" ]; then
             git --no-pager diff
             exit 1
