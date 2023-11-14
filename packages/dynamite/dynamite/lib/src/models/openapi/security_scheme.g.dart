@@ -34,6 +34,18 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
         ..add('scheme')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.$in;
+    if (value != null) {
+      result
+        ..add('\$in')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.name;
+    if (value != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -57,6 +69,12 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
         case 'scheme':
           result.scheme = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
+        case '\$in':
+          result.$in = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
       }
     }
 
@@ -71,11 +89,15 @@ class _$SecurityScheme extends SecurityScheme {
   final String? description;
   @override
   final String? scheme;
+  @override
+  final String? $in;
+  @override
+  final String? name;
 
   factory _$SecurityScheme([void Function(SecuritySchemeBuilder)? updates]) =>
       (SecuritySchemeBuilder()..update(updates))._build();
 
-  _$SecurityScheme._({required this.type, this.description, this.scheme}) : super._() {
+  _$SecurityScheme._({required this.type, this.description, this.scheme, this.$in, this.name}) : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type');
   }
 
@@ -88,7 +110,11 @@ class _$SecurityScheme extends SecurityScheme {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SecurityScheme && type == other.type && scheme == other.scheme;
+    return other is SecurityScheme &&
+        type == other.type &&
+        scheme == other.scheme &&
+        $in == other.$in &&
+        name == other.name;
   }
 
   @override
@@ -96,6 +122,8 @@ class _$SecurityScheme extends SecurityScheme {
     var _$hash = 0;
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, scheme.hashCode);
+    _$hash = $jc(_$hash, $in.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -105,7 +133,9 @@ class _$SecurityScheme extends SecurityScheme {
     return (newBuiltValueToStringHelper(r'SecurityScheme')
           ..add('type', type)
           ..add('description', description)
-          ..add('scheme', scheme))
+          ..add('scheme', scheme)
+          ..add('\$in', $in)
+          ..add('name', name))
         .toString();
   }
 }
@@ -125,6 +155,14 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
   String? get scheme => _$this._scheme;
   set scheme(String? scheme) => _$this._scheme = scheme;
 
+  String? _$in;
+  String? get $in => _$this._$in;
+  set $in(String? $in) => _$this._$in = $in;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
   SecuritySchemeBuilder();
 
   SecuritySchemeBuilder get _$this {
@@ -133,6 +171,8 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
       _type = $v.type;
       _description = $v.description;
       _scheme = $v.scheme;
+      _$in = $v.$in;
+      _name = $v.name;
       _$v = null;
     }
     return this;
@@ -157,7 +197,9 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
         _$SecurityScheme._(
             type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
             description: description,
-            scheme: scheme);
+            scheme: scheme,
+            $in: $in,
+            name: name);
     replace(_$result);
     return _$result;
   }
