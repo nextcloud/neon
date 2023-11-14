@@ -499,7 +499,7 @@ final authentication = $client.authentications.firstWhereOrNull(
   yield* securityRequirements.map((final requirement) {
     final securityScheme = spec.components!.securitySchemes![requirement.keys.single]!;
     final dynamiteAuth = toDartName(
-      'Dynamite-${securityScheme.type}-${securityScheme.scheme}-Authentication',
+      'Dynamite-${securityScheme.fullName.join('-')}-Authentication',
       uppercaseFirstCharacter: true,
     );
     return '$dynamiteAuth()';

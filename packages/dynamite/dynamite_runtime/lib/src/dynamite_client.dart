@@ -313,8 +313,8 @@ sealed class DynamiteAuthentication {
   /// The base type of the authentication.
   final String type;
 
-  /// The used authentication scheme.
-  final String scheme;
+  /// The used authentication HTTP scheme.
+  final String? scheme;
 
   /// The authentication headers added to a request.
   Map<String, String> get headers;

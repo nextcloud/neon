@@ -1,5 +1,6 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:collection/collection.dart';
 
 part 'security_scheme.g.dart';
 
@@ -16,4 +17,10 @@ abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBui
   String? get description;
 
   String? get scheme;
+
+  String? get $in;
+
+  String? get name;
+
+  Iterable<String> get fullName => [type, scheme, $in, name].whereNotNull();
 }
