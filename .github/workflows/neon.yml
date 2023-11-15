@@ -1,8 +1,5 @@
 name: Neon
 on:
-  push:
-    branches:
-      - main
   pull_request:
 
 concurrency:
