@@ -47,7 +47,53 @@ abstract class ObjectAnyOf0 implements ObjectAnyOf0Interface, Built<ObjectAnyOf0
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ObjectAnyOf0> get serializer => const _$ObjectAnyOf0Serializer();
+}
+
+class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
+  const _$ObjectAnyOf0Serializer();
+
+  @override
+  Iterable<Type> get types => const [ObjectAnyOf0, _$ObjectAnyOf0];
+
+  @override
+  String get wireName => 'ObjectAnyOf0';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ObjectAnyOf0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'attribute1-anyOf',
+      serializers.serialize(object.attribute1AnyOf, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  ObjectAnyOf0 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ObjectAnyOf0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attribute1-anyOf':
+          result.attribute1AnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -65,7 +111,53 @@ abstract class ObjectAnyOf1 implements ObjectAnyOf1Interface, Built<ObjectAnyOf1
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ObjectAnyOf1> get serializer => const _$ObjectAnyOf1Serializer();
+}
+
+class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
+  const _$ObjectAnyOf1Serializer();
+
+  @override
+  Iterable<Type> get types => const [ObjectAnyOf1, _$ObjectAnyOf1];
+
+  @override
+  String get wireName => 'ObjectAnyOf1';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ObjectAnyOf1 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'attribute2-anyOf',
+      serializers.serialize(object.attribute2AnyOf, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  ObjectAnyOf1 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ObjectAnyOf1Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attribute2-anyOf':
+          result.attribute2AnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -150,7 +242,53 @@ abstract class MixedAnyOf1 implements MixedAnyOf1Interface, Built<MixedAnyOf1, M
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<MixedAnyOf1> get serializer => const _$MixedAnyOf1Serializer();
+}
+
+class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
+  const _$MixedAnyOf1Serializer();
+
+  @override
+  Iterable<Type> get types => const [MixedAnyOf1, _$MixedAnyOf1];
+
+  @override
+  String get wireName => 'MixedAnyOf1';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MixedAnyOf1 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'attribute-anyOf',
+      serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  MixedAnyOf1 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MixedAnyOf1Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attribute-anyOf':
+          result.attributeAnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -236,7 +374,53 @@ abstract class OneObjectAnyOf0 implements OneObjectAnyOf0Interface, Built<OneObj
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OneObjectAnyOf0> get serializer => const _$OneObjectAnyOf0Serializer();
+}
+
+class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf0> {
+  const _$OneObjectAnyOf0Serializer();
+
+  @override
+  Iterable<Type> get types => const [OneObjectAnyOf0, _$OneObjectAnyOf0];
+
+  @override
+  String get wireName => 'OneObjectAnyOf0';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final OneObjectAnyOf0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'attribute-anyOf',
+      serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  OneObjectAnyOf0 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = OneObjectAnyOf0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attribute-anyOf':
+          result.attributeAnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
