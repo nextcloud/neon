@@ -21,6 +21,7 @@ enduml
 euxo
 exiftool
 extglob
+fehguy
 freedesktop
 fullpath
 gboolean
@@ -45,9 +46,12 @@ libsqlite
 mipmap
 ndebug
 nodoc
+nonintegers
 nproc
 openrelay
 openrelayprojectsecret
+palo
+petstore
 plantuml
 precache
 puml

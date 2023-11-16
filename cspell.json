@@ -11,6 +11,7 @@
     "**/assets",
     "**/l10n/!(en.arb)",
     "external",
+    "packages/dynamite/dynamite_petstore_example/lib",
     "packages/file_icons/lib/src/data.dart",
     "packages/neon_lints/lib",
     "tool/dev/static"

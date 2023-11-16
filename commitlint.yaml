@@ -13,6 +13,7 @@ rules:
       - tool
       - app
       - dynamite
+      - dynamite_petstore_example
       - dynamite_runtime
       - dynamite_end_to_end_test
       - file_icons
