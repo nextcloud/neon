@@ -376,7 +376,91 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OCSMeta> get serializer => const _$OCSMetaSerializer();
+}
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  const _$OCSMetaSerializer();
+
+  @override
+  Iterable<Type> get types => const [OCSMeta, _$OCSMeta];
+
+  @override
+  String get wireName => 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final OCSMeta object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -402,7 +486,61 @@ abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_B
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Widget_Buttons> get serializer => const _$Widget_ButtonsSerializer();
+}
+
+class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons> {
+  const _$Widget_ButtonsSerializer();
+
+  @override
+  Iterable<Type> get types => const [Widget_Buttons, _$Widget_Buttons];
+
+  @override
+  String get wireName => 'Widget_Buttons';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Widget_Buttons object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'text',
+      serializers.serialize(object.text, specifiedType: const FullType(String)),
+      'link',
+      serializers.serialize(object.link, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  Widget_Buttons deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Widget_ButtonsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'text':
+          result.text = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'link':
+          result.link = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -440,7 +578,110 @@ abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Widget> get serializer => _$widgetSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Widget> get serializer => const _$WidgetSerializer();
+}
+
+class _$WidgetSerializer implements StructuredSerializer<Widget> {
+  const _$WidgetSerializer();
+
+  @override
+  Iterable<Type> get types => const [Widget, _$Widget];
+
+  @override
+  String get wireName => 'Widget';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Widget object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'order',
+      serializers.serialize(object.order, specifiedType: const FullType(int)),
+      'icon_class',
+      serializers.serialize(object.iconClass, specifiedType: const FullType(String)),
+      'icon_url',
+      serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
+      'item_icons_round',
+      serializers.serialize(object.itemIconsRound, specifiedType: const FullType(bool)),
+      'item_api_versions',
+      serializers.serialize(object.itemApiVersions, specifiedType: const FullType(BuiltList, [FullType(int)])),
+      'reload_interval',
+      serializers.serialize(object.reloadInterval, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.widgetUrl;
+    if (value != null) {
+      result
+        ..add('widget_url')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.buttons;
+    if (value != null) {
+      result
+        ..add('buttons')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Widget_Buttons)])),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Widget deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = WidgetBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'order':
+          result.order = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'icon_class':
+          result.iconClass = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'icon_url':
+          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'widget_url':
+          result.widgetUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'item_icons_round':
+          result.itemIconsRound = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'item_api_versions':
+          result.itemApiVersions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+                as BuiltList<int>,
+          );
+        case 'reload_interval':
+          result.reloadInterval = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'buttons':
+          result.buttons.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Widget_Buttons)]))!
+                as BuiltList<Widget_Buttons>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -471,8 +712,67 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer;
+      const _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
+}
+
+class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> {
+  const _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [DashboardApiGetWidgetsResponseApplicationJson_Ocs, _$DashboardApiGetWidgetsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Widget)])),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
+            )! as BuiltMap<String, Widget>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -501,8 +801,64 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
-      _$dashboardApiGetWidgetsResponseApplicationJsonSerializer;
+      const _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
+}
+
+class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetsResponseApplicationJson> {
+  const _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [DashboardApiGetWidgetsResponseApplicationJson, _$DashboardApiGetWidgetsResponseApplicationJson];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+            )! as DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -530,7 +886,73 @@ abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, Widg
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<WidgetItem> get serializer => const _$WidgetItemSerializer();
+}
+
+class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
+  const _$WidgetItemSerializer();
+
+  @override
+  Iterable<Type> get types => const [WidgetItem, _$WidgetItem];
+
+  @override
+  String get wireName => 'WidgetItem';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final WidgetItem object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'subtitle',
+      serializers.serialize(object.subtitle, specifiedType: const FullType(String)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'link',
+      serializers.serialize(object.link, specifiedType: const FullType(String)),
+      'iconUrl',
+      serializers.serialize(object.iconUrl, specifiedType: const FullType(String)),
+      'overlayIconUrl',
+      serializers.serialize(object.overlayIconUrl, specifiedType: const FullType(String)),
+      'sinceId',
+      serializers.serialize(object.sinceId, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  WidgetItem deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = WidgetItemBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'subtitle':
+          result.subtitle = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'link':
+          result.link = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'iconUrl':
+          result.iconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'overlayIconUrl':
+          result.overlayIconUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'sinceId':
+          result.sinceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -561,8 +983,78 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer;
+      const _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer();
+}
+
+class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> {
+  const _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+        _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(WidgetItem)]),
+        ]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(WidgetItem)]),
+              ]),
+            )! as BuiltMap<String, BuiltList<WidgetItem>>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -592,8 +1084,64 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
-      _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer;
+      const _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
+}
+
+class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsResponseApplicationJson> {
+  const _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [DashboardApiGetWidgetItemsResponseApplicationJson, _$DashboardApiGetWidgetItemsResponseApplicationJson];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetItemsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetItemsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+            )! as DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -618,7 +1166,65 @@ abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, W
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<WidgetItems> get serializer => const _$WidgetItemsSerializer();
+}
+
+class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
+  const _$WidgetItemsSerializer();
+
+  @override
+  Iterable<Type> get types => const [WidgetItems, _$WidgetItems];
+
+  @override
+  String get wireName => 'WidgetItems';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final WidgetItems object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'items',
+      serializers.serialize(object.items, specifiedType: const FullType(BuiltList, [FullType(WidgetItem)])),
+      'emptyContentMessage',
+      serializers.serialize(object.emptyContentMessage, specifiedType: const FullType(String)),
+      'halfEmptyContentMessage',
+      serializers.serialize(object.halfEmptyContentMessage, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  WidgetItems deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = WidgetItemsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'items':
+          result.items.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(WidgetItem)]))!
+                as BuiltList<WidgetItem>,
+          );
+        case 'emptyContentMessage':
+          result.emptyContentMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'halfEmptyContentMessage':
+          result.halfEmptyContentMessage =
+              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -649,8 +1255,72 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
-      _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer;
+      const _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer();
+}
+
+class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> {
+  const _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+        _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
+            )! as BuiltMap<String, WidgetItems>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -680,8 +1350,66 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
-      _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer;
+      const _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer();
+}
+
+class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
+    implements StructuredSerializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> {
+  const _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson,
+        _$DashboardApiGetWidgetItemsV2ResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'DashboardApiGetWidgetItemsV2ResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final DashboardApiGetWidgetItemsV2ResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+            )! as DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 // coverage:ignore-start

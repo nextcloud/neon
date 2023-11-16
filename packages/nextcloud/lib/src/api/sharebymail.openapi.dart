@@ -61,8 +61,58 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
-      _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer;
+      const _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+}
+
+class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> {
+  const _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+        _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+      ];
+
+  @override
+  String get wireName => 'Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -92,8 +142,60 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
-      _$capabilities0FilesSharingSharebymailPasswordSerializer;
+      const _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer();
+}
+
+class _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_Password> {
+  const _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [Capabilities0_FilesSharing_Sharebymail_Password, _$Capabilities0_FilesSharing_Sharebymail_Password];
+
+  @override
+  String get wireName => 'Capabilities0_FilesSharing_Sharebymail_Password';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0_FilesSharing_Sharebymail_Password object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_Password deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -124,8 +226,60 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
-      _$capabilities0FilesSharingSharebymailExpireDateSerializer;
+      const _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
+}
+
+class _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> {
+  const _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [Capabilities0_FilesSharing_Sharebymail_ExpireDate, _$Capabilities0_FilesSharing_Sharebymail_ExpireDate];
+
+  @override
+  String get wireName => 'Capabilities0_FilesSharing_Sharebymail_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0_FilesSharing_Sharebymail_ExpireDate object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_ExpireDate deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -161,8 +315,95 @@ abstract class Capabilities0_FilesSharing_Sharebymail
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
-      _$capabilities0FilesSharingSharebymailSerializer;
+      const _$Capabilities0_FilesSharing_SharebymailSerializer();
+}
+
+class _$Capabilities0_FilesSharing_SharebymailSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail> {
+  const _$Capabilities0_FilesSharing_SharebymailSerializer();
+
+  @override
+  Iterable<Type> get types => const [Capabilities0_FilesSharing_Sharebymail, _$Capabilities0_FilesSharing_Sharebymail];
+
+  @override
+  String get wireName => 'Capabilities0_FilesSharing_Sharebymail';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0_FilesSharing_Sharebymail object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'send_password_by_mail',
+      serializers.serialize(object.sendPasswordByMail, specifiedType: const FullType(bool)),
+      'upload_files_drop',
+      serializers.serialize(
+        object.uploadFilesDrop,
+        specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
+      ),
+      'password',
+      serializers.serialize(
+        object.password,
+        specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_Password),
+      ),
+      'expire_date',
+      serializers.serialize(
+        object.expireDate,
+        specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0_FilesSharing_SharebymailBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'send_password_by_mail':
+          result.sendPasswordByMail = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'upload_files_drop':
+          result.uploadFilesDrop.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
+            )! as Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+          );
+        case 'password':
+          result.password.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_Password),
+            )! as Capabilities0_FilesSharing_Sharebymail_Password,
+          );
+        case 'expire_date':
+          result.expireDate.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate),
+            )! as Capabilities0_FilesSharing_Sharebymail_ExpireDate,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -190,7 +431,56 @@ abstract class Capabilities0_FilesSharing
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Capabilities0_FilesSharing> get serializer => const _$Capabilities0_FilesSharingSerializer();
+}
+
+class _$Capabilities0_FilesSharingSerializer implements StructuredSerializer<Capabilities0_FilesSharing> {
+  const _$Capabilities0_FilesSharingSerializer();
+
+  @override
+  Iterable<Type> get types => const [Capabilities0_FilesSharing, _$Capabilities0_FilesSharing];
+
+  @override
+  String get wireName => 'Capabilities0_FilesSharing';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0_FilesSharing object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'sharebymail',
+      serializers.serialize(object.sharebymail, specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0_FilesSharingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'sharebymail':
+          result.sharebymail.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail))!
+                as Capabilities0_FilesSharing_Sharebymail,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -215,7 +505,56 @@ abstract class Capabilities0 implements Capabilities0Interface, Built<Capabiliti
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Capabilities0> get serializer => const _$Capabilities0Serializer();
+}
+
+class _$Capabilities0Serializer implements StructuredSerializer<Capabilities0> {
+  const _$Capabilities0Serializer();
+
+  @override
+  Iterable<Type> get types => const [Capabilities0, _$Capabilities0];
+
+  @override
+  String get wireName => 'Capabilities0';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'files_sharing',
+      serializers.serialize(object.filesSharing, specifiedType: const FullType(Capabilities0_FilesSharing)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities0 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'files_sharing':
+          result.filesSharing.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities0_FilesSharing))!
+                as Capabilities0_FilesSharing,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)

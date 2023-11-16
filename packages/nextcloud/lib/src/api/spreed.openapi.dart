@@ -12322,7 +12322,91 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<OCSMeta> get serializer => const _$OCSMetaSerializer();
+}
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  const _$OCSMetaSerializer();
+
+  @override
+  Iterable<Type> get types => const [OCSMeta, _$OCSMeta];
+
+  @override
+  String get wireName => 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final OCSMeta object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12360,7 +12444,141 @@ abstract class ChatMessage implements ChatMessageInterface, Built<ChatMessage, C
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<ChatMessage> get serializer => _$chatMessageSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMessage> get serializer => const _$ChatMessageSerializer();
+}
+
+class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
+  const _$ChatMessageSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatMessage, _$ChatMessage];
+
+  @override
+  String get wireName => 'ChatMessage';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMessage object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorDisplayName',
+      serializers.serialize(object.actorDisplayName, specifiedType: const FullType(String)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'expirationTimestamp',
+      serializers.serialize(object.expirationTimestamp, specifiedType: const FullType(int)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'isReplyable',
+      serializers.serialize(object.isReplyable, specifiedType: const FullType(bool)),
+      'markdown',
+      serializers.serialize(object.markdown, specifiedType: const FullType(bool)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      'messageParameters',
+      serializers.serialize(
+        object.messageParameters,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        ]),
+      ),
+      'messageType',
+      serializers.serialize(object.messageType, specifiedType: const FullType(String)),
+      'reactions',
+      serializers.serialize(
+        object.reactions,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]),
+      ),
+      'referenceId',
+      serializers.serialize(object.referenceId, specifiedType: const FullType(String)),
+      'systemMessage',
+      serializers.serialize(object.systemMessage, specifiedType: const FullType(String)),
+      'timestamp',
+      serializers.serialize(object.timestamp, specifiedType: const FullType(int)),
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.deleted;
+    if (value != null) {
+      result
+        ..add('deleted')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  ChatMessage deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMessageBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorDisplayName':
+          result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'deleted':
+          result.deleted = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'expirationTimestamp':
+          result.expirationTimestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'isReplyable':
+          result.isReplyable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'markdown':
+          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'messageParameters':
+          result.messageParameters.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+              ]),
+            )! as BuiltMap<String, BuiltMap<String, JsonObject>>,
+          );
+        case 'messageType':
+          result.messageType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'reactions':
+          result.reactions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))!
+                as BuiltMap<String, int>,
+          );
+        case 'referenceId':
+          result.referenceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'systemMessage':
+          result.systemMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'timestamp':
+          result.timestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12513,7 +12731,310 @@ abstract class Room implements RoomInterface, Built<Room, RoomBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Room> get serializer => _$roomSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Room> get serializer => const _$RoomSerializer();
+}
+
+class _$RoomSerializer implements StructuredSerializer<Room> {
+  const _$RoomSerializer();
+
+  @override
+  Iterable<Type> get types => const [Room, _$Room];
+
+  @override
+  String get wireName => 'Room';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Room object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'attendeeId',
+      serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
+      'attendeePermissions',
+      serializers.serialize(object.attendeePermissions, specifiedType: const FullType(int)),
+      'avatarVersion',
+      serializers.serialize(object.avatarVersion, specifiedType: const FullType(String)),
+      'breakoutRoomMode',
+      serializers.serialize(object.breakoutRoomMode, specifiedType: const FullType(int)),
+      'breakoutRoomStatus',
+      serializers.serialize(object.breakoutRoomStatus, specifiedType: const FullType(int)),
+      'callFlag',
+      serializers.serialize(object.callFlag, specifiedType: const FullType(int)),
+      'callPermissions',
+      serializers.serialize(object.callPermissions, specifiedType: const FullType(int)),
+      'callRecording',
+      serializers.serialize(object.callRecording, specifiedType: const FullType(int)),
+      'callStartTime',
+      serializers.serialize(object.callStartTime, specifiedType: const FullType(int)),
+      'canDeleteConversation',
+      serializers.serialize(object.canDeleteConversation, specifiedType: const FullType(bool)),
+      'canEnableSIP',
+      serializers.serialize(object.canEnableSIP, specifiedType: const FullType(bool)),
+      'canLeaveConversation',
+      serializers.serialize(object.canLeaveConversation, specifiedType: const FullType(bool)),
+      'canStartCall',
+      serializers.serialize(object.canStartCall, specifiedType: const FullType(bool)),
+      'defaultPermissions',
+      serializers.serialize(object.defaultPermissions, specifiedType: const FullType(int)),
+      'description',
+      serializers.serialize(object.description, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+      'hasCall',
+      serializers.serialize(object.hasCall, specifiedType: const FullType(bool)),
+      'hasPassword',
+      serializers.serialize(object.hasPassword, specifiedType: const FullType(bool)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'isCustomAvatar',
+      serializers.serialize(object.isCustomAvatar, specifiedType: const FullType(bool)),
+      'isFavorite',
+      serializers.serialize(object.isFavorite, specifiedType: const FullType(bool)),
+      'lastActivity',
+      serializers.serialize(object.lastActivity, specifiedType: const FullType(int)),
+      'lastCommonReadMessage',
+      serializers.serialize(object.lastCommonReadMessage, specifiedType: const FullType(int)),
+      'lastMessage',
+      serializers.serialize(object.lastMessage, specifiedType: const FullType(Room_LastMessage)),
+      'lastPing',
+      serializers.serialize(object.lastPing, specifiedType: const FullType(int)),
+      'lastReadMessage',
+      serializers.serialize(object.lastReadMessage, specifiedType: const FullType(int)),
+      'listable',
+      serializers.serialize(object.listable, specifiedType: const FullType(int)),
+      'lobbyState',
+      serializers.serialize(object.lobbyState, specifiedType: const FullType(int)),
+      'lobbyTimer',
+      serializers.serialize(object.lobbyTimer, specifiedType: const FullType(int)),
+      'messageExpiration',
+      serializers.serialize(object.messageExpiration, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'notificationCalls',
+      serializers.serialize(object.notificationCalls, specifiedType: const FullType(int)),
+      'notificationLevel',
+      serializers.serialize(object.notificationLevel, specifiedType: const FullType(int)),
+      'objectId',
+      serializers.serialize(object.objectId, specifiedType: const FullType(String)),
+      'objectType',
+      serializers.serialize(object.objectType, specifiedType: const FullType(String)),
+      'participantFlags',
+      serializers.serialize(object.participantFlags, specifiedType: const FullType(int)),
+      'participantType',
+      serializers.serialize(object.participantType, specifiedType: const FullType(int)),
+      'permissions',
+      serializers.serialize(object.permissions, specifiedType: const FullType(int)),
+      'readOnly',
+      serializers.serialize(object.readOnly, specifiedType: const FullType(int)),
+      'sessionId',
+      serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
+      'sipEnabled',
+      serializers.serialize(object.sipEnabled, specifiedType: const FullType(int)),
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(int)),
+      'unreadMention',
+      serializers.serialize(object.unreadMention, specifiedType: const FullType(bool)),
+      'unreadMentionDirect',
+      serializers.serialize(object.unreadMentionDirect, specifiedType: const FullType(bool)),
+      'unreadMessages',
+      serializers.serialize(object.unreadMessages, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.attendeePin;
+    if (value != null) {
+      result
+        ..add('attendeePin')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.recordingConsent;
+    if (value != null) {
+      result
+        ..add('recordingConsent')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.status;
+    if (value != null) {
+      result
+        ..add('status')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusClearAt;
+    if (value != null) {
+      result
+        ..add('statusClearAt')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.statusIcon;
+    if (value != null) {
+      result
+        ..add('statusIcon')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusMessage;
+    if (value != null) {
+      result
+        ..add('statusMessage')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Room deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'attendeeId':
+          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'attendeePermissions':
+          result.attendeePermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'attendeePin':
+          result.attendeePin = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'avatarVersion':
+          result.avatarVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'breakoutRoomMode':
+          result.breakoutRoomMode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'breakoutRoomStatus':
+          result.breakoutRoomStatus = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'callFlag':
+          result.callFlag = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'callPermissions':
+          result.callPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'callRecording':
+          result.callRecording = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'callStartTime':
+          result.callStartTime = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'canDeleteConversation':
+          result.canDeleteConversation = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'canEnableSIP':
+          result.canEnableSIP = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'canLeaveConversation':
+          result.canLeaveConversation = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'canStartCall':
+          result.canStartCall = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'defaultPermissions':
+          result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'hasCall':
+          result.hasCall = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'hasPassword':
+          result.hasPassword = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'isCustomAvatar':
+          result.isCustomAvatar = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'isFavorite':
+          result.isFavorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'lastActivity':
+          result.lastActivity = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lastCommonReadMessage':
+          result.lastCommonReadMessage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lastMessage':
+          result.lastMessage.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room_LastMessage))! as Room_LastMessage,
+          );
+        case 'lastPing':
+          result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lastReadMessage':
+          result.lastReadMessage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'listable':
+          result.listable = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lobbyState':
+          result.lobbyState = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lobbyTimer':
+          result.lobbyTimer = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'messageExpiration':
+          result.messageExpiration = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'notificationCalls':
+          result.notificationCalls = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'notificationLevel':
+          result.notificationLevel = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'objectId':
+          result.objectId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'objectType':
+          result.objectType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'participantFlags':
+          result.participantFlags = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'participantType':
+          result.participantType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'readOnly':
+          result.readOnly = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'recordingConsent':
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'sessionId':
+          result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'sipEnabled':
+          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusClearAt':
+          result.statusClearAt = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'statusIcon':
+          result.statusIcon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusMessage':
+          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'unreadMention':
+          result.unreadMention = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'unreadMentionDirect':
+          result.unreadMentionDirect = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'unreadMessages':
+          result.unreadMessages = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12543,8 +13064,64 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarUploadAvatarResponseApplicationJson_Ocs> get serializer =>
-      _$avatarUploadAvatarResponseApplicationJsonOcsSerializer;
+      const _$AvatarUploadAvatarResponseApplicationJson_OcsSerializer();
+}
+
+class _$AvatarUploadAvatarResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<AvatarUploadAvatarResponseApplicationJson_Ocs> {
+  const _$AvatarUploadAvatarResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarUploadAvatarResponseApplicationJson_Ocs, _$AvatarUploadAvatarResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'AvatarUploadAvatarResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarUploadAvatarResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarUploadAvatarResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarUploadAvatarResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12573,8 +13150,61 @@ abstract class AvatarUploadAvatarResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarUploadAvatarResponseApplicationJson> get serializer =>
-      _$avatarUploadAvatarResponseApplicationJsonSerializer;
+      const _$AvatarUploadAvatarResponseApplicationJsonSerializer();
+}
+
+class _$AvatarUploadAvatarResponseApplicationJsonSerializer
+    implements StructuredSerializer<AvatarUploadAvatarResponseApplicationJson> {
+  const _$AvatarUploadAvatarResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarUploadAvatarResponseApplicationJson, _$AvatarUploadAvatarResponseApplicationJson];
+
+  @override
+  String get wireName => 'AvatarUploadAvatarResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarUploadAvatarResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(AvatarUploadAvatarResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarUploadAvatarResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarUploadAvatarResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(AvatarUploadAvatarResponseApplicationJson_Ocs),
+            )! as AvatarUploadAvatarResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class AvatarDeleteAvatarApiVersion extends EnumClass {
@@ -12618,8 +13248,64 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
-      _$avatarDeleteAvatarResponseApplicationJsonOcsSerializer;
+      const _$AvatarDeleteAvatarResponseApplicationJson_OcsSerializer();
+}
+
+class _$AvatarDeleteAvatarResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> {
+  const _$AvatarDeleteAvatarResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarDeleteAvatarResponseApplicationJson_Ocs, _$AvatarDeleteAvatarResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'AvatarDeleteAvatarResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarDeleteAvatarResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarDeleteAvatarResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12648,8 +13334,61 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarDeleteAvatarResponseApplicationJson> get serializer =>
-      _$avatarDeleteAvatarResponseApplicationJsonSerializer;
+      const _$AvatarDeleteAvatarResponseApplicationJsonSerializer();
+}
+
+class _$AvatarDeleteAvatarResponseApplicationJsonSerializer
+    implements StructuredSerializer<AvatarDeleteAvatarResponseApplicationJson> {
+  const _$AvatarDeleteAvatarResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarDeleteAvatarResponseApplicationJson, _$AvatarDeleteAvatarResponseApplicationJson];
+
+  @override
+  String get wireName => 'AvatarDeleteAvatarResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarDeleteAvatarResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(AvatarDeleteAvatarResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarDeleteAvatarResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarDeleteAvatarResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(AvatarDeleteAvatarResponseApplicationJson_Ocs),
+            )! as AvatarDeleteAvatarResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class AvatarEmojiAvatarApiVersion extends EnumClass {
@@ -12693,8 +13432,64 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> get serializer =>
-      _$avatarEmojiAvatarResponseApplicationJsonOcsSerializer;
+      const _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer();
+}
+
+class _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> {
+  const _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarEmojiAvatarResponseApplicationJson_Ocs, _$AvatarEmojiAvatarResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'AvatarEmojiAvatarResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarEmojiAvatarResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarEmojiAvatarResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarEmojiAvatarResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12723,8 +13518,61 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<AvatarEmojiAvatarResponseApplicationJson> get serializer =>
-      _$avatarEmojiAvatarResponseApplicationJsonSerializer;
+      const _$AvatarEmojiAvatarResponseApplicationJsonSerializer();
+}
+
+class _$AvatarEmojiAvatarResponseApplicationJsonSerializer
+    implements StructuredSerializer<AvatarEmojiAvatarResponseApplicationJson> {
+  const _$AvatarEmojiAvatarResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [AvatarEmojiAvatarResponseApplicationJson, _$AvatarEmojiAvatarResponseApplicationJson];
+
+  @override
+  String get wireName => 'AvatarEmojiAvatarResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final AvatarEmojiAvatarResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(AvatarEmojiAvatarResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  AvatarEmojiAvatarResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = AvatarEmojiAvatarResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(AvatarEmojiAvatarResponseApplicationJson_Ocs),
+            )! as AvatarEmojiAvatarResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class AvatarGetAvatarDarkApiVersion extends EnumClass {
@@ -12782,8 +13630,62 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotSendMessageResponseApplicationJson_Ocs> get serializer =>
-      _$botSendMessageResponseApplicationJsonOcsSerializer;
+      const _$BotSendMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotSendMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotSendMessageResponseApplicationJson_Ocs> {
+  const _$BotSendMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotSendMessageResponseApplicationJson_Ocs, _$BotSendMessageResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotSendMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotSendMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  BotSendMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotSendMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12812,8 +13714,58 @@ abstract class BotSendMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotSendMessageResponseApplicationJson> get serializer =>
-      _$botSendMessageResponseApplicationJsonSerializer;
+      const _$BotSendMessageResponseApplicationJsonSerializer();
+}
+
+class _$BotSendMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotSendMessageResponseApplicationJson> {
+  const _$BotSendMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotSendMessageResponseApplicationJson, _$BotSendMessageResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotSendMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotSendMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotSendMessageResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotSendMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotSendMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotSendMessageResponseApplicationJson_Ocs))!
+                as BotSendMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotReactApiVersion extends EnumClass {
@@ -12856,8 +13808,61 @@ abstract class BotReactResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotReactResponseApplicationJson_Ocs> get serializer =>
-      _$botReactResponseApplicationJsonOcsSerializer;
+      const _$BotReactResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotReactResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotReactResponseApplicationJson_Ocs> {
+  const _$BotReactResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotReactResponseApplicationJson_Ocs, _$BotReactResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotReactResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotReactResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  BotReactResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotReactResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12885,7 +13890,57 @@ abstract class BotReactResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<BotReactResponseApplicationJson> get serializer => _$botReactResponseApplicationJsonSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotReactResponseApplicationJson> get serializer =>
+      const _$BotReactResponseApplicationJsonSerializer();
+}
+
+class _$BotReactResponseApplicationJsonSerializer implements StructuredSerializer<BotReactResponseApplicationJson> {
+  const _$BotReactResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotReactResponseApplicationJson, _$BotReactResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotReactResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotReactResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotReactResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotReactResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotReactResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotReactResponseApplicationJson_Ocs))!
+                as BotReactResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotDeleteReactionApiVersion extends EnumClass {
@@ -12929,8 +13984,62 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotDeleteReactionResponseApplicationJson_Ocs> get serializer =>
-      _$botDeleteReactionResponseApplicationJsonOcsSerializer;
+      const _$BotDeleteReactionResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotDeleteReactionResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotDeleteReactionResponseApplicationJson_Ocs> {
+  const _$BotDeleteReactionResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotDeleteReactionResponseApplicationJson_Ocs, _$BotDeleteReactionResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotDeleteReactionResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotDeleteReactionResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  BotDeleteReactionResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotDeleteReactionResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -12959,8 +14068,61 @@ abstract class BotDeleteReactionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotDeleteReactionResponseApplicationJson> get serializer =>
-      _$botDeleteReactionResponseApplicationJsonSerializer;
+      const _$BotDeleteReactionResponseApplicationJsonSerializer();
+}
+
+class _$BotDeleteReactionResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotDeleteReactionResponseApplicationJson> {
+  const _$BotDeleteReactionResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotDeleteReactionResponseApplicationJson, _$BotDeleteReactionResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotDeleteReactionResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotDeleteReactionResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotDeleteReactionResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotDeleteReactionResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotDeleteReactionResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
+            )! as BotDeleteReactionResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotAdminListBotsApiVersion extends EnumClass {
@@ -13000,7 +14162,73 @@ abstract class Bot implements BotInterface, Built<Bot, BotBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Bot> get serializer => _$botSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Bot> get serializer => const _$BotSerializer();
+}
+
+class _$BotSerializer implements StructuredSerializer<Bot> {
+  const _$BotSerializer();
+
+  @override
+  Iterable<Type> get types => const [Bot, _$Bot];
+
+  @override
+  String get wireName => 'Bot';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Bot object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'state',
+      serializers.serialize(object.state, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.description;
+    if (value != null) {
+      result
+        ..add('description')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Bot deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'description':
+          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'state':
+          result.state = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13066,8 +14294,65 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotAdminListBotsResponseApplicationJson_Ocs> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonOcsSerializer;
+      const _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotAdminListBotsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson_Ocs> {
+  const _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotAdminListBotsResponseApplicationJson_Ocs, _$BotAdminListBotsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotAdminListBotsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotAdminListBotsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)])),
+    ];
+    return result;
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotAdminListBotsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(BotWithDetails)]))!
+                as BuiltList<BotWithDetails>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13096,8 +14381,59 @@ abstract class BotAdminListBotsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotAdminListBotsResponseApplicationJson> get serializer =>
-      _$botAdminListBotsResponseApplicationJsonSerializer;
+      const _$BotAdminListBotsResponseApplicationJsonSerializer();
+}
+
+class _$BotAdminListBotsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotAdminListBotsResponseApplicationJson> {
+  const _$BotAdminListBotsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotAdminListBotsResponseApplicationJson, _$BotAdminListBotsResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotAdminListBotsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotAdminListBotsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotAdminListBotsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotAdminListBotsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotAdminListBotsResponseApplicationJson_Ocs))!
+                as BotAdminListBotsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotListBotsApiVersion extends EnumClass {
@@ -13141,8 +14477,64 @@ abstract class BotListBotsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotListBotsResponseApplicationJson_Ocs> get serializer =>
-      _$botListBotsResponseApplicationJsonOcsSerializer;
+      const _$BotListBotsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotListBotsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotListBotsResponseApplicationJson_Ocs> {
+  const _$BotListBotsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotListBotsResponseApplicationJson_Ocs, _$BotListBotsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotListBotsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotListBotsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Bot)])),
+    ];
+    return result;
+  }
+
+  @override
+  BotListBotsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotListBotsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Bot)]))!
+                as BuiltList<Bot>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13170,8 +14562,58 @@ abstract class BotListBotsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotListBotsResponseApplicationJson> get serializer =>
-      _$botListBotsResponseApplicationJsonSerializer;
+      const _$BotListBotsResponseApplicationJsonSerializer();
+}
+
+class _$BotListBotsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotListBotsResponseApplicationJson> {
+  const _$BotListBotsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotListBotsResponseApplicationJson, _$BotListBotsResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotListBotsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotListBotsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotListBotsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotListBotsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotListBotsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotListBotsResponseApplicationJson_Ocs))!
+                as BotListBotsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotEnableBotApiVersion extends EnumClass {
@@ -13215,8 +14657,72 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotEnableBotResponseApplicationJson_Ocs> get serializer =>
-      _$botEnableBotResponseApplicationJsonOcsSerializer;
+      const _$BotEnableBotResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotEnableBotResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotEnableBotResponseApplicationJson_Ocs> {
+  const _$BotEnableBotResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotEnableBotResponseApplicationJson_Ocs, _$BotEnableBotResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotEnableBotResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotEnableBotResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(Bot)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  BotEnableBotResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotEnableBotResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Bot))! as Bot,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13244,8 +14750,58 @@ abstract class BotEnableBotResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotEnableBotResponseApplicationJson> get serializer =>
-      _$botEnableBotResponseApplicationJsonSerializer;
+      const _$BotEnableBotResponseApplicationJsonSerializer();
+}
+
+class _$BotEnableBotResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotEnableBotResponseApplicationJson> {
+  const _$BotEnableBotResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotEnableBotResponseApplicationJson, _$BotEnableBotResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotEnableBotResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotEnableBotResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotEnableBotResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotEnableBotResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotEnableBotResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotEnableBotResponseApplicationJson_Ocs))!
+                as BotEnableBotResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BotDisableBotApiVersion extends EnumClass {
@@ -13289,8 +14845,72 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotDisableBotResponseApplicationJson_Ocs> get serializer =>
-      _$botDisableBotResponseApplicationJsonOcsSerializer;
+      const _$BotDisableBotResponseApplicationJson_OcsSerializer();
+}
+
+class _$BotDisableBotResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BotDisableBotResponseApplicationJson_Ocs> {
+  const _$BotDisableBotResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [BotDisableBotResponseApplicationJson_Ocs, _$BotDisableBotResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'BotDisableBotResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotDisableBotResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(Bot)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  BotDisableBotResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotDisableBotResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Bot))! as Bot,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13318,8 +14938,58 @@ abstract class BotDisableBotResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BotDisableBotResponseApplicationJson> get serializer =>
-      _$botDisableBotResponseApplicationJsonSerializer;
+      const _$BotDisableBotResponseApplicationJsonSerializer();
+}
+
+class _$BotDisableBotResponseApplicationJsonSerializer
+    implements StructuredSerializer<BotDisableBotResponseApplicationJson> {
+  const _$BotDisableBotResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [BotDisableBotResponseApplicationJson, _$BotDisableBotResponseApplicationJson];
+
+  @override
+  String get wireName => 'BotDisableBotResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BotDisableBotResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(BotDisableBotResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  BotDisableBotResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BotDisableBotResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BotDisableBotResponseApplicationJson_Ocs))!
+                as BotDisableBotResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
@@ -13367,8 +15037,67 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
+        _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13398,8 +15127,66 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson> get serializer =>
-      _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer;
+      const _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson> {
+  const _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
+        _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs),
+            )! as BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
@@ -13447,8 +15234,66 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
+        _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13478,8 +15323,66 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson> get serializer =>
-      _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer;
+      const _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson> {
+  const _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
+        _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs),
+            )! as BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
@@ -13527,8 +15430,67 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomBroadcastChatMessageResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
+        _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13558,8 +15520,66 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson> get serializer =>
-      _$breakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer;
+      const _$BreakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson> {
+  const _$BreakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomBroadcastChatMessageResponseApplicationJson,
+        _$BreakoutRoomBroadcastChatMessageResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomBroadcastChatMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomBroadcastChatMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomBroadcastChatMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs),
+            )! as BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
@@ -13606,8 +15626,67 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomApplyAttendeeMapResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
+        _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13637,8 +15716,66 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson> get serializer =>
-      _$breakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer;
+      const _$BreakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson> {
+  const _$BreakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomApplyAttendeeMapResponseApplicationJson,
+        _$BreakoutRoomApplyAttendeeMapResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomApplyAttendeeMapResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomApplyAttendeeMapResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomApplyAttendeeMapResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs),
+            )! as BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
@@ -13686,8 +15823,66 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomRequestAssistanceResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomRequestAssistanceResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomRequestAssistanceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomRequestAssistanceResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
+        _$BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13717,8 +15912,66 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson> get serializer =>
-      _$breakoutRoomRequestAssistanceResponseApplicationJsonSerializer;
+      const _$BreakoutRoomRequestAssistanceResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomRequestAssistanceResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomRequestAssistanceResponseApplicationJson> {
+  const _$BreakoutRoomRequestAssistanceResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomRequestAssistanceResponseApplicationJson,
+        _$BreakoutRoomRequestAssistanceResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomRequestAssistanceResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomRequestAssistanceResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomRequestAssistanceResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs),
+            )! as BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
@@ -13766,8 +16019,66 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
+        _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13797,8 +16108,66 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson> get serializer =>
-      _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer;
+      const _$BreakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson> {
+  const _$BreakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
+        _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomResetRequestForAssistanceResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomResetRequestForAssistanceResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomResetRequestForAssistanceResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs),
+            )! as BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
@@ -13846,8 +16215,67 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
+        _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13877,8 +16305,66 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson> get serializer =>
-      _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer;
+      const _$BreakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson> {
+  const _$BreakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
+        _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomStartBreakoutRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomStartBreakoutRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomStartBreakoutRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs),
+            )! as BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
@@ -13926,8 +16412,67 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
+        _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -13957,8 +16502,66 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson> get serializer =>
-      _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer;
+      const _$BreakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson> {
+  const _$BreakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
+        _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomStopBreakoutRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomStopBreakoutRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomStopBreakoutRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs),
+            )! as BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
@@ -14006,8 +16609,66 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs> get serializer =>
-      _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonOcsSerializer;
+      const _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs> {
+  const _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
+        _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14037,8 +16698,66 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson> get serializer =>
-      _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer;
+      const _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer();
+}
+
+class _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson> {
+  const _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
+        _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'BreakoutRoomSwitchBreakoutRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final BreakoutRoomSwitchBreakoutRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  BreakoutRoomSwitchBreakoutRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs),
+            )! as BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallGetPeersForCallApiVersion extends EnumClass {
@@ -14080,7 +16799,73 @@ abstract class CallPeer implements CallPeerInterface, Built<CallPeer, CallPeerBu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<CallPeer> get serializer => _$callPeerSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallPeer> get serializer => const _$CallPeerSerializer();
+}
+
+class _$CallPeerSerializer implements StructuredSerializer<CallPeer> {
+  const _$CallPeerSerializer();
+
+  @override
+  Iterable<Type> get types => const [CallPeer, _$CallPeer];
+
+  @override
+  String get wireName => 'CallPeer';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallPeer object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+      'lastPing',
+      serializers.serialize(object.lastPing, specifiedType: const FullType(int)),
+      'sessionId',
+      serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  CallPeer deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallPeerBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'lastPing':
+          result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'sessionId':
+          result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14110,8 +16895,65 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallGetPeersForCallResponseApplicationJson_Ocs> get serializer =>
-      _$callGetPeersForCallResponseApplicationJsonOcsSerializer;
+      const _$CallGetPeersForCallResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallGetPeersForCallResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallGetPeersForCallResponseApplicationJson_Ocs> {
+  const _$CallGetPeersForCallResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallGetPeersForCallResponseApplicationJson_Ocs, _$CallGetPeersForCallResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallGetPeersForCallResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallGetPeersForCallResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(CallPeer)])),
+    ];
+    return result;
+  }
+
+  @override
+  CallGetPeersForCallResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallGetPeersForCallResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(CallPeer)]))!
+                as BuiltList<CallPeer>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14140,8 +16982,61 @@ abstract class CallGetPeersForCallResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallGetPeersForCallResponseApplicationJson> get serializer =>
-      _$callGetPeersForCallResponseApplicationJsonSerializer;
+      const _$CallGetPeersForCallResponseApplicationJsonSerializer();
+}
+
+class _$CallGetPeersForCallResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallGetPeersForCallResponseApplicationJson> {
+  const _$CallGetPeersForCallResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallGetPeersForCallResponseApplicationJson, _$CallGetPeersForCallResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallGetPeersForCallResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallGetPeersForCallResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallGetPeersForCallResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallGetPeersForCallResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallGetPeersForCallResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(CallGetPeersForCallResponseApplicationJson_Ocs),
+            )! as CallGetPeersForCallResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallUpdateCallFlagsApiVersion extends EnumClass {
@@ -14185,8 +17080,62 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> get serializer =>
-      _$callUpdateCallFlagsResponseApplicationJsonOcsSerializer;
+      const _$CallUpdateCallFlagsResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallUpdateCallFlagsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> {
+  const _$CallUpdateCallFlagsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallUpdateCallFlagsResponseApplicationJson_Ocs, _$CallUpdateCallFlagsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallUpdateCallFlagsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallUpdateCallFlagsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  CallUpdateCallFlagsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallUpdateCallFlagsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14215,8 +17164,61 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallUpdateCallFlagsResponseApplicationJson> get serializer =>
-      _$callUpdateCallFlagsResponseApplicationJsonSerializer;
+      const _$CallUpdateCallFlagsResponseApplicationJsonSerializer();
+}
+
+class _$CallUpdateCallFlagsResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallUpdateCallFlagsResponseApplicationJson> {
+  const _$CallUpdateCallFlagsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallUpdateCallFlagsResponseApplicationJson, _$CallUpdateCallFlagsResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallUpdateCallFlagsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallUpdateCallFlagsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallUpdateCallFlagsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallUpdateCallFlagsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallUpdateCallFlagsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(CallUpdateCallFlagsResponseApplicationJson_Ocs),
+            )! as CallUpdateCallFlagsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallJoinCallApiVersion extends EnumClass {
@@ -14260,8 +17262,62 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallJoinCallResponseApplicationJson_Ocs> get serializer =>
-      _$callJoinCallResponseApplicationJsonOcsSerializer;
+      const _$CallJoinCallResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallJoinCallResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallJoinCallResponseApplicationJson_Ocs> {
+  const _$CallJoinCallResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallJoinCallResponseApplicationJson_Ocs, _$CallJoinCallResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallJoinCallResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallJoinCallResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  CallJoinCallResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallJoinCallResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14289,8 +17345,58 @@ abstract class CallJoinCallResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallJoinCallResponseApplicationJson> get serializer =>
-      _$callJoinCallResponseApplicationJsonSerializer;
+      const _$CallJoinCallResponseApplicationJsonSerializer();
+}
+
+class _$CallJoinCallResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallJoinCallResponseApplicationJson> {
+  const _$CallJoinCallResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallResponseApplicationJson, _$CallJoinCallResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallJoinCallResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallJoinCallResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallJoinCallResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallJoinCallResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallJoinCallResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(CallJoinCallResponseApplicationJson_Ocs))!
+                as CallJoinCallResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallLeaveCallApiVersion extends EnumClass {
@@ -14334,8 +17440,62 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallLeaveCallResponseApplicationJson_Ocs> get serializer =>
-      _$callLeaveCallResponseApplicationJsonOcsSerializer;
+      const _$CallLeaveCallResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallLeaveCallResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallLeaveCallResponseApplicationJson_Ocs> {
+  const _$CallLeaveCallResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallLeaveCallResponseApplicationJson_Ocs, _$CallLeaveCallResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallLeaveCallResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallLeaveCallResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  CallLeaveCallResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallLeaveCallResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14363,8 +17523,58 @@ abstract class CallLeaveCallResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallLeaveCallResponseApplicationJson> get serializer =>
-      _$callLeaveCallResponseApplicationJsonSerializer;
+      const _$CallLeaveCallResponseApplicationJsonSerializer();
+}
+
+class _$CallLeaveCallResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallLeaveCallResponseApplicationJson> {
+  const _$CallLeaveCallResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [CallLeaveCallResponseApplicationJson, _$CallLeaveCallResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallLeaveCallResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallLeaveCallResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallLeaveCallResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallLeaveCallResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallLeaveCallResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(CallLeaveCallResponseApplicationJson_Ocs))!
+                as CallLeaveCallResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallRingAttendeeApiVersion extends EnumClass {
@@ -14408,8 +17618,62 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallRingAttendeeResponseApplicationJson_Ocs> get serializer =>
-      _$callRingAttendeeResponseApplicationJsonOcsSerializer;
+      const _$CallRingAttendeeResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallRingAttendeeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallRingAttendeeResponseApplicationJson_Ocs> {
+  const _$CallRingAttendeeResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallRingAttendeeResponseApplicationJson_Ocs, _$CallRingAttendeeResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallRingAttendeeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallRingAttendeeResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  CallRingAttendeeResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallRingAttendeeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14438,8 +17702,59 @@ abstract class CallRingAttendeeResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallRingAttendeeResponseApplicationJson> get serializer =>
-      _$callRingAttendeeResponseApplicationJsonSerializer;
+      const _$CallRingAttendeeResponseApplicationJsonSerializer();
+}
+
+class _$CallRingAttendeeResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallRingAttendeeResponseApplicationJson> {
+  const _$CallRingAttendeeResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallRingAttendeeResponseApplicationJson, _$CallRingAttendeeResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallRingAttendeeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallRingAttendeeResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallRingAttendeeResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallRingAttendeeResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallRingAttendeeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(CallRingAttendeeResponseApplicationJson_Ocs))!
+                as CallRingAttendeeResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CallSipDialOutApiVersion extends EnumClass {
@@ -14483,8 +17798,74 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs_Data> get serializer =>
-      _$callSipDialOutResponseApplicationJsonOcsDataSerializer;
+      const _$CallSipDialOutResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$CallSipDialOutResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CallSipDialOutResponseApplicationJson_Ocs_Data> {
+  const _$CallSipDialOutResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallSipDialOutResponseApplicationJson_Ocs_Data, _$CallSipDialOutResponseApplicationJson_Ocs_Data];
+
+  @override
+  String get wireName => 'CallSipDialOutResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallSipDialOutResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.error;
+    if (value != null) {
+      result
+        ..add('error')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  CallSipDialOutResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallSipDialOutResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'error':
+          result.error = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14514,8 +17895,67 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallSipDialOutResponseApplicationJson_Ocs> get serializer =>
-      _$callSipDialOutResponseApplicationJsonOcsSerializer;
+      const _$CallSipDialOutResponseApplicationJson_OcsSerializer();
+}
+
+class _$CallSipDialOutResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CallSipDialOutResponseApplicationJson_Ocs> {
+  const _$CallSipDialOutResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [CallSipDialOutResponseApplicationJson_Ocs, _$CallSipDialOutResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'CallSipDialOutResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallSipDialOutResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(CallSipDialOutResponseApplicationJson_Ocs_Data)),
+    ];
+    return result;
+  }
+
+  @override
+  CallSipDialOutResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallSipDialOutResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(CallSipDialOutResponseApplicationJson_Ocs_Data),
+            )! as CallSipDialOutResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14544,8 +17984,58 @@ abstract class CallSipDialOutResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CallSipDialOutResponseApplicationJson> get serializer =>
-      _$callSipDialOutResponseApplicationJsonSerializer;
+      const _$CallSipDialOutResponseApplicationJsonSerializer();
+}
+
+class _$CallSipDialOutResponseApplicationJsonSerializer
+    implements StructuredSerializer<CallSipDialOutResponseApplicationJson> {
+  const _$CallSipDialOutResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [CallSipDialOutResponseApplicationJson, _$CallSipDialOutResponseApplicationJson];
+
+  @override
+  String get wireName => 'CallSipDialOutResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CallSipDialOutResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(CallSipDialOutResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  CallSipDialOutResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CallSipDialOutResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(CallSipDialOutResponseApplicationJson_Ocs))!
+                as CallSipDialOutResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class CertificateGetCertificateExpirationApiVersion extends EnumClass {
@@ -14595,8 +18085,65 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer;
+      const _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> {
+  const _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
+        _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.expirationInDays;
+    if (value != null) {
+      result
+        ..add('expiration_in_days')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'expiration_in_days':
+          result.expirationInDays = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14627,8 +18174,72 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonOcsSerializer;
+      const _$CertificateGetCertificateExpirationResponseApplicationJson_OcsSerializer();
+}
+
+class _$CertificateGetCertificateExpirationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs> {
+  const _$CertificateGetCertificateExpirationResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
+        _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'CertificateGetCertificateExpirationResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CertificateGetCertificateExpirationResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  CertificateGetCertificateExpirationResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
+            )! as CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14658,8 +18269,66 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
-      _$certificateGetCertificateExpirationResponseApplicationJsonSerializer;
+      const _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer();
+}
+
+class _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer
+    implements StructuredSerializer<CertificateGetCertificateExpirationResponseApplicationJson> {
+  const _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        CertificateGetCertificateExpirationResponseApplicationJson,
+        _$CertificateGetCertificateExpirationResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'CertificateGetCertificateExpirationResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final CertificateGetCertificateExpirationResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  CertificateGetCertificateExpirationResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CertificateGetCertificateExpirationResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
+            )! as CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatReceiveMessagesApiVersion extends EnumClass {
@@ -14805,8 +18474,67 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> get serializer =>
-      _$chatReceiveMessagesResponseApplicationJsonOcsSerializer;
+      const _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatReceiveMessagesResponseApplicationJson_Ocs> {
+  const _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatReceiveMessagesResponseApplicationJson_Ocs, _$ChatReceiveMessagesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatReceiveMessagesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(ChatMessageWithParent)])),
+    ];
+    return result;
+  }
+
+  @override
+  ChatReceiveMessagesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatReceiveMessagesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
+            )! as BuiltList<ChatMessageWithParent>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14835,8 +18563,61 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatReceiveMessagesResponseApplicationJson> get serializer =>
-      _$chatReceiveMessagesResponseApplicationJsonSerializer;
+      const _$ChatReceiveMessagesResponseApplicationJsonSerializer();
+}
+
+class _$ChatReceiveMessagesResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatReceiveMessagesResponseApplicationJson> {
+  const _$ChatReceiveMessagesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatReceiveMessagesResponseApplicationJson, _$ChatReceiveMessagesResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatReceiveMessagesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatReceiveMessagesResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatReceiveMessagesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatReceiveMessagesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatReceiveMessagesResponseApplicationJson_Ocs),
+            )! as ChatReceiveMessagesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatSendMessageApiVersion extends EnumClass {
@@ -14949,8 +18730,73 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSendMessageResponseApplicationJson_Ocs> get serializer =>
-      _$chatSendMessageResponseApplicationJsonOcsSerializer;
+      const _$ChatSendMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatSendMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatSendMessageResponseApplicationJson_Ocs> {
+  const _$ChatSendMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatSendMessageResponseApplicationJson_Ocs, _$ChatSendMessageResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatSendMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSendMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(ChatMessageWithParent)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  ChatSendMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSendMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMessageWithParent))!
+                as ChatMessageWithParent,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -14979,8 +18825,58 @@ abstract class ChatSendMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSendMessageResponseApplicationJson> get serializer =>
-      _$chatSendMessageResponseApplicationJsonSerializer;
+      const _$ChatSendMessageResponseApplicationJsonSerializer();
+}
+
+class _$ChatSendMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatSendMessageResponseApplicationJson> {
+  const _$ChatSendMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatSendMessageResponseApplicationJson, _$ChatSendMessageResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatSendMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSendMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatSendMessageResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatSendMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSendMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatSendMessageResponseApplicationJson_Ocs))!
+                as ChatSendMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatClearHistoryApiVersion extends EnumClass {
@@ -15093,8 +18989,64 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatClearHistoryResponseApplicationJson_Ocs> get serializer =>
-      _$chatClearHistoryResponseApplicationJsonOcsSerializer;
+      const _$ChatClearHistoryResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatClearHistoryResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatClearHistoryResponseApplicationJson_Ocs> {
+  const _$ChatClearHistoryResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatClearHistoryResponseApplicationJson_Ocs, _$ChatClearHistoryResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatClearHistoryResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatClearHistoryResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ChatMessage)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatClearHistoryResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatClearHistoryResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMessage))! as ChatMessage,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15123,8 +19075,59 @@ abstract class ChatClearHistoryResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatClearHistoryResponseApplicationJson> get serializer =>
-      _$chatClearHistoryResponseApplicationJsonSerializer;
+      const _$ChatClearHistoryResponseApplicationJsonSerializer();
+}
+
+class _$ChatClearHistoryResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatClearHistoryResponseApplicationJson> {
+  const _$ChatClearHistoryResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatClearHistoryResponseApplicationJson, _$ChatClearHistoryResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatClearHistoryResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatClearHistoryResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatClearHistoryResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatClearHistoryResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatClearHistoryResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatClearHistoryResponseApplicationJson_Ocs))!
+                as ChatClearHistoryResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatDeleteMessageApiVersion extends EnumClass {
@@ -15237,8 +19240,65 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> get serializer =>
-      _$chatDeleteMessageResponseApplicationJsonOcsSerializer;
+      const _$ChatDeleteMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatDeleteMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatDeleteMessageResponseApplicationJson_Ocs> {
+  const _$ChatDeleteMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatDeleteMessageResponseApplicationJson_Ocs, _$ChatDeleteMessageResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatDeleteMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatDeleteMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ChatMessageWithParent)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatDeleteMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatDeleteMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMessageWithParent))!
+                as ChatMessageWithParent,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15267,8 +19327,61 @@ abstract class ChatDeleteMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteMessageResponseApplicationJson> get serializer =>
-      _$chatDeleteMessageResponseApplicationJsonSerializer;
+      const _$ChatDeleteMessageResponseApplicationJsonSerializer();
+}
+
+class _$ChatDeleteMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatDeleteMessageResponseApplicationJson> {
+  const _$ChatDeleteMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatDeleteMessageResponseApplicationJson, _$ChatDeleteMessageResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatDeleteMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatDeleteMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatDeleteMessageResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatDeleteMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatDeleteMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatDeleteMessageResponseApplicationJson_Ocs),
+            )! as ChatDeleteMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatGetMessageContextApiVersion extends EnumClass {
@@ -15386,8 +19499,67 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetMessageContextResponseApplicationJson_Ocs> get serializer =>
-      _$chatGetMessageContextResponseApplicationJsonOcsSerializer;
+      const _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatGetMessageContextResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatGetMessageContextResponseApplicationJson_Ocs> {
+  const _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatGetMessageContextResponseApplicationJson_Ocs, _$ChatGetMessageContextResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatGetMessageContextResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetMessageContextResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(ChatMessageWithParent)])),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetMessageContextResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetMessageContextResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
+            )! as BuiltList<ChatMessageWithParent>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15416,8 +19588,64 @@ abstract class ChatGetMessageContextResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetMessageContextResponseApplicationJson> get serializer =>
-      _$chatGetMessageContextResponseApplicationJsonSerializer;
+      const _$ChatGetMessageContextResponseApplicationJsonSerializer();
+}
+
+class _$ChatGetMessageContextResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatGetMessageContextResponseApplicationJson> {
+  const _$ChatGetMessageContextResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatGetMessageContextResponseApplicationJson, _$ChatGetMessageContextResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatGetMessageContextResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetMessageContextResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ChatGetMessageContextResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetMessageContextResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetMessageContextResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatGetMessageContextResponseApplicationJson_Ocs),
+            )! as ChatGetMessageContextResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatGetReminderApiVersion extends EnumClass {
@@ -15457,7 +19685,65 @@ abstract class ChatReminder implements ChatReminderInterface, Built<ChatReminder
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<ChatReminder> get serializer => _$chatReminderSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReminder> get serializer => const _$ChatReminderSerializer();
+}
+
+class _$ChatReminderSerializer implements StructuredSerializer<ChatReminder> {
+  const _$ChatReminderSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatReminder, _$ChatReminder];
+
+  @override
+  String get wireName => 'ChatReminder';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatReminder object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'messageId',
+      serializers.serialize(object.messageId, specifiedType: const FullType(int)),
+      'timestamp',
+      serializers.serialize(object.timestamp, specifiedType: const FullType(int)),
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatReminder deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatReminderBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'messageId':
+          result.messageId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'timestamp':
+          result.timestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15487,8 +19773,64 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetReminderResponseApplicationJson_Ocs> get serializer =>
-      _$chatGetReminderResponseApplicationJsonOcsSerializer;
+      const _$ChatGetReminderResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatGetReminderResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatGetReminderResponseApplicationJson_Ocs> {
+  const _$ChatGetReminderResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatGetReminderResponseApplicationJson_Ocs, _$ChatGetReminderResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatGetReminderResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetReminderResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ChatReminder)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetReminderResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetReminderResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatReminder))! as ChatReminder,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15517,8 +19859,58 @@ abstract class ChatGetReminderResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetReminderResponseApplicationJson> get serializer =>
-      _$chatGetReminderResponseApplicationJsonSerializer;
+      const _$ChatGetReminderResponseApplicationJsonSerializer();
+}
+
+class _$ChatGetReminderResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatGetReminderResponseApplicationJson> {
+  const _$ChatGetReminderResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatGetReminderResponseApplicationJson, _$ChatGetReminderResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatGetReminderResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetReminderResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatGetReminderResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetReminderResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetReminderResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatGetReminderResponseApplicationJson_Ocs))!
+                as ChatGetReminderResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatSetReminderApiVersion extends EnumClass {
@@ -15562,8 +19954,64 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReminderResponseApplicationJson_Ocs> get serializer =>
-      _$chatSetReminderResponseApplicationJsonOcsSerializer;
+      const _$ChatSetReminderResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatSetReminderResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatSetReminderResponseApplicationJson_Ocs> {
+  const _$ChatSetReminderResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatSetReminderResponseApplicationJson_Ocs, _$ChatSetReminderResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatSetReminderResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSetReminderResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(ChatReminder)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatSetReminderResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSetReminderResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatReminder))! as ChatReminder,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15592,8 +20040,58 @@ abstract class ChatSetReminderResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReminderResponseApplicationJson> get serializer =>
-      _$chatSetReminderResponseApplicationJsonSerializer;
+      const _$ChatSetReminderResponseApplicationJsonSerializer();
+}
+
+class _$ChatSetReminderResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatSetReminderResponseApplicationJson> {
+  const _$ChatSetReminderResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatSetReminderResponseApplicationJson, _$ChatSetReminderResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatSetReminderResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSetReminderResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatSetReminderResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatSetReminderResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSetReminderResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatSetReminderResponseApplicationJson_Ocs))!
+                as ChatSetReminderResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatDeleteReminderApiVersion extends EnumClass {
@@ -15637,8 +20135,62 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> get serializer =>
-      _$chatDeleteReminderResponseApplicationJsonOcsSerializer;
+      const _$ChatDeleteReminderResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatDeleteReminderResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatDeleteReminderResponseApplicationJson_Ocs> {
+  const _$ChatDeleteReminderResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatDeleteReminderResponseApplicationJson_Ocs, _$ChatDeleteReminderResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatDeleteReminderResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatDeleteReminderResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatDeleteReminderResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatDeleteReminderResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15667,8 +20219,61 @@ abstract class ChatDeleteReminderResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatDeleteReminderResponseApplicationJson> get serializer =>
-      _$chatDeleteReminderResponseApplicationJsonSerializer;
+      const _$ChatDeleteReminderResponseApplicationJsonSerializer();
+}
+
+class _$ChatDeleteReminderResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatDeleteReminderResponseApplicationJson> {
+  const _$ChatDeleteReminderResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatDeleteReminderResponseApplicationJson, _$ChatDeleteReminderResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatDeleteReminderResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatDeleteReminderResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatDeleteReminderResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatDeleteReminderResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatDeleteReminderResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatDeleteReminderResponseApplicationJson_Ocs),
+            )! as ChatDeleteReminderResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatSetReadMarkerApiVersion extends EnumClass {
@@ -15781,8 +20386,62 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> get serializer =>
-      _$chatSetReadMarkerResponseApplicationJsonOcsSerializer;
+      const _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatSetReadMarkerResponseApplicationJson_Ocs> {
+  const _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatSetReadMarkerResponseApplicationJson_Ocs, _$ChatSetReadMarkerResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatSetReadMarkerResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSetReadMarkerResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatSetReadMarkerResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSetReadMarkerResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15811,8 +20470,61 @@ abstract class ChatSetReadMarkerResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatSetReadMarkerResponseApplicationJson> get serializer =>
-      _$chatSetReadMarkerResponseApplicationJsonSerializer;
+      const _$ChatSetReadMarkerResponseApplicationJsonSerializer();
+}
+
+class _$ChatSetReadMarkerResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatSetReadMarkerResponseApplicationJson> {
+  const _$ChatSetReadMarkerResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatSetReadMarkerResponseApplicationJson, _$ChatSetReadMarkerResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatSetReadMarkerResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatSetReadMarkerResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatSetReadMarkerResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatSetReadMarkerResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatSetReadMarkerResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatSetReadMarkerResponseApplicationJson_Ocs),
+            )! as ChatSetReadMarkerResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatMarkUnreadApiVersion extends EnumClass {
@@ -15923,8 +20635,62 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> get serializer =>
-      _$chatMarkUnreadResponseApplicationJsonOcsSerializer;
+      const _$ChatMarkUnreadResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatMarkUnreadResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatMarkUnreadResponseApplicationJson_Ocs> {
+  const _$ChatMarkUnreadResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatMarkUnreadResponseApplicationJson_Ocs, _$ChatMarkUnreadResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatMarkUnreadResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMarkUnreadResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatMarkUnreadResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMarkUnreadResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -15953,8 +20719,58 @@ abstract class ChatMarkUnreadResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatMarkUnreadResponseApplicationJson> get serializer =>
-      _$chatMarkUnreadResponseApplicationJsonSerializer;
+      const _$ChatMarkUnreadResponseApplicationJsonSerializer();
+}
+
+class _$ChatMarkUnreadResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatMarkUnreadResponseApplicationJson> {
+  const _$ChatMarkUnreadResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatMarkUnreadResponseApplicationJson, _$ChatMarkUnreadResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatMarkUnreadResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMarkUnreadResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatMarkUnreadResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatMarkUnreadResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMarkUnreadResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMarkUnreadResponseApplicationJson_Ocs))!
+                as ChatMarkUnreadResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatMentionsApiVersion extends EnumClass {
@@ -15999,7 +20815,106 @@ abstract class ChatMentionSuggestion
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<ChatMentionSuggestion> get serializer => _$chatMentionSuggestionSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMentionSuggestion> get serializer => const _$ChatMentionSuggestionSerializer();
+}
+
+class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMentionSuggestion> {
+  const _$ChatMentionSuggestionSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatMentionSuggestion, _$ChatMentionSuggestion];
+
+  @override
+  String get wireName => 'ChatMentionSuggestion';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMentionSuggestion object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'label',
+      serializers.serialize(object.label, specifiedType: const FullType(String)),
+      'source',
+      serializers.serialize(object.source, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.status;
+    if (value != null) {
+      result
+        ..add('status')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusClearAt;
+    if (value != null) {
+      result
+        ..add('statusClearAt')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.statusIcon;
+    if (value != null) {
+      result
+        ..add('statusIcon')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusMessage;
+    if (value != null) {
+      result
+        ..add('statusMessage')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  ChatMentionSuggestion deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMentionSuggestionBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'label':
+          result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'source':
+          result.source = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusClearAt':
+          result.statusClearAt = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'statusIcon':
+          result.statusIcon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusMessage':
+          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16029,8 +20944,67 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatMentionsResponseApplicationJson_Ocs> get serializer =>
-      _$chatMentionsResponseApplicationJsonOcsSerializer;
+      const _$ChatMentionsResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatMentionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatMentionsResponseApplicationJson_Ocs> {
+  const _$ChatMentionsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatMentionsResponseApplicationJson_Ocs, _$ChatMentionsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatMentionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMentionsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(ChatMentionSuggestion)])),
+    ];
+    return result;
+  }
+
+  @override
+  ChatMentionsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMentionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [FullType(ChatMentionSuggestion)]),
+            )! as BuiltList<ChatMentionSuggestion>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16058,8 +21032,58 @@ abstract class ChatMentionsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatMentionsResponseApplicationJson> get serializer =>
-      _$chatMentionsResponseApplicationJsonSerializer;
+      const _$ChatMentionsResponseApplicationJsonSerializer();
+}
+
+class _$ChatMentionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatMentionsResponseApplicationJson> {
+  const _$ChatMentionsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ChatMentionsResponseApplicationJson, _$ChatMentionsResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatMentionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatMentionsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ChatMentionsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ChatMentionsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatMentionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMentionsResponseApplicationJson_Ocs))!
+                as ChatMentionsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
@@ -16178,8 +21202,67 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> get serializer =>
-      _$chatGetObjectsSharedInRoomResponseApplicationJsonOcsSerializer;
+      const _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> {
+  const _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
+        _$ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(ChatMessage)])),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(ChatMessage)]))!
+                as BuiltList<ChatMessage>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16209,8 +21292,64 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson> get serializer =>
-      _$chatGetObjectsSharedInRoomResponseApplicationJsonSerializer;
+      const _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson> {
+  const _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatGetObjectsSharedInRoomResponseApplicationJson, _$ChatGetObjectsSharedInRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetObjectsSharedInRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetObjectsSharedInRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs),
+            )! as ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatShareObjectToChatApiVersion extends EnumClass {
@@ -16324,8 +21463,73 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs> get serializer =>
-      _$chatShareObjectToChatResponseApplicationJsonOcsSerializer;
+      const _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatShareObjectToChatResponseApplicationJson_Ocs> {
+  const _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatShareObjectToChatResponseApplicationJson_Ocs, _$ChatShareObjectToChatResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ChatShareObjectToChatResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatShareObjectToChatResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(ChatMessageWithParent)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  ChatShareObjectToChatResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatShareObjectToChatResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ChatMessageWithParent))!
+                as ChatMessageWithParent,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16354,8 +21558,64 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatShareObjectToChatResponseApplicationJson> get serializer =>
-      _$chatShareObjectToChatResponseApplicationJsonSerializer;
+      const _$ChatShareObjectToChatResponseApplicationJsonSerializer();
+}
+
+class _$ChatShareObjectToChatResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatShareObjectToChatResponseApplicationJson> {
+  const _$ChatShareObjectToChatResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ChatShareObjectToChatResponseApplicationJson, _$ChatShareObjectToChatResponseApplicationJson];
+
+  @override
+  String get wireName => 'ChatShareObjectToChatResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatShareObjectToChatResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ChatShareObjectToChatResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatShareObjectToChatResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs),
+            )! as ChatShareObjectToChatResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
@@ -16403,8 +21663,78 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> get serializer =>
-      _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonOcsSerializer;
+      const _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> {
+  const _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
+        _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(ChatMessage)]),
+        ]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(ChatMessage)]),
+              ]),
+            )! as BuiltMap<String, BuiltList<ChatMessage>>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16434,8 +21764,66 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson> get serializer =>
-      _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer;
+      const _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer
+    implements StructuredSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson> {
+  const _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
+        _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomOverviewResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ChatGetObjectsSharedInRoomOverviewResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ChatGetObjectsSharedInRoomOverviewResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs),
+            )! as ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class FederationAcceptShareApiVersion extends EnumClass {
@@ -16480,8 +21868,62 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationAcceptShareResponseApplicationJson_Ocs> get serializer =>
-      _$federationAcceptShareResponseApplicationJsonOcsSerializer;
+      const _$FederationAcceptShareResponseApplicationJson_OcsSerializer();
+}
+
+class _$FederationAcceptShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FederationAcceptShareResponseApplicationJson_Ocs> {
+  const _$FederationAcceptShareResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationAcceptShareResponseApplicationJson_Ocs, _$FederationAcceptShareResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'FederationAcceptShareResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationAcceptShareResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  FederationAcceptShareResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationAcceptShareResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16510,8 +21952,64 @@ abstract class FederationAcceptShareResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationAcceptShareResponseApplicationJson> get serializer =>
-      _$federationAcceptShareResponseApplicationJsonSerializer;
+      const _$FederationAcceptShareResponseApplicationJsonSerializer();
+}
+
+class _$FederationAcceptShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<FederationAcceptShareResponseApplicationJson> {
+  const _$FederationAcceptShareResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationAcceptShareResponseApplicationJson, _$FederationAcceptShareResponseApplicationJson];
+
+  @override
+  String get wireName => 'FederationAcceptShareResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationAcceptShareResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FederationAcceptShareResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationAcceptShareResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
+            )! as FederationAcceptShareResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class FederationRejectShareApiVersion extends EnumClass {
@@ -16556,8 +22054,62 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationRejectShareResponseApplicationJson_Ocs> get serializer =>
-      _$federationRejectShareResponseApplicationJsonOcsSerializer;
+      const _$FederationRejectShareResponseApplicationJson_OcsSerializer();
+}
+
+class _$FederationRejectShareResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FederationRejectShareResponseApplicationJson_Ocs> {
+  const _$FederationRejectShareResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationRejectShareResponseApplicationJson_Ocs, _$FederationRejectShareResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'FederationRejectShareResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationRejectShareResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  FederationRejectShareResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationRejectShareResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16586,8 +22138,64 @@ abstract class FederationRejectShareResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationRejectShareResponseApplicationJson> get serializer =>
-      _$federationRejectShareResponseApplicationJsonSerializer;
+      const _$FederationRejectShareResponseApplicationJsonSerializer();
+}
+
+class _$FederationRejectShareResponseApplicationJsonSerializer
+    implements StructuredSerializer<FederationRejectShareResponseApplicationJson> {
+  const _$FederationRejectShareResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationRejectShareResponseApplicationJson, _$FederationRejectShareResponseApplicationJson];
+
+  @override
+  String get wireName => 'FederationRejectShareResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationRejectShareResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(FederationRejectShareResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FederationRejectShareResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationRejectShareResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FederationRejectShareResponseApplicationJson_Ocs),
+            )! as FederationRejectShareResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class FederationGetSharesApiVersion extends EnumClass {
@@ -16637,7 +22245,77 @@ abstract class FederationInvite implements FederationInviteInterface, Built<Fede
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationInvite> get serializer => const _$FederationInviteSerializer();
+}
+
+class _$FederationInviteSerializer implements StructuredSerializer<FederationInvite> {
+  const _$FederationInviteSerializer();
+
+  @override
+  Iterable<Type> get types => const [FederationInvite, _$FederationInvite];
+
+  @override
+  String get wireName => 'FederationInvite';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationInvite object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'access_token',
+      serializers.serialize(object.accessToken, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'local_room_id',
+      serializers.serialize(object.localRoomId, specifiedType: const FullType(int)),
+      'remote_attendee_id',
+      serializers.serialize(object.remoteAttendeeId, specifiedType: const FullType(String)),
+      'remote_server_url',
+      serializers.serialize(object.remoteServerUrl, specifiedType: const FullType(String)),
+      'remote_token',
+      serializers.serialize(object.remoteToken, specifiedType: const FullType(String)),
+      'user_id',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  FederationInvite deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationInviteBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'access_token':
+          result.accessToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'local_room_id':
+          result.localRoomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'remote_attendee_id':
+          result.remoteAttendeeId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'remote_server_url':
+          result.remoteServerUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'remote_token':
+          result.remoteToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'user_id':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16667,8 +22345,65 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationGetSharesResponseApplicationJson_Ocs> get serializer =>
-      _$federationGetSharesResponseApplicationJsonOcsSerializer;
+      const _$FederationGetSharesResponseApplicationJson_OcsSerializer();
+}
+
+class _$FederationGetSharesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FederationGetSharesResponseApplicationJson_Ocs> {
+  const _$FederationGetSharesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationGetSharesResponseApplicationJson_Ocs, _$FederationGetSharesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'FederationGetSharesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationGetSharesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FederationInvite)])),
+    ];
+    return result;
+  }
+
+  @override
+  FederationGetSharesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationGetSharesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(FederationInvite)]))!
+                as BuiltList<FederationInvite>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16697,8 +22432,61 @@ abstract class FederationGetSharesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FederationGetSharesResponseApplicationJson> get serializer =>
-      _$federationGetSharesResponseApplicationJsonSerializer;
+      const _$FederationGetSharesResponseApplicationJsonSerializer();
+}
+
+class _$FederationGetSharesResponseApplicationJsonSerializer
+    implements StructuredSerializer<FederationGetSharesResponseApplicationJson> {
+  const _$FederationGetSharesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [FederationGetSharesResponseApplicationJson, _$FederationGetSharesResponseApplicationJson];
+
+  @override
+  String get wireName => 'FederationGetSharesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FederationGetSharesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(FederationGetSharesResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  FederationGetSharesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FederationGetSharesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FederationGetSharesResponseApplicationJson_Ocs),
+            )! as FederationGetSharesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
@@ -16745,8 +22533,58 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data> get serializer =>
-      _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsDataSerializer;
+      const _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data> {
+  const _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
+        _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16777,8 +22615,72 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs> get serializer =>
-      _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsSerializer;
+      const _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsSerializer();
+}
+
+class _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs> {
+  const _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
+        _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data),
+            )! as FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16808,8 +22710,66 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson> get serializer =>
-      _$filesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer;
+      const _$FilesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer();
+}
+
+class _$FilesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson> {
+  const _$FilesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByFileIdResponseApplicationJson,
+        _$FilesIntegrationGetRoomByFileIdResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByFileIdResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByFileIdResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByFileIdResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs),
+            )! as FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
@@ -16860,8 +22820,66 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data> get serializer =>
-      _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonOcsDataSerializer;
+      const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data> {
+  const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
+        _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'userDisplayName',
+      serializers.serialize(object.userDisplayName, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'userDisplayName':
+          result.userDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16892,8 +22910,72 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs> get serializer =>
-      _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonOcsSerializer;
+      const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsSerializer();
+}
+
+class _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs> {
+  const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
+        _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data),
+            )! as FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16923,8 +23005,66 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson> get serializer =>
-      _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer;
+      const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer();
+}
+
+class _$FilesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer
+    implements StructuredSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson> {
+  const _$FilesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
+        _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByShareTokenResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final FilesIntegrationGetRoomByShareTokenResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  FilesIntegrationGetRoomByShareTokenResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs),
+            )! as FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class GuestSetDisplayNameApiVersion extends EnumClass {
@@ -16968,8 +23108,62 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<GuestSetDisplayNameResponseApplicationJson_Ocs> get serializer =>
-      _$guestSetDisplayNameResponseApplicationJsonOcsSerializer;
+      const _$GuestSetDisplayNameResponseApplicationJson_OcsSerializer();
+}
+
+class _$GuestSetDisplayNameResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<GuestSetDisplayNameResponseApplicationJson_Ocs> {
+  const _$GuestSetDisplayNameResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [GuestSetDisplayNameResponseApplicationJson_Ocs, _$GuestSetDisplayNameResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'GuestSetDisplayNameResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final GuestSetDisplayNameResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  GuestSetDisplayNameResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = GuestSetDisplayNameResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -16998,8 +23192,61 @@ abstract class GuestSetDisplayNameResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<GuestSetDisplayNameResponseApplicationJson> get serializer =>
-      _$guestSetDisplayNameResponseApplicationJsonSerializer;
+      const _$GuestSetDisplayNameResponseApplicationJsonSerializer();
+}
+
+class _$GuestSetDisplayNameResponseApplicationJsonSerializer
+    implements StructuredSerializer<GuestSetDisplayNameResponseApplicationJson> {
+  const _$GuestSetDisplayNameResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [GuestSetDisplayNameResponseApplicationJson, _$GuestSetDisplayNameResponseApplicationJson];
+
+  @override
+  String get wireName => 'GuestSetDisplayNameResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final GuestSetDisplayNameResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(GuestSetDisplayNameResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  GuestSetDisplayNameResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = GuestSetDisplayNameResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(GuestSetDisplayNameResponseApplicationJson_Ocs),
+            )! as GuestSetDisplayNameResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
@@ -17047,8 +23294,72 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs> get serializer =>
-      _$hostedSignalingServerRequestTrialResponseApplicationJsonOcsSerializer;
+      const _$HostedSignalingServerRequestTrialResponseApplicationJson_OcsSerializer();
+}
+
+class _$HostedSignalingServerRequestTrialResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs> {
+  const _$HostedSignalingServerRequestTrialResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
+        _$HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'HostedSignalingServerRequestTrialResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final HostedSignalingServerRequestTrialResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  HostedSignalingServerRequestTrialResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            )! as BuiltMap<String, JsonObject>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17078,8 +23389,66 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerRequestTrialResponseApplicationJson> get serializer =>
-      _$hostedSignalingServerRequestTrialResponseApplicationJsonSerializer;
+      const _$HostedSignalingServerRequestTrialResponseApplicationJsonSerializer();
+}
+
+class _$HostedSignalingServerRequestTrialResponseApplicationJsonSerializer
+    implements StructuredSerializer<HostedSignalingServerRequestTrialResponseApplicationJson> {
+  const _$HostedSignalingServerRequestTrialResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        HostedSignalingServerRequestTrialResponseApplicationJson,
+        _$HostedSignalingServerRequestTrialResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'HostedSignalingServerRequestTrialResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final HostedSignalingServerRequestTrialResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  HostedSignalingServerRequestTrialResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HostedSignalingServerRequestTrialResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs),
+            )! as HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
@@ -17127,8 +23496,64 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs> get serializer =>
-      _$hostedSignalingServerDeleteAccountResponseApplicationJsonOcsSerializer;
+      const _$HostedSignalingServerDeleteAccountResponseApplicationJson_OcsSerializer();
+}
+
+class _$HostedSignalingServerDeleteAccountResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs> {
+  const _$HostedSignalingServerDeleteAccountResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
+        _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17158,8 +23583,66 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson> get serializer =>
-      _$hostedSignalingServerDeleteAccountResponseApplicationJsonSerializer;
+      const _$HostedSignalingServerDeleteAccountResponseApplicationJsonSerializer();
+}
+
+class _$HostedSignalingServerDeleteAccountResponseApplicationJsonSerializer
+    implements StructuredSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson> {
+  const _$HostedSignalingServerDeleteAccountResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        HostedSignalingServerDeleteAccountResponseApplicationJson,
+        _$HostedSignalingServerDeleteAccountResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'HostedSignalingServerDeleteAccountResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final HostedSignalingServerDeleteAccountResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  HostedSignalingServerDeleteAccountResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs),
+            )! as HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
@@ -17200,7 +23683,73 @@ abstract class Matterbridge implements MatterbridgeInterface, Built<Matterbridge
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Matterbridge> get serializer => _$matterbridgeSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Matterbridge> get serializer => const _$MatterbridgeSerializer();
+}
+
+class _$MatterbridgeSerializer implements StructuredSerializer<Matterbridge> {
+  const _$MatterbridgeSerializer();
+
+  @override
+  Iterable<Type> get types => const [Matterbridge, _$Matterbridge];
+
+  @override
+  String get wireName => 'Matterbridge';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Matterbridge object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'parts',
+      serializers.serialize(
+        object.parts,
+        specifiedType: const FullType(BuiltList, [
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        ]),
+      ),
+      'pid',
+      serializers.serialize(object.pid, specifiedType: const FullType(int)),
+    ];
+    return result;
+  }
+
+  @override
+  Matterbridge deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'parts':
+          result.parts.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [
+                FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+              ]),
+            )! as BuiltList<BuiltMap<String, JsonObject>>,
+          );
+        case 'pid':
+          result.pid = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17227,7 +23776,57 @@ abstract class MatterbridgeProcessState
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<MatterbridgeProcessState> get serializer => _$matterbridgeProcessStateSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<MatterbridgeProcessState> get serializer => const _$MatterbridgeProcessStateSerializer();
+}
+
+class _$MatterbridgeProcessStateSerializer implements StructuredSerializer<MatterbridgeProcessState> {
+  const _$MatterbridgeProcessStateSerializer();
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeProcessState, _$MatterbridgeProcessState];
+
+  @override
+  String get wireName => 'MatterbridgeProcessState';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeProcessState object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'log',
+      serializers.serialize(object.log, specifiedType: const FullType(String)),
+      'running',
+      serializers.serialize(object.running, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeProcessState deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeProcessStateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'log':
+          result.log = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'running':
+          result.running = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17285,8 +23884,67 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeGetBridgeOfRoomResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs> {
+  const _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
+        _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(MatterbridgeWithProcessState)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(MatterbridgeWithProcessState))!
+                as MatterbridgeWithProcessState,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17316,8 +23974,64 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson> get serializer =>
-      _$matterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer;
+      const _$MatterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson> {
+  const _$MatterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [MatterbridgeGetBridgeOfRoomResponseApplicationJson, _$MatterbridgeGetBridgeOfRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeOfRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeGetBridgeOfRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeGetBridgeOfRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs),
+            )! as MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
@@ -17364,8 +24078,67 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeEditBridgeOfRoomResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs> {
+  const _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
+        _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(MatterbridgeProcessState)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(MatterbridgeProcessState))!
+                as MatterbridgeProcessState,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17395,8 +24168,66 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson> get serializer =>
-      _$matterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer;
+      const _$MatterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson> {
+  const _$MatterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeEditBridgeOfRoomResponseApplicationJson,
+        _$MatterbridgeEditBridgeOfRoomResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeEditBridgeOfRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeEditBridgeOfRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeEditBridgeOfRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs),
+            )! as MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
@@ -17444,8 +24275,64 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs> {
+  const _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
+        _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17475,8 +24362,66 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson> get serializer =>
-      _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer;
+      const _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson> {
+  const _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
+        _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeDeleteBridgeOfRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeDeleteBridgeOfRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeDeleteBridgeOfRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs),
+            )! as MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
@@ -17524,8 +24469,67 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeGetBridgeProcessStateResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs> {
+  const _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
+        _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(MatterbridgeProcessState)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(MatterbridgeProcessState))!
+                as MatterbridgeProcessState,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17555,8 +24559,66 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson> get serializer =>
-      _$matterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer;
+      const _$MatterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson> {
+  const _$MatterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeGetBridgeProcessStateResponseApplicationJson,
+        _$MatterbridgeGetBridgeProcessStateResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeProcessStateResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeGetBridgeProcessStateResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeGetBridgeProcessStateResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs),
+            )! as MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
@@ -17604,8 +24666,64 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs> {
+  const _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
+        _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17635,8 +24753,66 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson> get serializer =>
-      _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer;
+      const _$MatterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson> {
+  const _$MatterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
+        _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsStopAllBridgesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeSettingsStopAllBridgesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeSettingsStopAllBridgesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs),
+            )! as MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
@@ -17686,8 +24862,58 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data> get serializer =>
-      _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonOcsDataSerializer;
+      const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data> {
+  const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
+        _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17720,8 +24946,72 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs> get serializer =>
-      _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonOcsSerializer;
+      const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsSerializer();
+}
+
+class _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs> {
+  const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
+        _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data),
+            )! as MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17751,8 +25041,66 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson> get serializer =>
-      _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer;
+      const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer();
+}
+
+class _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer
+    implements StructuredSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson> {
+  const _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
+        _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs),
+            )! as MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class PollCreatePollApiVersion extends EnumClass {
@@ -17792,7 +25140,65 @@ abstract class PollVote implements PollVoteInterface, Built<PollVote, PollVoteBu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<PollVote> get serializer => _$pollVoteSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollVote> get serializer => const _$PollVoteSerializer();
+}
+
+class _$PollVoteSerializer implements StructuredSerializer<PollVote> {
+  const _$PollVoteSerializer();
+
+  @override
+  Iterable<Type> get types => const [PollVote, _$PollVote];
+
+  @override
+  String get wireName => 'PollVote';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollVote object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorDisplayName',
+      serializers.serialize(object.actorDisplayName, specifiedType: const FullType(String)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'optionId',
+      serializers.serialize(object.optionId, specifiedType: const FullType(int)),
+    ];
+    return result;
+  }
+
+  @override
+  PollVote deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollVoteBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorDisplayName':
+          result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'optionId':
+          result.optionId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17827,7 +25233,142 @@ abstract class Poll implements PollInterface, Built<Poll, PollBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Poll> get serializer => _$pollSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Poll> get serializer => const _$PollSerializer();
+}
+
+class _$PollSerializer implements StructuredSerializer<Poll> {
+  const _$PollSerializer();
+
+  @override
+  Iterable<Type> get types => const [Poll, _$Poll];
+
+  @override
+  String get wireName => 'Poll';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Poll object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorDisplayName',
+      serializers.serialize(object.actorDisplayName, specifiedType: const FullType(String)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'maxVotes',
+      serializers.serialize(object.maxVotes, specifiedType: const FullType(int)),
+      'options',
+      serializers.serialize(object.options, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'question',
+      serializers.serialize(object.question, specifiedType: const FullType(String)),
+      'resultMode',
+      serializers.serialize(object.resultMode, specifiedType: const FullType(int)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.details;
+    if (value != null) {
+      result
+        ..add('details')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(PollVote)])),
+        );
+    }
+
+    value = object.numVoters;
+    if (value != null) {
+      result
+        ..add('numVoters')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.votedSelf;
+    if (value != null) {
+      result
+        ..add('votedSelf')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)])),
+        );
+    }
+
+    value = object.votes;
+    if (value != null) {
+      result
+        ..add('votes')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)])),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Poll deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorDisplayName':
+          result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'details':
+          result.details.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(PollVote)]))!
+                as BuiltList<PollVote>,
+          );
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'maxVotes':
+          result.maxVotes = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'numVoters':
+          result.numVoters = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'options':
+          result.options.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'question':
+          result.question = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'resultMode':
+          result.resultMode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'votedSelf':
+          result.votedSelf.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+                as BuiltList<int>,
+          );
+        case 'votes':
+          result.votes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))!
+                as BuiltMap<String, int>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17857,8 +25398,64 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollCreatePollResponseApplicationJson_Ocs> get serializer =>
-      _$pollCreatePollResponseApplicationJsonOcsSerializer;
+      const _$PollCreatePollResponseApplicationJson_OcsSerializer();
+}
+
+class _$PollCreatePollResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PollCreatePollResponseApplicationJson_Ocs> {
+  const _$PollCreatePollResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PollCreatePollResponseApplicationJson_Ocs, _$PollCreatePollResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'PollCreatePollResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollCreatePollResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Poll)),
+    ];
+    return result;
+  }
+
+  @override
+  PollCreatePollResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollCreatePollResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Poll))! as Poll,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17887,8 +25484,58 @@ abstract class PollCreatePollResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollCreatePollResponseApplicationJson> get serializer =>
-      _$pollCreatePollResponseApplicationJsonSerializer;
+      const _$PollCreatePollResponseApplicationJsonSerializer();
+}
+
+class _$PollCreatePollResponseApplicationJsonSerializer
+    implements StructuredSerializer<PollCreatePollResponseApplicationJson> {
+  const _$PollCreatePollResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [PollCreatePollResponseApplicationJson, _$PollCreatePollResponseApplicationJson];
+
+  @override
+  String get wireName => 'PollCreatePollResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollCreatePollResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(PollCreatePollResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  PollCreatePollResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollCreatePollResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PollCreatePollResponseApplicationJson_Ocs))!
+                as PollCreatePollResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class PollShowPollApiVersion extends EnumClass {
@@ -17932,8 +25579,64 @@ abstract class PollShowPollResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollShowPollResponseApplicationJson_Ocs> get serializer =>
-      _$pollShowPollResponseApplicationJsonOcsSerializer;
+      const _$PollShowPollResponseApplicationJson_OcsSerializer();
+}
+
+class _$PollShowPollResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PollShowPollResponseApplicationJson_Ocs> {
+  const _$PollShowPollResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PollShowPollResponseApplicationJson_Ocs, _$PollShowPollResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'PollShowPollResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollShowPollResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Poll)),
+    ];
+    return result;
+  }
+
+  @override
+  PollShowPollResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollShowPollResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Poll))! as Poll,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -17961,8 +25664,58 @@ abstract class PollShowPollResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollShowPollResponseApplicationJson> get serializer =>
-      _$pollShowPollResponseApplicationJsonSerializer;
+      const _$PollShowPollResponseApplicationJsonSerializer();
+}
+
+class _$PollShowPollResponseApplicationJsonSerializer
+    implements StructuredSerializer<PollShowPollResponseApplicationJson> {
+  const _$PollShowPollResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [PollShowPollResponseApplicationJson, _$PollShowPollResponseApplicationJson];
+
+  @override
+  String get wireName => 'PollShowPollResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollShowPollResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(PollShowPollResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  PollShowPollResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollShowPollResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PollShowPollResponseApplicationJson_Ocs))!
+                as PollShowPollResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class PollVotePollApiVersion extends EnumClass {
@@ -18006,8 +25759,64 @@ abstract class PollVotePollResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollVotePollResponseApplicationJson_Ocs> get serializer =>
-      _$pollVotePollResponseApplicationJsonOcsSerializer;
+      const _$PollVotePollResponseApplicationJson_OcsSerializer();
+}
+
+class _$PollVotePollResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PollVotePollResponseApplicationJson_Ocs> {
+  const _$PollVotePollResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PollVotePollResponseApplicationJson_Ocs, _$PollVotePollResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'PollVotePollResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollVotePollResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Poll)),
+    ];
+    return result;
+  }
+
+  @override
+  PollVotePollResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollVotePollResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Poll))! as Poll,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18035,8 +25844,58 @@ abstract class PollVotePollResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollVotePollResponseApplicationJson> get serializer =>
-      _$pollVotePollResponseApplicationJsonSerializer;
+      const _$PollVotePollResponseApplicationJsonSerializer();
+}
+
+class _$PollVotePollResponseApplicationJsonSerializer
+    implements StructuredSerializer<PollVotePollResponseApplicationJson> {
+  const _$PollVotePollResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [PollVotePollResponseApplicationJson, _$PollVotePollResponseApplicationJson];
+
+  @override
+  String get wireName => 'PollVotePollResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollVotePollResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(PollVotePollResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  PollVotePollResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollVotePollResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PollVotePollResponseApplicationJson_Ocs))!
+                as PollVotePollResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class PollClosePollApiVersion extends EnumClass {
@@ -18080,8 +25939,64 @@ abstract class PollClosePollResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollClosePollResponseApplicationJson_Ocs> get serializer =>
-      _$pollClosePollResponseApplicationJsonOcsSerializer;
+      const _$PollClosePollResponseApplicationJson_OcsSerializer();
+}
+
+class _$PollClosePollResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PollClosePollResponseApplicationJson_Ocs> {
+  const _$PollClosePollResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PollClosePollResponseApplicationJson_Ocs, _$PollClosePollResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'PollClosePollResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollClosePollResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Poll)),
+    ];
+    return result;
+  }
+
+  @override
+  PollClosePollResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollClosePollResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Poll))! as Poll,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18109,8 +26024,58 @@ abstract class PollClosePollResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PollClosePollResponseApplicationJson> get serializer =>
-      _$pollClosePollResponseApplicationJsonSerializer;
+      const _$PollClosePollResponseApplicationJsonSerializer();
+}
+
+class _$PollClosePollResponseApplicationJsonSerializer
+    implements StructuredSerializer<PollClosePollResponseApplicationJson> {
+  const _$PollClosePollResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [PollClosePollResponseApplicationJson, _$PollClosePollResponseApplicationJson];
+
+  @override
+  String get wireName => 'PollClosePollResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PollClosePollResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(PollClosePollResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  PollClosePollResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PollClosePollResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PollClosePollResponseApplicationJson_Ocs))!
+                as PollClosePollResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class PublicShareAuthCreateRoomApiVersion extends EnumClass {
@@ -18158,8 +26123,66 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonOcsDataSerializer;
+      const _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data> {
+  const _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
+        _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18190,8 +26213,72 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonOcsSerializer;
+      const _$PublicShareAuthCreateRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$PublicShareAuthCreateRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs> {
+  const _$PublicShareAuthCreateRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
+        _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'PublicShareAuthCreateRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicShareAuthCreateRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  PublicShareAuthCreateRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
+            )! as PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18221,8 +26308,64 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicShareAuthCreateRoomResponseApplicationJson> get serializer =>
-      _$publicShareAuthCreateRoomResponseApplicationJsonSerializer;
+      const _$PublicShareAuthCreateRoomResponseApplicationJsonSerializer();
+}
+
+class _$PublicShareAuthCreateRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<PublicShareAuthCreateRoomResponseApplicationJson> {
+  const _$PublicShareAuthCreateRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PublicShareAuthCreateRoomResponseApplicationJson, _$PublicShareAuthCreateRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'PublicShareAuthCreateRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicShareAuthCreateRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  PublicShareAuthCreateRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicShareAuthCreateRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
+            )! as PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ReactionGetReactionsApiVersion extends EnumClass {
@@ -18262,7 +26405,65 @@ abstract class Reaction implements ReactionInterface, Built<Reaction, ReactionBu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Reaction> get serializer => _$reactionSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Reaction> get serializer => const _$ReactionSerializer();
+}
+
+class _$ReactionSerializer implements StructuredSerializer<Reaction> {
+  const _$ReactionSerializer();
+
+  @override
+  Iterable<Type> get types => const [Reaction, _$Reaction];
+
+  @override
+  String get wireName => 'Reaction';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Reaction object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorDisplayName',
+      serializers.serialize(object.actorDisplayName, specifiedType: const FullType(String)),
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'timestamp',
+      serializers.serialize(object.timestamp, specifiedType: const FullType(int)),
+    ];
+    return result;
+  }
+
+  @override
+  Reaction deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorDisplayName':
+          result.actorDisplayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'timestamp':
+          result.timestamp = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18292,8 +26493,76 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionGetReactionsResponseApplicationJson_Ocs> get serializer =>
-      _$reactionGetReactionsResponseApplicationJsonOcsSerializer;
+      const _$ReactionGetReactionsResponseApplicationJson_OcsSerializer();
+}
+
+class _$ReactionGetReactionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReactionGetReactionsResponseApplicationJson_Ocs> {
+  const _$ReactionGetReactionsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ReactionGetReactionsResponseApplicationJson_Ocs, _$ReactionGetReactionsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ReactionGetReactionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionGetReactionsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(Reaction)]),
+        ]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionGetReactionsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionGetReactionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(Reaction)]),
+              ]),
+            )! as BuiltMap<String, BuiltList<Reaction>>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18322,8 +26591,61 @@ abstract class ReactionGetReactionsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionGetReactionsResponseApplicationJson> get serializer =>
-      _$reactionGetReactionsResponseApplicationJsonSerializer;
+      const _$ReactionGetReactionsResponseApplicationJsonSerializer();
+}
+
+class _$ReactionGetReactionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReactionGetReactionsResponseApplicationJson> {
+  const _$ReactionGetReactionsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ReactionGetReactionsResponseApplicationJson, _$ReactionGetReactionsResponseApplicationJson];
+
+  @override
+  String get wireName => 'ReactionGetReactionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionGetReactionsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ReactionGetReactionsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionGetReactionsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionGetReactionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(ReactionGetReactionsResponseApplicationJson_Ocs),
+            )! as ReactionGetReactionsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ReactionReactApiVersion extends EnumClass {
@@ -18367,8 +26689,76 @@ abstract class ReactionReactResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionReactResponseApplicationJson_Ocs> get serializer =>
-      _$reactionReactResponseApplicationJsonOcsSerializer;
+      const _$ReactionReactResponseApplicationJson_OcsSerializer();
+}
+
+class _$ReactionReactResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReactionReactResponseApplicationJson_Ocs> {
+  const _$ReactionReactResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ReactionReactResponseApplicationJson_Ocs, _$ReactionReactResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ReactionReactResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionReactResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(Reaction)]),
+        ]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionReactResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionReactResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(Reaction)]),
+              ]),
+            )! as BuiltMap<String, BuiltList<Reaction>>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18396,8 +26786,58 @@ abstract class ReactionReactResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionReactResponseApplicationJson> get serializer =>
-      _$reactionReactResponseApplicationJsonSerializer;
+      const _$ReactionReactResponseApplicationJsonSerializer();
+}
+
+class _$ReactionReactResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReactionReactResponseApplicationJson> {
+  const _$ReactionReactResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ReactionReactResponseApplicationJson, _$ReactionReactResponseApplicationJson];
+
+  @override
+  String get wireName => 'ReactionReactResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionReactResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ReactionReactResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionReactResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionReactResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ReactionReactResponseApplicationJson_Ocs))!
+                as ReactionReactResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class ReactionDeleteApiVersion extends EnumClass {
@@ -18441,8 +26881,76 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionDeleteResponseApplicationJson_Ocs> get serializer =>
-      _$reactionDeleteResponseApplicationJsonOcsSerializer;
+      const _$ReactionDeleteResponseApplicationJson_OcsSerializer();
+}
+
+class _$ReactionDeleteResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ReactionDeleteResponseApplicationJson_Ocs> {
+  const _$ReactionDeleteResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [ReactionDeleteResponseApplicationJson_Ocs, _$ReactionDeleteResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'ReactionDeleteResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionDeleteResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [
+          FullType(String),
+          FullType(BuiltList, [FullType(Reaction)]),
+        ]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionDeleteResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionDeleteResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [
+                FullType(String),
+                FullType(BuiltList, [FullType(Reaction)]),
+              ]),
+            )! as BuiltMap<String, BuiltList<Reaction>>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18471,8 +26979,58 @@ abstract class ReactionDeleteResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<ReactionDeleteResponseApplicationJson> get serializer =>
-      _$reactionDeleteResponseApplicationJsonSerializer;
+      const _$ReactionDeleteResponseApplicationJsonSerializer();
+}
+
+class _$ReactionDeleteResponseApplicationJsonSerializer
+    implements StructuredSerializer<ReactionDeleteResponseApplicationJson> {
+  const _$ReactionDeleteResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [ReactionDeleteResponseApplicationJson, _$ReactionDeleteResponseApplicationJson];
+
+  @override
+  String get wireName => 'ReactionDeleteResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final ReactionDeleteResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ReactionDeleteResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  ReactionDeleteResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ReactionDeleteResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ReactionDeleteResponseApplicationJson_Ocs))!
+                as ReactionDeleteResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingGetWelcomeMessageApiVersion extends EnumClass {
@@ -18518,8 +27076,58 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer;
+      const _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data> {
+  const _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+        _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(double)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(double))! as double;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18550,8 +27158,72 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+      const _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs> {
+  const _$RecordingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+        _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingGetWelcomeMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+            )! as RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18581,8 +27253,64 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingGetWelcomeMessageResponseApplicationJson> get serializer =>
-      _$recordingGetWelcomeMessageResponseApplicationJsonSerializer;
+      const _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
+}
+
+class _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingGetWelcomeMessageResponseApplicationJson> {
+  const _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingGetWelcomeMessageResponseApplicationJson, _$RecordingGetWelcomeMessageResponseApplicationJson];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingGetWelcomeMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingGetWelcomeMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
+            )! as RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingStartApiVersion extends EnumClass {
@@ -18626,8 +27354,62 @@ abstract class RecordingStartResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStartResponseApplicationJson_Ocs> get serializer =>
-      _$recordingStartResponseApplicationJsonOcsSerializer;
+      const _$RecordingStartResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingStartResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingStartResponseApplicationJson_Ocs> {
+  const _$RecordingStartResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingStartResponseApplicationJson_Ocs, _$RecordingStartResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RecordingStartResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStartResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStartResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStartResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18656,8 +27438,58 @@ abstract class RecordingStartResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStartResponseApplicationJson> get serializer =>
-      _$recordingStartResponseApplicationJsonSerializer;
+      const _$RecordingStartResponseApplicationJsonSerializer();
+}
+
+class _$RecordingStartResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingStartResponseApplicationJson> {
+  const _$RecordingStartResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RecordingStartResponseApplicationJson, _$RecordingStartResponseApplicationJson];
+
+  @override
+  String get wireName => 'RecordingStartResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStartResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RecordingStartResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStartResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStartResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RecordingStartResponseApplicationJson_Ocs))!
+                as RecordingStartResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingStopApiVersion extends EnumClass {
@@ -18701,8 +27533,62 @@ abstract class RecordingStopResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStopResponseApplicationJson_Ocs> get serializer =>
-      _$recordingStopResponseApplicationJsonOcsSerializer;
+      const _$RecordingStopResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingStopResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingStopResponseApplicationJson_Ocs> {
+  const _$RecordingStopResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingStopResponseApplicationJson_Ocs, _$RecordingStopResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RecordingStopResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStopResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStopResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStopResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18730,8 +27616,58 @@ abstract class RecordingStopResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStopResponseApplicationJson> get serializer =>
-      _$recordingStopResponseApplicationJsonSerializer;
+      const _$RecordingStopResponseApplicationJsonSerializer();
+}
+
+class _$RecordingStopResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingStopResponseApplicationJson> {
+  const _$RecordingStopResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RecordingStopResponseApplicationJson, _$RecordingStopResponseApplicationJson];
+
+  @override
+  String get wireName => 'RecordingStopResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStopResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RecordingStopResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStopResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStopResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RecordingStopResponseApplicationJson_Ocs))!
+                as RecordingStopResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingStoreApiVersion extends EnumClass {
@@ -18775,8 +27711,62 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStoreResponseApplicationJson_Ocs> get serializer =>
-      _$recordingStoreResponseApplicationJsonOcsSerializer;
+      const _$RecordingStoreResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingStoreResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingStoreResponseApplicationJson_Ocs> {
+  const _$RecordingStoreResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingStoreResponseApplicationJson_Ocs, _$RecordingStoreResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RecordingStoreResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStoreResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStoreResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStoreResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18805,8 +27795,58 @@ abstract class RecordingStoreResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingStoreResponseApplicationJson> get serializer =>
-      _$recordingStoreResponseApplicationJsonSerializer;
+      const _$RecordingStoreResponseApplicationJsonSerializer();
+}
+
+class _$RecordingStoreResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingStoreResponseApplicationJson> {
+  const _$RecordingStoreResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RecordingStoreResponseApplicationJson, _$RecordingStoreResponseApplicationJson];
+
+  @override
+  String get wireName => 'RecordingStoreResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingStoreResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RecordingStoreResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingStoreResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingStoreResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RecordingStoreResponseApplicationJson_Ocs))!
+                as RecordingStoreResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingNotificationDismissApiVersion extends EnumClass {
@@ -18853,8 +27893,64 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingNotificationDismissResponseApplicationJson_Ocs> get serializer =>
-      _$recordingNotificationDismissResponseApplicationJsonOcsSerializer;
+      const _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingNotificationDismissResponseApplicationJson_Ocs> {
+  const _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RecordingNotificationDismissResponseApplicationJson_Ocs,
+        _$RecordingNotificationDismissResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RecordingNotificationDismissResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingNotificationDismissResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingNotificationDismissResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingNotificationDismissResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18884,8 +27980,66 @@ abstract class RecordingNotificationDismissResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingNotificationDismissResponseApplicationJson> get serializer =>
-      _$recordingNotificationDismissResponseApplicationJsonSerializer;
+      const _$RecordingNotificationDismissResponseApplicationJsonSerializer();
+}
+
+class _$RecordingNotificationDismissResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingNotificationDismissResponseApplicationJson> {
+  const _$RecordingNotificationDismissResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RecordingNotificationDismissResponseApplicationJson,
+        _$RecordingNotificationDismissResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'RecordingNotificationDismissResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingNotificationDismissResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RecordingNotificationDismissResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingNotificationDismissResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingNotificationDismissResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RecordingNotificationDismissResponseApplicationJson_Ocs),
+            )! as RecordingNotificationDismissResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RecordingShareToChatApiVersion extends EnumClass {
@@ -18929,8 +28083,62 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingShareToChatResponseApplicationJson_Ocs> get serializer =>
-      _$recordingShareToChatResponseApplicationJsonOcsSerializer;
+      const _$RecordingShareToChatResponseApplicationJson_OcsSerializer();
+}
+
+class _$RecordingShareToChatResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RecordingShareToChatResponseApplicationJson_Ocs> {
+  const _$RecordingShareToChatResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingShareToChatResponseApplicationJson_Ocs, _$RecordingShareToChatResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RecordingShareToChatResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingShareToChatResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingShareToChatResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingShareToChatResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -18959,8 +28167,61 @@ abstract class RecordingShareToChatResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingShareToChatResponseApplicationJson> get serializer =>
-      _$recordingShareToChatResponseApplicationJsonSerializer;
+      const _$RecordingShareToChatResponseApplicationJsonSerializer();
+}
+
+class _$RecordingShareToChatResponseApplicationJsonSerializer
+    implements StructuredSerializer<RecordingShareToChatResponseApplicationJson> {
+  const _$RecordingShareToChatResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RecordingShareToChatResponseApplicationJson, _$RecordingShareToChatResponseApplicationJson];
+
+  @override
+  String get wireName => 'RecordingShareToChatResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RecordingShareToChatResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RecordingShareToChatResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RecordingShareToChatResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RecordingShareToChatResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RecordingShareToChatResponseApplicationJson_Ocs),
+            )! as RecordingShareToChatResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetRoomsApiVersion extends EnumClass {
@@ -19074,8 +28335,65 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetRoomsResponseApplicationJsonOcsSerializer;
+      const _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetRoomsResponseApplicationJson_Ocs> {
+  const _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetRoomsResponseApplicationJson_Ocs, _$RoomGetRoomsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomGetRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19103,8 +28421,58 @@ abstract class RoomGetRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetRoomsResponseApplicationJson> get serializer =>
-      _$roomGetRoomsResponseApplicationJsonSerializer;
+      const _$RoomGetRoomsResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetRoomsResponseApplicationJson> {
+  const _$RoomGetRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsResponseApplicationJson, _$RoomGetRoomsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomGetRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomGetRoomsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomGetRoomsResponseApplicationJson_Ocs))!
+                as RoomGetRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomCreateRoomApiVersion extends EnumClass {
@@ -19148,8 +28516,64 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomCreateRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomCreateRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomCreateRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomCreateRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomCreateRoomResponseApplicationJson_Ocs> {
+  const _$RoomCreateRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomCreateRoomResponseApplicationJson_Ocs, _$RoomCreateRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomCreateRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomCreateRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomCreateRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomCreateRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19178,8 +28602,58 @@ abstract class RoomCreateRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomCreateRoomResponseApplicationJson> get serializer =>
-      _$roomCreateRoomResponseApplicationJsonSerializer;
+      const _$RoomCreateRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomCreateRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomCreateRoomResponseApplicationJson> {
+  const _$RoomCreateRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomCreateRoomResponseApplicationJson, _$RoomCreateRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomCreateRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomCreateRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomCreateRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomCreateRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomCreateRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomCreateRoomResponseApplicationJson_Ocs))!
+                as RoomCreateRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetListedRoomsApiVersion extends EnumClass {
@@ -19223,8 +28697,65 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetListedRoomsResponseApplicationJsonOcsSerializer;
+      const _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetListedRoomsResponseApplicationJson_Ocs> {
+  const _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetListedRoomsResponseApplicationJson_Ocs, _$RoomGetListedRoomsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomGetListedRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetListedRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetListedRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetListedRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19253,8 +28784,61 @@ abstract class RoomGetListedRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetListedRoomsResponseApplicationJson> get serializer =>
-      _$roomGetListedRoomsResponseApplicationJsonSerializer;
+      const _$RoomGetListedRoomsResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetListedRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetListedRoomsResponseApplicationJson> {
+  const _$RoomGetListedRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetListedRoomsResponseApplicationJson, _$RoomGetListedRoomsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomGetListedRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetListedRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomGetListedRoomsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetListedRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetListedRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetListedRoomsResponseApplicationJson_Ocs),
+            )! as RoomGetListedRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
@@ -19377,8 +28961,66 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetNoteToSelfConversationResponseApplicationJsonOcsSerializer;
+      const _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> {
+  const _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
+        _$RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomGetNoteToSelfConversationResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetNoteToSelfConversationResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetNoteToSelfConversationResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19408,8 +29050,66 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetNoteToSelfConversationResponseApplicationJson> get serializer =>
-      _$roomGetNoteToSelfConversationResponseApplicationJsonSerializer;
+      const _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetNoteToSelfConversationResponseApplicationJson> {
+  const _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomGetNoteToSelfConversationResponseApplicationJson,
+        _$RoomGetNoteToSelfConversationResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'RoomGetNoteToSelfConversationResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetNoteToSelfConversationResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetNoteToSelfConversationResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetNoteToSelfConversationResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs),
+            )! as RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetSingleRoomApiVersion extends EnumClass {
@@ -19522,8 +29222,64 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetSingleRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetSingleRoomResponseApplicationJson_Ocs> {
+  const _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetSingleRoomResponseApplicationJson_Ocs, _$RoomGetSingleRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomGetSingleRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetSingleRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetSingleRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetSingleRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19552,8 +29308,61 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetSingleRoomResponseApplicationJson> get serializer =>
-      _$roomGetSingleRoomResponseApplicationJsonSerializer;
+      const _$RoomGetSingleRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetSingleRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetSingleRoomResponseApplicationJson> {
+  const _$RoomGetSingleRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetSingleRoomResponseApplicationJson, _$RoomGetSingleRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomGetSingleRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetSingleRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetSingleRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetSingleRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs),
+            )! as RoomGetSingleRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomRenameRoomApiVersion extends EnumClass {
@@ -19597,8 +29406,62 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRenameRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomRenameRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomRenameRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomRenameRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomRenameRoomResponseApplicationJson_Ocs> {
+  const _$RoomRenameRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRenameRoomResponseApplicationJson_Ocs, _$RoomRenameRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomRenameRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRenameRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRenameRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19627,8 +29490,58 @@ abstract class RoomRenameRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRenameRoomResponseApplicationJson> get serializer =>
-      _$roomRenameRoomResponseApplicationJsonSerializer;
+      const _$RoomRenameRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomRenameRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomRenameRoomResponseApplicationJson> {
+  const _$RoomRenameRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomRenameRoomResponseApplicationJson, _$RoomRenameRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomRenameRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRenameRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomRenameRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRenameRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRenameRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomRenameRoomResponseApplicationJson_Ocs))!
+                as RoomRenameRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomDeleteRoomApiVersion extends EnumClass {
@@ -19672,8 +29585,62 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomDeleteRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomDeleteRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomDeleteRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomDeleteRoomResponseApplicationJson_Ocs> {
+  const _$RoomDeleteRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomDeleteRoomResponseApplicationJson_Ocs, _$RoomDeleteRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomDeleteRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomDeleteRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomDeleteRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19702,8 +29669,58 @@ abstract class RoomDeleteRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomDeleteRoomResponseApplicationJson> get serializer =>
-      _$roomDeleteRoomResponseApplicationJsonSerializer;
+      const _$RoomDeleteRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomDeleteRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomDeleteRoomResponseApplicationJson> {
+  const _$RoomDeleteRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomDeleteRoomResponseApplicationJson, _$RoomDeleteRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomDeleteRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomDeleteRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomDeleteRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomDeleteRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomDeleteRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomDeleteRoomResponseApplicationJson_Ocs))!
+                as RoomDeleteRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetBreakoutRoomsApiVersion extends EnumClass {
@@ -19747,8 +29764,65 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetBreakoutRoomsResponseApplicationJsonOcsSerializer;
+      const _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> {
+  const _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetBreakoutRoomsResponseApplicationJson_Ocs, _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetBreakoutRoomsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Room)])),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetBreakoutRoomsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Room)]))!
+                as BuiltList<Room>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19777,8 +29851,61 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomsResponseApplicationJson> get serializer =>
-      _$roomGetBreakoutRoomsResponseApplicationJsonSerializer;
+      const _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetBreakoutRoomsResponseApplicationJson> {
+  const _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetBreakoutRoomsResponseApplicationJson, _$RoomGetBreakoutRoomsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetBreakoutRoomsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetBreakoutRoomsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetBreakoutRoomsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs),
+            )! as RoomGetBreakoutRoomsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomMakePublicApiVersion extends EnumClass {
@@ -19822,8 +29949,62 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePublicResponseApplicationJson_Ocs> get serializer =>
-      _$roomMakePublicResponseApplicationJsonOcsSerializer;
+      const _$RoomMakePublicResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomMakePublicResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMakePublicResponseApplicationJson_Ocs> {
+  const _$RoomMakePublicResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomMakePublicResponseApplicationJson_Ocs, _$RoomMakePublicResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomMakePublicResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomMakePublicResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomMakePublicResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomMakePublicResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19852,8 +30033,58 @@ abstract class RoomMakePublicResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePublicResponseApplicationJson> get serializer =>
-      _$roomMakePublicResponseApplicationJsonSerializer;
+      const _$RoomMakePublicResponseApplicationJsonSerializer();
+}
+
+class _$RoomMakePublicResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMakePublicResponseApplicationJson> {
+  const _$RoomMakePublicResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomMakePublicResponseApplicationJson, _$RoomMakePublicResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomMakePublicResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomMakePublicResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomMakePublicResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomMakePublicResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomMakePublicResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomMakePublicResponseApplicationJson_Ocs))!
+                as RoomMakePublicResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomMakePrivateApiVersion extends EnumClass {
@@ -19897,8 +30128,62 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePrivateResponseApplicationJson_Ocs> get serializer =>
-      _$roomMakePrivateResponseApplicationJsonOcsSerializer;
+      const _$RoomMakePrivateResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomMakePrivateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomMakePrivateResponseApplicationJson_Ocs> {
+  const _$RoomMakePrivateResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomMakePrivateResponseApplicationJson_Ocs, _$RoomMakePrivateResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomMakePrivateResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomMakePrivateResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomMakePrivateResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomMakePrivateResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -19927,8 +30212,58 @@ abstract class RoomMakePrivateResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomMakePrivateResponseApplicationJson> get serializer =>
-      _$roomMakePrivateResponseApplicationJsonSerializer;
+      const _$RoomMakePrivateResponseApplicationJsonSerializer();
+}
+
+class _$RoomMakePrivateResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomMakePrivateResponseApplicationJson> {
+  const _$RoomMakePrivateResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomMakePrivateResponseApplicationJson, _$RoomMakePrivateResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomMakePrivateResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomMakePrivateResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomMakePrivateResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomMakePrivateResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomMakePrivateResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomMakePrivateResponseApplicationJson_Ocs))!
+                as RoomMakePrivateResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetDescriptionApiVersion extends EnumClass {
@@ -19972,8 +30307,62 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetDescriptionResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetDescriptionResponseApplicationJsonOcsSerializer;
+      const _$RoomSetDescriptionResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetDescriptionResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetDescriptionResponseApplicationJson_Ocs> {
+  const _$RoomSetDescriptionResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetDescriptionResponseApplicationJson_Ocs, _$RoomSetDescriptionResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetDescriptionResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetDescriptionResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetDescriptionResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetDescriptionResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20002,8 +30391,61 @@ abstract class RoomSetDescriptionResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetDescriptionResponseApplicationJson> get serializer =>
-      _$roomSetDescriptionResponseApplicationJsonSerializer;
+      const _$RoomSetDescriptionResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetDescriptionResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetDescriptionResponseApplicationJson> {
+  const _$RoomSetDescriptionResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetDescriptionResponseApplicationJson, _$RoomSetDescriptionResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetDescriptionResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetDescriptionResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetDescriptionResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetDescriptionResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetDescriptionResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetDescriptionResponseApplicationJson_Ocs),
+            )! as RoomSetDescriptionResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetReadOnlyApiVersion extends EnumClass {
@@ -20047,8 +30489,62 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetReadOnlyResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetReadOnlyResponseApplicationJsonOcsSerializer;
+      const _$RoomSetReadOnlyResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetReadOnlyResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetReadOnlyResponseApplicationJson_Ocs> {
+  const _$RoomSetReadOnlyResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetReadOnlyResponseApplicationJson_Ocs, _$RoomSetReadOnlyResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetReadOnlyResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetReadOnlyResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetReadOnlyResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetReadOnlyResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20077,8 +30573,58 @@ abstract class RoomSetReadOnlyResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetReadOnlyResponseApplicationJson> get serializer =>
-      _$roomSetReadOnlyResponseApplicationJsonSerializer;
+      const _$RoomSetReadOnlyResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetReadOnlyResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetReadOnlyResponseApplicationJson> {
+  const _$RoomSetReadOnlyResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomSetReadOnlyResponseApplicationJson, _$RoomSetReadOnlyResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetReadOnlyResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetReadOnlyResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetReadOnlyResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetReadOnlyResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetReadOnlyResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomSetReadOnlyResponseApplicationJson_Ocs))!
+                as RoomSetReadOnlyResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetListableApiVersion extends EnumClass {
@@ -20122,8 +30668,62 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetListableResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetListableResponseApplicationJsonOcsSerializer;
+      const _$RoomSetListableResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetListableResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetListableResponseApplicationJson_Ocs> {
+  const _$RoomSetListableResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetListableResponseApplicationJson_Ocs, _$RoomSetListableResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetListableResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetListableResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetListableResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetListableResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20152,8 +30752,58 @@ abstract class RoomSetListableResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetListableResponseApplicationJson> get serializer =>
-      _$roomSetListableResponseApplicationJsonSerializer;
+      const _$RoomSetListableResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetListableResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetListableResponseApplicationJson> {
+  const _$RoomSetListableResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomSetListableResponseApplicationJson, _$RoomSetListableResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetListableResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetListableResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetListableResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetListableResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetListableResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomSetListableResponseApplicationJson_Ocs))!
+                as RoomSetListableResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetPasswordApiVersion extends EnumClass {
@@ -20197,8 +30847,62 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPasswordResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetPasswordResponseApplicationJsonOcsSerializer;
+      const _$RoomSetPasswordResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetPasswordResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetPasswordResponseApplicationJson_Ocs> {
+  const _$RoomSetPasswordResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetPasswordResponseApplicationJson_Ocs, _$RoomSetPasswordResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetPasswordResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetPasswordResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetPasswordResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetPasswordResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20227,8 +30931,58 @@ abstract class RoomSetPasswordResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPasswordResponseApplicationJson> get serializer =>
-      _$roomSetPasswordResponseApplicationJsonSerializer;
+      const _$RoomSetPasswordResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetPasswordResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetPasswordResponseApplicationJson> {
+  const _$RoomSetPasswordResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomSetPasswordResponseApplicationJson, _$RoomSetPasswordResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetPasswordResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetPasswordResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetPasswordResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetPasswordResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetPasswordResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomSetPasswordResponseApplicationJson_Ocs))!
+                as RoomSetPasswordResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetPermissionsApiVersion extends EnumClass {
@@ -20272,8 +31026,64 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetPermissionsResponseApplicationJsonOcsSerializer;
+      const _$RoomSetPermissionsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetPermissionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetPermissionsResponseApplicationJson_Ocs> {
+  const _$RoomSetPermissionsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetPermissionsResponseApplicationJson_Ocs, _$RoomSetPermissionsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetPermissionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetPermissionsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetPermissionsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetPermissionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20302,8 +31112,61 @@ abstract class RoomSetPermissionsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetPermissionsResponseApplicationJson> get serializer =>
-      _$roomSetPermissionsResponseApplicationJsonSerializer;
+      const _$RoomSetPermissionsResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetPermissionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetPermissionsResponseApplicationJson> {
+  const _$RoomSetPermissionsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetPermissionsResponseApplicationJson, _$RoomSetPermissionsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetPermissionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetPermissionsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetPermissionsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetPermissionsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetPermissionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetPermissionsResponseApplicationJson_Ocs),
+            )! as RoomSetPermissionsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetParticipantsApiVersion extends EnumClass {
@@ -20429,7 +31292,167 @@ abstract class Participant implements ParticipantInterface, Built<Participant, P
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Participant> get serializer => _$participantSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Participant> get serializer => const _$ParticipantSerializer();
+}
+
+class _$ParticipantSerializer implements StructuredSerializer<Participant> {
+  const _$ParticipantSerializer();
+
+  @override
+  Iterable<Type> get types => const [Participant, _$Participant];
+
+  @override
+  String get wireName => 'Participant';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Participant object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'actorId',
+      serializers.serialize(object.actorId, specifiedType: const FullType(String)),
+      'actorType',
+      serializers.serialize(object.actorType, specifiedType: const FullType(String)),
+      'attendeeId',
+      serializers.serialize(object.attendeeId, specifiedType: const FullType(int)),
+      'attendeePermissions',
+      serializers.serialize(object.attendeePermissions, specifiedType: const FullType(int)),
+      'attendeePin',
+      serializers.serialize(object.attendeePin, specifiedType: const FullType(String)),
+      'displayName',
+      serializers.serialize(object.displayName, specifiedType: const FullType(String)),
+      'inCall',
+      serializers.serialize(object.inCall, specifiedType: const FullType(int)),
+      'lastPing',
+      serializers.serialize(object.lastPing, specifiedType: const FullType(int)),
+      'participantType',
+      serializers.serialize(object.participantType, specifiedType: const FullType(int)),
+      'permissions',
+      serializers.serialize(object.permissions, specifiedType: const FullType(int)),
+      'roomToken',
+      serializers.serialize(object.roomToken, specifiedType: const FullType(String)),
+      'sessionIds',
+      serializers.serialize(object.sessionIds, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+    Object? value;
+    value = object.status;
+    if (value != null) {
+      result
+        ..add('status')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusClearAt;
+    if (value != null) {
+      result
+        ..add('statusClearAt')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.statusIcon;
+    if (value != null) {
+      result
+        ..add('statusIcon')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.statusMessage;
+    if (value != null) {
+      result
+        ..add('statusMessage')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.phoneNumber;
+    if (value != null) {
+      result
+        ..add('phoneNumber')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    value = object.callId;
+    if (value != null) {
+      result
+        ..add('callId')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Participant deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ParticipantBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'actorId':
+          result.actorId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'actorType':
+          result.actorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'attendeeId':
+          result.attendeeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'attendeePermissions':
+          result.attendeePermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'attendeePin':
+          result.attendeePin = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'displayName':
+          result.displayName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'inCall':
+          result.inCall = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lastPing':
+          result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'participantType':
+          result.participantType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'roomToken':
+          result.roomToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'sessionIds':
+          result.sessionIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusClearAt':
+          result.statusClearAt = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'statusIcon':
+          result.statusIcon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'statusMessage':
+          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'phoneNumber':
+          result.phoneNumber = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'callId':
+          result.callId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20459,8 +31482,65 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetParticipantsResponseApplicationJsonOcsSerializer;
+      const _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetParticipantsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetParticipantsResponseApplicationJson_Ocs> {
+  const _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetParticipantsResponseApplicationJson_Ocs, _$RoomGetParticipantsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomGetParticipantsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetParticipantsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Participant)])),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetParticipantsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetParticipantsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Participant)]))!
+                as BuiltList<Participant>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20489,8 +31569,61 @@ abstract class RoomGetParticipantsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetParticipantsResponseApplicationJson> get serializer =>
-      _$roomGetParticipantsResponseApplicationJsonSerializer;
+      const _$RoomGetParticipantsResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetParticipantsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetParticipantsResponseApplicationJson> {
+  const _$RoomGetParticipantsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomGetParticipantsResponseApplicationJson, _$RoomGetParticipantsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomGetParticipantsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetParticipantsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomGetParticipantsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetParticipantsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetParticipantsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetParticipantsResponseApplicationJson_Ocs),
+            )! as RoomGetParticipantsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomAddParticipantToRoomApiVersion extends EnumClass {
@@ -20536,8 +31669,58 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> get serializer =>
-      _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer;
+      const _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer();
+}
+
+class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer
+    implements StructuredSerializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> {
+  const _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
+        _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
+      ];
+
+  @override
+  String get wireName => 'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(int)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20663,8 +31846,72 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomAddParticipantToRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomAddParticipantToRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomAddParticipantToRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs> {
+  const _$RoomAddParticipantToRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomAddParticipantToRoomResponseApplicationJson_Ocs,
+        _$RoomAddParticipantToRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomAddParticipantToRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomAddParticipantToRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
+            )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20693,8 +31940,64 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson> get serializer =>
-      _$roomAddParticipantToRoomResponseApplicationJsonSerializer;
+      const _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomAddParticipantToRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomAddParticipantToRoomResponseApplicationJson> {
+  const _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomAddParticipantToRoomResponseApplicationJson, _$RoomAddParticipantToRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomAddParticipantToRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomAddParticipantToRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomAddParticipantToRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomAddParticipantToRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs),
+            )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
@@ -20820,8 +32123,67 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> get serializer =>
-      _$roomGetBreakoutRoomParticipantsResponseApplicationJsonOcsSerializer;
+      const _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs> {
+  const _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
+        _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Participant)])),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Participant)]))!
+                as BuiltList<Participant>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20851,8 +32213,66 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson> get serializer =>
-      _$roomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer;
+      const _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer();
+}
+
+class _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson> {
+  const _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+        _$RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomParticipantsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomGetBreakoutRoomParticipantsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomGetBreakoutRoomParticipantsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs),
+            )! as RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
@@ -20897,8 +32317,62 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomRemoveSelfFromRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs> {
+  const _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRemoveSelfFromRoomResponseApplicationJson_Ocs, _$RoomRemoveSelfFromRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomRemoveSelfFromRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveSelfFromRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveSelfFromRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20927,8 +32401,64 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveSelfFromRoomResponseApplicationJson> get serializer =>
-      _$roomRemoveSelfFromRoomResponseApplicationJsonSerializer;
+      const _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomRemoveSelfFromRoomResponseApplicationJson> {
+  const _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRemoveSelfFromRoomResponseApplicationJson, _$RoomRemoveSelfFromRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomRemoveSelfFromRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveSelfFromRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveSelfFromRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveSelfFromRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs),
+            )! as RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
@@ -20975,8 +32505,64 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomRemoveAttendeeFromRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs> {
+  const _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
+        _$RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21006,8 +32592,64 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson> get serializer =>
-      _$roomRemoveAttendeeFromRoomResponseApplicationJsonSerializer;
+      const _$RoomRemoveAttendeeFromRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomRemoveAttendeeFromRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomRemoveAttendeeFromRoomResponseApplicationJson> {
+  const _$RoomRemoveAttendeeFromRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRemoveAttendeeFromRoomResponseApplicationJson, _$RoomRemoveAttendeeFromRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomRemoveAttendeeFromRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveAttendeeFromRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveAttendeeFromRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs),
+            )! as RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetAttendeePermissionsApiVersion extends EnumClass {
@@ -21054,8 +32696,64 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetAttendeePermissionsResponseApplicationJsonOcsSerializer;
+      const _$RoomSetAttendeePermissionsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetAttendeePermissionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs> {
+  const _$RoomSetAttendeePermissionsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
+        _$RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomSetAttendeePermissionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetAttendeePermissionsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetAttendeePermissionsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21085,8 +32783,64 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson> get serializer =>
-      _$roomSetAttendeePermissionsResponseApplicationJsonSerializer;
+      const _$RoomSetAttendeePermissionsResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetAttendeePermissionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetAttendeePermissionsResponseApplicationJson> {
+  const _$RoomSetAttendeePermissionsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetAttendeePermissionsResponseApplicationJson, _$RoomSetAttendeePermissionsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetAttendeePermissionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetAttendeePermissionsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetAttendeePermissionsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetAttendeePermissionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson_Ocs),
+            )! as RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
@@ -21134,8 +32888,66 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetAllAttendeesPermissionsResponseApplicationJsonOcsSerializer;
+      const _$RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs> {
+  const _$RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
+        _$RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21165,8 +32977,66 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson> get serializer =>
-      _$roomSetAllAttendeesPermissionsResponseApplicationJsonSerializer;
+      const _$RoomSetAllAttendeesPermissionsResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetAllAttendeesPermissionsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetAllAttendeesPermissionsResponseApplicationJson> {
+  const _$RoomSetAllAttendeesPermissionsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetAllAttendeesPermissionsResponseApplicationJson,
+        _$RoomSetAllAttendeesPermissionsResponseApplicationJson,
+      ];
+
+  @override
+  String get wireName => 'RoomSetAllAttendeesPermissionsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetAllAttendeesPermissionsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetAllAttendeesPermissionsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs),
+            )! as RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomJoinRoomApiVersion extends EnumClass {
@@ -21210,8 +33080,64 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomJoinRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomJoinRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomJoinRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomJoinRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomJoinRoomResponseApplicationJson_Ocs> {
+  const _$RoomJoinRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomJoinRoomResponseApplicationJson_Ocs, _$RoomJoinRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomJoinRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomJoinRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomJoinRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomJoinRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21239,8 +33165,58 @@ abstract class RoomJoinRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomJoinRoomResponseApplicationJson> get serializer =>
-      _$roomJoinRoomResponseApplicationJsonSerializer;
+      const _$RoomJoinRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomJoinRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomJoinRoomResponseApplicationJson> {
+  const _$RoomJoinRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomJoinRoomResponseApplicationJson, _$RoomJoinRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomJoinRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomJoinRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomJoinRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomJoinRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomJoinRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomJoinRoomResponseApplicationJson_Ocs))!
+                as RoomJoinRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomLeaveRoomApiVersion extends EnumClass {
@@ -21284,8 +33260,62 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomLeaveRoomResponseApplicationJson_Ocs> get serializer =>
-      _$roomLeaveRoomResponseApplicationJsonOcsSerializer;
+      const _$RoomLeaveRoomResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomLeaveRoomResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomLeaveRoomResponseApplicationJson_Ocs> {
+  const _$RoomLeaveRoomResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomLeaveRoomResponseApplicationJson_Ocs, _$RoomLeaveRoomResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomLeaveRoomResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomLeaveRoomResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomLeaveRoomResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomLeaveRoomResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21313,8 +33343,58 @@ abstract class RoomLeaveRoomResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomLeaveRoomResponseApplicationJson> get serializer =>
-      _$roomLeaveRoomResponseApplicationJsonSerializer;
+      const _$RoomLeaveRoomResponseApplicationJsonSerializer();
+}
+
+class _$RoomLeaveRoomResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomLeaveRoomResponseApplicationJson> {
+  const _$RoomLeaveRoomResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomLeaveRoomResponseApplicationJson, _$RoomLeaveRoomResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomLeaveRoomResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomLeaveRoomResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomLeaveRoomResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomLeaveRoomResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomLeaveRoomResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomLeaveRoomResponseApplicationJson_Ocs))!
+                as RoomLeaveRoomResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomResendInvitationsApiVersion extends EnumClass {
@@ -21359,8 +33439,62 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomResendInvitationsResponseApplicationJson_Ocs> get serializer =>
-      _$roomResendInvitationsResponseApplicationJsonOcsSerializer;
+      const _$RoomResendInvitationsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomResendInvitationsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomResendInvitationsResponseApplicationJson_Ocs> {
+  const _$RoomResendInvitationsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomResendInvitationsResponseApplicationJson_Ocs, _$RoomResendInvitationsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomResendInvitationsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomResendInvitationsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomResendInvitationsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomResendInvitationsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21389,8 +33523,64 @@ abstract class RoomResendInvitationsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomResendInvitationsResponseApplicationJson> get serializer =>
-      _$roomResendInvitationsResponseApplicationJsonSerializer;
+      const _$RoomResendInvitationsResponseApplicationJsonSerializer();
+}
+
+class _$RoomResendInvitationsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomResendInvitationsResponseApplicationJson> {
+  const _$RoomResendInvitationsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomResendInvitationsResponseApplicationJson, _$RoomResendInvitationsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomResendInvitationsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomResendInvitationsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomResendInvitationsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomResendInvitationsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomResendInvitationsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomResendInvitationsResponseApplicationJson_Ocs),
+            )! as RoomResendInvitationsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetSessionStateApiVersion extends EnumClass {
@@ -21434,8 +33624,64 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetSessionStateResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetSessionStateResponseApplicationJsonOcsSerializer;
+      const _$RoomSetSessionStateResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetSessionStateResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetSessionStateResponseApplicationJson_Ocs> {
+  const _$RoomSetSessionStateResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetSessionStateResponseApplicationJson_Ocs, _$RoomSetSessionStateResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetSessionStateResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetSessionStateResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetSessionStateResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetSessionStateResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21464,8 +33710,61 @@ abstract class RoomSetSessionStateResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetSessionStateResponseApplicationJson> get serializer =>
-      _$roomSetSessionStateResponseApplicationJsonSerializer;
+      const _$RoomSetSessionStateResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetSessionStateResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetSessionStateResponseApplicationJson> {
+  const _$RoomSetSessionStateResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetSessionStateResponseApplicationJson, _$RoomSetSessionStateResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetSessionStateResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetSessionStateResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetSessionStateResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetSessionStateResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetSessionStateResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetSessionStateResponseApplicationJson_Ocs),
+            )! as RoomSetSessionStateResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomPromoteModeratorApiVersion extends EnumClass {
@@ -21509,8 +33808,62 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomPromoteModeratorResponseApplicationJson_Ocs> get serializer =>
-      _$roomPromoteModeratorResponseApplicationJsonOcsSerializer;
+      const _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomPromoteModeratorResponseApplicationJson_Ocs> {
+  const _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomPromoteModeratorResponseApplicationJson_Ocs, _$RoomPromoteModeratorResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomPromoteModeratorResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomPromoteModeratorResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomPromoteModeratorResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomPromoteModeratorResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21539,8 +33892,61 @@ abstract class RoomPromoteModeratorResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomPromoteModeratorResponseApplicationJson> get serializer =>
-      _$roomPromoteModeratorResponseApplicationJsonSerializer;
+      const _$RoomPromoteModeratorResponseApplicationJsonSerializer();
+}
+
+class _$RoomPromoteModeratorResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomPromoteModeratorResponseApplicationJson> {
+  const _$RoomPromoteModeratorResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomPromoteModeratorResponseApplicationJson, _$RoomPromoteModeratorResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomPromoteModeratorResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomPromoteModeratorResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomPromoteModeratorResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomPromoteModeratorResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs),
+            )! as RoomPromoteModeratorResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomDemoteModeratorApiVersion extends EnumClass {
@@ -21584,8 +33990,62 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomDemoteModeratorResponseApplicationJson_Ocs> get serializer =>
-      _$roomDemoteModeratorResponseApplicationJsonOcsSerializer;
+      const _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomDemoteModeratorResponseApplicationJson_Ocs> {
+  const _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomDemoteModeratorResponseApplicationJson_Ocs, _$RoomDemoteModeratorResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomDemoteModeratorResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomDemoteModeratorResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomDemoteModeratorResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomDemoteModeratorResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21614,8 +34074,61 @@ abstract class RoomDemoteModeratorResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomDemoteModeratorResponseApplicationJson> get serializer =>
-      _$roomDemoteModeratorResponseApplicationJsonSerializer;
+      const _$RoomDemoteModeratorResponseApplicationJsonSerializer();
+}
+
+class _$RoomDemoteModeratorResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomDemoteModeratorResponseApplicationJson> {
+  const _$RoomDemoteModeratorResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomDemoteModeratorResponseApplicationJson, _$RoomDemoteModeratorResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomDemoteModeratorResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomDemoteModeratorResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomDemoteModeratorResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomDemoteModeratorResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomDemoteModeratorResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomDemoteModeratorResponseApplicationJson_Ocs),
+            )! as RoomDemoteModeratorResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomAddToFavoritesApiVersion extends EnumClass {
@@ -21659,8 +34172,62 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddToFavoritesResponseApplicationJson_Ocs> get serializer =>
-      _$roomAddToFavoritesResponseApplicationJsonOcsSerializer;
+      const _$RoomAddToFavoritesResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomAddToFavoritesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomAddToFavoritesResponseApplicationJson_Ocs> {
+  const _$RoomAddToFavoritesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomAddToFavoritesResponseApplicationJson_Ocs, _$RoomAddToFavoritesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomAddToFavoritesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomAddToFavoritesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomAddToFavoritesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomAddToFavoritesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21689,8 +34256,61 @@ abstract class RoomAddToFavoritesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddToFavoritesResponseApplicationJson> get serializer =>
-      _$roomAddToFavoritesResponseApplicationJsonSerializer;
+      const _$RoomAddToFavoritesResponseApplicationJsonSerializer();
+}
+
+class _$RoomAddToFavoritesResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomAddToFavoritesResponseApplicationJson> {
+  const _$RoomAddToFavoritesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomAddToFavoritesResponseApplicationJson, _$RoomAddToFavoritesResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomAddToFavoritesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomAddToFavoritesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomAddToFavoritesResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomAddToFavoritesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomAddToFavoritesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomAddToFavoritesResponseApplicationJson_Ocs),
+            )! as RoomAddToFavoritesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomRemoveFromFavoritesApiVersion extends EnumClass {
@@ -21736,8 +34356,62 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs> get serializer =>
-      _$roomRemoveFromFavoritesResponseApplicationJsonOcsSerializer;
+      const _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs> {
+  const _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRemoveFromFavoritesResponseApplicationJson_Ocs, _$RoomRemoveFromFavoritesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomRemoveFromFavoritesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveFromFavoritesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveFromFavoritesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21766,8 +34440,64 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveFromFavoritesResponseApplicationJson> get serializer =>
-      _$roomRemoveFromFavoritesResponseApplicationJsonSerializer;
+      const _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer();
+}
+
+class _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomRemoveFromFavoritesResponseApplicationJson> {
+  const _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomRemoveFromFavoritesResponseApplicationJson, _$RoomRemoveFromFavoritesResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomRemoveFromFavoritesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomRemoveFromFavoritesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomRemoveFromFavoritesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomRemoveFromFavoritesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson_Ocs),
+            )! as RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetNotificationLevelApiVersion extends EnumClass {
@@ -21814,8 +34544,64 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationLevelResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetNotificationLevelResponseApplicationJsonOcsSerializer;
+      const _$RoomSetNotificationLevelResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetNotificationLevelResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetNotificationLevelResponseApplicationJson_Ocs> {
+  const _$RoomSetNotificationLevelResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetNotificationLevelResponseApplicationJson_Ocs,
+        _$RoomSetNotificationLevelResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomSetNotificationLevelResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetNotificationLevelResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetNotificationLevelResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetNotificationLevelResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21844,8 +34630,64 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationLevelResponseApplicationJson> get serializer =>
-      _$roomSetNotificationLevelResponseApplicationJsonSerializer;
+      const _$RoomSetNotificationLevelResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetNotificationLevelResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetNotificationLevelResponseApplicationJson> {
+  const _$RoomSetNotificationLevelResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetNotificationLevelResponseApplicationJson, _$RoomSetNotificationLevelResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetNotificationLevelResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetNotificationLevelResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetNotificationLevelResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetNotificationLevelResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetNotificationLevelResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetNotificationLevelResponseApplicationJson_Ocs),
+            )! as RoomSetNotificationLevelResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetNotificationCallsApiVersion extends EnumClass {
@@ -21892,8 +34734,64 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationCallsResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetNotificationCallsResponseApplicationJsonOcsSerializer;
+      const _$RoomSetNotificationCallsResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetNotificationCallsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetNotificationCallsResponseApplicationJson_Ocs> {
+  const _$RoomSetNotificationCallsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetNotificationCallsResponseApplicationJson_Ocs,
+        _$RoomSetNotificationCallsResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomSetNotificationCallsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetNotificationCallsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetNotificationCallsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetNotificationCallsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21922,8 +34820,64 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationCallsResponseApplicationJson> get serializer =>
-      _$roomSetNotificationCallsResponseApplicationJsonSerializer;
+      const _$RoomSetNotificationCallsResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetNotificationCallsResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetNotificationCallsResponseApplicationJson> {
+  const _$RoomSetNotificationCallsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetNotificationCallsResponseApplicationJson, _$RoomSetNotificationCallsResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetNotificationCallsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetNotificationCallsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetNotificationCallsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetNotificationCallsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetNotificationCallsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetNotificationCallsResponseApplicationJson_Ocs),
+            )! as RoomSetNotificationCallsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetLobbyApiVersion extends EnumClass {
@@ -21967,8 +34921,64 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetLobbyResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetLobbyResponseApplicationJsonOcsSerializer;
+      const _$RoomSetLobbyResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetLobbyResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetLobbyResponseApplicationJson_Ocs> {
+  const _$RoomSetLobbyResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetLobbyResponseApplicationJson_Ocs, _$RoomSetLobbyResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetLobbyResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetLobbyResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetLobbyResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetLobbyResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -21996,8 +35006,58 @@ abstract class RoomSetLobbyResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetLobbyResponseApplicationJson> get serializer =>
-      _$roomSetLobbyResponseApplicationJsonSerializer;
+      const _$RoomSetLobbyResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetLobbyResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetLobbyResponseApplicationJson> {
+  const _$RoomSetLobbyResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types => const [RoomSetLobbyResponseApplicationJson, _$RoomSetLobbyResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetLobbyResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetLobbyResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetLobbyResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetLobbyResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetLobbyResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RoomSetLobbyResponseApplicationJson_Ocs))!
+                as RoomSetLobbyResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetsipEnabledApiVersion extends EnumClass {
@@ -22041,8 +35101,64 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetsipEnabledResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetsipEnabledResponseApplicationJsonOcsSerializer;
+      const _$RoomSetsipEnabledResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetsipEnabledResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetsipEnabledResponseApplicationJson_Ocs> {
+  const _$RoomSetsipEnabledResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetsipEnabledResponseApplicationJson_Ocs, _$RoomSetsipEnabledResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetsipEnabledResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetsipEnabledResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetsipEnabledResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetsipEnabledResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22071,8 +35187,61 @@ abstract class RoomSetsipEnabledResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetsipEnabledResponseApplicationJson> get serializer =>
-      _$roomSetsipEnabledResponseApplicationJsonSerializer;
+      const _$RoomSetsipEnabledResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetsipEnabledResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetsipEnabledResponseApplicationJson> {
+  const _$RoomSetsipEnabledResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetsipEnabledResponseApplicationJson, _$RoomSetsipEnabledResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetsipEnabledResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetsipEnabledResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(RoomSetsipEnabledResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetsipEnabledResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetsipEnabledResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetsipEnabledResponseApplicationJson_Ocs),
+            )! as RoomSetsipEnabledResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetRecordingConsentApiVersion extends EnumClass {
@@ -22118,8 +35287,64 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetRecordingConsentResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetRecordingConsentResponseApplicationJsonOcsSerializer;
+      const _$RoomSetRecordingConsentResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetRecordingConsentResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetRecordingConsentResponseApplicationJson_Ocs> {
+  const _$RoomSetRecordingConsentResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetRecordingConsentResponseApplicationJson_Ocs, _$RoomSetRecordingConsentResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'RoomSetRecordingConsentResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetRecordingConsentResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Room)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetRecordingConsentResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetRecordingConsentResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Room))! as Room,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22148,8 +35373,64 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetRecordingConsentResponseApplicationJson> get serializer =>
-      _$roomSetRecordingConsentResponseApplicationJsonSerializer;
+      const _$RoomSetRecordingConsentResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetRecordingConsentResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetRecordingConsentResponseApplicationJson> {
+  const _$RoomSetRecordingConsentResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetRecordingConsentResponseApplicationJson, _$RoomSetRecordingConsentResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetRecordingConsentResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetRecordingConsentResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetRecordingConsentResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetRecordingConsentResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetRecordingConsentResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetRecordingConsentResponseApplicationJson_Ocs),
+            )! as RoomSetRecordingConsentResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class RoomSetMessageExpirationApiVersion extends EnumClass {
@@ -22196,8 +35477,64 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs> get serializer =>
-      _$roomSetMessageExpirationResponseApplicationJsonOcsSerializer;
+      const _$RoomSetMessageExpirationResponseApplicationJson_OcsSerializer();
+}
+
+class _$RoomSetMessageExpirationResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<RoomSetMessageExpirationResponseApplicationJson_Ocs> {
+  const _$RoomSetMessageExpirationResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        RoomSetMessageExpirationResponseApplicationJson_Ocs,
+        _$RoomSetMessageExpirationResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'RoomSetMessageExpirationResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetMessageExpirationResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetMessageExpirationResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetMessageExpirationResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22226,8 +35563,64 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetMessageExpirationResponseApplicationJson> get serializer =>
-      _$roomSetMessageExpirationResponseApplicationJsonSerializer;
+      const _$RoomSetMessageExpirationResponseApplicationJsonSerializer();
+}
+
+class _$RoomSetMessageExpirationResponseApplicationJsonSerializer
+    implements StructuredSerializer<RoomSetMessageExpirationResponseApplicationJson> {
+  const _$RoomSetMessageExpirationResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [RoomSetMessageExpirationResponseApplicationJson, _$RoomSetMessageExpirationResponseApplicationJson];
+
+  @override
+  String get wireName => 'RoomSetMessageExpirationResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final RoomSetMessageExpirationResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(RoomSetMessageExpirationResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  RoomSetMessageExpirationResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = RoomSetMessageExpirationResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(RoomSetMessageExpirationResponseApplicationJson_Ocs),
+            )! as RoomSetMessageExpirationResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class SettingsSetsipSettingsApiVersion extends EnumClass {
@@ -22272,8 +35665,62 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> get serializer =>
-      _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer;
+      const _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson_Ocs> {
+  const _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SettingsSetsipSettingsResponseApplicationJson_Ocs, _$SettingsSetsipSettingsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'SettingsSetsipSettingsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SettingsSetsipSettingsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SettingsSetsipSettingsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22302,8 +35749,64 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
-      _$settingsSetsipSettingsResponseApplicationJsonSerializer;
+      const _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
+}
+
+class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
+    implements StructuredSerializer<SettingsSetsipSettingsResponseApplicationJson> {
+  const _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SettingsSetsipSettingsResponseApplicationJson, _$SettingsSetsipSettingsResponseApplicationJson];
+
+  @override
+  String get wireName => 'SettingsSetsipSettingsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SettingsSetsipSettingsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SettingsSetsipSettingsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SettingsSetsipSettingsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
+            )! as SettingsSetsipSettingsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22426,8 +35929,62 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetUserSettingResponseApplicationJson_Ocs> get serializer =>
-      _$settingsSetUserSettingResponseApplicationJsonOcsSerializer;
+      const _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer();
+}
+
+class _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SettingsSetUserSettingResponseApplicationJson_Ocs> {
+  const _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SettingsSetUserSettingResponseApplicationJson_Ocs, _$SettingsSetUserSettingResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'SettingsSetUserSettingResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SettingsSetUserSettingResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  SettingsSetUserSettingResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SettingsSetUserSettingResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22456,8 +36013,64 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetUserSettingResponseApplicationJson> get serializer =>
-      _$settingsSetUserSettingResponseApplicationJsonSerializer;
+      const _$SettingsSetUserSettingResponseApplicationJsonSerializer();
+}
+
+class _$SettingsSetUserSettingResponseApplicationJsonSerializer
+    implements StructuredSerializer<SettingsSetUserSettingResponseApplicationJson> {
+  const _$SettingsSetUserSettingResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SettingsSetUserSettingResponseApplicationJson, _$SettingsSetUserSettingResponseApplicationJson];
+
+  @override
+  String get wireName => 'SettingsSetUserSettingResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SettingsSetUserSettingResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SettingsSetUserSettingResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SettingsSetUserSettingResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs),
+            )! as SettingsSetUserSettingResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class SignalingGetSettingsApiVersion extends EnumClass {
@@ -22501,8 +36114,67 @@ abstract class SignalingSettings_HelloAuthParams_$10
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSettings_HelloAuthParams_$10> get serializer =>
-      _$signalingSettingsHelloAuthParams$10Serializer;
+      const _$SignalingSettings_HelloAuthParams_$10Serializer();
+}
+
+class _$SignalingSettings_HelloAuthParams_$10Serializer
+    implements StructuredSerializer<SignalingSettings_HelloAuthParams_$10> {
+  const _$SignalingSettings_HelloAuthParams_$10Serializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings_HelloAuthParams_$10, _$SignalingSettings_HelloAuthParams_$10];
+
+  @override
+  String get wireName => r'SignalingSettings_HelloAuthParams_$10';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings_HelloAuthParams_$10 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ticket',
+      serializers.serialize(object.ticket, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.userid;
+    if (value != null) {
+      result
+        ..add('userid')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  SignalingSettings_HelloAuthParams_$10 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettings_HelloAuthParams_$10Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'userid':
+          result.userid = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'ticket':
+          result.ticket = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22531,8 +36203,55 @@ abstract class SignalingSettings_HelloAuthParams_$20
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSettings_HelloAuthParams_$20> get serializer =>
-      _$signalingSettingsHelloAuthParams$20Serializer;
+      const _$SignalingSettings_HelloAuthParams_$20Serializer();
+}
+
+class _$SignalingSettings_HelloAuthParams_$20Serializer
+    implements StructuredSerializer<SignalingSettings_HelloAuthParams_$20> {
+  const _$SignalingSettings_HelloAuthParams_$20Serializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings_HelloAuthParams_$20, _$SignalingSettings_HelloAuthParams_$20];
+
+  @override
+  String get wireName => r'SignalingSettings_HelloAuthParams_$20';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings_HelloAuthParams_$20 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'token',
+      serializers.serialize(object.token, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSettings_HelloAuthParams_$20 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettings_HelloAuthParams_$20Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'token':
+          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22563,7 +36282,64 @@ abstract class SignalingSettings_HelloAuthParams
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SignalingSettings_HelloAuthParams> get serializer => _$signalingSettingsHelloAuthParamsSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSettings_HelloAuthParams> get serializer =>
+      const _$SignalingSettings_HelloAuthParamsSerializer();
+}
+
+class _$SignalingSettings_HelloAuthParamsSerializer implements StructuredSerializer<SignalingSettings_HelloAuthParams> {
+  const _$SignalingSettings_HelloAuthParamsSerializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings_HelloAuthParams, _$SignalingSettings_HelloAuthParams];
+
+  @override
+  String get wireName => 'SignalingSettings_HelloAuthParams';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings_HelloAuthParams object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      '1.0',
+      serializers.serialize(object.$10, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$10)),
+      '2.0',
+      serializers.serialize(object.$20, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$20)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSettings_HelloAuthParams deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettings_HelloAuthParamsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case '1.0':
+          result.$10.replace(
+            serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$10))!
+                as SignalingSettings_HelloAuthParams_$10,
+          );
+        case '2.0':
+          result.$20.replace(
+            serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams_$20))!
+                as SignalingSettings_HelloAuthParams_$20,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22591,7 +36367,56 @@ abstract class SignalingSettings_Stunservers
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SignalingSettings_Stunservers> get serializer => _$signalingSettingsStunserversSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSettings_Stunservers> get serializer => const _$SignalingSettings_StunserversSerializer();
+}
+
+class _$SignalingSettings_StunserversSerializer implements StructuredSerializer<SignalingSettings_Stunservers> {
+  const _$SignalingSettings_StunserversSerializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings_Stunservers, _$SignalingSettings_Stunservers];
+
+  @override
+  String get wireName => 'SignalingSettings_Stunservers';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings_Stunservers object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'urls',
+      serializers.serialize(object.urls, specifiedType: const FullType(BuiltList, [FullType(String)])),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSettings_Stunservers deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettings_StunserversBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'urls':
+          result.urls.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22621,7 +36446,64 @@ abstract class SignalingSettings_Turnservers
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SignalingSettings_Turnservers> get serializer => _$signalingSettingsTurnserversSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSettings_Turnservers> get serializer => const _$SignalingSettings_TurnserversSerializer();
+}
+
+class _$SignalingSettings_TurnserversSerializer implements StructuredSerializer<SignalingSettings_Turnservers> {
+  const _$SignalingSettings_TurnserversSerializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings_Turnservers, _$SignalingSettings_Turnservers];
+
+  @override
+  String get wireName => 'SignalingSettings_Turnservers';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings_Turnservers object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'urls',
+      serializers.serialize(object.urls, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'username',
+      serializers.serialize(object.username, specifiedType: const FullType(String)),
+      'credential',
+      serializers.serialize(object.credential, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSettings_Turnservers deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettings_TurnserversBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'urls':
+          result.urls.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'username':
+          result.username = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'credential':
+          result.credential = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22654,7 +36536,112 @@ abstract class SignalingSettings
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SignalingSettings> get serializer => _$signalingSettingsSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSettings> get serializer => const _$SignalingSettingsSerializer();
+}
+
+class _$SignalingSettingsSerializer implements StructuredSerializer<SignalingSettings> {
+  const _$SignalingSettingsSerializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSettings, _$SignalingSettings];
+
+  @override
+  String get wireName => 'SignalingSettings';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSettings object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'helloAuthParams',
+      serializers.serialize(object.helloAuthParams, specifiedType: const FullType(SignalingSettings_HelloAuthParams)),
+      'hideWarning',
+      serializers.serialize(object.hideWarning, specifiedType: const FullType(bool)),
+      'server',
+      serializers.serialize(object.server, specifiedType: const FullType(String)),
+      'signalingMode',
+      serializers.serialize(object.signalingMode, specifiedType: const FullType(String)),
+      'sipDialinInfo',
+      serializers.serialize(object.sipDialinInfo, specifiedType: const FullType(String)),
+      'stunservers',
+      serializers.serialize(
+        object.stunservers,
+        specifiedType: const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
+      ),
+      'ticket',
+      serializers.serialize(object.ticket, specifiedType: const FullType(String)),
+      'turnservers',
+      serializers.serialize(
+        object.turnservers,
+        specifiedType: const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
+      ),
+    ];
+    Object? value;
+    value = object.userId;
+    if (value != null) {
+      result
+        ..add('userId')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  SignalingSettings deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSettingsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'helloAuthParams':
+          result.helloAuthParams.replace(
+            serializers.deserialize(value, specifiedType: const FullType(SignalingSettings_HelloAuthParams))!
+                as SignalingSettings_HelloAuthParams,
+          );
+        case 'hideWarning':
+          result.hideWarning = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'server':
+          result.server = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'signalingMode':
+          result.signalingMode = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'sipDialinInfo':
+          result.sipDialinInfo = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'stunservers':
+          result.stunservers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
+            )! as BuiltList<SignalingSettings_Stunservers>,
+          );
+        case 'ticket':
+          result.ticket = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'turnservers':
+          result.turnservers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
+            )! as BuiltList<SignalingSettings_Turnservers>,
+          );
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22684,8 +36671,64 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> get serializer =>
-      _$signalingGetSettingsResponseApplicationJsonOcsSerializer;
+      const _$SignalingGetSettingsResponseApplicationJson_OcsSerializer();
+}
+
+class _$SignalingGetSettingsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SignalingGetSettingsResponseApplicationJson_Ocs> {
+  const _$SignalingGetSettingsResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingGetSettingsResponseApplicationJson_Ocs, _$SignalingGetSettingsResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'SignalingGetSettingsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingGetSettingsResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(SignalingSettings)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingGetSettingsResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingGetSettingsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(SignalingSettings))! as SignalingSettings,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22714,8 +36757,61 @@ abstract class SignalingGetSettingsResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetSettingsResponseApplicationJson> get serializer =>
-      _$signalingGetSettingsResponseApplicationJsonSerializer;
+      const _$SignalingGetSettingsResponseApplicationJsonSerializer();
+}
+
+class _$SignalingGetSettingsResponseApplicationJsonSerializer
+    implements StructuredSerializer<SignalingGetSettingsResponseApplicationJson> {
+  const _$SignalingGetSettingsResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingGetSettingsResponseApplicationJson, _$SignalingGetSettingsResponseApplicationJson];
+
+  @override
+  String get wireName => 'SignalingGetSettingsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingGetSettingsResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(SignalingGetSettingsResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingGetSettingsResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingGetSettingsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
+            )! as SignalingGetSettingsResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class SignalingGetWelcomeMessageApiVersion extends EnumClass {
@@ -22762,8 +36858,72 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
-      _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer;
+      const _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> {
+  const _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+        _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+      ];
+
+  @override
+  String get wireName => 'SignalingGetWelcomeMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingGetWelcomeMessageResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            )! as BuiltMap<String, JsonObject>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22793,8 +36953,64 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetWelcomeMessageResponseApplicationJson> get serializer =>
-      _$signalingGetWelcomeMessageResponseApplicationJsonSerializer;
+      const _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer();
+}
+
+class _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson> {
+  const _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingGetWelcomeMessageResponseApplicationJson, _$SignalingGetWelcomeMessageResponseApplicationJson];
+
+  @override
+  String get wireName => 'SignalingGetWelcomeMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingGetWelcomeMessageResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingGetWelcomeMessageResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingGetWelcomeMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
+            )! as SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class SignalingPullMessagesApiVersion extends EnumClass {
@@ -22837,7 +37053,73 @@ abstract class SignalingSession implements SignalingSessionInterface, Built<Sign
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSession> get serializer => const _$SignalingSessionSerializer();
+}
+
+class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSession> {
+  const _$SignalingSessionSerializer();
+
+  @override
+  Iterable<Type> get types => const [SignalingSession, _$SignalingSession];
+
+  @override
+  String get wireName => 'SignalingSession';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSession object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'inCall',
+      serializers.serialize(object.inCall, specifiedType: const FullType(int)),
+      'lastPing',
+      serializers.serialize(object.lastPing, specifiedType: const FullType(int)),
+      'participantPermissions',
+      serializers.serialize(object.participantPermissions, specifiedType: const FullType(int)),
+      'roomId',
+      serializers.serialize(object.roomId, specifiedType: const FullType(int)),
+      'sessionId',
+      serializers.serialize(object.sessionId, specifiedType: const FullType(String)),
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSession deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSessionBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'inCall':
+          result.inCall = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'lastPing':
+          result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'participantPermissions':
+          result.participantPermissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'roomId':
+          result.roomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'sessionId':
+          result.sessionId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22956,8 +37238,70 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
+      const _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer();
+}
+
+class _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer
+    implements StructuredSerializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> {
+  const _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        SignalingPullMessagesResponseApplicationJson_Ocs_Data,
+        _$SignalingPullMessagesResponseApplicationJson_Ocs_Data,
+      ];
+
+  @override
+  String get wireName => 'SignalingPullMessagesResponseApplicationJson_Ocs_Data';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingPullMessagesResponseApplicationJson_Ocs_Data object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(String)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingPullMessagesResponseApplicationJson_Ocs_Data deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data),
+            )! as SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22988,8 +37332,71 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonOcsSerializer;
+      const _$SignalingPullMessagesResponseApplicationJson_OcsSerializer();
+}
+
+class _$SignalingPullMessagesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SignalingPullMessagesResponseApplicationJson_Ocs> {
+  const _$SignalingPullMessagesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingPullMessagesResponseApplicationJson_Ocs, _$SignalingPullMessagesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'SignalingPullMessagesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingPullMessagesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingPullMessagesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingPullMessagesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType:
+                  const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
+            )! as BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23018,8 +37425,64 @@ abstract class SignalingPullMessagesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingPullMessagesResponseApplicationJson> get serializer =>
-      _$signalingPullMessagesResponseApplicationJsonSerializer;
+      const _$SignalingPullMessagesResponseApplicationJsonSerializer();
+}
+
+class _$SignalingPullMessagesResponseApplicationJsonSerializer
+    implements StructuredSerializer<SignalingPullMessagesResponseApplicationJson> {
+  const _$SignalingPullMessagesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingPullMessagesResponseApplicationJson, _$SignalingPullMessagesResponseApplicationJson];
+
+  @override
+  String get wireName => 'SignalingPullMessagesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingPullMessagesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingPullMessagesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingPullMessagesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
+            )! as SignalingPullMessagesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class SignalingSendMessagesApiVersion extends EnumClass {
@@ -23064,8 +37527,62 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSendMessagesResponseApplicationJson_Ocs> get serializer =>
-      _$signalingSendMessagesResponseApplicationJsonOcsSerializer;
+      const _$SignalingSendMessagesResponseApplicationJson_OcsSerializer();
+}
+
+class _$SignalingSendMessagesResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<SignalingSendMessagesResponseApplicationJson_Ocs> {
+  const _$SignalingSendMessagesResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingSendMessagesResponseApplicationJson_Ocs, _$SignalingSendMessagesResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'SignalingSendMessagesResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSendMessagesResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSendMessagesResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSendMessagesResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23094,8 +37611,64 @@ abstract class SignalingSendMessagesResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingSendMessagesResponseApplicationJson> get serializer =>
-      _$signalingSendMessagesResponseApplicationJsonSerializer;
+      const _$SignalingSendMessagesResponseApplicationJsonSerializer();
+}
+
+class _$SignalingSendMessagesResponseApplicationJsonSerializer
+    implements StructuredSerializer<SignalingSendMessagesResponseApplicationJson> {
+  const _$SignalingSendMessagesResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [SignalingSendMessagesResponseApplicationJson, _$SignalingSendMessagesResponseApplicationJson];
+
+  @override
+  String get wireName => 'SignalingSendMessagesResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final SignalingSendMessagesResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  SignalingSendMessagesResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = SignalingSendMessagesResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
+            )! as SignalingSendMessagesResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23125,8 +37698,62 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<TempAvatarPostAvatarResponseApplicationJson_Ocs> get serializer =>
-      _$tempAvatarPostAvatarResponseApplicationJsonOcsSerializer;
+      const _$TempAvatarPostAvatarResponseApplicationJson_OcsSerializer();
+}
+
+class _$TempAvatarPostAvatarResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TempAvatarPostAvatarResponseApplicationJson_Ocs> {
+  const _$TempAvatarPostAvatarResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [TempAvatarPostAvatarResponseApplicationJson_Ocs, _$TempAvatarPostAvatarResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'TempAvatarPostAvatarResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final TempAvatarPostAvatarResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  TempAvatarPostAvatarResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = TempAvatarPostAvatarResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23155,8 +37782,61 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<TempAvatarPostAvatarResponseApplicationJson> get serializer =>
-      _$tempAvatarPostAvatarResponseApplicationJsonSerializer;
+      const _$TempAvatarPostAvatarResponseApplicationJsonSerializer();
+}
+
+class _$TempAvatarPostAvatarResponseApplicationJsonSerializer
+    implements StructuredSerializer<TempAvatarPostAvatarResponseApplicationJson> {
+  const _$TempAvatarPostAvatarResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [TempAvatarPostAvatarResponseApplicationJson, _$TempAvatarPostAvatarResponseApplicationJson];
+
+  @override
+  String get wireName => 'TempAvatarPostAvatarResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final TempAvatarPostAvatarResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(TempAvatarPostAvatarResponseApplicationJson_Ocs)),
+    ];
+    return result;
+  }
+
+  @override
+  TempAvatarPostAvatarResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = TempAvatarPostAvatarResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(TempAvatarPostAvatarResponseApplicationJson_Ocs),
+            )! as TempAvatarPostAvatarResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23187,8 +37867,62 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs> get serializer =>
-      _$tempAvatarDeleteAvatarResponseApplicationJsonOcsSerializer;
+      const _$TempAvatarDeleteAvatarResponseApplicationJson_OcsSerializer();
+}
+
+class _$TempAvatarDeleteAvatarResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs> {
+  const _$TempAvatarDeleteAvatarResponseApplicationJson_OcsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [TempAvatarDeleteAvatarResponseApplicationJson_Ocs, _$TempAvatarDeleteAvatarResponseApplicationJson_Ocs];
+
+  @override
+  String get wireName => 'TempAvatarDeleteAvatarResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final TempAvatarDeleteAvatarResponseApplicationJson_Ocs object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+    return result;
+  }
+
+  @override
+  TempAvatarDeleteAvatarResponseApplicationJson_Ocs deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(
+            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
+          );
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23217,8 +37951,64 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<TempAvatarDeleteAvatarResponseApplicationJson> get serializer =>
-      _$tempAvatarDeleteAvatarResponseApplicationJsonSerializer;
+      const _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer();
+}
+
+class _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer
+    implements StructuredSerializer<TempAvatarDeleteAvatarResponseApplicationJson> {
+  const _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [TempAvatarDeleteAvatarResponseApplicationJson, _$TempAvatarDeleteAvatarResponseApplicationJson];
+
+  @override
+  String get wireName => 'TempAvatarDeleteAvatarResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final TempAvatarDeleteAvatarResponseApplicationJson object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson_Ocs),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  TempAvatarDeleteAvatarResponseApplicationJson deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = TempAvatarDeleteAvatarResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson_Ocs),
+            )! as TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23277,8 +38067,68 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Attachments> get serializer =>
-      _$publicCapabilities0SpreedConfigAttachmentsSerializer;
+      const _$PublicCapabilities0_Spreed_Config_AttachmentsSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_AttachmentsSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Attachments> {
+  const _$PublicCapabilities0_Spreed_Config_AttachmentsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PublicCapabilities0_Spreed_Config_Attachments, _$PublicCapabilities0_Spreed_Config_Attachments];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Attachments';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Attachments object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'allowed',
+      serializers.serialize(object.allowed, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.folder;
+    if (value != null) {
+      result
+        ..add('folder')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Attachments deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_AttachmentsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'allowed':
+          result.allowed = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'folder':
+          result.folder = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23324,8 +38174,126 @@ abstract class PublicCapabilities0_Spreed_Config_Call
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Call> get serializer =>
-      _$publicCapabilities0SpreedConfigCallSerializer;
+      const _$PublicCapabilities0_Spreed_Config_CallSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_CallSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Call> {
+  const _$PublicCapabilities0_Spreed_Config_CallSerializer();
+
+  @override
+  Iterable<Type> get types => const [PublicCapabilities0_Spreed_Config_Call, _$PublicCapabilities0_Spreed_Config_Call];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Call';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Call object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'breakout-rooms',
+      serializers.serialize(object.breakoutRooms, specifiedType: const FullType(bool)),
+      'recording',
+      serializers.serialize(object.recording, specifiedType: const FullType(bool)),
+      'supported-reactions',
+      serializers.serialize(object.supportedReactions, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'predefined-backgrounds',
+      serializers.serialize(object.predefinedBackgrounds, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'can-upload-background',
+      serializers.serialize(object.canUploadBackground, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.recordingConsent;
+    if (value != null) {
+      result
+        ..add('recording-consent')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.sipEnabled;
+    if (value != null) {
+      result
+        ..add('sip-enabled')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
+    }
+
+    value = object.sipDialoutEnabled;
+    if (value != null) {
+      result
+        ..add('sip-dialout-enabled')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
+    }
+
+    value = object.canEnableSip;
+    if (value != null) {
+      result
+        ..add('can-enable-sip')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Call deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_CallBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'breakout-rooms':
+          result.breakoutRooms = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'recording':
+          result.recording = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'recording-consent':
+          result.recordingConsent = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'supported-reactions':
+          result.supportedReactions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'predefined-backgrounds':
+          result.predefinedBackgrounds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'can-upload-background':
+          result.canUploadBackground = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'sip-enabled':
+          result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'sip-dialout-enabled':
+          result.sipDialoutEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'can-enable-sip':
+          result.canEnableSip = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23362,8 +38330,89 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Chat> get serializer =>
-      _$publicCapabilities0SpreedConfigChatSerializer;
+      const _$PublicCapabilities0_Spreed_Config_ChatSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_ChatSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Chat> {
+  const _$PublicCapabilities0_Spreed_Config_ChatSerializer();
+
+  @override
+  Iterable<Type> get types => const [PublicCapabilities0_Spreed_Config_Chat, _$PublicCapabilities0_Spreed_Config_Chat];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Chat';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Chat object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'max-length',
+      serializers.serialize(object.maxLength, specifiedType: const FullType(int)),
+      'read-privacy',
+      serializers.serialize(object.readPrivacy, specifiedType: const FullType(int)),
+      'typing-privacy',
+      serializers.serialize(object.typingPrivacy, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.hasTranslationProviders;
+    if (value != null) {
+      result
+        ..add('has-translation-providers')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(bool)),
+        );
+    }
+
+    value = object.translations;
+    if (value != null) {
+      result
+        ..add('translations')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Chat deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_ChatBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'max-length':
+          result.maxLength = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'read-privacy':
+          result.readPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'has-translation-providers':
+          result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+        case 'typing-privacy':
+          result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'translations':
+          result.translations.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23393,8 +38442,56 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Conversations> get serializer =>
-      _$publicCapabilities0SpreedConfigConversationsSerializer;
+      const _$PublicCapabilities0_Spreed_Config_ConversationsSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_ConversationsSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Conversations> {
+  const _$PublicCapabilities0_Spreed_Config_ConversationsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PublicCapabilities0_Spreed_Config_Conversations, _$PublicCapabilities0_Spreed_Config_Conversations];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Conversations';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Conversations object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'can-create',
+      serializers.serialize(object.canCreate, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Conversations deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_ConversationsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'can-create':
+          result.canCreate = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23424,8 +38521,56 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Previews> get serializer =>
-      _$publicCapabilities0SpreedConfigPreviewsSerializer;
+      const _$PublicCapabilities0_Spreed_Config_PreviewsSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_PreviewsSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Previews> {
+  const _$PublicCapabilities0_Spreed_Config_PreviewsSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PublicCapabilities0_Spreed_Config_Previews, _$PublicCapabilities0_Spreed_Config_Previews];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Previews';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Previews object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'max-gif-size',
+      serializers.serialize(object.maxGifSize, specifiedType: const FullType(int)),
+    ];
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Previews deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_PreviewsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'max-gif-size':
+          result.maxGifSize = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23457,8 +38602,68 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities0_Spreed_Config_Signaling> get serializer =>
-      _$publicCapabilities0SpreedConfigSignalingSerializer;
+      const _$PublicCapabilities0_Spreed_Config_SignalingSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_Config_SignalingSerializer
+    implements StructuredSerializer<PublicCapabilities0_Spreed_Config_Signaling> {
+  const _$PublicCapabilities0_Spreed_Config_SignalingSerializer();
+
+  @override
+  Iterable<Type> get types =>
+      const [PublicCapabilities0_Spreed_Config_Signaling, _$PublicCapabilities0_Spreed_Config_Signaling];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config_Signaling';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config_Signaling object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'session-ping-limit',
+      serializers.serialize(object.sessionPingLimit, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.helloV2TokenKey;
+    if (value != null) {
+      result
+        ..add('hello-v2-token-key')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config_Signaling deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_Config_SignalingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'session-ping-limit':
+          result.sessionPingLimit = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'hello-v2-token-key':
+          result.helloV2TokenKey = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23491,7 +38696,105 @@ abstract class PublicCapabilities0_Spreed_Config
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<PublicCapabilities0_Spreed_Config> get serializer => _$publicCapabilities0SpreedConfigSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicCapabilities0_Spreed_Config> get serializer =>
+      const _$PublicCapabilities0_Spreed_ConfigSerializer();
+}
+
+class _$PublicCapabilities0_Spreed_ConfigSerializer implements StructuredSerializer<PublicCapabilities0_Spreed_Config> {
+  const _$PublicCapabilities0_Spreed_ConfigSerializer();
+
+  @override
+  Iterable<Type> get types => const [PublicCapabilities0_Spreed_Config, _$PublicCapabilities0_Spreed_Config];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed_Config';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed_Config object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'attachments',
+      serializers.serialize(
+        object.attachments,
+        specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Attachments),
+      ),
+      'call',
+      serializers.serialize(object.call, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Call)),
+      'chat',
+      serializers.serialize(object.chat, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Chat)),
+      'conversations',
+      serializers.serialize(
+        object.conversations,
+        specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Conversations),
+      ),
+      'previews',
+      serializers.serialize(object.previews, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Previews)),
+      'signaling',
+      serializers.serialize(
+        object.signaling,
+        specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Signaling),
+      ),
+    ];
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed_Config deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_Spreed_ConfigBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attachments':
+          result.attachments.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Attachments),
+            )! as PublicCapabilities0_Spreed_Config_Attachments,
+          );
+        case 'call':
+          result.call.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Call))!
+                as PublicCapabilities0_Spreed_Config_Call,
+          );
+        case 'chat':
+          result.chat.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Chat))!
+                as PublicCapabilities0_Spreed_Config_Chat,
+          );
+        case 'conversations':
+          result.conversations.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Conversations),
+            )! as PublicCapabilities0_Spreed_Config_Conversations,
+          );
+        case 'previews':
+          result.previews.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Previews))!
+                as PublicCapabilities0_Spreed_Config_Previews,
+          );
+        case 'signaling':
+          result.signaling.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed_Config_Signaling))!
+                as PublicCapabilities0_Spreed_Config_Signaling,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23521,7 +38824,67 @@ abstract class PublicCapabilities0_Spreed
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<PublicCapabilities0_Spreed> get serializer => _$publicCapabilities0SpreedSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicCapabilities0_Spreed> get serializer => const _$PublicCapabilities0_SpreedSerializer();
+}
+
+class _$PublicCapabilities0_SpreedSerializer implements StructuredSerializer<PublicCapabilities0_Spreed> {
+  const _$PublicCapabilities0_SpreedSerializer();
+
+  @override
+  Iterable<Type> get types => const [PublicCapabilities0_Spreed, _$PublicCapabilities0_Spreed];
+
+  @override
+  String get wireName => 'PublicCapabilities0_Spreed';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0_Spreed object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'features',
+      serializers.serialize(object.features, specifiedType: const FullType(BuiltList, [FullType(String)])),
+      'config',
+      serializers.serialize(object.config, specifiedType: const FullType(PublicCapabilities0_Spreed_Config)),
+      'version',
+      serializers.serialize(object.version, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  PublicCapabilities0_Spreed deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0_SpreedBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'features':
+          result.features.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<String>,
+          );
+        case 'config':
+          result.config.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed_Config))!
+                as PublicCapabilities0_Spreed_Config,
+          );
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23546,7 +38909,56 @@ abstract class PublicCapabilities0
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PublicCapabilities0> get serializer => const _$PublicCapabilities0Serializer();
+}
+
+class _$PublicCapabilities0Serializer implements StructuredSerializer<PublicCapabilities0> {
+  const _$PublicCapabilities0Serializer();
+
+  @override
+  Iterable<Type> get types => const [PublicCapabilities0, _$PublicCapabilities0];
+
+  @override
+  String get wireName => 'PublicCapabilities0';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final PublicCapabilities0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'spreed',
+      serializers.serialize(object.spreed, specifiedType: const FullType(PublicCapabilities0_Spreed)),
+    ];
+    return result;
+  }
+
+  @override
+  PublicCapabilities0 deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = PublicCapabilities0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'spreed':
+          result.spreed.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities0_Spreed))!
+                as PublicCapabilities0_Spreed,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
