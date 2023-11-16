@@ -56,7 +56,60 @@ abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<Base> get serializer => _$baseSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Base> get serializer => const _$BaseSerializer();
+}
+
+class _$BaseSerializer implements StructuredSerializer<Base> {
+  const _$BaseSerializer();
+
+  @override
+  Iterable<Type> get types => const [Base, _$Base];
+
+  @override
+  String get wireName => 'Base';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Base object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.attribute;
+    if (value != null) {
+      result
+        ..add('attribute')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  Base deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = BaseBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'attribute':
+          result.attribute = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -76,7 +129,85 @@ abstract class NestedRedirect implements NestedRedirectInterface, Built<NestedRe
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NestedRedirect> get serializer => const _$NestedRedirectSerializer();
+}
+
+class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect> {
+  const _$NestedRedirectSerializer();
+
+  @override
+  Iterable<Type> get types => const [NestedRedirect, _$NestedRedirect];
+
+  @override
+  String get wireName => 'NestedRedirect';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final NestedRedirect object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.redirect;
+    if (value != null) {
+      result
+        ..add('redirect')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(Base)),
+        );
+    }
+
+    value = object.redirectBaseType;
+    if (value != null) {
+      result
+        ..add('redirectBaseType')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(int)),
+        );
+    }
+
+    value = object.redirectEmptyType;
+    if (value != null) {
+      result
+        ..add('redirectEmptyType')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(JsonObject)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  NestedRedirect deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NestedRedirectBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'redirect':
+          result.redirect.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Base))! as Base,
+          );
+        case 'redirectBaseType':
+          result.redirectBaseType = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+        case 'redirectEmptyType':
+          result.redirectEmptyType =
+              serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)

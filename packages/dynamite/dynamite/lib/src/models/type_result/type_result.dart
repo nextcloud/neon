@@ -87,13 +87,27 @@ sealed class TypeResult {
   /// Serializes the variable named [object].
   ///
   /// The serialized result is an [Object]?
-  String serialize(final String object) => '_jsonSerializers.serialize($object, specifiedType: const $fullType)';
+  @nonVirtual
+  String serialize(final String object, [final String? serializerName]) =>
+      '${serializerName ?? '_jsonSerializers'}.serialize($object, specifiedType: const $fullType)';
 
   /// Deserializes the variable named [object].
   ///
   /// The serialized result will be of [name].
-  String deserialize(final String object) =>
-      '(_jsonSerializers.deserialize($object, specifiedType: const $fullType)! as $name)';
+  @nonVirtual
+  String deserialize(final String object, [final String? serializerName]) {
+    final buffer = StringBuffer()
+      ..write(serializerName ?? '_jsonSerializers')
+      ..write('.deserialize(')
+      ..write(object)
+      ..write(', specifiedType: const $fullType)');
+
+    if (!nullable) {
+      buffer.write('!');
+    }
+
+    return '($buffer as $name)';
+  }
 
   /// Decodes the variable named [object].
   String decode(final String object) => 'json.decode($object as String)';

@@ -6,55 +6,7 @@ part of 'petstore.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<NewPet> _$newPetSerializer = _$NewPetSerializer();
 Serializer<Pet> _$petSerializer = _$PetSerializer();
-Serializer<Error> _$errorSerializer = _$ErrorSerializer();
-
-class _$NewPetSerializer implements StructuredSerializer<NewPet> {
-  @override
-  final Iterable<Type> types = const [NewPet, _$NewPet];
-  @override
-  final String wireName = 'NewPet';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, NewPet object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
-    Object? value;
-    value = object.tag;
-    if (value != null) {
-      result
-        ..add('tag')
-        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
-    }
-    return result;
-  }
-
-  @override
-  NewPet deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = NewPetBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'tag':
-          result.tag = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
 
 class _$PetSerializer implements StructuredSerializer<Pet> {
   @override
@@ -99,48 +51,6 @@ class _$PetSerializer implements StructuredSerializer<Pet> {
           break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$ErrorSerializer implements StructuredSerializer<Error> {
-  @override
-  final Iterable<Type> types = const [Error, _$Error];
-  @override
-  final String wireName = 'Error';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, Error object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'code',
-      serializers.serialize(object.code, specifiedType: const FullType(int)),
-      'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  Error deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = ErrorBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'code':
-          result.code = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }

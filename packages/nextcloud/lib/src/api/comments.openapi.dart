@@ -53,7 +53,53 @@ abstract class Capabilities_Files
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Capabilities_Files> get serializer => const _$Capabilities_FilesSerializer();
+}
+
+class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
+  const _$Capabilities_FilesSerializer();
+
+  @override
+  Iterable<Type> get types => const [Capabilities_Files, _$Capabilities_Files];
+
+  @override
+  String get wireName => 'Capabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities_Files object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'comments',
+      serializers.serialize(object.comments, specifiedType: const FullType(bool)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities_Files deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = Capabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'comments':
+          result.comments = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -76,7 +122,55 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Capabilities> get serializer => const _$CapabilitiesSerializer();
+}
+
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
+  const _$CapabilitiesSerializer();
+
+  @override
+  Iterable<Type> get types => const [Capabilities, _$Capabilities];
+
+  @override
+  String get wireName => 'Capabilities';
+
+  @override
+  Iterable<Object?> serialize(
+    final Serializers serializers,
+    final Capabilities object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
+    ];
+    return result;
+  }
+
+  @override
+  Capabilities deserialize(
+    final Serializers serializers,
+    final Iterable<Object?> serialized, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = CapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files,
+          );
+      }
+    }
+
+    return result.build();
+  }
 }
 
 // coverage:ignore-start
