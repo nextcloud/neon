@@ -247,7 +247,7 @@ class WebDavClient {
           _constructUri(path),
           data: utf8.encode(
             WebDavPropfind(prop: prop ?? WebDavPropWithoutValues()).toXmlElement(namespaces: namespaces).toXmlString(),
-          ) as Uint8List,
+          ),
           headers: depth != null ? {'Depth': depth.value} : null,
         ),
       );
@@ -270,7 +270,7 @@ class WebDavClient {
               filterRules: filterRules,
               prop: prop ?? WebDavPropWithoutValues(), // coverage:ignore-line
             ).toXmlElement(namespaces: namespaces).toXmlString(),
-          ) as Uint8List,
+          ),
         ),
       );
 
@@ -293,7 +293,7 @@ class WebDavClient {
           set: set != null ? WebDavSet(prop: set) : null,
           remove: remove != null ? WebDavRemove(prop: remove) : null,
         ).toXmlElement(namespaces: namespaces).toXmlString(),
-      ) as Uint8List,
+      ),
     );
     final data = await _parseResponse(response);
     for (final a in data.responses) {

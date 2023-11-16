@@ -117,7 +117,7 @@ class Client extends DynamiteClient {
 
     headers['Content-Type'] = 'application/octet-stream';
     if (string != null) {
-      body = utf8.encode(string) as Uint8List;
+      body = utf8.encode(string);
     }
     const path = '/';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
