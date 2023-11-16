@@ -7,7 +7,7 @@ analyzer:
     flutter_style_todos: ignore
     todo: ignore
   exclude:
-    - '**.g.dart'
+    - "**.g.dart"
 linter:
   rules:
     always_declare_return_types: true
@@ -16,6 +16,7 @@ linter:
     always_specify_types: false
     always_use_package_imports: true
     annotate_overrides: true
+    annotate_redeclares: true
     avoid_annotating_with_dynamic: false
     avoid_bool_literals_in_conditional_expressions: true
     avoid_catches_without_on_clauses: false
