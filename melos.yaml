@@ -18,6 +18,11 @@ ide:
   intellij:
     enabled: false
 
+command:
+  bootstrap:
+    hooks:
+      post: melos run format
+
 scripts:
   format: dart format --fix --line-length 120 .
   format:check: dart format --output=none --set-exit-if-changed --line-length 120 .
