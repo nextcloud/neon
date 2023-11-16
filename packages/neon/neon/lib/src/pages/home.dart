@@ -8,7 +8,6 @@ import 'package:neon/src/blocs/accounts.dart';
 import 'package:neon/src/blocs/apps.dart';
 import 'package:neon/src/models/account.dart';
 import 'package:neon/src/models/app_implementation.dart';
-import 'package:neon/src/utils/global_options.dart';
 import 'package:neon/src/utils/global_options.dart' as global_options;
 import 'package:neon/src/utils/global_popups.dart';
 import 'package:neon/src/utils/provider.dart';
@@ -32,10 +31,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
-
   late Account _account;
-  late GlobalOptions _globalOptions;
+  late global_options.GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
   late StreamSubscription<Map<String, String?>> _versionCheckSubscription;
@@ -43,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _globalOptions = NeonProvider.of<GlobalOptions>(context);
+    _globalOptions = NeonProvider.of<global_options.GlobalOptions>(context);
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
@@ -173,7 +170,6 @@ class _HomePageState extends State<HomePage> {
         final drawerAlwaysVisible = navigationMode == global_options.NavigationMode.drawerAlwaysVisible;
 
         final body = Scaffold(
-          key: _scaffoldKey,
           resizeToAvoidBottomInset: false,
           drawer: !drawerAlwaysVisible ? drawer : null,
           appBar: appBar,
@@ -198,20 +194,9 @@ class _HomePageState extends State<HomePage> {
       },
     );
 
-    return WillPopScope(
-      onWillPop: () async {
-        if (_scaffoldKey.currentState!.isDrawerOpen) {
-          Navigator.pop(context);
-          return true;
-        }
-
-        _scaffoldKey.currentState!.openDrawer();
-        return false;
-      },
-      child: MultiProvider(
-        providers: _appsBloc.appBlocProviders,
-        child: body,
-      ),
+    return MultiProvider(
+      providers: _appsBloc.appBlocProviders,
+      child: body,
     );
   }
 }
