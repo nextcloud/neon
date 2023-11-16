@@ -1,11 +1,8 @@
 # nextcloud
 
-A Nextcloud client written in Dart.  
+A Nextcloud API client written in Dart.
 
-This client will become the replacement for https://github.com/provokateurin/dart-nextcloud at some point ([See](https://github.com/nextcloud/neon/issues/1)).
-
-
-## Installing
+## Installation
 
 In the future this code will be available at https://pub.dev/packages/nextcloud, but for now you have to include it via git in your pubspec.yaml:
 ```yaml
@@ -25,15 +22,45 @@ dependency_overrides:
 ```
 You can either remove the `ref` or use a commit hash. It's not recommended to remove it, because then the version will be updated very often.
 
+## Usage
+
+### Authentication
+
+There are multiple ways to authenticate.  
+First there is HTTP Basic auth which works with the normal user credentials (e-mail and other identifiers also work):
+```dart
+final client = NextcloudClient(
+    Uri.parse('http://localhost'),
+    loginName: 'admin',
+    password: 'admin',
+);
+```
+
+Secondly there is Http Bearer auth which works with app passwords:
+```dart
+final client = NextcloudClient(
+    Uri.parse('http://localhost'),
+    loginName: 'admin',
+    appPassword: 'xxxxx-xxxxx-xxxxx-xxxx-xxxxx',
+);
+```
+
+Not all endpoints work with just HTTP Basic auth, so it is advised to use app passwords obtained either directly in the Web UI by the user or using the [login flow](https://docs.nextcloud.com/server/latest/developer_manual/client_apis/LoginFlow/index.html#login-flow-v2).  
+Some endpoints do not need any authentication at all or provide extended information when the request is optionally authenticated.
+
+### Endpoints
+
+It is not guaranteed that an API request will work unless the app is installed and enabled on the server (and has a supported version).  
+
+To get an easier overview of the available endpoints you can browse the [server OpenAPI documentation](https://docs.nextcloud.com/server/latest/developer_manual/_static/openapi.html), but be aware that the package might not be in sync with it.  
+Alternatively you can also go to https://pub.dev/documentation/nextcloud/latest (once the package has been republished at https://pub.dev/packages/nextcloud).
+
+The endpoints are grouped by app and most apps also group their endpoints again.
+They can be accessed using getters on the `NextcloudClient`.
+
+For an example checkout the [example](./example/example.dart).  
+
 ## Development
 
-Except for WebDAV all client code is generated using OpenAPI specs which can be found in the `../../specs/` folder.  
-Templates for these OpenAPI specs are generated from the Nextcloud codebase to make development easier.  
-
-To generate such a template take a look at `../../tool/generate-nextcloud.sh`.  
-After you have generated a template, you need to fill it out. Some endpoints can or have to be discarded.  
-
-Then you start writing tests for the endpoints you added.  
-To easily inspect the responses for an endpoint, just set the `type` to `string` inside the `schema` blocks of the spec and let the output be printed in the tests.
-
-Sometimes you will have to look at the source code of Nextcloud, because the API is not always intuitive. Make sure to check if there is any API documentation that can help you.
+Except for WebDAV all client code is generated using OpenAPI specifications which can be found in the `lib/src/api/` folder.  
+These OpenAPI specifications are [generated](https://github.com/nextcloud/openapi-extractor) from the PHP source code.
