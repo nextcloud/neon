@@ -41,6 +41,7 @@ class AdaptiveListTile extends StatelessWidget {
   /// {@template neon.AdaptiveListTile.subtitle}
   /// A [subtitle] is used to display additional information. It is located
   /// below [title]. Usually a [Text] widget.
+  /// {@endtemplate}
   final Widget? subtitle;
 
   /// {@template neon.AdaptiveListTile.additionalInfo}
