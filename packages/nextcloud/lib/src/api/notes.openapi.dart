@@ -676,8 +676,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
-    body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))))
-        as Uint8List;
+    body = utf8.encode(json.encode(_jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
     const path = '/index.php/apps/notes/api/v1/settings';
     final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
 
