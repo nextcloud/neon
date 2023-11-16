@@ -327,7 +327,65 @@ abstract class NewPet implements NewPetInterface, Built<NewPet, NewPetBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<NewPet> get serializer => _$newPetSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<NewPet> get serializer => _$NewPetSerializer();
+}
+
+class _$NewPetSerializer implements StructuredSerializer<NewPet> {
+  const _$NewPetSerializer();
+
+  @override
+  Iterable<Type> get types => const [NewPet, _$NewPet];
+
+  @override
+  String get wireName => r'NewPet';
+
+  @override
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    NewPet object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.tag;
+    if (value != null) {
+      result
+        ..add('tag')
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(String)),
+        );
+    }
+
+    return result;
+  }
+
+  @override
+  NewPet deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = NewPetBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = (serializers.deserialize(value, specifiedType: const FullType(String))! as String);
+        case 'tag':
+          result.tag = (serializers.deserialize(value, specifiedType: const FullType(String)) as String);
+      }
+    }
+
+    return result.build();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -377,7 +435,57 @@ abstract class Error implements ErrorInterface, Built<Error, ErrorBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  static Serializer<Error> get serializer => _$errorSerializer;
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Error> get serializer => _$ErrorSerializer();
+}
+
+class _$ErrorSerializer implements StructuredSerializer<Error> {
+  const _$ErrorSerializer();
+
+  @override
+  Iterable<Type> get types => const [Error, _$Error];
+
+  @override
+  String get wireName => r'Error';
+
+  @override
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Error object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>[
+      'code',
+      serializers.serialize(object.code, specifiedType: const FullType(int)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+    return result;
+  }
+
+  @override
+  Error deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = ErrorBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final value = iterator.current;
+      switch (key) {
+        case 'code':
+          result.code = (serializers.deserialize(value, specifiedType: const FullType(int))! as int);
+        case 'message':
+          result.message = (serializers.deserialize(value, specifiedType: const FullType(String))! as String);
+      }
+    }
+
+    return result.build();
+  }
 }
 
 // coverage:ignore-start
