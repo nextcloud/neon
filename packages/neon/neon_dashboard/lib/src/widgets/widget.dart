@@ -47,11 +47,7 @@ class DashboardWidget extends StatelessWidget {
                 ),
                 leading: SizedBox.square(
                   dimension: largeIconSize,
-                  child: NeonUrlImage(
-                    url: widget.iconUrl,
-                    svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-                    size: const Size.square(largeIconSize),
-                  ),
+                  child: _buildWidgetIcon(context),
                 ),
               ),
               const SizedBox(
@@ -79,6 +75,32 @@ class DashboardWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget? _buildWidgetIcon(final BuildContext context) {
+    final colorFilter = ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn);
+
+    if (widget.iconUrl.isNotEmpty) {
+      return NeonUrlImage(
+        url: widget.iconUrl,
+        svgColorFilter: colorFilter,
+        size: const Size.square(largeIconSize),
+      );
+    }
+
+    if (widget.iconClass.isNotEmpty) {
+      return NeonServerIcon(
+        icon: widget.iconClass,
+        colorFilter: colorFilter,
+        size: largeIconSize,
+      );
+    }
+
+    return Icon(
+      Icons.question_mark,
+      color: Theme.of(context).colorScheme.primary,
+      size: largeIconSize,
     );
   }
 
