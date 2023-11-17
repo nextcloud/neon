@@ -7,6 +7,7 @@ part of 'all_of.openapi.dart';
 // **************************************************************************
 
 Serializer<ObjectAllOf> _$objectAllOfSerializer = _$ObjectAllOfSerializer();
+Serializer<OneObjectAllOf> _$oneObjectAllOfSerializer = _$OneObjectAllOfSerializer();
 
 class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   @override
@@ -43,6 +44,44 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
           break;
         case 'attribute2-allOf':
           result.attribute2AllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf> {
+  @override
+  final Iterable<Type> types = const [OneObjectAllOf, _$OneObjectAllOf];
+  @override
+  final String wireName = 'OneObjectAllOf';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OneObjectAllOf object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'attribute-allOf',
+      serializers.serialize(object.attributeAllOf, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OneObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OneObjectAllOfBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'attribute-allOf':
+          result.attributeAllOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -162,6 +201,98 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, Ob
         _$ObjectAllOf._(
             attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
             attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class OneObjectAllOf_0InterfaceBuilder {
+  void replace(OneObjectAllOf_0Interface other);
+  void update(void Function(OneObjectAllOf_0InterfaceBuilder) updates);
+  String? get attributeAllOf;
+  set attributeAllOf(String? attributeAllOf);
+}
+
+abstract mixin class OneObjectAllOfInterfaceBuilder implements OneObjectAllOf_0InterfaceBuilder {
+  void replace(covariant OneObjectAllOfInterface other);
+  void update(void Function(OneObjectAllOfInterfaceBuilder) updates);
+  String? get attributeAllOf;
+  set attributeAllOf(covariant String? attributeAllOf);
+}
+
+class _$OneObjectAllOf extends OneObjectAllOf {
+  @override
+  final String attributeAllOf;
+
+  factory _$OneObjectAllOf([void Function(OneObjectAllOfBuilder)? updates]) =>
+      (OneObjectAllOfBuilder()..update(updates))._build();
+
+  _$OneObjectAllOf._({required this.attributeAllOf}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf');
+  }
+
+  @override
+  OneObjectAllOf rebuild(void Function(OneObjectAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  OneObjectAllOfBuilder toBuilder() => OneObjectAllOfBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OneObjectAllOf && attributeAllOf == other.attributeAllOf;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, attributeAllOf.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OneObjectAllOf')..add('attributeAllOf', attributeAllOf)).toString();
+  }
+}
+
+class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBuilder>, OneObjectAllOfInterfaceBuilder {
+  _$OneObjectAllOf? _$v;
+
+  String? _attributeAllOf;
+  String? get attributeAllOf => _$this._attributeAllOf;
+  set attributeAllOf(covariant String? attributeAllOf) => _$this._attributeAllOf = attributeAllOf;
+
+  OneObjectAllOfBuilder();
+
+  OneObjectAllOfBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _attributeAllOf = $v.attributeAllOf;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OneObjectAllOf other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OneObjectAllOf;
+  }
+
+  @override
+  void update(void Function(OneObjectAllOfBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OneObjectAllOf build() => _build();
+
+  _$OneObjectAllOf _build() {
+    final _$result = _$v ??
+        _$OneObjectAllOf._(
+            attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'));
     replace(_$result);
     return _$result;
   }
