@@ -22,10 +22,18 @@ TypeResult resolveAllOf(
 
   if (state.resolvedTypes.add(result)) {
     final interfaces = <TypeResultObject>{};
+    final methods = ListBuilder<Method>();
 
     for (final s in schema.allOf!) {
-      final TypeResultObject interfaceClass;
-      if (s.ref != null) {
+      if (s.properties != null) {
+        final interfaceClass = resolveInterface(
+          spec,
+          state,
+          '${identifier}_${schema.allOf!.indexOf(s)}',
+          s,
+        );
+        interfaces.add(interfaceClass);
+      } else {
         final object = resolveType(
           spec,
           state,
@@ -34,25 +42,22 @@ TypeResult resolveAllOf(
           nullable: nullable,
         );
 
-        if (object is! TypeResultObject) {
-          throw StateError('allOf does only allow objects. Please change $identifier');
+        if (object is TypeResultObject) {
+          interfaces.add(object);
+        } else {
+          final property = generateProperty(
+            object,
+            object.className,
+            s.formattedDescription,
+          );
+
+          methods.add(property);
         }
-
-        interfaceClass = object;
-      } else {
-        interfaceClass = resolveInterface(
-          spec,
-          state,
-          '${identifier}_${schema.allOf!.indexOf(s)}',
-          s,
-        );
       }
-
-      interfaces.add(interfaceClass);
     }
 
     state.output.add(
-      buildInterface(identifier, interfaces: interfaces),
+      buildInterface(identifier, interfaces: interfaces, methods: methods.build()),
     );
 
     state.output.add(

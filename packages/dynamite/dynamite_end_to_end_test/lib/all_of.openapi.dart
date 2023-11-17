@@ -79,12 +79,82 @@ abstract class OneObjectAllOf implements OneObjectAllOfInterface, Built<OneObjec
   static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class PrimitiveAllOfInterface {
+  @BuiltValueField(wireName: 'int')
+  int get $int;
+  @BuiltValueField(wireName: 'String')
+  String get string;
+}
+
+abstract class PrimitiveAllOf implements PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
+  factory PrimitiveAllOf([final void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
+
+  const PrimitiveAllOf._();
+
+  factory PrimitiveAllOf.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class MixedAllOf_1Interface {
+  @BuiltValueField(wireName: 'attribute-allOf')
+  String get attributeAllOf;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class MixedAllOfInterface implements MixedAllOf_1Interface {
+  @BuiltValueField(wireName: 'String')
+  String get string;
+}
+
+abstract class MixedAllOf implements MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
+  factory MixedAllOf([final void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
+
+  const MixedAllOf._();
+
+  factory MixedAllOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class OneValueAllOfInterface {
+  @BuiltValueField(wireName: 'String')
+  String get string;
+}
+
+abstract class OneValueAllOf implements OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
+  factory OneValueAllOf([final void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
+
+  const OneValueAllOf._();
+
+  factory OneValueAllOf.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<OneValueAllOf> get serializer => _$oneValueAllOfSerializer;
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOf.new)
       ..add(ObjectAllOf.serializer)
       ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOf.new)
-      ..add(OneObjectAllOf.serializer))
+      ..add(OneObjectAllOf.serializer)
+      ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOf.new)
+      ..add(PrimitiveAllOf.serializer)
+      ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOf.new)
+      ..add(MixedAllOf.serializer)
+      ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOf.new)
+      ..add(OneValueAllOf.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()
