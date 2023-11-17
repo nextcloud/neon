@@ -1,9 +1,8 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron:  '0 5 * * *'
 
 concurrency:
   group: publish
