@@ -30,7 +30,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
-      - uses: kuhnroyal/flutter-fvm-config-action@6ffa30473b346f7d7c63cf9e03e6a886f940a72b # v1
+      - uses: kuhnroyal/flutter-fvm-config-action@34c3905bc939a4ff9d9cb07d5a977493fa73b2aa # v2
         id: fvm_config
       - uses: subosito/flutter-action@2783a3f08e1baf891508463f8c6653c258246225 # v2
         with:
