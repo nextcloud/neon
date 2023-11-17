@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:neon/blocs.dart';
@@ -29,6 +30,7 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
 
   final Account _account;
   late final NeonTimer _timer;
+  static const int _maxItems = 7;
 
   @override
   BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> widgets = BehaviorSubject();
@@ -64,11 +66,15 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
       if (v1WidgetIDs.isNotEmpty) {
         debugPrint('Loading v1 widgets: ${v1WidgetIDs.join(', ')}');
 
-        final response = await _account.client.dashboard.dashboardApi.getWidgetItems(widgets: v1WidgetIDs);
+        final response = await _account.client.dashboard.dashboardApi.getWidgetItems(
+          widgets: v1WidgetIDs,
+          // ignore: avoid_redundant_argument_values
+          limit: _maxItems,
+        );
         for (final entry in response.body.ocs.data.entries) {
           widgets[entry.key] = dashboard.WidgetItems(
             (final b) => b
-              ..items.replace(entry.value)
+              ..items = entry.value.sublist(0, min(entry.value.length, _maxItems)).toBuilder()
               ..emptyContentMessage = ''
               ..halfEmptyContentMessage = '',
           );
@@ -78,8 +84,23 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
       if (v2WidgetIDs.isNotEmpty) {
         debugPrint('Loading v2 widgets: ${v2WidgetIDs.join(', ')}');
 
-        final response = await _account.client.dashboard.dashboardApi.getWidgetItemsV2(widgets: v2WidgetIDs);
-        widgets.addEntries(response.body.ocs.data.entries);
+        final response = await _account.client.dashboard.dashboardApi.getWidgetItemsV2(
+          widgets: v2WidgetIDs,
+          // ignore: avoid_redundant_argument_values
+          limit: _maxItems,
+        );
+        widgets.addEntries(
+          response.body.ocs.data.entries.map(
+            (final entry) => MapEntry(
+              entry.key,
+              entry.value.rebuild((final b) {
+                if (b.items.length > _maxItems) {
+                  b.items.removeRange(_maxItems, b.items.length);
+                }
+              }),
+            ),
+          ),
+        );
       }
 
       this.widgets.add(
