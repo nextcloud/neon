@@ -354,19 +354,27 @@ class NeonUrlImage extends StatelessWidget {
   Widget build(final BuildContext context) {
     final account = this.account ?? NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
 
+    final uri = Uri.parse(url);
+    final dataUri = uri.data;
+
     return NeonCachedImage(
       getImage: () async {
-        final uri = account.completeUri(Uri.parse(url));
+        if (dataUri != null) {
+          return dataUri.contentAsBytes();
+        }
+
+        final completedUri = account.completeUri(uri);
         final headers = <String, String>{};
 
         // Only send the authentication headers when sending the request to the server of the account
-        if (uri.toString().startsWith(account.serverURL.toString()) && account.client.authentications.isNotEmpty) {
+        if (completedUri.toString().startsWith(account.serverURL.toString()) &&
+            account.client.authentications.isNotEmpty) {
           headers.addAll(account.client.authentications.first.headers);
         }
 
         final response = await account.client.executeRawRequest(
           'GET',
-          uri,
+          completedUri,
           headers,
           null,
           const {200},
@@ -377,7 +385,7 @@ class NeonUrlImage extends StatelessWidget {
       cacheKey: '${account.id}-$url',
       reviver: reviver,
       writeCache: writeCache,
-      isSvgHint: isSvgHint,
+      isSvgHint: isSvgHint || (dataUri?.mimeType.contains('svg') ?? false),
       size: size,
       fit: fit,
       svgColorFilter: svgColorFilter,
