@@ -40,12 +40,10 @@ TypeResult resolveAllOf(
 
         interfaceClass = object;
       } else {
-        final interfaceName = schema.ofs!.length == 1 ? identifier : '${identifier}_${schema.allOf!.indexOf(s)}';
-
         interfaceClass = resolveInterface(
           spec,
           state,
-          interfaceName,
+          '${identifier}_${schema.allOf!.indexOf(s)}',
           s,
         );
       }
