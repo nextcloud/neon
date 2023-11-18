@@ -2,19 +2,22 @@
 
 import 'package:nextcloud/src/api/news.openapi.dart' as news;
 import 'package:nextcloud/src/helpers/common.dart';
+import 'package:version/version.dart';
 
-/// API version of the news app supported
-const supportedVersion = 'v1-3';
+/// Minimum API version of the news app supported
+final minVersion = Version(1, 3, 0);
 
-extension NewsVersionSupported on news.Client {
+extension NewsVersionCheck on news.Client {
   /// Check if the news app version is supported by this client
   ///
   /// Also returns the supported API version number
-  Future<VersionSupported<String>> isSupported() async {
+  Future<VersionCheck> getVersionCheck() async {
     final response = await getSupportedApiVersions();
-    return (
-      isSupported: response.body.apiLevels!.contains(supportedVersion),
-      minimumVersion: supportedVersion,
+    final versions = response.body.apiLevels;
+    return VersionCheck(
+      versions: versions?.map((final version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toList(),
+      minimumVersion: minVersion,
+      maximumMajor: null,
     );
   }
 }

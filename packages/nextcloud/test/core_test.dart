@@ -22,7 +22,7 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        final result = client.core.isSupported(response.body.ocs.data);
+        final result = client.core.getVersionCheck(response.body.ocs.data);
         expect(result.isSupported, isTrue);
       });
 
@@ -31,7 +31,7 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        expect(response.body.isSupported, isTrue);
+        expect(response.body.versionCheck.isSupported, isTrue);
       });
 
       test('Get status', () async {
@@ -42,8 +42,8 @@ void main() {
         expect(response.body.installed, isTrue);
         expect(response.body.maintenance, isFalse);
         expect(response.body.needsDbUpgrade, isFalse);
-        expect(response.body.version, startsWith('${core.supportedVersion}.'));
-        expect(response.body.versionstring, startsWith('${core.supportedVersion}.'));
+        expect(response.body.version, isNotEmpty);
+        expect(response.body.versionstring, isNotEmpty);
         expect(response.body.edition, '');
         expect(response.body.productname, 'Nextcloud');
         expect(response.body.extendedSupport, isFalse);
@@ -55,8 +55,6 @@ void main() {
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
-          expect(response.body.ocs.data.version.major, core.supportedVersion);
-          expect(response.body.ocs.data.version.string, startsWith('${core.supportedVersion}.'));
           expect(response.body.ocs.data.capabilities.commentsCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.davCapabilities, isNotNull);
           expect(response.body.ocs.data.capabilities.filesCapabilities, isNotNull);
