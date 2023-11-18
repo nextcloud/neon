@@ -57,10 +57,34 @@ abstract class ObjectAllOf implements ObjectAllOfInterface, Built<ObjectAllOf, O
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
 }
 
+@BuiltValue(instantiable: false)
+abstract interface class OneObjectAllOf_0Interface {
+  @BuiltValueField(wireName: 'attribute-allOf')
+  String get attributeAllOf;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class OneObjectAllOfInterface implements OneObjectAllOf_0Interface {}
+
+abstract class OneObjectAllOf implements OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
+  factory OneObjectAllOf([final void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
+
+  const OneObjectAllOf._();
+
+  factory OneObjectAllOf.fromJson(final Map<String, dynamic> json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOf.new)
-      ..add(ObjectAllOf.serializer))
+      ..add(ObjectAllOf.serializer)
+      ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOf.new)
+      ..add(OneObjectAllOf.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

@@ -32,6 +32,22 @@
                         }
                     }
                 ]
+            },
+            "OneObjectAllOf": {
+                "description": "All of with one object value.",
+                "allOf": [
+                    {
+                        "type": "object",
+                        "required": [
+                            "attribute-allOf"
+                        ],
+                        "properties": {
+                            "attribute-allOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
             }
         }
     },
