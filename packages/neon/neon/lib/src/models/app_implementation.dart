@@ -15,7 +15,7 @@ import 'package:neon/src/settings/models/storage.dart';
 import 'package:neon/src/utils/provider.dart';
 import 'package:neon/src/widgets/drawer_destination.dart';
 import 'package:nextcloud/core.dart' as core;
-import 'package:nextcloud/nextcloud.dart' show VersionSupported;
+import 'package:nextcloud/nextcloud.dart' show VersionCheck;
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -61,7 +61,7 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
   /// A value of `null` means that it can not be known if the app is supported.
   /// This is the case for apps that depend on the server version like files and we assume that the app is supported.
   /// The server support is handled differently.
-  FutureOr<VersionSupported<String>?> isSupported(
+  FutureOr<VersionCheck?> getVersionCheck(
     final Account account,
     final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
   ) =>

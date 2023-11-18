@@ -60,7 +60,8 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                 child: ResultBuilder.behaviorSubject(
                   subject: bloc.state,
                   builder: (final context, final state) {
-                    final success = state.hasData && state.requireData.isSupported && !state.requireData.maintenance;
+                    final success =
+                        state.hasData && state.requireData.versionCheck.isSupported && !state.requireData.maintenance;
 
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -121,7 +122,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
       );
     }
 
-    if (result.requireData.isSupported) {
+    if (result.requireData.versionCheck.isSupported) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
         state: ValidationState.success,

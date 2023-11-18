@@ -44,7 +44,7 @@ abstract interface class AppsBlocStates {
   BehaviorSubject<void> get openNotifications;
 
   /// A collection of unsupported apps and their minimum required version.
-  BehaviorSubject<Map<String, String?>> get appVersions;
+  BehaviorSubject<Map<String, VersionCheck>> get appVersionChecks;
 }
 
 /// The Bloc responsible for managing the [AppImplementation]s.
@@ -131,12 +131,12 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
       return;
     }
 
-    final notSupported = <String, String?>{};
+    final notSupported = <String, VersionCheck>{};
 
     try {
-      final coreCheck = _account.client.core.isSupported(capabilities.requireData);
+      final coreCheck = _account.client.core.getVersionCheck(capabilities.requireData);
       if (!coreCheck.isSupported) {
-        notSupported['core'] = coreCheck.minimumVersion.toString();
+        notSupported['core'] = coreCheck;
       }
     } catch (e, s) {
       debugPrint(e.toString());
@@ -145,14 +145,14 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
     for (final app in apps.requireData) {
       try {
-        final check = await app.isSupported(_account, capabilities.requireData);
+        final check = await app.getVersionCheck(_account, capabilities.requireData);
 
         if (check == null) {
           continue;
         }
 
         if (!check.isSupported) {
-          notSupported[app.id] = check.minimumVersion;
+          notSupported[app.id] = check;
         }
       } catch (e, s) {
         debugPrint(e.toString());
@@ -161,7 +161,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     }
 
     if (notSupported.isNotEmpty) {
-      appVersions.add(notSupported);
+      appVersionChecks.add(notSupported);
     }
   }
 
@@ -190,7 +190,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     unawaited(notificationsAppImplementation.close());
     unawaited(activeApp.close());
     unawaited(openNotifications.close());
-    unawaited(appVersions.close());
+    unawaited(appVersionChecks.close());
 
     super.dispose();
   }
@@ -209,7 +209,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<void> openNotifications = BehaviorSubject();
 
   @override
-  BehaviorSubject<Map<String, String?>> appVersions = BehaviorSubject();
+  BehaviorSubject<Map<String, VersionCheck>> appVersionChecks = BehaviorSubject();
 
   @override
   Future<void> refresh() async {

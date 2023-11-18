@@ -16,6 +16,7 @@ import 'package:neon/src/widgets/drawer.dart';
 import 'package:neon/src/widgets/error.dart';
 import 'package:neon/src/widgets/unified_search_results.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 
 /// The home page of Neon.
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   late global_options.GlobalOptions _globalOptions;
   late AccountsBloc _accountsBloc;
   late AppsBloc _appsBloc;
-  late StreamSubscription<Map<String, String?>> _versionCheckSubscription;
+  late StreamSubscription<Map<String, VersionCheck>> _versionCheckSubscription;
 
   @override
   void initState() {
@@ -45,23 +46,19 @@ class _HomePageState extends State<HomePage> {
     _account = _accountsBloc.activeAccount.value!;
     _appsBloc = _accountsBloc.activeAppsBloc;
 
-    _versionCheckSubscription = _appsBloc.appVersions.listen((final values) {
+    _versionCheckSubscription = _appsBloc.appVersionChecks.listen((final values) {
       if (!mounted) {
         return;
       }
 
       final l10n = NeonLocalizations.of(context);
-
       final buffer = StringBuffer()..writeln();
 
-      for (final error in values.entries) {
-        final appId = error.key;
-        final minVersion = error.value;
-        final appName = l10n.appImplementationName(appId);
+      for (final entry in values.entries) {
+        final versionCheck = entry.value;
+        final appName = l10n.appImplementationName(entry.key);
 
-        if (appName.isNotEmpty && minVersion != null) {
-          buffer.writeln('- $appName $minVersion');
-        }
+        buffer.writeln('- $appName >=${versionCheck.minimumVersion} <${versionCheck.maximumMajor + 1}.0.0');
       }
 
       final message = l10n.errorUnsupportedAppVersions(buffer.toString());
