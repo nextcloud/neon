@@ -628,11 +628,14 @@ void main() {
           // large_put: Already covered by large_get
 
           test('large_get', () async {
-            final response = await client.webdav.put(Uint8List(largefileSize), PathUri.parse('test.txt'));
+            final content = Uint8List.fromList(List.generate(largefileSize, (final i) => i % 256));
+
+            final response = await client.webdav.put(content, PathUri.parse('test.txt'));
             expect(response.statusCode, 201);
 
             final downloadedContent = await client.webdav.get(PathUri.parse('test.txt'));
             expect(downloadedContent, hasLength(largefileSize));
+            expect(downloadedContent, equals(content));
           });
         });
 
