@@ -14,6 +14,12 @@ TypeResultObject resolveInterface(
   final String identifier,
   final openapi.Schema schema,
 ) {
+  final properties = schema.properties?.entries;
+
+  if (properties == null || properties.isEmpty) {
+    throw StateError('The schema must have a non empty properties field.');
+  }
+
   final result = TypeResultObject(
     identifier,
   );
@@ -22,40 +28,29 @@ TypeResultObject resolveInterface(
     final $interface = buildInterface(
       identifier,
       methods: BuiltList.build((final b) {
-        for (final property in schema.properties!.entries) {
-          b.add(
-            Method(
-              (final b) {
-                final propertyName = property.key;
-                final propertySchema = property.value;
-                final result = resolveType(
-                  spec,
-                  state,
-                  '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
-                  propertySchema,
-                  nullable: isDartParameterNullable(
-                    schema.required.contains(propertyName),
-                    propertySchema,
-                  ),
-                );
+        b.addAll(
+          properties.map((final property) {
+            final propertyName = property.key;
+            final propertySchema = property.value;
 
-                b
-                  ..name = toDartName(propertyName)
-                  ..returns = refer(result.nullableName)
-                  ..type = MethodType.getter
-                  ..docs.addAll(propertySchema.formattedDescription);
+            final result = resolveType(
+              spec,
+              state,
+              '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
+              propertySchema,
+              nullable: isDartParameterNullable(
+                schema.required.contains(propertyName),
+                propertySchema,
+              ),
+            );
 
-                if (toDartName(propertyName) != propertyName) {
-                  b.annotations.add(
-                    refer('BuiltValueField').call([], {
-                      'wireName': literalString(propertyName),
-                    }),
-                  );
-                }
-              },
-            ),
-          );
-        }
+            return generateProperty(
+              result,
+              propertyName,
+              propertySchema.formattedDescription,
+            );
+          }),
+        );
       }),
     );
 
@@ -64,6 +59,30 @@ TypeResultObject resolveInterface(
 
   return result;
 }
+
+Method generateProperty(
+  final TypeResult type,
+  final String propertyName,
+  final Iterable<String> description,
+) =>
+    Method(
+      (final b) {
+        final name = toFieldName(toDartName(propertyName), type.name);
+        b
+          ..name = name
+          ..returns = refer(type.nullableName)
+          ..type = MethodType.getter
+          ..docs.addAll(description);
+
+        if (name != propertyName) {
+          b.annotations.add(
+            refer('BuiltValueField').call([], {
+              'wireName': literalString(propertyName),
+            }),
+          );
+        }
+      },
+    );
 
 Spec buildInterface(
   final String identifier, {

@@ -48,6 +48,44 @@
                         }
                     }
                 ]
+            },
+            "PrimitiveAllOf": {
+                "description": "All of with an primitive values.",
+                "allOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            "MixedAllOf": {
+                "description": "All of with object and primitive value.",
+                "allOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "object",
+                        "required": [
+                            "attribute-allOf"
+                        ],
+                        "properties": {
+                            "attribute-allOf": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ]
+            },
+            "OneValueAllOf": {
+                "description": "All of with one primitive value.",
+                "allOf": [
+                    {
+                        "type": "string"
+                    }
+                ]
             }
         }
     },
