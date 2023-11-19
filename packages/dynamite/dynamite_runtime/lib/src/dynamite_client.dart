@@ -73,15 +73,15 @@ class DynamiteRawResponse<B, H> {
     // ignore: discarded_futures
     response.then(
       (final response) async {
+        _rawHeaders = response.responseHeaders;
+        final headers = deserializeHeaders<H>(_rawHeaders, serializers, headersType);
+
         _rawBody = switch (bodyType) {
           const FullType(Uint8List) => await response.bytes,
           const FullType(String) => await response.string,
           _ => await response.json,
         };
-        _rawHeaders = response.responseHeaders;
-
         final body = deserializeBody<B>(_rawBody, serializers, bodyType);
-        final headers = deserializeHeaders<H>(_rawHeaders, serializers, headersType);
 
         _response = DynamiteResponse<B, H>(
           response.statusCode,
