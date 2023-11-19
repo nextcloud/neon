@@ -3,13 +3,18 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:universal_io/io.dart';
+import 'package:xml/xml.dart';
+import 'package:xml/xml_events.dart';
 
 /// A stream of bytes.
 ///
 /// Usually a `Stream<Uint8List>`.
 typedef BytesStream = Stream<List<int>>;
 
-final _utf8JsonDecoder = utf8.decoder.fuse(json.decoder);
+final _jsonBytesConverter = utf8.decoder.fuse(json.decoder);
+
+final _xmlBytesConverter =
+    utf8.decoder.fuse(XmlEventDecoder()).fuse(const XmlNormalizeEvents()).fuse(const XmlNodeDecoder());
 
 /// Extension on byte streams that enable efficient transformations.
 extension BytesStreamExtension on BytesStream {
@@ -26,7 +31,18 @@ extension BytesStreamExtension on BytesStream {
   Future<String> get string => transform(utf8.decoder).join();
 
   /// Converts the stream into a JSON using the [utf8] encoding.
-  Future<Object?> get json => transform(_utf8JsonDecoder).first;
+  Future<Object?> get json => transform(_jsonBytesConverter).first;
+
+  /// Converts the stream into XML using the [utf8] encoding.
+  ///
+  /// Returns the root element of this stream.
+  Future<XmlElement> get xml async {
+    final element = await transform(_xmlBytesConverter)
+        .expand((final events) => events)
+        .firstWhere((final element) => element is XmlElement);
+
+    return element as XmlElement;
+  }
 }
 
 /// Extension on a http responses.
