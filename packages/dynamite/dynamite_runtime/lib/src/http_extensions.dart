@@ -41,3 +41,13 @@ extension HttpClientResponseExtension on HttpClientResponse {
     return responseHeaders;
   }
 }
+
+/// Extension for http headers.
+extension HttpHeadersExtension on HttpHeaders {
+  /// Iteratively adds all header values.
+  void addAll(final Map<String, String> headers) {
+    for (final header in headers.entries) {
+      add(header.key, header.value);
+    }
+  }
+}

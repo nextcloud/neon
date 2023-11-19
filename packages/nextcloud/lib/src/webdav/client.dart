@@ -32,14 +32,13 @@ class WebDavClient {
 
     final request = await rootClient.httpClient.openUrl(method, url)
       ..persistentConnection = true;
-    for (final header in {
+
+    request.headers.addAll({
       HttpHeaders.contentTypeHeader: 'application/xml',
       ...?rootClient.baseHeaders,
       ...?headers,
       ...?rootClient.authentications.firstOrNull?.headers,
-    }.entries) {
-      request.headers.add(header.key, header.value);
-    }
+    });
 
     if (data != null) {
       request.add(data);
