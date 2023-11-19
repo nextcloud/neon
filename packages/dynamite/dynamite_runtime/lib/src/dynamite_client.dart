@@ -442,9 +442,8 @@ class DynamiteClient {
     final Set<int>? validStatuses,
   ) async {
     final request = await httpClient.openUrl(method, uri);
-    for (final header in headers.entries) {
-      request.headers.add(header.key, header.value);
-    }
+    request.headers.addAll(headers);
+
     if (body != null) {
       request.add(body);
     }
