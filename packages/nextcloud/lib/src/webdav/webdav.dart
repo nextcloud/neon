@@ -17,7 +17,7 @@ const namespaceNextcloud = 'http://nextcloud.org/ns';
 const namespaceOpenCollaborationServices = 'http://open-collaboration-services.org/ns';
 const namespaceOpenCloudMesh = 'http://open-cloud-mesh.org/ns';
 
-final Map<String, String> namespaces = {
+const Map<String, String> namespaces = {
   namespaceDav: 'd',
   namespaceOwncloud: 'oc',
   namespaceNextcloud: 'nc',

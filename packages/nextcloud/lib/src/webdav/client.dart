@@ -93,11 +93,12 @@ class WebDavClient {
       'OPTIONS',
       _constructUri(),
     );
-    final davCapabilities = response.headers['dav']?.first ?? '';
-    final davSearchCapabilities = response.headers['dasl']?.first ?? '';
+
+    final davCapabilities = response.headers['dav']?.first;
+    final davSearchCapabilities = response.headers['dasl']?.first;
     return WebDavOptions(
-      davCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
-      davSearchCapabilities.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
+      davCapabilities?.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
+      davSearchCapabilities?.split(',').map((final e) => e.trim()).where((final e) => e.isNotEmpty).toSet(),
     );
   }
 
@@ -347,9 +348,10 @@ class WebDavClient {
 class WebDavOptions {
   /// Creates a new WebDavStatus.
   WebDavOptions(
-    this.capabilities,
-    this.searchCapabilities,
-  );
+    final Set<String>? capabilities,
+    final Set<String>? searchCapabilities,
+  )   : capabilities = capabilities ?? {},
+        searchCapabilities = searchCapabilities ?? {};
 
   /// DAV capabilities as advertised by the server in the 'dav' header.
   Set<String> capabilities;
