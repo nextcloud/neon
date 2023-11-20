@@ -8,7 +8,6 @@ import 'package:nextcloud/src/webdav/path_uri.dart';
 import 'package:nextcloud/src/webdav/props.dart';
 import 'package:nextcloud/src/webdav/webdav.dart';
 import 'package:universal_io/io.dart';
-import 'package:xml/xml.dart' as xml;
 
 /// Base path used on the server
 final webdavBase = PathUri.parse('/remote.php/webdav');
@@ -73,7 +72,7 @@ class WebDavClient {
   }
 
   Future<WebDavMultistatus> _parseResponse(final HttpClientResponse response) async =>
-      WebDavMultistatus.fromXmlElement(xml.XmlDocument.parse(await response.string).rootElement);
+      WebDavMultistatus.fromXmlElement(await response.xml);
 
   Map<String, String> _getUploadHeaders({
     required final DateTime? lastModified,
