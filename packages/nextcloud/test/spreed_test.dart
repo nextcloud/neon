@@ -34,7 +34,7 @@ void main() {
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
 
-          final result = client1.spreed.isSupported(response.body.ocs.data);
+          final result = client1.spreed.getVersionCheck(response.body.ocs.data);
           expect(result.isSupported, isTrue);
         });
 

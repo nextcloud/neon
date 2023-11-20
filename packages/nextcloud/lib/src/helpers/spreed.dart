@@ -3,19 +3,20 @@ import 'package:nextcloud/src/api/core.openapi.dart' as core;
 import 'package:nextcloud/src/api/spreed.openapi.dart' as spreed;
 import 'package:version/version.dart';
 
-/// The version of the spreed app that is supported.
-const supportedVersion = 17;
+/// The minimum version of the spreed app that is supported.
+final minVersion = Version(17, 0, 0);
 
 /// Extension for checking whether spreed is supported.
-extension SpreedVersionSupported on spreed.Client {
+extension SpreedVersionCheck on spreed.Client {
   /// Checks whether the spreed app installed on the server is supported by this client.
   ///
   /// Also returns the supported version number.
-  VersionSupported<int> isSupported(final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
+  VersionCheck getVersionCheck(final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
     final version = capabilities.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed.version;
-    return (
-      isSupported: version != null && Version.parse(version).major == supportedVersion,
-      minimumVersion: supportedVersion,
+    return VersionCheck(
+      versions: version != null ? [Version.parse(version)] : null,
+      minimumVersion: minVersion,
+      maximumMajor: null,
     );
   }
 }

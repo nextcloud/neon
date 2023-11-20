@@ -29,7 +29,7 @@ void main() {
           );
 
       test('Is supported', () async {
-        final result = await client.news.isSupported();
+        final result = await client.news.getVersionCheck();
         expect(result.isSupported, isTrue);
       });
 

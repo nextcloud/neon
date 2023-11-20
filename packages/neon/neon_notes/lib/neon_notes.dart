@@ -95,11 +95,9 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   final RouteBase route = $notesAppRoute;
 
   @override
-  VersionSupported<String> isSupported(
+  VersionCheck getVersionCheck(
     final Account account,
     final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) {
-    final result = account.client.notes.isSupported(capabilities);
-    return (isSupported: result.isSupported, minimumVersion: result.minimumVersion.toString());
-  }
+  ) =>
+      account.client.notes.getVersionCheck(capabilities);
 }

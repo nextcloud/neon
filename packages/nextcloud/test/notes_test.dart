@@ -22,7 +22,7 @@ void main() {
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
-        final result = client.notes.isSupported(response.body.ocs.data);
+        final result = client.notes.getVersionCheck(response.body.ocs.data);
         expect(result.isSupported, isTrue);
       });
 
