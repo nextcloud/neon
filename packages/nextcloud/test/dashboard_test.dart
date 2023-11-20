@@ -25,7 +25,7 @@ void main() {
           final response = await client.dashboard.dashboardApi.getWidgetItems();
           final items = response.body.ocs.data;
           expect(items.keys, equals(['recommendations', 'spreed']));
-          expect(items['recommendations'], hasLength(0));
+          expect(items['recommendations'], hasLength(7));
           expect(items['spreed'], hasLength(0));
         });
 
@@ -33,7 +33,7 @@ void main() {
           final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
           expect(response.body.ocs.data.keys, equals(['recommendations']));
           final items = response.body.ocs.data['recommendations']!.items;
-          expect(items, hasLength(0));
+          expect(items, hasLength(7));
         });
       });
     },
