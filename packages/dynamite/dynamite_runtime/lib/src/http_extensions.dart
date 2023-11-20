@@ -18,9 +18,12 @@ final _xmlBytesConverter =
 
 /// Extension on byte streams that enable efficient transformations.
 extension BytesStreamExtension on BytesStream {
-  /// Returns the all bytes of the stream.
+  /// Collects all bytes from this stream into one Uint8List.
+  ///
+  /// The collector will assume that the bytes in this stream will not change.
+  /// See [BytesBuilder] for further information.
   Future<Uint8List> get bytes async {
-    final buffer = BytesBuilder();
+    final buffer = BytesBuilder(copy: false);
 
     await forEach(buffer.add);
 
