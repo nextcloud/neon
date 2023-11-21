@@ -13,6 +13,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'weather_status.openapi.g.dart';
 
@@ -90,6 +91,7 @@ class WeatherStatusClient {
     required final int mode,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -115,8 +117,10 @@ class WeatherStatusClient {
 // coverage:ignore-end
     queryParameters['mode'] = mode.toString();
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/mode';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -174,6 +178,7 @@ class WeatherStatusClient {
   DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -198,8 +203,10 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/use-personal').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -257,6 +264,7 @@ class WeatherStatusClient {
   DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -281,8 +289,10 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -355,6 +365,7 @@ class WeatherStatusClient {
     final double? lon,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -388,8 +399,10 @@ class WeatherStatusClient {
       queryParameters['lon'] = lon.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/location';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -449,6 +462,7 @@ class WeatherStatusClient {
   DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -473,8 +487,10 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/forecast').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -532,6 +548,7 @@ class WeatherStatusClient {
   DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -556,8 +573,10 @@ class WeatherStatusClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -620,6 +639,7 @@ class WeatherStatusClient {
     required final List<String> favorites,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -645,8 +665,10 @@ class WeatherStatusClient {
 // coverage:ignore-end
     queryParameters['favorites[]'] = favorites.map((final e) => e);
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(

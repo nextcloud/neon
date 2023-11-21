@@ -12,6 +12,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'settings.openapi.g.dart';
 
@@ -76,6 +77,7 @@ class LogSettingsClient {
   ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/octet-stream',
@@ -99,8 +101,10 @@ class LogSettingsClient {
     }
 
 // coverage:ignore-end
-    const path = '/index.php/settings/admin/log/download';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/settings/admin/log/download').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.executeRequest(

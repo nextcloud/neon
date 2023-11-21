@@ -19,6 +19,7 @@ dependencies:
   json_annotation: ^4.8.1
   meta: ^1.0.0
   universal_io: ^2.0.0
+  uri: ^1.0.0
   version: ^3.0.0
   xml: ^6.0.0
   xml_annotation: ^2.1.0

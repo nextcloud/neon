@@ -12,6 +12,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'dav.openapi.g.dart';
 
@@ -100,6 +101,7 @@ class DirectClient {
     final int? expirationTime,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -128,8 +130,10 @@ class DirectClient {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/dav/api/v1/direct';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
