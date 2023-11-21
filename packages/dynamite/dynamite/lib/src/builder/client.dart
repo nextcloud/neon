@@ -215,6 +215,7 @@ Iterable<Method> buildTags(
           .join(',');
 
       code.writeln('''
+  final _pathParameters = <String, dynamic>{};
   final _queryParameters = <String, dynamic>{};
   final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
@@ -323,17 +324,12 @@ Iterable<Method> buildTags(
           toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
         );
 
-        var path = pathEntry.key;
-        for (final pathParameter in parameters.where((final p) => p.$in == openapi.ParameterType.path)) {
-          path = path.replaceAll('{${pathParameter.name}}', '\$_${toDartName(pathParameter.name)}');
-        }
-
-        code.writeln(
-          '''
-final _path = '$path';
-final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
-''',
-        );
+        code.writeln('''
+var _uri = Uri.parse(UriTemplate('${pathEntry.key}').expand(_pathParameters));
+if (_queryParameters.isNotEmpty) {
+  _uri = _uri.replace(queryParameters: _queryParameters);
+}
+''');
 
         if (dataType != null) {
           returnDataType = dataType.name;
@@ -429,12 +425,13 @@ Iterable<String> buildParameterSerialization(
     onlyChildren: parameter.$in == openapi.ParameterType.query,
   );
 
-  final assignment = switch (parameter.$in) {
-    openapi.ParameterType.path => 'final _${toDartName(parameter.name)} = Uri.encodeQueryComponent($value);',
-    openapi.ParameterType.query => "_queryParameters['${parameter.name}'] = $value;",
-    openapi.ParameterType.header => "_headers['${parameter.name}'] = $value;",
+  final mapName = switch (parameter.$in) {
+    openapi.ParameterType.path => '_pathParameters',
+    openapi.ParameterType.query => '_queryParameters',
+    openapi.ParameterType.header => '_headers',
     _ => throw UnsupportedError('Can not work with parameter "${parameter.name}" in "${parameter.$in}"'),
   };
+  final assignment = "$mapName['${parameter.name}'] = $value;";
 
   if (!parameter.required && (result.nullable || hasDefault)) {
     yield 'if( ';
