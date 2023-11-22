@@ -2,8 +2,6 @@ ARG SERVER_VERSION=27.1.3-fpm-alpine@sha256:f1a13c7f60a9e9f5dcf14b7cb097083833ea
 FROM nextcloud:$SERVER_VERSION
 
 WORKDIR /usr/src/nextcloud
-RUN chown -R www-data:www-data .
-USER www-data
 
 RUN ./occ maintenance:install --admin-pass admin --admin-email admin@example.com
 RUN ./occ config:system:set allow_local_remote_servers --value=true
@@ -35,7 +33,7 @@ ARG SPREED_VERSION=17.1.2
 RUN install_app_version spreed https://github.com/nextcloud-releases/spreed/releases/download/v$SPREED_VERSION/spreed-v$SPREED_VERSION.tar.gz
 RUN ./occ talk:turn:add turn,turns staticauth.openrelay.metered.ca:443 udp,tcp --secret openrelayprojectsecret
 
-COPY --chown=www-data:www-data dev/static /usr/src/nextcloud/static
+COPY dev/static /usr/src/nextcloud/static
 
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]
