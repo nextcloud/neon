@@ -36,7 +36,7 @@ abstract interface class $OneValueSomeOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')
   int get oneValue;
   @BuiltValueField(wireName: 'IntDouble')
-  OneValueSomeOfInObject_IntDouble? get intDouble;
+  num get intDouble;
   @BuiltValueField(wireName: 'IntDoubleString')
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
 }
@@ -56,53 +56,46 @@ abstract class OneValueSomeOfInObject
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final OneValueSomeOfInObjectBuilder b) {
-    b.intDouble?.validateOneOf();
     b.intDoubleString?.validateOneOf();
   }
 }
 
-typedef OneOfIntDoubleOther = ({double? $double, int? $int, String? string});
+typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
-typedef AnyOfIntDoubleOther = ({double? $double, int? $int, String? string});
+typedef AnyOfIntDoubleOther = ({num? $num, String? string});
 
-typedef OneValueSomeOfInObject_IntDouble = ({double? $double, int? $int});
+typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
 
-typedef OneValueSomeOfInObject_IntDoubleString = ({double? $double, int? $int, String? string});
+typedef $NumString = ({num? $num, String? string});
 
-typedef $DoubleIntString = ({double? $double, int? $int, String? string});
-
-extension $DoubleIntStringExtension on $DoubleIntString {
-  List<dynamic> get _values => [$double, $int, string];
+extension $NumStringExtension on $NumString {
+  List<dynamic> get _values => [$num, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$DoubleIntString> get serializer => const _$DoubleIntStringSerializer();
-  static $DoubleIntString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  static Serializer<$NumString> get serializer => const _$NumStringSerializer();
+  static $NumString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-class _$DoubleIntStringSerializer implements PrimitiveSerializer<$DoubleIntString> {
-  const _$DoubleIntStringSerializer();
+class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
+  const _$NumStringSerializer();
 
   @override
-  Iterable<Type> get types => const [$DoubleIntString];
+  Iterable<Type> get types => const [$NumString];
 
   @override
-  String get wireName => r'$DoubleIntString';
+  String get wireName => r'$NumString';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final $DoubleIntString object, {
+    final $NumString object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.$double;
+    value = object.$num;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
-    }
-    value = object.$int;
-    if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(num))!;
     }
     value = object.string;
     if (value != null) {
@@ -113,90 +106,28 @@ class _$DoubleIntStringSerializer implements PrimitiveSerializer<$DoubleIntStrin
   }
 
   @override
-  $DoubleIntString deserialize(
+  $NumString deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    double? $double;
+    num? $num;
     try {
-      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-    } catch (_) {}
-    int? $int;
-    try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
       string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
-    return ($double: $double, $int: $int, string: string);
-  }
-}
-
-typedef $DoubleInt = ({double? $double, int? $int});
-
-extension $DoubleIntExtension on $DoubleInt {
-  List<dynamic> get _values => [$double, $int];
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$DoubleInt> get serializer => const _$DoubleIntSerializer();
-  static $DoubleInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
-}
-
-class _$DoubleIntSerializer implements PrimitiveSerializer<$DoubleInt> {
-  const _$DoubleIntSerializer();
-
-  @override
-  Iterable<Type> get types => const [$DoubleInt];
-
-  @override
-  String get wireName => r'$DoubleInt';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final $DoubleInt object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.$double;
-    if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
-    }
-    value = object.$int;
-    if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  $DoubleInt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    double? $double;
-    try {
-      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-    } catch (_) {}
-    int? $int;
-    try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-    } catch (_) {}
-    return ($double: $double, $int: $int);
+    return ($num: $num, string: string);
   }
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..add($DoubleIntStringExtension.serializer)
+      ..add($NumStringExtension.serializer)
       ..addBuilderFactory(const FullType(OneValueSomeOfInObject), OneValueSomeOfInObjectBuilder.new)
-      ..add(OneValueSomeOfInObject.serializer)
-      ..add($DoubleIntExtension.serializer))
+      ..add(OneValueSomeOfInObject.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

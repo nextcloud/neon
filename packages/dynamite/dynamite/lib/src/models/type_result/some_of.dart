@@ -4,12 +4,12 @@ part of 'type_result.dart';
 abstract class TypeResultSomeOf extends TypeResult {
   TypeResultSomeOf(
     super.className, {
-    required final BuiltSet<TypeResult> subTypes,
+    required this.subTypes,
     super.nullable,
-  })  : subTypes = subTypes.sortedBy((final subType) => subType.className.toLowerCase()).toBuiltList(),
-        assert(subTypes.isNotEmpty, 'Must have at least one subType');
+  }) : assert(subTypes.isNotEmpty, 'Must have at least one subType');
 
-  final BuiltList<TypeResult> subTypes;
+  @protected
+  final BuiltSet<TypeResult> subTypes;
 
   @override
   bool get isTypeDef => isSingleValue;
@@ -17,7 +17,7 @@ abstract class TypeResultSomeOf extends TypeResult {
   @override
   String? get _builderFactory => null;
 
-  late final bool isSingleValue = subTypes.length == 1;
+  late final bool isSingleValue = optimizedSubTypes.length == 1;
 
   @override
   String? get _serializer {
@@ -28,13 +28,15 @@ abstract class TypeResultSomeOf extends TypeResult {
     return '..add(${typeName}Extension.serializer)';
   }
 
+  late final BuiltSet<TypeResult> optimizedSubTypes = _optimizedSubTypes.toBuiltSet();
+
   @override
   TypeResult get dartType {
     if (isSingleValue) {
-      return subTypes.single;
+      return optimizedSubTypes.single;
     }
 
-    final record = subTypes.map((final type) {
+    final record = optimizedSubTypes.map((final type) {
       final dartType = type.nullableName;
       final dartName = toDartName(dartType);
       final fieldName = toFieldName(dartName, type.className);
@@ -49,12 +51,40 @@ abstract class TypeResultSomeOf extends TypeResult {
 
   String get _typeName {
     final buffer = StringBuffer(r'$');
-    for (final type in subTypes) {
+    for (final type in optimizedSubTypes) {
       buffer.write(toDartName(type.className, uppercaseFirstCharacter: true));
     }
 
     return buffer.toString();
   }
+
+  BuiltList<TypeResult> get _optimizedSubTypes {
+    final optimized = ListBuilder<TypeResult>();
+    final optimizeNum = subTypes.where(_isNumber).length >= 2;
+
+    if (optimizeNum) {
+      optimized.add(TypeResultBase('num', nullable: true));
+    }
+
+    optimized.addAll(
+      subTypes.where((final type) {
+        if (!optimizeNum) {
+          return true;
+        }
+
+        return !_isNumber(type);
+      }),
+    );
+
+    // ignore: cascade_invocations
+    optimized.sort((final a, final b) => a.className.toLowerCase().compareTo(b.className.toLowerCase()));
+    return optimized.build();
+  }
+
+  bool _isNumber(final TypeResult type) => switch (type.className) {
+        'int' || 'double' || 'num' => true,
+        _ => false,
+      };
 
   @override
   bool operator ==(final Object other) =>

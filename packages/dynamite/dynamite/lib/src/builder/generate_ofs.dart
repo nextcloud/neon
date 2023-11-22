@@ -41,7 +41,7 @@ Iterable<Spec> generateSomeOf(
   final TypeResultSomeOf result,
 ) sync* {
   final identifier = result.typeName;
-  final results = result.subTypes;
+  final results = result.optimizedSubTypes;
   final serializerName = '_${identifier}Serializer';
 
   final fields = <TypeResult, String>{};

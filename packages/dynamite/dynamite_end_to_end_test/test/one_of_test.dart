@@ -62,59 +62,52 @@ void main() {
   });
 
   test('OneOfIntDouble', () {
-    OneOfIntDouble object = (
-      $double: 0.5971645863260784,
-      $int: null,
-    );
+    Object? object = 0.5971645863260784;
 
-    Object? json = 0.5971645863260784;
+    expect(object, isA<OneOfIntDouble>());
 
-    expect(object.toJson(), equals(json));
-    expect($DoubleIntExtension.fromJson(json), equals(object));
+    object = 361;
+    expect(object, isA<OneOfIntDouble>());
+  });
 
-    object = (
-      $double: null,
-      $int: 361,
-    );
+  test('OneOfIntDoubleNum', () {
+    Object? object = 0.6748612915546136;
 
-    json = 361;
+    expect(object, isA<OneOfIntDoubleNum>());
 
-    expect(object.toJson(), equals(json));
-    expect($DoubleIntExtension.fromJson(json), equals(object));
+    object = 769;
+    expect(object, isA<OneOfIntDoubleNum>());
   });
 
   test('OneOfIntDoubleOther', () {
     OneOfIntDoubleOther object = (
-      $double: 0.5971645863260784,
-      $int: null,
+      $num: 0.5971645863260784,
       string: null,
     );
 
     Object? json = 0.5971645863260784;
 
     expect(object.toJson(), equals(json));
-    expect($DoubleIntStringExtension.fromJson(json), equals(object));
+    expect($NumStringExtension.fromJson(json), equals(object));
 
     object = (
-      $double: null,
-      $int: 361,
+      $num: 361,
       string: null,
     );
 
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect($DoubleIntStringExtension.fromJson(json), equals(object));
+    expect($NumStringExtension.fromJson(json), equals(object));
 
     object = (
-      $double: null,
-      $int: null,
+      $num: null,
       string: 'string',
     );
 
     json = 'string';
 
     expect(object.toJson(), equals(json));
-    expect($DoubleIntStringExtension.fromJson(json), equals(object));
+    expect($NumStringExtension.fromJson(json), equals(object));
   });
 }
