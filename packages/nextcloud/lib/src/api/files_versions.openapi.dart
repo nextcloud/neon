@@ -12,6 +12,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'files_versions.openapi.g.dart';
 
@@ -103,6 +104,7 @@ class PreviewClient {
     final int y = 44,
     final String version = '',
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
@@ -138,8 +140,10 @@ class PreviewClient {
     if (version != '') {
       queryParameters['version'] = version;
     }
-    const path = '/index.php/apps/files_versions/preview';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/files_versions/preview').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(

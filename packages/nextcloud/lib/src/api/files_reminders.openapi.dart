@@ -14,6 +14,7 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'files_reminders.openapi.g.dart';
 
@@ -98,6 +99,7 @@ class ApiClient {
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -122,11 +124,13 @@ class ApiClient {
 
 // coverage:ignore-end
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
-    final version0 = Uri.encodeQueryComponent(version);
-    final fileId0 = Uri.encodeQueryComponent(fileId.toString());
+    pathParameters['version'] = version;
+    pathParameters['fileId'] = fileId.toString();
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final path = '/ocs/v2.php/apps/files_reminders/api/v$version0/$fileId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -207,6 +211,7 @@ class ApiClient {
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -232,11 +237,13 @@ class ApiClient {
 // coverage:ignore-end
     queryParameters['dueDate'] = dueDate;
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
-    final version0 = Uri.encodeQueryComponent(version);
-    final fileId0 = Uri.encodeQueryComponent(fileId.toString());
+    pathParameters['version'] = version;
+    pathParameters['fileId'] = fileId.toString();
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final path = '/ocs/v2.php/apps/files_reminders/api/v$version0/$fileId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -308,6 +315,7 @@ class ApiClient {
     required final int fileId,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -332,11 +340,13 @@ class ApiClient {
 
 // coverage:ignore-end
     checkPattern(version, RegExp(r'^1$'), 'version'); // coverage:ignore-line
-    final version0 = Uri.encodeQueryComponent(version);
-    final fileId0 = Uri.encodeQueryComponent(fileId.toString());
+    pathParameters['version'] = version;
+    pathParameters['fileId'] = fileId.toString();
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final path = '/ocs/v2.php/apps/files_reminders/api/v$version0/$fileId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(

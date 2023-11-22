@@ -13,6 +13,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'updatenotification.openapi.g.dart';
 
@@ -101,6 +102,7 @@ class ApiClient {
     final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -124,11 +126,15 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    final newVersion0 = Uri.encodeQueryComponent(newVersion);
-    final apiVersion0 = Uri.encodeQueryComponent(apiVersion.name);
+    pathParameters['newVersion'] = newVersion;
+    pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    final path = '/ocs/v2.php/apps/updatenotification/api/$apiVersion0/applist/$newVersion0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(pathParameters),
+    );
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(

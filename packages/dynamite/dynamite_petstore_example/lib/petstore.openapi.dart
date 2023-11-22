@@ -13,6 +13,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'petstore.openapi.g.dart';
 
@@ -91,6 +92,7 @@ class Client extends DynamiteClient {
     List<String>? tags,
     int? limit,
   }) {
+    final _pathParameters = <String, dynamic>{};
     final _queryParameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -103,8 +105,10 @@ class Client extends DynamiteClient {
     if (limit != null) {
       _queryParameters['limit'] = limit.toString();
     }
-    final _path = '/pets';
-    final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
+    var _uri = Uri.parse(UriTemplate('/pets').expand(_pathParameters));
+    if (_queryParameters.isNotEmpty) {
+      _uri = _uri.replace(queryParameters: _queryParameters);
+    }
 
     return DynamiteRawResponse<BuiltList<Pet>, void>(
       response: this.executeRequest(
@@ -154,6 +158,7 @@ class Client extends DynamiteClient {
   ///  * [addPet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
+    final _pathParameters = <String, dynamic>{};
     final _queryParameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -162,8 +167,10 @@ class Client extends DynamiteClient {
 
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(_jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
-    final _path = '/pets';
-    final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
+    var _uri = Uri.parse(UriTemplate('/pets').expand(_pathParameters));
+    if (_queryParameters.isNotEmpty) {
+      _uri = _uri.replace(queryParameters: _queryParameters);
+    }
 
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
@@ -219,15 +226,18 @@ class Client extends DynamiteClient {
   ///  * [findPetById] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
+    final _pathParameters = <String, dynamic>{};
     final _queryParameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _id = Uri.encodeQueryComponent(id.toString());
-    final _path = '/pets/$_id';
-    final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
+    _pathParameters['id'] = id.toString();
+    var _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_pathParameters));
+    if (_queryParameters.isNotEmpty) {
+      _uri = _uri.replace(queryParameters: _queryParameters);
+    }
 
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
@@ -283,13 +293,16 @@ class Client extends DynamiteClient {
   ///  * [deletePet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
+    final _pathParameters = <String, dynamic>{};
     final _queryParameters = <String, dynamic>{};
     final _headers = <String, String>{};
     Uint8List? _body;
 
-    final _id = Uri.encodeQueryComponent(id.toString());
-    final _path = '/pets/$_id';
-    final _uri = Uri(path: _path, queryParameters: _queryParameters.isNotEmpty ? _queryParameters : null);
+    _pathParameters['id'] = id.toString();
+    var _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_pathParameters));
+    if (_queryParameters.isNotEmpty) {
+      _uri = _uri.replace(queryParameters: _queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: this.executeRequest(

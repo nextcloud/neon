@@ -27,6 +27,7 @@ Iterable<Spec> generateImports(final AssetId outputId, final State state) sync* 
     Directive.import('package:dynamite_runtime/utils.dart'),
     Directive.import('package:meta/meta.dart'),
     Directive.import('package:universal_io/io.dart'),
+    Directive.import('package:uri/uri.dart'),
     const Code(''),
   ];
 

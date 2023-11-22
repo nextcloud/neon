@@ -13,6 +13,7 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 class Client extends DynamiteClient {
   Client(
@@ -75,6 +76,7 @@ class Client extends DynamiteClient {
     final ContentString<BuiltMap<String, JsonObject>>? contentString,
     final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -97,8 +99,65 @@ class Client extends DynamiteClient {
         ]),
       );
     }
-    const path = '/';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
+
+    return DynamiteRawResponse<JsonObject, void>(
+      response: executeRequest(
+        'get',
+        uri,
+        headers,
+        body,
+        const {200},
+      ),
+      bodyType: const FullType(JsonObject),
+      headersType: null,
+      serializers: _jsonSerializers,
+    );
+  }
+
+  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getPathParameterRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
+  Future<DynamiteResponse<JsonObject, void>> getPathParameter({required final String pathParameter}) async {
+    final rawResponse = getPathParameterRaw(
+      pathParameter: pathParameter,
+    );
+
+    return rawResponse.future;
+  }
+
+  /// This method and the response it returns is experimental. The API might change without a major version bump.
+  ///
+  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
+  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
+  ///
+  /// Status codes:
+  ///   * 200
+  ///
+  /// See:
+  ///  * [getPathParameter] for an operation that returns a [DynamiteResponse] with a stable API.
+  @experimental
+  DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required final String pathParameter}) {
+    final pathParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final headers = <String, String>{
+      'Accept': 'application/json',
+    };
+    Uint8List? body;
+
+    pathParameters['path-parameter'] = pathParameter;
+    var uri = Uri.parse(UriTemplate('/{path-parameter}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(

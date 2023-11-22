@@ -44,6 +44,30 @@
                     }
                 }
             }
+        },
+        "/{path-parameter}": {
+            "parameters": [
+                {
+                    "name": "path-parameter",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "tags": []

@@ -14,6 +14,7 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'news.openapi.g.dart';
 
@@ -62,6 +63,7 @@ class Client extends DynamiteClient {
   ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -85,8 +87,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    const path = '/index.php/apps/news/api';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<SupportedAPIVersions, void>(
       response: executeRequest(
@@ -128,6 +132,7 @@ class Client extends DynamiteClient {
   ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -151,8 +156,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    const path = '/index.php/apps/news/api/v1-3/folders';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
@@ -202,6 +209,7 @@ class Client extends DynamiteClient {
   ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFolders, void> createFolderRaw({required final String name}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -226,8 +234,10 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     queryParameters['name'] = name;
-    const path = '/index.php/apps/news/api/v1-3/folders';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
@@ -284,6 +294,7 @@ class Client extends DynamiteClient {
     required final int folderId,
     required final String name,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -305,10 +316,12 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final folderId0 = Uri.encodeQueryComponent(folderId.toString());
+    pathParameters['folderId'] = folderId.toString();
     queryParameters['name'] = name;
-    final path = '/index.php/apps/news/api/v1-3/folders/$folderId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -352,6 +365,7 @@ class Client extends DynamiteClient {
   ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deleteFolderRaw({required final int folderId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -373,9 +387,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final folderId0 = Uri.encodeQueryComponent(folderId.toString());
-    final path = '/index.php/apps/news/api/v1-3/folders/$folderId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['folderId'] = folderId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -432,6 +448,7 @@ class Client extends DynamiteClient {
     required final int folderId,
     required final int newestItemId,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -453,10 +470,12 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final folderId0 = Uri.encodeQueryComponent(folderId.toString());
+    pathParameters['folderId'] = folderId.toString();
     queryParameters['newestItemId'] = newestItemId.toString();
-    final path = '/index.php/apps/news/api/v1-3/folders/$folderId0/read';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -498,6 +517,7 @@ class Client extends DynamiteClient {
   ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -521,8 +541,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    const path = '/index.php/apps/news/api/v1-3/feeds';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
@@ -581,6 +603,7 @@ class Client extends DynamiteClient {
     required final String url,
     final int? folderId,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -608,8 +631,10 @@ class Client extends DynamiteClient {
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    const path = '/index.php/apps/news/api/v1-3/feeds';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
@@ -653,6 +678,7 @@ class Client extends DynamiteClient {
   ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deleteFeedRaw({required final int feedId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -674,9 +700,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final feedId0 = Uri.encodeQueryComponent(feedId.toString());
-    final path = '/index.php/apps/news/api/v1-3/feeds/$feedId0';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['feedId'] = feedId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -733,6 +761,7 @@ class Client extends DynamiteClient {
     required final int feedId,
     final int? folderId,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -754,12 +783,14 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final feedId0 = Uri.encodeQueryComponent(feedId.toString());
+    pathParameters['feedId'] = feedId.toString();
     if (folderId != null) {
       queryParameters['folderId'] = folderId.toString();
     }
-    final path = '/index.php/apps/news/api/v1-3/feeds/$feedId0/move';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -816,6 +847,7 @@ class Client extends DynamiteClient {
     required final int feedId,
     required final String feedTitle,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -837,10 +869,12 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final feedId0 = Uri.encodeQueryComponent(feedId.toString());
+    pathParameters['feedId'] = feedId.toString();
     queryParameters['feedTitle'] = feedTitle;
-    final path = '/index.php/apps/news/api/v1-3/feeds/$feedId0/rename';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -897,6 +931,7 @@ class Client extends DynamiteClient {
     required final int feedId,
     required final int newestItemId,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -918,10 +953,12 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final feedId0 = Uri.encodeQueryComponent(feedId.toString());
+    pathParameters['feedId'] = feedId.toString();
     queryParameters['newestItemId'] = newestItemId.toString();
-    final path = '/index.php/apps/news/api/v1-3/feeds/$feedId0/read';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -1000,6 +1037,7 @@ class Client extends DynamiteClient {
     final int offset = 0,
     final int oldestFirst = 0,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -1041,8 +1079,10 @@ class Client extends DynamiteClient {
     if (oldestFirst != 0) {
       queryParameters['oldestFirst'] = oldestFirst.toString();
     }
-    const path = '/index.php/apps/news/api/v1-3/items';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
@@ -1106,6 +1146,7 @@ class Client extends DynamiteClient {
     final int id = 0,
     final int lastModified = 0,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -1138,8 +1179,10 @@ class Client extends DynamiteClient {
     if (lastModified != 0) {
       queryParameters['lastModified'] = lastModified.toString();
     }
-    const path = '/index.php/apps/news/api/v1-3/items/updated';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/updated').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
@@ -1183,6 +1226,7 @@ class Client extends DynamiteClient {
   ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markArticleAsReadRaw({required final int itemId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1204,9 +1248,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final itemId0 = Uri.encodeQueryComponent(itemId.toString());
-    final path = '/index.php/apps/news/api/v1-3/items/$itemId0/read';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['itemId'] = itemId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -1250,6 +1296,7 @@ class Client extends DynamiteClient {
   ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required final int itemId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1271,9 +1318,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final itemId0 = Uri.encodeQueryComponent(itemId.toString());
-    final path = '/index.php/apps/news/api/v1-3/items/$itemId0/unread';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['itemId'] = itemId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -1317,6 +1366,7 @@ class Client extends DynamiteClient {
   ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> starArticleRaw({required final int itemId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1338,9 +1388,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final itemId0 = Uri.encodeQueryComponent(itemId.toString());
-    final path = '/index.php/apps/news/api/v1-3/items/$itemId0/star';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['itemId'] = itemId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
@@ -1384,6 +1436,7 @@ class Client extends DynamiteClient {
   ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> unstarArticleRaw({required final int itemId}) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -1405,9 +1458,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final itemId0 = Uri.encodeQueryComponent(itemId.toString());
-    final path = '/index.php/apps/news/api/v1-3/items/$itemId0/unstar';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    pathParameters['itemId'] = itemId.toString();
+    var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<void, void>(
       response: executeRequest(

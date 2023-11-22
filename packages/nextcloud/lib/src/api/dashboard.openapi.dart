@@ -14,6 +14,7 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
+import 'package:uri/uri.dart';
 
 part 'dashboard.openapi.g.dart';
 
@@ -86,6 +87,7 @@ class DashboardApiClient {
   DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -110,8 +112,10 @@ class DashboardApiClient {
 
 // coverage:ignore-end
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -184,6 +188,7 @@ class DashboardApiClient {
     final List<String> widgets = const <String>[],
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -222,8 +227,10 @@ class DashboardApiClient {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/dashboard/api/v1/widget-items';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -296,6 +303,7 @@ class DashboardApiClient {
     final List<String> widgets = const <String>[],
     final bool oCSAPIRequest = true,
   }) {
+    final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -334,8 +342,10 @@ class DashboardApiClient {
       queryParameters['widgets[]'] = widgets.map((final e) => e);
     }
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    const path = '/ocs/v2.php/apps/dashboard/api/v2/widget-items';
-    final uri = Uri(path: path, queryParameters: queryParameters.isNotEmpty ? queryParameters : null);
+    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items').expand(pathParameters));
+    if (queryParameters.isNotEmpty) {
+      uri = uri.replace(queryParameters: queryParameters);
+    }
 
     return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
