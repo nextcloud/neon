@@ -13,7 +13,7 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -1367,7 +1367,7 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(pathParameters));
@@ -1475,7 +1475,7 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     if (search != '') {
       queryParameters['search'] = search;
@@ -1581,7 +1581,7 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(pathParameters));
@@ -1676,7 +1676,7 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
@@ -1785,7 +1785,7 @@ class GroupsClient {
 // coverage:ignore-end
     queryParameters['key'] = key;
     queryParameters['value'] = value;
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
@@ -1882,7 +1882,7 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    checkPattern(groupId, RegExp(r'^.+$'), 'groupId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
@@ -3562,11 +3562,7 @@ class UsersClient {
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     pathParameters['userId'] = userId;
-    checkPattern(
-      collectionName,
-      RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
-      'collectionName',
-    ); // coverage:ignore-line
+    dynamite_utils.checkPattern(collectionName, RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'), 'collectionName');
     pathParameters['collectionName'] = collectionName;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}').expand(pathParameters));

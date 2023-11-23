@@ -14,7 +14,7 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
-import 'package:dynamite_runtime/utils.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -165,7 +165,7 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (darkTheme != 0) {
       queryParameters['darkTheme'] = darkTheme.toString();
@@ -268,7 +268,7 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -366,7 +366,7 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -477,7 +477,7 @@ class AvatarClient {
 
 // coverage:ignore-end
     queryParameters['emoji'] = emoji;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (color != null) {
       queryParameters['color'] = color;
@@ -579,7 +579,7 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -715,7 +715,7 @@ class BotClient {
 
 // coverage:ignore-end
     queryParameters['message'] = message;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (referenceId != '') {
       queryParameters['referenceId'] = referenceId;
@@ -841,7 +841,7 @@ class BotClient {
 
 // coverage:ignore-end
     queryParameters['reaction'] = reaction;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -958,7 +958,7 @@ class BotClient {
 
 // coverage:ignore-end
     queryParameters['reaction'] = reaction;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -1156,7 +1156,7 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -1264,7 +1264,7 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['botId'] = botId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -1372,7 +1372,7 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['botId'] = botId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -1498,7 +1498,7 @@ class BreakoutRoomClient {
 // coverage:ignore-end
     queryParameters['mode'] = mode.toString();
     queryParameters['amount'] = amount.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (attendeeMap != '[]') {
       queryParameters['attendeeMap'] = attendeeMap;
@@ -1602,7 +1602,7 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -1713,7 +1713,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     queryParameters['message'] = message;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -1822,7 +1822,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     queryParameters['attendeeMap'] = attendeeMap;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -1925,7 +1925,7 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2032,7 +2032,7 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2136,7 +2136,7 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2239,7 +2239,7 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2348,7 +2348,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     queryParameters['target'] = target;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2453,7 +2453,7 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2560,7 +2560,7 @@ class CallClient {
 
 // coverage:ignore-end
     queryParameters['flags'] = flags.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -2681,7 +2681,7 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (flags != null) {
       queryParameters['flags'] = flags.toString();
@@ -2797,7 +2797,7 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (all != 0) {
       queryParameters['all'] = all.toString();
@@ -2904,7 +2904,7 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['attendeeId'] = attendeeId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -3015,7 +3015,7 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['attendeeId'] = attendeeId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -3289,7 +3289,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['lookIntoFuture'] = lookIntoFuture.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (limit != 100) {
       queryParameters['limit'] = limit.toString();
@@ -3446,7 +3446,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['message'] = message;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (actorDisplayName != '') {
       queryParameters['actorDisplayName'] = actorDisplayName;
@@ -3561,7 +3561,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -3675,7 +3675,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -3789,7 +3789,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     if (limit != 50) {
@@ -3901,7 +3901,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -4016,7 +4016,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['timestamp'] = timestamp.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -4125,7 +4125,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -4233,7 +4233,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['lastReadMessage'] = lastReadMessage.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -4333,7 +4333,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -4447,7 +4447,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['search'] = search;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (limit != 20) {
       queryParameters['limit'] = limit.toString();
@@ -4570,7 +4570,7 @@ class ChatClient {
 
 // coverage:ignore-end
     queryParameters['objectType'] = objectType;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (lastKnownMessageId != 0) {
       queryParameters['lastKnownMessageId'] = lastKnownMessageId.toString();
@@ -4714,7 +4714,7 @@ class ChatClient {
 // coverage:ignore-end
     queryParameters['objectType'] = objectType;
     queryParameters['objectId'] = objectId;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (metaData != '') {
       queryParameters['metaData'] = metaData;
@@ -4828,7 +4828,7 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (limit != 7) {
       queryParameters['limit'] = limit.toString();
@@ -5254,7 +5254,7 @@ class FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    checkPattern(fileId, RegExp(r'^.+$'), 'fileId'); // coverage:ignore-line
+    dynamite_utils.checkPattern(fileId, RegExp(r'^.+$'), 'fileId');
     pathParameters['fileId'] = fileId;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -5365,7 +5365,7 @@ class FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    checkPattern(shareToken, RegExp(r'^.+$'), 'shareToken'); // coverage:ignore-line
+    dynamite_utils.checkPattern(shareToken, RegExp(r'^.+$'), 'shareToken');
     pathParameters['shareToken'] = shareToken;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -5480,7 +5480,7 @@ class GuestClient {
 
 // coverage:ignore-end
     queryParameters['displayName'] = displayName;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -5826,7 +5826,7 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -5938,7 +5938,7 @@ class MatterbridgeClient {
 
 // coverage:ignore-end
     queryParameters['enabled'] = enabled.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (parts != null) {
       queryParameters['parts'] = _jsonSerializers.serialize(
@@ -6049,7 +6049,7 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -6148,7 +6148,7 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -6485,7 +6485,7 @@ class PollClient {
     queryParameters['options[]'] = options.map((final e) => e);
     queryParameters['resultMode'] = resultMode.toString();
     queryParameters['maxVotes'] = maxVotes.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -6589,7 +6589,7 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['pollId'] = pollId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -6703,7 +6703,7 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['pollId'] = pollId.toString();
     if (optionIds != const <int>[]) {
@@ -6819,7 +6819,7 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['pollId'] = pollId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -7047,7 +7047,7 @@ class ReactionClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     if (reaction != null) {
@@ -7167,7 +7167,7 @@ class ReactionClient {
 
 // coverage:ignore-end
     queryParameters['reaction'] = reaction;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -7282,7 +7282,7 @@ class ReactionClient {
 
 // coverage:ignore-end
     queryParameters['reaction'] = reaction;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['messageId'] = messageId.toString();
     pathParameters['apiVersion'] = apiVersion.name;
@@ -7506,7 +7506,7 @@ class RecordingClient {
 
 // coverage:ignore-end
     queryParameters['status'] = status.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -7608,7 +7608,7 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -7716,7 +7716,7 @@ class RecordingClient {
 
 // coverage:ignore-end
     queryParameters['owner'] = owner;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -7825,7 +7825,7 @@ class RecordingClient {
 
 // coverage:ignore-end
     queryParameters['timestamp'] = timestamp.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -7940,7 +7940,7 @@ class RecordingClient {
 // coverage:ignore-end
     queryParameters['fileId'] = fileId.toString();
     queryParameters['timestamp'] = timestamp.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -8512,7 +8512,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -8617,7 +8617,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['roomName'] = roomName;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -8716,7 +8716,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -8817,7 +8817,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -8920,7 +8920,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9022,7 +9022,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9128,7 +9128,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['description'] = description;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9237,7 +9237,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['state'] = state.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9346,7 +9346,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['scope'] = scope.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9455,7 +9455,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['password'] = password;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9567,9 +9567,9 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['permissions'] = permissions.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
-    checkPattern(mode, RegExp(r'^(call|default)$'), 'mode'); // coverage:ignore-line
+    dynamite_utils.checkPattern(mode, RegExp(r'^(call|default)$'), 'mode');
     pathParameters['mode'] = mode;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -9675,7 +9675,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (includeStatus != 0) {
       queryParameters['includeStatus'] = includeStatus.toString();
@@ -9796,7 +9796,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['newParticipant'] = newParticipant;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (source != 'users') {
       queryParameters['source'] = source;
@@ -9910,7 +9910,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (includeStatus != 0) {
       queryParameters['includeStatus'] = includeStatus.toString();
@@ -10020,7 +10020,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10131,7 +10131,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['attendeeId'] = attendeeId.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10254,7 +10254,7 @@ class RoomClient {
     queryParameters['attendeeId'] = attendeeId.toString();
     queryParameters['method'] = method;
     queryParameters['permissions'] = permissions.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10367,7 +10367,7 @@ class RoomClient {
 // coverage:ignore-end
     queryParameters['method'] = method;
     queryParameters['permissions'] = permissions.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10483,7 +10483,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (password != '') {
       queryParameters['password'] = password;
@@ -10588,7 +10588,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10696,7 +10696,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (attendeeId != null) {
       queryParameters['attendeeId'] = attendeeId.toString();
@@ -10807,7 +10807,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['state'] = state.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -10918,7 +10918,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['attendeeId'] = attendeeId.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11029,7 +11029,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['attendeeId'] = attendeeId.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11130,7 +11130,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11231,7 +11231,7 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11340,7 +11340,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['level'] = level.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11448,7 +11448,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['level'] = level.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11562,7 +11562,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['state'] = state.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     if (timer != null) {
       queryParameters['timer'] = timer.toString();
@@ -11680,7 +11680,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['state'] = state.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11791,7 +11791,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['recordingConsent'] = recordingConsent.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -11898,7 +11898,7 @@ class RoomClient {
 
 // coverage:ignore-end
     queryParameters['seconds'] = seconds.toString();
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -12459,7 +12459,7 @@ class SignalingClient {
     }
 
 // coverage:ignore-end
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();
@@ -12565,7 +12565,7 @@ class SignalingClient {
 
 // coverage:ignore-end
     queryParameters['messages'] = messages;
-    checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token'); // coverage:ignore-line
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     pathParameters['token'] = token;
     pathParameters['apiVersion'] = apiVersion.name;
     headers['OCS-APIRequest'] = oCSAPIRequest.toString();

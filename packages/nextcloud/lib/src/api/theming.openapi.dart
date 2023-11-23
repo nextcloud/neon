@@ -12,7 +12,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -292,7 +292,7 @@ class IconClient {
 
 // coverage:ignore-end
     pathParameters['app'] = app;
-    checkPattern(image, RegExp(r'^.+$'), 'image'); // coverage:ignore-line
+    dynamite_utils.checkPattern(image, RegExp(r'^.+$'), 'image');
     pathParameters['image'] = image;
     var uri = Uri.parse(UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
@@ -1108,6 +1108,11 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
       _$themingGetManifestResponseApplicationJsonIconsSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
+    dynamite_utils.checkMinLength(b.src, 1, 'b.src');
+  }
 }
 
 @BuiltValue(instantiable: false)

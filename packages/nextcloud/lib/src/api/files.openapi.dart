@@ -12,7 +12,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/utils.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -136,7 +136,7 @@ class ApiClient {
 // coverage:ignore-end
     pathParameters['x'] = x.toString();
     pathParameters['y'] = y.toString();
-    checkPattern(file, RegExp(r'^.+$'), 'file'); // coverage:ignore-line
+    dynamite_utils.checkPattern(file, RegExp(r'^.+$'), 'file');
     pathParameters['file'] = file;
     var uri = Uri.parse(UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {

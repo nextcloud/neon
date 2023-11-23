@@ -1,2 +1,2 @@
-export 'src/string_checker.dart';
-export 'src/uri.dart';
+export 'src/utils/string_checker.dart';
+export 'src/utils/uri.dart';
