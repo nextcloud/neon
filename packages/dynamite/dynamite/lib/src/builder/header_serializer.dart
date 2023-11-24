@@ -6,7 +6,7 @@ import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
-Spec buildBuiltClassSerializer(
+Spec buildHeaderSerializer(
   final State state,
   final String identifier,
   final openapi.OpenAPI spec,
@@ -16,30 +16,25 @@ Spec buildBuiltClassSerializer(
       (final b) => b
         ..name = '_\$${identifier}Serializer'
         ..implements.add(refer('StructuredSerializer<$identifier>'))
-        ..constructors.add(
-          Constructor(
-            (final b) => b..constant = true,
-          ),
-        )
-        ..methods.addAll([
-          Method(
+        ..fields.addAll([
+          Field(
             (final b) => b
               ..name = 'types'
-              ..type = MethodType.getter
-              ..lambda = true
-              ..returns = refer('Iterable<Type>')
+              ..modifier = FieldModifier.final$
+              ..type = refer('Iterable<Type>')
               ..annotations.add(refer('override'))
-              ..body = Code('const [$identifier, _\$$identifier]'),
+              ..assignment = Code('const [$identifier, _\$$identifier]'),
           ),
-          Method(
+          Field(
             (final b) => b
               ..name = 'wireName'
-              ..type = MethodType.getter
-              ..lambda = true
-              ..returns = refer('String')
+              ..modifier = FieldModifier.final$
+              ..type = refer('String')
               ..annotations.add(refer('override'))
-              ..body = Code("r'$identifier'"),
+              ..assignment = Code("r'$identifier'"),
           ),
+        ])
+        ..methods.addAll([
           Method((final b) {
             b
               ..name = 'serialize'
@@ -65,26 +60,8 @@ Spec buildBuiltClassSerializer(
                     ..named = true
                     ..defaultTo = const Code('FullType.unspecified'),
                 ),
-              );
-
-            final properties = serializeProperty(state, identifier, spec, schema);
-            final nullableProperties = serializePropertyNullable(state, identifier, spec, schema);
-            final buffer = StringBuffer()
-              ..write('final result = <Object?>[')
-              ..writeAll(properties, '\n')
-              ..write('];')
-              ..writeln();
-
-            if (nullableProperties.isNotEmpty) {
-              buffer
-                ..write('Object? value;')
-                ..writeAll(nullableProperties, '\n')
-                ..writeln();
-            }
-
-            buffer.write('return result;');
-
-            b.body = Code(buffer.toString());
+              )
+              ..body = const Code('throw UnimplementedError();');
           }),
           Method((final b) {
             b
@@ -119,7 +96,7 @@ final iterator = serialized.iterator;
 while (iterator.moveNext()) {
   final key = iterator.current! as String;
   iterator.moveNext();
-  final value = iterator.current;
+  final value = iterator.current! as String;
   switch (key) {
     ${deserializeProperty(state, identifier, spec, schema).join('\n')}
   }
@@ -140,7 +117,6 @@ Iterable<String> deserializeProperty(
   for (final property in schema.properties!.entries) {
     final propertyName = property.key;
     final propertySchema = property.value;
-    final dartName = toDartName(propertyName);
     final result = resolveType(
       spec,
       state,
@@ -150,72 +126,14 @@ Iterable<String> deserializeProperty(
     );
 
     yield "case '$propertyName':";
-    final deserialize = result.deserialize('value', 'serializers');
-
-    if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
-      yield 'result.$dartName = $deserialize;';
+    if (result.className != 'String') {
+      if (result is TypeResultBase || result is TypeResultEnum || result is TypeResultSomeOf) {
+        yield 'result.${toDartName(propertyName)} = ${result.deserialize(result.decode('value!'))};';
+      } else {
+        yield 'result.${toDartName(propertyName)}.replace(${result.deserialize(result.decode('value!'))});';
+      }
     } else {
-      yield 'result.$dartName.replace($deserialize,);';
+      yield 'result.${toDartName(propertyName)} = value!;';
     }
-  }
-}
-
-Iterable<String> serializePropertyNullable(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
-) sync* {
-  for (final property in schema.properties!.entries) {
-    final propertyName = property.key;
-    final propertySchema = property.value;
-    final dartName = toDartName(propertyName);
-    final result = resolveType(
-      spec,
-      state,
-      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
-      propertySchema,
-      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
-    );
-    if (!result.nullable) {
-      continue;
-    }
-
-    yield '''
-value = object.$dartName;
-if (value != null) {
-  result
-    ..add('$propertyName')
-    ..add(${result.serialize('value', 'serializers')},);
-}
-''';
-  }
-}
-
-Iterable<String> serializeProperty(
-  final State state,
-  final String identifier,
-  final openapi.OpenAPI spec,
-  final openapi.Schema schema,
-) sync* {
-  for (final property in schema.properties!.entries) {
-    final propertyName = property.key;
-    final propertySchema = property.value;
-    final dartName = toDartName(propertyName);
-    final result = resolveType(
-      spec,
-      state,
-      '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
-      propertySchema,
-      nullable: isDartParameterNullable(schema.required.contains(propertyName), propertySchema),
-    );
-    if (result.nullable) {
-      continue;
-    }
-
-    yield '''
-'$propertyName',
-${result.serialize('object.$dartName', 'serializers')},
-''';
   }
 }

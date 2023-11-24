@@ -70,15 +70,23 @@ Method generateProperty(
         final name = toFieldName(toDartName(propertyName), type.name);
         b
           ..name = name
-          ..returns = refer(type.nullableName)
           ..type = MethodType.getter
           ..docs.addAll(description);
 
+        if (type is TypeResultSomeOf && type.isSingleValue) {
+          b.returns = refer(type.dartType.name);
+        } else {
+          b.returns = refer(type.nullableName);
+        }
+
+        final builtValueFieldAnnotations = <String, Expression>{};
         if (name != propertyName) {
+          builtValueFieldAnnotations['wireName'] = literalString(propertyName);
+        }
+
+        if (builtValueFieldAnnotations.isNotEmpty) {
           b.annotations.add(
-            refer('BuiltValueField').call([], {
-              'wireName': literalString(propertyName),
-            }),
+            refer('BuiltValueField').call([], builtValueFieldAnnotations),
           );
         }
       },

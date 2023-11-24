@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -12865,84 +12866,6 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $Room_LastMessageInterface {
-  ChatMessage? get chatMessage;
-  BuiltList<JsonObject>? get builtListJsonObject;
-}
-
-abstract class Room_LastMessage
-    implements $Room_LastMessageInterface, Built<Room_LastMessage, Room_LastMessageBuilder> {
-  factory Room_LastMessage([final void Function(Room_LastMessageBuilder)? b]) = _$Room_LastMessage;
-
-  // coverage:ignore-start
-  const Room_LastMessage._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory Room_LastMessage.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Room_LastMessage> get serializer => _$Room_LastMessageSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final Room_LastMessageBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._chatMessage, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'chatMessage', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$Room_LastMessageSerializer implements PrimitiveSerializer<Room_LastMessage> {
-  @override
-  final Iterable<Type> types = const [Room_LastMessage, _$Room_LastMessage];
-
-  @override
-  final String wireName = 'Room_LastMessage';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final Room_LastMessage object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  Room_LastMessage deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = Room_LastMessageBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
-      result.chatMessage.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $RoomInterface {
   String get actorId;
   String get actorType;
@@ -13016,6 +12939,11 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
   // coverage:ignore-end
 
   static Serializer<Room> get serializer => _$roomSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final RoomBuilder b) {
+    b.lastMessage?.validateAnyOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -20510,101 +20438,6 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface {
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0?
-      get roomAddParticipantToRoomResponseApplicationJsonOcsData0;
-  BuiltList<JsonObject>? get builtListJsonObject;
-}
-
-abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
-    implements
-        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface,
-        Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
-            RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder> {
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data([
-    final void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
-      _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._roomAddParticipantToRoomResponseApplicationJsonOcsData0, b._builtListJsonObject]
-        .firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError(
-        "Need at least one of 'roomAddParticipantToRoomResponseApplicationJsonOcsData0', 'builtListJsonObject' for ${b._data}",
-      );
-    }
-  }
-}
-
-class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataSerializer
-    implements PrimitiveSerializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [
-    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
-    _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
-  ];
-
-  @override
-  final String wireName = 'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
-      )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
-      result.roomAddParticipantToRoomResponseApplicationJsonOcsData0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data get data;
@@ -20634,6 +20467,11 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
 
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs> get serializer =>
       _$roomAddParticipantToRoomResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder b) {
+    b.data?.validateAnyOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -22228,84 +22066,6 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
       _$settingsSetsipSettingsResponseApplicationJsonSerializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $SettingsSetUserSettingValueInterface {
-  String? get string;
-  int? get $int;
-}
-
-abstract class SettingsSetUserSettingValue
-    implements
-        $SettingsSetUserSettingValueInterface,
-        Built<SettingsSetUserSettingValue, SettingsSetUserSettingValueBuilder> {
-  factory SettingsSetUserSettingValue([final void Function(SettingsSetUserSettingValueBuilder)? b]) =
-      _$SettingsSetUserSettingValue;
-
-  // coverage:ignore-start
-  const SettingsSetUserSettingValue._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory SettingsSetUserSettingValue.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SettingsSetUserSettingValue> get serializer => _$SettingsSetUserSettingValueSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SettingsSetUserSettingValueBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._string, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'string', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$SettingsSetUserSettingValueSerializer implements PrimitiveSerializer<SettingsSetUserSettingValue> {
-  @override
-  final Iterable<Type> types = const [SettingsSetUserSettingValue, _$SettingsSetUserSettingValue];
-
-  @override
-  final String wireName = 'SettingsSetUserSettingValue';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final SettingsSetUserSettingValue object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  SettingsSetUserSettingValue deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SettingsSetUserSettingValueBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
 class SettingsSetUserSettingApiVersion extends EnumClass {
   const SettingsSetUserSettingApiVersion._(super.name);
 
@@ -22764,94 +22524,6 @@ abstract class SignalingSession
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface {
-  BuiltList<SignalingSession>? get builtListSignalingSession;
-  String? get string;
-}
-
-abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data
-    implements
-        $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder> {
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data([
-    final void Function(SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder)? b,
-  ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data;
-
-  // coverage:ignore-start
-  const SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
-      _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._builtListSignalingSession, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'builtListSignalingSession', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataSerializer
-    implements PrimitiveSerializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> {
-  @override
-  final Iterable<Type> types = const [
-    SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
-    _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
-  ];
-
-  @override
-  final String wireName = 'SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
-      )! as BuiltList<SignalingSession>;
-      result.builtListSignalingSession.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
   String get type;
   SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
@@ -22881,6 +22553,11 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
 
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get serializer =>
       _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
+    b.data?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -23472,82 +23149,337 @@ abstract class PublicCapabilities0
   static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $PublicCapabilitiesInterface {
-  PublicCapabilities0? get publicCapabilities0;
-  BuiltList<JsonObject>? get builtListJsonObject;
+typedef Room_LastMessage = ({BuiltList<JsonObject>? builtListJsonObject, ChatMessage? chatMessage});
+
+typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
+});
+
+typedef SettingsSetUserSettingValue = ({int? $int, String? string});
+
+typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
+  BuiltList<SignalingSession>? builtListSignalingSession,
+  String? string
+});
+
+typedef PublicCapabilities = ({BuiltList<JsonObject>? builtListJsonObject, PublicCapabilities0? publicCapabilities0});
+
+typedef $BuiltListChatMessage = ({BuiltList<JsonObject>? builtListJsonObject, ChatMessage? chatMessage});
+
+extension $BuiltListChatMessageExtension on $BuiltListChatMessage {
+  List<dynamic> get _values => [builtListJsonObject, chatMessage];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListChatMessage> get serializer => const _$BuiltListChatMessageSerializer();
+  static $BuiltListChatMessage fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class PublicCapabilities
-    implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
-  factory PublicCapabilities([final void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
-
-  // coverage:ignore-start
-  const PublicCapabilities._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory PublicCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicCapabilities> get serializer => _$PublicCapabilitiesSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final PublicCapabilitiesBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._publicCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'publicCapabilities0', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$PublicCapabilitiesSerializer implements PrimitiveSerializer<PublicCapabilities> {
-  @override
-  final Iterable<Type> types = const [PublicCapabilities, _$PublicCapabilities];
+class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltListChatMessage> {
+  const _$BuiltListChatMessageSerializer();
 
   @override
-  final String wireName = 'PublicCapabilities';
+  Iterable<Type> get types => const [$BuiltListChatMessage];
+
+  @override
+  String get wireName => r'$BuiltListChatMessage';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final PublicCapabilities object, {
+    final $BuiltListChatMessage object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.chatMessage;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  PublicCapabilities deserialize(
+  $BuiltListChatMessage deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = PublicCapabilitiesBuilder()..data = JsonObject(data);
+    BuiltList<JsonObject>? builtListJsonObject;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(PublicCapabilities0))!
-          as PublicCapabilities0;
-      result.publicCapabilities0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
+      builtListJsonObject = _jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
     } catch (_) {}
-    return result.build();
+    ChatMessage? chatMessage;
+    try {
+      chatMessage = _jsonSerializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, chatMessage: chatMessage);
+  }
+}
+
+typedef $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
+});
+
+extension $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Extension
+    on $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 {
+  List<dynamic> get _values => [builtListJsonObject, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> get serializer =>
+      const _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer();
+  static $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer
+    implements PrimitiveSerializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> {
+  const _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0];
+
+  @override
+  String get wireName => r'$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.roomAddParticipantToRoomResponseApplicationJsonOcsData0;
+    if (value != null) {
+      return _jsonSerializers.serialize(
+        value,
+        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
+      )!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0;
+    try {
+      roomAddParticipantToRoomResponseApplicationJsonOcsData0 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
+      )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
+    } catch (_) {}
+    return (
+      builtListJsonObject: builtListJsonObject,
+      roomAddParticipantToRoomResponseApplicationJsonOcsData0: roomAddParticipantToRoomResponseApplicationJsonOcsData0
+    );
+  }
+}
+
+typedef $IntString = ({int? $int, String? string});
+
+extension $IntStringExtension on $IntString {
+  List<dynamic> get _values => [$int, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$IntString> get serializer => const _$IntStringSerializer();
+  static $IntString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
+  const _$IntStringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$IntString];
+
+  @override
+  String get wireName => r'$IntString';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $IntString object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $IntString deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return ($int: $int, string: string);
+  }
+}
+
+typedef $BuiltListString = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
+
+extension $BuiltListStringExtension on $BuiltListString {
+  List<dynamic> get _values => [builtListSignalingSession, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListString> get serializer => const _$BuiltListStringSerializer();
+  static $BuiltListString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListString> {
+  const _$BuiltListStringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListString];
+
+  @override
+  String get wireName => r'$BuiltListString';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListString object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListSignalingSession;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListString deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<SignalingSession>? builtListSignalingSession;
+    try {
+      builtListSignalingSession = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
+      )! as BuiltList<SignalingSession>;
+    } catch (_) {}
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return (builtListSignalingSession: builtListSignalingSession, string: string);
+  }
+}
+
+typedef $BuiltListPublicCapabilities0 = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  PublicCapabilities0? publicCapabilities0
+});
+
+extension $BuiltListPublicCapabilities0Extension on $BuiltListPublicCapabilities0 {
+  List<dynamic> get _values => [builtListJsonObject, publicCapabilities0];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListPublicCapabilities0> get serializer => const _$BuiltListPublicCapabilities0Serializer();
+  static $BuiltListPublicCapabilities0 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$BuiltListPublicCapabilities0> {
+  const _$BuiltListPublicCapabilities0Serializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListPublicCapabilities0];
+
+  @override
+  String get wireName => r'$BuiltListPublicCapabilities0';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListPublicCapabilities0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.publicCapabilities0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(PublicCapabilities0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListPublicCapabilities0 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    PublicCapabilities0? publicCapabilities0;
+    try {
+      publicCapabilities0 = _jsonSerializers.deserialize(data, specifiedType: const FullType(PublicCapabilities0))!
+          as PublicCapabilities0;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, publicCapabilities0: publicCapabilities0);
   }
 }
 
@@ -23569,8 +23501,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
       ..add(Room.serializer)
-      ..addBuilderFactory(const FullType(Room_LastMessage), Room_LastMessageBuilder.new)
-      ..add(Room_LastMessage.serializer)
       ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
       ..addBuilderFactory(
@@ -23586,6 +23516,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..add($BuiltListChatMessageExtension.serializer)
       ..add(AvatarDeleteAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarDeleteAvatarResponseApplicationJson),
@@ -24653,15 +24584,11 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
         RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
+      ..add($BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Extension.serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
@@ -24887,8 +24814,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(SettingsSetUserSettingValue), SettingsSetUserSettingValueBuilder.new)
-      ..add(SettingsSetUserSettingValue.serializer)
+      ..add($IntStringExtension.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
         ContentStringBuilder<SettingsSetUserSettingValue>.new,
@@ -24971,14 +24897,10 @@ final Serializers _serializers = (Serializers().toBuilder()
         SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.serializer)
       ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
       ..add(SignalingSession.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
+      ..add($BuiltListStringExtension.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
         ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
@@ -25016,8 +24938,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecretBuilder.new)
       ..add(BotWithDetailsAndSecret.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
-      ..add(PublicCapabilities.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0Builder.new)
       ..add(PublicCapabilities0.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed), PublicCapabilities0_SpreedBuilder.new)
@@ -25056,7 +24976,8 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(PublicCapabilities0_Spreed_Config_Signaling),
         PublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
-      ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer))
+      ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer)
+      ..add($BuiltListPublicCapabilities0Extension.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

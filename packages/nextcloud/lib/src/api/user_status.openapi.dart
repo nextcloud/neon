@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -12,6 +13,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -1207,80 +1209,6 @@ class ClearAtTimeType extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ClearAt_TimeInterface {
-  int? get $int;
-  ClearAtTimeType? get clearAtTimeType;
-}
-
-abstract class ClearAt_Time implements $ClearAt_TimeInterface, Built<ClearAt_Time, ClearAt_TimeBuilder> {
-  factory ClearAt_Time([final void Function(ClearAt_TimeBuilder)? b]) = _$ClearAt_Time;
-
-  // coverage:ignore-start
-  const ClearAt_Time._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ClearAt_Time.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ClearAt_Time> get serializer => _$ClearAt_TimeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ClearAt_TimeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._clearAtTimeType].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'clearAtTimeType' for ${b._data}");
-    }
-  }
-}
-
-class _$ClearAt_TimeSerializer implements PrimitiveSerializer<ClearAt_Time> {
-  @override
-  final Iterable<Type> types = const [ClearAt_Time, _$ClearAt_Time];
-
-  @override
-  final String wireName = 'ClearAt_Time';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final ClearAt_Time object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  ClearAt_Time deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ClearAt_TimeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
-      result.clearAtTimeType = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ClearAtInterface {
   ClearAt_Type get type;
   ClearAt_Time get time;
@@ -1302,6 +1230,11 @@ abstract class ClearAt implements $ClearAtInterface, Built<ClearAt, ClearAtBuild
   // coverage:ignore-end
 
   static Serializer<ClearAt> get serializer => _$clearAtSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ClearAtBuilder b) {
+    b.time?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -1825,94 +1758,6 @@ abstract class UserStatusClearMessageResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface {
-  Private? get private;
-  BuiltList<JsonObject>? get builtListJsonObject;
-}
-
-abstract class UserStatusRevertStatusResponseApplicationJson_Ocs_Data
-    implements
-        $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface,
-        Built<UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
-            UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder> {
-  factory UserStatusRevertStatusResponseApplicationJson_Ocs_Data([
-    final void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
-
-  // coverage:ignore-start
-  const UserStatusRevertStatusResponseApplicationJson_Ocs_Data._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserStatusRevertStatusResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
-      _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._private, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'private', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$UserStatusRevertStatusResponseApplicationJson_Ocs_DataSerializer
-    implements PrimitiveSerializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> {
-  @override
-  final Iterable<Type> types = const [
-    UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
-    _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
-  ];
-
-  @override
-  final String wireName = 'UserStatusRevertStatusResponseApplicationJson_Ocs_Data';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserStatusRevertStatusResponseApplicationJson_Ocs_Data object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserStatusRevertStatusResponseApplicationJson_Ocs_Data deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
-      result.private.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   UserStatusRevertStatusResponseApplicationJson_Ocs_Data get data;
@@ -1942,6 +1787,11 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
 
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs> get serializer =>
       _$userStatusRevertStatusResponseApplicationJsonOcsSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserStatusRevertStatusResponseApplicationJson_OcsBuilder b) {
+    b.data?.validateAnyOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -2026,6 +1876,131 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
+
+typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  Private? private
+});
+
+typedef $ClearAtTimeTypeInt = ({ClearAtTimeType? clearAtTimeType, int? $int});
+
+extension $ClearAtTimeTypeIntExtension on $ClearAtTimeTypeInt {
+  List<dynamic> get _values => [clearAtTimeType, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$ClearAtTimeTypeInt> get serializer => const _$ClearAtTimeTypeIntSerializer();
+  static $ClearAtTimeTypeInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTimeTypeInt> {
+  const _$ClearAtTimeTypeIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$ClearAtTimeTypeInt];
+
+  @override
+  String get wireName => r'$ClearAtTimeTypeInt';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $ClearAtTimeTypeInt object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.clearAtTimeType;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ClearAtTimeType))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $ClearAtTimeTypeInt deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    ClearAtTimeType? clearAtTimeType;
+    try {
+      clearAtTimeType =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return (clearAtTimeType: clearAtTimeType, $int: $int);
+  }
+}
+
+typedef $BuiltListPrivate = ({BuiltList<JsonObject>? builtListJsonObject, Private? private});
+
+extension $BuiltListPrivateExtension on $BuiltListPrivate {
+  List<dynamic> get _values => [builtListJsonObject, private];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListPrivate> get serializer => const _$BuiltListPrivateSerializer();
+  static $BuiltListPrivate fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPrivate> {
+  const _$BuiltListPrivateSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListPrivate];
+
+  @override
+  String get wireName => r'$BuiltListPrivate';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListPrivate object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.private;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(Private))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListPrivate deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    Private? private;
+    try {
+      private = _jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, private: private);
+  }
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -2059,9 +2034,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ClearAt), ClearAtBuilder.new)
       ..add(ClearAt.serializer)
       ..add(ClearAt_Type.serializer)
-      ..addBuilderFactory(const FullType(ClearAt_Time), ClearAt_TimeBuilder.new)
-      ..add(ClearAt_Time.serializer)
       ..add(ClearAtTimeType.serializer)
+      ..add($ClearAtTimeTypeIntExtension.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
       ..addBuilderFactory(
         const FullType(StatusesFindAllResponseApplicationJson),
@@ -2144,12 +2118,8 @@ final Serializers _serializers = (Serializers().toBuilder()
         UserStatusRevertStatusResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data),
-        UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(UserStatusRevertStatusResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..add($BuiltListPrivateExtension.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)

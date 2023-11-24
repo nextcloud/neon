@@ -493,8 +493,7 @@ class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {
           result.type = serializers.deserialize(value, specifiedType: const FullType(ClearAt_Type))! as ClearAt_Type;
           break;
         case 'time':
-          result.time
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ClearAt_Time))! as ClearAt_Time);
+          result.time = serializers.deserialize(value, specifiedType: const FullType(ClearAt_Time))! as ClearAt_Time;
           break;
       }
     }
@@ -1339,9 +1338,9 @@ class _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
+          result.data = serializers.deserialize(value,
                   specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data))!
-              as UserStatusRevertStatusResponseApplicationJson_Ocs_Data);
+              as UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
           break;
       }
     }
@@ -2205,128 +2204,14 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ClearAt_TimeInterfaceBuilder {
-  void replace($ClearAt_TimeInterface other);
-  void update(void Function($ClearAt_TimeInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  ClearAtTimeType? get clearAtTimeType;
-  set clearAtTimeType(ClearAtTimeType? clearAtTimeType);
-}
-
-class _$ClearAt_Time extends ClearAt_Time {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final ClearAtTimeType? clearAtTimeType;
-
-  factory _$ClearAt_Time([void Function(ClearAt_TimeBuilder)? updates]) =>
-      (ClearAt_TimeBuilder()..update(updates))._build();
-
-  _$ClearAt_Time._({required this.data, this.$int, this.clearAtTimeType}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'ClearAt_Time', 'data');
-  }
-
-  @override
-  ClearAt_Time rebuild(void Function(ClearAt_TimeBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  ClearAt_TimeBuilder toBuilder() => ClearAt_TimeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ClearAt_Time &&
-        data == other.data &&
-        $int == other.$int &&
-        clearAtTimeType == other.clearAtTimeType;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, clearAtTimeType.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ClearAt_Time')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('clearAtTimeType', clearAtTimeType))
-        .toString();
-  }
-}
-
-class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>, $ClearAt_TimeInterfaceBuilder {
-  _$ClearAt_Time? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  ClearAtTimeType? _clearAtTimeType;
-  ClearAtTimeType? get clearAtTimeType => _$this._clearAtTimeType;
-  set clearAtTimeType(covariant ClearAtTimeType? clearAtTimeType) => _$this._clearAtTimeType = clearAtTimeType;
-
-  ClearAt_TimeBuilder();
-
-  ClearAt_TimeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _clearAtTimeType = $v.clearAtTimeType;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ClearAt_Time other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ClearAt_Time;
-  }
-
-  @override
-  void update(void Function(ClearAt_TimeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ClearAt_Time build() => _build();
-
-  _$ClearAt_Time _build() {
-    ClearAt_Time._validate(this);
-    final _$result = _$v ??
-        _$ClearAt_Time._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'ClearAt_Time', 'data'),
-            $int: $int,
-            clearAtTimeType: clearAtTimeType);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ClearAtInterfaceBuilder {
   void replace($ClearAtInterface other);
   void update(void Function($ClearAtInterfaceBuilder) updates);
   ClearAt_Type? get type;
   set type(ClearAt_Type? type);
 
-  ClearAt_TimeBuilder get time;
-  set time(ClearAt_TimeBuilder? time);
+  ClearAt_Time? get time;
+  set time(ClearAt_Time? time);
 }
 
 class _$ClearAt extends ClearAt {
@@ -2351,7 +2236,8 @@ class _$ClearAt extends ClearAt {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ClearAt && type == other.type && time == other.time;
+    final dynamic _$dynamicOther = other;
+    return other is ClearAt && type == other.type && time == _$dynamicOther.time;
   }
 
   @override
@@ -2379,9 +2265,9 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
   ClearAt_Type? get type => _$this._type;
   set type(covariant ClearAt_Type? type) => _$this._type = type;
 
-  ClearAt_TimeBuilder? _time;
-  ClearAt_TimeBuilder get time => _$this._time ??= ClearAt_TimeBuilder();
-  set time(covariant ClearAt_TimeBuilder? time) => _$this._time = time;
+  ClearAt_Time? _time;
+  ClearAt_Time? get time => _$this._time;
+  set time(covariant ClearAt_Time? time) => _$this._time = time;
 
   ClearAtBuilder();
 
@@ -2389,7 +2275,7 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
     final $v = _$v;
     if ($v != null) {
       _type = $v.type;
-      _time = $v.time.toBuilder();
+      _time = $v.time;
       _$v = null;
     }
     return this;
@@ -2410,20 +2296,11 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
   ClearAt build() => _build();
 
   _$ClearAt _build() {
-    _$ClearAt _$result;
-    try {
-      _$result =
-          _$v ?? _$ClearAt._(type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'), time: time.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'time';
-        time.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'ClearAt', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    ClearAt._validate(this);
+    final _$result = _$v ??
+        _$ClearAt._(
+            type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'),
+            time: BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time'));
     replace(_$result);
     return _$result;
   }
@@ -4386,156 +4263,14 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace($UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  PrivateBuilder get private;
-  set private(PrivateBuilder? private);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data
-    extends UserStatusRevertStatusResponseApplicationJson_Ocs_Data {
-  @override
-  final JsonObject data;
-  @override
-  final Private? private;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data(
-          [void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
-
-  _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data._(
-      {required this.data, this.private, this.builtListJsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', 'data');
-  }
-
-  @override
-  UserStatusRevertStatusResponseApplicationJson_Ocs_Data rebuild(
-          void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserStatusRevertStatusResponseApplicationJson_Ocs_Data &&
-        data == other.data &&
-        private == other.private &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, private.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data')
-          ..add('data', data)
-          ..add('private', private)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
-            UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder>,
-        $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  PrivateBuilder? _private;
-  PrivateBuilder get private => _$this._private ??= PrivateBuilder();
-  set private(covariant PrivateBuilder? private) => _$this._private = private;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder();
-
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _private = $v.private?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserStatusRevertStatusResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserStatusRevertStatusResponseApplicationJson_Ocs_Data build() => _build();
-
-  _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data _build() {
-    UserStatusRevertStatusResponseApplicationJson_Ocs_Data._validate(this);
-    _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data _$result;
-    try {
-      _$result = _$v ??
-          _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', 'data'),
-              private: _private?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'private';
-        _private?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'UserStatusRevertStatusResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
   void replace($UserStatusRevertStatusResponseApplicationJson_OcsInterface other);
   void update(void Function($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder? data);
+  UserStatusRevertStatusResponseApplicationJson_Ocs_Data? get data;
+  set data(UserStatusRevertStatusResponseApplicationJson_Ocs_Data? data);
 }
 
 class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusRevertStatusResponseApplicationJson_Ocs {
@@ -4565,7 +4300,10 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusReve
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UserStatusRevertStatusResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    final dynamic _$dynamicOther = other;
+    return other is UserStatusRevertStatusResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == _$dynamicOther.data;
   }
 
   @override
@@ -4597,10 +4335,9 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder? _data;
-  UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  UserStatusRevertStatusResponseApplicationJson_Ocs_Data? _data;
+  UserStatusRevertStatusResponseApplicationJson_Ocs_Data? get data => _$this._data;
+  set data(covariant UserStatusRevertStatusResponseApplicationJson_Ocs_Data? data) => _$this._data = data;
 
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
 
@@ -4608,7 +4345,7 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
+      _data = $v.data;
       _$v = null;
     }
     return this;
@@ -4629,16 +4366,19 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
   UserStatusRevertStatusResponseApplicationJson_Ocs build() => _build();
 
   _$UserStatusRevertStatusResponseApplicationJson_Ocs _build() {
+    UserStatusRevertStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$UserStatusRevertStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$UserStatusRevertStatusResponseApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
-        _$failedField = 'data';
-        data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'UserStatusRevertStatusResponseApplicationJson_Ocs', _$failedField, e.toString());

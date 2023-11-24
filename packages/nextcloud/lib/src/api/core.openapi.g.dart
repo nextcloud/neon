@@ -1052,8 +1052,8 @@ class _$AutocompleteResultSerializer implements StructuredSerializer<Autocomplet
           result.source = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status.replace(serializers.deserialize(value,
-              specifiedType: const FullType(AutocompleteResult_Status))! as AutocompleteResult_Status);
+          result.status = serializers.deserialize(value, specifiedType: const FullType(AutocompleteResult_Status))!
+              as AutocompleteResult_Status;
           break;
         case 'subline':
           result.subline = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2471,8 +2471,8 @@ class _$NavigationEntrySerializer implements StructuredSerializer<NavigationEntr
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'order':
-          result.order.replace(serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))!
-              as NavigationEntry_Order);
+          result.order = serializers.deserialize(value, specifiedType: const FullType(NavigationEntry_Order))!
+              as NavigationEntry_Order;
           break;
         case 'href':
           result.href = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -5792,9 +5792,9 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_DataSerializer
               as OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version);
           break;
         case 'capabilities':
-          result.capabilities.replace(serializers.deserialize(value,
+          result.capabilities = serializers.deserialize(value,
                   specifiedType: const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities))!
-              as OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities);
+              as OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
           break;
       }
     }
@@ -9005,8 +9005,8 @@ class _$UnifiedSearchResultSerializer implements StructuredSerializer<UnifiedSea
               specifiedType: const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]))! as BuiltList<Object?>);
           break;
         case 'cursor':
-          result.cursor.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UnifiedSearchResult_Cursor))! as UnifiedSearchResult_Cursor);
+          result.cursor = serializers.deserialize(value, specifiedType: const FullType(UnifiedSearchResult_Cursor))
+              as UnifiedSearchResult_Cursor?;
           break;
       }
     }
@@ -10803,138 +10803,6 @@ class AutocompleteResult_Status0Builder
   }
 }
 
-abstract mixin class $AutocompleteResult_StatusInterfaceBuilder {
-  void replace($AutocompleteResult_StatusInterface other);
-  void update(void Function($AutocompleteResult_StatusInterfaceBuilder) updates);
-  AutocompleteResult_Status0Builder get autocompleteResultStatus0;
-  set autocompleteResultStatus0(AutocompleteResult_Status0Builder? autocompleteResultStatus0);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$AutocompleteResult_Status extends AutocompleteResult_Status {
-  @override
-  final JsonObject data;
-  @override
-  final AutocompleteResult_Status0? autocompleteResultStatus0;
-  @override
-  final String? string;
-
-  factory _$AutocompleteResult_Status([void Function(AutocompleteResult_StatusBuilder)? updates]) =>
-      (AutocompleteResult_StatusBuilder()..update(updates))._build();
-
-  _$AutocompleteResult_Status._({required this.data, this.autocompleteResultStatus0, this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'AutocompleteResult_Status', 'data');
-  }
-
-  @override
-  AutocompleteResult_Status rebuild(void Function(AutocompleteResult_StatusBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  AutocompleteResult_StatusBuilder toBuilder() => AutocompleteResult_StatusBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is AutocompleteResult_Status &&
-        data == other.data &&
-        autocompleteResultStatus0 == other.autocompleteResultStatus0 &&
-        string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, autocompleteResultStatus0.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'AutocompleteResult_Status')
-          ..add('data', data)
-          ..add('autocompleteResultStatus0', autocompleteResultStatus0)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class AutocompleteResult_StatusBuilder
-    implements
-        Builder<AutocompleteResult_Status, AutocompleteResult_StatusBuilder>,
-        $AutocompleteResult_StatusInterfaceBuilder {
-  _$AutocompleteResult_Status? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  AutocompleteResult_Status0Builder? _autocompleteResultStatus0;
-  AutocompleteResult_Status0Builder get autocompleteResultStatus0 =>
-      _$this._autocompleteResultStatus0 ??= AutocompleteResult_Status0Builder();
-  set autocompleteResultStatus0(covariant AutocompleteResult_Status0Builder? autocompleteResultStatus0) =>
-      _$this._autocompleteResultStatus0 = autocompleteResultStatus0;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  AutocompleteResult_StatusBuilder();
-
-  AutocompleteResult_StatusBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _autocompleteResultStatus0 = $v.autocompleteResultStatus0?.toBuilder();
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant AutocompleteResult_Status other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$AutocompleteResult_Status;
-  }
-
-  @override
-  void update(void Function(AutocompleteResult_StatusBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  AutocompleteResult_Status build() => _build();
-
-  _$AutocompleteResult_Status _build() {
-    AutocompleteResult_Status._validate(this);
-    _$AutocompleteResult_Status _$result;
-    try {
-      _$result = _$v ??
-          _$AutocompleteResult_Status._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'AutocompleteResult_Status', 'data'),
-              autocompleteResultStatus0: _autocompleteResultStatus0?.build(),
-              string: string);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'autocompleteResultStatus0';
-        _autocompleteResultStatus0?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'AutocompleteResult_Status', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $AutocompleteResultInterfaceBuilder {
   void replace($AutocompleteResultInterface other);
   void update(void Function($AutocompleteResultInterfaceBuilder) updates);
@@ -10950,8 +10818,8 @@ abstract mixin class $AutocompleteResultInterfaceBuilder {
   String? get source;
   set source(String? source);
 
-  AutocompleteResult_StatusBuilder get status;
-  set status(AutocompleteResult_StatusBuilder? status);
+  AutocompleteResult_Status? get status;
+  set status(AutocompleteResult_Status? status);
 
   String? get subline;
   set subline(String? subline);
@@ -11008,12 +10876,13 @@ class _$AutocompleteResult extends AutocompleteResult {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is AutocompleteResult &&
         id == other.id &&
         label == other.label &&
         icon == other.icon &&
         source == other.source &&
-        status == other.status &&
+        status == _$dynamicOther.status &&
         subline == other.subline &&
         shareWithDisplayNameUnique == other.shareWithDisplayNameUnique;
   }
@@ -11066,9 +10935,9 @@ class AutocompleteResultBuilder
   String? get source => _$this._source;
   set source(covariant String? source) => _$this._source = source;
 
-  AutocompleteResult_StatusBuilder? _status;
-  AutocompleteResult_StatusBuilder get status => _$this._status ??= AutocompleteResult_StatusBuilder();
-  set status(covariant AutocompleteResult_StatusBuilder? status) => _$this._status = status;
+  AutocompleteResult_Status? _status;
+  AutocompleteResult_Status? get status => _$this._status;
+  set status(covariant AutocompleteResult_Status? status) => _$this._status = status;
 
   String? _subline;
   String? get subline => _$this._subline;
@@ -11088,7 +10957,7 @@ class AutocompleteResultBuilder
       _label = $v.label;
       _icon = $v.icon;
       _source = $v.source;
-      _status = $v.status.toBuilder();
+      _status = $v.status;
       _subline = $v.subline;
       _shareWithDisplayNameUnique = $v.shareWithDisplayNameUnique;
       _$v = null;
@@ -11111,28 +10980,17 @@ class AutocompleteResultBuilder
   AutocompleteResult build() => _build();
 
   _$AutocompleteResult _build() {
-    _$AutocompleteResult _$result;
-    try {
-      _$result = _$v ??
-          _$AutocompleteResult._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'AutocompleteResult', 'id'),
-              label: BuiltValueNullFieldError.checkNotNull(label, r'AutocompleteResult', 'label'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'AutocompleteResult', 'icon'),
-              source: BuiltValueNullFieldError.checkNotNull(source, r'AutocompleteResult', 'source'),
-              status: status.build(),
-              subline: BuiltValueNullFieldError.checkNotNull(subline, r'AutocompleteResult', 'subline'),
-              shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                  shareWithDisplayNameUnique, r'AutocompleteResult', 'shareWithDisplayNameUnique'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'status';
-        status.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'AutocompleteResult', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    AutocompleteResult._validate(this);
+    final _$result = _$v ??
+        _$AutocompleteResult._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'AutocompleteResult', 'id'),
+            label: BuiltValueNullFieldError.checkNotNull(label, r'AutocompleteResult', 'label'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'AutocompleteResult', 'icon'),
+            source: BuiltValueNullFieldError.checkNotNull(source, r'AutocompleteResult', 'source'),
+            status: BuiltValueNullFieldError.checkNotNull(status, r'AutocompleteResult', 'status'),
+            subline: BuiltValueNullFieldError.checkNotNull(subline, r'AutocompleteResult', 'subline'),
+            shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
+                shareWithDisplayNameUnique, r'AutocompleteResult', 'shareWithDisplayNameUnique'));
     replace(_$result);
     return _$result;
   }
@@ -14489,127 +14347,14 @@ class HoverCardGetUserResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $NavigationEntry_OrderInterfaceBuilder {
-  void replace($NavigationEntry_OrderInterface other);
-  void update(void Function($NavigationEntry_OrderInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$NavigationEntry_Order extends NavigationEntry_Order {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final String? string;
-
-  factory _$NavigationEntry_Order([void Function(NavigationEntry_OrderBuilder)? updates]) =>
-      (NavigationEntry_OrderBuilder()..update(updates))._build();
-
-  _$NavigationEntry_Order._({required this.data, this.$int, this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'NavigationEntry_Order', 'data');
-  }
-
-  @override
-  NavigationEntry_Order rebuild(void Function(NavigationEntry_OrderBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  NavigationEntry_OrderBuilder toBuilder() => NavigationEntry_OrderBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is NavigationEntry_Order && data == other.data && $int == other.$int && string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'NavigationEntry_Order')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class NavigationEntry_OrderBuilder
-    implements Builder<NavigationEntry_Order, NavigationEntry_OrderBuilder>, $NavigationEntry_OrderInterfaceBuilder {
-  _$NavigationEntry_Order? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  NavigationEntry_OrderBuilder();
-
-  NavigationEntry_OrderBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant NavigationEntry_Order other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$NavigationEntry_Order;
-  }
-
-  @override
-  void update(void Function(NavigationEntry_OrderBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  NavigationEntry_Order build() => _build();
-
-  _$NavigationEntry_Order _build() {
-    NavigationEntry_Order._validate(this);
-    final _$result = _$v ??
-        _$NavigationEntry_Order._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'NavigationEntry_Order', 'data'),
-            $int: $int,
-            string: string);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $NavigationEntryInterfaceBuilder {
   void replace($NavigationEntryInterface other);
   void update(void Function($NavigationEntryInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
-  NavigationEntry_OrderBuilder get order;
-  set order(NavigationEntry_OrderBuilder? order);
+  NavigationEntry_Order? get order;
+  set order(NavigationEntry_Order? order);
 
   String? get href;
   set href(String? href);
@@ -14687,9 +14432,10 @@ class _$NavigationEntry extends NavigationEntry {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is NavigationEntry &&
         id == other.id &&
-        order == other.order &&
+        order == _$dynamicOther.order &&
         href == other.href &&
         icon == other.icon &&
         type == other.type &&
@@ -14739,9 +14485,9 @@ class NavigationEntryBuilder
   String? get id => _$this._id;
   set id(covariant String? id) => _$this._id = id;
 
-  NavigationEntry_OrderBuilder? _order;
-  NavigationEntry_OrderBuilder get order => _$this._order ??= NavigationEntry_OrderBuilder();
-  set order(covariant NavigationEntry_OrderBuilder? order) => _$this._order = order;
+  NavigationEntry_Order? _order;
+  NavigationEntry_Order? get order => _$this._order;
+  set order(covariant NavigationEntry_Order? order) => _$this._order = order;
 
   String? _href;
   String? get href => _$this._href;
@@ -14777,7 +14523,7 @@ class NavigationEntryBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
-      _order = $v.order.toBuilder();
+      _order = $v.order;
       _href = $v.href;
       _icon = $v.icon;
       _type = $v.type;
@@ -14805,29 +14551,18 @@ class NavigationEntryBuilder
   NavigationEntry build() => _build();
 
   _$NavigationEntry _build() {
-    _$NavigationEntry _$result;
-    try {
-      _$result = _$v ??
-          _$NavigationEntry._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id'),
-              order: order.build(),
-              href: BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href'),
-              icon: BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'NavigationEntry', 'name'),
-              active: BuiltValueNullFieldError.checkNotNull(active, r'NavigationEntry', 'active'),
-              classes: BuiltValueNullFieldError.checkNotNull(classes, r'NavigationEntry', 'classes'),
-              unread: BuiltValueNullFieldError.checkNotNull(unread, r'NavigationEntry', 'unread'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'order';
-        order.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'NavigationEntry', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    NavigationEntry._validate(this);
+    final _$result = _$v ??
+        _$NavigationEntry._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'NavigationEntry', 'id'),
+            order: BuiltValueNullFieldError.checkNotNull(order, r'NavigationEntry', 'order'),
+            href: BuiltValueNullFieldError.checkNotNull(href, r'NavigationEntry', 'href'),
+            icon: BuiltValueNullFieldError.checkNotNull(icon, r'NavigationEntry', 'icon'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'NavigationEntry', 'type'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'NavigationEntry', 'name'),
+            active: BuiltValueNullFieldError.checkNotNull(active, r'NavigationEntry', 'active'),
+            classes: BuiltValueNullFieldError.checkNotNull(classes, r'NavigationEntry', 'classes'),
+            unread: BuiltValueNullFieldError.checkNotNull(unread, r'NavigationEntry', 'unread'));
     replace(_$result);
     return _$result;
   }
@@ -20613,142 +20348,6 @@ class SharebymailCapabilities0Builder
   }
 }
 
-abstract mixin class $SharebymailCapabilitiesInterfaceBuilder {
-  void replace($SharebymailCapabilitiesInterface other);
-  void update(void Function($SharebymailCapabilitiesInterfaceBuilder) updates);
-  SharebymailCapabilities0Builder get sharebymailCapabilities0;
-  set sharebymailCapabilities0(SharebymailCapabilities0Builder? sharebymailCapabilities0);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$SharebymailCapabilities extends SharebymailCapabilities {
-  @override
-  final JsonObject data;
-  @override
-  final SharebymailCapabilities0? sharebymailCapabilities0;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$SharebymailCapabilities([void Function(SharebymailCapabilitiesBuilder)? updates]) =>
-      (SharebymailCapabilitiesBuilder()..update(updates))._build();
-
-  _$SharebymailCapabilities._({required this.data, this.sharebymailCapabilities0, this.builtListJsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'SharebymailCapabilities', 'data');
-  }
-
-  @override
-  SharebymailCapabilities rebuild(void Function(SharebymailCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SharebymailCapabilitiesBuilder toBuilder() => SharebymailCapabilitiesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SharebymailCapabilities &&
-        data == other.data &&
-        sharebymailCapabilities0 == other.sharebymailCapabilities0 &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, sharebymailCapabilities0.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SharebymailCapabilities')
-          ..add('data', data)
-          ..add('sharebymailCapabilities0', sharebymailCapabilities0)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class SharebymailCapabilitiesBuilder
-    implements
-        Builder<SharebymailCapabilities, SharebymailCapabilitiesBuilder>,
-        $SharebymailCapabilitiesInterfaceBuilder {
-  _$SharebymailCapabilities? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  SharebymailCapabilities0Builder? _sharebymailCapabilities0;
-  SharebymailCapabilities0Builder get sharebymailCapabilities0 =>
-      _$this._sharebymailCapabilities0 ??= SharebymailCapabilities0Builder();
-  set sharebymailCapabilities0(covariant SharebymailCapabilities0Builder? sharebymailCapabilities0) =>
-      _$this._sharebymailCapabilities0 = sharebymailCapabilities0;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  SharebymailCapabilitiesBuilder();
-
-  SharebymailCapabilitiesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _sharebymailCapabilities0 = $v.sharebymailCapabilities0?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SharebymailCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SharebymailCapabilities;
-  }
-
-  @override
-  void update(void Function(SharebymailCapabilitiesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SharebymailCapabilities build() => _build();
-
-  _$SharebymailCapabilities _build() {
-    SharebymailCapabilities._validate(this);
-    _$SharebymailCapabilities _$result;
-    try {
-      _$result = _$v ??
-          _$SharebymailCapabilities._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'SharebymailCapabilities', 'data'),
-              sharebymailCapabilities0: _sharebymailCapabilities0?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'sharebymailCapabilities0';
-        _sharebymailCapabilities0?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'SharebymailCapabilities', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder {
   void replace($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface other);
   void update(void Function($SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterfaceBuilder) updates);
@@ -22052,142 +21651,6 @@ class SpreedPublicCapabilities0Builder
   }
 }
 
-abstract mixin class $SpreedPublicCapabilitiesInterfaceBuilder {
-  void replace($SpreedPublicCapabilitiesInterface other);
-  void update(void Function($SpreedPublicCapabilitiesInterfaceBuilder) updates);
-  SpreedPublicCapabilities0Builder get spreedPublicCapabilities0;
-  set spreedPublicCapabilities0(SpreedPublicCapabilities0Builder? spreedPublicCapabilities0);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$SpreedPublicCapabilities extends SpreedPublicCapabilities {
-  @override
-  final JsonObject data;
-  @override
-  final SpreedPublicCapabilities0? spreedPublicCapabilities0;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$SpreedPublicCapabilities([void Function(SpreedPublicCapabilitiesBuilder)? updates]) =>
-      (SpreedPublicCapabilitiesBuilder()..update(updates))._build();
-
-  _$SpreedPublicCapabilities._({required this.data, this.spreedPublicCapabilities0, this.builtListJsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'SpreedPublicCapabilities', 'data');
-  }
-
-  @override
-  SpreedPublicCapabilities rebuild(void Function(SpreedPublicCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SpreedPublicCapabilitiesBuilder toBuilder() => SpreedPublicCapabilitiesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SpreedPublicCapabilities &&
-        data == other.data &&
-        spreedPublicCapabilities0 == other.spreedPublicCapabilities0 &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, spreedPublicCapabilities0.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SpreedPublicCapabilities')
-          ..add('data', data)
-          ..add('spreedPublicCapabilities0', spreedPublicCapabilities0)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class SpreedPublicCapabilitiesBuilder
-    implements
-        Builder<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder>,
-        $SpreedPublicCapabilitiesInterfaceBuilder {
-  _$SpreedPublicCapabilities? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  SpreedPublicCapabilities0Builder? _spreedPublicCapabilities0;
-  SpreedPublicCapabilities0Builder get spreedPublicCapabilities0 =>
-      _$this._spreedPublicCapabilities0 ??= SpreedPublicCapabilities0Builder();
-  set spreedPublicCapabilities0(covariant SpreedPublicCapabilities0Builder? spreedPublicCapabilities0) =>
-      _$this._spreedPublicCapabilities0 = spreedPublicCapabilities0;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  SpreedPublicCapabilitiesBuilder();
-
-  SpreedPublicCapabilitiesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _spreedPublicCapabilities0 = $v.spreedPublicCapabilities0?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SpreedPublicCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SpreedPublicCapabilities;
-  }
-
-  @override
-  void update(void Function(SpreedPublicCapabilitiesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SpreedPublicCapabilities build() => _build();
-
-  _$SpreedPublicCapabilities _build() {
-    SpreedPublicCapabilities._validate(this);
-    _$SpreedPublicCapabilities _$result;
-    try {
-      _$result = _$v ??
-          _$SpreedPublicCapabilities._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'SpreedPublicCapabilities', 'data'),
-              spreedPublicCapabilities0: _spreedPublicCapabilities0?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'spreedPublicCapabilities0';
-        _spreedPublicCapabilities0?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ThemingPublicCapabilities_ThemingInterfaceBuilder {
   void replace($ThemingPublicCapabilities_ThemingInterface other);
   void update(void Function($ThemingPublicCapabilities_ThemingInterfaceBuilder) updates);
@@ -23016,386 +22479,14 @@ class WeatherStatusCapabilitiesBuilder
   }
 }
 
-abstract mixin class $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder {
-  void replace($OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface other);
-  void update(void Function($OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder) updates);
-  CommentsCapabilitiesBuilder get commentsCapabilities;
-  set commentsCapabilities(CommentsCapabilitiesBuilder? commentsCapabilities);
-
-  DavCapabilitiesBuilder get davCapabilities;
-  set davCapabilities(DavCapabilitiesBuilder? davCapabilities);
-
-  FilesCapabilitiesBuilder get filesCapabilities;
-  set filesCapabilities(FilesCapabilitiesBuilder? filesCapabilities);
-
-  FilesSharingCapabilitiesBuilder get filesSharingCapabilities;
-  set filesSharingCapabilities(FilesSharingCapabilitiesBuilder? filesSharingCapabilities);
-
-  FilesTrashbinCapabilitiesBuilder get filesTrashbinCapabilities;
-  set filesTrashbinCapabilities(FilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities);
-
-  FilesVersionsCapabilitiesBuilder get filesVersionsCapabilities;
-  set filesVersionsCapabilities(FilesVersionsCapabilitiesBuilder? filesVersionsCapabilities);
-
-  NotesCapabilitiesBuilder get notesCapabilities;
-  set notesCapabilities(NotesCapabilitiesBuilder? notesCapabilities);
-
-  NotificationsCapabilitiesBuilder get notificationsCapabilities;
-  set notificationsCapabilities(NotificationsCapabilitiesBuilder? notificationsCapabilities);
-
-  ProvisioningApiCapabilitiesBuilder get provisioningApiCapabilities;
-  set provisioningApiCapabilities(ProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities);
-
-  SharebymailCapabilitiesBuilder get sharebymailCapabilities;
-  set sharebymailCapabilities(SharebymailCapabilitiesBuilder? sharebymailCapabilities);
-
-  SpreedPublicCapabilitiesBuilder get spreedPublicCapabilities;
-  set spreedPublicCapabilities(SpreedPublicCapabilitiesBuilder? spreedPublicCapabilities);
-
-  ThemingPublicCapabilitiesBuilder get themingPublicCapabilities;
-  set themingPublicCapabilities(ThemingPublicCapabilitiesBuilder? themingPublicCapabilities);
-
-  UserStatusCapabilitiesBuilder get userStatusCapabilities;
-  set userStatusCapabilities(UserStatusCapabilitiesBuilder? userStatusCapabilities);
-
-  WeatherStatusCapabilitiesBuilder get weatherStatusCapabilities;
-  set weatherStatusCapabilities(WeatherStatusCapabilitiesBuilder? weatherStatusCapabilities);
-}
-
-class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
-    extends OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
-  @override
-  final JsonObject data;
-  @override
-  final CommentsCapabilities? commentsCapabilities;
-  @override
-  final DavCapabilities? davCapabilities;
-  @override
-  final FilesCapabilities? filesCapabilities;
-  @override
-  final FilesSharingCapabilities? filesSharingCapabilities;
-  @override
-  final FilesTrashbinCapabilities? filesTrashbinCapabilities;
-  @override
-  final FilesVersionsCapabilities? filesVersionsCapabilities;
-  @override
-  final NotesCapabilities? notesCapabilities;
-  @override
-  final NotificationsCapabilities? notificationsCapabilities;
-  @override
-  final ProvisioningApiCapabilities? provisioningApiCapabilities;
-  @override
-  final SharebymailCapabilities? sharebymailCapabilities;
-  @override
-  final SpreedPublicCapabilities? spreedPublicCapabilities;
-  @override
-  final ThemingPublicCapabilities? themingPublicCapabilities;
-  @override
-  final UserStatusCapabilities? userStatusCapabilities;
-  @override
-  final WeatherStatusCapabilities? weatherStatusCapabilities;
-
-  factory _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities(
-          [void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates]) =>
-      (OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..update(updates))._build();
-
-  _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._(
-      {required this.data,
-      this.commentsCapabilities,
-      this.davCapabilities,
-      this.filesCapabilities,
-      this.filesSharingCapabilities,
-      this.filesTrashbinCapabilities,
-      this.filesVersionsCapabilities,
-      this.notesCapabilities,
-      this.notificationsCapabilities,
-      this.provisioningApiCapabilities,
-      this.sharebymailCapabilities,
-      this.spreedPublicCapabilities,
-      this.themingPublicCapabilities,
-      this.userStatusCapabilities,
-      this.weatherStatusCapabilities})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', 'data');
-  }
-
-  @override
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities rebuild(
-          void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder toBuilder() =>
-      OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities &&
-        data == other.data &&
-        commentsCapabilities == other.commentsCapabilities &&
-        davCapabilities == other.davCapabilities &&
-        filesCapabilities == other.filesCapabilities &&
-        filesSharingCapabilities == other.filesSharingCapabilities &&
-        filesTrashbinCapabilities == other.filesTrashbinCapabilities &&
-        filesVersionsCapabilities == other.filesVersionsCapabilities &&
-        notesCapabilities == other.notesCapabilities &&
-        notificationsCapabilities == other.notificationsCapabilities &&
-        provisioningApiCapabilities == other.provisioningApiCapabilities &&
-        sharebymailCapabilities == other.sharebymailCapabilities &&
-        spreedPublicCapabilities == other.spreedPublicCapabilities &&
-        themingPublicCapabilities == other.themingPublicCapabilities &&
-        userStatusCapabilities == other.userStatusCapabilities &&
-        weatherStatusCapabilities == other.weatherStatusCapabilities;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, commentsCapabilities.hashCode);
-    _$hash = $jc(_$hash, davCapabilities.hashCode);
-    _$hash = $jc(_$hash, filesCapabilities.hashCode);
-    _$hash = $jc(_$hash, filesSharingCapabilities.hashCode);
-    _$hash = $jc(_$hash, filesTrashbinCapabilities.hashCode);
-    _$hash = $jc(_$hash, filesVersionsCapabilities.hashCode);
-    _$hash = $jc(_$hash, notesCapabilities.hashCode);
-    _$hash = $jc(_$hash, notificationsCapabilities.hashCode);
-    _$hash = $jc(_$hash, provisioningApiCapabilities.hashCode);
-    _$hash = $jc(_$hash, sharebymailCapabilities.hashCode);
-    _$hash = $jc(_$hash, spreedPublicCapabilities.hashCode);
-    _$hash = $jc(_$hash, themingPublicCapabilities.hashCode);
-    _$hash = $jc(_$hash, userStatusCapabilities.hashCode);
-    _$hash = $jc(_$hash, weatherStatusCapabilities.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities')
-          ..add('data', data)
-          ..add('commentsCapabilities', commentsCapabilities)
-          ..add('davCapabilities', davCapabilities)
-          ..add('filesCapabilities', filesCapabilities)
-          ..add('filesSharingCapabilities', filesSharingCapabilities)
-          ..add('filesTrashbinCapabilities', filesTrashbinCapabilities)
-          ..add('filesVersionsCapabilities', filesVersionsCapabilities)
-          ..add('notesCapabilities', notesCapabilities)
-          ..add('notificationsCapabilities', notificationsCapabilities)
-          ..add('provisioningApiCapabilities', provisioningApiCapabilities)
-          ..add('sharebymailCapabilities', sharebymailCapabilities)
-          ..add('spreedPublicCapabilities', spreedPublicCapabilities)
-          ..add('themingPublicCapabilities', themingPublicCapabilities)
-          ..add('userStatusCapabilities', userStatusCapabilities)
-          ..add('weatherStatusCapabilities', weatherStatusCapabilities))
-        .toString();
-  }
-}
-
-class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder
-    implements
-        Builder<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder>,
-        $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterfaceBuilder {
-  _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  CommentsCapabilitiesBuilder? _commentsCapabilities;
-  CommentsCapabilitiesBuilder get commentsCapabilities =>
-      _$this._commentsCapabilities ??= CommentsCapabilitiesBuilder();
-  set commentsCapabilities(covariant CommentsCapabilitiesBuilder? commentsCapabilities) =>
-      _$this._commentsCapabilities = commentsCapabilities;
-
-  DavCapabilitiesBuilder? _davCapabilities;
-  DavCapabilitiesBuilder get davCapabilities => _$this._davCapabilities ??= DavCapabilitiesBuilder();
-  set davCapabilities(covariant DavCapabilitiesBuilder? davCapabilities) => _$this._davCapabilities = davCapabilities;
-
-  FilesCapabilitiesBuilder? _filesCapabilities;
-  FilesCapabilitiesBuilder get filesCapabilities => _$this._filesCapabilities ??= FilesCapabilitiesBuilder();
-  set filesCapabilities(covariant FilesCapabilitiesBuilder? filesCapabilities) =>
-      _$this._filesCapabilities = filesCapabilities;
-
-  FilesSharingCapabilitiesBuilder? _filesSharingCapabilities;
-  FilesSharingCapabilitiesBuilder get filesSharingCapabilities =>
-      _$this._filesSharingCapabilities ??= FilesSharingCapabilitiesBuilder();
-  set filesSharingCapabilities(covariant FilesSharingCapabilitiesBuilder? filesSharingCapabilities) =>
-      _$this._filesSharingCapabilities = filesSharingCapabilities;
-
-  FilesTrashbinCapabilitiesBuilder? _filesTrashbinCapabilities;
-  FilesTrashbinCapabilitiesBuilder get filesTrashbinCapabilities =>
-      _$this._filesTrashbinCapabilities ??= FilesTrashbinCapabilitiesBuilder();
-  set filesTrashbinCapabilities(covariant FilesTrashbinCapabilitiesBuilder? filesTrashbinCapabilities) =>
-      _$this._filesTrashbinCapabilities = filesTrashbinCapabilities;
-
-  FilesVersionsCapabilitiesBuilder? _filesVersionsCapabilities;
-  FilesVersionsCapabilitiesBuilder get filesVersionsCapabilities =>
-      _$this._filesVersionsCapabilities ??= FilesVersionsCapabilitiesBuilder();
-  set filesVersionsCapabilities(covariant FilesVersionsCapabilitiesBuilder? filesVersionsCapabilities) =>
-      _$this._filesVersionsCapabilities = filesVersionsCapabilities;
-
-  NotesCapabilitiesBuilder? _notesCapabilities;
-  NotesCapabilitiesBuilder get notesCapabilities => _$this._notesCapabilities ??= NotesCapabilitiesBuilder();
-  set notesCapabilities(covariant NotesCapabilitiesBuilder? notesCapabilities) =>
-      _$this._notesCapabilities = notesCapabilities;
-
-  NotificationsCapabilitiesBuilder? _notificationsCapabilities;
-  NotificationsCapabilitiesBuilder get notificationsCapabilities =>
-      _$this._notificationsCapabilities ??= NotificationsCapabilitiesBuilder();
-  set notificationsCapabilities(covariant NotificationsCapabilitiesBuilder? notificationsCapabilities) =>
-      _$this._notificationsCapabilities = notificationsCapabilities;
-
-  ProvisioningApiCapabilitiesBuilder? _provisioningApiCapabilities;
-  ProvisioningApiCapabilitiesBuilder get provisioningApiCapabilities =>
-      _$this._provisioningApiCapabilities ??= ProvisioningApiCapabilitiesBuilder();
-  set provisioningApiCapabilities(covariant ProvisioningApiCapabilitiesBuilder? provisioningApiCapabilities) =>
-      _$this._provisioningApiCapabilities = provisioningApiCapabilities;
-
-  SharebymailCapabilitiesBuilder? _sharebymailCapabilities;
-  SharebymailCapabilitiesBuilder get sharebymailCapabilities =>
-      _$this._sharebymailCapabilities ??= SharebymailCapabilitiesBuilder();
-  set sharebymailCapabilities(covariant SharebymailCapabilitiesBuilder? sharebymailCapabilities) =>
-      _$this._sharebymailCapabilities = sharebymailCapabilities;
-
-  SpreedPublicCapabilitiesBuilder? _spreedPublicCapabilities;
-  SpreedPublicCapabilitiesBuilder get spreedPublicCapabilities =>
-      _$this._spreedPublicCapabilities ??= SpreedPublicCapabilitiesBuilder();
-  set spreedPublicCapabilities(covariant SpreedPublicCapabilitiesBuilder? spreedPublicCapabilities) =>
-      _$this._spreedPublicCapabilities = spreedPublicCapabilities;
-
-  ThemingPublicCapabilitiesBuilder? _themingPublicCapabilities;
-  ThemingPublicCapabilitiesBuilder get themingPublicCapabilities =>
-      _$this._themingPublicCapabilities ??= ThemingPublicCapabilitiesBuilder();
-  set themingPublicCapabilities(covariant ThemingPublicCapabilitiesBuilder? themingPublicCapabilities) =>
-      _$this._themingPublicCapabilities = themingPublicCapabilities;
-
-  UserStatusCapabilitiesBuilder? _userStatusCapabilities;
-  UserStatusCapabilitiesBuilder get userStatusCapabilities =>
-      _$this._userStatusCapabilities ??= UserStatusCapabilitiesBuilder();
-  set userStatusCapabilities(covariant UserStatusCapabilitiesBuilder? userStatusCapabilities) =>
-      _$this._userStatusCapabilities = userStatusCapabilities;
-
-  WeatherStatusCapabilitiesBuilder? _weatherStatusCapabilities;
-  WeatherStatusCapabilitiesBuilder get weatherStatusCapabilities =>
-      _$this._weatherStatusCapabilities ??= WeatherStatusCapabilitiesBuilder();
-  set weatherStatusCapabilities(covariant WeatherStatusCapabilitiesBuilder? weatherStatusCapabilities) =>
-      _$this._weatherStatusCapabilities = weatherStatusCapabilities;
-
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder();
-
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _commentsCapabilities = $v.commentsCapabilities?.toBuilder();
-      _davCapabilities = $v.davCapabilities?.toBuilder();
-      _filesCapabilities = $v.filesCapabilities?.toBuilder();
-      _filesSharingCapabilities = $v.filesSharingCapabilities?.toBuilder();
-      _filesTrashbinCapabilities = $v.filesTrashbinCapabilities?.toBuilder();
-      _filesVersionsCapabilities = $v.filesVersionsCapabilities?.toBuilder();
-      _notesCapabilities = $v.notesCapabilities?.toBuilder();
-      _notificationsCapabilities = $v.notificationsCapabilities?.toBuilder();
-      _provisioningApiCapabilities = $v.provisioningApiCapabilities?.toBuilder();
-      _sharebymailCapabilities = $v.sharebymailCapabilities?.toBuilder();
-      _spreedPublicCapabilities = $v.spreedPublicCapabilities?.toBuilder();
-      _themingPublicCapabilities = $v.themingPublicCapabilities?.toBuilder();
-      _userStatusCapabilities = $v.userStatusCapabilities?.toBuilder();
-      _weatherStatusCapabilities = $v.weatherStatusCapabilities?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
-  }
-
-  @override
-  void update(void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities build() => _build();
-
-  _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _build() {
-    OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._validate(this);
-    _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities _$result;
-    try {
-      _$result = _$v ??
-          _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', 'data'),
-              commentsCapabilities: _commentsCapabilities?.build(),
-              davCapabilities: _davCapabilities?.build(),
-              filesCapabilities: _filesCapabilities?.build(),
-              filesSharingCapabilities: _filesSharingCapabilities?.build(),
-              filesTrashbinCapabilities: _filesTrashbinCapabilities?.build(),
-              filesVersionsCapabilities: _filesVersionsCapabilities?.build(),
-              notesCapabilities: _notesCapabilities?.build(),
-              notificationsCapabilities: _notificationsCapabilities?.build(),
-              provisioningApiCapabilities: _provisioningApiCapabilities?.build(),
-              sharebymailCapabilities: _sharebymailCapabilities?.build(),
-              spreedPublicCapabilities: _spreedPublicCapabilities?.build(),
-              themingPublicCapabilities: _themingPublicCapabilities?.build(),
-              userStatusCapabilities: _userStatusCapabilities?.build(),
-              weatherStatusCapabilities: _weatherStatusCapabilities?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'commentsCapabilities';
-        _commentsCapabilities?.build();
-        _$failedField = 'davCapabilities';
-        _davCapabilities?.build();
-        _$failedField = 'filesCapabilities';
-        _filesCapabilities?.build();
-        _$failedField = 'filesSharingCapabilities';
-        _filesSharingCapabilities?.build();
-        _$failedField = 'filesTrashbinCapabilities';
-        _filesTrashbinCapabilities?.build();
-        _$failedField = 'filesVersionsCapabilities';
-        _filesVersionsCapabilities?.build();
-        _$failedField = 'notesCapabilities';
-        _notesCapabilities?.build();
-        _$failedField = 'notificationsCapabilities';
-        _notificationsCapabilities?.build();
-        _$failedField = 'provisioningApiCapabilities';
-        _provisioningApiCapabilities?.build();
-        _$failedField = 'sharebymailCapabilities';
-        _sharebymailCapabilities?.build();
-        _$failedField = 'spreedPublicCapabilities';
-        _spreedPublicCapabilities?.build();
-        _$failedField = 'themingPublicCapabilities';
-        _themingPublicCapabilities?.build();
-        _$failedField = 'userStatusCapabilities';
-        _userStatusCapabilities?.build();
-        _$failedField = 'weatherStatusCapabilities';
-        _weatherStatusCapabilities?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder get version;
   set version(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder? version);
 
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities;
-  set capabilities(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities);
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? get capabilities;
+  set capabilities(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? capabilities);
 }
 
 class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data extends OcsGetCapabilitiesResponseApplicationJson_Ocs_Data {
@@ -23427,9 +22518,10 @@ class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data extends OcsGetCapabil
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is OcsGetCapabilitiesResponseApplicationJson_Ocs_Data &&
         version == other.version &&
-        capabilities == other.capabilities;
+        capabilities == _$dynamicOther.capabilities;
   }
 
   @override
@@ -23463,10 +22555,9 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
   set version(covariant OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder? version) =>
       _$this._version = version;
 
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? _capabilities;
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder get capabilities =>
-      _$this._capabilities ??= OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder();
-  set capabilities(covariant OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder? capabilities) =>
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? _capabilities;
+  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? get capabilities => _$this._capabilities;
+  set capabilities(covariant OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities? capabilities) =>
       _$this._capabilities = capabilities;
 
   OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder();
@@ -23475,7 +22566,7 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
     final $v = _$v;
     if ($v != null) {
       _version = $v.version.toBuilder();
-      _capabilities = $v.capabilities.toBuilder();
+      _capabilities = $v.capabilities;
       _$v = null;
     }
     return this;
@@ -23496,18 +22587,19 @@ class OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data build() => _build();
 
   _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data _build() {
+    OcsGetCapabilitiesResponseApplicationJson_Ocs_Data._validate(this);
     _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data _$result;
     try {
       _$result = _$v ??
           _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data._(
-              version: version.build(), capabilities: capabilities.build());
+              version: version.build(),
+              capabilities: BuiltValueNullFieldError.checkNotNull(
+                  capabilities, r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data', 'capabilities'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'version';
         version.build();
-        _$failedField = 'capabilities';
-        capabilities.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
@@ -30918,121 +30010,6 @@ class UnifiedSearchGetProvidersResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $UnifiedSearchSearchCursorInterfaceBuilder {
-  void replace($UnifiedSearchSearchCursorInterface other);
-  void update(void Function($UnifiedSearchSearchCursorInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$UnifiedSearchSearchCursor extends UnifiedSearchSearchCursor {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final String? string;
-
-  factory _$UnifiedSearchSearchCursor([void Function(UnifiedSearchSearchCursorBuilder)? updates]) =>
-      (UnifiedSearchSearchCursorBuilder()..update(updates))._build();
-
-  _$UnifiedSearchSearchCursor._({required this.data, this.$int, this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchSearchCursor', 'data');
-  }
-
-  @override
-  UnifiedSearchSearchCursor rebuild(void Function(UnifiedSearchSearchCursorBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UnifiedSearchSearchCursorBuilder toBuilder() => UnifiedSearchSearchCursorBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UnifiedSearchSearchCursor && data == other.data && $int == other.$int && string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UnifiedSearchSearchCursor')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class UnifiedSearchSearchCursorBuilder
-    implements
-        Builder<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder>,
-        $UnifiedSearchSearchCursorInterfaceBuilder {
-  _$UnifiedSearchSearchCursor? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  UnifiedSearchSearchCursorBuilder();
-
-  UnifiedSearchSearchCursorBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UnifiedSearchSearchCursor other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UnifiedSearchSearchCursor;
-  }
-
-  @override
-  void update(void Function(UnifiedSearchSearchCursorBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UnifiedSearchSearchCursor build() => _build();
-
-  _$UnifiedSearchSearchCursor _build() {
-    UnifiedSearchSearchCursor._validate(this);
-    final _$result = _$v ??
-        _$UnifiedSearchSearchCursor._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchSearchCursor', 'data'),
-            $int: $int,
-            string: string);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UnifiedSearchResultEntryInterfaceBuilder {
   void replace($UnifiedSearchResultEntryInterface other);
   void update(void Function($UnifiedSearchResultEntryInterfaceBuilder) updates);
@@ -31237,121 +30214,6 @@ class UnifiedSearchResultEntryBuilder
   }
 }
 
-abstract mixin class $UnifiedSearchResult_CursorInterfaceBuilder {
-  void replace($UnifiedSearchResult_CursorInterface other);
-  void update(void Function($UnifiedSearchResult_CursorInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$UnifiedSearchResult_Cursor extends UnifiedSearchResult_Cursor {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final String? string;
-
-  factory _$UnifiedSearchResult_Cursor([void Function(UnifiedSearchResult_CursorBuilder)? updates]) =>
-      (UnifiedSearchResult_CursorBuilder()..update(updates))._build();
-
-  _$UnifiedSearchResult_Cursor._({required this.data, this.$int, this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchResult_Cursor', 'data');
-  }
-
-  @override
-  UnifiedSearchResult_Cursor rebuild(void Function(UnifiedSearchResult_CursorBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UnifiedSearchResult_CursorBuilder toBuilder() => UnifiedSearchResult_CursorBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UnifiedSearchResult_Cursor && data == other.data && $int == other.$int && string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UnifiedSearchResult_Cursor')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class UnifiedSearchResult_CursorBuilder
-    implements
-        Builder<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder>,
-        $UnifiedSearchResult_CursorInterfaceBuilder {
-  _$UnifiedSearchResult_Cursor? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  UnifiedSearchResult_CursorBuilder();
-
-  UnifiedSearchResult_CursorBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UnifiedSearchResult_Cursor other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UnifiedSearchResult_Cursor;
-  }
-
-  @override
-  void update(void Function(UnifiedSearchResult_CursorBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UnifiedSearchResult_Cursor build() => _build();
-
-  _$UnifiedSearchResult_Cursor _build() {
-    UnifiedSearchResult_Cursor._validate(this);
-    final _$result = _$v ??
-        _$UnifiedSearchResult_Cursor._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UnifiedSearchResult_Cursor', 'data'),
-            $int: $int,
-            string: string);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UnifiedSearchResultInterfaceBuilder {
   void replace($UnifiedSearchResultInterface other);
   void update(void Function($UnifiedSearchResultInterfaceBuilder) updates);
@@ -31364,8 +30226,8 @@ abstract mixin class $UnifiedSearchResultInterfaceBuilder {
   ListBuilder<UnifiedSearchResultEntry> get entries;
   set entries(ListBuilder<UnifiedSearchResultEntry>? entries);
 
-  UnifiedSearchResult_CursorBuilder get cursor;
-  set cursor(UnifiedSearchResult_CursorBuilder? cursor);
+  UnifiedSearchResult_Cursor? get cursor;
+  set cursor(UnifiedSearchResult_Cursor? cursor);
 }
 
 class _$UnifiedSearchResult extends UnifiedSearchResult {
@@ -31398,11 +30260,12 @@ class _$UnifiedSearchResult extends UnifiedSearchResult {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is UnifiedSearchResult &&
         name == other.name &&
         isPaginated == other.isPaginated &&
         entries == other.entries &&
-        cursor == other.cursor;
+        cursor == _$dynamicOther.cursor;
   }
 
   @override
@@ -31443,9 +30306,9 @@ class UnifiedSearchResultBuilder
   ListBuilder<UnifiedSearchResultEntry> get entries => _$this._entries ??= ListBuilder<UnifiedSearchResultEntry>();
   set entries(covariant ListBuilder<UnifiedSearchResultEntry>? entries) => _$this._entries = entries;
 
-  UnifiedSearchResult_CursorBuilder? _cursor;
-  UnifiedSearchResult_CursorBuilder get cursor => _$this._cursor ??= UnifiedSearchResult_CursorBuilder();
-  set cursor(covariant UnifiedSearchResult_CursorBuilder? cursor) => _$this._cursor = cursor;
+  UnifiedSearchResult_Cursor? _cursor;
+  UnifiedSearchResult_Cursor? get cursor => _$this._cursor;
+  set cursor(covariant UnifiedSearchResult_Cursor? cursor) => _$this._cursor = cursor;
 
   UnifiedSearchResultBuilder();
 
@@ -31455,7 +30318,7 @@ class UnifiedSearchResultBuilder
       _name = $v.name;
       _isPaginated = $v.isPaginated;
       _entries = $v.entries.toBuilder();
-      _cursor = $v.cursor?.toBuilder();
+      _cursor = $v.cursor;
       _$v = null;
     }
     return this;
@@ -31476,6 +30339,7 @@ class UnifiedSearchResultBuilder
   UnifiedSearchResult build() => _build();
 
   _$UnifiedSearchResult _build() {
+    UnifiedSearchResult._validate(this);
     _$UnifiedSearchResult _$result;
     try {
       _$result = _$v ??
@@ -31483,14 +30347,12 @@ class UnifiedSearchResultBuilder
               name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchResult', 'name'),
               isPaginated: BuiltValueNullFieldError.checkNotNull(isPaginated, r'UnifiedSearchResult', 'isPaginated'),
               entries: entries.build(),
-              cursor: _cursor?.build());
+              cursor: cursor);
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'entries';
         entries.build();
-        _$failedField = 'cursor';
-        _cursor?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'UnifiedSearchResult', _$failedField, e.toString());
       }

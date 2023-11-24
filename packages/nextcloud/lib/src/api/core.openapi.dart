@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -13,6 +14,7 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -5517,83 +5519,6 @@ abstract class AutocompleteResult_Status0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $AutocompleteResult_StatusInterface {
-  AutocompleteResult_Status0? get autocompleteResultStatus0;
-  String? get string;
-}
-
-abstract class AutocompleteResult_Status
-    implements $AutocompleteResult_StatusInterface, Built<AutocompleteResult_Status, AutocompleteResult_StatusBuilder> {
-  factory AutocompleteResult_Status([final void Function(AutocompleteResult_StatusBuilder)? b]) =
-      _$AutocompleteResult_Status;
-
-  // coverage:ignore-start
-  const AutocompleteResult_Status._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory AutocompleteResult_Status.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AutocompleteResult_Status> get serializer => _$AutocompleteResult_StatusSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final AutocompleteResult_StatusBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._autocompleteResultStatus0, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'autocompleteResultStatus0', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$AutocompleteResult_StatusSerializer implements PrimitiveSerializer<AutocompleteResult_Status> {
-  @override
-  final Iterable<Type> types = const [AutocompleteResult_Status, _$AutocompleteResult_Status];
-
-  @override
-  final String wireName = 'AutocompleteResult_Status';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final AutocompleteResult_Status object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  AutocompleteResult_Status deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AutocompleteResult_StatusBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(AutocompleteResult_Status0))!
-          as AutocompleteResult_Status0;
-      result.autocompleteResultStatus0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $AutocompleteResultInterface {
   String get id;
   String get label;
@@ -5622,6 +5547,11 @@ abstract class AutocompleteResult
   // coverage:ignore-end
 
   static Serializer<AutocompleteResult> get serializer => _$autocompleteResultSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final AutocompleteResultBuilder b) {
+    b.status?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -6472,81 +6402,6 @@ abstract class HoverCardGetUserResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $NavigationEntry_OrderInterface {
-  int? get $int;
-  String? get string;
-}
-
-abstract class NavigationEntry_Order
-    implements $NavigationEntry_OrderInterface, Built<NavigationEntry_Order, NavigationEntry_OrderBuilder> {
-  factory NavigationEntry_Order([final void Function(NavigationEntry_OrderBuilder)? b]) = _$NavigationEntry_Order;
-
-  // coverage:ignore-start
-  const NavigationEntry_Order._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory NavigationEntry_Order.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<NavigationEntry_Order> get serializer => _$NavigationEntry_OrderSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final NavigationEntry_OrderBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$NavigationEntry_OrderSerializer implements PrimitiveSerializer<NavigationEntry_Order> {
-  @override
-  final Iterable<Type> types = const [NavigationEntry_Order, _$NavigationEntry_Order];
-
-  @override
-  final String wireName = 'NavigationEntry_Order';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final NavigationEntry_Order object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  NavigationEntry_Order deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NavigationEntry_OrderBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $NavigationEntryInterface {
   String get id;
   NavigationEntry_Order get order;
@@ -6576,6 +6431,11 @@ abstract class NavigationEntry implements $NavigationEntryInterface, Built<Navig
   // coverage:ignore-end
 
   static Serializer<NavigationEntry> get serializer => _$navigationEntrySerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final NavigationEntryBuilder b) {
+    b.order?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -8033,85 +7893,6 @@ abstract class SharebymailCapabilities0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SharebymailCapabilitiesInterface {
-  SharebymailCapabilities0? get sharebymailCapabilities0;
-  BuiltList<JsonObject>? get builtListJsonObject;
-}
-
-abstract class SharebymailCapabilities
-    implements $SharebymailCapabilitiesInterface, Built<SharebymailCapabilities, SharebymailCapabilitiesBuilder> {
-  factory SharebymailCapabilities([final void Function(SharebymailCapabilitiesBuilder)? b]) = _$SharebymailCapabilities;
-
-  // coverage:ignore-start
-  const SharebymailCapabilities._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory SharebymailCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SharebymailCapabilities> get serializer => _$SharebymailCapabilitiesSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SharebymailCapabilitiesBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._sharebymailCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'sharebymailCapabilities0', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$SharebymailCapabilitiesSerializer implements PrimitiveSerializer<SharebymailCapabilities> {
-  @override
-  final Iterable<Type> types = const [SharebymailCapabilities, _$SharebymailCapabilities];
-
-  @override
-  final String wireName = 'SharebymailCapabilities';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final SharebymailCapabilities object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  SharebymailCapabilities deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SharebymailCapabilitiesBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities0))!
-          as SharebymailCapabilities0;
-      result.sharebymailCapabilities0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
@@ -8418,86 +8199,6 @@ abstract class SpreedPublicCapabilities0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $SpreedPublicCapabilitiesInterface {
-  SpreedPublicCapabilities0? get spreedPublicCapabilities0;
-  BuiltList<JsonObject>? get builtListJsonObject;
-}
-
-abstract class SpreedPublicCapabilities
-    implements $SpreedPublicCapabilitiesInterface, Built<SpreedPublicCapabilities, SpreedPublicCapabilitiesBuilder> {
-  factory SpreedPublicCapabilities([final void Function(SpreedPublicCapabilitiesBuilder)? b]) =
-      _$SpreedPublicCapabilities;
-
-  // coverage:ignore-start
-  const SpreedPublicCapabilities._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory SpreedPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SpreedPublicCapabilities> get serializer => _$SpreedPublicCapabilitiesSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SpreedPublicCapabilitiesBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._spreedPublicCapabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'spreedPublicCapabilities0', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$SpreedPublicCapabilitiesSerializer implements PrimitiveSerializer<SpreedPublicCapabilities> {
-  @override
-  final Iterable<Type> types = const [SpreedPublicCapabilities, _$SpreedPublicCapabilities];
-
-  @override
-  final String wireName = 'SpreedPublicCapabilities';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final SpreedPublicCapabilities object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  SpreedPublicCapabilities deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SpreedPublicCapabilitiesBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities0))!
-          as SpreedPublicCapabilities0;
-      result.spreedPublicCapabilities0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
   String get url;
@@ -8685,182 +8386,6 @@ abstract class WeatherStatusCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface {
-  CommentsCapabilities? get commentsCapabilities;
-  DavCapabilities? get davCapabilities;
-  FilesCapabilities? get filesCapabilities;
-  FilesSharingCapabilities? get filesSharingCapabilities;
-  FilesTrashbinCapabilities? get filesTrashbinCapabilities;
-  FilesVersionsCapabilities? get filesVersionsCapabilities;
-  NotesCapabilities? get notesCapabilities;
-  NotificationsCapabilities? get notificationsCapabilities;
-  ProvisioningApiCapabilities? get provisioningApiCapabilities;
-  SharebymailCapabilities? get sharebymailCapabilities;
-  SpreedPublicCapabilities? get spreedPublicCapabilities;
-  ThemingPublicCapabilities? get themingPublicCapabilities;
-  UserStatusCapabilities? get userStatusCapabilities;
-  WeatherStatusCapabilities? get weatherStatusCapabilities;
-}
-
-abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities
-    implements
-        $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesInterface,
-        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder> {
-  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities([
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder)? b,
-  ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities;
-
-  // coverage:ignore-start
-  const OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
-      _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [
-      b._commentsCapabilities,
-      b._davCapabilities,
-      b._filesCapabilities,
-      b._filesSharingCapabilities,
-      b._filesTrashbinCapabilities,
-      b._filesVersionsCapabilities,
-      b._notesCapabilities,
-      b._notificationsCapabilities,
-      b._provisioningApiCapabilities,
-      b._sharebymailCapabilities,
-      b._spreedPublicCapabilities,
-      b._themingPublicCapabilities,
-      b._userStatusCapabilities,
-      b._weatherStatusCapabilities,
-    ].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError(
-        "Need at least one of 'commentsCapabilities', 'davCapabilities', 'filesCapabilities', 'filesSharingCapabilities', 'filesTrashbinCapabilities', 'filesVersionsCapabilities', 'notesCapabilities', 'notificationsCapabilities', 'provisioningApiCapabilities', 'sharebymailCapabilities', 'spreedPublicCapabilities', 'themingPublicCapabilities', 'userStatusCapabilities', 'weatherStatusCapabilities' for ${b._data}",
-      );
-    }
-  }
-}
-
-class _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesSerializer
-    implements PrimitiveSerializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> {
-  @override
-  final Iterable<Type> types = const [
-    OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-    _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities,
-  ];
-
-  @override
-  final String wireName = 'OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))!
-          as CommentsCapabilities;
-      result.commentsCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
-      result.davCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
-      result.filesCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
-          as FilesSharingCapabilities;
-      result.filesSharingCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesTrashbinCapabilities))!
-          as FilesTrashbinCapabilities;
-      result.filesTrashbinCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesVersionsCapabilities))!
-          as FilesVersionsCapabilities;
-      result.filesVersionsCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
-      result.notesCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(NotificationsCapabilities))!
-          as NotificationsCapabilities;
-      result.notificationsCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ProvisioningApiCapabilities))!
-          as ProvisioningApiCapabilities;
-      result.provisioningApiCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
-          as SharebymailCapabilities;
-      result.sharebymailCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities))!
-          as SpreedPublicCapabilities;
-      result.spreedPublicCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ThemingPublicCapabilities))!
-          as ThemingPublicCapabilities;
-      result.themingPublicCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
-          as UserStatusCapabilities;
-      result.userStatusCapabilities.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(WeatherStatusCapabilities))!
-          as WeatherStatusCapabilities;
-      result.weatherStatusCapabilities.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version get version;
   OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities get capabilities;
@@ -8890,6 +8415,11 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
 
   static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data> get serializer =>
       _$ocsGetCapabilitiesResponseApplicationJsonOcsDataSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder b) {
+    b.capabilities?.validateAnyOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -10851,82 +10381,6 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchSearchCursorInterface {
-  int? get $int;
-  String? get string;
-}
-
-abstract class UnifiedSearchSearchCursor
-    implements $UnifiedSearchSearchCursorInterface, Built<UnifiedSearchSearchCursor, UnifiedSearchSearchCursorBuilder> {
-  factory UnifiedSearchSearchCursor([final void Function(UnifiedSearchSearchCursorBuilder)? b]) =
-      _$UnifiedSearchSearchCursor;
-
-  // coverage:ignore-start
-  const UnifiedSearchSearchCursor._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UnifiedSearchSearchCursor.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UnifiedSearchSearchCursor> get serializer => _$UnifiedSearchSearchCursorSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UnifiedSearchSearchCursorBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$UnifiedSearchSearchCursorSerializer implements PrimitiveSerializer<UnifiedSearchSearchCursor> {
-  @override
-  final Iterable<Type> types = const [UnifiedSearchSearchCursor, _$UnifiedSearchSearchCursor];
-
-  @override
-  final String wireName = 'UnifiedSearchSearchCursor';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UnifiedSearchSearchCursor object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UnifiedSearchSearchCursor deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UnifiedSearchSearchCursorBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchResultEntryInterface {
   String get thumbnailUrl;
   String get title;
@@ -10959,84 +10413,6 @@ abstract class UnifiedSearchResultEntry
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UnifiedSearchResult_CursorInterface {
-  int? get $int;
-  String? get string;
-}
-
-abstract class UnifiedSearchResult_Cursor
-    implements
-        $UnifiedSearchResult_CursorInterface,
-        Built<UnifiedSearchResult_Cursor, UnifiedSearchResult_CursorBuilder> {
-  factory UnifiedSearchResult_Cursor([final void Function(UnifiedSearchResult_CursorBuilder)? b]) =
-      _$UnifiedSearchResult_Cursor;
-
-  // coverage:ignore-start
-  const UnifiedSearchResult_Cursor._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UnifiedSearchResult_Cursor.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UnifiedSearchResult_Cursor> get serializer => _$UnifiedSearchResult_CursorSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UnifiedSearchResult_CursorBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$UnifiedSearchResult_CursorSerializer implements PrimitiveSerializer<UnifiedSearchResult_Cursor> {
-  @override
-  final Iterable<Type> types = const [UnifiedSearchResult_Cursor, _$UnifiedSearchResult_Cursor];
-
-  @override
-  final String wireName = 'UnifiedSearchResult_Cursor';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UnifiedSearchResult_Cursor object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UnifiedSearchResult_Cursor deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UnifiedSearchResult_CursorBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchResultInterface {
   String get name;
   bool get isPaginated;
@@ -11062,6 +10438,11 @@ abstract class UnifiedSearchResult
   // coverage:ignore-end
 
   static Serializer<UnifiedSearchResult> get serializer => _$unifiedSearchResultSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UnifiedSearchResultBuilder b) {
+    b.cursor?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -11340,6 +10721,545 @@ abstract class WipeCheckWipeResponseApplicationJson
       _$wipeCheckWipeResponseApplicationJsonSerializer;
 }
 
+typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
+
+typedef NavigationEntry_Order = ({int? $int, String? string});
+
+typedef SharebymailCapabilities = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  SharebymailCapabilities0? sharebymailCapabilities0
+});
+
+typedef SpreedPublicCapabilities = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  SpreedPublicCapabilities0? spreedPublicCapabilities0
+});
+
+typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
+  CommentsCapabilities? commentsCapabilities,
+  DavCapabilities? davCapabilities,
+  FilesCapabilities? filesCapabilities,
+  FilesSharingCapabilities? filesSharingCapabilities,
+  FilesTrashbinCapabilities? filesTrashbinCapabilities,
+  FilesVersionsCapabilities? filesVersionsCapabilities,
+  NotesCapabilities? notesCapabilities,
+  NotificationsCapabilities? notificationsCapabilities,
+  ProvisioningApiCapabilities? provisioningApiCapabilities,
+  SharebymailCapabilities? sharebymailCapabilities,
+  SpreedPublicCapabilities? spreedPublicCapabilities,
+  ThemingPublicCapabilities? themingPublicCapabilities,
+  UserStatusCapabilities? userStatusCapabilities,
+  WeatherStatusCapabilities? weatherStatusCapabilities
+});
+
+typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
+
+typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
+
+typedef $AutocompleteResultStatus0String = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
+
+extension $AutocompleteResultStatus0StringExtension on $AutocompleteResultStatus0String {
+  List<dynamic> get _values => [autocompleteResultStatus0, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$AutocompleteResultStatus0String> get serializer =>
+      const _$AutocompleteResultStatus0StringSerializer();
+  static $AutocompleteResultStatus0String fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer<$AutocompleteResultStatus0String> {
+  const _$AutocompleteResultStatus0StringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$AutocompleteResultStatus0String];
+
+  @override
+  String get wireName => r'$AutocompleteResultStatus0String';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $AutocompleteResultStatus0String object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.autocompleteResultStatus0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(AutocompleteResult_Status0))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $AutocompleteResultStatus0String deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    AutocompleteResult_Status0? autocompleteResultStatus0;
+    try {
+      autocompleteResultStatus0 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(AutocompleteResult_Status0),
+      )! as AutocompleteResult_Status0;
+    } catch (_) {}
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return (autocompleteResultStatus0: autocompleteResultStatus0, string: string);
+  }
+}
+
+typedef $IntString = ({int? $int, String? string});
+
+extension $IntStringExtension on $IntString {
+  List<dynamic> get _values => [$int, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$IntString> get serializer => const _$IntStringSerializer();
+  static $IntString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
+  const _$IntStringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$IntString];
+
+  @override
+  String get wireName => r'$IntString';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $IntString object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $IntString deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return ($int: $int, string: string);
+  }
+}
+
+typedef $BuiltListSharebymailCapabilities0 = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  SharebymailCapabilities0? sharebymailCapabilities0
+});
+
+extension $BuiltListSharebymailCapabilities0Extension on $BuiltListSharebymailCapabilities0 {
+  List<dynamic> get _values => [builtListJsonObject, sharebymailCapabilities0];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListSharebymailCapabilities0> get serializer =>
+      const _$BuiltListSharebymailCapabilities0Serializer();
+  static $BuiltListSharebymailCapabilities0 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializer<$BuiltListSharebymailCapabilities0> {
+  const _$BuiltListSharebymailCapabilities0Serializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListSharebymailCapabilities0];
+
+  @override
+  String get wireName => r'$BuiltListSharebymailCapabilities0';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListSharebymailCapabilities0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.sharebymailCapabilities0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListSharebymailCapabilities0 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    SharebymailCapabilities0? sharebymailCapabilities0;
+    try {
+      sharebymailCapabilities0 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(SharebymailCapabilities0),
+      )! as SharebymailCapabilities0;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, sharebymailCapabilities0: sharebymailCapabilities0);
+  }
+}
+
+typedef $BuiltListSpreedPublicCapabilities0 = ({
+  BuiltList<JsonObject>? builtListJsonObject,
+  SpreedPublicCapabilities0? spreedPublicCapabilities0
+});
+
+extension $BuiltListSpreedPublicCapabilities0Extension on $BuiltListSpreedPublicCapabilities0 {
+  List<dynamic> get _values => [builtListJsonObject, spreedPublicCapabilities0];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListSpreedPublicCapabilities0> get serializer =>
+      const _$BuiltListSpreedPublicCapabilities0Serializer();
+  static $BuiltListSpreedPublicCapabilities0 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListSpreedPublicCapabilities0Serializer
+    implements PrimitiveSerializer<$BuiltListSpreedPublicCapabilities0> {
+  const _$BuiltListSpreedPublicCapabilities0Serializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListSpreedPublicCapabilities0];
+
+  @override
+  String get wireName => r'$BuiltListSpreedPublicCapabilities0';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListSpreedPublicCapabilities0 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.spreedPublicCapabilities0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListSpreedPublicCapabilities0 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<JsonObject>? builtListJsonObject;
+    try {
+      builtListJsonObject = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
+      )! as BuiltList<JsonObject>;
+    } catch (_) {}
+    SpreedPublicCapabilities0? spreedPublicCapabilities0;
+    try {
+      spreedPublicCapabilities0 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(SpreedPublicCapabilities0),
+      )! as SpreedPublicCapabilities0;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, spreedPublicCapabilities0: spreedPublicCapabilities0);
+  }
+}
+
+typedef $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
+    = ({
+  CommentsCapabilities? commentsCapabilities,
+  DavCapabilities? davCapabilities,
+  FilesCapabilities? filesCapabilities,
+  FilesSharingCapabilities? filesSharingCapabilities,
+  FilesTrashbinCapabilities? filesTrashbinCapabilities,
+  FilesVersionsCapabilities? filesVersionsCapabilities,
+  NotesCapabilities? notesCapabilities,
+  NotificationsCapabilities? notificationsCapabilities,
+  ProvisioningApiCapabilities? provisioningApiCapabilities,
+  SharebymailCapabilities? sharebymailCapabilities,
+  SpreedPublicCapabilities? spreedPublicCapabilities,
+  ThemingPublicCapabilities? themingPublicCapabilities,
+  UserStatusCapabilities? userStatusCapabilities,
+  WeatherStatusCapabilities? weatherStatusCapabilities
+});
+
+extension $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesExtension
+    on $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities {
+  List<dynamic> get _values => [
+        commentsCapabilities,
+        davCapabilities,
+        filesCapabilities,
+        filesSharingCapabilities,
+        filesTrashbinCapabilities,
+        filesVersionsCapabilities,
+        notesCapabilities,
+        notificationsCapabilities,
+        provisioningApiCapabilities,
+        sharebymailCapabilities,
+        spreedPublicCapabilities,
+        themingPublicCapabilities,
+        userStatusCapabilities,
+        weatherStatusCapabilities,
+      ];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<
+          $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities>
+      get serializer =>
+          const _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer();
+  static $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
+      fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer
+    implements
+        PrimitiveSerializer<
+            $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities> {
+  const _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer();
+
+  @override
+  Iterable<Type> get types => const [
+        $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities,
+      ];
+
+  @override
+  String get wireName =>
+      r'$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
+        object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.commentsCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(CommentsCapabilities))!;
+    }
+    value = object.davCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(DavCapabilities))!;
+    }
+    value = object.filesCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesCapabilities))!;
+    }
+    value = object.filesSharingCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesSharingCapabilities))!;
+    }
+    value = object.filesTrashbinCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesTrashbinCapabilities))!;
+    }
+    value = object.filesVersionsCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesVersionsCapabilities))!;
+    }
+    value = object.notesCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(NotesCapabilities))!;
+    }
+    value = object.notificationsCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(NotificationsCapabilities))!;
+    }
+    value = object.provisioningApiCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ProvisioningApiCapabilities))!;
+    }
+    value = object.sharebymailCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities))!;
+    }
+    value = object.spreedPublicCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities))!;
+    }
+    value = object.themingPublicCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
+    }
+    value = object.userStatusCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserStatusCapabilities))!;
+    }
+    value = object.weatherStatusCapabilities;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(WeatherStatusCapabilities))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
+      deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    CommentsCapabilities? commentsCapabilities;
+    try {
+      commentsCapabilities = _jsonSerializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))!
+          as CommentsCapabilities;
+    } catch (_) {}
+    DavCapabilities? davCapabilities;
+    try {
+      davCapabilities =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
+    } catch (_) {}
+    FilesCapabilities? filesCapabilities;
+    try {
+      filesCapabilities =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
+    } catch (_) {}
+    FilesSharingCapabilities? filesSharingCapabilities;
+    try {
+      filesSharingCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(FilesSharingCapabilities),
+      )! as FilesSharingCapabilities;
+    } catch (_) {}
+    FilesTrashbinCapabilities? filesTrashbinCapabilities;
+    try {
+      filesTrashbinCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(FilesTrashbinCapabilities),
+      )! as FilesTrashbinCapabilities;
+    } catch (_) {}
+    FilesVersionsCapabilities? filesVersionsCapabilities;
+    try {
+      filesVersionsCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(FilesVersionsCapabilities),
+      )! as FilesVersionsCapabilities;
+    } catch (_) {}
+    NotesCapabilities? notesCapabilities;
+    try {
+      notesCapabilities =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
+    } catch (_) {}
+    NotificationsCapabilities? notificationsCapabilities;
+    try {
+      notificationsCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(NotificationsCapabilities),
+      )! as NotificationsCapabilities;
+    } catch (_) {}
+    ProvisioningApiCapabilities? provisioningApiCapabilities;
+    try {
+      provisioningApiCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(ProvisioningApiCapabilities),
+      )! as ProvisioningApiCapabilities;
+    } catch (_) {}
+    SharebymailCapabilities? sharebymailCapabilities;
+    try {
+      sharebymailCapabilities = ((_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(SharebymailCapabilities),
+      )! as SharebymailCapabilities)
+        ..validateAnyOf());
+    } catch (_) {}
+    SpreedPublicCapabilities? spreedPublicCapabilities;
+    try {
+      spreedPublicCapabilities = ((_jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(SpreedPublicCapabilities),
+      )! as SpreedPublicCapabilities)
+        ..validateAnyOf());
+    } catch (_) {}
+    ThemingPublicCapabilities? themingPublicCapabilities;
+    try {
+      themingPublicCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(ThemingPublicCapabilities),
+      )! as ThemingPublicCapabilities;
+    } catch (_) {}
+    UserStatusCapabilities? userStatusCapabilities;
+    try {
+      userStatusCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(UserStatusCapabilities),
+      )! as UserStatusCapabilities;
+    } catch (_) {}
+    WeatherStatusCapabilities? weatherStatusCapabilities;
+    try {
+      weatherStatusCapabilities = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(WeatherStatusCapabilities),
+      )! as WeatherStatusCapabilities;
+    } catch (_) {}
+    return (
+      commentsCapabilities: commentsCapabilities,
+      davCapabilities: davCapabilities,
+      filesCapabilities: filesCapabilities,
+      filesSharingCapabilities: filesSharingCapabilities,
+      filesTrashbinCapabilities: filesTrashbinCapabilities,
+      filesVersionsCapabilities: filesVersionsCapabilities,
+      notesCapabilities: notesCapabilities,
+      notificationsCapabilities: notificationsCapabilities,
+      provisioningApiCapabilities: provisioningApiCapabilities,
+      sharebymailCapabilities: sharebymailCapabilities,
+      spreedPublicCapabilities: spreedPublicCapabilities,
+      themingPublicCapabilities: themingPublicCapabilities,
+      userStatusCapabilities: userStatusCapabilities,
+      weatherStatusCapabilities: weatherStatusCapabilities
+    );
+  }
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Status), StatusBuilder.new)
@@ -11399,10 +11319,9 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(AutoCompleteGetResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResultBuilder.new)
       ..add(AutocompleteResult.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult_Status), AutocompleteResult_StatusBuilder.new)
-      ..add(AutocompleteResult_Status.serializer)
       ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0Builder.new)
       ..add(AutocompleteResult_Status0.serializer)
+      ..add($AutocompleteResultStatus0StringExtension.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AutocompleteResult)]),
         ListBuilder<AutocompleteResult>.new,
@@ -11531,8 +11450,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
       ..add(NavigationEntry.serializer)
-      ..addBuilderFactory(const FullType(NavigationEntry_Order), NavigationEntry_OrderBuilder.new)
-      ..add(NavigationEntry_Order.serializer)
+      ..add($IntStringExtension.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
@@ -11587,11 +11505,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
-      ..addBuilderFactory(
-        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder.new,
-      )
-      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.serializer)
       ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilitiesBuilder.new)
       ..add(CommentsCapabilities.serializer)
       ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_FilesBuilder.new)
@@ -11708,8 +11621,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
       )
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
-      ..add(SharebymailCapabilities.serializer)
       ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0Builder.new)
       ..add(SharebymailCapabilities0.serializer)
       ..addBuilderFactory(
@@ -11737,8 +11648,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
-      ..add(SpreedPublicCapabilities.serializer)
+      ..add($BuiltListSharebymailCapabilities0Extension.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_SpreedBuilder.new)
@@ -11778,6 +11688,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
+      ..add($BuiltListSpreedPublicCapabilities0Extension.serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -11799,6 +11710,10 @@ final Serializers _serializers = (Serializers().toBuilder()
         WeatherStatusCapabilities_WeatherStatusBuilder.new,
       )
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
+      ..add(
+        $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesExtension
+            .serializer,
+      )
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
@@ -12111,8 +12026,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
         ListBuilder<UnifiedSearchProvider>.new,
       )
-      ..addBuilderFactory(const FullType(UnifiedSearchSearchCursor), UnifiedSearchSearchCursorBuilder.new)
-      ..add(UnifiedSearchSearchCursor.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
         ContentStringBuilder<UnifiedSearchSearchCursor>.new,
@@ -12135,8 +12048,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]),
         ListBuilder<UnifiedSearchResultEntry>.new,
       )
-      ..addBuilderFactory(const FullType(UnifiedSearchResult_Cursor), UnifiedSearchResult_CursorBuilder.new)
-      ..add(UnifiedSearchResult_Cursor.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewGetResponseApplicationJson),
         WhatsNewGetResponseApplicationJsonBuilder.new,

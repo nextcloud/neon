@@ -6,6 +6,7 @@ import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/builder/client.dart';
+import 'package:dynamite/src/builder/generate_ofs.dart';
 import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/imports.dart';
 import 'package:dynamite/src/builder/serializer.dart';
@@ -69,6 +70,7 @@ class OpenAPIBuilder implements Builder {
       final output = ListBuilder<Spec>()
         ..addAll(generateClients(spec, state))
         ..addAll(generateSchemas(spec, state))
+        ..addAll(buildOfsExtensions(spec, state))
         ..addAll(buildSerializer(state))
         ..insertAll(0, generateImports(outputId, state));
 

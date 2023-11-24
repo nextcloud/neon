@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -13,6 +14,7 @@ import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -2965,80 +2967,6 @@ abstract class RemoteUnshareResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ShareInfo_SizeInterface {
-  int? get $int;
-  double? get $double;
-}
-
-abstract class ShareInfo_Size implements $ShareInfo_SizeInterface, Built<ShareInfo_Size, ShareInfo_SizeBuilder> {
-  factory ShareInfo_Size([final void Function(ShareInfo_SizeBuilder)? b]) = _$ShareInfo_Size;
-
-  // coverage:ignore-start
-  const ShareInfo_Size._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ShareInfo_Size.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareInfo_Size> get serializer => _$ShareInfo_SizeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ShareInfo_SizeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._$double].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', '$double' for ${b._data}");
-    }
-  }
-}
-
-class _$ShareInfo_SizeSerializer implements PrimitiveSerializer<ShareInfo_Size> {
-  @override
-  final Iterable<Type> types = const [ShareInfo_Size, _$ShareInfo_Size];
-
-  @override
-  final String wireName = 'ShareInfo_Size';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final ShareInfo_Size object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  ShareInfo_Size deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ShareInfo_SizeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $ShareInfoInterface {
   int get id;
   int get parentId;
@@ -3068,79 +2996,10 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
   // coverage:ignore-end
 
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
-}
 
-@BuiltValue(instantiable: false)
-abstract interface class $Share_ItemSizeInterface {
-  double? get $double;
-  int? get $int;
-}
-
-abstract class Share_ItemSize implements $Share_ItemSizeInterface, Built<Share_ItemSize, Share_ItemSizeBuilder> {
-  factory Share_ItemSize([final void Function(Share_ItemSizeBuilder)? b]) = _$Share_ItemSize;
-
-  // coverage:ignore-start
-  const Share_ItemSize._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory Share_ItemSize.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Share_ItemSize> get serializer => _$Share_ItemSizeSerializer();
-
-  JsonObject get data;
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final Share_ItemSizeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$Share_ItemSizeSerializer implements PrimitiveSerializer<Share_ItemSize> {
-  @override
-  final Iterable<Type> types = const [Share_ItemSize, _$Share_ItemSize];
-
-  @override
-  final String wireName = 'Share_ItemSize';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final Share_ItemSize object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  Share_ItemSize deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = Share_ItemSizeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
+  static void _validate(final ShareInfoBuilder b) {
+    b.size?.validateOneOf();
   }
 }
 
@@ -3273,6 +3132,11 @@ abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
   // coverage:ignore-end
 
   static Serializer<Share> get serializer => _$shareSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final ShareBuilder b) {
+    b.itemSize?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -3764,83 +3628,6 @@ abstract class ShareapiAcceptShareResponseApplicationJson
 
   static Serializer<ShareapiAcceptShareResponseApplicationJson> get serializer =>
       _$shareapiAcceptShareResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareesapiSearchShareTypeInterface {
-  int? get $int;
-  BuiltList<int>? get builtListInt;
-}
-
-abstract class ShareesapiSearchShareType
-    implements $ShareesapiSearchShareTypeInterface, Built<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder> {
-  factory ShareesapiSearchShareType([final void Function(ShareesapiSearchShareTypeBuilder)? b]) =
-      _$ShareesapiSearchShareType;
-
-  // coverage:ignore-start
-  const ShareesapiSearchShareType._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ShareesapiSearchShareType.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiSearchShareType> get serializer => _$ShareesapiSearchShareTypeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ShareesapiSearchShareTypeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._builtListInt].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'builtListInt' for ${b._data}");
-    }
-  }
-}
-
-class _$ShareesapiSearchShareTypeSerializer implements PrimitiveSerializer<ShareesapiSearchShareType> {
-  @override
-  final Iterable<Type> types = const [ShareesapiSearchShareType, _$ShareesapiSearchShareType];
-
-  @override
-  final String wireName = 'ShareesapiSearchShareType';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final ShareesapiSearchShareType object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  ShareesapiSearchShareType deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ShareesapiSearchShareTypeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
-          as BuiltList<int>;
-      result.builtListInt.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4424,87 +4211,6 @@ abstract class ShareesapiSearchResponseApplicationJson
 
   static Serializer<ShareesapiSearchResponseApplicationJson> get serializer =>
       _$shareesapiSearchResponseApplicationJsonSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $ShareesapiFindRecommendedShareTypeInterface {
-  int? get $int;
-  BuiltList<int>? get builtListInt;
-}
-
-abstract class ShareesapiFindRecommendedShareType
-    implements
-        $ShareesapiFindRecommendedShareTypeInterface,
-        Built<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder> {
-  factory ShareesapiFindRecommendedShareType([final void Function(ShareesapiFindRecommendedShareTypeBuilder)? b]) =
-      _$ShareesapiFindRecommendedShareType;
-
-  // coverage:ignore-start
-  const ShareesapiFindRecommendedShareType._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory ShareesapiFindRecommendedShareType.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
-      _$ShareesapiFindRecommendedShareTypeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ShareesapiFindRecommendedShareTypeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._builtListInt].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', 'builtListInt' for ${b._data}");
-    }
-  }
-}
-
-class _$ShareesapiFindRecommendedShareTypeSerializer
-    implements PrimitiveSerializer<ShareesapiFindRecommendedShareType> {
-  @override
-  final Iterable<Type> types = const [ShareesapiFindRecommendedShareType, _$ShareesapiFindRecommendedShareType];
-
-  @override
-  final String wireName = 'ShareesapiFindRecommendedShareType';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final ShareesapiFindRecommendedShareType object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  ShareesapiFindRecommendedShareType deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ShareesapiFindRecommendedShareTypeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
-          as BuiltList<int>;
-      result.builtListInt.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5114,6 +4820,129 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+typedef ShareInfo_Size = ({double? $double, int? $int});
+
+typedef Share_ItemSize = ({double? $double, int? $int});
+
+typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
+
+typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
+
+typedef $DoubleInt = ({double? $double, int? $int});
+
+extension $DoubleIntExtension on $DoubleInt {
+  List<dynamic> get _values => [$double, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$DoubleInt> get serializer => const _$DoubleIntSerializer();
+  static $DoubleInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$DoubleIntSerializer implements PrimitiveSerializer<$DoubleInt> {
+  const _$DoubleIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$DoubleInt];
+
+  @override
+  String get wireName => r'$DoubleInt';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $DoubleInt object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$double;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $DoubleInt deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    double? $double;
+    try {
+      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return ($double: $double, $int: $int);
+  }
+}
+
+typedef $BuiltListInt = ({BuiltList<int>? builtListInt, int? $int});
+
+extension $BuiltListIntExtension on $BuiltListInt {
+  List<dynamic> get _values => [builtListInt, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListInt> get serializer => const _$BuiltListIntSerializer();
+  static $BuiltListInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
+  const _$BuiltListIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListInt];
+
+  @override
+  String get wireName => r'$BuiltListInt';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BuiltListInt object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListInt;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListInt deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<int>? builtListInt;
+    try {
+      builtListInt = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return (builtListInt: builtListInt, $int: $int);
+  }
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -5206,8 +5035,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(RemoteUnshareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ShareInfo), ShareInfoBuilder.new)
       ..add(ShareInfo.serializer)
-      ..addBuilderFactory(const FullType(ShareInfo_Size), ShareInfo_SizeBuilder.new)
-      ..add(ShareInfo_Size.serializer)
+      ..add($DoubleIntExtension.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
@@ -5230,8 +5058,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ShareapiGetSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
       ..add(Share.serializer)
-      ..addBuilderFactory(const FullType(Share_ItemSize), Share_ItemSizeBuilder.new)
-      ..add(Share_ItemSize.serializer)
       ..add(Share_ItemType.serializer)
       ..addBuilderFactory(const FullType(Share_Status), Share_StatusBuilder.new)
       ..add(Share_Status.serializer)
@@ -5306,9 +5132,8 @@ final Serializers _serializers = (Serializers().toBuilder()
         ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ShareesapiSearchShareType), ShareesapiSearchShareTypeBuilder.new)
-      ..add(ShareesapiSearchShareType.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..add($BuiltListIntExtension.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(ShareesapiSearchShareType)]),
         ContentStringBuilder<ShareesapiSearchShareType>.new,
@@ -5370,11 +5195,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeLookup_1_Value), ShareeLookup_1_ValueBuilder.new)
       ..add(ShareeLookup_1_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
-      ..addBuilderFactory(
-        const FullType(ShareesapiFindRecommendedShareType),
-        ShareesapiFindRecommendedShareTypeBuilder.new,
-      )
-      ..add(ShareesapiFindRecommendedShareType.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(ShareesapiFindRecommendedShareType)]),
         ContentStringBuilder<ShareesapiFindRecommendedShareType>.new,

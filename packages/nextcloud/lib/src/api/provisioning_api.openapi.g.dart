@@ -1950,12 +1950,12 @@ class _$GroupDetailsSerializer implements StructuredSerializer<GroupDetails> {
           result.displayname = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'usercount':
-          result.usercount.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GroupDetails_Usercount))! as GroupDetails_Usercount);
+          result.usercount = serializers.deserialize(value, specifiedType: const FullType(GroupDetails_Usercount))!
+              as GroupDetails_Usercount;
           break;
         case 'disabled':
-          result.disabled.replace(serializers.deserialize(value, specifiedType: const FullType(GroupDetails_Disabled))!
-              as GroupDetails_Disabled);
+          result.disabled = serializers.deserialize(value, specifiedType: const FullType(GroupDetails_Disabled))!
+              as GroupDetails_Disabled;
           break;
         case 'canAdd':
           result.canAdd = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -2345,24 +2345,24 @@ class _$UserDetailsQuotaSerializer implements StructuredSerializer<UserDetailsQu
       final Object? value = iterator.current;
       switch (key) {
         case 'free':
-          result.free.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Free))!
-              as UserDetailsQuota_Free);
+          result.free = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Free))
+              as UserDetailsQuota_Free?;
           break;
         case 'quota':
-          result.quota.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Quota))!
-              as UserDetailsQuota_Quota);
+          result.quota = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Quota))
+              as UserDetailsQuota_Quota?;
           break;
         case 'relative':
-          result.relative.replace(serializers.deserialize(value,
-              specifiedType: const FullType(UserDetailsQuota_Relative))! as UserDetailsQuota_Relative);
+          result.relative = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Relative))
+              as UserDetailsQuota_Relative?;
           break;
         case 'total':
-          result.total.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Total))!
-              as UserDetailsQuota_Total);
+          result.total = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Total))
+              as UserDetailsQuota_Total?;
           break;
         case 'used':
-          result.used.replace(serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Used))!
-              as UserDetailsQuota_Used);
+          result.used = serializers.deserialize(value, specifiedType: const FullType(UserDetailsQuota_Used))
+              as UserDetailsQuota_Used?;
           break;
       }
     }
@@ -9841,232 +9841,6 @@ class GroupsAddGroupResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $GroupDetails_UsercountInterfaceBuilder {
-  void replace($GroupDetails_UsercountInterface other);
-  void update(void Function($GroupDetails_UsercountInterfaceBuilder) updates);
-  bool? get $bool;
-  set $bool(bool? $bool);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$GroupDetails_Usercount extends GroupDetails_Usercount {
-  @override
-  final JsonObject data;
-  @override
-  final bool? $bool;
-  @override
-  final int? $int;
-
-  factory _$GroupDetails_Usercount([void Function(GroupDetails_UsercountBuilder)? updates]) =>
-      (GroupDetails_UsercountBuilder()..update(updates))._build();
-
-  _$GroupDetails_Usercount._({required this.data, this.$bool, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Usercount', 'data');
-  }
-
-  @override
-  GroupDetails_Usercount rebuild(void Function(GroupDetails_UsercountBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupDetails_UsercountBuilder toBuilder() => GroupDetails_UsercountBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupDetails_Usercount && data == other.data && $bool == other.$bool && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $bool.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupDetails_Usercount')
-          ..add('data', data)
-          ..add('\$bool', $bool)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class GroupDetails_UsercountBuilder
-    implements Builder<GroupDetails_Usercount, GroupDetails_UsercountBuilder>, $GroupDetails_UsercountInterfaceBuilder {
-  _$GroupDetails_Usercount? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  bool? _$bool;
-  bool? get $bool => _$this._$bool;
-  set $bool(covariant bool? $bool) => _$this._$bool = $bool;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  GroupDetails_UsercountBuilder();
-
-  GroupDetails_UsercountBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$bool = $v.$bool;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupDetails_Usercount other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupDetails_Usercount;
-  }
-
-  @override
-  void update(void Function(GroupDetails_UsercountBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupDetails_Usercount build() => _build();
-
-  _$GroupDetails_Usercount _build() {
-    GroupDetails_Usercount._validate(this);
-    final _$result = _$v ??
-        _$GroupDetails_Usercount._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Usercount', 'data'),
-            $bool: $bool,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $GroupDetails_DisabledInterfaceBuilder {
-  void replace($GroupDetails_DisabledInterface other);
-  void update(void Function($GroupDetails_DisabledInterfaceBuilder) updates);
-  bool? get $bool;
-  set $bool(bool? $bool);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$GroupDetails_Disabled extends GroupDetails_Disabled {
-  @override
-  final JsonObject data;
-  @override
-  final bool? $bool;
-  @override
-  final int? $int;
-
-  factory _$GroupDetails_Disabled([void Function(GroupDetails_DisabledBuilder)? updates]) =>
-      (GroupDetails_DisabledBuilder()..update(updates))._build();
-
-  _$GroupDetails_Disabled._({required this.data, this.$bool, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Disabled', 'data');
-  }
-
-  @override
-  GroupDetails_Disabled rebuild(void Function(GroupDetails_DisabledBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupDetails_DisabledBuilder toBuilder() => GroupDetails_DisabledBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupDetails_Disabled && data == other.data && $bool == other.$bool && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $bool.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupDetails_Disabled')
-          ..add('data', data)
-          ..add('\$bool', $bool)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class GroupDetails_DisabledBuilder
-    implements Builder<GroupDetails_Disabled, GroupDetails_DisabledBuilder>, $GroupDetails_DisabledInterfaceBuilder {
-  _$GroupDetails_Disabled? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  bool? _$bool;
-  bool? get $bool => _$this._$bool;
-  set $bool(covariant bool? $bool) => _$this._$bool = $bool;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  GroupDetails_DisabledBuilder();
-
-  GroupDetails_DisabledBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$bool = $v.$bool;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupDetails_Disabled other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupDetails_Disabled;
-  }
-
-  @override
-  void update(void Function(GroupDetails_DisabledBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupDetails_Disabled build() => _build();
-
-  _$GroupDetails_Disabled _build() {
-    GroupDetails_Disabled._validate(this);
-    final _$result = _$v ??
-        _$GroupDetails_Disabled._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'GroupDetails_Disabled', 'data'),
-            $bool: $bool,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $GroupDetailsInterfaceBuilder {
   void replace($GroupDetailsInterface other);
   void update(void Function($GroupDetailsInterfaceBuilder) updates);
@@ -10076,11 +9850,11 @@ abstract mixin class $GroupDetailsInterfaceBuilder {
   String? get displayname;
   set displayname(String? displayname);
 
-  GroupDetails_UsercountBuilder get usercount;
-  set usercount(GroupDetails_UsercountBuilder? usercount);
+  GroupDetails_Usercount? get usercount;
+  set usercount(GroupDetails_Usercount? usercount);
 
-  GroupDetails_DisabledBuilder get disabled;
-  set disabled(GroupDetails_DisabledBuilder? disabled);
+  GroupDetails_Disabled? get disabled;
+  set disabled(GroupDetails_Disabled? disabled);
 
   bool? get canAdd;
   set canAdd(bool? canAdd);
@@ -10131,11 +9905,12 @@ class _$GroupDetails extends GroupDetails {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is GroupDetails &&
         id == other.id &&
         displayname == other.displayname &&
-        usercount == other.usercount &&
-        disabled == other.disabled &&
+        usercount == _$dynamicOther.usercount &&
+        disabled == _$dynamicOther.disabled &&
         canAdd == other.canAdd &&
         canRemove == other.canRemove;
   }
@@ -10177,13 +9952,13 @@ class GroupDetailsBuilder implements Builder<GroupDetails, GroupDetailsBuilder>,
   String? get displayname => _$this._displayname;
   set displayname(covariant String? displayname) => _$this._displayname = displayname;
 
-  GroupDetails_UsercountBuilder? _usercount;
-  GroupDetails_UsercountBuilder get usercount => _$this._usercount ??= GroupDetails_UsercountBuilder();
-  set usercount(covariant GroupDetails_UsercountBuilder? usercount) => _$this._usercount = usercount;
+  GroupDetails_Usercount? _usercount;
+  GroupDetails_Usercount? get usercount => _$this._usercount;
+  set usercount(covariant GroupDetails_Usercount? usercount) => _$this._usercount = usercount;
 
-  GroupDetails_DisabledBuilder? _disabled;
-  GroupDetails_DisabledBuilder get disabled => _$this._disabled ??= GroupDetails_DisabledBuilder();
-  set disabled(covariant GroupDetails_DisabledBuilder? disabled) => _$this._disabled = disabled;
+  GroupDetails_Disabled? _disabled;
+  GroupDetails_Disabled? get disabled => _$this._disabled;
+  set disabled(covariant GroupDetails_Disabled? disabled) => _$this._disabled = disabled;
 
   bool? _canAdd;
   bool? get canAdd => _$this._canAdd;
@@ -10200,8 +9975,8 @@ class GroupDetailsBuilder implements Builder<GroupDetails, GroupDetailsBuilder>,
     if ($v != null) {
       _id = $v.id;
       _displayname = $v.displayname;
-      _usercount = $v.usercount.toBuilder();
-      _disabled = $v.disabled.toBuilder();
+      _usercount = $v.usercount;
+      _disabled = $v.disabled;
       _canAdd = $v.canAdd;
       _canRemove = $v.canRemove;
       _$v = null;
@@ -10224,28 +9999,15 @@ class GroupDetailsBuilder implements Builder<GroupDetails, GroupDetailsBuilder>,
   GroupDetails build() => _build();
 
   _$GroupDetails _build() {
-    _$GroupDetails _$result;
-    try {
-      _$result = _$v ??
-          _$GroupDetails._(
-              id: BuiltValueNullFieldError.checkNotNull(id, r'GroupDetails', 'id'),
-              displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'GroupDetails', 'displayname'),
-              usercount: usercount.build(),
-              disabled: disabled.build(),
-              canAdd: BuiltValueNullFieldError.checkNotNull(canAdd, r'GroupDetails', 'canAdd'),
-              canRemove: BuiltValueNullFieldError.checkNotNull(canRemove, r'GroupDetails', 'canRemove'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'usercount';
-        usercount.build();
-        _$failedField = 'disabled';
-        disabled.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'GroupDetails', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    GroupDetails._validate(this);
+    final _$result = _$v ??
+        _$GroupDetails._(
+            id: BuiltValueNullFieldError.checkNotNull(id, r'GroupDetails', 'id'),
+            displayname: BuiltValueNullFieldError.checkNotNull(displayname, r'GroupDetails', 'displayname'),
+            usercount: BuiltValueNullFieldError.checkNotNull(usercount, r'GroupDetails', 'usercount'),
+            disabled: BuiltValueNullFieldError.checkNotNull(disabled, r'GroupDetails', 'disabled'),
+            canAdd: BuiltValueNullFieldError.checkNotNull(canAdd, r'GroupDetails', 'canAdd'),
+            canRemove: BuiltValueNullFieldError.checkNotNull(canRemove, r'GroupDetails', 'canRemove'));
     replace(_$result);
     return _$result;
   }
@@ -11022,607 +10784,23 @@ class UserDetails_BackendCapabilitiesBuilder
   }
 }
 
-abstract mixin class $UserDetailsQuota_FreeInterfaceBuilder {
-  void replace($UserDetailsQuota_FreeInterface other);
-  void update(void Function($UserDetailsQuota_FreeInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$UserDetailsQuota_Free extends UserDetailsQuota_Free {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-
-  factory _$UserDetailsQuota_Free([void Function(UserDetailsQuota_FreeBuilder)? updates]) =>
-      (UserDetailsQuota_FreeBuilder()..update(updates))._build();
-
-  _$UserDetailsQuota_Free._({required this.data, this.$double, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data');
-  }
-
-  @override
-  UserDetailsQuota_Free rebuild(void Function(UserDetailsQuota_FreeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserDetailsQuota_FreeBuilder toBuilder() => UserDetailsQuota_FreeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Free && data == other.data && $double == other.$double && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Free')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserDetailsQuota_FreeBuilder
-    implements Builder<UserDetailsQuota_Free, UserDetailsQuota_FreeBuilder>, $UserDetailsQuota_FreeInterfaceBuilder {
-  _$UserDetailsQuota_Free? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  UserDetailsQuota_FreeBuilder();
-
-  UserDetailsQuota_FreeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserDetailsQuota_Free other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserDetailsQuota_Free;
-  }
-
-  @override
-  void update(void Function(UserDetailsQuota_FreeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserDetailsQuota_Free build() => _build();
-
-  _$UserDetailsQuota_Free _build() {
-    UserDetailsQuota_Free._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota_Free._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Free', 'data'),
-            $double: $double,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UserDetailsQuota_QuotaInterfaceBuilder {
-  void replace($UserDetailsQuota_QuotaInterface other);
-  void update(void Function($UserDetailsQuota_QuotaInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$UserDetailsQuota_Quota extends UserDetailsQuota_Quota {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-  @override
-  final String? string;
-
-  factory _$UserDetailsQuota_Quota([void Function(UserDetailsQuota_QuotaBuilder)? updates]) =>
-      (UserDetailsQuota_QuotaBuilder()..update(updates))._build();
-
-  _$UserDetailsQuota_Quota._({required this.data, this.$double, this.$int, this.string}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data');
-  }
-
-  @override
-  UserDetailsQuota_Quota rebuild(void Function(UserDetailsQuota_QuotaBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserDetailsQuota_QuotaBuilder toBuilder() => UserDetailsQuota_QuotaBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Quota &&
-        data == other.data &&
-        $double == other.$double &&
-        $int == other.$int &&
-        string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Quota')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class UserDetailsQuota_QuotaBuilder
-    implements Builder<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder>, $UserDetailsQuota_QuotaInterfaceBuilder {
-  _$UserDetailsQuota_Quota? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  UserDetailsQuota_QuotaBuilder();
-
-  UserDetailsQuota_QuotaBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserDetailsQuota_Quota other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserDetailsQuota_Quota;
-  }
-
-  @override
-  void update(void Function(UserDetailsQuota_QuotaBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserDetailsQuota_Quota build() => _build();
-
-  _$UserDetailsQuota_Quota _build() {
-    UserDetailsQuota_Quota._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota_Quota._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Quota', 'data'),
-            $double: $double,
-            $int: $int,
-            string: string);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UserDetailsQuota_RelativeInterfaceBuilder {
-  void replace($UserDetailsQuota_RelativeInterface other);
-  void update(void Function($UserDetailsQuota_RelativeInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$UserDetailsQuota_Relative extends UserDetailsQuota_Relative {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-
-  factory _$UserDetailsQuota_Relative([void Function(UserDetailsQuota_RelativeBuilder)? updates]) =>
-      (UserDetailsQuota_RelativeBuilder()..update(updates))._build();
-
-  _$UserDetailsQuota_Relative._({required this.data, this.$double, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data');
-  }
-
-  @override
-  UserDetailsQuota_Relative rebuild(void Function(UserDetailsQuota_RelativeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserDetailsQuota_RelativeBuilder toBuilder() => UserDetailsQuota_RelativeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Relative && data == other.data && $double == other.$double && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Relative')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserDetailsQuota_RelativeBuilder
-    implements
-        Builder<UserDetailsQuota_Relative, UserDetailsQuota_RelativeBuilder>,
-        $UserDetailsQuota_RelativeInterfaceBuilder {
-  _$UserDetailsQuota_Relative? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  UserDetailsQuota_RelativeBuilder();
-
-  UserDetailsQuota_RelativeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserDetailsQuota_Relative other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserDetailsQuota_Relative;
-  }
-
-  @override
-  void update(void Function(UserDetailsQuota_RelativeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserDetailsQuota_Relative build() => _build();
-
-  _$UserDetailsQuota_Relative _build() {
-    UserDetailsQuota_Relative._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota_Relative._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Relative', 'data'),
-            $double: $double,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UserDetailsQuota_TotalInterfaceBuilder {
-  void replace($UserDetailsQuota_TotalInterface other);
-  void update(void Function($UserDetailsQuota_TotalInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$UserDetailsQuota_Total extends UserDetailsQuota_Total {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-
-  factory _$UserDetailsQuota_Total([void Function(UserDetailsQuota_TotalBuilder)? updates]) =>
-      (UserDetailsQuota_TotalBuilder()..update(updates))._build();
-
-  _$UserDetailsQuota_Total._({required this.data, this.$double, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data');
-  }
-
-  @override
-  UserDetailsQuota_Total rebuild(void Function(UserDetailsQuota_TotalBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserDetailsQuota_TotalBuilder toBuilder() => UserDetailsQuota_TotalBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Total && data == other.data && $double == other.$double && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Total')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserDetailsQuota_TotalBuilder
-    implements Builder<UserDetailsQuota_Total, UserDetailsQuota_TotalBuilder>, $UserDetailsQuota_TotalInterfaceBuilder {
-  _$UserDetailsQuota_Total? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  UserDetailsQuota_TotalBuilder();
-
-  UserDetailsQuota_TotalBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserDetailsQuota_Total other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserDetailsQuota_Total;
-  }
-
-  @override
-  void update(void Function(UserDetailsQuota_TotalBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserDetailsQuota_Total build() => _build();
-
-  _$UserDetailsQuota_Total _build() {
-    UserDetailsQuota_Total._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota_Total._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Total', 'data'),
-            $double: $double,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $UserDetailsQuota_UsedInterfaceBuilder {
-  void replace($UserDetailsQuota_UsedInterface other);
-  void update(void Function($UserDetailsQuota_UsedInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$UserDetailsQuota_Used extends UserDetailsQuota_Used {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-
-  factory _$UserDetailsQuota_Used([void Function(UserDetailsQuota_UsedBuilder)? updates]) =>
-      (UserDetailsQuota_UsedBuilder()..update(updates))._build();
-
-  _$UserDetailsQuota_Used._({required this.data, this.$double, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data');
-  }
-
-  @override
-  UserDetailsQuota_Used rebuild(void Function(UserDetailsQuota_UsedBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UserDetailsQuota_UsedBuilder toBuilder() => UserDetailsQuota_UsedBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UserDetailsQuota_Used && data == other.data && $double == other.$double && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UserDetailsQuota_Used')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class UserDetailsQuota_UsedBuilder
-    implements Builder<UserDetailsQuota_Used, UserDetailsQuota_UsedBuilder>, $UserDetailsQuota_UsedInterfaceBuilder {
-  _$UserDetailsQuota_Used? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  UserDetailsQuota_UsedBuilder();
-
-  UserDetailsQuota_UsedBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UserDetailsQuota_Used other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UserDetailsQuota_Used;
-  }
-
-  @override
-  void update(void Function(UserDetailsQuota_UsedBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UserDetailsQuota_Used build() => _build();
-
-  _$UserDetailsQuota_Used _build() {
-    UserDetailsQuota_Used._validate(this);
-    final _$result = _$v ??
-        _$UserDetailsQuota_Used._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'UserDetailsQuota_Used', 'data'),
-            $double: $double,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UserDetailsQuotaInterfaceBuilder {
   void replace($UserDetailsQuotaInterface other);
   void update(void Function($UserDetailsQuotaInterfaceBuilder) updates);
-  UserDetailsQuota_FreeBuilder get free;
-  set free(UserDetailsQuota_FreeBuilder? free);
+  UserDetailsQuota_Free? get free;
+  set free(UserDetailsQuota_Free? free);
 
-  UserDetailsQuota_QuotaBuilder get quota;
-  set quota(UserDetailsQuota_QuotaBuilder? quota);
+  UserDetailsQuota_Quota? get quota;
+  set quota(UserDetailsQuota_Quota? quota);
 
-  UserDetailsQuota_RelativeBuilder get relative;
-  set relative(UserDetailsQuota_RelativeBuilder? relative);
+  UserDetailsQuota_Relative? get relative;
+  set relative(UserDetailsQuota_Relative? relative);
 
-  UserDetailsQuota_TotalBuilder get total;
-  set total(UserDetailsQuota_TotalBuilder? total);
+  UserDetailsQuota_Total? get total;
+  set total(UserDetailsQuota_Total? total);
 
-  UserDetailsQuota_UsedBuilder get used;
-  set used(UserDetailsQuota_UsedBuilder? used);
+  UserDetailsQuota_Used? get used;
+  set used(UserDetailsQuota_Used? used);
 }
 
 class _$UserDetailsQuota extends UserDetailsQuota {
@@ -11651,12 +10829,13 @@ class _$UserDetailsQuota extends UserDetailsQuota {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is UserDetailsQuota &&
-        free == other.free &&
-        quota == other.quota &&
-        relative == other.relative &&
-        total == other.total &&
-        used == other.used;
+        free == _$dynamicOther.free &&
+        quota == _$dynamicOther.quota &&
+        relative == _$dynamicOther.relative &&
+        total == _$dynamicOther.total &&
+        used == _$dynamicOther.used;
   }
 
   @override
@@ -11687,36 +10866,36 @@ class UserDetailsQuotaBuilder
     implements Builder<UserDetailsQuota, UserDetailsQuotaBuilder>, $UserDetailsQuotaInterfaceBuilder {
   _$UserDetailsQuota? _$v;
 
-  UserDetailsQuota_FreeBuilder? _free;
-  UserDetailsQuota_FreeBuilder get free => _$this._free ??= UserDetailsQuota_FreeBuilder();
-  set free(covariant UserDetailsQuota_FreeBuilder? free) => _$this._free = free;
+  UserDetailsQuota_Free? _free;
+  UserDetailsQuota_Free? get free => _$this._free;
+  set free(covariant UserDetailsQuota_Free? free) => _$this._free = free;
 
-  UserDetailsQuota_QuotaBuilder? _quota;
-  UserDetailsQuota_QuotaBuilder get quota => _$this._quota ??= UserDetailsQuota_QuotaBuilder();
-  set quota(covariant UserDetailsQuota_QuotaBuilder? quota) => _$this._quota = quota;
+  UserDetailsQuota_Quota? _quota;
+  UserDetailsQuota_Quota? get quota => _$this._quota;
+  set quota(covariant UserDetailsQuota_Quota? quota) => _$this._quota = quota;
 
-  UserDetailsQuota_RelativeBuilder? _relative;
-  UserDetailsQuota_RelativeBuilder get relative => _$this._relative ??= UserDetailsQuota_RelativeBuilder();
-  set relative(covariant UserDetailsQuota_RelativeBuilder? relative) => _$this._relative = relative;
+  UserDetailsQuota_Relative? _relative;
+  UserDetailsQuota_Relative? get relative => _$this._relative;
+  set relative(covariant UserDetailsQuota_Relative? relative) => _$this._relative = relative;
 
-  UserDetailsQuota_TotalBuilder? _total;
-  UserDetailsQuota_TotalBuilder get total => _$this._total ??= UserDetailsQuota_TotalBuilder();
-  set total(covariant UserDetailsQuota_TotalBuilder? total) => _$this._total = total;
+  UserDetailsQuota_Total? _total;
+  UserDetailsQuota_Total? get total => _$this._total;
+  set total(covariant UserDetailsQuota_Total? total) => _$this._total = total;
 
-  UserDetailsQuota_UsedBuilder? _used;
-  UserDetailsQuota_UsedBuilder get used => _$this._used ??= UserDetailsQuota_UsedBuilder();
-  set used(covariant UserDetailsQuota_UsedBuilder? used) => _$this._used = used;
+  UserDetailsQuota_Used? _used;
+  UserDetailsQuota_Used? get used => _$this._used;
+  set used(covariant UserDetailsQuota_Used? used) => _$this._used = used;
 
   UserDetailsQuotaBuilder();
 
   UserDetailsQuotaBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _free = $v.free?.toBuilder();
-      _quota = $v.quota?.toBuilder();
-      _relative = $v.relative?.toBuilder();
-      _total = $v.total?.toBuilder();
-      _used = $v.used?.toBuilder();
+      _free = $v.free;
+      _quota = $v.quota;
+      _relative = $v.relative;
+      _total = $v.total;
+      _used = $v.used;
       _$v = null;
     }
     return this;
@@ -11737,33 +10916,9 @@ class UserDetailsQuotaBuilder
   UserDetailsQuota build() => _build();
 
   _$UserDetailsQuota _build() {
-    _$UserDetailsQuota _$result;
-    try {
-      _$result = _$v ??
-          _$UserDetailsQuota._(
-              free: _free?.build(),
-              quota: _quota?.build(),
-              relative: _relative?.build(),
-              total: _total?.build(),
-              used: _used?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'free';
-        _free?.build();
-        _$failedField = 'quota';
-        _quota?.build();
-        _$failedField = 'relative';
-        _relative?.build();
-        _$failedField = 'total';
-        _total?.build();
-        _$failedField = 'used';
-        _used?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'UserDetailsQuota', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    UserDetailsQuota._validate(this);
+    final _$result =
+        _$v ?? _$UserDetailsQuota._(free: free, quota: quota, relative: relative, total: total, used: used);
     replace(_$result);
     return _$result;
   }
@@ -12609,164 +11764,6 @@ class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
   }
 }
 
-abstract mixin class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  void replace($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
-  void update(void Function($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
-  UserDetailsBuilder get userDetails;
-  set userDetails(UserDetailsBuilder? userDetails);
-
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  set groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1(
-      GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-          groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1);
-}
-
-class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    extends GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users {
-  @override
-  final JsonObject data;
-  @override
-  final UserDetails? userDetails;
-  @override
-  final GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  factory _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users(
-          [void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates]) =>
-      (GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..update(updates))._build();
-
-  _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-      {required this.data, this.userDetails, this.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data');
-  }
-
-  @override
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users rebuild(
-          void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder toBuilder() =>
-      GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users &&
-        data == other.data &&
-        userDetails == other.userDetails &&
-        groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 ==
-            other.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, userDetails.hashCode);
-    _$hash = $jc(_$hash, groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users')
-          ..add('data', data)
-          ..add('userDetails', userDetails)
-          ..add('groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1',
-              groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1))
-        .toString();
-  }
-}
-
-class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
-    implements
-        Builder<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
-        $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  UserDetailsBuilder? _userDetails;
-  UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
-  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
-
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-      _groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 =>
-          _$this._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
-              GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
-  set groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1(
-          covariant GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-              groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
-      _$this._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder();
-
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _userDetails = $v.userDetails?.toBuilder();
-      _groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          $v.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-  }
-
-  @override
-  void update(void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
-
-  _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
-    GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
-    _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
-    try {
-      _$result = _$v ??
-          _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data'),
-              userDetails: _userDetails?.build(),
-              groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1:
-                  _groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'userDetails';
-        _userDetails?.build();
-        _$failedField = 'groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1';
-        _groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -12800,7 +11797,8 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data && users == other.users;
+    final dynamic _$dynamicOther = other;
+    return other is GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data && users == _$dynamicOther.users;
   }
 
   @override
@@ -15775,163 +14773,6 @@ class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
   }
 }
 
-abstract mixin class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  void replace($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
-  void update(void Function($UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
-  UserDetailsBuilder get userDetails;
-  set userDetails(UserDetailsBuilder? userDetails);
-
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  set usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1(
-      UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-          usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1);
-}
-
-class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    extends UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users {
-  @override
-  final JsonObject data;
-  @override
-  final UserDetails? userDetails;
-  @override
-  final UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  factory _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users(
-          [void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates]) =>
-      (UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..update(updates))._build();
-
-  _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-      {required this.data, this.userDetails, this.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data');
-  }
-
-  @override
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users rebuild(
-          void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder toBuilder() =>
-      UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users &&
-        data == other.data &&
-        userDetails == other.userDetails &&
-        usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 ==
-            other.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, userDetails.hashCode);
-    _$hash = $jc(_$hash, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users')
-          ..add('data', data)
-          ..add('userDetails', userDetails)
-          ..add('usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1',
-              usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1))
-        .toString();
-  }
-}
-
-class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
-    implements
-        Builder<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
-        $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  UserDetailsBuilder? _userDetails;
-  UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
-  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
-
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-      _usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 =>
-          _$this._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
-              UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
-  set usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1(
-          covariant UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-              usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
-      _$this._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder();
-
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _userDetails = $v.userDetails?.toBuilder();
-      _usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          $v.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-  }
-
-  @override
-  void update(void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
-
-  _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
-    UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
-    _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
-    try {
-      _$result = _$v ??
-          _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data'),
-              userDetails: _userDetails?.build(),
-              usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1:
-                  _usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'userDetails';
-        _userDetails?.build();
-        _$failedField = 'usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1';
-        _usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -15964,7 +14805,8 @@ class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UsersGetUsersDetailsResponseApplicationJson_Ocs_Data && users == other.users;
+    final dynamic _$dynamicOther = other;
+    return other is UsersGetUsersDetailsResponseApplicationJson_Ocs_Data && users == _$dynamicOther.users;
   }
 
   @override
@@ -16364,165 +15206,6 @@ class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
   }
 }
 
-abstract mixin class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  void replace($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface other);
-  void update(
-      void Function($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder) updates);
-  UserDetailsBuilder get userDetails;
-  set userDetails(UserDetailsBuilder? userDetails);
-
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  set usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1(
-      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-          usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1);
-}
-
-class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    extends UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users {
-  @override
-  final JsonObject data;
-  @override
-  final UserDetails? userDetails;
-  @override
-  final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  factory _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users(
-          [void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates]) =>
-      (UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..update(updates))._build();
-
-  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-      {required this.data, this.userDetails, this.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        data, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data');
-  }
-
-  @override
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users rebuild(
-          void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder toBuilder() =>
-      UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users &&
-        data == other.data &&
-        userDetails == other.userDetails &&
-        usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 ==
-            other.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, userDetails.hashCode);
-    _$hash = $jc(_$hash, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users')
-          ..add('data', data)
-          ..add('userDetails', userDetails)
-          ..add('usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1',
-              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1))
-        .toString();
-  }
-}
-
-class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder
-    implements
-        Builder<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder>,
-        $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterfaceBuilder {
-  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  UserDetailsBuilder? _userDetails;
-  UserDetailsBuilder get userDetails => _$this._userDetails ??= UserDetailsBuilder();
-  set userDetails(covariant UserDetailsBuilder? userDetails) => _$this._userDetails = userDetails;
-
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-      _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder
-      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =>
-          _$this._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 ??=
-              UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder();
-  set usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1(
-          covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder?
-              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1) =>
-      _$this._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder();
-
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _userDetails = $v.userDetails?.toBuilder();
-      _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 =
-          $v.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-  }
-
-  @override
-  void update(void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users build() => _build();
-
-  _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _build() {
-    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._validate(this);
-    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users _$result;
-    try {
-      _$result = _$v ??
-          _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', 'data'),
-              userDetails: _userDetails?.build(),
-              usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1:
-                  _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'userDetails';
-        _userDetails?.build();
-        _$failedField = 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1';
-        _usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
@@ -16556,7 +15239,8 @@ class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data && users == other.users;
+    final dynamic _$dynamicOther = other;
+    return other is UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data && users == _$dynamicOther.users;
   }
 
   @override
