@@ -1106,64 +1106,8 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
-      const _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
-}
-
-class _$ThemingGetManifestResponseApplicationJson_IconsSerializer
-    implements StructuredSerializer<ThemingGetManifestResponseApplicationJson_Icons> {
-  const _$ThemingGetManifestResponseApplicationJson_IconsSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [ThemingGetManifestResponseApplicationJson_Icons, _$ThemingGetManifestResponseApplicationJson_Icons];
-
-  @override
-  String get wireName => 'ThemingGetManifestResponseApplicationJson_Icons';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ThemingGetManifestResponseApplicationJson_Icons object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'src',
-      serializers.serialize(object.src, specifiedType: const FullType(String)),
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-      'sizes',
-      serializers.serialize(object.sizes, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  ThemingGetManifestResponseApplicationJson_Icons deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ThemingGetManifestResponseApplicationJson_IconsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'src':
-          result.src = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'type':
-          result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'sizes':
-          result.sizes = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+      _$themingGetManifestResponseApplicationJsonIconsSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1203,92 +1147,8 @@ abstract class ThemingGetManifestResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
-      const _$ThemingGetManifestResponseApplicationJsonSerializer();
-}
-
-class _$ThemingGetManifestResponseApplicationJsonSerializer
-    implements StructuredSerializer<ThemingGetManifestResponseApplicationJson> {
-  const _$ThemingGetManifestResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [ThemingGetManifestResponseApplicationJson, _$ThemingGetManifestResponseApplicationJson];
-
-  @override
-  String get wireName => 'ThemingGetManifestResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ThemingGetManifestResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'short_name',
-      serializers.serialize(object.shortName, specifiedType: const FullType(String)),
-      'start_url',
-      serializers.serialize(object.startUrl, specifiedType: const FullType(String)),
-      'theme_color',
-      serializers.serialize(object.themeColor, specifiedType: const FullType(String)),
-      'background_color',
-      serializers.serialize(object.backgroundColor, specifiedType: const FullType(String)),
-      'description',
-      serializers.serialize(object.description, specifiedType: const FullType(String)),
-      'icons',
-      serializers.serialize(
-        object.icons,
-        specifiedType: const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
-      ),
-      'display',
-      serializers.serialize(object.display, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  ThemingGetManifestResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ThemingGetManifestResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'short_name':
-          result.shortName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'start_url':
-          result.startUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'theme_color':
-          result.themeColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'background_color':
-          result.backgroundColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'description':
-          result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'icons':
-          result.icons.replace(
-            serializers.deserialize(
-              value,
-              specifiedType: const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
-            )! as BuiltList<ThemingGetManifestResponseApplicationJson_Icons>,
-          );
-        case 'display':
-          result.display = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+      _$themingGetManifestResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1313,69 +1173,7 @@ abstract class Background implements BackgroundInterface, Built<Background, Back
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Background> get serializer => const _$BackgroundSerializer();
-}
-
-class _$BackgroundSerializer implements StructuredSerializer<Background> {
-  const _$BackgroundSerializer();
-
-  @override
-  Iterable<Type> get types => const [Background, _$Background];
-
-  @override
-  String get wireName => 'Background';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Background object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'backgroundColor',
-      serializers.serialize(object.backgroundColor, specifiedType: const FullType(String)),
-      'version',
-      serializers.serialize(object.version, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.backgroundImage;
-    if (value != null) {
-      result
-        ..add('backgroundImage')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    return result;
-  }
-
-  @override
-  Background deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BackgroundBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'backgroundImage':
-          result.backgroundImage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'backgroundColor':
-          result.backgroundColor = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Background> get serializer => _$backgroundSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1402,91 +1200,7 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OCSMeta> get serializer => const _$OCSMetaSerializer();
-}
-
-class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
-  const _$OCSMetaSerializer();
-
-  @override
-  Iterable<Type> get types => const [OCSMeta, _$OCSMeta];
-
-  @override
-  String get wireName => 'OCSMeta';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final OCSMeta object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
-      'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.message;
-    if (value != null) {
-      result
-        ..add('message')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    value = object.totalitems;
-    if (value != null) {
-      result
-        ..add('totalitems')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    value = object.itemsperpage;
-    if (value != null) {
-      result
-        ..add('itemsperpage')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    return result;
-  }
-
-  @override
-  OCSMeta deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = OCSMetaBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1516,62 +1230,8 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
-      const _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
-}
-
-class _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<UserThemeEnableThemeResponseApplicationJson_Ocs> {
-  const _$UserThemeEnableThemeResponseApplicationJson_OcsSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [UserThemeEnableThemeResponseApplicationJson_Ocs, _$UserThemeEnableThemeResponseApplicationJson_Ocs];
-
-  @override
-  String get wireName => 'UserThemeEnableThemeResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UserThemeEnableThemeResponseApplicationJson_Ocs object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
-    ];
-    return result;
-  }
-
-  @override
-  UserThemeEnableThemeResponseApplicationJson_Ocs deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserThemeEnableThemeResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
-          );
-        case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
-      }
-    }
-
-    return result.build();
-  }
+      _$userThemeEnableThemeResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1600,61 +1260,8 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UserThemeEnableThemeResponseApplicationJson> get serializer =>
-      const _$UserThemeEnableThemeResponseApplicationJsonSerializer();
-}
-
-class _$UserThemeEnableThemeResponseApplicationJsonSerializer
-    implements StructuredSerializer<UserThemeEnableThemeResponseApplicationJson> {
-  const _$UserThemeEnableThemeResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [UserThemeEnableThemeResponseApplicationJson, _$UserThemeEnableThemeResponseApplicationJson];
-
-  @override
-  String get wireName => 'UserThemeEnableThemeResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UserThemeEnableThemeResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(UserThemeEnableThemeResponseApplicationJson_Ocs)),
-    ];
-    return result;
-  }
-
-  @override
-  UserThemeEnableThemeResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserThemeEnableThemeResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(
-            serializers.deserialize(
-              value,
-              specifiedType: const FullType(UserThemeEnableThemeResponseApplicationJson_Ocs),
-            )! as UserThemeEnableThemeResponseApplicationJson_Ocs,
-          );
-      }
-    }
-
-    return result.build();
-  }
+      _$userThemeEnableThemeResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1685,62 +1292,8 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
-      const _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
-}
-
-class _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<UserThemeDisableThemeResponseApplicationJson_Ocs> {
-  const _$UserThemeDisableThemeResponseApplicationJson_OcsSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [UserThemeDisableThemeResponseApplicationJson_Ocs, _$UserThemeDisableThemeResponseApplicationJson_Ocs];
-
-  @override
-  String get wireName => 'UserThemeDisableThemeResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UserThemeDisableThemeResponseApplicationJson_Ocs object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
-    ];
-    return result;
-  }
-
-  @override
-  UserThemeDisableThemeResponseApplicationJson_Ocs deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserThemeDisableThemeResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
-          );
-        case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
-      }
-    }
-
-    return result.build();
-  }
+      _$userThemeDisableThemeResponseApplicationJsonOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1769,64 +1322,8 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UserThemeDisableThemeResponseApplicationJson> get serializer =>
-      const _$UserThemeDisableThemeResponseApplicationJsonSerializer();
-}
-
-class _$UserThemeDisableThemeResponseApplicationJsonSerializer
-    implements StructuredSerializer<UserThemeDisableThemeResponseApplicationJson> {
-  const _$UserThemeDisableThemeResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [UserThemeDisableThemeResponseApplicationJson, _$UserThemeDisableThemeResponseApplicationJson];
-
-  @override
-  String get wireName => 'UserThemeDisableThemeResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UserThemeDisableThemeResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(
-        object.ocs,
-        specifiedType: const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs),
-      ),
-    ];
-    return result;
-  }
-
-  @override
-  UserThemeDisableThemeResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserThemeDisableThemeResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(
-            serializers.deserialize(
-              value,
-              specifiedType: const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs),
-            )! as UserThemeDisableThemeResponseApplicationJson_Ocs,
-          );
-      }
-    }
-
-    return result.build();
-  }
+      _$userThemeDisableThemeResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1873,105 +1370,7 @@ abstract class PublicCapabilities_Theming
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicCapabilities_Theming> get serializer => const _$PublicCapabilities_ThemingSerializer();
-}
-
-class _$PublicCapabilities_ThemingSerializer implements StructuredSerializer<PublicCapabilities_Theming> {
-  const _$PublicCapabilities_ThemingSerializer();
-
-  @override
-  Iterable<Type> get types => const [PublicCapabilities_Theming, _$PublicCapabilities_Theming];
-
-  @override
-  String get wireName => 'PublicCapabilities_Theming';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final PublicCapabilities_Theming object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-      'slogan',
-      serializers.serialize(object.slogan, specifiedType: const FullType(String)),
-      'color',
-      serializers.serialize(object.color, specifiedType: const FullType(String)),
-      'color-text',
-      serializers.serialize(object.colorText, specifiedType: const FullType(String)),
-      'color-element',
-      serializers.serialize(object.colorElement, specifiedType: const FullType(String)),
-      'color-element-bright',
-      serializers.serialize(object.colorElementBright, specifiedType: const FullType(String)),
-      'color-element-dark',
-      serializers.serialize(object.colorElementDark, specifiedType: const FullType(String)),
-      'logo',
-      serializers.serialize(object.logo, specifiedType: const FullType(String)),
-      'background',
-      serializers.serialize(object.background, specifiedType: const FullType(String)),
-      'background-plain',
-      serializers.serialize(object.backgroundPlain, specifiedType: const FullType(bool)),
-      'background-default',
-      serializers.serialize(object.backgroundDefault, specifiedType: const FullType(bool)),
-      'logoheader',
-      serializers.serialize(object.logoheader, specifiedType: const FullType(String)),
-      'favicon',
-      serializers.serialize(object.favicon, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  PublicCapabilities_Theming deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PublicCapabilities_ThemingBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'name':
-          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'url':
-          result.url = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'slogan':
-          result.slogan = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'color':
-          result.color = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'color-text':
-          result.colorText = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'color-element':
-          result.colorElement = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'color-element-bright':
-          result.colorElementBright = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'color-element-dark':
-          result.colorElementDark = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'logo':
-          result.logo = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'background':
-          result.background = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'background-plain':
-          result.backgroundPlain = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'background-default':
-          result.backgroundDefault = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'logoheader':
-          result.logoheader = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'favicon':
-          result.favicon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<PublicCapabilities_Theming> get serializer => _$publicCapabilitiesThemingSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1996,56 +1395,7 @@ abstract class PublicCapabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PublicCapabilities> get serializer => const _$PublicCapabilitiesSerializer();
-}
-
-class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapabilities> {
-  const _$PublicCapabilitiesSerializer();
-
-  @override
-  Iterable<Type> get types => const [PublicCapabilities, _$PublicCapabilities];
-
-  @override
-  String get wireName => 'PublicCapabilities';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final PublicCapabilities object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'theming',
-      serializers.serialize(object.theming, specifiedType: const FullType(PublicCapabilities_Theming)),
-    ];
-    return result;
-  }
-
-  @override
-  PublicCapabilities deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PublicCapabilitiesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'theming':
-          result.theming.replace(
-            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities_Theming))!
-                as PublicCapabilities_Theming,
-          );
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
 }
 
 // coverage:ignore-start

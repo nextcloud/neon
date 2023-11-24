@@ -44,9 +44,201 @@ final BuiltSet<ClearAtTimeType> _$clearAtTimeTypeValues = BuiltSet<ClearAtTimeTy
   _$clearAtTimeTypeWeek,
 ]);
 
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<Public> _$publicSerializer = _$PublicSerializer();
 Serializer<Private> _$privateSerializer = _$PrivateSerializer();
+Serializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> _$heartbeatHeartbeatResponseApplicationJsonOcsSerializer =
+    _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer();
+Serializer<HeartbeatHeartbeatResponseApplicationJson> _$heartbeatHeartbeatResponseApplicationJsonSerializer =
+    _$HeartbeatHeartbeatResponseApplicationJsonSerializer();
 Serializer<ClearAt_Type> _$clearAtTypeSerializer = _$ClearAt_TypeSerializer();
 Serializer<ClearAtTimeType> _$clearAtTimeTypeSerializer = _$ClearAtTimeTypeSerializer();
+Serializer<ClearAt> _$clearAtSerializer = _$ClearAtSerializer();
+Serializer<Predefined> _$predefinedSerializer = _$PredefinedSerializer();
+Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
+    _$predefinedStatusFindAllResponseApplicationJsonOcsSerializer =
+    _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
+Serializer<PredefinedStatusFindAllResponseApplicationJson> _$predefinedStatusFindAllResponseApplicationJsonSerializer =
+    _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
+Serializer<StatusesFindAllResponseApplicationJson_Ocs> _$statusesFindAllResponseApplicationJsonOcsSerializer =
+    _$StatusesFindAllResponseApplicationJson_OcsSerializer();
+Serializer<StatusesFindAllResponseApplicationJson> _$statusesFindAllResponseApplicationJsonSerializer =
+    _$StatusesFindAllResponseApplicationJsonSerializer();
+Serializer<StatusesFindResponseApplicationJson_Ocs> _$statusesFindResponseApplicationJsonOcsSerializer =
+    _$StatusesFindResponseApplicationJson_OcsSerializer();
+Serializer<StatusesFindResponseApplicationJson> _$statusesFindResponseApplicationJsonSerializer =
+    _$StatusesFindResponseApplicationJsonSerializer();
+Serializer<UserStatusGetStatusResponseApplicationJson_Ocs> _$userStatusGetStatusResponseApplicationJsonOcsSerializer =
+    _$UserStatusGetStatusResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusGetStatusResponseApplicationJson> _$userStatusGetStatusResponseApplicationJsonSerializer =
+    _$UserStatusGetStatusResponseApplicationJsonSerializer();
+Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> _$userStatusSetStatusResponseApplicationJsonOcsSerializer =
+    _$UserStatusSetStatusResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusSetStatusResponseApplicationJson> _$userStatusSetStatusResponseApplicationJsonSerializer =
+    _$UserStatusSetStatusResponseApplicationJsonSerializer();
+Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs>
+    _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer =
+    _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusSetPredefinedMessageResponseApplicationJson>
+    _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer =
+    _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer();
+Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs>
+    _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer =
+    _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusSetCustomMessageResponseApplicationJson>
+    _$userStatusSetCustomMessageResponseApplicationJsonSerializer =
+    _$UserStatusSetCustomMessageResponseApplicationJsonSerializer();
+Serializer<UserStatusClearMessageResponseApplicationJson_Ocs>
+    _$userStatusClearMessageResponseApplicationJsonOcsSerializer =
+    _$UserStatusClearMessageResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusClearMessageResponseApplicationJson> _$userStatusClearMessageResponseApplicationJsonSerializer =
+    _$UserStatusClearMessageResponseApplicationJsonSerializer();
+Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs>
+    _$userStatusRevertStatusResponseApplicationJsonOcsSerializer =
+    _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer();
+Serializer<UserStatusRevertStatusResponseApplicationJson> _$userStatusRevertStatusResponseApplicationJsonSerializer =
+    _$UserStatusRevertStatusResponseApplicationJsonSerializer();
+Serializer<Capabilities_UserStatus> _$capabilitiesUserStatusSerializer = _$Capabilities_UserStatusSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  @override
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
+  @override
+  final String wireName = 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PublicSerializer implements StructuredSerializer<Public> {
+  @override
+  final Iterable<Type> types = const [Public, _$Public];
+  @override
+  final String wireName = 'Public';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Public object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.icon;
+    if (value != null) {
+      result
+        ..add('icon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    return result;
+  }
+
+  @override
+  Public deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PublicBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'clearAt':
+          result.clearAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$PrivateSerializer implements StructuredSerializer<Private> {
   @override
@@ -137,6 +329,97 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
   }
 }
 
+class _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    HeartbeatHeartbeatResponseApplicationJson_Ocs,
+    _$HeartbeatHeartbeatResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'HeartbeatHeartbeatResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Private)),
+    ];
+
+    return result;
+  }
+
+  @override
+  HeartbeatHeartbeatResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Private))! as Private);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
+    implements StructuredSerializer<HeartbeatHeartbeatResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    HeartbeatHeartbeatResponseApplicationJson,
+    _$HeartbeatHeartbeatResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'HeartbeatHeartbeatResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  HeartbeatHeartbeatResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = HeartbeatHeartbeatResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs))!
+              as HeartbeatHeartbeatResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
   static const Map<String, Object> _toWire = <String, Object>{
     'endOf': 'end-of',
@@ -174,6 +457,1029 @@ class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType
   ClearAtTimeType deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       ClearAtTimeType.valueOf(serialized as String);
+}
+
+class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {
+  @override
+  final Iterable<Type> types = const [ClearAt, _$ClearAt];
+  @override
+  final String wireName = 'ClearAt';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ClearAt object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(ClearAt_Type)),
+      'time',
+      serializers.serialize(object.time, specifiedType: const FullType(ClearAt_Time)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ClearAt deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ClearAtBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(ClearAt_Type))! as ClearAt_Type;
+          break;
+        case 'time':
+          result.time
+              .replace(serializers.deserialize(value, specifiedType: const FullType(ClearAt_Time))! as ClearAt_Time);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
+  @override
+  final Iterable<Type> types = const [Predefined, _$Predefined];
+  @override
+  final String wireName = 'Predefined';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Predefined object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'icon',
+      serializers.serialize(object.icon, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+    Object? value;
+    value = object.clearAt;
+    if (value != null) {
+      result
+        ..add('clearAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ClearAt)));
+    }
+    value = object.visible;
+    if (value != null) {
+      result
+        ..add('visible')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    return result;
+  }
+
+  @override
+  Predefined deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PredefinedBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'clearAt':
+          result.clearAt.replace(serializers.deserialize(value, specifiedType: const FullType(ClearAt))! as ClearAt);
+          break;
+        case 'visible':
+          result.visible = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<PredefinedStatusFindAllResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    PredefinedStatusFindAllResponseApplicationJson_Ocs,
+    _$PredefinedStatusFindAllResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'PredefinedStatusFindAllResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PredefinedStatusFindAllResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Predefined)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  PredefinedStatusFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Predefined)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
+    implements StructuredSerializer<PredefinedStatusFindAllResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    PredefinedStatusFindAllResponseApplicationJson,
+    _$PredefinedStatusFindAllResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'PredefinedStatusFindAllResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, PredefinedStatusFindAllResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  PredefinedStatusFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = PredefinedStatusFindAllResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs))!
+              as PredefinedStatusFindAllResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$StatusesFindAllResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<StatusesFindAllResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    StatusesFindAllResponseApplicationJson_Ocs,
+    _$StatusesFindAllResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'StatusesFindAllResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Public)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  StatusesFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StatusesFindAllResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Public)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$StatusesFindAllResponseApplicationJsonSerializer
+    implements StructuredSerializer<StatusesFindAllResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [StatusesFindAllResponseApplicationJson, _$StatusesFindAllResponseApplicationJson];
+  @override
+  final String wireName = 'StatusesFindAllResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(StatusesFindAllResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  StatusesFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StatusesFindAllResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(StatusesFindAllResponseApplicationJson_Ocs))!
+                  as StatusesFindAllResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$StatusesFindResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<StatusesFindResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    StatusesFindResponseApplicationJson_Ocs,
+    _$StatusesFindResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'StatusesFindResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StatusesFindResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Public)),
+    ];
+
+    return result;
+  }
+
+  @override
+  StatusesFindResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StatusesFindResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Public))! as Public);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$StatusesFindResponseApplicationJsonSerializer
+    implements StructuredSerializer<StatusesFindResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [StatusesFindResponseApplicationJson, _$StatusesFindResponseApplicationJson];
+  @override
+  final String wireName = 'StatusesFindResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StatusesFindResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(StatusesFindResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  StatusesFindResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StatusesFindResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(
+              serializers.deserialize(value, specifiedType: const FullType(StatusesFindResponseApplicationJson_Ocs))!
+                  as StatusesFindResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusGetStatusResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusGetStatusResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusGetStatusResponseApplicationJson_Ocs,
+    _$UserStatusGetStatusResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusGetStatusResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatusResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Private)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusGetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusGetStatusResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Private))! as Private);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusGetStatusResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusGetStatusResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusGetStatusResponseApplicationJson,
+    _$UserStatusGetStatusResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusGetStatusResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatusResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusGetStatusResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusGetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusGetStatusResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusGetStatusResponseApplicationJson_Ocs))!
+              as UserStatusGetStatusResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetStatusResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusSetStatusResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetStatusResponseApplicationJson_Ocs,
+    _$UserStatusSetStatusResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusSetStatusResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Private)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetStatusResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Private))! as Private);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetStatusResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetStatusResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetStatusResponseApplicationJson,
+    _$UserStatusSetStatusResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetStatusResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetStatusResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs))!
+              as UserStatusSetStatusResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
+    _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Private)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetPredefinedMessageResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Private))! as Private);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetPredefinedMessageResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetPredefinedMessageResponseApplicationJson,
+    _$UserStatusSetPredefinedMessageResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetPredefinedMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetPredefinedMessageResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetPredefinedMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs))!
+              as UserStatusSetPredefinedMessageResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetCustomMessageResponseApplicationJson_Ocs,
+    _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusSetCustomMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(Private)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetCustomMessageResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(Private))! as Private);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusSetCustomMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusSetCustomMessageResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusSetCustomMessageResponseApplicationJson,
+    _$UserStatusSetCustomMessageResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusSetCustomMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusSetCustomMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusSetCustomMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs))!
+              as UserStatusSetCustomMessageResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusClearMessageResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusClearMessageResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusClearMessageResponseApplicationJson_Ocs,
+    _$UserStatusClearMessageResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusClearMessageResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusClearMessageResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusClearMessageResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusClearMessageResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusClearMessageResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusClearMessageResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusClearMessageResponseApplicationJson,
+    _$UserStatusClearMessageResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusClearMessageResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusClearMessageResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusClearMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusClearMessageResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs))!
+              as UserStatusClearMessageResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<UserStatusRevertStatusResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusRevertStatusResponseApplicationJson_Ocs,
+    _$UserStatusRevertStatusResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'UserStatusRevertStatusResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusRevertStatusResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data,
+          specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusRevertStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data))!
+              as UserStatusRevertStatusResponseApplicationJson_Ocs_Data);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$UserStatusRevertStatusResponseApplicationJsonSerializer
+    implements StructuredSerializer<UserStatusRevertStatusResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    UserStatusRevertStatusResponseApplicationJson,
+    _$UserStatusRevertStatusResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'UserStatusRevertStatusResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, UserStatusRevertStatusResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  UserStatusRevertStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = UserStatusRevertStatusResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs))!
+              as UserStatusRevertStatusResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabilities_UserStatus> {
+  @override
+  final Iterable<Type> types = const [Capabilities_UserStatus, _$Capabilities_UserStatus];
+  @override
+  final String wireName = 'Capabilities_UserStatus';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_UserStatus object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'restore',
+      serializers.serialize(object.restore, specifiedType: const FullType(bool)),
+      'supports_emoji',
+      serializers.serialize(object.supportsEmoji, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_UserStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_UserStatusBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'restore':
+          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'supports_emoji':
+          result.supportsEmoji = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
+  @override
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
+  @override
+  final String wireName = 'Capabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'user_status',
+      serializers.serialize(object.userStatus, specifiedType: const FullType(Capabilities_UserStatus)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'user_status':
+          result.userStatus.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities_UserStatus))! as Capabilities_UserStatus);
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 abstract mixin class OCSMetaInterfaceBuilder {

@@ -59,9 +59,86 @@ final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageC
   _$storageConfigTypeSystem,
 ]);
 
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<Mount_Type> _$mountTypeSerializer = _$Mount_TypeSerializer();
 Serializer<Mount_Scope> _$mountScopeSerializer = _$Mount_ScopeSerializer();
 Serializer<StorageConfig_Type> _$storageConfigTypeSerializer = _$StorageConfig_TypeSerializer();
+Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
+Serializer<Mount> _$mountSerializer = _$MountSerializer();
+Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
+    _$ApiGetUserMountsResponseApplicationJson_OcsSerializer();
+Serializer<ApiGetUserMountsResponseApplicationJson> _$apiGetUserMountsResponseApplicationJsonSerializer =
+    _$ApiGetUserMountsResponseApplicationJsonSerializer();
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  @override
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
+  @override
+  final String wireName = 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
   @override
@@ -109,6 +186,309 @@ class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfi
   StorageConfig_Type deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       StorageConfig_Type.valueOf(serialized as String);
+}
+
+class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {
+  @override
+  final Iterable<Type> types = const [StorageConfig, _$StorageConfig];
+  @override
+  final String wireName = 'StorageConfig';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, StorageConfig object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'authMechanism',
+      serializers.serialize(object.authMechanism, specifiedType: const FullType(String)),
+      'backend',
+      serializers.serialize(object.backend, specifiedType: const FullType(String)),
+      'backendOptions',
+      serializers.serialize(object.backendOptions,
+          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])),
+      'mountPoint',
+      serializers.serialize(object.mountPoint, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(StorageConfig_Type)),
+      'userProvided',
+      serializers.serialize(object.userProvided, specifiedType: const FullType(bool)),
+    ];
+    Object? value;
+    value = object.applicableGroups;
+    if (value != null) {
+      result
+        ..add('applicableGroups')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.applicableUsers;
+    if (value != null) {
+      result
+        ..add('applicableUsers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.id;
+    if (value != null) {
+      result
+        ..add('id')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.mountOptions;
+    if (value != null) {
+      result
+        ..add('mountOptions')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)])));
+    }
+    value = object.priority;
+    if (value != null) {
+      result
+        ..add('priority')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.status;
+    if (value != null) {
+      result
+        ..add('status')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.statusMessage;
+    if (value != null) {
+      result
+        ..add('statusMessage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  StorageConfig deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = StorageConfigBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'applicableGroups':
+          result.applicableGroups.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'applicableUsers':
+          result.applicableUsers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'authMechanism':
+          result.authMechanism = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'backend':
+          result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'backendOptions':
+          result.backendOptions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'mountOptions':
+          result.mountOptions.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]))!);
+          break;
+        case 'mountPoint':
+          result.mountPoint = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'priority':
+          result.priority = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
+          break;
+        case 'statusMessage':
+          result.statusMessage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'type':
+          result.type =
+              serializers.deserialize(value, specifiedType: const FullType(StorageConfig_Type))! as StorageConfig_Type;
+          break;
+        case 'userProvided':
+          result.userProvided = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$MountSerializer implements StructuredSerializer<Mount> {
+  @override
+  final Iterable<Type> types = const [Mount, _$Mount];
+  @override
+  final String wireName = 'Mount';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Mount object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'path',
+      serializers.serialize(object.path, specifiedType: const FullType(String)),
+      'type',
+      serializers.serialize(object.type, specifiedType: const FullType(Mount_Type)),
+      'backend',
+      serializers.serialize(object.backend, specifiedType: const FullType(String)),
+      'scope',
+      serializers.serialize(object.scope, specifiedType: const FullType(Mount_Scope)),
+      'permissions',
+      serializers.serialize(object.permissions, specifiedType: const FullType(int)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'class',
+      serializers.serialize(object.$class, specifiedType: const FullType(String)),
+      'config',
+      serializers.serialize(object.config, specifiedType: const FullType(StorageConfig)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Mount deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = MountBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'name':
+          result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'path':
+          result.path = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value, specifiedType: const FullType(Mount_Type))! as Mount_Type;
+          break;
+        case 'backend':
+          result.backend = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'scope':
+          result.scope = serializers.deserialize(value, specifiedType: const FullType(Mount_Scope))! as Mount_Scope;
+          break;
+        case 'permissions':
+          result.permissions = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'class':
+          result.$class = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'config':
+          result.config
+              .replace(serializers.deserialize(value, specifiedType: const FullType(StorageConfig))! as StorageConfig);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetUserMountsResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<ApiGetUserMountsResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetUserMountsResponseApplicationJson_Ocs,
+    _$ApiGetUserMountsResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'ApiGetUserMountsResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(Mount)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGetUserMountsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetUserMountsResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(Mount)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ApiGetUserMountsResponseApplicationJsonSerializer
+    implements StructuredSerializer<ApiGetUserMountsResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    ApiGetUserMountsResponseApplicationJson,
+    _$ApiGetUserMountsResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'ApiGetUserMountsResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ApiGetUserMountsResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ApiGetUserMountsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ApiGetUserMountsResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ApiGetUserMountsResponseApplicationJson_Ocs))!
+              as ApiGetUserMountsResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 abstract mixin class OCSMetaInterfaceBuilder {
