@@ -2,6 +2,7 @@ import 'package:nextcloud/dashboard.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:version/version.dart';
 
 void main() {
   presets('server', (final preset) {
@@ -33,12 +34,16 @@ void main() {
             expect(items['spreed'], hasLength(0));
           });
 
-          test('v2', () async {
-            final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
-            expect(response.body.ocs.data.keys, equals(['recommendations']));
-            final items = response.body.ocs.data['recommendations']!.items;
-            expect(items, hasLength(7));
-          });
+          test(
+            'v2',
+            () async {
+              final response = await client.dashboard.dashboardApi.getWidgetItemsV2();
+              expect(response.body.ocs.data.keys, equals(['recommendations']));
+              final items = response.body.ocs.data['recommendations']!.items;
+              expect(items, hasLength(7));
+            },
+            skip: preset.version < Version(27, 1, 0),
+          );
         });
       },
       retry: retryCount,

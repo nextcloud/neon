@@ -5,7 +5,7 @@ import 'package:nextcloud/src/helpers/common.dart';
 import 'package:version/version.dart';
 
 /// Minimum version of core/Server supported
-final minVersion = Version(27, 1, 0);
+final minVersion = Version(27, 0, 0);
 
 extension CoreVersionCheck on core.Client {
   /// Check if the core/Server version is supported by this client

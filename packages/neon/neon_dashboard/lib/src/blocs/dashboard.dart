@@ -54,9 +54,11 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
       final response = await _account.client.dashboard.dashboardApi.getWidgets();
 
       for (final widget in response.body.ocs.data.values) {
-        if (widget.itemApiVersions.contains(2)) {
+        final itemApiVersions = widget.itemApiVersions;
+        if (itemApiVersions != null && itemApiVersions.contains(2)) {
           v2WidgetIDs.add(widget.id);
-        } else if (widget.itemApiVersions.contains(1)) {
+        } else if (itemApiVersions == null || itemApiVersions.contains(1)) {
+          // If the field isn't present the server only supports v1
           v1WidgetIDs.add(widget.id);
         } else {
           debugPrint('Widget supports none of the API versions: ${widget.id}');

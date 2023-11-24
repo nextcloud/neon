@@ -248,6 +248,8 @@ class DashboardApiClient {
 
   /// Get the items for the widgets.
   ///
+  /// Only available since 27.1.
+  ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
@@ -279,6 +281,8 @@ class DashboardApiClient {
   }
 
   /// Get the items for the widgets.
+  ///
+  /// Only available since 27.1.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -429,9 +433,9 @@ abstract interface class WidgetInterface {
   @BuiltValueField(wireName: 'item_icons_round')
   bool get itemIconsRound;
   @BuiltValueField(wireName: 'item_api_versions')
-  BuiltList<int> get itemApiVersions;
+  BuiltList<int>? get itemApiVersions;
   @BuiltValueField(wireName: 'reload_interval')
-  int get reloadInterval;
+  int? get reloadInterval;
   BuiltList<Widget_Buttons>? get buttons;
 }
 
@@ -521,7 +525,7 @@ abstract interface class WidgetItemInterface {
   String get title;
   String get link;
   String get iconUrl;
-  String get overlayIconUrl;
+  String? get overlayIconUrl;
   String get sinceId;
 }
 
