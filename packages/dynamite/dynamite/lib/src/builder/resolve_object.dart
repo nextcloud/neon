@@ -4,6 +4,7 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
+import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
@@ -22,18 +23,23 @@ TypeResultObject resolveObject(
   );
   if (state.resolvedTypes.add(result)) {
     final defaults = <String>[];
+    final validators = <String>[];
     for (final property in schema.properties!.entries) {
       final propertySchema = property.value;
+      final dartName = toDartName(property.key);
+
       if (propertySchema.$default != null) {
-        final value = propertySchema.$default!.toString();
         final result = resolveType(
           spec,
           state,
           propertySchema.type!.name,
           propertySchema,
         );
-        defaults.add('..${toDartName(property.key)} = ${valueToEscapedValue(result, value)}');
+
+        final value = propertySchema.$default!.toString();
+        defaults.add('..$dartName = ${valueToEscapedValue(result, value)}');
       }
+      validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName'));
     }
 
     resolveInterface(
@@ -47,6 +53,7 @@ TypeResultObject resolveObject(
       buildBuiltClass(
         identifier,
         defaults: defaults,
+        validators: validators,
         customSerializer: isHeader,
       ),
     );

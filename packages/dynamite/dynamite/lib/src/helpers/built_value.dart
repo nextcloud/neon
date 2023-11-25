@@ -9,6 +9,7 @@ const interfaceSuffix = 'Interface';
 Spec buildBuiltClass(
   final String className, {
   final Iterable<String>? defaults,
+  final Iterable<String>? validators,
   final Iterable<Method>? methods,
   final bool customSerializer = false,
 }) =>
@@ -64,6 +65,28 @@ Spec buildBuiltClass(
                   ].join(),
                 ),
             ),
+          );
+        }
+
+        if (validators != null && validators.isNotEmpty) {
+          b.methods.add(
+            Method((final b) {
+              b
+                ..name = '_validate'
+                ..returns = refer('void')
+                ..annotations.add(
+                  refer('BuiltValueHook').call([], {'finalizeBuilder': literalTrue}),
+                )
+                ..static = true
+                ..requiredParameters.add(
+                  Parameter(
+                    (final b) => b
+                      ..name = 'b'
+                      ..type = refer('${className}Builder'),
+                  ),
+                )
+                ..body = Code(validators.join('\n'));
+            }),
           );
         }
       },

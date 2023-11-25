@@ -721,6 +721,7 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
   ThemingGetManifestResponseApplicationJson_Icons build() => _build();
 
   _$ThemingGetManifestResponseApplicationJson_Icons _build() {
+    ThemingGetManifestResponseApplicationJson_Icons._validate(this);
     final _$result = _$v ??
         _$ThemingGetManifestResponseApplicationJson_Icons._(
             src: BuiltValueNullFieldError.checkNotNull(src, r'ThemingGetManifestResponseApplicationJson_Icons', 'src'),

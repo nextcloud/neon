@@ -7,6 +7,7 @@ import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
+import 'package:dynamite/src/helpers/pattern_check.dart';
 import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
@@ -270,7 +271,7 @@ Iterable<Method> buildTags(
           ),
         );
 
-        buildPatternCheck(result, parameter).forEach(code.writeln);
+        buildParameterPatternCheck(parameter).forEach(code.writeln);
         buildParameterSerialization(result, parameter).forEach(code.writeln);
       }
       resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
@@ -452,25 +453,16 @@ Iterable<String> buildParameterSerialization(
   }
 }
 
-Iterable<String> buildPatternCheck(
-  final TypeResult result,
+Iterable<String> buildParameterPatternCheck(
   final openapi.Parameter parameter,
 ) sync* {
-  final value = toDartName(parameter.name);
-  final name = "'$value'";
-
   final schema = parameter.schema;
-  if (result.name == 'String' && schema != null) {
-    if (schema.pattern != null) {
-      yield "checkPattern($value, RegExp(r'${schema.pattern!}'), $name); // coverage:ignore-line";
-    }
-    if (schema.minLength != null) {
-      yield 'checkMinLength($value, ${schema.minLength}, $name); // coverage:ignore-line';
-    }
-    if (schema.maxLength != null) {
-      yield 'checkMaxLength($value, ${schema.maxLength}, $name); // coverage:ignore-line';
-    }
+  if (schema == null) {
+    return;
   }
+
+  final value = toDartName(parameter.name);
+  yield* buildPatternCheck(schema, value);
 }
 
 Iterable<String> buildAuthCheck(

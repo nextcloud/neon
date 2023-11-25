@@ -5,7 +5,7 @@ import 'dart:typed_data';
 import 'package:built_value/serializer.dart';
 import 'package:cookie_jar/cookie_jar.dart';
 import 'package:dynamite_runtime/src/http_extensions.dart';
-import 'package:dynamite_runtime/src/uri.dart';
+import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 

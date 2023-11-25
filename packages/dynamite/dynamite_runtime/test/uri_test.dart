@@ -1,4 +1,4 @@
-import 'package:dynamite_runtime/src/uri.dart';
+import 'package:dynamite_runtime/src/utils/uri.dart';
 import 'package:test/test.dart';
 
 void main() {
