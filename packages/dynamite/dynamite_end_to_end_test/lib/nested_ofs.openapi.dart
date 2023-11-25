@@ -46,53 +46,7 @@ abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Base> get serializer => const _$BaseSerializer();
-}
-
-class _$BaseSerializer implements StructuredSerializer<Base> {
-  const _$BaseSerializer();
-
-  @override
-  Iterable<Type> get types => const [Base, _$Base];
-
-  @override
-  String get wireName => 'Base';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Base object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'attribute',
-      serializers.serialize(object.attribute, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  Base deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BaseBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'attribute':
-          result.attribute = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Base> get serializer => _$baseSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -131,53 +85,7 @@ abstract class BaseOneOf1 implements BaseOneOf1Interface, Built<BaseOneOf1, Base
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BaseOneOf1> get serializer => const _$BaseOneOf1Serializer();
-}
-
-class _$BaseOneOf1Serializer implements StructuredSerializer<BaseOneOf1> {
-  const _$BaseOneOf1Serializer();
-
-  @override
-  Iterable<Type> get types => const [BaseOneOf1, _$BaseOneOf1];
-
-  @override
-  String get wireName => 'BaseOneOf1';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final BaseOneOf1 object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'attribute-oneOf',
-      serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  BaseOneOf1 deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BaseOneOf1Builder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'attribute-oneOf':
-          result.attributeOneOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -262,53 +170,7 @@ abstract class BaseAnyOf1 implements BaseAnyOf1Interface, Built<BaseAnyOf1, Base
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BaseAnyOf1> get serializer => const _$BaseAnyOf1Serializer();
-}
-
-class _$BaseAnyOf1Serializer implements StructuredSerializer<BaseAnyOf1> {
-  const _$BaseAnyOf1Serializer();
-
-  @override
-  Iterable<Type> get types => const [BaseAnyOf1, _$BaseAnyOf1];
-
-  @override
-  String get wireName => 'BaseAnyOf1';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final BaseAnyOf1 object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'attribute-anyOf',
-      serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  BaseAnyOf1 deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BaseAnyOf1Builder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'attribute-anyOf':
-          result.attributeAnyOf = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -417,54 +279,7 @@ abstract class BaseNestedOneOf3 implements BaseNestedOneOf3Interface, Built<Base
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BaseNestedOneOf3> get serializer => const _$BaseNestedOneOf3Serializer();
-}
-
-class _$BaseNestedOneOf3Serializer implements StructuredSerializer<BaseNestedOneOf3> {
-  const _$BaseNestedOneOf3Serializer();
-
-  @override
-  Iterable<Type> get types => const [BaseNestedOneOf3, _$BaseNestedOneOf3];
-
-  @override
-  String get wireName => 'BaseNestedOneOf3';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final BaseNestedOneOf3 object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'attribute-nested-oneOf',
-      serializers.serialize(object.attributeNestedOneOf, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  BaseNestedOneOf3 deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BaseNestedOneOf3Builder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'attribute-nested-oneOf':
-          result.attributeNestedOneOf =
-              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -563,54 +378,7 @@ abstract class BaseNestedAnyOf3 implements BaseNestedAnyOf3Interface, Built<Base
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<BaseNestedAnyOf3> get serializer => const _$BaseNestedAnyOf3Serializer();
-}
-
-class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAnyOf3> {
-  const _$BaseNestedAnyOf3Serializer();
-
-  @override
-  Iterable<Type> get types => const [BaseNestedAnyOf3, _$BaseNestedAnyOf3];
-
-  @override
-  String get wireName => 'BaseNestedAnyOf3';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final BaseNestedAnyOf3 object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'attribute-nested-anyOf',
-      serializers.serialize(object.attributeNestedAnyOf, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  BaseNestedAnyOf3 deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = BaseNestedAnyOf3Builder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'attribute-nested-anyOf':
-          result.attributeNestedAnyOf =
-              serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
 }
 
 @BuiltValue(instantiable: false)

@@ -6,6 +6,303 @@ part of 'sharebymail.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop>
+    _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer =
+    _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer();
+Serializer<Capabilities0_FilesSharing_Sharebymail_Password> _$capabilities0FilesSharingSharebymailPasswordSerializer =
+    _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer();
+Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate>
+    _$capabilities0FilesSharingSharebymailExpireDateSerializer =
+    _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer();
+Serializer<Capabilities0_FilesSharing_Sharebymail> _$capabilities0FilesSharingSharebymailSerializer =
+    _$Capabilities0_FilesSharing_SharebymailSerializer();
+Serializer<Capabilities0_FilesSharing> _$capabilities0FilesSharingSerializer = _$Capabilities0_FilesSharingSerializer();
+Serializer<Capabilities0> _$capabilities0Serializer = _$Capabilities0Serializer();
+
+class _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDropSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> {
+  @override
+  final Iterable<Type> types = const [
+    Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
+    _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
+  ];
+  @override
+  final String wireName = 'Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities0_FilesSharing_Sharebymail_PasswordSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_Password> {
+  @override
+  final Iterable<Type> types = const [
+    Capabilities0_FilesSharing_Sharebymail_Password,
+    _$Capabilities0_FilesSharing_Sharebymail_Password
+  ];
+  @override
+  final String wireName = 'Capabilities0_FilesSharing_Sharebymail_Password';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0_FilesSharing_Sharebymail_Password object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_Password deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0_FilesSharing_Sharebymail_PasswordBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities0_FilesSharing_Sharebymail_ExpireDateSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> {
+  @override
+  final Iterable<Type> types = const [
+    Capabilities0_FilesSharing_Sharebymail_ExpireDate,
+    _$Capabilities0_FilesSharing_Sharebymail_ExpireDate
+  ];
+  @override
+  final String wireName = 'Capabilities0_FilesSharing_Sharebymail_ExpireDate';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0_FilesSharing_Sharebymail_ExpireDate object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'enforced',
+      serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'enforced':
+          result.enforced = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities0_FilesSharing_SharebymailSerializer
+    implements StructuredSerializer<Capabilities0_FilesSharing_Sharebymail> {
+  @override
+  final Iterable<Type> types = const [Capabilities0_FilesSharing_Sharebymail, _$Capabilities0_FilesSharing_Sharebymail];
+  @override
+  final String wireName = 'Capabilities0_FilesSharing_Sharebymail';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0_FilesSharing_Sharebymail object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'enabled',
+      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
+      'send_password_by_mail',
+      serializers.serialize(object.sendPasswordByMail, specifiedType: const FullType(bool)),
+      'upload_files_drop',
+      serializers.serialize(object.uploadFilesDrop,
+          specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop)),
+      'password',
+      serializers.serialize(object.password,
+          specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_Password)),
+      'expire_date',
+      serializers.serialize(object.expireDate,
+          specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing_Sharebymail deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0_FilesSharing_SharebymailBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'enabled':
+          result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'send_password_by_mail':
+          result.sendPasswordByMail = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'upload_files_drop':
+          result.uploadFilesDrop.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop))!
+              as Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop);
+          break;
+        case 'password':
+          result.password.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_Password))!
+              as Capabilities0_FilesSharing_Sharebymail_Password);
+          break;
+        case 'expire_date':
+          result.expireDate.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate))!
+              as Capabilities0_FilesSharing_Sharebymail_ExpireDate);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities0_FilesSharingSerializer implements StructuredSerializer<Capabilities0_FilesSharing> {
+  @override
+  final Iterable<Type> types = const [Capabilities0_FilesSharing, _$Capabilities0_FilesSharing];
+  @override
+  final String wireName = 'Capabilities0_FilesSharing';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0_FilesSharing object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'sharebymail',
+      serializers.serialize(object.sharebymail, specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0_FilesSharingBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'sharebymail':
+          result.sharebymail.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities0_FilesSharing_Sharebymail))!
+                  as Capabilities0_FilesSharing_Sharebymail);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities0Serializer implements StructuredSerializer<Capabilities0> {
+  @override
+  final Iterable<Type> types = const [Capabilities0, _$Capabilities0];
+  @override
+  final String wireName = 'Capabilities0';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities0 object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files_sharing',
+      serializers.serialize(object.filesSharing, specifiedType: const FullType(Capabilities0_FilesSharing)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities0 deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities0Builder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files_sharing':
+          result.filesSharing.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capabilities0_FilesSharing))! as Capabilities0_FilesSharing);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 abstract mixin class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
   void replace(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface other);
   void update(void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);

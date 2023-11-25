@@ -935,53 +935,7 @@ abstract class CheckResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CheckResponseApplicationJson> get serializer => const _$CheckResponseApplicationJsonSerializer();
-}
-
-class _$CheckResponseApplicationJsonSerializer implements StructuredSerializer<CheckResponseApplicationJson> {
-  const _$CheckResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [CheckResponseApplicationJson, _$CheckResponseApplicationJson];
-
-  @override
-  String get wireName => 'CheckResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final CheckResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  CheckResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CheckResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<CheckResponseApplicationJson> get serializer => _$checkResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1009,55 +963,8 @@ abstract class SetKeepaliveResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<SetKeepaliveResponseApplicationJson> get serializer =>
-      const _$SetKeepaliveResponseApplicationJsonSerializer();
-}
-
-class _$SetKeepaliveResponseApplicationJsonSerializer
-    implements StructuredSerializer<SetKeepaliveResponseApplicationJson> {
-  const _$SetKeepaliveResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [SetKeepaliveResponseApplicationJson, _$SetKeepaliveResponseApplicationJson];
-
-  @override
-  String get wireName => 'SetKeepaliveResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final SetKeepaliveResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  SetKeepaliveResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SetKeepaliveResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+      _$setKeepaliveResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1086,59 +993,8 @@ abstract class CreateDeviceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<CreateDeviceResponseApplicationJson> get serializer =>
-      const _$CreateDeviceResponseApplicationJsonSerializer();
-}
-
-class _$CreateDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<CreateDeviceResponseApplicationJson> {
-  const _$CreateDeviceResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [CreateDeviceResponseApplicationJson, _$CreateDeviceResponseApplicationJson];
-
-  @override
-  String get wireName => 'CreateDeviceResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final CreateDeviceResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-      'deviceId',
-      serializers.serialize(object.deviceId, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  CreateDeviceResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CreateDeviceResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'deviceId':
-          result.deviceId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+      _$createDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1166,54 +1022,7 @@ abstract class SyncDeviceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SyncDeviceResponseApplicationJson> get serializer =>
-      const _$SyncDeviceResponseApplicationJsonSerializer();
-}
-
-class _$SyncDeviceResponseApplicationJsonSerializer implements StructuredSerializer<SyncDeviceResponseApplicationJson> {
-  const _$SyncDeviceResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [SyncDeviceResponseApplicationJson, _$SyncDeviceResponseApplicationJson];
-
-  @override
-  String get wireName => 'SyncDeviceResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final SyncDeviceResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  SyncDeviceResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SyncDeviceResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<SyncDeviceResponseApplicationJson> get serializer => _$syncDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1241,55 +1050,8 @@ abstract class DeleteDeviceResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<DeleteDeviceResponseApplicationJson> get serializer =>
-      const _$DeleteDeviceResponseApplicationJsonSerializer();
-}
-
-class _$DeleteDeviceResponseApplicationJsonSerializer
-    implements StructuredSerializer<DeleteDeviceResponseApplicationJson> {
-  const _$DeleteDeviceResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [DeleteDeviceResponseApplicationJson, _$DeleteDeviceResponseApplicationJson];
-
-  @override
-  String get wireName => 'DeleteDeviceResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final DeleteDeviceResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  DeleteDeviceResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = DeleteDeviceResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+      _$deleteDeviceResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1318,58 +1080,7 @@ abstract class CreateAppResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<CreateAppResponseApplicationJson> get serializer =>
-      const _$CreateAppResponseApplicationJsonSerializer();
-}
-
-class _$CreateAppResponseApplicationJsonSerializer implements StructuredSerializer<CreateAppResponseApplicationJson> {
-  const _$CreateAppResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [CreateAppResponseApplicationJson, _$CreateAppResponseApplicationJson];
-
-  @override
-  String get wireName => 'CreateAppResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final CreateAppResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-      'token',
-      serializers.serialize(object.token, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  CreateAppResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CreateAppResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'token':
-          result.token = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<CreateAppResponseApplicationJson> get serializer => _$createAppResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1397,54 +1108,7 @@ abstract class DeleteAppResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<DeleteAppResponseApplicationJson> get serializer =>
-      const _$DeleteAppResponseApplicationJsonSerializer();
-}
-
-class _$DeleteAppResponseApplicationJsonSerializer implements StructuredSerializer<DeleteAppResponseApplicationJson> {
-  const _$DeleteAppResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [DeleteAppResponseApplicationJson, _$DeleteAppResponseApplicationJson];
-
-  @override
-  String get wireName => 'DeleteAppResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final DeleteAppResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  DeleteAppResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = DeleteAppResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<DeleteAppResponseApplicationJson> get serializer => _$deleteAppResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1474,58 +1138,8 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
-      const _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-}
-
-class _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
-    implements StructuredSerializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush> {
-  const _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-
-  @override
-  Iterable<Type> get types => const [
-        UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-        _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-      ];
-
-  @override
-  String get wireName => 'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'version',
-      serializers.serialize(object.version, specifiedType: const FullType(int)),
-    ];
-    return result;
-  }
-
-  @override
-  UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-      }
-    }
-
-    return result.build();
-  }
+      _$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1554,64 +1168,8 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<UnifiedpushDiscoveryResponseApplicationJson> get serializer =>
-      const _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
-}
-
-class _$UnifiedpushDiscoveryResponseApplicationJsonSerializer
-    implements StructuredSerializer<UnifiedpushDiscoveryResponseApplicationJson> {
-  const _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [UnifiedpushDiscoveryResponseApplicationJson, _$UnifiedpushDiscoveryResponseApplicationJson];
-
-  @override
-  String get wireName => 'UnifiedpushDiscoveryResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final UnifiedpushDiscoveryResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'unifiedpush',
-      serializers.serialize(
-        object.unifiedpush,
-        specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
-      ),
-    ];
-    return result;
-  }
-
-  @override
-  UnifiedpushDiscoveryResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UnifiedpushDiscoveryResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'unifiedpush':
-          result.unifiedpush.replace(
-            serializers.deserialize(
-              value,
-              specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
-            )! as UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-          );
-      }
-    }
-
-    return result.build();
-  }
+      _$unifiedpushDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1639,53 +1197,7 @@ abstract class PushResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<PushResponseApplicationJson> get serializer => const _$PushResponseApplicationJsonSerializer();
-}
-
-class _$PushResponseApplicationJsonSerializer implements StructuredSerializer<PushResponseApplicationJson> {
-  const _$PushResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [PushResponseApplicationJson, _$PushResponseApplicationJson];
-
-  @override
-  String get wireName => 'PushResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final PushResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
-    return result;
-  }
-
-  @override
-  PushResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = PushResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'success':
-          result.success = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<PushResponseApplicationJson> get serializer => _$pushResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1715,58 +1227,8 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> get serializer =>
-      const _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-}
-
-class _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer
-    implements StructuredSerializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush> {
-  const _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
-
-  @override
-  Iterable<Type> get types => const [
-        GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-        _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-      ];
-
-  @override
-  String get wireName => 'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'gateway',
-      serializers.serialize(object.gateway, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'gateway':
-          result.gateway = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+      _$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1795,64 +1257,8 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<GatewayMatrixDiscoveryResponseApplicationJson> get serializer =>
-      const _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
-}
-
-class _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer
-    implements StructuredSerializer<GatewayMatrixDiscoveryResponseApplicationJson> {
-  const _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types =>
-      const [GatewayMatrixDiscoveryResponseApplicationJson, _$GatewayMatrixDiscoveryResponseApplicationJson];
-
-  @override
-  String get wireName => 'GatewayMatrixDiscoveryResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final GatewayMatrixDiscoveryResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'unifiedpush',
-      serializers.serialize(
-        object.unifiedpush,
-        specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
-      ),
-    ];
-    return result;
-  }
-
-  @override
-  GatewayMatrixDiscoveryResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'unifiedpush':
-          result.unifiedpush.replace(
-            serializers.deserialize(
-              value,
-              specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
-            )! as GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-          );
-      }
-    }
-
-    return result.build();
-  }
+      _$gatewayMatrixDiscoveryResponseApplicationJsonSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1880,58 +1286,8 @@ abstract class GatewayMatrixResponseApplicationJson
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<GatewayMatrixResponseApplicationJson> get serializer =>
-      const _$GatewayMatrixResponseApplicationJsonSerializer();
-}
-
-class _$GatewayMatrixResponseApplicationJsonSerializer
-    implements StructuredSerializer<GatewayMatrixResponseApplicationJson> {
-  const _$GatewayMatrixResponseApplicationJsonSerializer();
-
-  @override
-  Iterable<Type> get types => const [GatewayMatrixResponseApplicationJson, _$GatewayMatrixResponseApplicationJson];
-
-  @override
-  String get wireName => 'GatewayMatrixResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final GatewayMatrixResponseApplicationJson object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'rejected',
-      serializers.serialize(object.rejected, specifiedType: const FullType(BuiltList, [FullType(String)])),
-    ];
-    return result;
-  }
-
-  @override
-  GatewayMatrixResponseApplicationJson deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GatewayMatrixResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'rejected':
-          result.rejected.replace(
-            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
-                as BuiltList<String>,
-          );
-      }
-    }
-
-    return result.build();
-  }
+      _$gatewayMatrixResponseApplicationJsonSerializer;
 }
 
 // coverage:ignore-start

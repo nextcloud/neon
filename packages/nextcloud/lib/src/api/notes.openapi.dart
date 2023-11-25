@@ -746,89 +746,7 @@ abstract class Note implements NoteInterface, Built<Note, NoteBuilder> {
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Note> get serializer => const _$NoteSerializer();
-}
-
-class _$NoteSerializer implements StructuredSerializer<Note> {
-  const _$NoteSerializer();
-
-  @override
-  Iterable<Type> get types => const [Note, _$Note];
-
-  @override
-  String get wireName => 'Note';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Note object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'etag',
-      serializers.serialize(object.etag, specifiedType: const FullType(String)),
-      'readonly',
-      serializers.serialize(object.readonly, specifiedType: const FullType(bool)),
-      'content',
-      serializers.serialize(object.content, specifiedType: const FullType(String)),
-      'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
-      'category',
-      serializers.serialize(object.category, specifiedType: const FullType(String)),
-      'favorite',
-      serializers.serialize(object.favorite, specifiedType: const FullType(bool)),
-      'modified',
-      serializers.serialize(object.modified, specifiedType: const FullType(int)),
-      'error',
-      serializers.serialize(object.error, specifiedType: const FullType(bool)),
-      'errorType',
-      serializers.serialize(object.errorType, specifiedType: const FullType(String)),
-    ];
-    return result;
-  }
-
-  @override
-  Note deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = NoteBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-        case 'etag':
-          result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'readonly':
-          result.readonly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'content':
-          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'title':
-          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'category':
-          result.category = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'favorite':
-          result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'modified':
-          result.modified = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-        case 'error':
-          result.error = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
-        case 'errorType':
-          result.errorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Note> get serializer => _$noteSerializer;
 }
 
 class Settings_NoteMode extends EnumClass {
@@ -871,62 +789,7 @@ abstract class Settings implements SettingsInterface, Built<Settings, SettingsBu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Settings> get serializer => const _$SettingsSerializer();
-}
-
-class _$SettingsSerializer implements StructuredSerializer<Settings> {
-  const _$SettingsSerializer();
-
-  @override
-  Iterable<Type> get types => const [Settings, _$Settings];
-
-  @override
-  String get wireName => 'Settings';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Settings object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'notesPath',
-      serializers.serialize(object.notesPath, specifiedType: const FullType(String)),
-      'fileSuffix',
-      serializers.serialize(object.fileSuffix, specifiedType: const FullType(String)),
-      'noteMode',
-      serializers.serialize(object.noteMode, specifiedType: const FullType(Settings_NoteMode)),
-    ];
-    return result;
-  }
-
-  @override
-  Settings deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = SettingsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'notesPath':
-          result.notesPath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'fileSuffix':
-          result.fileSuffix = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'noteMode':
-          result.noteMode =
-              serializers.deserialize(value, specifiedType: const FullType(Settings_NoteMode))! as Settings_NoteMode;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Settings> get serializer => _$settingsSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -953,74 +816,7 @@ abstract class Capabilities_Notes
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Capabilities_Notes> get serializer => const _$Capabilities_NotesSerializer();
-}
-
-class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilities_Notes> {
-  const _$Capabilities_NotesSerializer();
-
-  @override
-  Iterable<Type> get types => const [Capabilities_Notes, _$Capabilities_Notes];
-
-  @override
-  String get wireName => 'Capabilities_Notes';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Capabilities_Notes object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[];
-    Object? value;
-    value = object.apiVersion;
-    if (value != null) {
-      result
-        ..add('api_version')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])),
-        );
-    }
-
-    value = object.version;
-    if (value != null) {
-      result
-        ..add('version')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    return result;
-  }
-
-  @override
-  Capabilities_Notes deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = Capabilities_NotesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'api_version':
-          result.apiVersion.replace(
-            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
-                as BuiltList<String>,
-          );
-        case 'version':
-          result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Capabilities_Notes> get serializer => _$capabilitiesNotesSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1043,55 +839,7 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Capabilities> get serializer => const _$CapabilitiesSerializer();
-}
-
-class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
-  const _$CapabilitiesSerializer();
-
-  @override
-  Iterable<Type> get types => const [Capabilities, _$Capabilities];
-
-  @override
-  String get wireName => 'Capabilities';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final Capabilities object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'notes',
-      serializers.serialize(object.notes, specifiedType: const FullType(Capabilities_Notes)),
-    ];
-    return result;
-  }
-
-  @override
-  Capabilities deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = CapabilitiesBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'notes':
-          result.notes.replace(
-            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Notes))! as Capabilities_Notes,
-          );
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1118,91 +866,7 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OCSMeta> get serializer => const _$OCSMetaSerializer();
-}
-
-class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
-  const _$OCSMetaSerializer();
-
-  @override
-  Iterable<Type> get types => const [OCSMeta, _$OCSMeta];
-
-  @override
-  String get wireName => 'OCSMeta';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final OCSMeta object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
-      'statuscode',
-      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
-    ];
-    Object? value;
-    value = object.message;
-    if (value != null) {
-      result
-        ..add('message')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    value = object.totalitems;
-    if (value != null) {
-      result
-        ..add('totalitems')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    value = object.itemsperpage;
-    if (value != null) {
-      result
-        ..add('itemsperpage')
-        ..add(
-          serializers.serialize(value, specifiedType: const FullType(String)),
-        );
-    }
-
-    return result;
-  }
-
-  @override
-  OCSMeta deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = OCSMetaBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'statuscode':
-          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-        case 'message':
-          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'totalitems':
-          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-        case 'itemsperpage':
-          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1226,62 +890,7 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<EmptyOCS_Ocs> get serializer => const _$EmptyOCS_OcsSerializer();
-}
-
-class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
-  const _$EmptyOCS_OcsSerializer();
-
-  @override
-  Iterable<Type> get types => const [EmptyOCS_Ocs, _$EmptyOCS_Ocs];
-
-  @override
-  String get wireName => 'EmptyOCS_Ocs';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final EmptyOCS_Ocs object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
-    ];
-    return result;
-  }
-
-  @override
-  EmptyOCS_Ocs deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = EmptyOCS_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(
-            serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta,
-          );
-        case 'data':
-          result.data.replace(
-            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!
-                as BuiltList<JsonObject>,
-          );
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -1304,55 +913,7 @@ abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBu
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<EmptyOCS> get serializer => const _$EmptyOCSSerializer();
-}
-
-class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
-  const _$EmptyOCSSerializer();
-
-  @override
-  Iterable<Type> get types => const [EmptyOCS, _$EmptyOCS];
-
-  @override
-  String get wireName => 'EmptyOCS';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final EmptyOCS object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(EmptyOCS_Ocs)),
-    ];
-    return result;
-  }
-
-  @override
-  EmptyOCS deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = EmptyOCSBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(
-            serializers.deserialize(value, specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs,
-          );
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 
 // coverage:ignore-start

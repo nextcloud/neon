@@ -6,6 +6,96 @@ part of 'files_versions.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+
+class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilities_Files> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Files, _$Capabilities_Files];
+  @override
+  final String wireName = 'Capabilities_Files';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'versioning',
+      serializers.serialize(object.versioning, specifiedType: const FullType(bool)),
+      'version_labeling',
+      serializers.serialize(object.versionLabeling, specifiedType: const FullType(bool)),
+      'version_deletion',
+      serializers.serialize(object.versionDeletion, specifiedType: const FullType(bool)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_FilesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'versioning':
+          result.versioning = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'version_labeling':
+          result.versionLabeling = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'version_deletion':
+          result.versionDeletion = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
+  @override
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
+  @override
+  final String wireName = 'Capabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'files',
+      serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'files':
+          result.files.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 abstract mixin class Capabilities_FilesInterfaceBuilder {
   void replace(Capabilities_FilesInterface other);
   void update(void Function(Capabilities_FilesInterfaceBuilder) updates);

@@ -29,7 +29,96 @@ final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = BuiltSet<Settings_N
   _$settingsNoteModeRich,
 ]);
 
+Serializer<Note> _$noteSerializer = _$NoteSerializer();
 Serializer<Settings_NoteMode> _$settingsNoteModeSerializer = _$Settings_NoteModeSerializer();
+Serializer<Settings> _$settingsSerializer = _$SettingsSerializer();
+Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer = _$Capabilities_NotesSerializer();
+Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
+Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
+Serializer<EmptyOCS_Ocs> _$emptyOCSOcsSerializer = _$EmptyOCS_OcsSerializer();
+Serializer<EmptyOCS> _$emptyOCSSerializer = _$EmptyOCSSerializer();
+
+class _$NoteSerializer implements StructuredSerializer<Note> {
+  @override
+  final Iterable<Type> types = const [Note, _$Note];
+  @override
+  final String wireName = 'Note';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Note object, {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'etag',
+      serializers.serialize(object.etag, specifiedType: const FullType(String)),
+      'readonly',
+      serializers.serialize(object.readonly, specifiedType: const FullType(bool)),
+      'content',
+      serializers.serialize(object.content, specifiedType: const FullType(String)),
+      'title',
+      serializers.serialize(object.title, specifiedType: const FullType(String)),
+      'category',
+      serializers.serialize(object.category, specifiedType: const FullType(String)),
+      'favorite',
+      serializers.serialize(object.favorite, specifiedType: const FullType(bool)),
+      'modified',
+      serializers.serialize(object.modified, specifiedType: const FullType(int)),
+      'error',
+      serializers.serialize(object.error, specifiedType: const FullType(bool)),
+      'errorType',
+      serializers.serialize(object.errorType, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Note deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = NoteBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'etag':
+          result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'readonly':
+          result.readonly = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'content':
+          result.content = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'title':
+          result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'category':
+          result.category = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'favorite':
+          result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'modified':
+          result.modified = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'error':
+          result.error = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'errorType':
+          result.errorType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
 
 class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_NoteMode> {
   @override
@@ -46,6 +135,298 @@ class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_Note
   Settings_NoteMode deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       Settings_NoteMode.valueOf(serialized as String);
+}
+
+class _$SettingsSerializer implements StructuredSerializer<Settings> {
+  @override
+  final Iterable<Type> types = const [Settings, _$Settings];
+  @override
+  final String wireName = 'Settings';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Settings object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notesPath',
+      serializers.serialize(object.notesPath, specifiedType: const FullType(String)),
+      'fileSuffix',
+      serializers.serialize(object.fileSuffix, specifiedType: const FullType(String)),
+      'noteMode',
+      serializers.serialize(object.noteMode, specifiedType: const FullType(Settings_NoteMode)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Settings deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = SettingsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notesPath':
+          result.notesPath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'fileSuffix':
+          result.fileSuffix = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'noteMode':
+          result.noteMode =
+              serializers.deserialize(value, specifiedType: const FullType(Settings_NoteMode))! as Settings_NoteMode;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$Capabilities_NotesSerializer implements StructuredSerializer<Capabilities_Notes> {
+  @override
+  final Iterable<Type> types = const [Capabilities_Notes, _$Capabilities_Notes];
+  @override
+  final String wireName = 'Capabilities_Notes';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities_Notes object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.apiVersion;
+    if (value != null) {
+      result
+        ..add('api_version')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.version;
+    if (value != null) {
+      result
+        ..add('version')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  Capabilities_Notes deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = Capabilities_NotesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'api_version':
+          result.apiVersion.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'version':
+          result.version = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
+  @override
+  final Iterable<Type> types = const [Capabilities, _$Capabilities];
+  @override
+  final String wireName = 'Capabilities';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'notes',
+      serializers.serialize(object.notes, specifiedType: const FullType(Capabilities_Notes)),
+    ];
+
+    return result;
+  }
+
+  @override
+  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CapabilitiesBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'notes':
+          result.notes.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Notes))! as Capabilities_Notes);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
+  @override
+  final Iterable<Type> types = const [OCSMeta, _$OCSMeta];
+  @override
+  final String wireName = 'OCSMeta';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+      'statuscode',
+      serializers.serialize(object.statuscode, specifiedType: const FullType(int)),
+    ];
+    Object? value;
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.totalitems;
+    if (value != null) {
+      result
+        ..add('totalitems')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.itemsperpage;
+    if (value != null) {
+      result
+        ..add('itemsperpage')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OCSMetaBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'statuscode':
+          result.statuscode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'totalitems':
+          result.totalitems = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'itemsperpage':
+          result.itemsperpage = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$EmptyOCS_OcsSerializer implements StructuredSerializer<EmptyOCS_Ocs> {
+  @override
+  final Iterable<Type> types = const [EmptyOCS_Ocs, _$EmptyOCS_Ocs];
+  @override
+  final String wireName = 'EmptyOCS_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EmptyOCS_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])),
+    ];
+
+    return result;
+  }
+
+  @override
+  EmptyOCS_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EmptyOCS_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
+  @override
+  final Iterable<Type> types = const [EmptyOCS, _$EmptyOCS];
+  @override
+  final String wireName = 'EmptyOCS';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EmptyOCS object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs, specifiedType: const FullType(EmptyOCS_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  EmptyOCS deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EmptyOCSBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs
+              .replace(serializers.deserialize(value, specifiedType: const FullType(EmptyOCS_Ocs))! as EmptyOCS_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 abstract mixin class NoteInterfaceBuilder {
