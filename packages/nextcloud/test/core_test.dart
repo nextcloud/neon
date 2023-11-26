@@ -23,6 +23,8 @@ void main() {
         expect(() => response.headers, isA<void>());
 
         final result = client.core.getVersionCheck(response.body.ocs.data);
+        expect(result.versions, isNotNull);
+        expect(result.versions, isNotEmpty);
         expect(result.isSupported, isTrue);
       });
 
