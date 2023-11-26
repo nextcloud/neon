@@ -207,9 +207,3 @@ Future<DockerContainer> getDockerContainer() async {
 }
 
 int randomPort() => 1024 + Random().nextInt(65535 - 1024);
-
-void expectDateInReasonableTimeRange(final DateTime actual, final DateTime expected) {
-  const duration = Duration(seconds: 10);
-  expect(actual.isAfter(expected.subtract(duration)), isTrue);
-  expect(actual.isBefore(expected.add(duration)), isTrue);
-}

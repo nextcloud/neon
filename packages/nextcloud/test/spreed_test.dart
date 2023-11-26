@@ -185,10 +185,7 @@ void main() {
           expect(response.body.ocs.data!.actorType, spreed.ActorType.users.name);
           expect(response.body.ocs.data!.actorId, 'user1');
           expect(response.body.ocs.data!.actorDisplayName, 'User One');
-          expectDateInReasonableTimeRange(
-            DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data!.timestamp * 1000),
-            startTime,
-          );
+          expect(response.body.ocs.data!.timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
           expect(response.body.ocs.data!.message, 'bla');
           expect(response.body.ocs.data!.messageType, spreed.MessageType.comment.name);
         });
@@ -229,10 +226,7 @@ void main() {
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
-            expectDateInReasonableTimeRange(
-              DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data[0].timestamp * 1000),
-              startTime,
-            );
+            expect(response.body.ocs.data[0].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment.name);
 
@@ -240,10 +234,7 @@ void main() {
             expect(response.body.ocs.data[0].parent!.actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].parent!.actorId, 'user1');
             expect(response.body.ocs.data[0].parent!.actorDisplayName, 'User One');
-            expectDateInReasonableTimeRange(
-              DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data[0].parent!.timestamp * 1000),
-              startTime,
-            );
+            expect(response.body.ocs.data[0].parent!.timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
             expect(response.body.ocs.data[0].parent!.message, 'bla');
             expect(response.body.ocs.data[0].parent!.messageType, spreed.MessageType.comment.name);
 
@@ -251,10 +242,7 @@ void main() {
             expect(response.body.ocs.data[1].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[1].actorId, 'user1');
             expect(response.body.ocs.data[1].actorDisplayName, 'User One');
-            expectDateInReasonableTimeRange(
-              DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data[1].timestamp * 1000),
-              startTime,
-            );
+            expect(response.body.ocs.data[1].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
             expect(response.body.ocs.data[1].message, 'bla');
             expect(response.body.ocs.data[1].messageType, spreed.MessageType.comment.name);
 
@@ -262,10 +250,7 @@ void main() {
             expect(response.body.ocs.data[2].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[2].actorId, 'user1');
             expect(response.body.ocs.data[2].actorDisplayName, 'User One');
-            expectDateInReasonableTimeRange(
-              DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data[2].timestamp * 1000),
-              startTime,
-            );
+            expect(response.body.ocs.data[2].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
             expect(response.body.ocs.data[2].message, 'You created the conversation');
             expect(response.body.ocs.data[2].systemMessage, 'conversation_created');
             expect(response.body.ocs.data[2].messageType, spreed.MessageType.system.name);
@@ -302,10 +287,7 @@ void main() {
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
-            expectDateInReasonableTimeRange(
-              DateTime.fromMillisecondsSinceEpoch(response.body.ocs.data[0].timestamp * 1000),
-              startTime,
-            );
+            expect(response.body.ocs.data[0].timestamp * 1000, closeTo(startTime.millisecondsSinceEpoch, 10E3));
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment.name);
           });

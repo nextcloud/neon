@@ -281,12 +281,18 @@ void main() {
         expect(response.isCollection, isTrue);
         expect(response.mimeType, isNull);
         expect(response.size, data.lengthInBytes);
-        expectDateInReasonableTimeRange(response.lastModified!, DateTime.now());
+        expect(
+          response.lastModified!.millisecondsSinceEpoch,
+          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+        );
         expect(response.name, 'test');
         expect(response.isDirectory, isTrue);
 
         expect(response.props.davgetcontenttype, isNull);
-        expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(response.props.davgetlastmodified!), DateTime.now());
+        expect(
+          webdavDateFormat.parseUtc(response.props.davgetlastmodified!).millisecondsSinceEpoch,
+          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+        );
         expect(response.props.davresourcetype!.collection, isNotNull);
         expect(response.props.ocsize, data.lengthInBytes);
       });
@@ -355,8 +361,8 @@ void main() {
             .prop;
         expect(props.ocfavorite, 1);
         expect(webdavDateFormat.parseUtc(props.davgetlastmodified!), lastModifiedDate);
-        expect(DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).isAtSameMomentAs(createdDate), isTrue);
-        expectDateInReasonableTimeRange(DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000), uploadTime);
+        expect(props.nccreationtime! * 1000, createdDate.millisecondsSinceEpoch);
+        expect(props.ncuploadtime! * 1000, closeTo(uploadTime.millisecondsSinceEpoch, 10E3));
       });
 
       test('Remove properties', () async {
