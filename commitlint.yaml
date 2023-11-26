@@ -25,4 +25,5 @@ rules:
       - neon_notifications
       - neon_lints
       - nextcloud
+      - nextcloud_test
       - sort_box

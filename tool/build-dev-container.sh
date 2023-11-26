@@ -6,4 +6,4 @@ source tool/common.sh
 tag="$(image_tag "dev:latest")"
 
 # shellcheck disable=SC2046
-docker buildx build --tag "$tag" $(cache_build_args "$tag") -f - ./tool < tool/Dockerfile.dev
+docker buildx build --tag "$tag" $(cache_build_args "$tag") -f - ./packages/nextcloud_test/docker < packages/nextcloud_test/docker/Dockerfile
