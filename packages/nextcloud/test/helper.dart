@@ -206,18 +206,6 @@ Future<DockerContainer> getDockerContainer() async {
   );
 }
 
-class TestNextcloudUser {
-  TestNextcloudUser(
-    this.username,
-    this.password, {
-    this.displayName,
-  });
-
-  final String username;
-  final String password;
-  final String? displayName;
-}
-
 int randomPort() => 1024 + Random().nextInt(65535 - 1024);
 
 void expectDateInReasonableTimeRange(final DateTime actual, final DateTime expected) {
