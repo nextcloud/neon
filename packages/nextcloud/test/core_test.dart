@@ -9,7 +9,7 @@ void main() {
     'core',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
         container = await getDockerContainer();
         client = await getTestClient(container);

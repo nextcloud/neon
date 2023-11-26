@@ -1,4 +1,5 @@
 import 'package:nextcloud/dashboard.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 import 'helper.dart';
@@ -8,7 +9,7 @@ void main() {
     'dashboard',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
         container = await getDockerContainer();
         client = await getTestClient(container);

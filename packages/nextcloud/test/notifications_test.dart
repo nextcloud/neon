@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart';
 import 'package:test/test.dart';
 
@@ -8,7 +9,7 @@ import 'helper.dart';
 void main() {
   group('notifications', () {
     late DockerContainer container;
-    late TestNextcloudClient client;
+    late NextcloudClient client;
     setUp(() async {
       container = await getDockerContainer();
       client = await getTestClient(
@@ -107,7 +108,7 @@ void main() {
 
     group('Push', () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
         container = await getDockerContainer();
         client = await getTestClient(

@@ -1,3 +1,4 @@
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:test/test.dart';
 
@@ -8,7 +9,7 @@ void main() {
     'provisioning_api',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
         container = await getDockerContainer();
         client = await getTestClient(

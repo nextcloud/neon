@@ -75,20 +75,7 @@ class DockerContainer {
   Future<String> allLogs() async => '${await serverLogs()}\n\n${await nextcloudLogs()}';
 }
 
-class TestNextcloudClient extends NextcloudClient {
-  TestNextcloudClient(
-    super.baseURL, {
-    super.loginName,
-    super.password,
-    super.appPassword,
-    super.language,
-    super.appType,
-    super.userAgentOverride,
-    super.cookieJar,
-  });
-}
-
-Future<TestNextcloudClient> getTestClient(
+Future<NextcloudClient> getTestClient(
   final DockerContainer container, {
   final String? username = 'user1',
   final AppType appType = AppType.unknown,
@@ -121,7 +108,7 @@ Future<TestNextcloudClient> getTestClient(
     appPassword = (result.stdout as String).split('\n')[1];
   }
 
-  final client = TestNextcloudClient(
+  final client = NextcloudClient(
     Uri(
       scheme: 'http',
       host: 'localhost',

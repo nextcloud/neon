@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:built_value/json_object.dart';
 import 'package:nextcloud/core.dart' as core;
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:test/test.dart';
 
@@ -13,7 +14,7 @@ void main() {
     'spreed',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client1;
+      late NextcloudClient client1;
       setUp(() async {
         container = await getDockerContainer();
         client1 = await getTestClient(container);

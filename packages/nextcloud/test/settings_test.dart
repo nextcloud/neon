@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/settings.dart';
 import 'package:test/test.dart';
 
@@ -10,7 +11,7 @@ void main() {
     'settings',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
         container = await getDockerContainer();
         client = await getTestClient(

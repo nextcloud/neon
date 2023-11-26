@@ -139,7 +139,7 @@ void main() {
     'webdav',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
 
       setUp(() async {
         container = await getDockerContainer();
