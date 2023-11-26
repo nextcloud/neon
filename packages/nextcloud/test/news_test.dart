@@ -30,6 +30,8 @@ void main() {
 
       test('Is supported', () async {
         final result = await client.news.getVersionCheck();
+        expect(result.versions, isNotNull);
+        expect(result.versions, isNotEmpty);
         expect(result.isSupported, isTrue);
       });
 
