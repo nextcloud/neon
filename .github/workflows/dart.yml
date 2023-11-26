@@ -43,4 +43,4 @@ jobs:
           if [ -z "$packages" ]; then exit 0; fi
           packages_glob="$(printf ",%s" "${packages[@]}")"
           packages_glob="${packages_glob:1}"
-          melos exec --scope="$packages_glob" --concurrency=1 --fail-fast --dir-exists=test -- "flutter test --concurrency=$(nproc --all)"
+          PRESETS=minor melos exec --scope="$packages_glob" --concurrency=1 --fail-fast --dir-exists=test -- "flutter test --concurrency=$(nproc --all)"

@@ -1,5 +1,5 @@
-ARG SERVER_VERSION=27.1.3-fpm-alpine@sha256:f1a13c7f60a9e9f5dcf14b7cb097083833eadf26858cb1f3f6b6251637b2e2dd
-FROM nextcloud:$SERVER_VERSION as nextcloud
+ARG SERVER_VERSION
+FROM nextcloud:${SERVER_VERSION}-fpm-alpine as nextcloud
 
 WORKDIR /usr/src/nextcloud
 
@@ -27,19 +27,19 @@ FROM alpine:latest@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c0162
 RUN apk add curl
 
 FROM apps as news
-ARG NEWS_VERSION=24.0.0
+ARG NEWS_VERSION
 RUN curl -L "https://github.com/nextcloud/news/releases/download/$NEWS_VERSION/news.tar.gz" | tar -xz -C /
 
 FROM apps as notes
-ARG NOTES_VERSION=4.8.1
+ARG NOTES_VERSION
 RUN curl -L "https://github.com/nextcloud-releases/notes/releases/download/v$NOTES_VERSION/notes.tar.gz" | tar -xz -C /
 
 FROM apps as uppush
-ARG UPPUSH_VERSION=1.4.0
+ARG UPPUSH_VERSION
 RUN curl -L "https://codeberg.org/NextPush/uppush/archive/$UPPUSH_VERSION.tar.gz" | tar -xz -C /
 
 FROM apps as spreed
-ARG SPREED_VERSION=17.1.2
+ARG SPREED_VERSION
 RUN curl -L "https://github.com/nextcloud-releases/spreed/releases/download/v$SPREED_VERSION/spreed-v$SPREED_VERSION.tar.gz" | tar -xz -C /
 
 FROM nextcloud
