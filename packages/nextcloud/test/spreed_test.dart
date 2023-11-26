@@ -5,9 +5,8 @@ import 'package:built_value/json_object.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-
-import 'helper.dart';
 
 void main() {
   group(
@@ -16,8 +15,8 @@ void main() {
       late DockerContainer container;
       late NextcloudClient client1;
       setUp(() async {
-        container = await getDockerContainer();
-        client1 = await getTestClient(container);
+        container = await DockerContainer.create();
+        client1 = await TestNextcloudClient.create(container);
       });
       tearDown(() => container.destroy());
 
@@ -362,7 +361,7 @@ void main() {
           final room1 = (await client1.spreed.room.joinRoom(token: room.token)).body.ocs.data;
           await client1.spreed.call.joinCall(token: room.token);
 
-          final client2 = await getTestClient(
+          final client2 = await TestNextcloudClient.create(
             container,
             username: 'user2',
           );

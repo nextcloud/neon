@@ -3,10 +3,9 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
-
-import 'helper.dart';
 
 void main() {
   group('constructUri', () {
@@ -142,8 +141,8 @@ void main() {
       late NextcloudClient client;
 
       setUp(() async {
-        container = await getDockerContainer();
-        client = await getTestClient(container);
+        container = await DockerContainer.create();
+        client = await TestNextcloudClient.create(container);
       });
       tearDown(() => container.destroy());
 
