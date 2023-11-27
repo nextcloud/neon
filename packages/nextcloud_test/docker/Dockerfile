@@ -18,7 +18,7 @@ RUN (sh /entrypoint.sh php -S 0.0.0.0:80 &) && \
     # Do not setup the demo user here
     for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
 
-COPY dev/static /usr/src/nextcloud/static
+COPY static /usr/src/nextcloud/static
 
 ENV PHP_CLI_SERVER_WORKERS=10
 CMD ["php", "-S", "0.0.0.0:80"]

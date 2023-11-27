@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints
+# melos_managed_dependency_overrides: dynamite,dynamite_runtime,neon_lints,nextcloud_test
 dependency_overrides:
   dynamite:
     path: ../dynamite/dynamite
@@ -6,3 +6,5 @@ dependency_overrides:
     path: ../dynamite/dynamite_runtime
   neon_lints:
     path: ../neon_lints
+  nextcloud_test:
+    path: ../nextcloud_test

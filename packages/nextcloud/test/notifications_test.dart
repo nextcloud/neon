@@ -1,17 +1,17 @@
 import 'dart:async';
 
+import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-
-import 'helper.dart';
 
 void main() {
   group('notifications', () {
     late DockerContainer container;
-    late TestNextcloudClient client;
+    late NextcloudClient client;
     setUp(() async {
-      container = await getDockerContainer();
-      client = await getTestClient(
+      container = await DockerContainer.create();
+      client = await TestNextcloudClient.create(
         container,
         username: 'admin',
       );
@@ -42,7 +42,10 @@ void main() {
         expect(response.ocs.data[0].notificationId, 2);
         expect(response.ocs.data[0].app, 'admin_notifications');
         expect(response.ocs.data[0].user, 'admin');
-        expectDateInReasonableTimeRange(DateTime.parse(response.ocs.data[0].datetime), startTime);
+        expect(
+          DateTime.parse(response.ocs.data[0].datetime).millisecondsSinceEpoch,
+          closeTo(startTime.millisecondsSinceEpoch, 10E3),
+        );
         expect(response.ocs.data[0].objectType, 'admin_notifications');
         expect(response.ocs.data[0].objectId, isNotNull);
         expect(response.ocs.data[0].subject, '123');
@@ -67,7 +70,10 @@ void main() {
         expect(response.body.ocs.data.notificationId, 2);
         expect(response.body.ocs.data.app, 'admin_notifications');
         expect(response.body.ocs.data.user, 'admin');
-        expectDateInReasonableTimeRange(DateTime.parse(response.body.ocs.data.datetime), startTime);
+        expect(
+          DateTime.parse(response.body.ocs.data.datetime).millisecondsSinceEpoch,
+          closeTo(startTime.millisecondsSinceEpoch, 10E3),
+        );
         expect(response.body.ocs.data.objectType, 'admin_notifications');
         expect(response.body.ocs.data.objectId, isNotNull);
         expect(response.body.ocs.data.subject, '123');
@@ -101,10 +107,10 @@ void main() {
 
     group('Push', () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
-        container = await getDockerContainer();
-        client = await getTestClient(
+        container = await DockerContainer.create();
+        client = await TestNextcloudClient.create(
           container,
           username: 'admin',
         );

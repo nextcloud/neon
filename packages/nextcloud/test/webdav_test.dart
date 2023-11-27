@@ -3,10 +3,9 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
-
-import 'helper.dart';
 
 void main() {
   group('constructUri', () {
@@ -139,11 +138,11 @@ void main() {
     'webdav',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
 
       setUp(() async {
-        container = await getDockerContainer();
-        client = await getTestClient(container);
+        container = await DockerContainer.create();
+        client = await TestNextcloudClient.create(container);
       });
       tearDown(() => container.destroy());
 
@@ -281,12 +280,18 @@ void main() {
         expect(response.isCollection, isTrue);
         expect(response.mimeType, isNull);
         expect(response.size, data.lengthInBytes);
-        expectDateInReasonableTimeRange(response.lastModified!, DateTime.now());
+        expect(
+          response.lastModified!.millisecondsSinceEpoch,
+          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+        );
         expect(response.name, 'test');
         expect(response.isDirectory, isTrue);
 
         expect(response.props.davgetcontenttype, isNull);
-        expectDateInReasonableTimeRange(webdavDateFormat.parseUtc(response.props.davgetlastmodified!), DateTime.now());
+        expect(
+          webdavDateFormat.parseUtc(response.props.davgetlastmodified!).millisecondsSinceEpoch,
+          closeTo(DateTime.now().millisecondsSinceEpoch, 10E3),
+        );
         expect(response.props.davresourcetype!.collection, isNotNull);
         expect(response.props.ocsize, data.lengthInBytes);
       });
@@ -355,8 +360,8 @@ void main() {
             .prop;
         expect(props.ocfavorite, 1);
         expect(webdavDateFormat.parseUtc(props.davgetlastmodified!), lastModifiedDate);
-        expect(DateTime.fromMillisecondsSinceEpoch(props.nccreationtime! * 1000).isAtSameMomentAs(createdDate), isTrue);
-        expectDateInReasonableTimeRange(DateTime.fromMillisecondsSinceEpoch(props.ncuploadtime! * 1000), uploadTime);
+        expect(props.nccreationtime! * 1000, createdDate.millisecondsSinceEpoch);
+        expect(props.ncuploadtime! * 1000, closeTo(uploadTime.millisecondsSinceEpoch, 10E3));
       });
 
       test('Remove properties', () async {

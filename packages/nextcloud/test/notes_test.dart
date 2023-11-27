@@ -1,19 +1,18 @@
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notes.dart' as notes;
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
-
-import 'helper.dart';
 
 void main() {
   group(
     'notes',
     () {
       late DockerContainer container;
-      late TestNextcloudClient client;
+      late NextcloudClient client;
       setUp(() async {
-        container = await getDockerContainer();
-        client = await getTestClient(container);
+        container = await DockerContainer.create();
+        client = await TestNextcloudClient.create(container);
       });
       tearDown(() => container.destroy());
 
