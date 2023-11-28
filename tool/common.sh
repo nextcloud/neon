@@ -11,6 +11,8 @@ function cache_build_args() {
 
     build_args=(
       "--load"
+      "--cache-from" "type=inline"
+      "--cache-to" "type=inline,mode=max"
       "--cache-from" "type=registry,ref=$tag"
     )
     if [ -v GITHUB_REPOSITORY ]; then
@@ -18,4 +20,11 @@ function cache_build_args() {
     fi
 
     echo "${build_args[*]}"
+}
+
+function preset_image_tag() {
+  path="$(realpath --relative-to ./packages/nextcloud_test/docker/presets "$1")"
+  name="$(dirname "$path")"
+  version="$(basename "$path")"
+  image_tag "dev:$name-$version"
 }

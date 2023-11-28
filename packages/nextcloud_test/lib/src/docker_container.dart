@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:nextcloud_test/src/presets.dart';
 import 'package:process_run/process_run.dart';
 
 int _randomPort() => 1024 + Random().nextInt(65535 - 1024);
@@ -14,8 +15,8 @@ class DockerContainer {
   });
 
   /// Creates a new docker container and returns its representation.
-  static Future<DockerContainer> create() async {
-    const dockerImageName = 'ghcr.io/nextcloud/neon/dev';
+  static Future<DockerContainer> create(final Preset preset) async {
+    final dockerImageName = 'ghcr.io/nextcloud/neon/dev:${preset.name}-${preset.version}';
 
     var result = await runExecutableArguments(
       'docker',

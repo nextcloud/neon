@@ -55,6 +55,7 @@ petstore
 plantuml
 precache
 puml
+realpath
 rpath
 signoff
 startuml

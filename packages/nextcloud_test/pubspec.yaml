@@ -13,6 +13,7 @@ dependencies:
   process_run: ^0.13.0
   test: ^1.24.0
   universal_io: ^2.0.0
+  version: ^3.0.0
 
 dev_dependencies:
   neon_lints:
