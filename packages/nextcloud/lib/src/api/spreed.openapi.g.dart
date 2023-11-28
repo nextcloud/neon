@@ -2759,8 +2759,6 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'isReplyable',
       serializers.serialize(object.isReplyable, specifiedType: const FullType(bool)),
-      'markdown',
-      serializers.serialize(object.markdown, specifiedType: const FullType(bool)),
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'messageParameters',
@@ -2788,6 +2786,12 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
     if (value != null) {
       result
         ..add('deleted')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.markdown;
+    if (value != null) {
+      result
+        ..add('markdown')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     return result;
@@ -2826,7 +2830,7 @@ class _$ChatMessageSerializer implements StructuredSerializer<ChatMessage> {
           result.isReplyable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'markdown':
-          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -6381,8 +6385,6 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'isReplyable',
       serializers.serialize(object.isReplyable, specifiedType: const FullType(bool)),
-      'markdown',
-      serializers.serialize(object.markdown, specifiedType: const FullType(bool)),
       'message',
       serializers.serialize(object.message, specifiedType: const FullType(String)),
       'messageParameters',
@@ -6410,6 +6412,12 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
     if (value != null) {
       result
         ..add('deleted')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.markdown;
+    if (value != null) {
+      result
+        ..add('markdown')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.parent;
@@ -6454,7 +6462,7 @@ class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMess
           result.isReplyable = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'markdown':
-          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.markdown = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'message':
           result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -18121,7 +18129,7 @@ class _$ChatMessage extends ChatMessage {
   @override
   final bool isReplyable;
   @override
-  final bool markdown;
+  final bool? markdown;
   @override
   final String message;
   @override
@@ -18150,7 +18158,7 @@ class _$ChatMessage extends ChatMessage {
       required this.expirationTimestamp,
       required this.id,
       required this.isReplyable,
-      required this.markdown,
+      this.markdown,
       required this.message,
       required this.messageParameters,
       required this.messageType,
@@ -18166,7 +18174,6 @@ class _$ChatMessage extends ChatMessage {
     BuiltValueNullFieldError.checkNotNull(expirationTimestamp, r'ChatMessage', 'expirationTimestamp');
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMessage', 'id');
     BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessage', 'isReplyable');
-    BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessage', 'markdown');
     BuiltValueNullFieldError.checkNotNull(message, r'ChatMessage', 'message');
     BuiltValueNullFieldError.checkNotNull(messageParameters, r'ChatMessage', 'messageParameters');
     BuiltValueNullFieldError.checkNotNull(messageType, r'ChatMessage', 'messageType');
@@ -18374,7 +18381,7 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, Ch
                   BuiltValueNullFieldError.checkNotNull(expirationTimestamp, r'ChatMessage', 'expirationTimestamp'),
               id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMessage', 'id'),
               isReplyable: BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessage', 'isReplyable'),
-              markdown: BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessage', 'markdown'),
+              markdown: markdown,
               message: BuiltValueNullFieldError.checkNotNull(message, r'ChatMessage', 'message'),
               messageParameters: messageParameters.build(),
               messageType: BuiltValueNullFieldError.checkNotNull(messageType, r'ChatMessage', 'messageType'),
@@ -26291,7 +26298,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
   @override
   final bool isReplyable;
   @override
-  final bool markdown;
+  final bool? markdown;
   @override
   final String message;
   @override
@@ -26322,7 +26329,7 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
       required this.expirationTimestamp,
       required this.id,
       required this.isReplyable,
-      required this.markdown,
+      this.markdown,
       required this.message,
       required this.messageParameters,
       required this.messageType,
@@ -26339,7 +26346,6 @@ class _$ChatMessageWithParent extends ChatMessageWithParent {
     BuiltValueNullFieldError.checkNotNull(expirationTimestamp, r'ChatMessageWithParent', 'expirationTimestamp');
     BuiltValueNullFieldError.checkNotNull(id, r'ChatMessageWithParent', 'id');
     BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessageWithParent', 'isReplyable');
-    BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessageWithParent', 'markdown');
     BuiltValueNullFieldError.checkNotNull(message, r'ChatMessageWithParent', 'message');
     BuiltValueNullFieldError.checkNotNull(messageParameters, r'ChatMessageWithParent', 'messageParameters');
     BuiltValueNullFieldError.checkNotNull(messageType, r'ChatMessageWithParent', 'messageType');
@@ -26557,7 +26563,7 @@ class ChatMessageWithParentBuilder
                   expirationTimestamp, r'ChatMessageWithParent', 'expirationTimestamp'),
               id: BuiltValueNullFieldError.checkNotNull(id, r'ChatMessageWithParent', 'id'),
               isReplyable: BuiltValueNullFieldError.checkNotNull(isReplyable, r'ChatMessageWithParent', 'isReplyable'),
-              markdown: BuiltValueNullFieldError.checkNotNull(markdown, r'ChatMessageWithParent', 'markdown'),
+              markdown: markdown,
               message: BuiltValueNullFieldError.checkNotNull(message, r'ChatMessageWithParent', 'message'),
               messageParameters: messageParameters.build(),
               messageType: BuiltValueNullFieldError.checkNotNull(messageType, r'ChatMessageWithParent', 'messageType'),
