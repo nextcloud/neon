@@ -27,20 +27,20 @@ FROM alpine:latest@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c0162
 RUN apk add curl
 
 FROM apps as news
-ARG NEWS_VERSION
-RUN curl -L "https://github.com/nextcloud/news/releases/download/$NEWS_VERSION/news.tar.gz" | tar -xz -C /
+ARG NEWS_URL
+RUN curl -L "$NEWS_URL" | tar -xz -C /
 
 FROM apps as notes
-ARG NOTES_VERSION
-RUN curl -L "https://github.com/nextcloud-releases/notes/releases/download/v$NOTES_VERSION/notes.tar.gz" | tar -xz -C /
+ARG NOTES_URL
+RUN curl -L "$NOTES_URL" | tar -xz -C /
 
 FROM apps as uppush
-ARG UPPUSH_VERSION
-RUN curl -L "https://codeberg.org/NextPush/uppush/archive/$UPPUSH_VERSION.tar.gz" | tar -xz -C /
+ARG UPPUSH_URL
+RUN curl -L "$UPPUSH_URL" | tar -xz -C /
 
 FROM apps as spreed
-ARG SPREED_VERSION
-RUN curl -L "https://github.com/nextcloud-releases/spreed/releases/download/v$SPREED_VERSION/spreed-v$SPREED_VERSION.tar.gz" | tar -xz -C /
+ARG SPREED_URL
+RUN curl -L "$SPREED_URL" | tar -xz -C /
 
 FROM nextcloud
 

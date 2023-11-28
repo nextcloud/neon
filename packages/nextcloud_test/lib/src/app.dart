@@ -5,6 +5,7 @@ import 'package:nextcloud_test/src/extended_version.dart';
 @internal
 typedef AppRelease = ({
   ExtendedVersion version,
+  String url,
   ExtendedVersion minimumServerVersion,
   ExtendedVersion maximumServerVersion,
 });

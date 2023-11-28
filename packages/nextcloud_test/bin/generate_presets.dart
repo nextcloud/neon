@@ -33,9 +33,9 @@ Future<void> main() async {
 
       for (final a in apps) {
         if (a == app) {
-          buffer.writeln('${a.id.toUpperCase()}_VERSION=${release.version}');
+          buffer.writeln('${a.id.toUpperCase()}_URL=${release.url}');
         } else {
-          buffer.writeln('${a.id.toUpperCase()}_VERSION=${a.findLatestRelease(serverVersion).version}');
+          buffer.writeln('${a.id.toUpperCase()}_URL=${a.findLatestRelease(serverVersion).url}');
         }
       }
 
@@ -53,7 +53,7 @@ Future<void> main() async {
     final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
 
     for (final app in apps) {
-      buffer.writeln('${app.id.toUpperCase()}_VERSION=${app.findLatestRelease(serverVersion).version}');
+      buffer.writeln('${app.id.toUpperCase()}_URL=${app.findLatestRelease(serverVersion).url}');
     }
 
     File('${serverPresetsDir.path}/$serverVersion').writeAsStringSync(buffer.toString());
@@ -149,9 +149,12 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
         continue;
       }
 
+      final download = release['download'] as String;
+
       releases.add(
         (
           version: version,
+          url: download,
           minimumServerVersion: minimumServerVersionRequirement,
           maximumServerVersion: maximumServerVersionRequirement,
         ),
