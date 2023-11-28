@@ -7933,11 +7933,11 @@ abstract interface class $SpreedPublicCapabilities0_Spreed_Config_CallInterface 
   @BuiltValueField(wireName: 'recording-consent')
   int? get recordingConsent;
   @BuiltValueField(wireName: 'supported-reactions')
-  BuiltList<String> get supportedReactions;
+  BuiltList<String>? get supportedReactions;
   @BuiltValueField(wireName: 'predefined-backgrounds')
-  BuiltList<String> get predefinedBackgrounds;
+  BuiltList<String>? get predefinedBackgrounds;
   @BuiltValueField(wireName: 'can-upload-background')
-  bool get canUploadBackground;
+  bool? get canUploadBackground;
   @BuiltValueField(wireName: 'sip-enabled')
   bool? get sipEnabled;
   @BuiltValueField(wireName: 'sip-dialout-enabled')
@@ -7980,7 +7980,7 @@ abstract interface class $SpreedPublicCapabilities0_Spreed_Config_ChatInterface 
   @BuiltValueField(wireName: 'has-translation-providers')
   bool? get hasTranslationProviders;
   @BuiltValueField(wireName: 'typing-privacy')
-  int get typingPrivacy;
+  int? get typingPrivacy;
   BuiltList<String>? get translations;
 }
 
@@ -8274,7 +8274,7 @@ abstract class ThemingPublicCapabilities
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusCapabilities_UserStatusInterface {
   bool get enabled;
-  bool get restore;
+  bool? get restore;
   @BuiltValueField(wireName: 'supports_emoji')
   bool get supportsEmoji;
 }

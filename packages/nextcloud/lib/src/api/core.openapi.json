@@ -1173,10 +1173,7 @@
                         "required": [
                           "enabled",
                           "breakout-rooms",
-                          "recording",
-                          "supported-reactions",
-                          "predefined-backgrounds",
-                          "can-upload-background"
+                          "recording"
                         ],
                         "properties": {
                           "enabled": {
@@ -1222,8 +1219,7 @@
                         "type": "object",
                         "required": [
                           "max-length",
-                          "read-privacy",
-                          "typing-privacy"
+                          "read-privacy"
                         ],
                         "properties": {
                           "max-length": {
@@ -1383,7 +1379,6 @@
             "type": "object",
             "required": [
               "enabled",
-              "restore",
               "supports_emoji"
             ],
             "properties": {
