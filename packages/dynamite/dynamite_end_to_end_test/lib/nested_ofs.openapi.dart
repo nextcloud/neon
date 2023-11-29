@@ -166,15 +166,19 @@ typedef BaseNestedOneOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf? baseAnyOf,
   BaseNestedOneOf3? baseNestedOneOf3,
-  BaseOneOf? baseOneOf
+  BaseOneOf1? baseOneOf1,
+  double? $double
 });
 
 typedef BaseNestedAnyOf = ({
   BaseAllOf? baseAllOf,
-  BaseAnyOf? baseAnyOf,
+  BaseAnyOf1? baseAnyOf1,
   BaseNestedAnyOf3? baseNestedAnyOf3,
-  BaseOneOf? baseOneOf
+  BaseOneOf? baseOneOf,
+  int? $int
 });
+
+typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
 
 typedef $BaseOneOf1Double = ({BaseOneOf1? baseOneOf1, double? $double});
 
@@ -290,38 +294,40 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
   }
 }
 
-typedef $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf = ({
+typedef $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf? baseAnyOf,
   BaseNestedOneOf3? baseNestedOneOf3,
-  BaseOneOf? baseOneOf
+  BaseOneOf1? baseOneOf1,
+  double? $double
 });
 
-extension $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfExtension on $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf {
-  List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf];
+extension $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension
+    on $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double {
+  List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf> get serializer =>
-      const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer();
-  static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf fromJson(final Object? json) =>
+  static Serializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> get serializer =>
+      const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
+  static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double fromJson(final Object? json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer
-    implements PrimitiveSerializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf> {
-  const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer();
+class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
+    implements PrimitiveSerializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> {
+  const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
 
   @override
-  Iterable<Type> get types => const [$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf];
+  Iterable<Type> get types => const [$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double];
 
   @override
-  String get wireName => r'$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf';
+  String get wireName => r'$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf object, {
+    final $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -337,16 +343,20 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BaseNestedOneOf3))!;
     }
-    value = object.baseOneOf;
+    value = object.baseOneOf1;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf1))!;
+    }
+    value = object.$double;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(double))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf deserialize(
+  $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
@@ -365,47 +375,58 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer
       baseNestedOneOf3 =
           serializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
     } catch (_) {}
-    BaseOneOf? baseOneOf;
+    BaseOneOf1? baseOneOf1;
     try {
-      baseOneOf =
-          ((serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf());
+      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
     } catch (_) {}
-    return (baseAllOf: baseAllOf, baseAnyOf: baseAnyOf, baseNestedOneOf3: baseNestedOneOf3, baseOneOf: baseOneOf);
+    double? $double;
+    try {
+      $double = serializers.deserialize(data, specifiedType: const FullType(double))! as double;
+    } catch (_) {}
+    return (
+      baseAllOf: baseAllOf,
+      baseAnyOf: baseAnyOf,
+      baseNestedOneOf3: baseNestedOneOf3,
+      baseOneOf1: baseOneOf1,
+      $double: $double
+    );
   }
 }
 
-typedef $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf = ({
+typedef $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt = ({
   BaseAllOf? baseAllOf,
-  BaseAnyOf? baseAnyOf,
+  BaseAnyOf1? baseAnyOf1,
   BaseNestedAnyOf3? baseNestedAnyOf3,
-  BaseOneOf? baseOneOf
+  BaseOneOf? baseOneOf,
+  int? $int
 });
 
-extension $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfExtension on $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf {
-  List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedAnyOf3, baseOneOf];
+extension $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension
+    on $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt {
+  List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf> get serializer =>
-      const _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer();
-  static $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf fromJson(final Object? json) =>
+  static Serializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> get serializer =>
+      const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
+  static $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt fromJson(final Object? json) =>
       _jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
-    implements PrimitiveSerializer<$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf> {
-  const _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer();
+class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
+    implements PrimitiveSerializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> {
+  const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
 
   @override
-  Iterable<Type> get types => const [$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf];
+  Iterable<Type> get types => const [$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt];
 
   @override
-  String get wireName => r'$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf';
+  String get wireName => r'$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf object, {
+    final $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt object, {
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -413,9 +434,9 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BaseAllOf))!;
     }
-    value = object.baseAnyOf;
+    value = object.baseAnyOf1;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BaseAnyOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAnyOf1))!;
     }
     value = object.baseNestedAnyOf3;
     if (value != null) {
@@ -425,12 +446,16 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
     if (value != null) {
       return serializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
     }
+    value = object.$int;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
+    }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
   }
 
   @override
-  $BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOf deserialize(
+  $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
@@ -439,10 +464,9 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
     try {
       baseAllOf = serializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
     } catch (_) {}
-    BaseAnyOf? baseAnyOf;
+    BaseAnyOf1? baseAnyOf1;
     try {
-      baseAnyOf =
-          ((serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)..validateAnyOf());
+      baseAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
     } catch (_) {}
     BaseNestedAnyOf3? baseNestedAnyOf3;
     try {
@@ -454,7 +478,74 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
       baseOneOf =
           ((serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf());
     } catch (_) {}
-    return (baseAllOf: baseAllOf, baseAnyOf: baseAnyOf, baseNestedAnyOf3: baseNestedAnyOf3, baseOneOf: baseOneOf);
+    int? $int;
+    try {
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return (
+      baseAllOf: baseAllOf,
+      baseAnyOf1: baseAnyOf1,
+      baseNestedAnyOf3: baseNestedAnyOf3,
+      baseOneOf: baseOneOf,
+      $int: $int
+    );
+  }
+}
+
+typedef $BaseOneOf1Num = ({BaseOneOf1? baseOneOf1, num? $num});
+
+extension $BaseOneOf1NumExtension on $BaseOneOf1Num {
+  List<dynamic> get _values => [baseOneOf1, $num];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BaseOneOf1Num> get serializer => const _$BaseOneOf1NumSerializer();
+  static $BaseOneOf1Num fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
+  const _$BaseOneOf1NumSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BaseOneOf1Num];
+
+  @override
+  String get wireName => r'$BaseOneOf1Num';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BaseOneOf1Num object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.baseOneOf1;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf1))!;
+    }
+    value = object.$num;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BaseOneOf1Num deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    BaseOneOf1? baseOneOf1;
+    try {
+      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+    } catch (_) {}
+    num? $num;
+    try {
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
+    } catch (_) {}
+    return (baseOneOf1: baseOneOf1, $num: $num);
   }
 }
 
@@ -472,10 +563,11 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(BaseNestedAllOf.serializer)
       ..addBuilderFactory(const FullType(BaseNestedOneOf3), BaseNestedOneOf3Builder.new)
       ..add(BaseNestedOneOf3.serializer)
-      ..add($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfExtension.serializer)
+      ..add($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.serializer)
       ..addBuilderFactory(const FullType(BaseNestedAnyOf3), BaseNestedAnyOf3Builder.new)
       ..add(BaseNestedAnyOf3.serializer)
-      ..add($BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfExtension.serializer))
+      ..add($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.serializer)
+      ..add($BaseOneOf1NumExtension.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

@@ -59,6 +59,18 @@ abstract class TypeResultSomeOf extends TypeResult {
   }
 
   BuiltList<TypeResult> get _optimizedSubTypes {
+    final subTypes = BuiltSet<TypeResult>.build((final b) {
+      for (final type in this.subTypes) {
+        if (type is TypeResultAnyOf && this is TypeResultAnyOf) {
+          b.addAll(type.optimizedSubTypes);
+        } else if (type is TypeResultOneOf && this is TypeResultOneOf) {
+          b.addAll(type.optimizedSubTypes);
+        } else {
+          b.add(type);
+        }
+      }
+    });
+
     final optimized = ListBuilder<TypeResult>();
     final optimizeNum = subTypes.where(_isNumber).length >= 2;
 

@@ -132,6 +132,16 @@
                         }
                     }
                 ]
+            },
+            "NestedOptimizedOneOf": {
+                "oneOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/components/schemas/BaseOneOf"
+                    }
+                ]
             }
         }
     },
