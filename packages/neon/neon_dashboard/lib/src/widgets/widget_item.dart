@@ -36,7 +36,9 @@ class DashboardWidgetItem extends StatelessWidget {
               ),
       ),
     );
-    if (item.overlayIconUrl.isNotEmpty) {
+
+    final overlayIconUrl = item.overlayIconUrl;
+    if (overlayIconUrl != null && overlayIconUrl.isNotEmpty) {
       leading = Stack(
         children: [
           leading,
@@ -47,7 +49,7 @@ class DashboardWidgetItem extends StatelessWidget {
               child: SizedBox.square(
                 dimension: smallIconSize,
                 child: NeonUrlImage(
-                  url: item.overlayIconUrl,
+                  url: overlayIconUrl,
                   size: const Size.square(smallIconSize),
                 ),
               ),
