@@ -911,13 +911,13 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CheckResponseApplicationJsonInterface {
+abstract interface class $CheckResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class CheckResponseApplicationJson
     implements
-        CheckResponseApplicationJsonInterface,
+        $CheckResponseApplicationJsonInterface,
         Built<CheckResponseApplicationJson, CheckResponseApplicationJsonBuilder> {
   factory CheckResponseApplicationJson([final void Function(CheckResponseApplicationJsonBuilder)? b]) =
       _$CheckResponseApplicationJson;
@@ -939,13 +939,13 @@ abstract class CheckResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SetKeepaliveResponseApplicationJsonInterface {
+abstract interface class $SetKeepaliveResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class SetKeepaliveResponseApplicationJson
     implements
-        SetKeepaliveResponseApplicationJsonInterface,
+        $SetKeepaliveResponseApplicationJsonInterface,
         Built<SetKeepaliveResponseApplicationJson, SetKeepaliveResponseApplicationJsonBuilder> {
   factory SetKeepaliveResponseApplicationJson([final void Function(SetKeepaliveResponseApplicationJsonBuilder)? b]) =
       _$SetKeepaliveResponseApplicationJson;
@@ -968,14 +968,14 @@ abstract class SetKeepaliveResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CreateDeviceResponseApplicationJsonInterface {
+abstract interface class $CreateDeviceResponseApplicationJsonInterface {
   bool get success;
   String get deviceId;
 }
 
 abstract class CreateDeviceResponseApplicationJson
     implements
-        CreateDeviceResponseApplicationJsonInterface,
+        $CreateDeviceResponseApplicationJsonInterface,
         Built<CreateDeviceResponseApplicationJson, CreateDeviceResponseApplicationJsonBuilder> {
   factory CreateDeviceResponseApplicationJson([final void Function(CreateDeviceResponseApplicationJsonBuilder)? b]) =
       _$CreateDeviceResponseApplicationJson;
@@ -998,13 +998,13 @@ abstract class CreateDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SyncDeviceResponseApplicationJsonInterface {
+abstract interface class $SyncDeviceResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class SyncDeviceResponseApplicationJson
     implements
-        SyncDeviceResponseApplicationJsonInterface,
+        $SyncDeviceResponseApplicationJsonInterface,
         Built<SyncDeviceResponseApplicationJson, SyncDeviceResponseApplicationJsonBuilder> {
   factory SyncDeviceResponseApplicationJson([final void Function(SyncDeviceResponseApplicationJsonBuilder)? b]) =
       _$SyncDeviceResponseApplicationJson;
@@ -1026,13 +1026,13 @@ abstract class SyncDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DeleteDeviceResponseApplicationJsonInterface {
+abstract interface class $DeleteDeviceResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class DeleteDeviceResponseApplicationJson
     implements
-        DeleteDeviceResponseApplicationJsonInterface,
+        $DeleteDeviceResponseApplicationJsonInterface,
         Built<DeleteDeviceResponseApplicationJson, DeleteDeviceResponseApplicationJsonBuilder> {
   factory DeleteDeviceResponseApplicationJson([final void Function(DeleteDeviceResponseApplicationJsonBuilder)? b]) =
       _$DeleteDeviceResponseApplicationJson;
@@ -1055,14 +1055,14 @@ abstract class DeleteDeviceResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CreateAppResponseApplicationJsonInterface {
+abstract interface class $CreateAppResponseApplicationJsonInterface {
   bool get success;
   String get token;
 }
 
 abstract class CreateAppResponseApplicationJson
     implements
-        CreateAppResponseApplicationJsonInterface,
+        $CreateAppResponseApplicationJsonInterface,
         Built<CreateAppResponseApplicationJson, CreateAppResponseApplicationJsonBuilder> {
   factory CreateAppResponseApplicationJson([final void Function(CreateAppResponseApplicationJsonBuilder)? b]) =
       _$CreateAppResponseApplicationJson;
@@ -1084,13 +1084,13 @@ abstract class CreateAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DeleteAppResponseApplicationJsonInterface {
+abstract interface class $DeleteAppResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class DeleteAppResponseApplicationJson
     implements
-        DeleteAppResponseApplicationJsonInterface,
+        $DeleteAppResponseApplicationJsonInterface,
         Built<DeleteAppResponseApplicationJson, DeleteAppResponseApplicationJsonBuilder> {
   factory DeleteAppResponseApplicationJson([final void Function(DeleteAppResponseApplicationJsonBuilder)? b]) =
       _$DeleteAppResponseApplicationJson;
@@ -1112,13 +1112,13 @@ abstract class DeleteAppResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
+abstract interface class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
   int get version;
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
     implements
-        UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface,
+        $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface,
         Built<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
             UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
   factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush([
@@ -1143,13 +1143,13 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UnifiedpushDiscoveryResponseApplicationJsonInterface {
+abstract interface class $UnifiedpushDiscoveryResponseApplicationJsonInterface {
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
 }
 
 abstract class UnifiedpushDiscoveryResponseApplicationJson
     implements
-        UnifiedpushDiscoveryResponseApplicationJsonInterface,
+        $UnifiedpushDiscoveryResponseApplicationJsonInterface,
         Built<UnifiedpushDiscoveryResponseApplicationJson, UnifiedpushDiscoveryResponseApplicationJsonBuilder> {
   factory UnifiedpushDiscoveryResponseApplicationJson([
     final void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? b,
@@ -1173,13 +1173,13 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushResponseApplicationJsonInterface {
+abstract interface class $PushResponseApplicationJsonInterface {
   bool get success;
 }
 
 abstract class PushResponseApplicationJson
     implements
-        PushResponseApplicationJsonInterface,
+        $PushResponseApplicationJsonInterface,
         Built<PushResponseApplicationJson, PushResponseApplicationJsonBuilder> {
   factory PushResponseApplicationJson([final void Function(PushResponseApplicationJsonBuilder)? b]) =
       _$PushResponseApplicationJson;
@@ -1201,13 +1201,13 @@ abstract class PushResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
+abstract interface class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface {
   String get gateway;
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
     implements
-        GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface,
+        $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface,
         Built<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
             GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
   factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush([
@@ -1232,13 +1232,13 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GatewayMatrixDiscoveryResponseApplicationJsonInterface {
+abstract interface class $GatewayMatrixDiscoveryResponseApplicationJsonInterface {
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush get unifiedpush;
 }
 
 abstract class GatewayMatrixDiscoveryResponseApplicationJson
     implements
-        GatewayMatrixDiscoveryResponseApplicationJsonInterface,
+        $GatewayMatrixDiscoveryResponseApplicationJsonInterface,
         Built<GatewayMatrixDiscoveryResponseApplicationJson, GatewayMatrixDiscoveryResponseApplicationJsonBuilder> {
   factory GatewayMatrixDiscoveryResponseApplicationJson([
     final void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? b,
@@ -1262,13 +1262,13 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GatewayMatrixResponseApplicationJsonInterface {
+abstract interface class $GatewayMatrixResponseApplicationJsonInterface {
   BuiltList<String> get rejected;
 }
 
 abstract class GatewayMatrixResponseApplicationJson
     implements
-        GatewayMatrixResponseApplicationJsonInterface,
+        $GatewayMatrixResponseApplicationJsonInterface,
         Built<GatewayMatrixResponseApplicationJson, GatewayMatrixResponseApplicationJsonBuilder> {
   factory GatewayMatrixResponseApplicationJson([final void Function(GatewayMatrixResponseApplicationJsonBuilder)? b]) =
       _$GatewayMatrixResponseApplicationJson;

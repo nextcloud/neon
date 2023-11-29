@@ -5,7 +5,7 @@ const interfaceSuffix = 'Interface';
 
 /// Builds a [Class] representing a built_value object.
 ///
-/// Attributes must be defined in a separate interface called `$className$interfaceSuffix`.
+/// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
   final String className, {
   final Iterable<String>? defaults,
@@ -19,7 +19,7 @@ Spec buildBuiltClass(
           ..name = className
           ..abstract = true
           ..implements.addAll([
-            refer('$className$interfaceSuffix'),
+            refer('\$$className$interfaceSuffix'),
             refer(
               'Built<$className, ${className}Builder>',
             ),

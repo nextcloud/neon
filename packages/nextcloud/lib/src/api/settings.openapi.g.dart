@@ -6,9 +6,9 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
-  void replace(LogSettingsLogSettingsDownloadHeadersInterface other);
-  void update(void Function(LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
+abstract mixin class $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
+  void replace($LogSettingsLogSettingsDownloadHeadersInterface other);
+  void update(void Function($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
   String? get contentDisposition;
   set contentDisposition(String? contentDisposition);
 }
@@ -56,7 +56,7 @@ class _$LogSettingsLogSettingsDownloadHeaders extends LogSettingsLogSettingsDown
 class LogSettingsLogSettingsDownloadHeadersBuilder
     implements
         Builder<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder>,
-        LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
+        $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
   _$LogSettingsLogSettingsDownloadHeaders? _$v;
 
   String? _contentDisposition;

@@ -43,11 +43,11 @@ typedef RedirectBaseType = int;
 typedef RedirectEmptyType = JsonObject;
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseInterface {
+abstract interface class $BaseInterface {
   String? get attribute;
 }
 
-abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
+abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   factory Base([final void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
@@ -60,13 +60,13 @@ abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NestedRedirectInterface {
+abstract interface class $NestedRedirectInterface {
   Base? get redirect;
   int? get redirectBaseType;
   JsonObject? get redirectEmptyType;
 }
 
-abstract class NestedRedirect implements NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
+abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
   factory NestedRedirect([final void Function(NestedRedirectBuilder)? b]) = _$NestedRedirect;
 
   const NestedRedirect._();
@@ -80,13 +80,13 @@ abstract class NestedRedirect implements NestedRedirectInterface, Built<NestedRe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SomeOfRedirectInterface {
+abstract interface class $SomeOfRedirectInterface {
   Base? get base;
   int? get $int;
   JsonObject? get jsonObject;
 }
 
-abstract class SomeOfRedirect implements SomeOfRedirectInterface, Built<SomeOfRedirect, SomeOfRedirectBuilder> {
+abstract class SomeOfRedirect implements $SomeOfRedirectInterface, Built<SomeOfRedirect, SomeOfRedirectBuilder> {
   factory SomeOfRedirect([final void Function(SomeOfRedirectBuilder)? b]) = _$SomeOfRedirect;
 
   const SomeOfRedirect._();

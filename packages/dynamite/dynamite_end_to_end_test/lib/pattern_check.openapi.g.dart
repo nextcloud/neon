@@ -76,9 +76,9 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   }
 }
 
-abstract mixin class TestObjectInterfaceBuilder {
-  void replace(TestObjectInterface other);
-  void update(void Function(TestObjectInterfaceBuilder) updates);
+abstract mixin class $TestObjectInterfaceBuilder {
+  void replace($TestObjectInterface other);
+  void update(void Function($TestObjectInterfaceBuilder) updates);
   String? get onlyNumbers;
   set onlyNumbers(String? onlyNumbers);
 
@@ -144,7 +144,7 @@ class _$TestObject extends TestObject {
   }
 }
 
-class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, TestObjectInterfaceBuilder {
+class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $TestObjectInterfaceBuilder {
   _$TestObject? _$v;
 
   String? _onlyNumbers;

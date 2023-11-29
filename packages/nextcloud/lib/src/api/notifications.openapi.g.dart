@@ -1776,9 +1776,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1856,7 +1856,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1921,9 +1921,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ApiGenerateNotificationResponseApplicationJson_OcsInterface other);
-  void update(void Function(ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiGenerateNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1983,7 +1983,7 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
     implements
         Builder<ApiGenerateNotificationResponseApplicationJson_Ocs,
             ApiGenerateNotificationResponseApplicationJson_OcsBuilder>,
-        ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
+        $ApiGenerateNotificationResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiGenerateNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2044,9 +2044,9 @@ class ApiGenerateNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(ApiGenerateNotificationResponseApplicationJsonInterface other);
-  void update(void Function(ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiGenerateNotificationResponseApplicationJsonInterface other);
+  void update(void Function($ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder) updates);
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiGenerateNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2095,7 +2095,7 @@ class _$ApiGenerateNotificationResponseApplicationJson extends ApiGenerateNotifi
 class ApiGenerateNotificationResponseApplicationJsonBuilder
     implements
         Builder<ApiGenerateNotificationResponseApplicationJson, ApiGenerateNotificationResponseApplicationJsonBuilder>,
-        ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
+        $ApiGenerateNotificationResponseApplicationJsonInterfaceBuilder {
   _$ApiGenerateNotificationResponseApplicationJson? _$v;
 
   ApiGenerateNotificationResponseApplicationJson_OcsBuilder? _ocs;
@@ -2148,9 +2148,9 @@ class ApiGenerateNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class EndpointEndpointListNotificationsHeadersInterfaceBuilder {
-  void replace(EndpointEndpointListNotificationsHeadersInterface other);
-  void update(void Function(EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
+abstract mixin class $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+  void replace($EndpointEndpointListNotificationsHeadersInterface other);
+  void update(void Function($EndpointEndpointListNotificationsHeadersInterfaceBuilder) updates);
   String? get xNextcloudUserStatus;
   set xNextcloudUserStatus(String? xNextcloudUserStatus);
 }
@@ -2199,7 +2199,7 @@ class _$EndpointEndpointListNotificationsHeaders extends EndpointEndpointListNot
 class EndpointEndpointListNotificationsHeadersBuilder
     implements
         Builder<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder>,
-        EndpointEndpointListNotificationsHeadersInterfaceBuilder {
+        $EndpointEndpointListNotificationsHeadersInterfaceBuilder {
   _$EndpointEndpointListNotificationsHeaders? _$v;
 
   String? _xNextcloudUserStatus;
@@ -2239,9 +2239,9 @@ class EndpointEndpointListNotificationsHeadersBuilder
   }
 }
 
-abstract mixin class NotificationActionInterfaceBuilder {
-  void replace(NotificationActionInterface other);
-  void update(void Function(NotificationActionInterfaceBuilder) updates);
+abstract mixin class $NotificationActionInterfaceBuilder {
+  void replace($NotificationActionInterface other);
+  void update(void Function($NotificationActionInterfaceBuilder) updates);
   String? get label;
   set label(String? label);
 
@@ -2316,7 +2316,7 @@ class _$NotificationAction extends NotificationAction {
 }
 
 class NotificationActionBuilder
-    implements Builder<NotificationAction, NotificationActionBuilder>, NotificationActionInterfaceBuilder {
+    implements Builder<NotificationAction, NotificationActionBuilder>, $NotificationActionInterfaceBuilder {
   _$NotificationAction? _$v;
 
   String? _label;
@@ -2375,9 +2375,9 @@ class NotificationActionBuilder
   }
 }
 
-abstract mixin class NotificationInterfaceBuilder {
-  void replace(NotificationInterface other);
-  void update(void Function(NotificationInterfaceBuilder) updates);
+abstract mixin class $NotificationInterfaceBuilder {
+  void replace($NotificationInterface other);
+  void update(void Function($NotificationInterfaceBuilder) updates);
   int? get notificationId;
   set notificationId(int? notificationId);
 
@@ -2568,7 +2568,7 @@ class _$Notification extends Notification {
   }
 }
 
-class NotificationBuilder implements Builder<Notification, NotificationBuilder>, NotificationInterfaceBuilder {
+class NotificationBuilder implements Builder<Notification, NotificationBuilder>, $NotificationInterfaceBuilder {
   _$Notification? _$v;
 
   int? _notificationId;
@@ -2721,9 +2721,9 @@ class NotificationBuilder implements Builder<Notification, NotificationBuilder>,
   }
 }
 
-abstract mixin class EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(EndpointListNotificationsResponseApplicationJson_OcsInterface other);
-  void update(void Function(EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($EndpointListNotificationsResponseApplicationJson_OcsInterface other);
+  void update(void Function($EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2784,7 +2784,7 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
     implements
         Builder<EndpointListNotificationsResponseApplicationJson_Ocs,
             EndpointListNotificationsResponseApplicationJson_OcsBuilder>,
-        EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+        $EndpointListNotificationsResponseApplicationJson_OcsInterfaceBuilder {
   _$EndpointListNotificationsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2844,9 +2844,9 @@ class EndpointListNotificationsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
-  void replace(EndpointListNotificationsResponseApplicationJsonInterface other);
-  void update(void Function(EndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
+  void replace($EndpointListNotificationsResponseApplicationJsonInterface other);
+  void update(void Function($EndpointListNotificationsResponseApplicationJsonInterfaceBuilder) updates);
   EndpointListNotificationsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(EndpointListNotificationsResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2897,7 +2897,7 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
     implements
         Builder<EndpointListNotificationsResponseApplicationJson,
             EndpointListNotificationsResponseApplicationJsonBuilder>,
-        EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
+        $EndpointListNotificationsResponseApplicationJsonInterfaceBuilder {
   _$EndpointListNotificationsResponseApplicationJson? _$v;
 
   EndpointListNotificationsResponseApplicationJson_OcsBuilder? _ocs;
@@ -2950,9 +2950,9 @@ class EndpointListNotificationsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface other);
-  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface other);
+  void update(void Function($EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3015,7 +3015,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
     implements
         Builder<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
             EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder>,
-        EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
+        $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterfaceBuilder {
   _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3076,9 +3076,9 @@ class EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
-  void replace(EndpointDeleteAllNotificationsResponseApplicationJsonInterface other);
-  void update(void Function(EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
+  void replace($EndpointDeleteAllNotificationsResponseApplicationJsonInterface other);
+  void update(void Function($EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder) updates);
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3130,7 +3130,7 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
     implements
         Builder<EndpointDeleteAllNotificationsResponseApplicationJson,
             EndpointDeleteAllNotificationsResponseApplicationJsonBuilder>,
-        EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
+        $EndpointDeleteAllNotificationsResponseApplicationJsonInterfaceBuilder {
   _$EndpointDeleteAllNotificationsResponseApplicationJson? _$v;
 
   EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder? _ocs;
@@ -3183,9 +3183,9 @@ class EndpointDeleteAllNotificationsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(EndpointGetNotificationResponseApplicationJson_OcsInterface other);
-  void update(void Function(EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($EndpointGetNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function($EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3245,7 +3245,7 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
     implements
         Builder<EndpointGetNotificationResponseApplicationJson_Ocs,
             EndpointGetNotificationResponseApplicationJson_OcsBuilder>,
-        EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
+        $EndpointGetNotificationResponseApplicationJson_OcsInterfaceBuilder {
   _$EndpointGetNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3304,9 +3304,9 @@ class EndpointGetNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(EndpointGetNotificationResponseApplicationJsonInterface other);
-  void update(void Function(EndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace($EndpointGetNotificationResponseApplicationJsonInterface other);
+  void update(void Function($EndpointGetNotificationResponseApplicationJsonInterfaceBuilder) updates);
   EndpointGetNotificationResponseApplicationJson_OcsBuilder get ocs;
   set ocs(EndpointGetNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3355,7 +3355,7 @@ class _$EndpointGetNotificationResponseApplicationJson extends EndpointGetNotifi
 class EndpointGetNotificationResponseApplicationJsonBuilder
     implements
         Builder<EndpointGetNotificationResponseApplicationJson, EndpointGetNotificationResponseApplicationJsonBuilder>,
-        EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
+        $EndpointGetNotificationResponseApplicationJsonInterfaceBuilder {
   _$EndpointGetNotificationResponseApplicationJson? _$v;
 
   EndpointGetNotificationResponseApplicationJson_OcsBuilder? _ocs;
@@ -3408,9 +3408,9 @@ class EndpointGetNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(EndpointDeleteNotificationResponseApplicationJson_OcsInterface other);
-  void update(void Function(EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($EndpointDeleteNotificationResponseApplicationJson_OcsInterface other);
+  void update(void Function($EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3471,7 +3471,7 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
     implements
         Builder<EndpointDeleteNotificationResponseApplicationJson_Ocs,
             EndpointDeleteNotificationResponseApplicationJson_OcsBuilder>,
-        EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
+        $EndpointDeleteNotificationResponseApplicationJson_OcsInterfaceBuilder {
   _$EndpointDeleteNotificationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3532,9 +3532,9 @@ class EndpointDeleteNotificationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
-  void replace(EndpointDeleteNotificationResponseApplicationJsonInterface other);
-  void update(void Function(EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
+  void replace($EndpointDeleteNotificationResponseApplicationJsonInterface other);
+  void update(void Function($EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder) updates);
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder get ocs;
   set ocs(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3585,7 +3585,7 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
     implements
         Builder<EndpointDeleteNotificationResponseApplicationJson,
             EndpointDeleteNotificationResponseApplicationJsonBuilder>,
-        EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
+        $EndpointDeleteNotificationResponseApplicationJsonInterfaceBuilder {
   _$EndpointDeleteNotificationResponseApplicationJson? _$v;
 
   EndpointDeleteNotificationResponseApplicationJson_OcsBuilder? _ocs;
@@ -3638,9 +3638,9 @@ class EndpointDeleteNotificationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface other);
-  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface other);
+  void update(void Function($EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3701,7 +3701,7 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
     implements
         Builder<EndpointConfirmIdsForUserResponseApplicationJson_Ocs,
             EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder>,
-        EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
+        $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterfaceBuilder {
   _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3761,9 +3761,9 @@ class EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
-  void replace(EndpointConfirmIdsForUserResponseApplicationJsonInterface other);
-  void update(void Function(EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
+  void replace($EndpointConfirmIdsForUserResponseApplicationJsonInterface other);
+  void update(void Function($EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder) updates);
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder get ocs;
   set ocs(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3814,7 +3814,7 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
     implements
         Builder<EndpointConfirmIdsForUserResponseApplicationJson,
             EndpointConfirmIdsForUserResponseApplicationJsonBuilder>,
-        EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
+        $EndpointConfirmIdsForUserResponseApplicationJsonInterfaceBuilder {
   _$EndpointConfirmIdsForUserResponseApplicationJson? _$v;
 
   EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder? _ocs;
@@ -3867,9 +3867,9 @@ class EndpointConfirmIdsForUserResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class PushDeviceInterfaceBuilder {
-  void replace(PushDeviceInterface other);
-  void update(void Function(PushDeviceInterfaceBuilder) updates);
+abstract mixin class $PushDeviceInterfaceBuilder {
+  void replace($PushDeviceInterface other);
+  void update(void Function($PushDeviceInterfaceBuilder) updates);
   String? get publicKey;
   set publicKey(String? publicKey);
 
@@ -3931,7 +3931,7 @@ class _$PushDevice extends PushDevice {
   }
 }
 
-class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, PushDeviceInterfaceBuilder {
+class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, $PushDeviceInterfaceBuilder {
   _$PushDevice? _$v;
 
   String? _publicKey;
@@ -3985,9 +3985,9 @@ class PushDeviceBuilder implements Builder<PushDevice, PushDeviceBuilder>, PushD
   }
 }
 
-abstract mixin class PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(PushRegisterDeviceResponseApplicationJson_OcsInterface other);
-  void update(void Function(PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($PushRegisterDeviceResponseApplicationJson_OcsInterface other);
+  void update(void Function($PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4046,7 +4046,7 @@ class _$PushRegisterDeviceResponseApplicationJson_Ocs extends PushRegisterDevice
 class PushRegisterDeviceResponseApplicationJson_OcsBuilder
     implements
         Builder<PushRegisterDeviceResponseApplicationJson_Ocs, PushRegisterDeviceResponseApplicationJson_OcsBuilder>,
-        PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
+        $PushRegisterDeviceResponseApplicationJson_OcsInterfaceBuilder {
   _$PushRegisterDeviceResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4104,9 +4104,9 @@ class PushRegisterDeviceResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(PushRegisterDeviceResponseApplicationJsonInterface other);
-  void update(void Function(PushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace($PushRegisterDeviceResponseApplicationJsonInterface other);
+  void update(void Function($PushRegisterDeviceResponseApplicationJsonInterfaceBuilder) updates);
   PushRegisterDeviceResponseApplicationJson_OcsBuilder get ocs;
   set ocs(PushRegisterDeviceResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4155,7 +4155,7 @@ class _$PushRegisterDeviceResponseApplicationJson extends PushRegisterDeviceResp
 class PushRegisterDeviceResponseApplicationJsonBuilder
     implements
         Builder<PushRegisterDeviceResponseApplicationJson, PushRegisterDeviceResponseApplicationJsonBuilder>,
-        PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
+        $PushRegisterDeviceResponseApplicationJsonInterfaceBuilder {
   _$PushRegisterDeviceResponseApplicationJson? _$v;
 
   PushRegisterDeviceResponseApplicationJson_OcsBuilder? _ocs;
@@ -4207,9 +4207,9 @@ class PushRegisterDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(PushRemoveDeviceResponseApplicationJson_OcsInterface other);
-  void update(void Function(PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($PushRemoveDeviceResponseApplicationJson_OcsInterface other);
+  void update(void Function($PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4268,7 +4268,7 @@ class _$PushRemoveDeviceResponseApplicationJson_Ocs extends PushRemoveDeviceResp
 class PushRemoveDeviceResponseApplicationJson_OcsBuilder
     implements
         Builder<PushRemoveDeviceResponseApplicationJson_Ocs, PushRemoveDeviceResponseApplicationJson_OcsBuilder>,
-        PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
+        $PushRemoveDeviceResponseApplicationJson_OcsInterfaceBuilder {
   _$PushRemoveDeviceResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4328,9 +4328,9 @@ class PushRemoveDeviceResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(PushRemoveDeviceResponseApplicationJsonInterface other);
-  void update(void Function(PushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace($PushRemoveDeviceResponseApplicationJsonInterface other);
+  void update(void Function($PushRemoveDeviceResponseApplicationJsonInterfaceBuilder) updates);
   PushRemoveDeviceResponseApplicationJson_OcsBuilder get ocs;
   set ocs(PushRemoveDeviceResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4379,7 +4379,7 @@ class _$PushRemoveDeviceResponseApplicationJson extends PushRemoveDeviceResponse
 class PushRemoveDeviceResponseApplicationJsonBuilder
     implements
         Builder<PushRemoveDeviceResponseApplicationJson, PushRemoveDeviceResponseApplicationJsonBuilder>,
-        PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
+        $PushRemoveDeviceResponseApplicationJsonInterfaceBuilder {
   _$PushRemoveDeviceResponseApplicationJson? _$v;
 
   PushRemoveDeviceResponseApplicationJson_OcsBuilder? _ocs;
@@ -4431,9 +4431,9 @@ class PushRemoveDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(SettingsPersonalResponseApplicationJson_OcsInterface other);
-  void update(void Function(SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($SettingsPersonalResponseApplicationJson_OcsInterface other);
+  void update(void Function($SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4492,7 +4492,7 @@ class _$SettingsPersonalResponseApplicationJson_Ocs extends SettingsPersonalResp
 class SettingsPersonalResponseApplicationJson_OcsBuilder
     implements
         Builder<SettingsPersonalResponseApplicationJson_Ocs, SettingsPersonalResponseApplicationJson_OcsBuilder>,
-        SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
+        $SettingsPersonalResponseApplicationJson_OcsInterfaceBuilder {
   _$SettingsPersonalResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4552,9 +4552,9 @@ class SettingsPersonalResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class SettingsPersonalResponseApplicationJsonInterfaceBuilder {
-  void replace(SettingsPersonalResponseApplicationJsonInterface other);
-  void update(void Function(SettingsPersonalResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $SettingsPersonalResponseApplicationJsonInterfaceBuilder {
+  void replace($SettingsPersonalResponseApplicationJsonInterface other);
+  void update(void Function($SettingsPersonalResponseApplicationJsonInterfaceBuilder) updates);
   SettingsPersonalResponseApplicationJson_OcsBuilder get ocs;
   set ocs(SettingsPersonalResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4603,7 +4603,7 @@ class _$SettingsPersonalResponseApplicationJson extends SettingsPersonalResponse
 class SettingsPersonalResponseApplicationJsonBuilder
     implements
         Builder<SettingsPersonalResponseApplicationJson, SettingsPersonalResponseApplicationJsonBuilder>,
-        SettingsPersonalResponseApplicationJsonInterfaceBuilder {
+        $SettingsPersonalResponseApplicationJsonInterfaceBuilder {
   _$SettingsPersonalResponseApplicationJson? _$v;
 
   SettingsPersonalResponseApplicationJson_OcsBuilder? _ocs;
@@ -4655,9 +4655,9 @@ class SettingsPersonalResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(SettingsAdminResponseApplicationJson_OcsInterface other);
-  void update(void Function(SettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($SettingsAdminResponseApplicationJson_OcsInterface other);
+  void update(void Function($SettingsAdminResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4716,7 +4716,7 @@ class _$SettingsAdminResponseApplicationJson_Ocs extends SettingsAdminResponseAp
 class SettingsAdminResponseApplicationJson_OcsBuilder
     implements
         Builder<SettingsAdminResponseApplicationJson_Ocs, SettingsAdminResponseApplicationJson_OcsBuilder>,
-        SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
+        $SettingsAdminResponseApplicationJson_OcsInterfaceBuilder {
   _$SettingsAdminResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4775,9 +4775,9 @@ class SettingsAdminResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class SettingsAdminResponseApplicationJsonInterfaceBuilder {
-  void replace(SettingsAdminResponseApplicationJsonInterface other);
-  void update(void Function(SettingsAdminResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $SettingsAdminResponseApplicationJsonInterfaceBuilder {
+  void replace($SettingsAdminResponseApplicationJsonInterface other);
+  void update(void Function($SettingsAdminResponseApplicationJsonInterfaceBuilder) updates);
   SettingsAdminResponseApplicationJson_OcsBuilder get ocs;
   set ocs(SettingsAdminResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4825,7 +4825,7 @@ class _$SettingsAdminResponseApplicationJson extends SettingsAdminResponseApplic
 class SettingsAdminResponseApplicationJsonBuilder
     implements
         Builder<SettingsAdminResponseApplicationJson, SettingsAdminResponseApplicationJsonBuilder>,
-        SettingsAdminResponseApplicationJsonInterfaceBuilder {
+        $SettingsAdminResponseApplicationJsonInterfaceBuilder {
   _$SettingsAdminResponseApplicationJson? _$v;
 
   SettingsAdminResponseApplicationJson_OcsBuilder? _ocs;
@@ -4877,9 +4877,9 @@ class SettingsAdminResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_NotificationsInterfaceBuilder {
-  void replace(Capabilities_NotificationsInterface other);
-  void update(void Function(Capabilities_NotificationsInterfaceBuilder) updates);
+abstract mixin class $Capabilities_NotificationsInterfaceBuilder {
+  void replace($Capabilities_NotificationsInterface other);
+  void update(void Function($Capabilities_NotificationsInterfaceBuilder) updates);
   ListBuilder<String> get ocsEndpoints;
   set ocsEndpoints(ListBuilder<String>? ocsEndpoints);
 
@@ -4947,7 +4947,7 @@ class _$Capabilities_Notifications extends Capabilities_Notifications {
 class Capabilities_NotificationsBuilder
     implements
         Builder<Capabilities_Notifications, Capabilities_NotificationsBuilder>,
-        Capabilities_NotificationsInterfaceBuilder {
+        $Capabilities_NotificationsInterfaceBuilder {
   _$Capabilities_Notifications? _$v;
 
   ListBuilder<String>? _ocsEndpoints;
@@ -5015,9 +5015,9 @@ class Capabilities_NotificationsBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_NotificationsBuilder get notifications;
   set notifications(Capabilities_NotificationsBuilder? notifications);
 }
@@ -5059,7 +5059,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_NotificationsBuilder? _notifications;

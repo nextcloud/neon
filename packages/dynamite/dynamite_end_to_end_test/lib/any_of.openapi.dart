@@ -33,12 +33,12 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAnyOf0Interface {
+abstract interface class $ObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute1-anyOf')
   String get attribute1AnyOf;
 }
 
-abstract class ObjectAnyOf0 implements ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
+abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
   factory ObjectAnyOf0([final void Function(ObjectAnyOf0Builder)? b]) = _$ObjectAnyOf0;
 
   const ObjectAnyOf0._();
@@ -51,12 +51,12 @@ abstract class ObjectAnyOf0 implements ObjectAnyOf0Interface, Built<ObjectAnyOf0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAnyOf1Interface {
+abstract interface class $ObjectAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute2-anyOf')
   String get attribute2AnyOf;
 }
 
-abstract class ObjectAnyOf1 implements ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
+abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
   factory ObjectAnyOf1([final void Function(ObjectAnyOf1Builder)? b]) = _$ObjectAnyOf1;
 
   const ObjectAnyOf1._();
@@ -69,12 +69,12 @@ abstract class ObjectAnyOf1 implements ObjectAnyOf1Interface, Built<ObjectAnyOf1
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAnyOfInterface {
+abstract interface class $ObjectAnyOfInterface {
   ObjectAnyOf0? get objectAnyOf0;
   ObjectAnyOf1? get objectAnyOf1;
 }
 
-abstract class ObjectAnyOf implements ObjectAnyOfInterface, Built<ObjectAnyOf, ObjectAnyOfBuilder> {
+abstract class ObjectAnyOf implements $ObjectAnyOfInterface, Built<ObjectAnyOf, ObjectAnyOfBuilder> {
   factory ObjectAnyOf([final void Function(ObjectAnyOfBuilder)? b]) = _$ObjectAnyOf;
 
   const ObjectAnyOf._();
@@ -136,12 +136,12 @@ class _$ObjectAnyOfSerializer implements PrimitiveSerializer<ObjectAnyOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MixedAnyOf1Interface {
+abstract interface class $MixedAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
 }
 
-abstract class MixedAnyOf1 implements MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
+abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
   factory MixedAnyOf1([final void Function(MixedAnyOf1Builder)? b]) = _$MixedAnyOf1;
 
   const MixedAnyOf1._();
@@ -154,12 +154,12 @@ abstract class MixedAnyOf1 implements MixedAnyOf1Interface, Built<MixedAnyOf1, M
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MixedAnyOfInterface {
+abstract interface class $MixedAnyOfInterface {
   String? get string;
   MixedAnyOf1? get mixedAnyOf1;
 }
 
-abstract class MixedAnyOf implements MixedAnyOfInterface, Built<MixedAnyOf, MixedAnyOfBuilder> {
+abstract class MixedAnyOf implements $MixedAnyOfInterface, Built<MixedAnyOf, MixedAnyOfBuilder> {
   factory MixedAnyOf([final void Function(MixedAnyOfBuilder)? b]) = _$MixedAnyOf;
 
   const MixedAnyOf._();
@@ -221,12 +221,12 @@ class _$MixedAnyOfSerializer implements PrimitiveSerializer<MixedAnyOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneObjectAnyOf0Interface {
+abstract interface class $OneObjectAnyOf0Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
 }
 
-abstract class OneObjectAnyOf0 implements OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
+abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
   factory OneObjectAnyOf0([final void Function(OneObjectAnyOf0Builder)? b]) = _$OneObjectAnyOf0;
 
   const OneObjectAnyOf0._();
@@ -240,11 +240,11 @@ abstract class OneObjectAnyOf0 implements OneObjectAnyOf0Interface, Built<OneObj
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneObjectAnyOfInterface {
+abstract interface class $OneObjectAnyOfInterface {
   OneObjectAnyOf0? get oneObjectAnyOf0;
 }
 
-abstract class OneObjectAnyOf implements OneObjectAnyOfInterface, Built<OneObjectAnyOf, OneObjectAnyOfBuilder> {
+abstract class OneObjectAnyOf implements $OneObjectAnyOfInterface, Built<OneObjectAnyOf, OneObjectAnyOfBuilder> {
   factory OneObjectAnyOf([final void Function(OneObjectAnyOfBuilder)? b]) = _$OneObjectAnyOf;
 
   const OneObjectAnyOf._();
@@ -304,11 +304,11 @@ class _$OneObjectAnyOfSerializer implements PrimitiveSerializer<OneObjectAnyOf> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneValueAnyOfInterface {
+abstract interface class $OneValueAnyOfInterface {
   String? get string;
 }
 
-abstract class OneValueAnyOf implements OneValueAnyOfInterface, Built<OneValueAnyOf, OneValueAnyOfBuilder> {
+abstract class OneValueAnyOf implements $OneValueAnyOfInterface, Built<OneValueAnyOf, OneValueAnyOfBuilder> {
   factory OneValueAnyOf([final void Function(OneValueAnyOfBuilder)? b]) = _$OneValueAnyOf;
 
   const OneValueAnyOf._();
@@ -367,12 +367,12 @@ class _$OneValueAnyOfSerializer implements PrimitiveSerializer<OneValueAnyOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AnyOfIntDoubleInterface {
+abstract interface class $AnyOfIntDoubleInterface {
   int? get $int;
   double? get $double;
 }
 
-abstract class AnyOfIntDouble implements AnyOfIntDoubleInterface, Built<AnyOfIntDouble, AnyOfIntDoubleBuilder> {
+abstract class AnyOfIntDouble implements $AnyOfIntDoubleInterface, Built<AnyOfIntDouble, AnyOfIntDoubleBuilder> {
   factory AnyOfIntDouble([final void Function(AnyOfIntDoubleBuilder)? b]) = _$AnyOfIntDouble;
 
   const AnyOfIntDouble._();
@@ -435,14 +435,14 @@ class _$AnyOfIntDoubleSerializer implements PrimitiveSerializer<AnyOfIntDouble> 
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AnyOfIntDoubleOtherInterface {
+abstract interface class $AnyOfIntDoubleOtherInterface {
   int? get $int;
   double? get $double;
   String? get string;
 }
 
 abstract class AnyOfIntDoubleOther
-    implements AnyOfIntDoubleOtherInterface, Built<AnyOfIntDoubleOther, AnyOfIntDoubleOtherBuilder> {
+    implements $AnyOfIntDoubleOtherInterface, Built<AnyOfIntDoubleOther, AnyOfIntDoubleOtherBuilder> {
   factory AnyOfIntDoubleOther([final void Function(AnyOfIntDoubleOtherBuilder)? b]) = _$AnyOfIntDoubleOther;
 
   const AnyOfIntDoubleOther._();

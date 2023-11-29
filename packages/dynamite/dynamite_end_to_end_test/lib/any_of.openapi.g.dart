@@ -163,9 +163,9 @@ class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf
   }
 }
 
-abstract mixin class ObjectAnyOf0InterfaceBuilder {
-  void replace(ObjectAnyOf0Interface other);
-  void update(void Function(ObjectAnyOf0InterfaceBuilder) updates);
+abstract mixin class $ObjectAnyOf0InterfaceBuilder {
+  void replace($ObjectAnyOf0Interface other);
+  void update(void Function($ObjectAnyOf0InterfaceBuilder) updates);
   String? get attribute1AnyOf;
   set attribute1AnyOf(String? attribute1AnyOf);
 }
@@ -207,7 +207,7 @@ class _$ObjectAnyOf0 extends ObjectAnyOf0 {
   }
 }
 
-class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>, ObjectAnyOf0InterfaceBuilder {
+class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>, $ObjectAnyOf0InterfaceBuilder {
   _$ObjectAnyOf0? _$v;
 
   String? _attribute1AnyOf;
@@ -249,9 +249,9 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
   }
 }
 
-abstract mixin class ObjectAnyOf1InterfaceBuilder {
-  void replace(ObjectAnyOf1Interface other);
-  void update(void Function(ObjectAnyOf1InterfaceBuilder) updates);
+abstract mixin class $ObjectAnyOf1InterfaceBuilder {
+  void replace($ObjectAnyOf1Interface other);
+  void update(void Function($ObjectAnyOf1InterfaceBuilder) updates);
   String? get attribute2AnyOf;
   set attribute2AnyOf(String? attribute2AnyOf);
 }
@@ -293,7 +293,7 @@ class _$ObjectAnyOf1 extends ObjectAnyOf1 {
   }
 }
 
-class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>, ObjectAnyOf1InterfaceBuilder {
+class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>, $ObjectAnyOf1InterfaceBuilder {
   _$ObjectAnyOf1? _$v;
 
   String? _attribute2AnyOf;
@@ -335,9 +335,9 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
   }
 }
 
-abstract mixin class ObjectAnyOfInterfaceBuilder {
-  void replace(ObjectAnyOfInterface other);
-  void update(void Function(ObjectAnyOfInterfaceBuilder) updates);
+abstract mixin class $ObjectAnyOfInterfaceBuilder {
+  void replace($ObjectAnyOfInterface other);
+  void update(void Function($ObjectAnyOfInterfaceBuilder) updates);
   ObjectAnyOf0Builder get objectAnyOf0;
   set objectAnyOf0(ObjectAnyOf0Builder? objectAnyOf0);
 
@@ -395,7 +395,7 @@ class _$ObjectAnyOf extends ObjectAnyOf {
   }
 }
 
-class ObjectAnyOfBuilder implements Builder<ObjectAnyOf, ObjectAnyOfBuilder>, ObjectAnyOfInterfaceBuilder {
+class ObjectAnyOfBuilder implements Builder<ObjectAnyOf, ObjectAnyOfBuilder>, $ObjectAnyOfInterfaceBuilder {
   _$ObjectAnyOf? _$v;
 
   JsonObject? _data;
@@ -463,9 +463,9 @@ class ObjectAnyOfBuilder implements Builder<ObjectAnyOf, ObjectAnyOfBuilder>, Ob
   }
 }
 
-abstract mixin class MixedAnyOf1InterfaceBuilder {
-  void replace(MixedAnyOf1Interface other);
-  void update(void Function(MixedAnyOf1InterfaceBuilder) updates);
+abstract mixin class $MixedAnyOf1InterfaceBuilder {
+  void replace($MixedAnyOf1Interface other);
+  void update(void Function($MixedAnyOf1InterfaceBuilder) updates);
   String? get attributeAnyOf;
   set attributeAnyOf(String? attributeAnyOf);
 }
@@ -507,7 +507,7 @@ class _$MixedAnyOf1 extends MixedAnyOf1 {
   }
 }
 
-class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, MixedAnyOf1InterfaceBuilder {
+class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $MixedAnyOf1InterfaceBuilder {
   _$MixedAnyOf1? _$v;
 
   String? _attributeAnyOf;
@@ -548,9 +548,9 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, Mi
   }
 }
 
-abstract mixin class MixedAnyOfInterfaceBuilder {
-  void replace(MixedAnyOfInterface other);
-  void update(void Function(MixedAnyOfInterfaceBuilder) updates);
+abstract mixin class $MixedAnyOfInterfaceBuilder {
+  void replace($MixedAnyOfInterface other);
+  void update(void Function($MixedAnyOfInterfaceBuilder) updates);
   String? get string;
   set string(String? string);
 
@@ -604,7 +604,7 @@ class _$MixedAnyOf extends MixedAnyOf {
   }
 }
 
-class MixedAnyOfBuilder implements Builder<MixedAnyOf, MixedAnyOfBuilder>, MixedAnyOfInterfaceBuilder {
+class MixedAnyOfBuilder implements Builder<MixedAnyOf, MixedAnyOfBuilder>, $MixedAnyOfInterfaceBuilder {
   _$MixedAnyOf? _$v;
 
   JsonObject? _data;
@@ -670,9 +670,9 @@ class MixedAnyOfBuilder implements Builder<MixedAnyOf, MixedAnyOfBuilder>, Mixed
   }
 }
 
-abstract mixin class OneObjectAnyOf0InterfaceBuilder {
-  void replace(OneObjectAnyOf0Interface other);
-  void update(void Function(OneObjectAnyOf0InterfaceBuilder) updates);
+abstract mixin class $OneObjectAnyOf0InterfaceBuilder {
+  void replace($OneObjectAnyOf0Interface other);
+  void update(void Function($OneObjectAnyOf0InterfaceBuilder) updates);
   String? get attributeAnyOf;
   set attributeAnyOf(String? attributeAnyOf);
 }
@@ -715,7 +715,7 @@ class _$OneObjectAnyOf0 extends OneObjectAnyOf0 {
 }
 
 class OneObjectAnyOf0Builder
-    implements Builder<OneObjectAnyOf0, OneObjectAnyOf0Builder>, OneObjectAnyOf0InterfaceBuilder {
+    implements Builder<OneObjectAnyOf0, OneObjectAnyOf0Builder>, $OneObjectAnyOf0InterfaceBuilder {
   _$OneObjectAnyOf0? _$v;
 
   String? _attributeAnyOf;
@@ -757,9 +757,9 @@ class OneObjectAnyOf0Builder
   }
 }
 
-abstract mixin class OneObjectAnyOfInterfaceBuilder {
-  void replace(OneObjectAnyOfInterface other);
-  void update(void Function(OneObjectAnyOfInterfaceBuilder) updates);
+abstract mixin class $OneObjectAnyOfInterfaceBuilder {
+  void replace($OneObjectAnyOfInterface other);
+  void update(void Function($OneObjectAnyOfInterfaceBuilder) updates);
   OneObjectAnyOf0Builder get oneObjectAnyOf0;
   set oneObjectAnyOf0(OneObjectAnyOf0Builder? oneObjectAnyOf0);
 }
@@ -807,7 +807,7 @@ class _$OneObjectAnyOf extends OneObjectAnyOf {
   }
 }
 
-class OneObjectAnyOfBuilder implements Builder<OneObjectAnyOf, OneObjectAnyOfBuilder>, OneObjectAnyOfInterfaceBuilder {
+class OneObjectAnyOfBuilder implements Builder<OneObjectAnyOf, OneObjectAnyOfBuilder>, $OneObjectAnyOfInterfaceBuilder {
   _$OneObjectAnyOf? _$v;
 
   JsonObject? _data;
@@ -867,9 +867,9 @@ class OneObjectAnyOfBuilder implements Builder<OneObjectAnyOf, OneObjectAnyOfBui
   }
 }
 
-abstract mixin class OneValueAnyOfInterfaceBuilder {
-  void replace(OneValueAnyOfInterface other);
-  void update(void Function(OneValueAnyOfInterfaceBuilder) updates);
+abstract mixin class $OneValueAnyOfInterfaceBuilder {
+  void replace($OneValueAnyOfInterface other);
+  void update(void Function($OneValueAnyOfInterfaceBuilder) updates);
   String? get string;
   set string(String? string);
 }
@@ -917,7 +917,7 @@ class _$OneValueAnyOf extends OneValueAnyOf {
   }
 }
 
-class OneValueAnyOfBuilder implements Builder<OneValueAnyOf, OneValueAnyOfBuilder>, OneValueAnyOfInterfaceBuilder {
+class OneValueAnyOfBuilder implements Builder<OneValueAnyOf, OneValueAnyOfBuilder>, $OneValueAnyOfInterfaceBuilder {
   _$OneValueAnyOf? _$v;
 
   JsonObject? _data;
@@ -963,9 +963,9 @@ class OneValueAnyOfBuilder implements Builder<OneValueAnyOf, OneValueAnyOfBuilde
   }
 }
 
-abstract mixin class AnyOfIntDoubleInterfaceBuilder {
-  void replace(AnyOfIntDoubleInterface other);
-  void update(void Function(AnyOfIntDoubleInterfaceBuilder) updates);
+abstract mixin class $AnyOfIntDoubleInterfaceBuilder {
+  void replace($AnyOfIntDoubleInterface other);
+  void update(void Function($AnyOfIntDoubleInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -1020,7 +1020,7 @@ class _$AnyOfIntDouble extends AnyOfIntDouble {
   }
 }
 
-class AnyOfIntDoubleBuilder implements Builder<AnyOfIntDouble, AnyOfIntDoubleBuilder>, AnyOfIntDoubleInterfaceBuilder {
+class AnyOfIntDoubleBuilder implements Builder<AnyOfIntDouble, AnyOfIntDoubleBuilder>, $AnyOfIntDoubleInterfaceBuilder {
   _$AnyOfIntDouble? _$v;
 
   JsonObject? _data;
@@ -1072,9 +1072,9 @@ class AnyOfIntDoubleBuilder implements Builder<AnyOfIntDouble, AnyOfIntDoubleBui
   }
 }
 
-abstract mixin class AnyOfIntDoubleOtherInterfaceBuilder {
-  void replace(AnyOfIntDoubleOtherInterface other);
-  void update(void Function(AnyOfIntDoubleOtherInterfaceBuilder) updates);
+abstract mixin class $AnyOfIntDoubleOtherInterfaceBuilder {
+  void replace($AnyOfIntDoubleOtherInterface other);
+  void update(void Function($AnyOfIntDoubleOtherInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -1142,7 +1142,7 @@ class _$AnyOfIntDoubleOther extends AnyOfIntDoubleOther {
 }
 
 class AnyOfIntDoubleOtherBuilder
-    implements Builder<AnyOfIntDoubleOther, AnyOfIntDoubleOtherBuilder>, AnyOfIntDoubleOtherInterfaceBuilder {
+    implements Builder<AnyOfIntDoubleOther, AnyOfIntDoubleOtherBuilder>, $AnyOfIntDoubleOtherInterfaceBuilder {
   _$AnyOfIntDoubleOther? _$v;
 
   JsonObject? _data;

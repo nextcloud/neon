@@ -32,7 +32,7 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TestObjectInterface {
+abstract interface class $TestObjectInterface {
   @BuiltValueField(wireName: 'only-numbers')
   String? get onlyNumbers;
   @BuiltValueField(wireName: 'min-length')
@@ -43,7 +43,7 @@ abstract interface class TestObjectInterface {
   String? get multipleChecks;
 }
 
-abstract class TestObject implements TestObjectInterface, Built<TestObject, TestObjectBuilder> {
+abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
   factory TestObject([final void Function(TestObjectBuilder)? b]) = _$TestObject;
 
   const TestObject._();

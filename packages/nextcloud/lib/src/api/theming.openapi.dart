@@ -1079,7 +1079,7 @@ class UserThemeClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingGetManifestResponseApplicationJson_IconsInterface {
+abstract interface class $ThemingGetManifestResponseApplicationJson_IconsInterface {
   String get src;
   String get type;
   String get sizes;
@@ -1087,7 +1087,7 @@ abstract interface class ThemingGetManifestResponseApplicationJson_IconsInterfac
 
 abstract class ThemingGetManifestResponseApplicationJson_Icons
     implements
-        ThemingGetManifestResponseApplicationJson_IconsInterface,
+        $ThemingGetManifestResponseApplicationJson_IconsInterface,
         Built<ThemingGetManifestResponseApplicationJson_Icons, ThemingGetManifestResponseApplicationJson_IconsBuilder> {
   factory ThemingGetManifestResponseApplicationJson_Icons([
     final void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? b,
@@ -1116,7 +1116,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ThemingGetManifestResponseApplicationJsonInterface {
+abstract interface class $ThemingGetManifestResponseApplicationJsonInterface {
   String get name;
   @BuiltValueField(wireName: 'short_name')
   String get shortName;
@@ -1133,7 +1133,7 @@ abstract interface class ThemingGetManifestResponseApplicationJsonInterface {
 
 abstract class ThemingGetManifestResponseApplicationJson
     implements
-        ThemingGetManifestResponseApplicationJsonInterface,
+        $ThemingGetManifestResponseApplicationJsonInterface,
         Built<ThemingGetManifestResponseApplicationJson, ThemingGetManifestResponseApplicationJsonBuilder> {
   factory ThemingGetManifestResponseApplicationJson([
     final void Function(ThemingGetManifestResponseApplicationJsonBuilder)? b,
@@ -1157,13 +1157,13 @@ abstract class ThemingGetManifestResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BackgroundInterface {
+abstract interface class $BackgroundInterface {
   String? get backgroundImage;
   String get backgroundColor;
   int get version;
 }
 
-abstract class Background implements BackgroundInterface, Built<Background, BackgroundBuilder> {
+abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
   factory Background([final void Function(BackgroundBuilder)? b]) = _$Background;
 
   // coverage:ignore-start
@@ -1182,7 +1182,7 @@ abstract class Background implements BackgroundInterface, Built<Background, Back
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1190,7 +1190,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -1209,14 +1209,14 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserThemeEnableThemeResponseApplicationJson_OcsInterface {
+abstract interface class $UserThemeEnableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
     implements
-        UserThemeEnableThemeResponseApplicationJson_OcsInterface,
+        $UserThemeEnableThemeResponseApplicationJson_OcsInterface,
         Built<UserThemeEnableThemeResponseApplicationJson_Ocs, UserThemeEnableThemeResponseApplicationJson_OcsBuilder> {
   factory UserThemeEnableThemeResponseApplicationJson_Ocs([
     final void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? b,
@@ -1240,13 +1240,13 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserThemeEnableThemeResponseApplicationJsonInterface {
+abstract interface class $UserThemeEnableThemeResponseApplicationJsonInterface {
   UserThemeEnableThemeResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class UserThemeEnableThemeResponseApplicationJson
     implements
-        UserThemeEnableThemeResponseApplicationJsonInterface,
+        $UserThemeEnableThemeResponseApplicationJsonInterface,
         Built<UserThemeEnableThemeResponseApplicationJson, UserThemeEnableThemeResponseApplicationJsonBuilder> {
   factory UserThemeEnableThemeResponseApplicationJson([
     final void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? b,
@@ -1270,14 +1270,14 @@ abstract class UserThemeEnableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserThemeDisableThemeResponseApplicationJson_OcsInterface {
+abstract interface class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
     implements
-        UserThemeDisableThemeResponseApplicationJson_OcsInterface,
+        $UserThemeDisableThemeResponseApplicationJson_OcsInterface,
         Built<UserThemeDisableThemeResponseApplicationJson_Ocs,
             UserThemeDisableThemeResponseApplicationJson_OcsBuilder> {
   factory UserThemeDisableThemeResponseApplicationJson_Ocs([
@@ -1302,13 +1302,13 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class UserThemeDisableThemeResponseApplicationJsonInterface {
+abstract interface class $UserThemeDisableThemeResponseApplicationJsonInterface {
   UserThemeDisableThemeResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class UserThemeDisableThemeResponseApplicationJson
     implements
-        UserThemeDisableThemeResponseApplicationJsonInterface,
+        $UserThemeDisableThemeResponseApplicationJsonInterface,
         Built<UserThemeDisableThemeResponseApplicationJson, UserThemeDisableThemeResponseApplicationJsonBuilder> {
   factory UserThemeDisableThemeResponseApplicationJson([
     final void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? b,
@@ -1332,7 +1332,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities_ThemingInterface {
+abstract interface class $PublicCapabilities_ThemingInterface {
   String get name;
   String get url;
   String get slogan;
@@ -1357,7 +1357,7 @@ abstract interface class PublicCapabilities_ThemingInterface {
 
 abstract class PublicCapabilities_Theming
     implements
-        PublicCapabilities_ThemingInterface,
+        $PublicCapabilities_ThemingInterface,
         Built<PublicCapabilities_Theming, PublicCapabilities_ThemingBuilder> {
   factory PublicCapabilities_Theming([final void Function(PublicCapabilities_ThemingBuilder)? b]) =
       _$PublicCapabilities_Theming;
@@ -1379,12 +1379,12 @@ abstract class PublicCapabilities_Theming
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilitiesInterface {
+abstract interface class $PublicCapabilitiesInterface {
   PublicCapabilities_Theming get theming;
 }
 
 abstract class PublicCapabilities
-    implements PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
+    implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
   factory PublicCapabilities([final void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
 
   // coverage:ignore-start

@@ -1480,12 +1480,12 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SupportedAPIVersionsInterface {
+abstract interface class $SupportedAPIVersionsInterface {
   BuiltList<String>? get apiLevels;
 }
 
 abstract class SupportedAPIVersions
-    implements SupportedAPIVersionsInterface, Built<SupportedAPIVersions, SupportedAPIVersionsBuilder> {
+    implements $SupportedAPIVersionsInterface, Built<SupportedAPIVersions, SupportedAPIVersionsBuilder> {
   factory SupportedAPIVersions([final void Function(SupportedAPIVersionsBuilder)? b]) = _$SupportedAPIVersions;
 
   // coverage:ignore-start
@@ -1505,7 +1505,7 @@ abstract class SupportedAPIVersions
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ArticleInterface {
+abstract interface class $ArticleInterface {
   int get id;
   String get guid;
   String get guidHash;
@@ -1528,7 +1528,7 @@ abstract interface class ArticleInterface {
   String get contentHash;
 }
 
-abstract class Article implements ArticleInterface, Built<Article, ArticleBuilder> {
+abstract class Article implements $ArticleInterface, Built<Article, ArticleBuilder> {
   factory Article([final void Function(ArticleBuilder)? b]) = _$Article;
 
   // coverage:ignore-start
@@ -1547,7 +1547,7 @@ abstract class Article implements ArticleInterface, Built<Article, ArticleBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FeedInterface {
+abstract interface class $FeedInterface {
   int get id;
   String get url;
   String get title;
@@ -1563,7 +1563,7 @@ abstract interface class FeedInterface {
   BuiltList<Article> get items;
 }
 
-abstract class Feed implements FeedInterface, Built<Feed, FeedBuilder> {
+abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
   factory Feed([final void Function(FeedBuilder)? b]) = _$Feed;
 
   // coverage:ignore-start
@@ -1582,7 +1582,7 @@ abstract class Feed implements FeedInterface, Built<Feed, FeedBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FolderInterface {
+abstract interface class $FolderInterface {
   int get id;
   String get name;
   bool get opened;
@@ -1591,7 +1591,7 @@ abstract interface class FolderInterface {
   BuiltList<Feed> get feeds;
 }
 
-abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
+abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> {
   factory Folder([final void Function(FolderBuilder)? b]) = _$Folder;
 
   // coverage:ignore-start
@@ -1610,11 +1610,11 @@ abstract class Folder implements FolderInterface, Built<Folder, FolderBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ListFoldersInterface {
+abstract interface class $ListFoldersInterface {
   BuiltList<Folder> get folders;
 }
 
-abstract class ListFolders implements ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
+abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
   factory ListFolders([final void Function(ListFoldersBuilder)? b]) = _$ListFolders;
 
   // coverage:ignore-start
@@ -1633,13 +1633,13 @@ abstract class ListFolders implements ListFoldersInterface, Built<ListFolders, L
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ListFeedsInterface {
+abstract interface class $ListFeedsInterface {
   int? get starredCount;
   int? get newestItemId;
   BuiltList<Feed> get feeds;
 }
 
-abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
+abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
   factory ListFeeds([final void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
 
   // coverage:ignore-start
@@ -1658,11 +1658,11 @@ abstract class ListFeeds implements ListFeedsInterface, Built<ListFeeds, ListFee
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ListArticlesInterface {
+abstract interface class $ListArticlesInterface {
   BuiltList<Article> get items;
 }
 
-abstract class ListArticles implements ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
+abstract class ListArticles implements $ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
   factory ListArticles([final void Function(ListArticlesBuilder)? b]) = _$ListArticles;
 
   // coverage:ignore-start
@@ -1681,7 +1681,7 @@ abstract class ListArticles implements ListArticlesInterface, Built<ListArticles
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1689,7 +1689,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -1708,12 +1708,12 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EmptyOCS_OcsInterface {
+abstract interface class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
 }
 
-abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
+abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
   factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
@@ -1732,11 +1732,11 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EmptyOCSInterface {
+abstract interface class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
 }
 
-abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
+abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
   factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start

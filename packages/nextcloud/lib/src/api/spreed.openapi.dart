@@ -12801,7 +12801,7 @@ class AvatarUploadAvatarApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -12809,7 +12809,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -12828,7 +12828,7 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMessageInterface {
+abstract interface class $ChatMessageInterface {
   String get actorDisplayName;
   String get actorId;
   String get actorType;
@@ -12847,7 +12847,7 @@ abstract interface class ChatMessageInterface {
   String get token;
 }
 
-abstract class ChatMessage implements ChatMessageInterface, Built<ChatMessage, ChatMessageBuilder> {
+abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, ChatMessageBuilder> {
   factory ChatMessage([final void Function(ChatMessageBuilder)? b]) = _$ChatMessage;
 
   // coverage:ignore-start
@@ -12866,12 +12866,13 @@ abstract class ChatMessage implements ChatMessageInterface, Built<ChatMessage, C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Room_LastMessageInterface {
+abstract interface class $Room_LastMessageInterface {
   ChatMessage? get chatMessage;
   BuiltList<JsonObject>? get builtListJsonObject;
 }
 
-abstract class Room_LastMessage implements Room_LastMessageInterface, Built<Room_LastMessage, Room_LastMessageBuilder> {
+abstract class Room_LastMessage
+    implements $Room_LastMessageInterface, Built<Room_LastMessage, Room_LastMessageBuilder> {
   factory Room_LastMessage([final void Function(Room_LastMessageBuilder)? b]) = _$Room_LastMessage;
 
   // coverage:ignore-start
@@ -12943,7 +12944,7 @@ class _$Room_LastMessageSerializer implements PrimitiveSerializer<Room_LastMessa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomInterface {
+abstract interface class $RoomInterface {
   String get actorId;
   String get actorType;
   int get attendeeId;
@@ -13000,7 +13001,7 @@ abstract interface class RoomInterface {
   int get unreadMessages;
 }
 
-abstract class Room implements RoomInterface, Built<Room, RoomBuilder> {
+abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
   factory Room([final void Function(RoomBuilder)? b]) = _$Room;
 
   // coverage:ignore-start
@@ -13019,14 +13020,14 @@ abstract class Room implements RoomInterface, Built<Room, RoomBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarUploadAvatarResponseApplicationJson_OcsInterface {
+abstract interface class $AvatarUploadAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
     implements
-        AvatarUploadAvatarResponseApplicationJson_OcsInterface,
+        $AvatarUploadAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarUploadAvatarResponseApplicationJson_Ocs, AvatarUploadAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarUploadAvatarResponseApplicationJson_Ocs([
     final void Function(AvatarUploadAvatarResponseApplicationJson_OcsBuilder)? b,
@@ -13050,13 +13051,13 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarUploadAvatarResponseApplicationJsonInterface {
+abstract interface class $AvatarUploadAvatarResponseApplicationJsonInterface {
   AvatarUploadAvatarResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class AvatarUploadAvatarResponseApplicationJson
     implements
-        AvatarUploadAvatarResponseApplicationJsonInterface,
+        $AvatarUploadAvatarResponseApplicationJsonInterface,
         Built<AvatarUploadAvatarResponseApplicationJson, AvatarUploadAvatarResponseApplicationJsonBuilder> {
   factory AvatarUploadAvatarResponseApplicationJson([
     final void Function(AvatarUploadAvatarResponseApplicationJsonBuilder)? b,
@@ -13094,14 +13095,14 @@ class AvatarDeleteAvatarApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarDeleteAvatarResponseApplicationJson_OcsInterface {
+abstract interface class $AvatarDeleteAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
     implements
-        AvatarDeleteAvatarResponseApplicationJson_OcsInterface,
+        $AvatarDeleteAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson_Ocs, AvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarDeleteAvatarResponseApplicationJson_Ocs([
     final void Function(AvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
@@ -13125,13 +13126,13 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarDeleteAvatarResponseApplicationJsonInterface {
+abstract interface class $AvatarDeleteAvatarResponseApplicationJsonInterface {
   AvatarDeleteAvatarResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class AvatarDeleteAvatarResponseApplicationJson
     implements
-        AvatarDeleteAvatarResponseApplicationJsonInterface,
+        $AvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson, AvatarDeleteAvatarResponseApplicationJsonBuilder> {
   factory AvatarDeleteAvatarResponseApplicationJson([
     final void Function(AvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
@@ -13169,14 +13170,14 @@ class AvatarEmojiAvatarApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarEmojiAvatarResponseApplicationJson_OcsInterface {
+abstract interface class $AvatarEmojiAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
     implements
-        AvatarEmojiAvatarResponseApplicationJson_OcsInterface,
+        $AvatarEmojiAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson_Ocs, AvatarEmojiAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarEmojiAvatarResponseApplicationJson_Ocs([
     final void Function(AvatarEmojiAvatarResponseApplicationJson_OcsBuilder)? b,
@@ -13200,13 +13201,13 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AvatarEmojiAvatarResponseApplicationJsonInterface {
+abstract interface class $AvatarEmojiAvatarResponseApplicationJsonInterface {
   AvatarEmojiAvatarResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class AvatarEmojiAvatarResponseApplicationJson
     implements
-        AvatarEmojiAvatarResponseApplicationJsonInterface,
+        $AvatarEmojiAvatarResponseApplicationJsonInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson, AvatarEmojiAvatarResponseApplicationJsonBuilder> {
   factory AvatarEmojiAvatarResponseApplicationJson([
     final void Function(AvatarEmojiAvatarResponseApplicationJsonBuilder)? b,
@@ -13258,14 +13259,14 @@ class BotSendMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotSendMessageResponseApplicationJson_OcsInterface {
+abstract interface class $BotSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class BotSendMessageResponseApplicationJson_Ocs
     implements
-        BotSendMessageResponseApplicationJson_OcsInterface,
+        $BotSendMessageResponseApplicationJson_OcsInterface,
         Built<BotSendMessageResponseApplicationJson_Ocs, BotSendMessageResponseApplicationJson_OcsBuilder> {
   factory BotSendMessageResponseApplicationJson_Ocs([
     final void Function(BotSendMessageResponseApplicationJson_OcsBuilder)? b,
@@ -13289,13 +13290,13 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotSendMessageResponseApplicationJsonInterface {
+abstract interface class $BotSendMessageResponseApplicationJsonInterface {
   BotSendMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotSendMessageResponseApplicationJson
     implements
-        BotSendMessageResponseApplicationJsonInterface,
+        $BotSendMessageResponseApplicationJsonInterface,
         Built<BotSendMessageResponseApplicationJson, BotSendMessageResponseApplicationJsonBuilder> {
   factory BotSendMessageResponseApplicationJson([
     final void Function(BotSendMessageResponseApplicationJsonBuilder)? b,
@@ -13333,14 +13334,14 @@ class BotReactApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotReactResponseApplicationJson_OcsInterface {
+abstract interface class $BotReactResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class BotReactResponseApplicationJson_Ocs
     implements
-        BotReactResponseApplicationJson_OcsInterface,
+        $BotReactResponseApplicationJson_OcsInterface,
         Built<BotReactResponseApplicationJson_Ocs, BotReactResponseApplicationJson_OcsBuilder> {
   factory BotReactResponseApplicationJson_Ocs([final void Function(BotReactResponseApplicationJson_OcsBuilder)? b]) =
       _$BotReactResponseApplicationJson_Ocs;
@@ -13363,13 +13364,13 @@ abstract class BotReactResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotReactResponseApplicationJsonInterface {
+abstract interface class $BotReactResponseApplicationJsonInterface {
   BotReactResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotReactResponseApplicationJson
     implements
-        BotReactResponseApplicationJsonInterface,
+        $BotReactResponseApplicationJsonInterface,
         Built<BotReactResponseApplicationJson, BotReactResponseApplicationJsonBuilder> {
   factory BotReactResponseApplicationJson([final void Function(BotReactResponseApplicationJsonBuilder)? b]) =
       _$BotReactResponseApplicationJson;
@@ -13405,14 +13406,14 @@ class BotDeleteReactionApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotDeleteReactionResponseApplicationJson_OcsInterface {
+abstract interface class $BotDeleteReactionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class BotDeleteReactionResponseApplicationJson_Ocs
     implements
-        BotDeleteReactionResponseApplicationJson_OcsInterface,
+        $BotDeleteReactionResponseApplicationJson_OcsInterface,
         Built<BotDeleteReactionResponseApplicationJson_Ocs, BotDeleteReactionResponseApplicationJson_OcsBuilder> {
   factory BotDeleteReactionResponseApplicationJson_Ocs([
     final void Function(BotDeleteReactionResponseApplicationJson_OcsBuilder)? b,
@@ -13436,13 +13437,13 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotDeleteReactionResponseApplicationJsonInterface {
+abstract interface class $BotDeleteReactionResponseApplicationJsonInterface {
   BotDeleteReactionResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotDeleteReactionResponseApplicationJson
     implements
-        BotDeleteReactionResponseApplicationJsonInterface,
+        $BotDeleteReactionResponseApplicationJsonInterface,
         Built<BotDeleteReactionResponseApplicationJson, BotDeleteReactionResponseApplicationJsonBuilder> {
   factory BotDeleteReactionResponseApplicationJson([
     final void Function(BotDeleteReactionResponseApplicationJsonBuilder)? b,
@@ -13480,14 +13481,14 @@ class BotAdminListBotsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotInterface {
+abstract interface class $BotInterface {
   String? get description;
   int get id;
   String get name;
   int get state;
 }
 
-abstract class Bot implements BotInterface, Built<Bot, BotBuilder> {
+abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
   factory Bot([final void Function(BotBuilder)? b]) = _$Bot;
 
   // coverage:ignore-start
@@ -13506,7 +13507,7 @@ abstract class Bot implements BotInterface, Built<Bot, BotBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotWithDetails_1Interface {
+abstract interface class $BotWithDetails_1Interface {
   @BuiltValueField(wireName: 'error_count')
   int get errorCount;
   int get features;
@@ -13520,9 +13521,9 @@ abstract interface class BotWithDetails_1Interface {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotWithDetailsInterface implements BotInterface, BotWithDetails_1Interface {}
+abstract interface class $BotWithDetailsInterface implements $BotInterface, $BotWithDetails_1Interface {}
 
-abstract class BotWithDetails implements BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
+abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
   factory BotWithDetails([final void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
 
   // coverage:ignore-start
@@ -13542,14 +13543,14 @@ abstract class BotWithDetails implements BotWithDetailsInterface, Built<BotWithD
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotAdminListBotsResponseApplicationJson_OcsInterface {
+abstract interface class $BotAdminListBotsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<BotWithDetails> get data;
 }
 
 abstract class BotAdminListBotsResponseApplicationJson_Ocs
     implements
-        BotAdminListBotsResponseApplicationJson_OcsInterface,
+        $BotAdminListBotsResponseApplicationJson_OcsInterface,
         Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
   factory BotAdminListBotsResponseApplicationJson_Ocs([
     final void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
@@ -13573,13 +13574,13 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotAdminListBotsResponseApplicationJsonInterface {
+abstract interface class $BotAdminListBotsResponseApplicationJsonInterface {
   BotAdminListBotsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotAdminListBotsResponseApplicationJson
     implements
-        BotAdminListBotsResponseApplicationJsonInterface,
+        $BotAdminListBotsResponseApplicationJsonInterface,
         Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
   factory BotAdminListBotsResponseApplicationJson([
     final void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b,
@@ -13617,14 +13618,14 @@ class BotListBotsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotListBotsResponseApplicationJson_OcsInterface {
+abstract interface class $BotListBotsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Bot> get data;
 }
 
 abstract class BotListBotsResponseApplicationJson_Ocs
     implements
-        BotListBotsResponseApplicationJson_OcsInterface,
+        $BotListBotsResponseApplicationJson_OcsInterface,
         Built<BotListBotsResponseApplicationJson_Ocs, BotListBotsResponseApplicationJson_OcsBuilder> {
   factory BotListBotsResponseApplicationJson_Ocs([
     final void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b,
@@ -13648,13 +13649,13 @@ abstract class BotListBotsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotListBotsResponseApplicationJsonInterface {
+abstract interface class $BotListBotsResponseApplicationJsonInterface {
   BotListBotsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotListBotsResponseApplicationJson
     implements
-        BotListBotsResponseApplicationJsonInterface,
+        $BotListBotsResponseApplicationJsonInterface,
         Built<BotListBotsResponseApplicationJson, BotListBotsResponseApplicationJsonBuilder> {
   factory BotListBotsResponseApplicationJson([final void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
       _$BotListBotsResponseApplicationJson;
@@ -13691,14 +13692,14 @@ class BotEnableBotApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotEnableBotResponseApplicationJson_OcsInterface {
+abstract interface class $BotEnableBotResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Bot? get data;
 }
 
 abstract class BotEnableBotResponseApplicationJson_Ocs
     implements
-        BotEnableBotResponseApplicationJson_OcsInterface,
+        $BotEnableBotResponseApplicationJson_OcsInterface,
         Built<BotEnableBotResponseApplicationJson_Ocs, BotEnableBotResponseApplicationJson_OcsBuilder> {
   factory BotEnableBotResponseApplicationJson_Ocs([
     final void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b,
@@ -13722,13 +13723,13 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotEnableBotResponseApplicationJsonInterface {
+abstract interface class $BotEnableBotResponseApplicationJsonInterface {
   BotEnableBotResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotEnableBotResponseApplicationJson
     implements
-        BotEnableBotResponseApplicationJsonInterface,
+        $BotEnableBotResponseApplicationJsonInterface,
         Built<BotEnableBotResponseApplicationJson, BotEnableBotResponseApplicationJsonBuilder> {
   factory BotEnableBotResponseApplicationJson([final void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
       _$BotEnableBotResponseApplicationJson;
@@ -13765,14 +13766,14 @@ class BotDisableBotApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotDisableBotResponseApplicationJson_OcsInterface {
+abstract interface class $BotDisableBotResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Bot? get data;
 }
 
 abstract class BotDisableBotResponseApplicationJson_Ocs
     implements
-        BotDisableBotResponseApplicationJson_OcsInterface,
+        $BotDisableBotResponseApplicationJson_OcsInterface,
         Built<BotDisableBotResponseApplicationJson_Ocs, BotDisableBotResponseApplicationJson_OcsBuilder> {
   factory BotDisableBotResponseApplicationJson_Ocs([
     final void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
@@ -13796,13 +13797,13 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotDisableBotResponseApplicationJsonInterface {
+abstract interface class $BotDisableBotResponseApplicationJsonInterface {
   BotDisableBotResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BotDisableBotResponseApplicationJson
     implements
-        BotDisableBotResponseApplicationJsonInterface,
+        $BotDisableBotResponseApplicationJsonInterface,
         Built<BotDisableBotResponseApplicationJson, BotDisableBotResponseApplicationJsonBuilder> {
   factory BotDisableBotResponseApplicationJson([final void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
       _$BotDisableBotResponseApplicationJson;
@@ -13842,14 +13843,14 @@ class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
     implements
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface,
+        $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs([
@@ -13874,13 +13875,13 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
     implements
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface,
+        $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson([
@@ -13922,14 +13923,14 @@ class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
     implements
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface,
+        $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs([
@@ -13954,13 +13955,13 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
     implements
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface,
+        $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson([
@@ -14002,14 +14003,14 @@ class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
     implements
-        BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface,
+        $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
             BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs([
@@ -14034,13 +14035,13 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface {
   BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
     implements
-        BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface,
+        $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface,
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson,
             BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder> {
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson([
@@ -14081,14 +14082,14 @@ class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
     implements
-        BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface,
+        $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
             BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs([
@@ -14113,13 +14114,13 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface {
   BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
     implements
-        BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface,
+        $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface,
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson,
             BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder> {
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson([
@@ -14161,14 +14162,14 @@ class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
     implements
-        BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface,
+        $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs([
@@ -14193,13 +14194,13 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomRequestAssistanceResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface {
   BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
     implements
-        BreakoutRoomRequestAssistanceResponseApplicationJsonInterface,
+        $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface,
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson,
             BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder> {
   factory BreakoutRoomRequestAssistanceResponseApplicationJson([
@@ -14241,14 +14242,14 @@ class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
     implements
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface,
+        $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs([
@@ -14273,13 +14274,13 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface {
   BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
     implements
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface,
+        $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface,
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder> {
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson([
@@ -14321,14 +14322,14 @@ class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
     implements
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface,
+        $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs([
@@ -14353,13 +14354,13 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
     implements
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface,
+        $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson([
@@ -14401,14 +14402,14 @@ class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
     implements
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface,
+        $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs([
@@ -14433,13 +14434,13 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface {
   BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
     implements
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface,
+        $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface,
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson([
@@ -14481,14 +14482,14 @@ class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface {
+abstract interface class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
     implements
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface,
+        $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface,
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs([
@@ -14513,13 +14514,13 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface {
+abstract interface class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface {
   BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
     implements
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface,
+        $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface,
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder> {
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson([
@@ -14558,7 +14559,7 @@ class CallGetPeersForCallApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallPeerInterface {
+abstract interface class $CallPeerInterface {
   String get actorId;
   String get actorType;
   String get displayName;
@@ -14567,7 +14568,7 @@ abstract interface class CallPeerInterface {
   String get token;
 }
 
-abstract class CallPeer implements CallPeerInterface, Built<CallPeer, CallPeerBuilder> {
+abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerBuilder> {
   factory CallPeer([final void Function(CallPeerBuilder)? b]) = _$CallPeer;
 
   // coverage:ignore-start
@@ -14586,14 +14587,14 @@ abstract class CallPeer implements CallPeerInterface, Built<CallPeer, CallPeerBu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallGetPeersForCallResponseApplicationJson_OcsInterface {
+abstract interface class $CallGetPeersForCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<CallPeer> get data;
 }
 
 abstract class CallGetPeersForCallResponseApplicationJson_Ocs
     implements
-        CallGetPeersForCallResponseApplicationJson_OcsInterface,
+        $CallGetPeersForCallResponseApplicationJson_OcsInterface,
         Built<CallGetPeersForCallResponseApplicationJson_Ocs, CallGetPeersForCallResponseApplicationJson_OcsBuilder> {
   factory CallGetPeersForCallResponseApplicationJson_Ocs([
     final void Function(CallGetPeersForCallResponseApplicationJson_OcsBuilder)? b,
@@ -14617,13 +14618,13 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallGetPeersForCallResponseApplicationJsonInterface {
+abstract interface class $CallGetPeersForCallResponseApplicationJsonInterface {
   CallGetPeersForCallResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallGetPeersForCallResponseApplicationJson
     implements
-        CallGetPeersForCallResponseApplicationJsonInterface,
+        $CallGetPeersForCallResponseApplicationJsonInterface,
         Built<CallGetPeersForCallResponseApplicationJson, CallGetPeersForCallResponseApplicationJsonBuilder> {
   factory CallGetPeersForCallResponseApplicationJson([
     final void Function(CallGetPeersForCallResponseApplicationJsonBuilder)? b,
@@ -14661,14 +14662,14 @@ class CallUpdateCallFlagsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallUpdateCallFlagsResponseApplicationJson_OcsInterface {
+abstract interface class $CallUpdateCallFlagsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
     implements
-        CallUpdateCallFlagsResponseApplicationJson_OcsInterface,
+        $CallUpdateCallFlagsResponseApplicationJson_OcsInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson_Ocs, CallUpdateCallFlagsResponseApplicationJson_OcsBuilder> {
   factory CallUpdateCallFlagsResponseApplicationJson_Ocs([
     final void Function(CallUpdateCallFlagsResponseApplicationJson_OcsBuilder)? b,
@@ -14692,13 +14693,13 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallUpdateCallFlagsResponseApplicationJsonInterface {
+abstract interface class $CallUpdateCallFlagsResponseApplicationJsonInterface {
   CallUpdateCallFlagsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallUpdateCallFlagsResponseApplicationJson
     implements
-        CallUpdateCallFlagsResponseApplicationJsonInterface,
+        $CallUpdateCallFlagsResponseApplicationJsonInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson, CallUpdateCallFlagsResponseApplicationJsonBuilder> {
   factory CallUpdateCallFlagsResponseApplicationJson([
     final void Function(CallUpdateCallFlagsResponseApplicationJsonBuilder)? b,
@@ -14736,14 +14737,14 @@ class CallJoinCallApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallJoinCallResponseApplicationJson_OcsInterface {
+abstract interface class $CallJoinCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class CallJoinCallResponseApplicationJson_Ocs
     implements
-        CallJoinCallResponseApplicationJson_OcsInterface,
+        $CallJoinCallResponseApplicationJson_OcsInterface,
         Built<CallJoinCallResponseApplicationJson_Ocs, CallJoinCallResponseApplicationJson_OcsBuilder> {
   factory CallJoinCallResponseApplicationJson_Ocs([
     final void Function(CallJoinCallResponseApplicationJson_OcsBuilder)? b,
@@ -14767,13 +14768,13 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallJoinCallResponseApplicationJsonInterface {
+abstract interface class $CallJoinCallResponseApplicationJsonInterface {
   CallJoinCallResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallJoinCallResponseApplicationJson
     implements
-        CallJoinCallResponseApplicationJsonInterface,
+        $CallJoinCallResponseApplicationJsonInterface,
         Built<CallJoinCallResponseApplicationJson, CallJoinCallResponseApplicationJsonBuilder> {
   factory CallJoinCallResponseApplicationJson([final void Function(CallJoinCallResponseApplicationJsonBuilder)? b]) =
       _$CallJoinCallResponseApplicationJson;
@@ -14810,14 +14811,14 @@ class CallLeaveCallApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallLeaveCallResponseApplicationJson_OcsInterface {
+abstract interface class $CallLeaveCallResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class CallLeaveCallResponseApplicationJson_Ocs
     implements
-        CallLeaveCallResponseApplicationJson_OcsInterface,
+        $CallLeaveCallResponseApplicationJson_OcsInterface,
         Built<CallLeaveCallResponseApplicationJson_Ocs, CallLeaveCallResponseApplicationJson_OcsBuilder> {
   factory CallLeaveCallResponseApplicationJson_Ocs([
     final void Function(CallLeaveCallResponseApplicationJson_OcsBuilder)? b,
@@ -14841,13 +14842,13 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallLeaveCallResponseApplicationJsonInterface {
+abstract interface class $CallLeaveCallResponseApplicationJsonInterface {
   CallLeaveCallResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallLeaveCallResponseApplicationJson
     implements
-        CallLeaveCallResponseApplicationJsonInterface,
+        $CallLeaveCallResponseApplicationJsonInterface,
         Built<CallLeaveCallResponseApplicationJson, CallLeaveCallResponseApplicationJsonBuilder> {
   factory CallLeaveCallResponseApplicationJson([final void Function(CallLeaveCallResponseApplicationJsonBuilder)? b]) =
       _$CallLeaveCallResponseApplicationJson;
@@ -14884,14 +14885,14 @@ class CallRingAttendeeApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallRingAttendeeResponseApplicationJson_OcsInterface {
+abstract interface class $CallRingAttendeeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class CallRingAttendeeResponseApplicationJson_Ocs
     implements
-        CallRingAttendeeResponseApplicationJson_OcsInterface,
+        $CallRingAttendeeResponseApplicationJson_OcsInterface,
         Built<CallRingAttendeeResponseApplicationJson_Ocs, CallRingAttendeeResponseApplicationJson_OcsBuilder> {
   factory CallRingAttendeeResponseApplicationJson_Ocs([
     final void Function(CallRingAttendeeResponseApplicationJson_OcsBuilder)? b,
@@ -14915,13 +14916,13 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallRingAttendeeResponseApplicationJsonInterface {
+abstract interface class $CallRingAttendeeResponseApplicationJsonInterface {
   CallRingAttendeeResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallRingAttendeeResponseApplicationJson
     implements
-        CallRingAttendeeResponseApplicationJsonInterface,
+        $CallRingAttendeeResponseApplicationJsonInterface,
         Built<CallRingAttendeeResponseApplicationJson, CallRingAttendeeResponseApplicationJsonBuilder> {
   factory CallRingAttendeeResponseApplicationJson([
     final void Function(CallRingAttendeeResponseApplicationJsonBuilder)? b,
@@ -14959,14 +14960,14 @@ class CallSipDialOutApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallSipDialOutResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $CallSipDialOutResponseApplicationJson_Ocs_DataInterface {
   String? get error;
   String? get message;
 }
 
 abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
     implements
-        CallSipDialOutResponseApplicationJson_Ocs_DataInterface,
+        $CallSipDialOutResponseApplicationJson_Ocs_DataInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs_Data, CallSipDialOutResponseApplicationJson_Ocs_DataBuilder> {
   factory CallSipDialOutResponseApplicationJson_Ocs_Data([
     final void Function(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -14990,14 +14991,14 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallSipDialOutResponseApplicationJson_OcsInterface {
+abstract interface class $CallSipDialOutResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CallSipDialOutResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class CallSipDialOutResponseApplicationJson_Ocs
     implements
-        CallSipDialOutResponseApplicationJson_OcsInterface,
+        $CallSipDialOutResponseApplicationJson_OcsInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs, CallSipDialOutResponseApplicationJson_OcsBuilder> {
   factory CallSipDialOutResponseApplicationJson_Ocs([
     final void Function(CallSipDialOutResponseApplicationJson_OcsBuilder)? b,
@@ -15021,13 +15022,13 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CallSipDialOutResponseApplicationJsonInterface {
+abstract interface class $CallSipDialOutResponseApplicationJsonInterface {
   CallSipDialOutResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CallSipDialOutResponseApplicationJson
     implements
-        CallSipDialOutResponseApplicationJsonInterface,
+        $CallSipDialOutResponseApplicationJsonInterface,
         Built<CallSipDialOutResponseApplicationJson, CallSipDialOutResponseApplicationJsonBuilder> {
   factory CallSipDialOutResponseApplicationJson([
     final void Function(CallSipDialOutResponseApplicationJsonBuilder)? b,
@@ -15068,14 +15069,14 @@ class CertificateGetCertificateExpirationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface {
   @BuiltValueField(wireName: 'expiration_in_days')
   int? get expirationInDays;
 }
 
 abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data
     implements
-        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
+        $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
             CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
@@ -15102,14 +15103,14 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
     implements
-        CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
+        $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
             CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
@@ -15134,13 +15135,13 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CertificateGetCertificateExpirationResponseApplicationJsonInterface {
+abstract interface class $CertificateGetCertificateExpirationResponseApplicationJsonInterface {
   CertificateGetCertificateExpirationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class CertificateGetCertificateExpirationResponseApplicationJson
     implements
-        CertificateGetCertificateExpirationResponseApplicationJsonInterface,
+        $CertificateGetCertificateExpirationResponseApplicationJsonInterface,
         Built<CertificateGetCertificateExpirationResponseApplicationJson,
             CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson([
@@ -15179,7 +15180,7 @@ class ChatReceiveMessagesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatReceiveMessagesHeadersInterface {
+abstract interface class $ChatChatReceiveMessagesHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueField(wireName: 'x-chat-last-given')
@@ -15188,7 +15189,7 @@ abstract interface class ChatChatReceiveMessagesHeadersInterface {
 
 abstract class ChatChatReceiveMessagesHeaders
     implements
-        ChatChatReceiveMessagesHeadersInterface,
+        $ChatChatReceiveMessagesHeadersInterface,
         Built<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder> {
   factory ChatChatReceiveMessagesHeaders([final void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
       _$ChatChatReceiveMessagesHeaders;
@@ -15252,16 +15253,16 @@ class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMessageWithParent_1Interface {
+abstract interface class $ChatMessageWithParent_1Interface {
   ChatMessage? get parent;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMessageWithParentInterface
-    implements ChatMessageInterface, ChatMessageWithParent_1Interface {}
+abstract interface class $ChatMessageWithParentInterface
+    implements $ChatMessageInterface, $ChatMessageWithParent_1Interface {}
 
 abstract class ChatMessageWithParent
-    implements ChatMessageWithParentInterface, Built<ChatMessageWithParent, ChatMessageWithParentBuilder> {
+    implements $ChatMessageWithParentInterface, Built<ChatMessageWithParent, ChatMessageWithParentBuilder> {
   factory ChatMessageWithParent([final void Function(ChatMessageWithParentBuilder)? b]) = _$ChatMessageWithParent;
 
   // coverage:ignore-start
@@ -15281,14 +15282,14 @@ abstract class ChatMessageWithParent
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatReceiveMessagesResponseApplicationJson_OcsInterface {
+abstract interface class $ChatReceiveMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessageWithParent> get data;
 }
 
 abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
     implements
-        ChatReceiveMessagesResponseApplicationJson_OcsInterface,
+        $ChatReceiveMessagesResponseApplicationJson_OcsInterface,
         Built<ChatReceiveMessagesResponseApplicationJson_Ocs, ChatReceiveMessagesResponseApplicationJson_OcsBuilder> {
   factory ChatReceiveMessagesResponseApplicationJson_Ocs([
     final void Function(ChatReceiveMessagesResponseApplicationJson_OcsBuilder)? b,
@@ -15312,13 +15313,13 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatReceiveMessagesResponseApplicationJsonInterface {
+abstract interface class $ChatReceiveMessagesResponseApplicationJsonInterface {
   ChatReceiveMessagesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatReceiveMessagesResponseApplicationJson
     implements
-        ChatReceiveMessagesResponseApplicationJsonInterface,
+        $ChatReceiveMessagesResponseApplicationJsonInterface,
         Built<ChatReceiveMessagesResponseApplicationJson, ChatReceiveMessagesResponseApplicationJsonBuilder> {
   factory ChatReceiveMessagesResponseApplicationJson([
     final void Function(ChatReceiveMessagesResponseApplicationJsonBuilder)? b,
@@ -15356,14 +15357,14 @@ class ChatSendMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatSendMessageHeadersInterface {
+abstract interface class $ChatChatSendMessageHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatSendMessageHeaders
     implements
-        ChatChatSendMessageHeadersInterface,
+        $ChatChatSendMessageHeadersInterface,
         Built<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder> {
   factory ChatChatSendMessageHeaders([final void Function(ChatChatSendMessageHeadersBuilder)? b]) =
       _$ChatChatSendMessageHeaders;
@@ -15425,14 +15426,14 @@ class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<Cha
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSendMessageResponseApplicationJson_OcsInterface {
+abstract interface class $ChatSendMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent? get data;
 }
 
 abstract class ChatSendMessageResponseApplicationJson_Ocs
     implements
-        ChatSendMessageResponseApplicationJson_OcsInterface,
+        $ChatSendMessageResponseApplicationJson_OcsInterface,
         Built<ChatSendMessageResponseApplicationJson_Ocs, ChatSendMessageResponseApplicationJson_OcsBuilder> {
   factory ChatSendMessageResponseApplicationJson_Ocs([
     final void Function(ChatSendMessageResponseApplicationJson_OcsBuilder)? b,
@@ -15456,13 +15457,13 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSendMessageResponseApplicationJsonInterface {
+abstract interface class $ChatSendMessageResponseApplicationJsonInterface {
   ChatSendMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatSendMessageResponseApplicationJson
     implements
-        ChatSendMessageResponseApplicationJsonInterface,
+        $ChatSendMessageResponseApplicationJsonInterface,
         Built<ChatSendMessageResponseApplicationJson, ChatSendMessageResponseApplicationJsonBuilder> {
   factory ChatSendMessageResponseApplicationJson([
     final void Function(ChatSendMessageResponseApplicationJsonBuilder)? b,
@@ -15500,14 +15501,14 @@ class ChatClearHistoryApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatClearHistoryHeadersInterface {
+abstract interface class $ChatChatClearHistoryHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatClearHistoryHeaders
     implements
-        ChatChatClearHistoryHeadersInterface,
+        $ChatChatClearHistoryHeadersInterface,
         Built<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder> {
   factory ChatChatClearHistoryHeaders([final void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
       _$ChatChatClearHistoryHeaders;
@@ -15569,14 +15570,14 @@ class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<Ch
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatClearHistoryResponseApplicationJson_OcsInterface {
+abstract interface class $ChatClearHistoryResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessage get data;
 }
 
 abstract class ChatClearHistoryResponseApplicationJson_Ocs
     implements
-        ChatClearHistoryResponseApplicationJson_OcsInterface,
+        $ChatClearHistoryResponseApplicationJson_OcsInterface,
         Built<ChatClearHistoryResponseApplicationJson_Ocs, ChatClearHistoryResponseApplicationJson_OcsBuilder> {
   factory ChatClearHistoryResponseApplicationJson_Ocs([
     final void Function(ChatClearHistoryResponseApplicationJson_OcsBuilder)? b,
@@ -15600,13 +15601,13 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatClearHistoryResponseApplicationJsonInterface {
+abstract interface class $ChatClearHistoryResponseApplicationJsonInterface {
   ChatClearHistoryResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatClearHistoryResponseApplicationJson
     implements
-        ChatClearHistoryResponseApplicationJsonInterface,
+        $ChatClearHistoryResponseApplicationJsonInterface,
         Built<ChatClearHistoryResponseApplicationJson, ChatClearHistoryResponseApplicationJsonBuilder> {
   factory ChatClearHistoryResponseApplicationJson([
     final void Function(ChatClearHistoryResponseApplicationJsonBuilder)? b,
@@ -15644,14 +15645,14 @@ class ChatDeleteMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatDeleteMessageHeadersInterface {
+abstract interface class $ChatChatDeleteMessageHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatDeleteMessageHeaders
     implements
-        ChatChatDeleteMessageHeadersInterface,
+        $ChatChatDeleteMessageHeadersInterface,
         Built<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder> {
   factory ChatChatDeleteMessageHeaders([final void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
       _$ChatChatDeleteMessageHeaders;
@@ -15713,14 +15714,14 @@ class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatDeleteMessageResponseApplicationJson_OcsInterface {
+abstract interface class $ChatDeleteMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent get data;
 }
 
 abstract class ChatDeleteMessageResponseApplicationJson_Ocs
     implements
-        ChatDeleteMessageResponseApplicationJson_OcsInterface,
+        $ChatDeleteMessageResponseApplicationJson_OcsInterface,
         Built<ChatDeleteMessageResponseApplicationJson_Ocs, ChatDeleteMessageResponseApplicationJson_OcsBuilder> {
   factory ChatDeleteMessageResponseApplicationJson_Ocs([
     final void Function(ChatDeleteMessageResponseApplicationJson_OcsBuilder)? b,
@@ -15744,13 +15745,13 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatDeleteMessageResponseApplicationJsonInterface {
+abstract interface class $ChatDeleteMessageResponseApplicationJsonInterface {
   ChatDeleteMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatDeleteMessageResponseApplicationJson
     implements
-        ChatDeleteMessageResponseApplicationJsonInterface,
+        $ChatDeleteMessageResponseApplicationJsonInterface,
         Built<ChatDeleteMessageResponseApplicationJson, ChatDeleteMessageResponseApplicationJsonBuilder> {
   factory ChatDeleteMessageResponseApplicationJson([
     final void Function(ChatDeleteMessageResponseApplicationJsonBuilder)? b,
@@ -15788,7 +15789,7 @@ class ChatGetMessageContextApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatGetMessageContextHeadersInterface {
+abstract interface class $ChatChatGetMessageContextHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
   @BuiltValueField(wireName: 'x-chat-last-given')
@@ -15797,7 +15798,7 @@ abstract interface class ChatChatGetMessageContextHeadersInterface {
 
 abstract class ChatChatGetMessageContextHeaders
     implements
-        ChatChatGetMessageContextHeadersInterface,
+        $ChatChatGetMessageContextHeadersInterface,
         Built<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder> {
   factory ChatChatGetMessageContextHeaders([final void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
       _$ChatChatGetMessageContextHeaders;
@@ -15861,14 +15862,14 @@ class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetMessageContextResponseApplicationJson_OcsInterface {
+abstract interface class $ChatGetMessageContextResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessageWithParent> get data;
 }
 
 abstract class ChatGetMessageContextResponseApplicationJson_Ocs
     implements
-        ChatGetMessageContextResponseApplicationJson_OcsInterface,
+        $ChatGetMessageContextResponseApplicationJson_OcsInterface,
         Built<ChatGetMessageContextResponseApplicationJson_Ocs,
             ChatGetMessageContextResponseApplicationJson_OcsBuilder> {
   factory ChatGetMessageContextResponseApplicationJson_Ocs([
@@ -15893,13 +15894,13 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetMessageContextResponseApplicationJsonInterface {
+abstract interface class $ChatGetMessageContextResponseApplicationJsonInterface {
   ChatGetMessageContextResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatGetMessageContextResponseApplicationJson
     implements
-        ChatGetMessageContextResponseApplicationJsonInterface,
+        $ChatGetMessageContextResponseApplicationJsonInterface,
         Built<ChatGetMessageContextResponseApplicationJson, ChatGetMessageContextResponseApplicationJsonBuilder> {
   factory ChatGetMessageContextResponseApplicationJson([
     final void Function(ChatGetMessageContextResponseApplicationJsonBuilder)? b,
@@ -15937,14 +15938,14 @@ class ChatGetReminderApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatReminderInterface {
+abstract interface class $ChatReminderInterface {
   int get messageId;
   int get timestamp;
   String get token;
   String get userId;
 }
 
-abstract class ChatReminder implements ChatReminderInterface, Built<ChatReminder, ChatReminderBuilder> {
+abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminder, ChatReminderBuilder> {
   factory ChatReminder([final void Function(ChatReminderBuilder)? b]) = _$ChatReminder;
 
   // coverage:ignore-start
@@ -15963,14 +15964,14 @@ abstract class ChatReminder implements ChatReminderInterface, Built<ChatReminder
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetReminderResponseApplicationJson_OcsInterface {
+abstract interface class $ChatGetReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatReminder get data;
 }
 
 abstract class ChatGetReminderResponseApplicationJson_Ocs
     implements
-        ChatGetReminderResponseApplicationJson_OcsInterface,
+        $ChatGetReminderResponseApplicationJson_OcsInterface,
         Built<ChatGetReminderResponseApplicationJson_Ocs, ChatGetReminderResponseApplicationJson_OcsBuilder> {
   factory ChatGetReminderResponseApplicationJson_Ocs([
     final void Function(ChatGetReminderResponseApplicationJson_OcsBuilder)? b,
@@ -15994,13 +15995,13 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetReminderResponseApplicationJsonInterface {
+abstract interface class $ChatGetReminderResponseApplicationJsonInterface {
   ChatGetReminderResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatGetReminderResponseApplicationJson
     implements
-        ChatGetReminderResponseApplicationJsonInterface,
+        $ChatGetReminderResponseApplicationJsonInterface,
         Built<ChatGetReminderResponseApplicationJson, ChatGetReminderResponseApplicationJsonBuilder> {
   factory ChatGetReminderResponseApplicationJson([
     final void Function(ChatGetReminderResponseApplicationJsonBuilder)? b,
@@ -16038,14 +16039,14 @@ class ChatSetReminderApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSetReminderResponseApplicationJson_OcsInterface {
+abstract interface class $ChatSetReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatReminder get data;
 }
 
 abstract class ChatSetReminderResponseApplicationJson_Ocs
     implements
-        ChatSetReminderResponseApplicationJson_OcsInterface,
+        $ChatSetReminderResponseApplicationJson_OcsInterface,
         Built<ChatSetReminderResponseApplicationJson_Ocs, ChatSetReminderResponseApplicationJson_OcsBuilder> {
   factory ChatSetReminderResponseApplicationJson_Ocs([
     final void Function(ChatSetReminderResponseApplicationJson_OcsBuilder)? b,
@@ -16069,13 +16070,13 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSetReminderResponseApplicationJsonInterface {
+abstract interface class $ChatSetReminderResponseApplicationJsonInterface {
   ChatSetReminderResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatSetReminderResponseApplicationJson
     implements
-        ChatSetReminderResponseApplicationJsonInterface,
+        $ChatSetReminderResponseApplicationJsonInterface,
         Built<ChatSetReminderResponseApplicationJson, ChatSetReminderResponseApplicationJsonBuilder> {
   factory ChatSetReminderResponseApplicationJson([
     final void Function(ChatSetReminderResponseApplicationJsonBuilder)? b,
@@ -16113,14 +16114,14 @@ class ChatDeleteReminderApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatDeleteReminderResponseApplicationJson_OcsInterface {
+abstract interface class $ChatDeleteReminderResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ChatDeleteReminderResponseApplicationJson_Ocs
     implements
-        ChatDeleteReminderResponseApplicationJson_OcsInterface,
+        $ChatDeleteReminderResponseApplicationJson_OcsInterface,
         Built<ChatDeleteReminderResponseApplicationJson_Ocs, ChatDeleteReminderResponseApplicationJson_OcsBuilder> {
   factory ChatDeleteReminderResponseApplicationJson_Ocs([
     final void Function(ChatDeleteReminderResponseApplicationJson_OcsBuilder)? b,
@@ -16144,13 +16145,13 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatDeleteReminderResponseApplicationJsonInterface {
+abstract interface class $ChatDeleteReminderResponseApplicationJsonInterface {
   ChatDeleteReminderResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatDeleteReminderResponseApplicationJson
     implements
-        ChatDeleteReminderResponseApplicationJsonInterface,
+        $ChatDeleteReminderResponseApplicationJsonInterface,
         Built<ChatDeleteReminderResponseApplicationJson, ChatDeleteReminderResponseApplicationJsonBuilder> {
   factory ChatDeleteReminderResponseApplicationJson([
     final void Function(ChatDeleteReminderResponseApplicationJsonBuilder)? b,
@@ -16188,14 +16189,14 @@ class ChatSetReadMarkerApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatSetReadMarkerHeadersInterface {
+abstract interface class $ChatChatSetReadMarkerHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatSetReadMarkerHeaders
     implements
-        ChatChatSetReadMarkerHeadersInterface,
+        $ChatChatSetReadMarkerHeadersInterface,
         Built<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder> {
   factory ChatChatSetReadMarkerHeaders([final void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
       _$ChatChatSetReadMarkerHeaders;
@@ -16257,14 +16258,14 @@ class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<C
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSetReadMarkerResponseApplicationJson_OcsInterface {
+abstract interface class $ChatSetReadMarkerResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
     implements
-        ChatSetReadMarkerResponseApplicationJson_OcsInterface,
+        $ChatSetReadMarkerResponseApplicationJson_OcsInterface,
         Built<ChatSetReadMarkerResponseApplicationJson_Ocs, ChatSetReadMarkerResponseApplicationJson_OcsBuilder> {
   factory ChatSetReadMarkerResponseApplicationJson_Ocs([
     final void Function(ChatSetReadMarkerResponseApplicationJson_OcsBuilder)? b,
@@ -16288,13 +16289,13 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatSetReadMarkerResponseApplicationJsonInterface {
+abstract interface class $ChatSetReadMarkerResponseApplicationJsonInterface {
   ChatSetReadMarkerResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatSetReadMarkerResponseApplicationJson
     implements
-        ChatSetReadMarkerResponseApplicationJsonInterface,
+        $ChatSetReadMarkerResponseApplicationJsonInterface,
         Built<ChatSetReadMarkerResponseApplicationJson, ChatSetReadMarkerResponseApplicationJsonBuilder> {
   factory ChatSetReadMarkerResponseApplicationJson([
     final void Function(ChatSetReadMarkerResponseApplicationJsonBuilder)? b,
@@ -16332,13 +16333,13 @@ class ChatMarkUnreadApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatMarkUnreadHeadersInterface {
+abstract interface class $ChatChatMarkUnreadHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatMarkUnreadHeaders
-    implements ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
+    implements $ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
   factory ChatChatMarkUnreadHeaders([final void Function(ChatChatMarkUnreadHeadersBuilder)? b]) =
       _$ChatChatMarkUnreadHeaders;
 
@@ -16399,14 +16400,14 @@ class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<Chat
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMarkUnreadResponseApplicationJson_OcsInterface {
+abstract interface class $ChatMarkUnreadResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ChatMarkUnreadResponseApplicationJson_Ocs
     implements
-        ChatMarkUnreadResponseApplicationJson_OcsInterface,
+        $ChatMarkUnreadResponseApplicationJson_OcsInterface,
         Built<ChatMarkUnreadResponseApplicationJson_Ocs, ChatMarkUnreadResponseApplicationJson_OcsBuilder> {
   factory ChatMarkUnreadResponseApplicationJson_Ocs([
     final void Function(ChatMarkUnreadResponseApplicationJson_OcsBuilder)? b,
@@ -16430,13 +16431,13 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMarkUnreadResponseApplicationJsonInterface {
+abstract interface class $ChatMarkUnreadResponseApplicationJsonInterface {
   ChatMarkUnreadResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatMarkUnreadResponseApplicationJson
     implements
-        ChatMarkUnreadResponseApplicationJsonInterface,
+        $ChatMarkUnreadResponseApplicationJsonInterface,
         Built<ChatMarkUnreadResponseApplicationJson, ChatMarkUnreadResponseApplicationJsonBuilder> {
   factory ChatMarkUnreadResponseApplicationJson([
     final void Function(ChatMarkUnreadResponseApplicationJsonBuilder)? b,
@@ -16474,7 +16475,7 @@ class ChatMentionsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMentionSuggestionInterface {
+abstract interface class $ChatMentionSuggestionInterface {
   String get id;
   String get label;
   String get source;
@@ -16485,7 +16486,7 @@ abstract interface class ChatMentionSuggestionInterface {
 }
 
 abstract class ChatMentionSuggestion
-    implements ChatMentionSuggestionInterface, Built<ChatMentionSuggestion, ChatMentionSuggestionBuilder> {
+    implements $ChatMentionSuggestionInterface, Built<ChatMentionSuggestion, ChatMentionSuggestionBuilder> {
   factory ChatMentionSuggestion([final void Function(ChatMentionSuggestionBuilder)? b]) = _$ChatMentionSuggestion;
 
   // coverage:ignore-start
@@ -16505,14 +16506,14 @@ abstract class ChatMentionSuggestion
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMentionsResponseApplicationJson_OcsInterface {
+abstract interface class $ChatMentionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMentionSuggestion> get data;
 }
 
 abstract class ChatMentionsResponseApplicationJson_Ocs
     implements
-        ChatMentionsResponseApplicationJson_OcsInterface,
+        $ChatMentionsResponseApplicationJson_OcsInterface,
         Built<ChatMentionsResponseApplicationJson_Ocs, ChatMentionsResponseApplicationJson_OcsBuilder> {
   factory ChatMentionsResponseApplicationJson_Ocs([
     final void Function(ChatMentionsResponseApplicationJson_OcsBuilder)? b,
@@ -16536,13 +16537,13 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatMentionsResponseApplicationJsonInterface {
+abstract interface class $ChatMentionsResponseApplicationJsonInterface {
   ChatMentionsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatMentionsResponseApplicationJson
     implements
-        ChatMentionsResponseApplicationJsonInterface,
+        $ChatMentionsResponseApplicationJsonInterface,
         Built<ChatMentionsResponseApplicationJson, ChatMentionsResponseApplicationJsonBuilder> {
   factory ChatMentionsResponseApplicationJson([final void Function(ChatMentionsResponseApplicationJsonBuilder)? b]) =
       _$ChatMentionsResponseApplicationJson;
@@ -16581,14 +16582,14 @@ class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatGetObjectsSharedInRoomHeadersInterface {
+abstract interface class $ChatChatGetObjectsSharedInRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-given')
   String? get xChatLastGiven;
 }
 
 abstract class ChatChatGetObjectsSharedInRoomHeaders
     implements
-        ChatChatGetObjectsSharedInRoomHeadersInterface,
+        $ChatChatGetObjectsSharedInRoomHeadersInterface,
         Built<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder> {
   factory ChatChatGetObjectsSharedInRoomHeaders([
     final void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b,
@@ -16653,14 +16654,14 @@ class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
+abstract interface class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<ChatMessage> get data;
 }
 
 abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
     implements
-        ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface,
+        $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface,
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder> {
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs([
@@ -16685,13 +16686,13 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetObjectsSharedInRoomResponseApplicationJsonInterface {
+abstract interface class $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface {
   ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
     implements
-        ChatGetObjectsSharedInRoomResponseApplicationJsonInterface,
+        $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface,
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson,
             ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder> {
   factory ChatGetObjectsSharedInRoomResponseApplicationJson([
@@ -16730,14 +16731,14 @@ class ChatShareObjectToChatApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatChatShareObjectToChatHeadersInterface {
+abstract interface class $ChatChatShareObjectToChatHeadersInterface {
   @BuiltValueField(wireName: 'x-chat-last-common-read')
   String? get xChatLastCommonRead;
 }
 
 abstract class ChatChatShareObjectToChatHeaders
     implements
-        ChatChatShareObjectToChatHeadersInterface,
+        $ChatChatShareObjectToChatHeadersInterface,
         Built<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder> {
   factory ChatChatShareObjectToChatHeaders([final void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
       _$ChatChatShareObjectToChatHeaders;
@@ -16799,14 +16800,14 @@ class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializ
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatShareObjectToChatResponseApplicationJson_OcsInterface {
+abstract interface class $ChatShareObjectToChatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ChatMessageWithParent? get data;
 }
 
 abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
     implements
-        ChatShareObjectToChatResponseApplicationJson_OcsInterface,
+        $ChatShareObjectToChatResponseApplicationJson_OcsInterface,
         Built<ChatShareObjectToChatResponseApplicationJson_Ocs,
             ChatShareObjectToChatResponseApplicationJson_OcsBuilder> {
   factory ChatShareObjectToChatResponseApplicationJson_Ocs([
@@ -16831,13 +16832,13 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatShareObjectToChatResponseApplicationJsonInterface {
+abstract interface class $ChatShareObjectToChatResponseApplicationJsonInterface {
   ChatShareObjectToChatResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatShareObjectToChatResponseApplicationJson
     implements
-        ChatShareObjectToChatResponseApplicationJsonInterface,
+        $ChatShareObjectToChatResponseApplicationJsonInterface,
         Built<ChatShareObjectToChatResponseApplicationJson, ChatShareObjectToChatResponseApplicationJsonBuilder> {
   factory ChatShareObjectToChatResponseApplicationJson([
     final void Function(ChatShareObjectToChatResponseApplicationJsonBuilder)? b,
@@ -16878,14 +16879,14 @@ class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface {
+abstract interface class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<ChatMessage>> get data;
 }
 
 abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
     implements
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface,
+        $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface,
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder> {
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs([
@@ -16910,13 +16911,13 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface {
+abstract interface class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface {
   ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
     implements
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface,
+        $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface,
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder> {
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson([
@@ -16955,14 +16956,14 @@ class FederationAcceptShareApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationAcceptShareResponseApplicationJson_OcsInterface {
+abstract interface class $FederationAcceptShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class FederationAcceptShareResponseApplicationJson_Ocs
     implements
-        FederationAcceptShareResponseApplicationJson_OcsInterface,
+        $FederationAcceptShareResponseApplicationJson_OcsInterface,
         Built<FederationAcceptShareResponseApplicationJson_Ocs,
             FederationAcceptShareResponseApplicationJson_OcsBuilder> {
   factory FederationAcceptShareResponseApplicationJson_Ocs([
@@ -16987,13 +16988,13 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationAcceptShareResponseApplicationJsonInterface {
+abstract interface class $FederationAcceptShareResponseApplicationJsonInterface {
   FederationAcceptShareResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class FederationAcceptShareResponseApplicationJson
     implements
-        FederationAcceptShareResponseApplicationJsonInterface,
+        $FederationAcceptShareResponseApplicationJsonInterface,
         Built<FederationAcceptShareResponseApplicationJson, FederationAcceptShareResponseApplicationJsonBuilder> {
   factory FederationAcceptShareResponseApplicationJson([
     final void Function(FederationAcceptShareResponseApplicationJsonBuilder)? b,
@@ -17031,14 +17032,14 @@ class FederationRejectShareApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationRejectShareResponseApplicationJson_OcsInterface {
+abstract interface class $FederationRejectShareResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class FederationRejectShareResponseApplicationJson_Ocs
     implements
-        FederationRejectShareResponseApplicationJson_OcsInterface,
+        $FederationRejectShareResponseApplicationJson_OcsInterface,
         Built<FederationRejectShareResponseApplicationJson_Ocs,
             FederationRejectShareResponseApplicationJson_OcsBuilder> {
   factory FederationRejectShareResponseApplicationJson_Ocs([
@@ -17063,13 +17064,13 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationRejectShareResponseApplicationJsonInterface {
+abstract interface class $FederationRejectShareResponseApplicationJsonInterface {
   FederationRejectShareResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class FederationRejectShareResponseApplicationJson
     implements
-        FederationRejectShareResponseApplicationJsonInterface,
+        $FederationRejectShareResponseApplicationJsonInterface,
         Built<FederationRejectShareResponseApplicationJson, FederationRejectShareResponseApplicationJsonBuilder> {
   factory FederationRejectShareResponseApplicationJson([
     final void Function(FederationRejectShareResponseApplicationJsonBuilder)? b,
@@ -17107,7 +17108,7 @@ class FederationGetSharesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationInviteInterface {
+abstract interface class $FederationInviteInterface {
   @BuiltValueField(wireName: 'access_token')
   String get accessToken;
   int get id;
@@ -17123,7 +17124,8 @@ abstract interface class FederationInviteInterface {
   String get userId;
 }
 
-abstract class FederationInvite implements FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
+abstract class FederationInvite
+    implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
   factory FederationInvite([final void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
 
   // coverage:ignore-start
@@ -17143,14 +17145,14 @@ abstract class FederationInvite implements FederationInviteInterface, Built<Fede
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationGetSharesResponseApplicationJson_OcsInterface {
+abstract interface class $FederationGetSharesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<FederationInvite> get data;
 }
 
 abstract class FederationGetSharesResponseApplicationJson_Ocs
     implements
-        FederationGetSharesResponseApplicationJson_OcsInterface,
+        $FederationGetSharesResponseApplicationJson_OcsInterface,
         Built<FederationGetSharesResponseApplicationJson_Ocs, FederationGetSharesResponseApplicationJson_OcsBuilder> {
   factory FederationGetSharesResponseApplicationJson_Ocs([
     final void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? b,
@@ -17174,13 +17176,13 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FederationGetSharesResponseApplicationJsonInterface {
+abstract interface class $FederationGetSharesResponseApplicationJsonInterface {
   FederationGetSharesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class FederationGetSharesResponseApplicationJson
     implements
-        FederationGetSharesResponseApplicationJsonInterface,
+        $FederationGetSharesResponseApplicationJsonInterface,
         Built<FederationGetSharesResponseApplicationJson, FederationGetSharesResponseApplicationJsonBuilder> {
   factory FederationGetSharesResponseApplicationJson([
     final void Function(FederationGetSharesResponseApplicationJsonBuilder)? b,
@@ -17221,13 +17223,13 @@ class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface {
   String get token;
 }
 
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
     implements
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface,
+        $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data([
@@ -17252,14 +17254,14 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface {
+abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
     implements
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface,
+        $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs([
@@ -17284,13 +17286,13 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface {
+abstract interface class $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface {
   FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
     implements
-        FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface,
+        $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface,
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson,
             FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson([
@@ -17332,7 +17334,7 @@ class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface {
   String get token;
   String get userId;
   String get userDisplayName;
@@ -17340,7 +17342,7 @@ abstract interface class FilesIntegrationGetRoomByShareTokenResponseApplicationJ
 
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data
     implements
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface,
+        $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data([
@@ -17367,14 +17369,14 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface {
+abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
     implements
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface,
+        $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs([
@@ -17399,13 +17401,13 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface {
+abstract interface class $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface {
   FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
     implements
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface,
+        $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface,
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson([
@@ -17444,14 +17446,14 @@ class GuestSetDisplayNameApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GuestSetDisplayNameResponseApplicationJson_OcsInterface {
+abstract interface class $GuestSetDisplayNameResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
     implements
-        GuestSetDisplayNameResponseApplicationJson_OcsInterface,
+        $GuestSetDisplayNameResponseApplicationJson_OcsInterface,
         Built<GuestSetDisplayNameResponseApplicationJson_Ocs, GuestSetDisplayNameResponseApplicationJson_OcsBuilder> {
   factory GuestSetDisplayNameResponseApplicationJson_Ocs([
     final void Function(GuestSetDisplayNameResponseApplicationJson_OcsBuilder)? b,
@@ -17475,13 +17477,13 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GuestSetDisplayNameResponseApplicationJsonInterface {
+abstract interface class $GuestSetDisplayNameResponseApplicationJsonInterface {
   GuestSetDisplayNameResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class GuestSetDisplayNameResponseApplicationJson
     implements
-        GuestSetDisplayNameResponseApplicationJsonInterface,
+        $GuestSetDisplayNameResponseApplicationJsonInterface,
         Built<GuestSetDisplayNameResponseApplicationJson, GuestSetDisplayNameResponseApplicationJsonBuilder> {
   factory GuestSetDisplayNameResponseApplicationJson([
     final void Function(GuestSetDisplayNameResponseApplicationJsonBuilder)? b,
@@ -17522,14 +17524,14 @@ class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface {
+abstract interface class $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
 }
 
 abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
     implements
-        HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface,
+        $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface,
         Built<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
             HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder> {
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs([
@@ -17554,13 +17556,13 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class HostedSignalingServerRequestTrialResponseApplicationJsonInterface {
+abstract interface class $HostedSignalingServerRequestTrialResponseApplicationJsonInterface {
   HostedSignalingServerRequestTrialResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class HostedSignalingServerRequestTrialResponseApplicationJson
     implements
-        HostedSignalingServerRequestTrialResponseApplicationJsonInterface,
+        $HostedSignalingServerRequestTrialResponseApplicationJsonInterface,
         Built<HostedSignalingServerRequestTrialResponseApplicationJson,
             HostedSignalingServerRequestTrialResponseApplicationJsonBuilder> {
   factory HostedSignalingServerRequestTrialResponseApplicationJson([
@@ -17602,14 +17604,14 @@ class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface {
+abstract interface class $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
     implements
-        HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface,
+        $HostedSignalingServerDeleteAccountResponseApplicationJson_OcsInterface,
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
             HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder> {
   factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs([
@@ -17634,13 +17636,13 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class HostedSignalingServerDeleteAccountResponseApplicationJsonInterface {
+abstract interface class $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface {
   HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
     implements
-        HostedSignalingServerDeleteAccountResponseApplicationJsonInterface,
+        $HostedSignalingServerDeleteAccountResponseApplicationJsonInterface,
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson,
             HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder> {
   factory HostedSignalingServerDeleteAccountResponseApplicationJson([
@@ -17681,13 +17683,13 @@ class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeInterface {
+abstract interface class $MatterbridgeInterface {
   bool get enabled;
   BuiltList<BuiltMap<String, JsonObject>> get parts;
   int get pid;
 }
 
-abstract class Matterbridge implements MatterbridgeInterface, Built<Matterbridge, MatterbridgeBuilder> {
+abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridge, MatterbridgeBuilder> {
   factory Matterbridge([final void Function(MatterbridgeBuilder)? b]) = _$Matterbridge;
 
   // coverage:ignore-start
@@ -17706,13 +17708,13 @@ abstract class Matterbridge implements MatterbridgeInterface, Built<Matterbridge
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeProcessStateInterface {
+abstract interface class $MatterbridgeProcessStateInterface {
   String get log;
   bool get running;
 }
 
 abstract class MatterbridgeProcessState
-    implements MatterbridgeProcessStateInterface, Built<MatterbridgeProcessState, MatterbridgeProcessStateBuilder> {
+    implements $MatterbridgeProcessStateInterface, Built<MatterbridgeProcessState, MatterbridgeProcessStateBuilder> {
   factory MatterbridgeProcessState([final void Function(MatterbridgeProcessStateBuilder)? b]) =
       _$MatterbridgeProcessState;
 
@@ -17733,12 +17735,12 @@ abstract class MatterbridgeProcessState
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeWithProcessStateInterface
-    implements MatterbridgeInterface, MatterbridgeProcessStateInterface {}
+abstract interface class $MatterbridgeWithProcessStateInterface
+    implements $MatterbridgeInterface, $MatterbridgeProcessStateInterface {}
 
 abstract class MatterbridgeWithProcessState
     implements
-        MatterbridgeWithProcessStateInterface,
+        $MatterbridgeWithProcessStateInterface,
         Built<MatterbridgeWithProcessState, MatterbridgeWithProcessStateBuilder> {
   factory MatterbridgeWithProcessState([final void Function(MatterbridgeWithProcessStateBuilder)? b]) =
       _$MatterbridgeWithProcessState;
@@ -17760,14 +17762,14 @@ abstract class MatterbridgeWithProcessState
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeWithProcessState get data;
 }
 
 abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
     implements
-        MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface,
+        $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs([
@@ -17792,13 +17794,13 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
     implements
-        MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface,
+        $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson,
             MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson([
@@ -17839,14 +17841,14 @@ class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeProcessState get data;
 }
 
 abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
     implements
-        MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface,
+        $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs([
@@ -17871,13 +17873,13 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
     implements
-        MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface,
+        $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson,
             MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson([
@@ -17919,14 +17921,14 @@ class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   bool get data;
 }
 
 abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
     implements
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface,
+        $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface,
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs([
@@ -17951,13 +17953,13 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface {
   MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
     implements
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface,
+        $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface,
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson([
@@ -17999,14 +18001,14 @@ class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeProcessState get data;
 }
 
 abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
     implements
-        MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface,
+        $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface,
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs([
@@ -18031,13 +18033,13 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface {
   MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
     implements
-        MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface,
+        $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface,
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson,
             MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder> {
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson([
@@ -18079,14 +18081,14 @@ class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   bool get data;
 }
 
 abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
     implements
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface,
+        $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface,
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs([
@@ -18111,13 +18113,13 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface {
   MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
     implements
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface,
+        $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface,
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder> {
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson([
@@ -18160,13 +18162,13 @@ class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface {
   String get version;
 }
 
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data
     implements
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface,
+        $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data([
@@ -18193,14 +18195,14 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface {
+abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs
     implements
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface,
+        $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs([
@@ -18227,13 +18229,13 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface {
+abstract interface class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface {
   MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
     implements
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface,
+        $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface,
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson([
@@ -18272,14 +18274,14 @@ class PollCreatePollApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollVoteInterface {
+abstract interface class $PollVoteInterface {
   String get actorDisplayName;
   String get actorId;
   String get actorType;
   int get optionId;
 }
 
-abstract class PollVote implements PollVoteInterface, Built<PollVote, PollVoteBuilder> {
+abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteBuilder> {
   factory PollVote([final void Function(PollVoteBuilder)? b]) = _$PollVote;
 
   // coverage:ignore-start
@@ -18298,7 +18300,7 @@ abstract class PollVote implements PollVoteInterface, Built<PollVote, PollVoteBu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollInterface {
+abstract interface class $PollInterface {
   String get actorDisplayName;
   String get actorId;
   String get actorType;
@@ -18314,7 +18316,7 @@ abstract interface class PollInterface {
   BuiltMap<String, int>? get votes;
 }
 
-abstract class Poll implements PollInterface, Built<Poll, PollBuilder> {
+abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
   factory Poll([final void Function(PollBuilder)? b]) = _$Poll;
 
   // coverage:ignore-start
@@ -18333,14 +18335,14 @@ abstract class Poll implements PollInterface, Built<Poll, PollBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollCreatePollResponseApplicationJson_OcsInterface {
+abstract interface class $PollCreatePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
 }
 
 abstract class PollCreatePollResponseApplicationJson_Ocs
     implements
-        PollCreatePollResponseApplicationJson_OcsInterface,
+        $PollCreatePollResponseApplicationJson_OcsInterface,
         Built<PollCreatePollResponseApplicationJson_Ocs, PollCreatePollResponseApplicationJson_OcsBuilder> {
   factory PollCreatePollResponseApplicationJson_Ocs([
     final void Function(PollCreatePollResponseApplicationJson_OcsBuilder)? b,
@@ -18364,13 +18366,13 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollCreatePollResponseApplicationJsonInterface {
+abstract interface class $PollCreatePollResponseApplicationJsonInterface {
   PollCreatePollResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PollCreatePollResponseApplicationJson
     implements
-        PollCreatePollResponseApplicationJsonInterface,
+        $PollCreatePollResponseApplicationJsonInterface,
         Built<PollCreatePollResponseApplicationJson, PollCreatePollResponseApplicationJsonBuilder> {
   factory PollCreatePollResponseApplicationJson([
     final void Function(PollCreatePollResponseApplicationJsonBuilder)? b,
@@ -18408,14 +18410,14 @@ class PollShowPollApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollShowPollResponseApplicationJson_OcsInterface {
+abstract interface class $PollShowPollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
 }
 
 abstract class PollShowPollResponseApplicationJson_Ocs
     implements
-        PollShowPollResponseApplicationJson_OcsInterface,
+        $PollShowPollResponseApplicationJson_OcsInterface,
         Built<PollShowPollResponseApplicationJson_Ocs, PollShowPollResponseApplicationJson_OcsBuilder> {
   factory PollShowPollResponseApplicationJson_Ocs([
     final void Function(PollShowPollResponseApplicationJson_OcsBuilder)? b,
@@ -18439,13 +18441,13 @@ abstract class PollShowPollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollShowPollResponseApplicationJsonInterface {
+abstract interface class $PollShowPollResponseApplicationJsonInterface {
   PollShowPollResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PollShowPollResponseApplicationJson
     implements
-        PollShowPollResponseApplicationJsonInterface,
+        $PollShowPollResponseApplicationJsonInterface,
         Built<PollShowPollResponseApplicationJson, PollShowPollResponseApplicationJsonBuilder> {
   factory PollShowPollResponseApplicationJson([final void Function(PollShowPollResponseApplicationJsonBuilder)? b]) =
       _$PollShowPollResponseApplicationJson;
@@ -18482,14 +18484,14 @@ class PollVotePollApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollVotePollResponseApplicationJson_OcsInterface {
+abstract interface class $PollVotePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
 }
 
 abstract class PollVotePollResponseApplicationJson_Ocs
     implements
-        PollVotePollResponseApplicationJson_OcsInterface,
+        $PollVotePollResponseApplicationJson_OcsInterface,
         Built<PollVotePollResponseApplicationJson_Ocs, PollVotePollResponseApplicationJson_OcsBuilder> {
   factory PollVotePollResponseApplicationJson_Ocs([
     final void Function(PollVotePollResponseApplicationJson_OcsBuilder)? b,
@@ -18513,13 +18515,13 @@ abstract class PollVotePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollVotePollResponseApplicationJsonInterface {
+abstract interface class $PollVotePollResponseApplicationJsonInterface {
   PollVotePollResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PollVotePollResponseApplicationJson
     implements
-        PollVotePollResponseApplicationJsonInterface,
+        $PollVotePollResponseApplicationJsonInterface,
         Built<PollVotePollResponseApplicationJson, PollVotePollResponseApplicationJsonBuilder> {
   factory PollVotePollResponseApplicationJson([final void Function(PollVotePollResponseApplicationJsonBuilder)? b]) =
       _$PollVotePollResponseApplicationJson;
@@ -18556,14 +18558,14 @@ class PollClosePollApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollClosePollResponseApplicationJson_OcsInterface {
+abstract interface class $PollClosePollResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Poll get data;
 }
 
 abstract class PollClosePollResponseApplicationJson_Ocs
     implements
-        PollClosePollResponseApplicationJson_OcsInterface,
+        $PollClosePollResponseApplicationJson_OcsInterface,
         Built<PollClosePollResponseApplicationJson_Ocs, PollClosePollResponseApplicationJson_OcsBuilder> {
   factory PollClosePollResponseApplicationJson_Ocs([
     final void Function(PollClosePollResponseApplicationJson_OcsBuilder)? b,
@@ -18587,13 +18589,13 @@ abstract class PollClosePollResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PollClosePollResponseApplicationJsonInterface {
+abstract interface class $PollClosePollResponseApplicationJsonInterface {
   PollClosePollResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PollClosePollResponseApplicationJson
     implements
-        PollClosePollResponseApplicationJsonInterface,
+        $PollClosePollResponseApplicationJsonInterface,
         Built<PollClosePollResponseApplicationJson, PollClosePollResponseApplicationJsonBuilder> {
   factory PollClosePollResponseApplicationJson([final void Function(PollClosePollResponseApplicationJsonBuilder)? b]) =
       _$PollClosePollResponseApplicationJson;
@@ -18632,7 +18634,7 @@ class PublicShareAuthCreateRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface {
   String get token;
   String get name;
   String get displayName;
@@ -18640,7 +18642,7 @@ abstract interface class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Da
 
 abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
     implements
-        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
+        $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
             PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
@@ -18665,14 +18667,14 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
     implements
-        PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
+        $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
             PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
@@ -18697,13 +18699,13 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicShareAuthCreateRoomResponseApplicationJsonInterface {
+abstract interface class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
   PublicShareAuthCreateRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PublicShareAuthCreateRoomResponseApplicationJson
     implements
-        PublicShareAuthCreateRoomResponseApplicationJsonInterface,
+        $PublicShareAuthCreateRoomResponseApplicationJsonInterface,
         Built<PublicShareAuthCreateRoomResponseApplicationJson,
             PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson([
@@ -18742,14 +18744,14 @@ class ReactionGetReactionsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionInterface {
+abstract interface class $ReactionInterface {
   String get actorDisplayName;
   String get actorId;
   String get actorType;
   int get timestamp;
 }
 
-abstract class Reaction implements ReactionInterface, Built<Reaction, ReactionBuilder> {
+abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionBuilder> {
   factory Reaction([final void Function(ReactionBuilder)? b]) = _$Reaction;
 
   // coverage:ignore-start
@@ -18768,14 +18770,14 @@ abstract class Reaction implements ReactionInterface, Built<Reaction, ReactionBu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionGetReactionsResponseApplicationJson_OcsInterface {
+abstract interface class $ReactionGetReactionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
 }
 
 abstract class ReactionGetReactionsResponseApplicationJson_Ocs
     implements
-        ReactionGetReactionsResponseApplicationJson_OcsInterface,
+        $ReactionGetReactionsResponseApplicationJson_OcsInterface,
         Built<ReactionGetReactionsResponseApplicationJson_Ocs, ReactionGetReactionsResponseApplicationJson_OcsBuilder> {
   factory ReactionGetReactionsResponseApplicationJson_Ocs([
     final void Function(ReactionGetReactionsResponseApplicationJson_OcsBuilder)? b,
@@ -18799,13 +18801,13 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionGetReactionsResponseApplicationJsonInterface {
+abstract interface class $ReactionGetReactionsResponseApplicationJsonInterface {
   ReactionGetReactionsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ReactionGetReactionsResponseApplicationJson
     implements
-        ReactionGetReactionsResponseApplicationJsonInterface,
+        $ReactionGetReactionsResponseApplicationJsonInterface,
         Built<ReactionGetReactionsResponseApplicationJson, ReactionGetReactionsResponseApplicationJsonBuilder> {
   factory ReactionGetReactionsResponseApplicationJson([
     final void Function(ReactionGetReactionsResponseApplicationJsonBuilder)? b,
@@ -18843,14 +18845,14 @@ class ReactionReactApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionReactResponseApplicationJson_OcsInterface {
+abstract interface class $ReactionReactResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
 }
 
 abstract class ReactionReactResponseApplicationJson_Ocs
     implements
-        ReactionReactResponseApplicationJson_OcsInterface,
+        $ReactionReactResponseApplicationJson_OcsInterface,
         Built<ReactionReactResponseApplicationJson_Ocs, ReactionReactResponseApplicationJson_OcsBuilder> {
   factory ReactionReactResponseApplicationJson_Ocs([
     final void Function(ReactionReactResponseApplicationJson_OcsBuilder)? b,
@@ -18874,13 +18876,13 @@ abstract class ReactionReactResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionReactResponseApplicationJsonInterface {
+abstract interface class $ReactionReactResponseApplicationJsonInterface {
   ReactionReactResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ReactionReactResponseApplicationJson
     implements
-        ReactionReactResponseApplicationJsonInterface,
+        $ReactionReactResponseApplicationJsonInterface,
         Built<ReactionReactResponseApplicationJson, ReactionReactResponseApplicationJsonBuilder> {
   factory ReactionReactResponseApplicationJson([final void Function(ReactionReactResponseApplicationJsonBuilder)? b]) =
       _$ReactionReactResponseApplicationJson;
@@ -18917,14 +18919,14 @@ class ReactionDeleteApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionDeleteResponseApplicationJson_OcsInterface {
+abstract interface class $ReactionDeleteResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<Reaction>> get data;
 }
 
 abstract class ReactionDeleteResponseApplicationJson_Ocs
     implements
-        ReactionDeleteResponseApplicationJson_OcsInterface,
+        $ReactionDeleteResponseApplicationJson_OcsInterface,
         Built<ReactionDeleteResponseApplicationJson_Ocs, ReactionDeleteResponseApplicationJson_OcsBuilder> {
   factory ReactionDeleteResponseApplicationJson_Ocs([
     final void Function(ReactionDeleteResponseApplicationJson_OcsBuilder)? b,
@@ -18948,13 +18950,13 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ReactionDeleteResponseApplicationJsonInterface {
+abstract interface class $ReactionDeleteResponseApplicationJsonInterface {
   ReactionDeleteResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ReactionDeleteResponseApplicationJson
     implements
-        ReactionDeleteResponseApplicationJsonInterface,
+        $ReactionDeleteResponseApplicationJsonInterface,
         Built<ReactionDeleteResponseApplicationJson, ReactionDeleteResponseApplicationJsonBuilder> {
   factory ReactionDeleteResponseApplicationJson([
     final void Function(ReactionDeleteResponseApplicationJsonBuilder)? b,
@@ -18994,13 +18996,13 @@ class RecordingGetWelcomeMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface {
   double get version;
 }
 
 abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
     implements
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
+        $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
             RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
@@ -19025,14 +19027,14 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
     implements
-        RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
+        $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
             RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
@@ -19057,13 +19059,13 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingGetWelcomeMessageResponseApplicationJsonInterface {
+abstract interface class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
   RecordingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingGetWelcomeMessageResponseApplicationJson
     implements
-        RecordingGetWelcomeMessageResponseApplicationJsonInterface,
+        $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
         Built<RecordingGetWelcomeMessageResponseApplicationJson,
             RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson([
@@ -19102,14 +19104,14 @@ class RecordingStartApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStartResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingStartResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RecordingStartResponseApplicationJson_Ocs
     implements
-        RecordingStartResponseApplicationJson_OcsInterface,
+        $RecordingStartResponseApplicationJson_OcsInterface,
         Built<RecordingStartResponseApplicationJson_Ocs, RecordingStartResponseApplicationJson_OcsBuilder> {
   factory RecordingStartResponseApplicationJson_Ocs([
     final void Function(RecordingStartResponseApplicationJson_OcsBuilder)? b,
@@ -19133,13 +19135,13 @@ abstract class RecordingStartResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStartResponseApplicationJsonInterface {
+abstract interface class $RecordingStartResponseApplicationJsonInterface {
   RecordingStartResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingStartResponseApplicationJson
     implements
-        RecordingStartResponseApplicationJsonInterface,
+        $RecordingStartResponseApplicationJsonInterface,
         Built<RecordingStartResponseApplicationJson, RecordingStartResponseApplicationJsonBuilder> {
   factory RecordingStartResponseApplicationJson([
     final void Function(RecordingStartResponseApplicationJsonBuilder)? b,
@@ -19177,14 +19179,14 @@ class RecordingStopApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStopResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingStopResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RecordingStopResponseApplicationJson_Ocs
     implements
-        RecordingStopResponseApplicationJson_OcsInterface,
+        $RecordingStopResponseApplicationJson_OcsInterface,
         Built<RecordingStopResponseApplicationJson_Ocs, RecordingStopResponseApplicationJson_OcsBuilder> {
   factory RecordingStopResponseApplicationJson_Ocs([
     final void Function(RecordingStopResponseApplicationJson_OcsBuilder)? b,
@@ -19208,13 +19210,13 @@ abstract class RecordingStopResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStopResponseApplicationJsonInterface {
+abstract interface class $RecordingStopResponseApplicationJsonInterface {
   RecordingStopResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingStopResponseApplicationJson
     implements
-        RecordingStopResponseApplicationJsonInterface,
+        $RecordingStopResponseApplicationJsonInterface,
         Built<RecordingStopResponseApplicationJson, RecordingStopResponseApplicationJsonBuilder> {
   factory RecordingStopResponseApplicationJson([final void Function(RecordingStopResponseApplicationJsonBuilder)? b]) =
       _$RecordingStopResponseApplicationJson;
@@ -19251,14 +19253,14 @@ class RecordingStoreApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStoreResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingStoreResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RecordingStoreResponseApplicationJson_Ocs
     implements
-        RecordingStoreResponseApplicationJson_OcsInterface,
+        $RecordingStoreResponseApplicationJson_OcsInterface,
         Built<RecordingStoreResponseApplicationJson_Ocs, RecordingStoreResponseApplicationJson_OcsBuilder> {
   factory RecordingStoreResponseApplicationJson_Ocs([
     final void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
@@ -19282,13 +19284,13 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingStoreResponseApplicationJsonInterface {
+abstract interface class $RecordingStoreResponseApplicationJsonInterface {
   RecordingStoreResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingStoreResponseApplicationJson
     implements
-        RecordingStoreResponseApplicationJsonInterface,
+        $RecordingStoreResponseApplicationJsonInterface,
         Built<RecordingStoreResponseApplicationJson, RecordingStoreResponseApplicationJsonBuilder> {
   factory RecordingStoreResponseApplicationJson([
     final void Function(RecordingStoreResponseApplicationJsonBuilder)? b,
@@ -19328,14 +19330,14 @@ class RecordingNotificationDismissApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingNotificationDismissResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingNotificationDismissResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
     implements
-        RecordingNotificationDismissResponseApplicationJson_OcsInterface,
+        $RecordingNotificationDismissResponseApplicationJson_OcsInterface,
         Built<RecordingNotificationDismissResponseApplicationJson_Ocs,
             RecordingNotificationDismissResponseApplicationJson_OcsBuilder> {
   factory RecordingNotificationDismissResponseApplicationJson_Ocs([
@@ -19360,13 +19362,13 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingNotificationDismissResponseApplicationJsonInterface {
+abstract interface class $RecordingNotificationDismissResponseApplicationJsonInterface {
   RecordingNotificationDismissResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingNotificationDismissResponseApplicationJson
     implements
-        RecordingNotificationDismissResponseApplicationJsonInterface,
+        $RecordingNotificationDismissResponseApplicationJsonInterface,
         Built<RecordingNotificationDismissResponseApplicationJson,
             RecordingNotificationDismissResponseApplicationJsonBuilder> {
   factory RecordingNotificationDismissResponseApplicationJson([
@@ -19405,14 +19407,14 @@ class RecordingShareToChatApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingShareToChatResponseApplicationJson_OcsInterface {
+abstract interface class $RecordingShareToChatResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RecordingShareToChatResponseApplicationJson_Ocs
     implements
-        RecordingShareToChatResponseApplicationJson_OcsInterface,
+        $RecordingShareToChatResponseApplicationJson_OcsInterface,
         Built<RecordingShareToChatResponseApplicationJson_Ocs, RecordingShareToChatResponseApplicationJson_OcsBuilder> {
   factory RecordingShareToChatResponseApplicationJson_Ocs([
     final void Function(RecordingShareToChatResponseApplicationJson_OcsBuilder)? b,
@@ -19436,13 +19438,13 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RecordingShareToChatResponseApplicationJsonInterface {
+abstract interface class $RecordingShareToChatResponseApplicationJsonInterface {
   RecordingShareToChatResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RecordingShareToChatResponseApplicationJson
     implements
-        RecordingShareToChatResponseApplicationJsonInterface,
+        $RecordingShareToChatResponseApplicationJsonInterface,
         Built<RecordingShareToChatResponseApplicationJson, RecordingShareToChatResponseApplicationJsonBuilder> {
   factory RecordingShareToChatResponseApplicationJson([
     final void Function(RecordingShareToChatResponseApplicationJsonBuilder)? b,
@@ -19480,7 +19482,7 @@ class RoomGetRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRoomGetRoomsHeadersInterface {
+abstract interface class $RoomRoomGetRoomsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
   @BuiltValueField(wireName: 'x-nextcloud-talk-modified-before')
@@ -19488,7 +19490,7 @@ abstract interface class RoomRoomGetRoomsHeadersInterface {
 }
 
 abstract class RoomRoomGetRoomsHeaders
-    implements RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
+    implements $RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
   factory RoomRoomGetRoomsHeaders([final void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
 
   // coverage:ignore-start
@@ -19550,14 +19552,14 @@ class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRo
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class RoomGetRoomsResponseApplicationJson_Ocs
     implements
-        RoomGetRoomsResponseApplicationJson_OcsInterface,
+        $RoomGetRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetRoomsResponseApplicationJson_Ocs, RoomGetRoomsResponseApplicationJson_OcsBuilder> {
   factory RoomGetRoomsResponseApplicationJson_Ocs([
     final void Function(RoomGetRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -19581,13 +19583,13 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetRoomsResponseApplicationJsonInterface {
+abstract interface class $RoomGetRoomsResponseApplicationJsonInterface {
   RoomGetRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetRoomsResponseApplicationJson
     implements
-        RoomGetRoomsResponseApplicationJsonInterface,
+        $RoomGetRoomsResponseApplicationJsonInterface,
         Built<RoomGetRoomsResponseApplicationJson, RoomGetRoomsResponseApplicationJsonBuilder> {
   factory RoomGetRoomsResponseApplicationJson([final void Function(RoomGetRoomsResponseApplicationJsonBuilder)? b]) =
       _$RoomGetRoomsResponseApplicationJson;
@@ -19624,14 +19626,14 @@ class RoomCreateRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomCreateRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomCreateRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomCreateRoomResponseApplicationJson_Ocs
     implements
-        RoomCreateRoomResponseApplicationJson_OcsInterface,
+        $RoomCreateRoomResponseApplicationJson_OcsInterface,
         Built<RoomCreateRoomResponseApplicationJson_Ocs, RoomCreateRoomResponseApplicationJson_OcsBuilder> {
   factory RoomCreateRoomResponseApplicationJson_Ocs([
     final void Function(RoomCreateRoomResponseApplicationJson_OcsBuilder)? b,
@@ -19655,13 +19657,13 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomCreateRoomResponseApplicationJsonInterface {
+abstract interface class $RoomCreateRoomResponseApplicationJsonInterface {
   RoomCreateRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomCreateRoomResponseApplicationJson
     implements
-        RoomCreateRoomResponseApplicationJsonInterface,
+        $RoomCreateRoomResponseApplicationJsonInterface,
         Built<RoomCreateRoomResponseApplicationJson, RoomCreateRoomResponseApplicationJsonBuilder> {
   factory RoomCreateRoomResponseApplicationJson([
     final void Function(RoomCreateRoomResponseApplicationJsonBuilder)? b,
@@ -19699,14 +19701,14 @@ class RoomGetListedRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetListedRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetListedRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
     implements
-        RoomGetListedRoomsResponseApplicationJson_OcsInterface,
+        $RoomGetListedRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetListedRoomsResponseApplicationJson_Ocs, RoomGetListedRoomsResponseApplicationJson_OcsBuilder> {
   factory RoomGetListedRoomsResponseApplicationJson_Ocs([
     final void Function(RoomGetListedRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -19730,13 +19732,13 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetListedRoomsResponseApplicationJsonInterface {
+abstract interface class $RoomGetListedRoomsResponseApplicationJsonInterface {
   RoomGetListedRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetListedRoomsResponseApplicationJson
     implements
-        RoomGetListedRoomsResponseApplicationJsonInterface,
+        $RoomGetListedRoomsResponseApplicationJsonInterface,
         Built<RoomGetListedRoomsResponseApplicationJson, RoomGetListedRoomsResponseApplicationJsonBuilder> {
   factory RoomGetListedRoomsResponseApplicationJson([
     final void Function(RoomGetListedRoomsResponseApplicationJsonBuilder)? b,
@@ -19777,14 +19779,14 @@ class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRoomGetNoteToSelfConversationHeadersInterface {
+abstract interface class $RoomRoomGetNoteToSelfConversationHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
 }
 
 abstract class RoomRoomGetNoteToSelfConversationHeaders
     implements
-        RoomRoomGetNoteToSelfConversationHeadersInterface,
+        $RoomRoomGetNoteToSelfConversationHeadersInterface,
         Built<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder> {
   factory RoomRoomGetNoteToSelfConversationHeaders([
     final void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
@@ -19852,14 +19854,14 @@ class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
     implements
-        RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface,
+        $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface,
         Built<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
             RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder> {
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs([
@@ -19884,13 +19886,13 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetNoteToSelfConversationResponseApplicationJsonInterface {
+abstract interface class $RoomGetNoteToSelfConversationResponseApplicationJsonInterface {
   RoomGetNoteToSelfConversationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetNoteToSelfConversationResponseApplicationJson
     implements
-        RoomGetNoteToSelfConversationResponseApplicationJsonInterface,
+        $RoomGetNoteToSelfConversationResponseApplicationJsonInterface,
         Built<RoomGetNoteToSelfConversationResponseApplicationJson,
             RoomGetNoteToSelfConversationResponseApplicationJsonBuilder> {
   factory RoomGetNoteToSelfConversationResponseApplicationJson([
@@ -19929,14 +19931,14 @@ class RoomGetSingleRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRoomGetSingleRoomHeadersInterface {
+abstract interface class $RoomRoomGetSingleRoomHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-talk-hash')
   String? get xNextcloudTalkHash;
 }
 
 abstract class RoomRoomGetSingleRoomHeaders
     implements
-        RoomRoomGetSingleRoomHeadersInterface,
+        $RoomRoomGetSingleRoomHeadersInterface,
         Built<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder> {
   factory RoomRoomGetSingleRoomHeaders([final void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
       _$RoomRoomGetSingleRoomHeaders;
@@ -19998,14 +20000,14 @@ class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<R
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetSingleRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetSingleRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
     implements
-        RoomGetSingleRoomResponseApplicationJson_OcsInterface,
+        $RoomGetSingleRoomResponseApplicationJson_OcsInterface,
         Built<RoomGetSingleRoomResponseApplicationJson_Ocs, RoomGetSingleRoomResponseApplicationJson_OcsBuilder> {
   factory RoomGetSingleRoomResponseApplicationJson_Ocs([
     final void Function(RoomGetSingleRoomResponseApplicationJson_OcsBuilder)? b,
@@ -20029,13 +20031,13 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetSingleRoomResponseApplicationJsonInterface {
+abstract interface class $RoomGetSingleRoomResponseApplicationJsonInterface {
   RoomGetSingleRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetSingleRoomResponseApplicationJson
     implements
-        RoomGetSingleRoomResponseApplicationJsonInterface,
+        $RoomGetSingleRoomResponseApplicationJsonInterface,
         Built<RoomGetSingleRoomResponseApplicationJson, RoomGetSingleRoomResponseApplicationJsonBuilder> {
   factory RoomGetSingleRoomResponseApplicationJson([
     final void Function(RoomGetSingleRoomResponseApplicationJsonBuilder)? b,
@@ -20073,14 +20075,14 @@ class RoomRenameRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRenameRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomRenameRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomRenameRoomResponseApplicationJson_Ocs
     implements
-        RoomRenameRoomResponseApplicationJson_OcsInterface,
+        $RoomRenameRoomResponseApplicationJson_OcsInterface,
         Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRenameRoomResponseApplicationJson_Ocs([
     final void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
@@ -20104,13 +20106,13 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRenameRoomResponseApplicationJsonInterface {
+abstract interface class $RoomRenameRoomResponseApplicationJsonInterface {
   RoomRenameRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomRenameRoomResponseApplicationJson
     implements
-        RoomRenameRoomResponseApplicationJsonInterface,
+        $RoomRenameRoomResponseApplicationJsonInterface,
         Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
   factory RoomRenameRoomResponseApplicationJson([
     final void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b,
@@ -20148,14 +20150,14 @@ class RoomDeleteRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomDeleteRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomDeleteRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomDeleteRoomResponseApplicationJson_Ocs
     implements
-        RoomDeleteRoomResponseApplicationJson_OcsInterface,
+        $RoomDeleteRoomResponseApplicationJson_OcsInterface,
         Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
   factory RoomDeleteRoomResponseApplicationJson_Ocs([
     final void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
@@ -20179,13 +20181,13 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomDeleteRoomResponseApplicationJsonInterface {
+abstract interface class $RoomDeleteRoomResponseApplicationJsonInterface {
   RoomDeleteRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomDeleteRoomResponseApplicationJson
     implements
-        RoomDeleteRoomResponseApplicationJsonInterface,
+        $RoomDeleteRoomResponseApplicationJsonInterface,
         Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
   factory RoomDeleteRoomResponseApplicationJson([
     final void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b,
@@ -20223,14 +20225,14 @@ class RoomGetBreakoutRoomsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Room> get data;
 }
 
 abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
     implements
-        RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface,
+        $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson_Ocs, RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs([
     final void Function(RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -20254,13 +20256,13 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetBreakoutRoomsResponseApplicationJsonInterface {
+abstract interface class $RoomGetBreakoutRoomsResponseApplicationJsonInterface {
   RoomGetBreakoutRoomsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetBreakoutRoomsResponseApplicationJson
     implements
-        RoomGetBreakoutRoomsResponseApplicationJsonInterface,
+        $RoomGetBreakoutRoomsResponseApplicationJsonInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson, RoomGetBreakoutRoomsResponseApplicationJsonBuilder> {
   factory RoomGetBreakoutRoomsResponseApplicationJson([
     final void Function(RoomGetBreakoutRoomsResponseApplicationJsonBuilder)? b,
@@ -20298,14 +20300,14 @@ class RoomMakePublicApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomMakePublicResponseApplicationJson_OcsInterface {
+abstract interface class $RoomMakePublicResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomMakePublicResponseApplicationJson_Ocs
     implements
-        RoomMakePublicResponseApplicationJson_OcsInterface,
+        $RoomMakePublicResponseApplicationJson_OcsInterface,
         Built<RoomMakePublicResponseApplicationJson_Ocs, RoomMakePublicResponseApplicationJson_OcsBuilder> {
   factory RoomMakePublicResponseApplicationJson_Ocs([
     final void Function(RoomMakePublicResponseApplicationJson_OcsBuilder)? b,
@@ -20329,13 +20331,13 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomMakePublicResponseApplicationJsonInterface {
+abstract interface class $RoomMakePublicResponseApplicationJsonInterface {
   RoomMakePublicResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomMakePublicResponseApplicationJson
     implements
-        RoomMakePublicResponseApplicationJsonInterface,
+        $RoomMakePublicResponseApplicationJsonInterface,
         Built<RoomMakePublicResponseApplicationJson, RoomMakePublicResponseApplicationJsonBuilder> {
   factory RoomMakePublicResponseApplicationJson([
     final void Function(RoomMakePublicResponseApplicationJsonBuilder)? b,
@@ -20373,14 +20375,14 @@ class RoomMakePrivateApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomMakePrivateResponseApplicationJson_OcsInterface {
+abstract interface class $RoomMakePrivateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomMakePrivateResponseApplicationJson_Ocs
     implements
-        RoomMakePrivateResponseApplicationJson_OcsInterface,
+        $RoomMakePrivateResponseApplicationJson_OcsInterface,
         Built<RoomMakePrivateResponseApplicationJson_Ocs, RoomMakePrivateResponseApplicationJson_OcsBuilder> {
   factory RoomMakePrivateResponseApplicationJson_Ocs([
     final void Function(RoomMakePrivateResponseApplicationJson_OcsBuilder)? b,
@@ -20404,13 +20406,13 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomMakePrivateResponseApplicationJsonInterface {
+abstract interface class $RoomMakePrivateResponseApplicationJsonInterface {
   RoomMakePrivateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomMakePrivateResponseApplicationJson
     implements
-        RoomMakePrivateResponseApplicationJsonInterface,
+        $RoomMakePrivateResponseApplicationJsonInterface,
         Built<RoomMakePrivateResponseApplicationJson, RoomMakePrivateResponseApplicationJsonBuilder> {
   factory RoomMakePrivateResponseApplicationJson([
     final void Function(RoomMakePrivateResponseApplicationJsonBuilder)? b,
@@ -20448,14 +20450,14 @@ class RoomSetDescriptionApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetDescriptionResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetDescriptionResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetDescriptionResponseApplicationJson_Ocs
     implements
-        RoomSetDescriptionResponseApplicationJson_OcsInterface,
+        $RoomSetDescriptionResponseApplicationJson_OcsInterface,
         Built<RoomSetDescriptionResponseApplicationJson_Ocs, RoomSetDescriptionResponseApplicationJson_OcsBuilder> {
   factory RoomSetDescriptionResponseApplicationJson_Ocs([
     final void Function(RoomSetDescriptionResponseApplicationJson_OcsBuilder)? b,
@@ -20479,13 +20481,13 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetDescriptionResponseApplicationJsonInterface {
+abstract interface class $RoomSetDescriptionResponseApplicationJsonInterface {
   RoomSetDescriptionResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetDescriptionResponseApplicationJson
     implements
-        RoomSetDescriptionResponseApplicationJsonInterface,
+        $RoomSetDescriptionResponseApplicationJsonInterface,
         Built<RoomSetDescriptionResponseApplicationJson, RoomSetDescriptionResponseApplicationJsonBuilder> {
   factory RoomSetDescriptionResponseApplicationJson([
     final void Function(RoomSetDescriptionResponseApplicationJsonBuilder)? b,
@@ -20523,14 +20525,14 @@ class RoomSetReadOnlyApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetReadOnlyResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetReadOnlyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
     implements
-        RoomSetReadOnlyResponseApplicationJson_OcsInterface,
+        $RoomSetReadOnlyResponseApplicationJson_OcsInterface,
         Built<RoomSetReadOnlyResponseApplicationJson_Ocs, RoomSetReadOnlyResponseApplicationJson_OcsBuilder> {
   factory RoomSetReadOnlyResponseApplicationJson_Ocs([
     final void Function(RoomSetReadOnlyResponseApplicationJson_OcsBuilder)? b,
@@ -20554,13 +20556,13 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetReadOnlyResponseApplicationJsonInterface {
+abstract interface class $RoomSetReadOnlyResponseApplicationJsonInterface {
   RoomSetReadOnlyResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetReadOnlyResponseApplicationJson
     implements
-        RoomSetReadOnlyResponseApplicationJsonInterface,
+        $RoomSetReadOnlyResponseApplicationJsonInterface,
         Built<RoomSetReadOnlyResponseApplicationJson, RoomSetReadOnlyResponseApplicationJsonBuilder> {
   factory RoomSetReadOnlyResponseApplicationJson([
     final void Function(RoomSetReadOnlyResponseApplicationJsonBuilder)? b,
@@ -20598,14 +20600,14 @@ class RoomSetListableApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetListableResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetListableResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetListableResponseApplicationJson_Ocs
     implements
-        RoomSetListableResponseApplicationJson_OcsInterface,
+        $RoomSetListableResponseApplicationJson_OcsInterface,
         Built<RoomSetListableResponseApplicationJson_Ocs, RoomSetListableResponseApplicationJson_OcsBuilder> {
   factory RoomSetListableResponseApplicationJson_Ocs([
     final void Function(RoomSetListableResponseApplicationJson_OcsBuilder)? b,
@@ -20629,13 +20631,13 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetListableResponseApplicationJsonInterface {
+abstract interface class $RoomSetListableResponseApplicationJsonInterface {
   RoomSetListableResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetListableResponseApplicationJson
     implements
-        RoomSetListableResponseApplicationJsonInterface,
+        $RoomSetListableResponseApplicationJsonInterface,
         Built<RoomSetListableResponseApplicationJson, RoomSetListableResponseApplicationJsonBuilder> {
   factory RoomSetListableResponseApplicationJson([
     final void Function(RoomSetListableResponseApplicationJsonBuilder)? b,
@@ -20673,14 +20675,14 @@ class RoomSetPasswordApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetPasswordResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetPasswordResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetPasswordResponseApplicationJson_Ocs
     implements
-        RoomSetPasswordResponseApplicationJson_OcsInterface,
+        $RoomSetPasswordResponseApplicationJson_OcsInterface,
         Built<RoomSetPasswordResponseApplicationJson_Ocs, RoomSetPasswordResponseApplicationJson_OcsBuilder> {
   factory RoomSetPasswordResponseApplicationJson_Ocs([
     final void Function(RoomSetPasswordResponseApplicationJson_OcsBuilder)? b,
@@ -20704,13 +20706,13 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetPasswordResponseApplicationJsonInterface {
+abstract interface class $RoomSetPasswordResponseApplicationJsonInterface {
   RoomSetPasswordResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetPasswordResponseApplicationJson
     implements
-        RoomSetPasswordResponseApplicationJsonInterface,
+        $RoomSetPasswordResponseApplicationJsonInterface,
         Built<RoomSetPasswordResponseApplicationJson, RoomSetPasswordResponseApplicationJsonBuilder> {
   factory RoomSetPasswordResponseApplicationJson([
     final void Function(RoomSetPasswordResponseApplicationJsonBuilder)? b,
@@ -20748,14 +20750,14 @@ class RoomSetPermissionsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetPermissionsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetPermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetPermissionsResponseApplicationJson_Ocs
     implements
-        RoomSetPermissionsResponseApplicationJson_OcsInterface,
+        $RoomSetPermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetPermissionsResponseApplicationJson_Ocs, RoomSetPermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetPermissionsResponseApplicationJson_Ocs([
     final void Function(RoomSetPermissionsResponseApplicationJson_OcsBuilder)? b,
@@ -20779,13 +20781,13 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetPermissionsResponseApplicationJsonInterface {
+abstract interface class $RoomSetPermissionsResponseApplicationJsonInterface {
   RoomSetPermissionsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetPermissionsResponseApplicationJson
     implements
-        RoomSetPermissionsResponseApplicationJsonInterface,
+        $RoomSetPermissionsResponseApplicationJsonInterface,
         Built<RoomSetPermissionsResponseApplicationJson, RoomSetPermissionsResponseApplicationJsonBuilder> {
   factory RoomSetPermissionsResponseApplicationJson([
     final void Function(RoomSetPermissionsResponseApplicationJsonBuilder)? b,
@@ -20823,14 +20825,14 @@ class RoomGetParticipantsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRoomGetParticipantsHeadersInterface {
+abstract interface class $RoomRoomGetParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
   bool? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetParticipantsHeaders
     implements
-        RoomRoomGetParticipantsHeadersInterface,
+        $RoomRoomGetParticipantsHeadersInterface,
         Built<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder> {
   factory RoomRoomGetParticipantsHeaders([final void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
       _$RoomRoomGetParticipantsHeaders;
@@ -20895,7 +20897,7 @@ class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ParticipantInterface {
+abstract interface class $ParticipantInterface {
   String get actorId;
   String get actorType;
   int get attendeeId;
@@ -20916,7 +20918,7 @@ abstract interface class ParticipantInterface {
   String? get callId;
 }
 
-abstract class Participant implements ParticipantInterface, Built<Participant, ParticipantBuilder> {
+abstract class Participant implements $ParticipantInterface, Built<Participant, ParticipantBuilder> {
   factory Participant([final void Function(ParticipantBuilder)? b]) = _$Participant;
 
   // coverage:ignore-start
@@ -20935,14 +20937,14 @@ abstract class Participant implements ParticipantInterface, Built<Participant, P
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetParticipantsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetParticipantsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Participant> get data;
 }
 
 abstract class RoomGetParticipantsResponseApplicationJson_Ocs
     implements
-        RoomGetParticipantsResponseApplicationJson_OcsInterface,
+        $RoomGetParticipantsResponseApplicationJson_OcsInterface,
         Built<RoomGetParticipantsResponseApplicationJson_Ocs, RoomGetParticipantsResponseApplicationJson_OcsBuilder> {
   factory RoomGetParticipantsResponseApplicationJson_Ocs([
     final void Function(RoomGetParticipantsResponseApplicationJson_OcsBuilder)? b,
@@ -20966,13 +20968,13 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetParticipantsResponseApplicationJsonInterface {
+abstract interface class $RoomGetParticipantsResponseApplicationJsonInterface {
   RoomGetParticipantsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetParticipantsResponseApplicationJson
     implements
-        RoomGetParticipantsResponseApplicationJsonInterface,
+        $RoomGetParticipantsResponseApplicationJsonInterface,
         Built<RoomGetParticipantsResponseApplicationJson, RoomGetParticipantsResponseApplicationJsonBuilder> {
   factory RoomGetParticipantsResponseApplicationJson([
     final void Function(RoomGetParticipantsResponseApplicationJsonBuilder)? b,
@@ -21012,13 +21014,13 @@ class RoomAddParticipantToRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface {
+abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface {
   int get type;
 }
 
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
     implements
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface,
+        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Interface,
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
             RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder> {
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0([
@@ -21043,7 +21045,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface {
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0?
       get roomAddParticipantToRoomResponseApplicationJsonOcsData0;
   BuiltList<JsonObject>? get builtListJsonObject;
@@ -21051,7 +21053,7 @@ abstract interface class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Dat
 
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
     implements
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface,
+        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
             RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder> {
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data([
@@ -21138,14 +21140,14 @@ class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
     implements
-        RoomAddParticipantToRoomResponseApplicationJson_OcsInterface,
+        $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs,
             RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder> {
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs([
@@ -21170,13 +21172,13 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddParticipantToRoomResponseApplicationJsonInterface {
+abstract interface class $RoomAddParticipantToRoomResponseApplicationJsonInterface {
   RoomAddParticipantToRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomAddParticipantToRoomResponseApplicationJson
     implements
-        RoomAddParticipantToRoomResponseApplicationJsonInterface,
+        $RoomAddParticipantToRoomResponseApplicationJsonInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson, RoomAddParticipantToRoomResponseApplicationJsonBuilder> {
   factory RoomAddParticipantToRoomResponseApplicationJson([
     final void Function(RoomAddParticipantToRoomResponseApplicationJsonBuilder)? b,
@@ -21217,14 +21219,14 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
+abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
   bool? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
     implements
-        RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
+        $RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
         Built<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder> {
   factory RoomRoomGetBreakoutRoomParticipantsHeaders([
     final void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
@@ -21295,14 +21297,14 @@ class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Participant> get data;
 }
 
 abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
     implements
-        RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface,
+        $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface,
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
             RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder> {
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs([
@@ -21327,13 +21329,13 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface {
+abstract interface class $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface {
   RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
     implements
-        RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface,
+        $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface,
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
             RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder> {
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson([
@@ -21372,14 +21374,14 @@ class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
     implements
-        RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface,
+        $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface,
         Built<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
             RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs([
@@ -21404,13 +21406,13 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveSelfFromRoomResponseApplicationJsonInterface {
+abstract interface class $RoomRemoveSelfFromRoomResponseApplicationJsonInterface {
   RoomRemoveSelfFromRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomRemoveSelfFromRoomResponseApplicationJson
     implements
-        RoomRemoveSelfFromRoomResponseApplicationJsonInterface,
+        $RoomRemoveSelfFromRoomResponseApplicationJsonInterface,
         Built<RoomRemoveSelfFromRoomResponseApplicationJson, RoomRemoveSelfFromRoomResponseApplicationJsonBuilder> {
   factory RoomRemoveSelfFromRoomResponseApplicationJson([
     final void Function(RoomRemoveSelfFromRoomResponseApplicationJsonBuilder)? b,
@@ -21450,14 +21452,14 @@ class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
     implements
-        RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface,
+        $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface,
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
             RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs([
@@ -21482,13 +21484,13 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface {
+abstract interface class $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface {
   RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
     implements
-        RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface,
+        $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface,
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson,
             RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder> {
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson([
@@ -21529,14 +21531,14 @@ class RoomSetAttendeePermissionsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
     implements
-        RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface,
+        $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
             RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs([
@@ -21561,13 +21563,13 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetAttendeePermissionsResponseApplicationJsonInterface {
+abstract interface class $RoomSetAttendeePermissionsResponseApplicationJsonInterface {
   RoomSetAttendeePermissionsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetAttendeePermissionsResponseApplicationJson
     implements
-        RoomSetAttendeePermissionsResponseApplicationJsonInterface,
+        $RoomSetAttendeePermissionsResponseApplicationJsonInterface,
         Built<RoomSetAttendeePermissionsResponseApplicationJson,
             RoomSetAttendeePermissionsResponseApplicationJsonBuilder> {
   factory RoomSetAttendeePermissionsResponseApplicationJson([
@@ -21609,14 +21611,14 @@ class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
     implements
-        RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface,
+        $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
             RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs([
@@ -21641,13 +21643,13 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface {
+abstract interface class $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface {
   RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
     implements
-        RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface,
+        $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface,
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson,
             RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder> {
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson([
@@ -21686,14 +21688,14 @@ class RoomJoinRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomJoinRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomJoinRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomJoinRoomResponseApplicationJson_Ocs
     implements
-        RoomJoinRoomResponseApplicationJson_OcsInterface,
+        $RoomJoinRoomResponseApplicationJson_OcsInterface,
         Built<RoomJoinRoomResponseApplicationJson_Ocs, RoomJoinRoomResponseApplicationJson_OcsBuilder> {
   factory RoomJoinRoomResponseApplicationJson_Ocs([
     final void Function(RoomJoinRoomResponseApplicationJson_OcsBuilder)? b,
@@ -21717,13 +21719,13 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomJoinRoomResponseApplicationJsonInterface {
+abstract interface class $RoomJoinRoomResponseApplicationJsonInterface {
   RoomJoinRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomJoinRoomResponseApplicationJson
     implements
-        RoomJoinRoomResponseApplicationJsonInterface,
+        $RoomJoinRoomResponseApplicationJsonInterface,
         Built<RoomJoinRoomResponseApplicationJson, RoomJoinRoomResponseApplicationJsonBuilder> {
   factory RoomJoinRoomResponseApplicationJson([final void Function(RoomJoinRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomJoinRoomResponseApplicationJson;
@@ -21760,14 +21762,14 @@ class RoomLeaveRoomApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomLeaveRoomResponseApplicationJson_OcsInterface {
+abstract interface class $RoomLeaveRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomLeaveRoomResponseApplicationJson_Ocs
     implements
-        RoomLeaveRoomResponseApplicationJson_OcsInterface,
+        $RoomLeaveRoomResponseApplicationJson_OcsInterface,
         Built<RoomLeaveRoomResponseApplicationJson_Ocs, RoomLeaveRoomResponseApplicationJson_OcsBuilder> {
   factory RoomLeaveRoomResponseApplicationJson_Ocs([
     final void Function(RoomLeaveRoomResponseApplicationJson_OcsBuilder)? b,
@@ -21791,13 +21793,13 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomLeaveRoomResponseApplicationJsonInterface {
+abstract interface class $RoomLeaveRoomResponseApplicationJsonInterface {
   RoomLeaveRoomResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomLeaveRoomResponseApplicationJson
     implements
-        RoomLeaveRoomResponseApplicationJsonInterface,
+        $RoomLeaveRoomResponseApplicationJsonInterface,
         Built<RoomLeaveRoomResponseApplicationJson, RoomLeaveRoomResponseApplicationJsonBuilder> {
   factory RoomLeaveRoomResponseApplicationJson([final void Function(RoomLeaveRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomLeaveRoomResponseApplicationJson;
@@ -21834,14 +21836,14 @@ class RoomResendInvitationsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomResendInvitationsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomResendInvitationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomResendInvitationsResponseApplicationJson_Ocs
     implements
-        RoomResendInvitationsResponseApplicationJson_OcsInterface,
+        $RoomResendInvitationsResponseApplicationJson_OcsInterface,
         Built<RoomResendInvitationsResponseApplicationJson_Ocs,
             RoomResendInvitationsResponseApplicationJson_OcsBuilder> {
   factory RoomResendInvitationsResponseApplicationJson_Ocs([
@@ -21866,13 +21868,13 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomResendInvitationsResponseApplicationJsonInterface {
+abstract interface class $RoomResendInvitationsResponseApplicationJsonInterface {
   RoomResendInvitationsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomResendInvitationsResponseApplicationJson
     implements
-        RoomResendInvitationsResponseApplicationJsonInterface,
+        $RoomResendInvitationsResponseApplicationJsonInterface,
         Built<RoomResendInvitationsResponseApplicationJson, RoomResendInvitationsResponseApplicationJsonBuilder> {
   factory RoomResendInvitationsResponseApplicationJson([
     final void Function(RoomResendInvitationsResponseApplicationJsonBuilder)? b,
@@ -21910,14 +21912,14 @@ class RoomSetSessionStateApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetSessionStateResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetSessionStateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetSessionStateResponseApplicationJson_Ocs
     implements
-        RoomSetSessionStateResponseApplicationJson_OcsInterface,
+        $RoomSetSessionStateResponseApplicationJson_OcsInterface,
         Built<RoomSetSessionStateResponseApplicationJson_Ocs, RoomSetSessionStateResponseApplicationJson_OcsBuilder> {
   factory RoomSetSessionStateResponseApplicationJson_Ocs([
     final void Function(RoomSetSessionStateResponseApplicationJson_OcsBuilder)? b,
@@ -21941,13 +21943,13 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetSessionStateResponseApplicationJsonInterface {
+abstract interface class $RoomSetSessionStateResponseApplicationJsonInterface {
   RoomSetSessionStateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetSessionStateResponseApplicationJson
     implements
-        RoomSetSessionStateResponseApplicationJsonInterface,
+        $RoomSetSessionStateResponseApplicationJsonInterface,
         Built<RoomSetSessionStateResponseApplicationJson, RoomSetSessionStateResponseApplicationJsonBuilder> {
   factory RoomSetSessionStateResponseApplicationJson([
     final void Function(RoomSetSessionStateResponseApplicationJsonBuilder)? b,
@@ -21985,14 +21987,14 @@ class RoomPromoteModeratorApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomPromoteModeratorResponseApplicationJson_OcsInterface {
+abstract interface class $RoomPromoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
     implements
-        RoomPromoteModeratorResponseApplicationJson_OcsInterface,
+        $RoomPromoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomPromoteModeratorResponseApplicationJson_Ocs, RoomPromoteModeratorResponseApplicationJson_OcsBuilder> {
   factory RoomPromoteModeratorResponseApplicationJson_Ocs([
     final void Function(RoomPromoteModeratorResponseApplicationJson_OcsBuilder)? b,
@@ -22016,13 +22018,13 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomPromoteModeratorResponseApplicationJsonInterface {
+abstract interface class $RoomPromoteModeratorResponseApplicationJsonInterface {
   RoomPromoteModeratorResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomPromoteModeratorResponseApplicationJson
     implements
-        RoomPromoteModeratorResponseApplicationJsonInterface,
+        $RoomPromoteModeratorResponseApplicationJsonInterface,
         Built<RoomPromoteModeratorResponseApplicationJson, RoomPromoteModeratorResponseApplicationJsonBuilder> {
   factory RoomPromoteModeratorResponseApplicationJson([
     final void Function(RoomPromoteModeratorResponseApplicationJsonBuilder)? b,
@@ -22060,14 +22062,14 @@ class RoomDemoteModeratorApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomDemoteModeratorResponseApplicationJson_OcsInterface {
+abstract interface class $RoomDemoteModeratorResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
     implements
-        RoomDemoteModeratorResponseApplicationJson_OcsInterface,
+        $RoomDemoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomDemoteModeratorResponseApplicationJson_Ocs, RoomDemoteModeratorResponseApplicationJson_OcsBuilder> {
   factory RoomDemoteModeratorResponseApplicationJson_Ocs([
     final void Function(RoomDemoteModeratorResponseApplicationJson_OcsBuilder)? b,
@@ -22091,13 +22093,13 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomDemoteModeratorResponseApplicationJsonInterface {
+abstract interface class $RoomDemoteModeratorResponseApplicationJsonInterface {
   RoomDemoteModeratorResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomDemoteModeratorResponseApplicationJson
     implements
-        RoomDemoteModeratorResponseApplicationJsonInterface,
+        $RoomDemoteModeratorResponseApplicationJsonInterface,
         Built<RoomDemoteModeratorResponseApplicationJson, RoomDemoteModeratorResponseApplicationJsonBuilder> {
   factory RoomDemoteModeratorResponseApplicationJson([
     final void Function(RoomDemoteModeratorResponseApplicationJsonBuilder)? b,
@@ -22135,14 +22137,14 @@ class RoomAddToFavoritesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddToFavoritesResponseApplicationJson_OcsInterface {
+abstract interface class $RoomAddToFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
     implements
-        RoomAddToFavoritesResponseApplicationJson_OcsInterface,
+        $RoomAddToFavoritesResponseApplicationJson_OcsInterface,
         Built<RoomAddToFavoritesResponseApplicationJson_Ocs, RoomAddToFavoritesResponseApplicationJson_OcsBuilder> {
   factory RoomAddToFavoritesResponseApplicationJson_Ocs([
     final void Function(RoomAddToFavoritesResponseApplicationJson_OcsBuilder)? b,
@@ -22166,13 +22168,13 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomAddToFavoritesResponseApplicationJsonInterface {
+abstract interface class $RoomAddToFavoritesResponseApplicationJsonInterface {
   RoomAddToFavoritesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomAddToFavoritesResponseApplicationJson
     implements
-        RoomAddToFavoritesResponseApplicationJsonInterface,
+        $RoomAddToFavoritesResponseApplicationJsonInterface,
         Built<RoomAddToFavoritesResponseApplicationJson, RoomAddToFavoritesResponseApplicationJsonBuilder> {
   factory RoomAddToFavoritesResponseApplicationJson([
     final void Function(RoomAddToFavoritesResponseApplicationJsonBuilder)? b,
@@ -22211,14 +22213,14 @@ class RoomRemoveFromFavoritesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
+abstract interface class $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
     implements
-        RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface,
+        $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface,
         Built<RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
             RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs([
@@ -22243,13 +22245,13 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomRemoveFromFavoritesResponseApplicationJsonInterface {
+abstract interface class $RoomRemoveFromFavoritesResponseApplicationJsonInterface {
   RoomRemoveFromFavoritesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomRemoveFromFavoritesResponseApplicationJson
     implements
-        RoomRemoveFromFavoritesResponseApplicationJsonInterface,
+        $RoomRemoveFromFavoritesResponseApplicationJsonInterface,
         Built<RoomRemoveFromFavoritesResponseApplicationJson, RoomRemoveFromFavoritesResponseApplicationJsonBuilder> {
   factory RoomRemoveFromFavoritesResponseApplicationJson([
     final void Function(RoomRemoveFromFavoritesResponseApplicationJsonBuilder)? b,
@@ -22289,14 +22291,14 @@ class RoomSetNotificationLevelApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
     implements
-        RoomSetNotificationLevelResponseApplicationJson_OcsInterface,
+        $RoomSetNotificationLevelResponseApplicationJson_OcsInterface,
         Built<RoomSetNotificationLevelResponseApplicationJson_Ocs,
             RoomSetNotificationLevelResponseApplicationJson_OcsBuilder> {
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs([
@@ -22321,13 +22323,13 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetNotificationLevelResponseApplicationJsonInterface {
+abstract interface class $RoomSetNotificationLevelResponseApplicationJsonInterface {
   RoomSetNotificationLevelResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetNotificationLevelResponseApplicationJson
     implements
-        RoomSetNotificationLevelResponseApplicationJsonInterface,
+        $RoomSetNotificationLevelResponseApplicationJsonInterface,
         Built<RoomSetNotificationLevelResponseApplicationJson, RoomSetNotificationLevelResponseApplicationJsonBuilder> {
   factory RoomSetNotificationLevelResponseApplicationJson([
     final void Function(RoomSetNotificationLevelResponseApplicationJsonBuilder)? b,
@@ -22367,14 +22369,14 @@ class RoomSetNotificationCallsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
     implements
-        RoomSetNotificationCallsResponseApplicationJson_OcsInterface,
+        $RoomSetNotificationCallsResponseApplicationJson_OcsInterface,
         Built<RoomSetNotificationCallsResponseApplicationJson_Ocs,
             RoomSetNotificationCallsResponseApplicationJson_OcsBuilder> {
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs([
@@ -22399,13 +22401,13 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetNotificationCallsResponseApplicationJsonInterface {
+abstract interface class $RoomSetNotificationCallsResponseApplicationJsonInterface {
   RoomSetNotificationCallsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetNotificationCallsResponseApplicationJson
     implements
-        RoomSetNotificationCallsResponseApplicationJsonInterface,
+        $RoomSetNotificationCallsResponseApplicationJsonInterface,
         Built<RoomSetNotificationCallsResponseApplicationJson, RoomSetNotificationCallsResponseApplicationJsonBuilder> {
   factory RoomSetNotificationCallsResponseApplicationJson([
     final void Function(RoomSetNotificationCallsResponseApplicationJsonBuilder)? b,
@@ -22443,14 +22445,14 @@ class RoomSetLobbyApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetLobbyResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetLobbyResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetLobbyResponseApplicationJson_Ocs
     implements
-        RoomSetLobbyResponseApplicationJson_OcsInterface,
+        $RoomSetLobbyResponseApplicationJson_OcsInterface,
         Built<RoomSetLobbyResponseApplicationJson_Ocs, RoomSetLobbyResponseApplicationJson_OcsBuilder> {
   factory RoomSetLobbyResponseApplicationJson_Ocs([
     final void Function(RoomSetLobbyResponseApplicationJson_OcsBuilder)? b,
@@ -22474,13 +22476,13 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetLobbyResponseApplicationJsonInterface {
+abstract interface class $RoomSetLobbyResponseApplicationJsonInterface {
   RoomSetLobbyResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetLobbyResponseApplicationJson
     implements
-        RoomSetLobbyResponseApplicationJsonInterface,
+        $RoomSetLobbyResponseApplicationJsonInterface,
         Built<RoomSetLobbyResponseApplicationJson, RoomSetLobbyResponseApplicationJsonBuilder> {
   factory RoomSetLobbyResponseApplicationJson([final void Function(RoomSetLobbyResponseApplicationJsonBuilder)? b]) =
       _$RoomSetLobbyResponseApplicationJson;
@@ -22517,14 +22519,14 @@ class RoomSetsipEnabledApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetsipEnabledResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetsipEnabledResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
     implements
-        RoomSetsipEnabledResponseApplicationJson_OcsInterface,
+        $RoomSetsipEnabledResponseApplicationJson_OcsInterface,
         Built<RoomSetsipEnabledResponseApplicationJson_Ocs, RoomSetsipEnabledResponseApplicationJson_OcsBuilder> {
   factory RoomSetsipEnabledResponseApplicationJson_Ocs([
     final void Function(RoomSetsipEnabledResponseApplicationJson_OcsBuilder)? b,
@@ -22548,13 +22550,13 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetsipEnabledResponseApplicationJsonInterface {
+abstract interface class $RoomSetsipEnabledResponseApplicationJsonInterface {
   RoomSetsipEnabledResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetsipEnabledResponseApplicationJson
     implements
-        RoomSetsipEnabledResponseApplicationJsonInterface,
+        $RoomSetsipEnabledResponseApplicationJsonInterface,
         Built<RoomSetsipEnabledResponseApplicationJson, RoomSetsipEnabledResponseApplicationJsonBuilder> {
   factory RoomSetsipEnabledResponseApplicationJson([
     final void Function(RoomSetsipEnabledResponseApplicationJsonBuilder)? b,
@@ -22593,14 +22595,14 @@ class RoomSetRecordingConsentApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetRecordingConsentResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetRecordingConsentResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Room get data;
 }
 
 abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
     implements
-        RoomSetRecordingConsentResponseApplicationJson_OcsInterface,
+        $RoomSetRecordingConsentResponseApplicationJson_OcsInterface,
         Built<RoomSetRecordingConsentResponseApplicationJson_Ocs,
             RoomSetRecordingConsentResponseApplicationJson_OcsBuilder> {
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs([
@@ -22625,13 +22627,13 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetRecordingConsentResponseApplicationJsonInterface {
+abstract interface class $RoomSetRecordingConsentResponseApplicationJsonInterface {
   RoomSetRecordingConsentResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetRecordingConsentResponseApplicationJson
     implements
-        RoomSetRecordingConsentResponseApplicationJsonInterface,
+        $RoomSetRecordingConsentResponseApplicationJsonInterface,
         Built<RoomSetRecordingConsentResponseApplicationJson, RoomSetRecordingConsentResponseApplicationJsonBuilder> {
   factory RoomSetRecordingConsentResponseApplicationJson([
     final void Function(RoomSetRecordingConsentResponseApplicationJsonBuilder)? b,
@@ -22671,14 +22673,14 @@ class RoomSetMessageExpirationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
+abstract interface class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
     implements
-        RoomSetMessageExpirationResponseApplicationJson_OcsInterface,
+        $RoomSetMessageExpirationResponseApplicationJson_OcsInterface,
         Built<RoomSetMessageExpirationResponseApplicationJson_Ocs,
             RoomSetMessageExpirationResponseApplicationJson_OcsBuilder> {
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs([
@@ -22703,13 +22705,13 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class RoomSetMessageExpirationResponseApplicationJsonInterface {
+abstract interface class $RoomSetMessageExpirationResponseApplicationJsonInterface {
   RoomSetMessageExpirationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class RoomSetMessageExpirationResponseApplicationJson
     implements
-        RoomSetMessageExpirationResponseApplicationJsonInterface,
+        $RoomSetMessageExpirationResponseApplicationJsonInterface,
         Built<RoomSetMessageExpirationResponseApplicationJson, RoomSetMessageExpirationResponseApplicationJsonBuilder> {
   factory RoomSetMessageExpirationResponseApplicationJson([
     final void Function(RoomSetMessageExpirationResponseApplicationJsonBuilder)? b,
@@ -22747,14 +22749,14 @@ class SettingsSetsipSettingsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
+abstract interface class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
     implements
-        SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
+        $SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
         Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
             SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
@@ -22779,13 +22781,13 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsSetsipSettingsResponseApplicationJsonInterface {
+abstract interface class $SettingsSetsipSettingsResponseApplicationJsonInterface {
   SettingsSetsipSettingsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SettingsSetsipSettingsResponseApplicationJson
     implements
-        SettingsSetsipSettingsResponseApplicationJsonInterface,
+        $SettingsSetsipSettingsResponseApplicationJsonInterface,
         Built<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder> {
   factory SettingsSetsipSettingsResponseApplicationJson([
     final void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
@@ -22809,14 +22811,14 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsSetUserSettingValueInterface {
+abstract interface class $SettingsSetUserSettingValueInterface {
   String? get string;
   int? get $int;
 }
 
 abstract class SettingsSetUserSettingValue
     implements
-        SettingsSetUserSettingValueInterface,
+        $SettingsSetUserSettingValueInterface,
         Built<SettingsSetUserSettingValue, SettingsSetUserSettingValueBuilder> {
   factory SettingsSetUserSettingValue([final void Function(SettingsSetUserSettingValueBuilder)? b]) =
       _$SettingsSetUserSettingValue;
@@ -22901,14 +22903,14 @@ class SettingsSetUserSettingApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsSetUserSettingResponseApplicationJson_OcsInterface {
+abstract interface class $SettingsSetUserSettingResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
     implements
-        SettingsSetUserSettingResponseApplicationJson_OcsInterface,
+        $SettingsSetUserSettingResponseApplicationJson_OcsInterface,
         Built<SettingsSetUserSettingResponseApplicationJson_Ocs,
             SettingsSetUserSettingResponseApplicationJson_OcsBuilder> {
   factory SettingsSetUserSettingResponseApplicationJson_Ocs([
@@ -22933,13 +22935,13 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsSetUserSettingResponseApplicationJsonInterface {
+abstract interface class $SettingsSetUserSettingResponseApplicationJsonInterface {
   SettingsSetUserSettingResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SettingsSetUserSettingResponseApplicationJson
     implements
-        SettingsSetUserSettingResponseApplicationJsonInterface,
+        $SettingsSetUserSettingResponseApplicationJsonInterface,
         Built<SettingsSetUserSettingResponseApplicationJson, SettingsSetUserSettingResponseApplicationJsonBuilder> {
   factory SettingsSetUserSettingResponseApplicationJson([
     final void Function(SettingsSetUserSettingResponseApplicationJsonBuilder)? b,
@@ -22977,14 +22979,14 @@ class SignalingGetSettingsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettings_HelloAuthParams_$10Interface {
+abstract interface class $SignalingSettings_HelloAuthParams_$10Interface {
   String? get userid;
   String get ticket;
 }
 
 abstract class SignalingSettings_HelloAuthParams_$10
     implements
-        SignalingSettings_HelloAuthParams_$10Interface,
+        $SignalingSettings_HelloAuthParams_$10Interface,
         Built<SignalingSettings_HelloAuthParams_$10, SignalingSettings_HelloAuthParams_$10Builder> {
   factory SignalingSettings_HelloAuthParams_$10([
     final void Function(SignalingSettings_HelloAuthParams_$10Builder)? b,
@@ -23008,13 +23010,13 @@ abstract class SignalingSettings_HelloAuthParams_$10
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettings_HelloAuthParams_$20Interface {
+abstract interface class $SignalingSettings_HelloAuthParams_$20Interface {
   String get token;
 }
 
 abstract class SignalingSettings_HelloAuthParams_$20
     implements
-        SignalingSettings_HelloAuthParams_$20Interface,
+        $SignalingSettings_HelloAuthParams_$20Interface,
         Built<SignalingSettings_HelloAuthParams_$20, SignalingSettings_HelloAuthParams_$20Builder> {
   factory SignalingSettings_HelloAuthParams_$20([
     final void Function(SignalingSettings_HelloAuthParams_$20Builder)? b,
@@ -23038,7 +23040,7 @@ abstract class SignalingSettings_HelloAuthParams_$20
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettings_HelloAuthParamsInterface {
+abstract interface class $SignalingSettings_HelloAuthParamsInterface {
   @BuiltValueField(wireName: '1.0')
   SignalingSettings_HelloAuthParams_$10 get $10;
   @BuiltValueField(wireName: '2.0')
@@ -23047,7 +23049,7 @@ abstract interface class SignalingSettings_HelloAuthParamsInterface {
 
 abstract class SignalingSettings_HelloAuthParams
     implements
-        SignalingSettings_HelloAuthParamsInterface,
+        $SignalingSettings_HelloAuthParamsInterface,
         Built<SignalingSettings_HelloAuthParams, SignalingSettings_HelloAuthParamsBuilder> {
   factory SignalingSettings_HelloAuthParams([final void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
       _$SignalingSettings_HelloAuthParams;
@@ -23069,13 +23071,13 @@ abstract class SignalingSettings_HelloAuthParams
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettings_StunserversInterface {
+abstract interface class $SignalingSettings_StunserversInterface {
   BuiltList<String> get urls;
 }
 
 abstract class SignalingSettings_Stunservers
     implements
-        SignalingSettings_StunserversInterface,
+        $SignalingSettings_StunserversInterface,
         Built<SignalingSettings_Stunservers, SignalingSettings_StunserversBuilder> {
   factory SignalingSettings_Stunservers([final void Function(SignalingSettings_StunserversBuilder)? b]) =
       _$SignalingSettings_Stunservers;
@@ -23097,7 +23099,7 @@ abstract class SignalingSettings_Stunservers
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettings_TurnserversInterface {
+abstract interface class $SignalingSettings_TurnserversInterface {
   BuiltList<String> get urls;
   String get username;
   JsonObject get credential;
@@ -23105,7 +23107,7 @@ abstract interface class SignalingSettings_TurnserversInterface {
 
 abstract class SignalingSettings_Turnservers
     implements
-        SignalingSettings_TurnserversInterface,
+        $SignalingSettings_TurnserversInterface,
         Built<SignalingSettings_Turnservers, SignalingSettings_TurnserversBuilder> {
   factory SignalingSettings_Turnservers([final void Function(SignalingSettings_TurnserversBuilder)? b]) =
       _$SignalingSettings_Turnservers;
@@ -23127,7 +23129,7 @@ abstract class SignalingSettings_Turnservers
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSettingsInterface {
+abstract interface class $SignalingSettingsInterface {
   SignalingSettings_HelloAuthParams get helloAuthParams;
   bool get hideWarning;
   String get server;
@@ -23140,7 +23142,7 @@ abstract interface class SignalingSettingsInterface {
 }
 
 abstract class SignalingSettings
-    implements SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
+    implements $SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
   factory SignalingSettings([final void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
 
   // coverage:ignore-start
@@ -23160,14 +23162,14 @@ abstract class SignalingSettings
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingGetSettingsResponseApplicationJson_OcsInterface {
+abstract interface class $SignalingGetSettingsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   SignalingSettings get data;
 }
 
 abstract class SignalingGetSettingsResponseApplicationJson_Ocs
     implements
-        SignalingGetSettingsResponseApplicationJson_OcsInterface,
+        $SignalingGetSettingsResponseApplicationJson_OcsInterface,
         Built<SignalingGetSettingsResponseApplicationJson_Ocs, SignalingGetSettingsResponseApplicationJson_OcsBuilder> {
   factory SignalingGetSettingsResponseApplicationJson_Ocs([
     final void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
@@ -23191,13 +23193,13 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingGetSettingsResponseApplicationJsonInterface {
+abstract interface class $SignalingGetSettingsResponseApplicationJsonInterface {
   SignalingGetSettingsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SignalingGetSettingsResponseApplicationJson
     implements
-        SignalingGetSettingsResponseApplicationJsonInterface,
+        $SignalingGetSettingsResponseApplicationJsonInterface,
         Built<SignalingGetSettingsResponseApplicationJson, SignalingGetSettingsResponseApplicationJsonBuilder> {
   factory SignalingGetSettingsResponseApplicationJson([
     final void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
@@ -23237,14 +23239,14 @@ class SignalingGetWelcomeMessageApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
+abstract interface class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, JsonObject> get data;
 }
 
 abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
     implements
-        SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
+        $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
         Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
             SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
@@ -23269,13 +23271,13 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingGetWelcomeMessageResponseApplicationJsonInterface {
+abstract interface class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
   SignalingGetWelcomeMessageResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SignalingGetWelcomeMessageResponseApplicationJson
     implements
-        SignalingGetWelcomeMessageResponseApplicationJsonInterface,
+        $SignalingGetWelcomeMessageResponseApplicationJsonInterface,
         Built<SignalingGetWelcomeMessageResponseApplicationJson,
             SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
   factory SignalingGetWelcomeMessageResponseApplicationJson([
@@ -23314,7 +23316,7 @@ class SignalingPullMessagesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSessionInterface {
+abstract interface class $SignalingSessionInterface {
   int get inCall;
   int get lastPing;
   int get participantPermissions;
@@ -23323,7 +23325,8 @@ abstract interface class SignalingSessionInterface {
   String get userId;
 }
 
-abstract class SignalingSession implements SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
+abstract class SignalingSession
+    implements $SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
   factory SignalingSession([final void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
 
   // coverage:ignore-start
@@ -23343,14 +23346,14 @@ abstract class SignalingSession implements SignalingSessionInterface, Built<Sign
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface {
+abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface {
   BuiltList<SignalingSession>? get builtListSignalingSession;
   String? get string;
 }
 
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data
     implements
-        SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface,
+        $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface,
         Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
             SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder> {
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data([
@@ -23431,14 +23434,14 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
   String get type;
   SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data get data;
 }
 
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
     implements
-        SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
+        $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
         Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
             SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
@@ -23463,14 +23466,14 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingPullMessagesResponseApplicationJson_OcsInterface {
+abstract interface class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<SignalingPullMessagesResponseApplicationJson_Ocs_Data> get data;
 }
 
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs
     implements
-        SignalingPullMessagesResponseApplicationJson_OcsInterface,
+        $SignalingPullMessagesResponseApplicationJson_OcsInterface,
         Built<SignalingPullMessagesResponseApplicationJson_Ocs,
             SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
   factory SignalingPullMessagesResponseApplicationJson_Ocs([
@@ -23495,13 +23498,13 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingPullMessagesResponseApplicationJsonInterface {
+abstract interface class $SignalingPullMessagesResponseApplicationJsonInterface {
   SignalingPullMessagesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SignalingPullMessagesResponseApplicationJson
     implements
-        SignalingPullMessagesResponseApplicationJsonInterface,
+        $SignalingPullMessagesResponseApplicationJsonInterface,
         Built<SignalingPullMessagesResponseApplicationJson, SignalingPullMessagesResponseApplicationJsonBuilder> {
   factory SignalingPullMessagesResponseApplicationJson([
     final void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
@@ -23539,14 +23542,14 @@ class SignalingSendMessagesApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSendMessagesResponseApplicationJson_OcsInterface {
+abstract interface class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class SignalingSendMessagesResponseApplicationJson_Ocs
     implements
-        SignalingSendMessagesResponseApplicationJson_OcsInterface,
+        $SignalingSendMessagesResponseApplicationJson_OcsInterface,
         Built<SignalingSendMessagesResponseApplicationJson_Ocs,
             SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
   factory SignalingSendMessagesResponseApplicationJson_Ocs([
@@ -23571,13 +23574,13 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SignalingSendMessagesResponseApplicationJsonInterface {
+abstract interface class $SignalingSendMessagesResponseApplicationJsonInterface {
   SignalingSendMessagesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SignalingSendMessagesResponseApplicationJson
     implements
-        SignalingSendMessagesResponseApplicationJsonInterface,
+        $SignalingSendMessagesResponseApplicationJsonInterface,
         Built<SignalingSendMessagesResponseApplicationJson, SignalingSendMessagesResponseApplicationJsonBuilder> {
   factory SignalingSendMessagesResponseApplicationJson([
     final void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
@@ -23601,14 +23604,14 @@ abstract class SignalingSendMessagesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TempAvatarPostAvatarResponseApplicationJson_OcsInterface {
+abstract interface class $TempAvatarPostAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
     implements
-        TempAvatarPostAvatarResponseApplicationJson_OcsInterface,
+        $TempAvatarPostAvatarResponseApplicationJson_OcsInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson_Ocs, TempAvatarPostAvatarResponseApplicationJson_OcsBuilder> {
   factory TempAvatarPostAvatarResponseApplicationJson_Ocs([
     final void Function(TempAvatarPostAvatarResponseApplicationJson_OcsBuilder)? b,
@@ -23632,13 +23635,13 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TempAvatarPostAvatarResponseApplicationJsonInterface {
+abstract interface class $TempAvatarPostAvatarResponseApplicationJsonInterface {
   TempAvatarPostAvatarResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TempAvatarPostAvatarResponseApplicationJson
     implements
-        TempAvatarPostAvatarResponseApplicationJsonInterface,
+        $TempAvatarPostAvatarResponseApplicationJsonInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson, TempAvatarPostAvatarResponseApplicationJsonBuilder> {
   factory TempAvatarPostAvatarResponseApplicationJson([
     final void Function(TempAvatarPostAvatarResponseApplicationJsonBuilder)? b,
@@ -23662,14 +23665,14 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
+abstract interface class $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
     implements
-        TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface,
+        $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface,
         Built<TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
             TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs([
@@ -23694,13 +23697,13 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TempAvatarDeleteAvatarResponseApplicationJsonInterface {
+abstract interface class $TempAvatarDeleteAvatarResponseApplicationJsonInterface {
   TempAvatarDeleteAvatarResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TempAvatarDeleteAvatarResponseApplicationJson
     implements
-        TempAvatarDeleteAvatarResponseApplicationJsonInterface,
+        $TempAvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<TempAvatarDeleteAvatarResponseApplicationJson, TempAvatarDeleteAvatarResponseApplicationJsonBuilder> {
   factory TempAvatarDeleteAvatarResponseApplicationJson([
     final void Function(TempAvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
@@ -23724,16 +23727,16 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotWithDetailsAndSecret_1Interface {
+abstract interface class $BotWithDetailsAndSecret_1Interface {
   String get secret;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BotWithDetailsAndSecretInterface
-    implements BotWithDetailsInterface, BotWithDetailsAndSecret_1Interface {}
+abstract interface class $BotWithDetailsAndSecretInterface
+    implements $BotWithDetailsInterface, $BotWithDetailsAndSecret_1Interface {}
 
 abstract class BotWithDetailsAndSecret
-    implements BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {
+    implements $BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {
   factory BotWithDetailsAndSecret([final void Function(BotWithDetailsAndSecretBuilder)? b]) = _$BotWithDetailsAndSecret;
 
   // coverage:ignore-start
@@ -23753,14 +23756,14 @@ abstract class BotWithDetailsAndSecret
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_AttachmentsInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
 }
 
 abstract class PublicCapabilities0_Spreed_Config_Attachments
     implements
-        PublicCapabilities0_Spreed_Config_AttachmentsInterface,
+        $PublicCapabilities0_Spreed_Config_AttachmentsInterface,
         Built<PublicCapabilities0_Spreed_Config_Attachments, PublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Attachments([
     final void Function(PublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
@@ -23784,7 +23787,7 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_CallInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_CallInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'breakout-rooms')
   bool get breakoutRooms;
@@ -23807,7 +23810,7 @@ abstract interface class PublicCapabilities0_Spreed_Config_CallInterface {
 
 abstract class PublicCapabilities0_Spreed_Config_Call
     implements
-        PublicCapabilities0_Spreed_Config_CallInterface,
+        $PublicCapabilities0_Spreed_Config_CallInterface,
         Built<PublicCapabilities0_Spreed_Config_Call, PublicCapabilities0_Spreed_Config_CallBuilder> {
   factory PublicCapabilities0_Spreed_Config_Call([
     final void Function(PublicCapabilities0_Spreed_Config_CallBuilder)? b,
@@ -23831,7 +23834,7 @@ abstract class PublicCapabilities0_Spreed_Config_Call
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_ChatInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_ChatInterface {
   @BuiltValueField(wireName: 'max-length')
   int get maxLength;
   @BuiltValueField(wireName: 'read-privacy')
@@ -23845,7 +23848,7 @@ abstract interface class PublicCapabilities0_Spreed_Config_ChatInterface {
 
 abstract class PublicCapabilities0_Spreed_Config_Chat
     implements
-        PublicCapabilities0_Spreed_Config_ChatInterface,
+        $PublicCapabilities0_Spreed_Config_ChatInterface,
         Built<PublicCapabilities0_Spreed_Config_Chat, PublicCapabilities0_Spreed_Config_ChatBuilder> {
   factory PublicCapabilities0_Spreed_Config_Chat([
     final void Function(PublicCapabilities0_Spreed_Config_ChatBuilder)? b,
@@ -23869,14 +23872,14 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_ConversationsInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_ConversationsInterface {
   @BuiltValueField(wireName: 'can-create')
   bool get canCreate;
 }
 
 abstract class PublicCapabilities0_Spreed_Config_Conversations
     implements
-        PublicCapabilities0_Spreed_Config_ConversationsInterface,
+        $PublicCapabilities0_Spreed_Config_ConversationsInterface,
         Built<PublicCapabilities0_Spreed_Config_Conversations, PublicCapabilities0_Spreed_Config_ConversationsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Conversations([
     final void Function(PublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
@@ -23900,14 +23903,14 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_PreviewsInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_PreviewsInterface {
   @BuiltValueField(wireName: 'max-gif-size')
   int get maxGifSize;
 }
 
 abstract class PublicCapabilities0_Spreed_Config_Previews
     implements
-        PublicCapabilities0_Spreed_Config_PreviewsInterface,
+        $PublicCapabilities0_Spreed_Config_PreviewsInterface,
         Built<PublicCapabilities0_Spreed_Config_Previews, PublicCapabilities0_Spreed_Config_PreviewsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Previews([
     final void Function(PublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
@@ -23931,7 +23934,7 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_Config_SignalingInterface {
+abstract interface class $PublicCapabilities0_Spreed_Config_SignalingInterface {
   @BuiltValueField(wireName: 'session-ping-limit')
   int get sessionPingLimit;
   @BuiltValueField(wireName: 'hello-v2-token-key')
@@ -23940,7 +23943,7 @@ abstract interface class PublicCapabilities0_Spreed_Config_SignalingInterface {
 
 abstract class PublicCapabilities0_Spreed_Config_Signaling
     implements
-        PublicCapabilities0_Spreed_Config_SignalingInterface,
+        $PublicCapabilities0_Spreed_Config_SignalingInterface,
         Built<PublicCapabilities0_Spreed_Config_Signaling, PublicCapabilities0_Spreed_Config_SignalingBuilder> {
   factory PublicCapabilities0_Spreed_Config_Signaling([
     final void Function(PublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
@@ -23964,7 +23967,7 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_Spreed_ConfigInterface {
+abstract interface class $PublicCapabilities0_Spreed_ConfigInterface {
   PublicCapabilities0_Spreed_Config_Attachments get attachments;
   PublicCapabilities0_Spreed_Config_Call get call;
   PublicCapabilities0_Spreed_Config_Chat get chat;
@@ -23975,7 +23978,7 @@ abstract interface class PublicCapabilities0_Spreed_ConfigInterface {
 
 abstract class PublicCapabilities0_Spreed_Config
     implements
-        PublicCapabilities0_Spreed_ConfigInterface,
+        $PublicCapabilities0_Spreed_ConfigInterface,
         Built<PublicCapabilities0_Spreed_Config, PublicCapabilities0_Spreed_ConfigBuilder> {
   factory PublicCapabilities0_Spreed_Config([final void Function(PublicCapabilities0_Spreed_ConfigBuilder)? b]) =
       _$PublicCapabilities0_Spreed_Config;
@@ -23997,7 +24000,7 @@ abstract class PublicCapabilities0_Spreed_Config
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0_SpreedInterface {
+abstract interface class $PublicCapabilities0_SpreedInterface {
   BuiltList<String> get features;
   PublicCapabilities0_Spreed_Config get config;
   String get version;
@@ -24005,7 +24008,7 @@ abstract interface class PublicCapabilities0_SpreedInterface {
 
 abstract class PublicCapabilities0_Spreed
     implements
-        PublicCapabilities0_SpreedInterface,
+        $PublicCapabilities0_SpreedInterface,
         Built<PublicCapabilities0_Spreed, PublicCapabilities0_SpreedBuilder> {
   factory PublicCapabilities0_Spreed([final void Function(PublicCapabilities0_SpreedBuilder)? b]) =
       _$PublicCapabilities0_Spreed;
@@ -24027,12 +24030,12 @@ abstract class PublicCapabilities0_Spreed
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilities0Interface {
+abstract interface class $PublicCapabilities0Interface {
   PublicCapabilities0_Spreed get spreed;
 }
 
 abstract class PublicCapabilities0
-    implements PublicCapabilities0Interface, Built<PublicCapabilities0, PublicCapabilities0Builder> {
+    implements $PublicCapabilities0Interface, Built<PublicCapabilities0, PublicCapabilities0Builder> {
   factory PublicCapabilities0([final void Function(PublicCapabilities0Builder)? b]) = _$PublicCapabilities0;
 
   // coverage:ignore-start
@@ -24052,13 +24055,13 @@ abstract class PublicCapabilities0
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PublicCapabilitiesInterface {
+abstract interface class $PublicCapabilitiesInterface {
   PublicCapabilities0? get publicCapabilities0;
   BuiltList<JsonObject>? get builtListJsonObject;
 }
 
 abstract class PublicCapabilities
-    implements PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
+    implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
   factory PublicCapabilities([final void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
 
   // coverage:ignore-start

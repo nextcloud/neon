@@ -367,7 +367,7 @@ class DashboardApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -375,7 +375,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -394,13 +394,13 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Widget_ButtonsInterface {
+abstract interface class $Widget_ButtonsInterface {
   String get type;
   String get text;
   String get link;
 }
 
-abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
+abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
   factory Widget_Buttons([final void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
 
   // coverage:ignore-start
@@ -420,7 +420,7 @@ abstract class Widget_Buttons implements Widget_ButtonsInterface, Built<Widget_B
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WidgetInterface {
+abstract interface class $WidgetInterface {
   String get id;
   String get title;
   int get order;
@@ -439,7 +439,7 @@ abstract interface class WidgetInterface {
   BuiltList<Widget_Buttons>? get buttons;
 }
 
-abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
+abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
   factory Widget([final void Function(WidgetBuilder)? b]) = _$Widget;
 
   // coverage:ignore-start
@@ -458,14 +458,14 @@ abstract class Widget implements WidgetInterface, Built<Widget, WidgetBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
+abstract interface class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, Widget> get data;
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
     implements
-        DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
+        $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
@@ -490,13 +490,13 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetsResponseApplicationJsonInterface {
+abstract interface class $DashboardApiGetWidgetsResponseApplicationJsonInterface {
   DashboardApiGetWidgetsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DashboardApiGetWidgetsResponseApplicationJson
     implements
-        DashboardApiGetWidgetsResponseApplicationJsonInterface,
+        $DashboardApiGetWidgetsResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetsResponseApplicationJson([
     final void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
@@ -520,7 +520,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WidgetItemInterface {
+abstract interface class $WidgetItemInterface {
   String get subtitle;
   String get title;
   String get link;
@@ -529,7 +529,7 @@ abstract interface class WidgetItemInterface {
   String get sinceId;
 }
 
-abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
+abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
   factory WidgetItem([final void Function(WidgetItemBuilder)? b]) = _$WidgetItem;
 
   // coverage:ignore-start
@@ -548,14 +548,14 @@ abstract class WidgetItem implements WidgetItemInterface, Built<WidgetItem, Widg
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
+abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, BuiltList<WidgetItem>> get data;
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
     implements
-        DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
+        $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
@@ -580,13 +580,13 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
+abstract interface class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson
     implements
-        DashboardApiGetWidgetItemsResponseApplicationJsonInterface,
+        $DashboardApiGetWidgetItemsResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetItemsResponseApplicationJson,
             DashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetItemsResponseApplicationJson([
@@ -611,13 +611,13 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WidgetItemsInterface {
+abstract interface class $WidgetItemsInterface {
   BuiltList<WidgetItem> get items;
   String get emptyContentMessage;
   String get halfEmptyContentMessage;
 }
 
-abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
+abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
   factory WidgetItems([final void Function(WidgetItemsBuilder)? b]) = _$WidgetItems;
 
   // coverage:ignore-start
@@ -636,14 +636,14 @@ abstract class WidgetItems implements WidgetItemsInterface, Built<WidgetItems, W
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
+abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltMap<String, WidgetItems> get data;
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
     implements
-        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
+        $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
@@ -668,13 +668,13 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
+abstract interface class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
     implements
-        DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
+        $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
             DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson([

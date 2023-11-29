@@ -653,9 +653,9 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -733,7 +733,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -798,9 +798,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class Widget_ButtonsInterfaceBuilder {
-  void replace(Widget_ButtonsInterface other);
-  void update(void Function(Widget_ButtonsInterfaceBuilder) updates);
+abstract mixin class $Widget_ButtonsInterfaceBuilder {
+  void replace($Widget_ButtonsInterface other);
+  void update(void Function($Widget_ButtonsInterfaceBuilder) updates);
   String? get type;
   set type(String? type);
 
@@ -860,7 +860,7 @@ class _$Widget_Buttons extends Widget_Buttons {
   }
 }
 
-class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBuilder>, Widget_ButtonsInterfaceBuilder {
+class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBuilder>, $Widget_ButtonsInterfaceBuilder {
   _$Widget_Buttons? _$v;
 
   String? _type;
@@ -913,9 +913,9 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
   }
 }
 
-abstract mixin class WidgetInterfaceBuilder {
-  void replace(WidgetInterface other);
-  void update(void Function(WidgetInterfaceBuilder) updates);
+abstract mixin class $WidgetInterfaceBuilder {
+  void replace($WidgetInterface other);
+  void update(void Function($WidgetInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -1047,7 +1047,7 @@ class _$Widget extends Widget {
   }
 }
 
-class WidgetBuilder implements Builder<Widget, WidgetBuilder>, WidgetInterfaceBuilder {
+class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceBuilder {
   _$Widget? _$v;
 
   String? _id;
@@ -1157,9 +1157,9 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, WidgetInterfaceBu
   }
 }
 
-abstract mixin class DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DashboardApiGetWidgetsResponseApplicationJson_OcsInterface other);
-  void update(void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DashboardApiGetWidgetsResponseApplicationJson_OcsInterface other);
+  void update(void Function($DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1219,7 +1219,7 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
     implements
         Builder<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder>,
-        DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
+        $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1278,9 +1278,9 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
-  void replace(DashboardApiGetWidgetsResponseApplicationJsonInterface other);
-  void update(void Function(DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
+  void replace($DashboardApiGetWidgetsResponseApplicationJsonInterface other);
+  void update(void Function($DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder) updates);
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1329,7 +1329,7 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
 class DashboardApiGetWidgetsResponseApplicationJsonBuilder
     implements
         Builder<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder>,
-        DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
+        $DashboardApiGetWidgetsResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetsResponseApplicationJson? _$v;
 
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder? _ocs;
@@ -1381,9 +1381,9 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WidgetItemInterfaceBuilder {
-  void replace(WidgetItemInterface other);
-  void update(void Function(WidgetItemInterfaceBuilder) updates);
+abstract mixin class $WidgetItemInterfaceBuilder {
+  void replace($WidgetItemInterface other);
+  void update(void Function($WidgetItemInterfaceBuilder) updates);
   String? get subtitle;
   set subtitle(String? subtitle);
 
@@ -1478,7 +1478,7 @@ class _$WidgetItem extends WidgetItem {
   }
 }
 
-class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, WidgetItemInterfaceBuilder {
+class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $WidgetItemInterfaceBuilder {
   _$WidgetItem? _$v;
 
   String? _subtitle;
@@ -1549,9 +1549,9 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, Widge
   }
 }
 
-abstract mixin class DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface other);
-  void update(void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1612,7 +1612,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
     implements
         Builder<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder>,
-        DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
+        $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1672,9 +1672,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
-  void replace(DashboardApiGetWidgetItemsResponseApplicationJsonInterface other);
-  void update(void Function(DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsResponseApplicationJsonInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder) updates);
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1725,7 +1725,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
     implements
         Builder<DashboardApiGetWidgetItemsResponseApplicationJson,
             DashboardApiGetWidgetItemsResponseApplicationJsonBuilder>,
-        DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
+        $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetItemsResponseApplicationJson? _$v;
 
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder? _ocs;
@@ -1778,9 +1778,9 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WidgetItemsInterfaceBuilder {
-  void replace(WidgetItemsInterface other);
-  void update(void Function(WidgetItemsInterfaceBuilder) updates);
+abstract mixin class $WidgetItemsInterfaceBuilder {
+  void replace($WidgetItemsInterface other);
+  void update(void Function($WidgetItemsInterfaceBuilder) updates);
   ListBuilder<WidgetItem> get items;
   set items(ListBuilder<WidgetItem>? items);
 
@@ -1844,7 +1844,7 @@ class _$WidgetItems extends WidgetItems {
   }
 }
 
-class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, WidgetItemsInterfaceBuilder {
+class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $WidgetItemsInterfaceBuilder {
   _$WidgetItems? _$v;
 
   ListBuilder<WidgetItem>? _items;
@@ -1912,9 +1912,9 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, Wi
   }
 }
 
-abstract mixin class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface other);
-  void update(void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1975,7 +1975,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
     implements
         Builder<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder>,
-        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
+        $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2035,9 +2035,9 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
-  void replace(DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface other);
-  void update(void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
+  void replace($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface other);
+  void update(void Function($DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder) updates);
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2089,7 +2089,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
     implements
         Builder<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
             DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder>,
-        DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
+        $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson? _$v;
 
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder? _ocs;

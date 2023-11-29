@@ -364,7 +364,7 @@ class ApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -372,7 +372,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -391,13 +391,13 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $ApiGetResponseApplicationJson_Ocs_DataInterface {
   String? get dueDate;
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs_Data
     implements
-        ApiGetResponseApplicationJson_Ocs_DataInterface,
+        $ApiGetResponseApplicationJson_Ocs_DataInterface,
         Built<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder> {
   factory ApiGetResponseApplicationJson_Ocs_Data([
     final void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -421,14 +421,14 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetResponseApplicationJson_OcsInterface {
+abstract interface class $ApiGetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class ApiGetResponseApplicationJson_Ocs
     implements
-        ApiGetResponseApplicationJson_OcsInterface,
+        $ApiGetResponseApplicationJson_OcsInterface,
         Built<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder> {
   factory ApiGetResponseApplicationJson_Ocs([final void Function(ApiGetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiGetResponseApplicationJson_Ocs;
@@ -450,13 +450,13 @@ abstract class ApiGetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetResponseApplicationJsonInterface {
+abstract interface class $ApiGetResponseApplicationJsonInterface {
   ApiGetResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiGetResponseApplicationJson
     implements
-        ApiGetResponseApplicationJsonInterface,
+        $ApiGetResponseApplicationJsonInterface,
         Built<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder> {
   factory ApiGetResponseApplicationJson([final void Function(ApiGetResponseApplicationJsonBuilder)? b]) =
       _$ApiGetResponseApplicationJson;
@@ -478,14 +478,14 @@ abstract class ApiGetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiSetResponseApplicationJson_OcsInterface {
+abstract interface class $ApiSetResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ApiSetResponseApplicationJson_Ocs
     implements
-        ApiSetResponseApplicationJson_OcsInterface,
+        $ApiSetResponseApplicationJson_OcsInterface,
         Built<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder> {
   factory ApiSetResponseApplicationJson_Ocs([final void Function(ApiSetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiSetResponseApplicationJson_Ocs;
@@ -507,13 +507,13 @@ abstract class ApiSetResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiSetResponseApplicationJsonInterface {
+abstract interface class $ApiSetResponseApplicationJsonInterface {
   ApiSetResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiSetResponseApplicationJson
     implements
-        ApiSetResponseApplicationJsonInterface,
+        $ApiSetResponseApplicationJsonInterface,
         Built<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder> {
   factory ApiSetResponseApplicationJson([final void Function(ApiSetResponseApplicationJsonBuilder)? b]) =
       _$ApiSetResponseApplicationJson;
@@ -535,14 +535,14 @@ abstract class ApiSetResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiRemoveResponseApplicationJson_OcsInterface {
+abstract interface class $ApiRemoveResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ApiRemoveResponseApplicationJson_Ocs
     implements
-        ApiRemoveResponseApplicationJson_OcsInterface,
+        $ApiRemoveResponseApplicationJson_OcsInterface,
         Built<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder> {
   factory ApiRemoveResponseApplicationJson_Ocs([final void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson_Ocs;
@@ -565,13 +565,13 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiRemoveResponseApplicationJsonInterface {
+abstract interface class $ApiRemoveResponseApplicationJsonInterface {
   ApiRemoveResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiRemoveResponseApplicationJson
     implements
-        ApiRemoveResponseApplicationJsonInterface,
+        $ApiRemoveResponseApplicationJsonInterface,
         Built<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder> {
   factory ApiRemoveResponseApplicationJson([final void Function(ApiRemoveResponseApplicationJsonBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson;

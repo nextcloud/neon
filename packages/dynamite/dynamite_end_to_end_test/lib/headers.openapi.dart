@@ -187,12 +187,12 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GetHeadersInterface {
+abstract interface class $GetHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
 }
 
-abstract class GetHeaders implements GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
+abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
   factory GetHeaders([final void Function(GetHeadersBuilder)? b]) = _$GetHeaders;
 
   const GetHeaders._();
@@ -245,14 +245,14 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WithContentOperationIdHeadersInterface {
+abstract interface class $WithContentOperationIdHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
 }
 
 abstract class WithContentOperationIdHeaders
     implements
-        WithContentOperationIdHeadersInterface,
+        $WithContentOperationIdHeadersInterface,
         Built<WithContentOperationIdHeaders, WithContentOperationIdHeadersBuilder> {
   factory WithContentOperationIdHeaders([final void Function(WithContentOperationIdHeadersBuilder)? b]) =
       _$WithContentOperationIdHeaders;
@@ -308,13 +308,13 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class GetWithContentHeadersInterface {
+abstract interface class $GetWithContentHeadersInterface {
   @BuiltValueField(wireName: 'my-header')
   String? get myHeader;
 }
 
 abstract class GetWithContentHeaders
-    implements GetWithContentHeadersInterface, Built<GetWithContentHeaders, GetWithContentHeadersBuilder> {
+    implements $GetWithContentHeadersInterface, Built<GetWithContentHeaders, GetWithContentHeadersBuilder> {
   factory GetWithContentHeaders([final void Function(GetWithContentHeadersBuilder)? b]) = _$GetWithContentHeaders;
 
   const GetWithContentHeaders._();

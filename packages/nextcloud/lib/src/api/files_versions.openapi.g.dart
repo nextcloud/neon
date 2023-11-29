@@ -96,9 +96,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class Capabilities_FilesInterfaceBuilder {
-  void replace(Capabilities_FilesInterface other);
-  void update(void Function(Capabilities_FilesInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesInterfaceBuilder {
+  void replace($Capabilities_FilesInterface other);
+  void update(void Function($Capabilities_FilesInterfaceBuilder) updates);
   bool? get versioning;
   set versioning(bool? versioning);
 
@@ -164,7 +164,7 @@ class _$Capabilities_Files extends Capabilities_Files {
 }
 
 class Capabilities_FilesBuilder
-    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, Capabilities_FilesInterfaceBuilder {
+    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, $Capabilities_FilesInterfaceBuilder {
   _$Capabilities_Files? _$v;
 
   bool? _versioning;
@@ -219,9 +219,9 @@ class Capabilities_FilesBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_FilesBuilder get files;
   set files(Capabilities_FilesBuilder? files);
 }
@@ -263,7 +263,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;

@@ -35,13 +35,13 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
+abstract interface class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface {
   bool get enabled;
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
     implements
-        Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
+        $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
             Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
@@ -66,14 +66,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
+abstract interface class $Capabilities0_FilesSharing_Sharebymail_PasswordInterface {
   bool get enabled;
   bool get enforced;
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_Password
     implements
-        Capabilities0_FilesSharing_Sharebymail_PasswordInterface,
+        $Capabilities0_FilesSharing_Sharebymail_PasswordInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_Password, Capabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_Password([
     final void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
@@ -97,14 +97,14 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
+abstract interface class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface {
   bool get enabled;
   bool get enforced;
 }
 
 abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
     implements
-        Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
+        $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_ExpireDate,
             Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_ExpireDate([
@@ -129,7 +129,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0_FilesSharing_SharebymailInterface {
+abstract interface class $Capabilities0_FilesSharing_SharebymailInterface {
   bool get enabled;
   @BuiltValueField(wireName: 'send_password_by_mail')
   bool get sendPasswordByMail;
@@ -142,7 +142,7 @@ abstract interface class Capabilities0_FilesSharing_SharebymailInterface {
 
 abstract class Capabilities0_FilesSharing_Sharebymail
     implements
-        Capabilities0_FilesSharing_SharebymailInterface,
+        $Capabilities0_FilesSharing_SharebymailInterface,
         Built<Capabilities0_FilesSharing_Sharebymail, Capabilities0_FilesSharing_SharebymailBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail([
     final void Function(Capabilities0_FilesSharing_SharebymailBuilder)? b,
@@ -166,13 +166,13 @@ abstract class Capabilities0_FilesSharing_Sharebymail
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0_FilesSharingInterface {
+abstract interface class $Capabilities0_FilesSharingInterface {
   Capabilities0_FilesSharing_Sharebymail get sharebymail;
 }
 
 abstract class Capabilities0_FilesSharing
     implements
-        Capabilities0_FilesSharingInterface,
+        $Capabilities0_FilesSharingInterface,
         Built<Capabilities0_FilesSharing, Capabilities0_FilesSharingBuilder> {
   factory Capabilities0_FilesSharing([final void Function(Capabilities0_FilesSharingBuilder)? b]) =
       _$Capabilities0_FilesSharing;
@@ -194,12 +194,12 @@ abstract class Capabilities0_FilesSharing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities0Interface {
+abstract interface class $Capabilities0Interface {
   @BuiltValueField(wireName: 'files_sharing')
   Capabilities0_FilesSharing get filesSharing;
 }
 
-abstract class Capabilities0 implements Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
+abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
   factory Capabilities0([final void Function(Capabilities0Builder)? b]) = _$Capabilities0;
 
   // coverage:ignore-start
@@ -219,12 +219,12 @@ abstract class Capabilities0 implements Capabilities0Interface, Built<Capabiliti
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities0? get capabilities0;
   BuiltList<JsonObject>? get builtListJsonObject;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start

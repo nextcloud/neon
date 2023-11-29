@@ -679,9 +679,9 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
   }
 }
 
-abstract mixin class SupportedAPIVersionsInterfaceBuilder {
-  void replace(SupportedAPIVersionsInterface other);
-  void update(void Function(SupportedAPIVersionsInterfaceBuilder) updates);
+abstract mixin class $SupportedAPIVersionsInterfaceBuilder {
+  void replace($SupportedAPIVersionsInterface other);
+  void update(void Function($SupportedAPIVersionsInterfaceBuilder) updates);
   ListBuilder<String> get apiLevels;
   set apiLevels(ListBuilder<String>? apiLevels);
 }
@@ -723,7 +723,7 @@ class _$SupportedAPIVersions extends SupportedAPIVersions {
 }
 
 class SupportedAPIVersionsBuilder
-    implements Builder<SupportedAPIVersions, SupportedAPIVersionsBuilder>, SupportedAPIVersionsInterfaceBuilder {
+    implements Builder<SupportedAPIVersions, SupportedAPIVersionsBuilder>, $SupportedAPIVersionsInterfaceBuilder {
   _$SupportedAPIVersions? _$v;
 
   ListBuilder<String>? _apiLevels;
@@ -774,9 +774,9 @@ class SupportedAPIVersionsBuilder
   }
 }
 
-abstract mixin class ArticleInterfaceBuilder {
-  void replace(ArticleInterface other);
-  void update(void Function(ArticleInterfaceBuilder) updates);
+abstract mixin class $ArticleInterfaceBuilder {
+  void replace($ArticleInterface other);
+  void update(void Function($ArticleInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -1005,7 +1005,7 @@ class _$Article extends Article {
   }
 }
 
-class ArticleBuilder implements Builder<Article, ArticleBuilder>, ArticleInterfaceBuilder {
+class ArticleBuilder implements Builder<Article, ArticleBuilder>, $ArticleInterfaceBuilder {
   _$Article? _$v;
 
   int? _id;
@@ -1160,9 +1160,9 @@ class ArticleBuilder implements Builder<Article, ArticleBuilder>, ArticleInterfa
   }
 }
 
-abstract mixin class FeedInterfaceBuilder {
-  void replace(FeedInterface other);
-  void update(void Function(FeedInterfaceBuilder) updates);
+abstract mixin class $FeedInterfaceBuilder {
+  void replace($FeedInterface other);
+  void update(void Function($FeedInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -1323,7 +1323,7 @@ class _$Feed extends Feed {
   }
 }
 
-class FeedBuilder implements Builder<Feed, FeedBuilder>, FeedInterfaceBuilder {
+class FeedBuilder implements Builder<Feed, FeedBuilder>, $FeedInterfaceBuilder {
   _$Feed? _$v;
 
   int? _id;
@@ -1448,9 +1448,9 @@ class FeedBuilder implements Builder<Feed, FeedBuilder>, FeedInterfaceBuilder {
   }
 }
 
-abstract mixin class FolderInterfaceBuilder {
-  void replace(FolderInterface other);
-  void update(void Function(FolderInterfaceBuilder) updates);
+abstract mixin class $FolderInterfaceBuilder {
+  void replace($FolderInterface other);
+  void update(void Function($FolderInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -1517,7 +1517,7 @@ class _$Folder extends Folder {
   }
 }
 
-class FolderBuilder implements Builder<Folder, FolderBuilder>, FolderInterfaceBuilder {
+class FolderBuilder implements Builder<Folder, FolderBuilder>, $FolderInterfaceBuilder {
   _$Folder? _$v;
 
   int? _id;
@@ -1588,9 +1588,9 @@ class FolderBuilder implements Builder<Folder, FolderBuilder>, FolderInterfaceBu
   }
 }
 
-abstract mixin class ListFoldersInterfaceBuilder {
-  void replace(ListFoldersInterface other);
-  void update(void Function(ListFoldersInterfaceBuilder) updates);
+abstract mixin class $ListFoldersInterfaceBuilder {
+  void replace($ListFoldersInterface other);
+  void update(void Function($ListFoldersInterfaceBuilder) updates);
   ListBuilder<Folder> get folders;
   set folders(ListBuilder<Folder>? folders);
 }
@@ -1632,7 +1632,7 @@ class _$ListFolders extends ListFolders {
   }
 }
 
-class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, ListFoldersInterfaceBuilder {
+class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, $ListFoldersInterfaceBuilder {
   _$ListFolders? _$v;
 
   ListBuilder<Folder>? _folders;
@@ -1683,9 +1683,9 @@ class ListFoldersBuilder implements Builder<ListFolders, ListFoldersBuilder>, Li
   }
 }
 
-abstract mixin class ListFeedsInterfaceBuilder {
-  void replace(ListFeedsInterface other);
-  void update(void Function(ListFeedsInterfaceBuilder) updates);
+abstract mixin class $ListFeedsInterfaceBuilder {
+  void replace($ListFeedsInterface other);
+  void update(void Function($ListFeedsInterfaceBuilder) updates);
   int? get starredCount;
   set starredCount(int? starredCount);
 
@@ -1745,7 +1745,7 @@ class _$ListFeeds extends ListFeeds {
   }
 }
 
-class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, ListFeedsInterfaceBuilder {
+class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, $ListFeedsInterfaceBuilder {
   _$ListFeeds? _$v;
 
   int? _starredCount;
@@ -1806,9 +1806,9 @@ class ListFeedsBuilder implements Builder<ListFeeds, ListFeedsBuilder>, ListFeed
   }
 }
 
-abstract mixin class ListArticlesInterfaceBuilder {
-  void replace(ListArticlesInterface other);
-  void update(void Function(ListArticlesInterfaceBuilder) updates);
+abstract mixin class $ListArticlesInterfaceBuilder {
+  void replace($ListArticlesInterface other);
+  void update(void Function($ListArticlesInterfaceBuilder) updates);
   ListBuilder<Article> get items;
   set items(ListBuilder<Article>? items);
 }
@@ -1850,7 +1850,7 @@ class _$ListArticles extends ListArticles {
   }
 }
 
-class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>, ListArticlesInterfaceBuilder {
+class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>, $ListArticlesInterfaceBuilder {
   _$ListArticles? _$v;
 
   ListBuilder<Article>? _items;
@@ -1901,9 +1901,9 @@ class ListArticlesBuilder implements Builder<ListArticles, ListArticlesBuilder>,
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1981,7 +1981,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -2046,9 +2046,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class EmptyOCS_OcsInterfaceBuilder {
-  void replace(EmptyOCS_OcsInterface other);
-  void update(void Function(EmptyOCS_OcsInterfaceBuilder) updates);
+abstract mixin class $EmptyOCS_OcsInterfaceBuilder {
+  void replace($EmptyOCS_OcsInterface other);
+  void update(void Function($EmptyOCS_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2100,7 +2100,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 }
 
-class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, EmptyOCS_OcsInterfaceBuilder {
+class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, $EmptyOCS_OcsInterfaceBuilder {
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2158,9 +2158,9 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   }
 }
 
-abstract mixin class EmptyOCSInterfaceBuilder {
-  void replace(EmptyOCSInterface other);
-  void update(void Function(EmptyOCSInterfaceBuilder) updates);
+abstract mixin class $EmptyOCSInterfaceBuilder {
+  void replace($EmptyOCSInterface other);
+  void update(void Function($EmptyOCSInterfaceBuilder) updates);
   EmptyOCS_OcsBuilder get ocs;
   set ocs(EmptyOCS_OcsBuilder? ocs);
 }
@@ -2201,7 +2201,7 @@ class _$EmptyOCS extends EmptyOCS {
   }
 }
 
-class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, EmptyOCSInterfaceBuilder {
+class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;

@@ -19,7 +19,7 @@ abstract interface class UserStatusesBlocEvents {
 
 @internal
 abstract interface class UserStatusesBlocStates {
-  BehaviorSubject<Map<String, Result<user_status.PublicInterface?>>> get statuses;
+  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> get statuses;
 }
 
 @internal
@@ -42,7 +42,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
   }
 
   @override
-  BehaviorSubject<Map<String, Result<user_status.PublicInterface?>>> statuses = BehaviorSubject();
+  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> statuses = BehaviorSubject();
 
   @override
   Future<void> refresh() async {
@@ -60,7 +60,7 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     try {
       _updateStatus(username, Result.loading());
 
-      user_status.PublicInterface? data;
+      user_status.$PublicInterface? data;
 
       if (_account.username == username) {
         var isAway = false;
@@ -99,10 +99,10 @@ class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents
     }
   }
 
-  Map<String, Result<user_status.PublicInterface?>> get _statuses =>
-      statuses.valueOrNull ?? <String, Result<user_status.PublicInterface?>>{};
+  Map<String, Result<user_status.$PublicInterface?>> get _statuses =>
+      statuses.valueOrNull ?? <String, Result<user_status.$PublicInterface?>>{};
 
-  void _updateStatus(final String username, final Result<user_status.PublicInterface?> result) {
+  void _updateStatus(final String username, final Result<user_status.$PublicInterface?> result) {
     statuses.add({
       ..._statuses,
       username: result,

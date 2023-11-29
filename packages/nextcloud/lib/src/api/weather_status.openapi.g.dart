@@ -1841,9 +1841,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1921,7 +1921,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1986,9 +1986,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -2041,7 +2041,7 @@ class WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusSetModeResponseApplicationJson_Ocs_Data,
             WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder>,
-        WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusSetModeResponseApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
@@ -2083,9 +2083,9 @@ class WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusSetModeResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusSetModeResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2145,7 +2145,7 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusSetModeResponseApplicationJson_Ocs,
             WeatherStatusSetModeResponseApplicationJson_OcsBuilder>,
-        WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusSetModeResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusSetModeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2205,9 +2205,9 @@ class WeatherStatusSetModeResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusSetModeResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetModeResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusSetModeResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2256,7 +2256,7 @@ class _$WeatherStatusSetModeResponseApplicationJson extends WeatherStatusSetMode
 class WeatherStatusSetModeResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusSetModeResponseApplicationJson, WeatherStatusSetModeResponseApplicationJsonBuilder>,
-        WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusSetModeResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusSetModeResponseApplicationJson? _$v;
 
   WeatherStatusSetModeResponseApplicationJson_OcsBuilder? _ocs;
@@ -2308,9 +2308,9 @@ class WeatherStatusSetModeResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -2391,7 +2391,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data,
             WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder>,
-        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
@@ -2451,9 +2451,9 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2516,7 +2516,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
             WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder>,
-        WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2578,9 +2578,9 @@ class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusUsePersonalAddressResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusUsePersonalAddressResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2632,7 +2632,7 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusUsePersonalAddressResponseApplicationJson,
             WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder>,
-        WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusUsePersonalAddressResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusUsePersonalAddressResponseApplicationJson? _$v;
 
   WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder? _ocs;
@@ -2685,9 +2685,9 @@ class WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   double? get lat;
   set lat(double? lat);
 
@@ -2771,7 +2771,7 @@ class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder>,
-        WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs_Data? _$v;
 
   double? _lat;
@@ -2834,9 +2834,9 @@ class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusGetLocationResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusGetLocationResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2897,7 +2897,7 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusGetLocationResponseApplicationJson_Ocs,
             WeatherStatusGetLocationResponseApplicationJson_OcsBuilder>,
-        WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusGetLocationResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusGetLocationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2957,9 +2957,9 @@ class WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusGetLocationResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusGetLocationResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3010,7 +3010,7 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusGetLocationResponseApplicationJson,
             WeatherStatusGetLocationResponseApplicationJsonBuilder>,
-        WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusGetLocationResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusGetLocationResponseApplicationJson? _$v;
 
   WeatherStatusGetLocationResponseApplicationJson_OcsBuilder? _ocs;
@@ -3063,9 +3063,9 @@ class WeatherStatusGetLocationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -3146,7 +3146,7 @@ class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder>,
-        WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusSetLocationResponseApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
@@ -3206,9 +3206,9 @@ class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusSetLocationResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusSetLocationResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3269,7 +3269,7 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusSetLocationResponseApplicationJson_Ocs,
             WeatherStatusSetLocationResponseApplicationJson_OcsBuilder>,
-        WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusSetLocationResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusSetLocationResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3329,9 +3329,9 @@ class WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusSetLocationResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetLocationResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3382,7 +3382,7 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusSetLocationResponseApplicationJson,
             WeatherStatusSetLocationResponseApplicationJsonBuilder>,
-        WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusSetLocationResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusSetLocationResponseApplicationJson? _$v;
 
   WeatherStatusSetLocationResponseApplicationJson_OcsBuilder? _ocs;
@@ -3435,9 +3435,9 @@ class WeatherStatusSetLocationResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Instant_DetailsInterfaceBuilder {
-  void replace(Forecast_Data_Instant_DetailsInterface other);
-  void update(void Function(Forecast_Data_Instant_DetailsInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Instant_DetailsInterfaceBuilder {
+  void replace($Forecast_Data_Instant_DetailsInterface other);
+  void update(void Function($Forecast_Data_Instant_DetailsInterfaceBuilder) updates);
   double? get airPressureAtSeaLevel;
   set airPressureAtSeaLevel(double? airPressureAtSeaLevel);
 
@@ -3613,7 +3613,7 @@ class _$Forecast_Data_Instant_Details extends Forecast_Data_Instant_Details {
 class Forecast_Data_Instant_DetailsBuilder
     implements
         Builder<Forecast_Data_Instant_Details, Forecast_Data_Instant_DetailsBuilder>,
-        Forecast_Data_Instant_DetailsInterfaceBuilder {
+        $Forecast_Data_Instant_DetailsInterfaceBuilder {
   _$Forecast_Data_Instant_Details? _$v;
 
   double? _airPressureAtSeaLevel;
@@ -3741,9 +3741,9 @@ class Forecast_Data_Instant_DetailsBuilder
   }
 }
 
-abstract mixin class Forecast_Data_InstantInterfaceBuilder {
-  void replace(Forecast_Data_InstantInterface other);
-  void update(void Function(Forecast_Data_InstantInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_InstantInterfaceBuilder {
+  void replace($Forecast_Data_InstantInterface other);
+  void update(void Function($Forecast_Data_InstantInterfaceBuilder) updates);
   Forecast_Data_Instant_DetailsBuilder get details;
   set details(Forecast_Data_Instant_DetailsBuilder? details);
 }
@@ -3787,7 +3787,7 @@ class _$Forecast_Data_Instant extends Forecast_Data_Instant {
 }
 
 class Forecast_Data_InstantBuilder
-    implements Builder<Forecast_Data_Instant, Forecast_Data_InstantBuilder>, Forecast_Data_InstantInterfaceBuilder {
+    implements Builder<Forecast_Data_Instant, Forecast_Data_InstantBuilder>, $Forecast_Data_InstantInterfaceBuilder {
   _$Forecast_Data_Instant? _$v;
 
   Forecast_Data_Instant_DetailsBuilder? _details;
@@ -3838,9 +3838,9 @@ class Forecast_Data_InstantBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next12Hours_SummaryInterfaceBuilder {
-  void replace(Forecast_Data_Next12Hours_SummaryInterface other);
-  void update(void Function(Forecast_Data_Next12Hours_SummaryInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next12Hours_SummaryInterfaceBuilder {
+  void replace($Forecast_Data_Next12Hours_SummaryInterface other);
+  void update(void Function($Forecast_Data_Next12Hours_SummaryInterfaceBuilder) updates);
   String? get symbolCode;
   set symbolCode(String? symbolCode);
 }
@@ -3887,7 +3887,7 @@ class _$Forecast_Data_Next12Hours_Summary extends Forecast_Data_Next12Hours_Summ
 class Forecast_Data_Next12Hours_SummaryBuilder
     implements
         Builder<Forecast_Data_Next12Hours_Summary, Forecast_Data_Next12Hours_SummaryBuilder>,
-        Forecast_Data_Next12Hours_SummaryInterfaceBuilder {
+        $Forecast_Data_Next12Hours_SummaryInterfaceBuilder {
   _$Forecast_Data_Next12Hours_Summary? _$v;
 
   String? _symbolCode;
@@ -3929,9 +3929,9 @@ class Forecast_Data_Next12Hours_SummaryBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
-  void replace(Forecast_Data_Next12Hours_DetailsInterface other);
-  void update(void Function(Forecast_Data_Next12Hours_DetailsInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
+  void replace($Forecast_Data_Next12Hours_DetailsInterface other);
+  void update(void Function($Forecast_Data_Next12Hours_DetailsInterfaceBuilder) updates);
   double? get probabilityOfPrecipitation;
   set probabilityOfPrecipitation(double? probabilityOfPrecipitation);
 }
@@ -3980,7 +3980,7 @@ class _$Forecast_Data_Next12Hours_Details extends Forecast_Data_Next12Hours_Deta
 class Forecast_Data_Next12Hours_DetailsBuilder
     implements
         Builder<Forecast_Data_Next12Hours_Details, Forecast_Data_Next12Hours_DetailsBuilder>,
-        Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
+        $Forecast_Data_Next12Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next12Hours_Details? _$v;
 
   double? _probabilityOfPrecipitation;
@@ -4023,9 +4023,9 @@ class Forecast_Data_Next12Hours_DetailsBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next12HoursInterfaceBuilder {
-  void replace(Forecast_Data_Next12HoursInterface other);
-  void update(void Function(Forecast_Data_Next12HoursInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next12HoursInterfaceBuilder {
+  void replace($Forecast_Data_Next12HoursInterface other);
+  void update(void Function($Forecast_Data_Next12HoursInterfaceBuilder) updates);
   Forecast_Data_Next12Hours_SummaryBuilder get summary;
   set summary(Forecast_Data_Next12Hours_SummaryBuilder? summary);
 
@@ -4081,7 +4081,7 @@ class _$Forecast_Data_Next12Hours extends Forecast_Data_Next12Hours {
 class Forecast_Data_Next12HoursBuilder
     implements
         Builder<Forecast_Data_Next12Hours, Forecast_Data_Next12HoursBuilder>,
-        Forecast_Data_Next12HoursInterfaceBuilder {
+        $Forecast_Data_Next12HoursInterfaceBuilder {
   _$Forecast_Data_Next12Hours? _$v;
 
   Forecast_Data_Next12Hours_SummaryBuilder? _summary;
@@ -4141,9 +4141,9 @@ class Forecast_Data_Next12HoursBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next1Hours_SummaryInterfaceBuilder {
-  void replace(Forecast_Data_Next1Hours_SummaryInterface other);
-  void update(void Function(Forecast_Data_Next1Hours_SummaryInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next1Hours_SummaryInterfaceBuilder {
+  void replace($Forecast_Data_Next1Hours_SummaryInterface other);
+  void update(void Function($Forecast_Data_Next1Hours_SummaryInterfaceBuilder) updates);
   String? get symbolCode;
   set symbolCode(String? symbolCode);
 }
@@ -4189,7 +4189,7 @@ class _$Forecast_Data_Next1Hours_Summary extends Forecast_Data_Next1Hours_Summar
 class Forecast_Data_Next1Hours_SummaryBuilder
     implements
         Builder<Forecast_Data_Next1Hours_Summary, Forecast_Data_Next1Hours_SummaryBuilder>,
-        Forecast_Data_Next1Hours_SummaryInterfaceBuilder {
+        $Forecast_Data_Next1Hours_SummaryInterfaceBuilder {
   _$Forecast_Data_Next1Hours_Summary? _$v;
 
   String? _symbolCode;
@@ -4231,9 +4231,9 @@ class Forecast_Data_Next1Hours_SummaryBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
-  void replace(Forecast_Data_Next1Hours_DetailsInterface other);
-  void update(void Function(Forecast_Data_Next1Hours_DetailsInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
+  void replace($Forecast_Data_Next1Hours_DetailsInterface other);
+  void update(void Function($Forecast_Data_Next1Hours_DetailsInterfaceBuilder) updates);
   double? get precipitationAmount;
   set precipitationAmount(double? precipitationAmount);
 
@@ -4329,7 +4329,7 @@ class _$Forecast_Data_Next1Hours_Details extends Forecast_Data_Next1Hours_Detail
 class Forecast_Data_Next1Hours_DetailsBuilder
     implements
         Builder<Forecast_Data_Next1Hours_Details, Forecast_Data_Next1Hours_DetailsBuilder>,
-        Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
+        $Forecast_Data_Next1Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next1Hours_Details? _$v;
 
   double? _precipitationAmount;
@@ -4403,9 +4403,9 @@ class Forecast_Data_Next1Hours_DetailsBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next1HoursInterfaceBuilder {
-  void replace(Forecast_Data_Next1HoursInterface other);
-  void update(void Function(Forecast_Data_Next1HoursInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next1HoursInterfaceBuilder {
+  void replace($Forecast_Data_Next1HoursInterface other);
+  void update(void Function($Forecast_Data_Next1HoursInterfaceBuilder) updates);
   Forecast_Data_Next1Hours_SummaryBuilder get summary;
   set summary(Forecast_Data_Next1Hours_SummaryBuilder? summary);
 
@@ -4461,7 +4461,7 @@ class _$Forecast_Data_Next1Hours extends Forecast_Data_Next1Hours {
 class Forecast_Data_Next1HoursBuilder
     implements
         Builder<Forecast_Data_Next1Hours, Forecast_Data_Next1HoursBuilder>,
-        Forecast_Data_Next1HoursInterfaceBuilder {
+        $Forecast_Data_Next1HoursInterfaceBuilder {
   _$Forecast_Data_Next1Hours? _$v;
 
   Forecast_Data_Next1Hours_SummaryBuilder? _summary;
@@ -4519,9 +4519,9 @@ class Forecast_Data_Next1HoursBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next6Hours_SummaryInterfaceBuilder {
-  void replace(Forecast_Data_Next6Hours_SummaryInterface other);
-  void update(void Function(Forecast_Data_Next6Hours_SummaryInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next6Hours_SummaryInterfaceBuilder {
+  void replace($Forecast_Data_Next6Hours_SummaryInterface other);
+  void update(void Function($Forecast_Data_Next6Hours_SummaryInterfaceBuilder) updates);
   String? get symbolCode;
   set symbolCode(String? symbolCode);
 }
@@ -4567,7 +4567,7 @@ class _$Forecast_Data_Next6Hours_Summary extends Forecast_Data_Next6Hours_Summar
 class Forecast_Data_Next6Hours_SummaryBuilder
     implements
         Builder<Forecast_Data_Next6Hours_Summary, Forecast_Data_Next6Hours_SummaryBuilder>,
-        Forecast_Data_Next6Hours_SummaryInterfaceBuilder {
+        $Forecast_Data_Next6Hours_SummaryInterfaceBuilder {
   _$Forecast_Data_Next6Hours_Summary? _$v;
 
   String? _symbolCode;
@@ -4609,9 +4609,9 @@ class Forecast_Data_Next6Hours_SummaryBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
-  void replace(Forecast_Data_Next6Hours_DetailsInterface other);
-  void update(void Function(Forecast_Data_Next6Hours_DetailsInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
+  void replace($Forecast_Data_Next6Hours_DetailsInterface other);
+  void update(void Function($Forecast_Data_Next6Hours_DetailsInterfaceBuilder) updates);
   double? get airTemperatureMax;
   set airTemperatureMax(double? airTemperatureMax);
 
@@ -4716,7 +4716,7 @@ class _$Forecast_Data_Next6Hours_Details extends Forecast_Data_Next6Hours_Detail
 class Forecast_Data_Next6Hours_DetailsBuilder
     implements
         Builder<Forecast_Data_Next6Hours_Details, Forecast_Data_Next6Hours_DetailsBuilder>,
-        Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
+        $Forecast_Data_Next6Hours_DetailsInterfaceBuilder {
   _$Forecast_Data_Next6Hours_Details? _$v;
 
   double? _airTemperatureMax;
@@ -4796,9 +4796,9 @@ class Forecast_Data_Next6Hours_DetailsBuilder
   }
 }
 
-abstract mixin class Forecast_Data_Next6HoursInterfaceBuilder {
-  void replace(Forecast_Data_Next6HoursInterface other);
-  void update(void Function(Forecast_Data_Next6HoursInterfaceBuilder) updates);
+abstract mixin class $Forecast_Data_Next6HoursInterfaceBuilder {
+  void replace($Forecast_Data_Next6HoursInterface other);
+  void update(void Function($Forecast_Data_Next6HoursInterfaceBuilder) updates);
   Forecast_Data_Next6Hours_SummaryBuilder get summary;
   set summary(Forecast_Data_Next6Hours_SummaryBuilder? summary);
 
@@ -4854,7 +4854,7 @@ class _$Forecast_Data_Next6Hours extends Forecast_Data_Next6Hours {
 class Forecast_Data_Next6HoursBuilder
     implements
         Builder<Forecast_Data_Next6Hours, Forecast_Data_Next6HoursBuilder>,
-        Forecast_Data_Next6HoursInterfaceBuilder {
+        $Forecast_Data_Next6HoursInterfaceBuilder {
   _$Forecast_Data_Next6Hours? _$v;
 
   Forecast_Data_Next6Hours_SummaryBuilder? _summary;
@@ -4912,9 +4912,9 @@ class Forecast_Data_Next6HoursBuilder
   }
 }
 
-abstract mixin class Forecast_DataInterfaceBuilder {
-  void replace(Forecast_DataInterface other);
-  void update(void Function(Forecast_DataInterfaceBuilder) updates);
+abstract mixin class $Forecast_DataInterfaceBuilder {
+  void replace($Forecast_DataInterface other);
+  void update(void Function($Forecast_DataInterfaceBuilder) updates);
   Forecast_Data_InstantBuilder get instant;
   set instant(Forecast_Data_InstantBuilder? instant);
 
@@ -4988,7 +4988,7 @@ class _$Forecast_Data extends Forecast_Data {
   }
 }
 
-class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilder>, Forecast_DataInterfaceBuilder {
+class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilder>, $Forecast_DataInterfaceBuilder {
   _$Forecast_Data? _$v;
 
   Forecast_Data_InstantBuilder? _instant;
@@ -5065,9 +5065,9 @@ class Forecast_DataBuilder implements Builder<Forecast_Data, Forecast_DataBuilde
   }
 }
 
-abstract mixin class ForecastInterfaceBuilder {
-  void replace(ForecastInterface other);
-  void update(void Function(ForecastInterfaceBuilder) updates);
+abstract mixin class $ForecastInterfaceBuilder {
+  void replace($ForecastInterface other);
+  void update(void Function($ForecastInterfaceBuilder) updates);
   String? get time;
   set time(String? time);
 
@@ -5118,7 +5118,7 @@ class _$Forecast extends Forecast {
   }
 }
 
-class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, ForecastInterfaceBuilder {
+class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, $ForecastInterfaceBuilder {
   _$Forecast? _$v;
 
   String? _time;
@@ -5175,9 +5175,9 @@ class ForecastBuilder implements Builder<Forecast, ForecastBuilder>, ForecastInt
   }
 }
 
-abstract mixin class WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusGetForecastResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusGetForecastResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5238,7 +5238,7 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusGetForecastResponseApplicationJson_Ocs,
             WeatherStatusGetForecastResponseApplicationJson_OcsBuilder>,
-        WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusGetForecastResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusGetForecastResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5297,9 +5297,9 @@ class WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusGetForecastResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusGetForecastResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5350,7 +5350,7 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusGetForecastResponseApplicationJson,
             WeatherStatusGetForecastResponseApplicationJsonBuilder>,
-        WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusGetForecastResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusGetForecastResponseApplicationJson? _$v;
 
   WeatherStatusGetForecastResponseApplicationJson_OcsBuilder? _ocs;
@@ -5403,9 +5403,9 @@ class WeatherStatusGetForecastResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5466,7 +5466,7 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusGetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder>,
-        WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5526,9 +5526,9 @@ class WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusGetFavoritesResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusGetFavoritesResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5579,7 +5579,7 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusGetFavoritesResponseApplicationJson,
             WeatherStatusGetFavoritesResponseApplicationJsonBuilder>,
-        WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusGetFavoritesResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusGetFavoritesResponseApplicationJson? _$v;
 
   WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder? _ocs;
@@ -5632,9 +5632,9 @@ class WeatherStatusGetFavoritesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -5688,7 +5688,7 @@ class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data,
             WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder>,
-        WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data? _$v;
 
   bool? _success;
@@ -5730,9 +5730,9 @@ class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface other);
-  void update(void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface other);
+  void update(void Function($WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5793,7 +5793,7 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
     implements
         Builder<WeatherStatusSetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder>,
-        WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
+        $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterfaceBuilder {
   _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5854,9 +5854,9 @@ class WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder {
-  void replace(WeatherStatusSetFavoritesResponseApplicationJsonInterface other);
-  void update(void Function(WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder {
+  void replace($WeatherStatusSetFavoritesResponseApplicationJsonInterface other);
+  void update(void Function($WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder) updates);
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5907,7 +5907,7 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
     implements
         Builder<WeatherStatusSetFavoritesResponseApplicationJson,
             WeatherStatusSetFavoritesResponseApplicationJsonBuilder>,
-        WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder {
+        $WeatherStatusSetFavoritesResponseApplicationJsonInterfaceBuilder {
   _$WeatherStatusSetFavoritesResponseApplicationJson? _$v;
 
   WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder? _ocs;
@@ -5960,9 +5960,9 @@ class WeatherStatusSetFavoritesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_WeatherStatusInterfaceBuilder {
-  void replace(Capabilities_WeatherStatusInterface other);
-  void update(void Function(Capabilities_WeatherStatusInterfaceBuilder) updates);
+abstract mixin class $Capabilities_WeatherStatusInterfaceBuilder {
+  void replace($Capabilities_WeatherStatusInterface other);
+  void update(void Function($Capabilities_WeatherStatusInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -6008,7 +6008,7 @@ class _$Capabilities_WeatherStatus extends Capabilities_WeatherStatus {
 class Capabilities_WeatherStatusBuilder
     implements
         Builder<Capabilities_WeatherStatus, Capabilities_WeatherStatusBuilder>,
-        Capabilities_WeatherStatusInterfaceBuilder {
+        $Capabilities_WeatherStatusInterfaceBuilder {
   _$Capabilities_WeatherStatus? _$v;
 
   bool? _enabled;
@@ -6049,9 +6049,9 @@ class Capabilities_WeatherStatusBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_WeatherStatusBuilder get weatherStatus;
   set weatherStatus(Capabilities_WeatherStatusBuilder? weatherStatus);
 }
@@ -6093,7 +6093,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_WeatherStatusBuilder? _weatherStatus;

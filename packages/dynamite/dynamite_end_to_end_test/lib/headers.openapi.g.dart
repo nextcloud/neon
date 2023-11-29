@@ -6,9 +6,9 @@ part of 'headers.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-abstract mixin class GetHeadersInterfaceBuilder {
-  void replace(GetHeadersInterface other);
-  void update(void Function(GetHeadersInterfaceBuilder) updates);
+abstract mixin class $GetHeadersInterfaceBuilder {
+  void replace($GetHeadersInterface other);
+  void update(void Function($GetHeadersInterfaceBuilder) updates);
   String? get myHeader;
   set myHeader(String? myHeader);
 }
@@ -47,7 +47,7 @@ class _$GetHeaders extends GetHeaders {
   }
 }
 
-class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, GetHeadersInterfaceBuilder {
+class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetHeadersInterfaceBuilder {
   _$GetHeaders? _$v;
 
   String? _myHeader;
@@ -86,9 +86,9 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, GetHe
   }
 }
 
-abstract mixin class WithContentOperationIdHeadersInterfaceBuilder {
-  void replace(WithContentOperationIdHeadersInterface other);
-  void update(void Function(WithContentOperationIdHeadersInterfaceBuilder) updates);
+abstract mixin class $WithContentOperationIdHeadersInterfaceBuilder {
+  void replace($WithContentOperationIdHeadersInterface other);
+  void update(void Function($WithContentOperationIdHeadersInterfaceBuilder) updates);
   String? get myHeader;
   set myHeader(String? myHeader);
 }
@@ -132,7 +132,7 @@ class _$WithContentOperationIdHeaders extends WithContentOperationIdHeaders {
 class WithContentOperationIdHeadersBuilder
     implements
         Builder<WithContentOperationIdHeaders, WithContentOperationIdHeadersBuilder>,
-        WithContentOperationIdHeadersInterfaceBuilder {
+        $WithContentOperationIdHeadersInterfaceBuilder {
   _$WithContentOperationIdHeaders? _$v;
 
   String? _myHeader;
@@ -171,9 +171,9 @@ class WithContentOperationIdHeadersBuilder
   }
 }
 
-abstract mixin class GetWithContentHeadersInterfaceBuilder {
-  void replace(GetWithContentHeadersInterface other);
-  void update(void Function(GetWithContentHeadersInterfaceBuilder) updates);
+abstract mixin class $GetWithContentHeadersInterfaceBuilder {
+  void replace($GetWithContentHeadersInterface other);
+  void update(void Function($GetWithContentHeadersInterfaceBuilder) updates);
   String? get myHeader;
   set myHeader(String? myHeader);
 }
@@ -215,7 +215,7 @@ class _$GetWithContentHeaders extends GetWithContentHeaders {
 }
 
 class GetWithContentHeadersBuilder
-    implements Builder<GetWithContentHeaders, GetWithContentHeadersBuilder>, GetWithContentHeadersInterfaceBuilder {
+    implements Builder<GetWithContentHeaders, GetWithContentHeadersBuilder>, $GetWithContentHeadersInterfaceBuilder {
   _$GetWithContentHeaders? _$v;
 
   String? _myHeader;

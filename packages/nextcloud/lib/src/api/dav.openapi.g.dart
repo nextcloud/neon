@@ -304,9 +304,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -384,7 +384,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -449,9 +449,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DirectGetUrlResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($DirectGetUrlResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
@@ -500,7 +500,7 @@ class _$DirectGetUrlResponseApplicationJson_Ocs_Data extends DirectGetUrlRespons
 class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder>,
-        DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $DirectGetUrlResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
@@ -541,9 +541,9 @@ class DirectGetUrlResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DirectGetUrlResponseApplicationJson_OcsInterface other);
-  void update(void Function(DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DirectGetUrlResponseApplicationJson_OcsInterface other);
+  void update(void Function($DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -602,7 +602,7 @@ class _$DirectGetUrlResponseApplicationJson_Ocs extends DirectGetUrlResponseAppl
 class DirectGetUrlResponseApplicationJson_OcsBuilder
     implements
         Builder<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder>,
-        DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
+        $DirectGetUrlResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -661,9 +661,9 @@ class DirectGetUrlResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DirectGetUrlResponseApplicationJsonInterfaceBuilder {
-  void replace(DirectGetUrlResponseApplicationJsonInterface other);
-  void update(void Function(DirectGetUrlResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DirectGetUrlResponseApplicationJsonInterfaceBuilder {
+  void replace($DirectGetUrlResponseApplicationJsonInterface other);
+  void update(void Function($DirectGetUrlResponseApplicationJsonInterfaceBuilder) updates);
   DirectGetUrlResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectGetUrlResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -709,7 +709,7 @@ class _$DirectGetUrlResponseApplicationJson extends DirectGetUrlResponseApplicat
 class DirectGetUrlResponseApplicationJsonBuilder
     implements
         Builder<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder>,
-        DirectGetUrlResponseApplicationJsonInterfaceBuilder {
+        $DirectGetUrlResponseApplicationJsonInterfaceBuilder {
   _$DirectGetUrlResponseApplicationJson? _$v;
 
   DirectGetUrlResponseApplicationJson_OcsBuilder? _ocs;
@@ -761,9 +761,9 @@ class DirectGetUrlResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_DavInterfaceBuilder {
-  void replace(Capabilities_DavInterface other);
-  void update(void Function(Capabilities_DavInterfaceBuilder) updates);
+abstract mixin class $Capabilities_DavInterfaceBuilder {
+  void replace($Capabilities_DavInterface other);
+  void update(void Function($Capabilities_DavInterfaceBuilder) updates);
   String? get chunking;
   set chunking(String? chunking);
 
@@ -815,7 +815,7 @@ class _$Capabilities_Dav extends Capabilities_Dav {
 }
 
 class Capabilities_DavBuilder
-    implements Builder<Capabilities_Dav, Capabilities_DavBuilder>, Capabilities_DavInterfaceBuilder {
+    implements Builder<Capabilities_Dav, Capabilities_DavBuilder>, $Capabilities_DavInterfaceBuilder {
   _$Capabilities_Dav? _$v;
 
   String? _chunking;
@@ -862,9 +862,9 @@ class Capabilities_DavBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_DavBuilder get dav;
   set dav(Capabilities_DavBuilder? dav);
 }
@@ -906,7 +906,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_DavBuilder? _dav;

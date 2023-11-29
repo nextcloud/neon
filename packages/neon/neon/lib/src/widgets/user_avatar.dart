@@ -105,7 +105,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.PublicInterface?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.$PublicInterface?> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 

@@ -1382,7 +1382,7 @@ class TransferOwnershipClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1390,7 +1390,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -1409,7 +1409,7 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface {
+abstract interface class $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface {
   String get id;
   String get name;
   BuiltList<String> get mimetypes;
@@ -1419,7 +1419,7 @@ abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_Edito
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
     implements
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface,
+        $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors([
@@ -1444,7 +1444,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface {
+abstract interface class $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface {
   String get id;
   String get editor;
   String get name;
@@ -1456,7 +1456,7 @@ abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creat
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
     implements
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface,
+        $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators([
@@ -1481,14 +1481,14 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingInfoResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $DirectEditingInfoResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors;
   BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get creators;
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
     implements
-        DirectEditingInfoResponseApplicationJson_Ocs_DataInterface,
+        $DirectEditingInfoResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data,
             DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data([
@@ -1513,14 +1513,14 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingInfoResponseApplicationJson_OcsInterface {
+abstract interface class $DirectEditingInfoResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingInfoResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class DirectEditingInfoResponseApplicationJson_Ocs
     implements
-        DirectEditingInfoResponseApplicationJson_OcsInterface,
+        $DirectEditingInfoResponseApplicationJson_OcsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs, DirectEditingInfoResponseApplicationJson_OcsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs([
     final void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? b,
@@ -1544,13 +1544,13 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingInfoResponseApplicationJsonInterface {
+abstract interface class $DirectEditingInfoResponseApplicationJsonInterface {
   DirectEditingInfoResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DirectEditingInfoResponseApplicationJson
     implements
-        DirectEditingInfoResponseApplicationJsonInterface,
+        $DirectEditingInfoResponseApplicationJsonInterface,
         Built<DirectEditingInfoResponseApplicationJson, DirectEditingInfoResponseApplicationJsonBuilder> {
   factory DirectEditingInfoResponseApplicationJson([
     final void Function(DirectEditingInfoResponseApplicationJsonBuilder)? b,
@@ -1574,7 +1574,7 @@ abstract class DirectEditingInfoResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface {
+abstract interface class $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface {
   String get id;
   String get title;
   String? get preview;
@@ -1585,7 +1585,7 @@ abstract interface class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
     implements
-        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface,
+        $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
             DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates([
@@ -1610,13 +1610,13 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates;
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
     implements
-        DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface,
+        $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
             DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data([
@@ -1641,14 +1641,14 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingTemplatesResponseApplicationJson_OcsInterface {
+abstract interface class $DirectEditingTemplatesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
     implements
-        DirectEditingTemplatesResponseApplicationJson_OcsInterface,
+        $DirectEditingTemplatesResponseApplicationJson_OcsInterface,
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs,
             DirectEditingTemplatesResponseApplicationJson_OcsBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs([
@@ -1673,13 +1673,13 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingTemplatesResponseApplicationJsonInterface {
+abstract interface class $DirectEditingTemplatesResponseApplicationJsonInterface {
   DirectEditingTemplatesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DirectEditingTemplatesResponseApplicationJson
     implements
-        DirectEditingTemplatesResponseApplicationJsonInterface,
+        $DirectEditingTemplatesResponseApplicationJsonInterface,
         Built<DirectEditingTemplatesResponseApplicationJson, DirectEditingTemplatesResponseApplicationJsonBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson([
     final void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? b,
@@ -1703,13 +1703,13 @@ abstract class DirectEditingTemplatesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingOpenResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface {
   String get url;
 }
 
 abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
     implements
-        DirectEditingOpenResponseApplicationJson_Ocs_DataInterface,
+        $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingOpenResponseApplicationJson_Ocs_Data,
             DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data([
@@ -1734,14 +1734,14 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingOpenResponseApplicationJson_OcsInterface {
+abstract interface class $DirectEditingOpenResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingOpenResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class DirectEditingOpenResponseApplicationJson_Ocs
     implements
-        DirectEditingOpenResponseApplicationJson_OcsInterface,
+        $DirectEditingOpenResponseApplicationJson_OcsInterface,
         Built<DirectEditingOpenResponseApplicationJson_Ocs, DirectEditingOpenResponseApplicationJson_OcsBuilder> {
   factory DirectEditingOpenResponseApplicationJson_Ocs([
     final void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? b,
@@ -1765,13 +1765,13 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingOpenResponseApplicationJsonInterface {
+abstract interface class $DirectEditingOpenResponseApplicationJsonInterface {
   DirectEditingOpenResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DirectEditingOpenResponseApplicationJson
     implements
-        DirectEditingOpenResponseApplicationJsonInterface,
+        $DirectEditingOpenResponseApplicationJsonInterface,
         Built<DirectEditingOpenResponseApplicationJson, DirectEditingOpenResponseApplicationJsonBuilder> {
   factory DirectEditingOpenResponseApplicationJson([
     final void Function(DirectEditingOpenResponseApplicationJsonBuilder)? b,
@@ -1795,13 +1795,13 @@ abstract class DirectEditingOpenResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingCreateResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $DirectEditingCreateResponseApplicationJson_Ocs_DataInterface {
   String get url;
 }
 
 abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
     implements
-        DirectEditingCreateResponseApplicationJson_Ocs_DataInterface,
+        $DirectEditingCreateResponseApplicationJson_Ocs_DataInterface,
         Built<DirectEditingCreateResponseApplicationJson_Ocs_Data,
             DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data([
@@ -1826,14 +1826,14 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingCreateResponseApplicationJson_OcsInterface {
+abstract interface class $DirectEditingCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectEditingCreateResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class DirectEditingCreateResponseApplicationJson_Ocs
     implements
-        DirectEditingCreateResponseApplicationJson_OcsInterface,
+        $DirectEditingCreateResponseApplicationJson_OcsInterface,
         Built<DirectEditingCreateResponseApplicationJson_Ocs, DirectEditingCreateResponseApplicationJson_OcsBuilder> {
   factory DirectEditingCreateResponseApplicationJson_Ocs([
     final void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? b,
@@ -1857,13 +1857,13 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectEditingCreateResponseApplicationJsonInterface {
+abstract interface class $DirectEditingCreateResponseApplicationJsonInterface {
   DirectEditingCreateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DirectEditingCreateResponseApplicationJson
     implements
-        DirectEditingCreateResponseApplicationJsonInterface,
+        $DirectEditingCreateResponseApplicationJsonInterface,
         Built<DirectEditingCreateResponseApplicationJson, DirectEditingCreateResponseApplicationJsonBuilder> {
   factory DirectEditingCreateResponseApplicationJson([
     final void Function(DirectEditingCreateResponseApplicationJsonBuilder)? b,
@@ -1887,7 +1887,7 @@ abstract class DirectEditingCreateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface {
   String? get userId;
   String get pathHash;
   int get expirationTime;
@@ -1896,7 +1896,7 @@ abstract interface class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataIn
 
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
     implements
-        OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface,
+        $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data([
@@ -1921,14 +1921,14 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorCreateResponseApplicationJson_OcsInterface {
+abstract interface class $OpenLocalEditorCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OpenLocalEditorCreateResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
     implements
-        OpenLocalEditorCreateResponseApplicationJson_OcsInterface,
+        $OpenLocalEditorCreateResponseApplicationJson_OcsInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs,
             OpenLocalEditorCreateResponseApplicationJson_OcsBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs([
@@ -1953,13 +1953,13 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorCreateResponseApplicationJsonInterface {
+abstract interface class $OpenLocalEditorCreateResponseApplicationJsonInterface {
   OpenLocalEditorCreateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class OpenLocalEditorCreateResponseApplicationJson
     implements
-        OpenLocalEditorCreateResponseApplicationJsonInterface,
+        $OpenLocalEditorCreateResponseApplicationJsonInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson, OpenLocalEditorCreateResponseApplicationJsonBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson([
     final void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? b,
@@ -1983,7 +1983,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface {
   String get userId;
   String get pathHash;
   int get expirationTime;
@@ -1992,7 +1992,7 @@ abstract interface class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
     implements
-        OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface,
+        $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data([
@@ -2017,14 +2017,14 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorValidateResponseApplicationJson_OcsInterface {
+abstract interface class $OpenLocalEditorValidateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   OpenLocalEditorValidateResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
     implements
-        OpenLocalEditorValidateResponseApplicationJson_OcsInterface,
+        $OpenLocalEditorValidateResponseApplicationJson_OcsInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs,
             OpenLocalEditorValidateResponseApplicationJson_OcsBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs([
@@ -2049,13 +2049,13 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OpenLocalEditorValidateResponseApplicationJsonInterface {
+abstract interface class $OpenLocalEditorValidateResponseApplicationJsonInterface {
   OpenLocalEditorValidateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class OpenLocalEditorValidateResponseApplicationJson
     implements
-        OpenLocalEditorValidateResponseApplicationJsonInterface,
+        $OpenLocalEditorValidateResponseApplicationJsonInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson, OpenLocalEditorValidateResponseApplicationJsonBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson([
     final void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? b,
@@ -2079,7 +2079,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateFileCreatorInterface {
+abstract interface class $TemplateFileCreatorInterface {
   String get app;
   String get label;
   @BuiltValueField(wireName: 'extension')
@@ -2091,7 +2091,7 @@ abstract interface class TemplateFileCreatorInterface {
 }
 
 abstract class TemplateFileCreator
-    implements TemplateFileCreatorInterface, Built<TemplateFileCreator, TemplateFileCreatorBuilder> {
+    implements $TemplateFileCreatorInterface, Built<TemplateFileCreator, TemplateFileCreatorBuilder> {
   factory TemplateFileCreator([final void Function(TemplateFileCreatorBuilder)? b]) = _$TemplateFileCreator;
 
   // coverage:ignore-start
@@ -2111,14 +2111,14 @@ abstract class TemplateFileCreator
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateListResponseApplicationJson_OcsInterface {
+abstract interface class $TemplateListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<TemplateFileCreator> get data;
 }
 
 abstract class TemplateListResponseApplicationJson_Ocs
     implements
-        TemplateListResponseApplicationJson_OcsInterface,
+        $TemplateListResponseApplicationJson_OcsInterface,
         Built<TemplateListResponseApplicationJson_Ocs, TemplateListResponseApplicationJson_OcsBuilder> {
   factory TemplateListResponseApplicationJson_Ocs([
     final void Function(TemplateListResponseApplicationJson_OcsBuilder)? b,
@@ -2142,13 +2142,13 @@ abstract class TemplateListResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateListResponseApplicationJsonInterface {
+abstract interface class $TemplateListResponseApplicationJsonInterface {
   TemplateListResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TemplateListResponseApplicationJson
     implements
-        TemplateListResponseApplicationJsonInterface,
+        $TemplateListResponseApplicationJsonInterface,
         Built<TemplateListResponseApplicationJson, TemplateListResponseApplicationJsonBuilder> {
   factory TemplateListResponseApplicationJson([final void Function(TemplateListResponseApplicationJsonBuilder)? b]) =
       _$TemplateListResponseApplicationJson;
@@ -2171,7 +2171,7 @@ abstract class TemplateListResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateFileInterface {
+abstract interface class $TemplateFileInterface {
   String get basename;
   String get etag;
   int get fileid;
@@ -2183,7 +2183,7 @@ abstract interface class TemplateFileInterface {
   bool get hasPreview;
 }
 
-abstract class TemplateFile implements TemplateFileInterface, Built<TemplateFile, TemplateFileBuilder> {
+abstract class TemplateFile implements $TemplateFileInterface, Built<TemplateFile, TemplateFileBuilder> {
   factory TemplateFile([final void Function(TemplateFileBuilder)? b]) = _$TemplateFile;
 
   // coverage:ignore-start
@@ -2202,14 +2202,14 @@ abstract class TemplateFile implements TemplateFileInterface, Built<TemplateFile
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateCreateResponseApplicationJson_OcsInterface {
+abstract interface class $TemplateCreateResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TemplateFile get data;
 }
 
 abstract class TemplateCreateResponseApplicationJson_Ocs
     implements
-        TemplateCreateResponseApplicationJson_OcsInterface,
+        $TemplateCreateResponseApplicationJson_OcsInterface,
         Built<TemplateCreateResponseApplicationJson_Ocs, TemplateCreateResponseApplicationJson_OcsBuilder> {
   factory TemplateCreateResponseApplicationJson_Ocs([
     final void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? b,
@@ -2233,13 +2233,13 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateCreateResponseApplicationJsonInterface {
+abstract interface class $TemplateCreateResponseApplicationJsonInterface {
   TemplateCreateResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TemplateCreateResponseApplicationJson
     implements
-        TemplateCreateResponseApplicationJsonInterface,
+        $TemplateCreateResponseApplicationJsonInterface,
         Built<TemplateCreateResponseApplicationJson, TemplateCreateResponseApplicationJsonBuilder> {
   factory TemplateCreateResponseApplicationJson([
     final void Function(TemplateCreateResponseApplicationJsonBuilder)? b,
@@ -2263,7 +2263,7 @@ abstract class TemplateCreateResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplatePathResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $TemplatePathResponseApplicationJson_Ocs_DataInterface {
   @BuiltValueField(wireName: 'template_path')
   String get templatePath;
   BuiltList<TemplateFileCreator> get templates;
@@ -2271,7 +2271,7 @@ abstract interface class TemplatePathResponseApplicationJson_Ocs_DataInterface {
 
 abstract class TemplatePathResponseApplicationJson_Ocs_Data
     implements
-        TemplatePathResponseApplicationJson_Ocs_DataInterface,
+        $TemplatePathResponseApplicationJson_Ocs_DataInterface,
         Built<TemplatePathResponseApplicationJson_Ocs_Data, TemplatePathResponseApplicationJson_Ocs_DataBuilder> {
   factory TemplatePathResponseApplicationJson_Ocs_Data([
     final void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -2295,14 +2295,14 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplatePathResponseApplicationJson_OcsInterface {
+abstract interface class $TemplatePathResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   TemplatePathResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class TemplatePathResponseApplicationJson_Ocs
     implements
-        TemplatePathResponseApplicationJson_OcsInterface,
+        $TemplatePathResponseApplicationJson_OcsInterface,
         Built<TemplatePathResponseApplicationJson_Ocs, TemplatePathResponseApplicationJson_OcsBuilder> {
   factory TemplatePathResponseApplicationJson_Ocs([
     final void Function(TemplatePathResponseApplicationJson_OcsBuilder)? b,
@@ -2326,13 +2326,13 @@ abstract class TemplatePathResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplatePathResponseApplicationJsonInterface {
+abstract interface class $TemplatePathResponseApplicationJsonInterface {
   TemplatePathResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TemplatePathResponseApplicationJson
     implements
-        TemplatePathResponseApplicationJsonInterface,
+        $TemplatePathResponseApplicationJsonInterface,
         Built<TemplatePathResponseApplicationJson, TemplatePathResponseApplicationJsonBuilder> {
   factory TemplatePathResponseApplicationJson([final void Function(TemplatePathResponseApplicationJsonBuilder)? b]) =
       _$TemplatePathResponseApplicationJson;
@@ -2355,14 +2355,14 @@ abstract class TemplatePathResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipTransferResponseApplicationJson_OcsInterface {
+abstract interface class $TransferOwnershipTransferResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
     implements
-        TransferOwnershipTransferResponseApplicationJson_OcsInterface,
+        $TransferOwnershipTransferResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipTransferResponseApplicationJson_Ocs,
             TransferOwnershipTransferResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipTransferResponseApplicationJson_Ocs([
@@ -2387,13 +2387,13 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipTransferResponseApplicationJsonInterface {
+abstract interface class $TransferOwnershipTransferResponseApplicationJsonInterface {
   TransferOwnershipTransferResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TransferOwnershipTransferResponseApplicationJson
     implements
-        TransferOwnershipTransferResponseApplicationJsonInterface,
+        $TransferOwnershipTransferResponseApplicationJsonInterface,
         Built<TransferOwnershipTransferResponseApplicationJson,
             TransferOwnershipTransferResponseApplicationJsonBuilder> {
   factory TransferOwnershipTransferResponseApplicationJson([
@@ -2418,14 +2418,14 @@ abstract class TransferOwnershipTransferResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipAcceptResponseApplicationJson_OcsInterface {
+abstract interface class $TransferOwnershipAcceptResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
     implements
-        TransferOwnershipAcceptResponseApplicationJson_OcsInterface,
+        $TransferOwnershipAcceptResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipAcceptResponseApplicationJson_Ocs,
             TransferOwnershipAcceptResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs([
@@ -2450,13 +2450,13 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipAcceptResponseApplicationJsonInterface {
+abstract interface class $TransferOwnershipAcceptResponseApplicationJsonInterface {
   TransferOwnershipAcceptResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TransferOwnershipAcceptResponseApplicationJson
     implements
-        TransferOwnershipAcceptResponseApplicationJsonInterface,
+        $TransferOwnershipAcceptResponseApplicationJsonInterface,
         Built<TransferOwnershipAcceptResponseApplicationJson, TransferOwnershipAcceptResponseApplicationJsonBuilder> {
   factory TransferOwnershipAcceptResponseApplicationJson([
     final void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? b,
@@ -2480,14 +2480,14 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipRejectResponseApplicationJson_OcsInterface {
+abstract interface class $TransferOwnershipRejectResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
     implements
-        TransferOwnershipRejectResponseApplicationJson_OcsInterface,
+        $TransferOwnershipRejectResponseApplicationJson_OcsInterface,
         Built<TransferOwnershipRejectResponseApplicationJson_Ocs,
             TransferOwnershipRejectResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipRejectResponseApplicationJson_Ocs([
@@ -2512,13 +2512,13 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TransferOwnershipRejectResponseApplicationJsonInterface {
+abstract interface class $TransferOwnershipRejectResponseApplicationJsonInterface {
   TransferOwnershipRejectResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class TransferOwnershipRejectResponseApplicationJson
     implements
-        TransferOwnershipRejectResponseApplicationJsonInterface,
+        $TransferOwnershipRejectResponseApplicationJsonInterface,
         Built<TransferOwnershipRejectResponseApplicationJson, TransferOwnershipRejectResponseApplicationJsonBuilder> {
   factory TransferOwnershipRejectResponseApplicationJson([
     final void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? b,
@@ -2542,7 +2542,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_Files_DirectEditingInterface {
+abstract interface class $Capabilities_Files_DirectEditingInterface {
   String get url;
   String get etag;
   bool get supportsFileId;
@@ -2550,7 +2550,7 @@ abstract interface class Capabilities_Files_DirectEditingInterface {
 
 abstract class Capabilities_Files_DirectEditing
     implements
-        Capabilities_Files_DirectEditingInterface,
+        $Capabilities_Files_DirectEditingInterface,
         Built<Capabilities_Files_DirectEditing, Capabilities_Files_DirectEditingBuilder> {
   factory Capabilities_Files_DirectEditing([final void Function(Capabilities_Files_DirectEditingBuilder)? b]) =
       _$Capabilities_Files_DirectEditing;
@@ -2572,7 +2572,7 @@ abstract class Capabilities_Files_DirectEditing
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_FilesInterface {
+abstract interface class $Capabilities_FilesInterface {
   bool get bigfilechunking;
   @BuiltValueField(wireName: 'blacklisted_files')
   BuiltList<JsonObject> get blacklistedFiles;
@@ -2580,7 +2580,7 @@ abstract interface class Capabilities_FilesInterface {
 }
 
 abstract class Capabilities_Files
-    implements Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
+    implements $Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
   factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
@@ -2600,11 +2600,11 @@ abstract class Capabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities_Files get files;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
@@ -2623,7 +2623,7 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class TemplateInterface {
+abstract interface class $TemplateInterface {
   String get templateType;
   String get templateId;
   String get basename;
@@ -2638,7 +2638,7 @@ abstract interface class TemplateInterface {
   String? get previewUrl;
 }
 
-abstract class Template implements TemplateInterface, Built<Template, TemplateBuilder> {
+abstract class Template implements $TemplateInterface, Built<Template, TemplateBuilder> {
   factory Template([final void Function(TemplateBuilder)? b]) = _$Template;
 
   // coverage:ignore-start
