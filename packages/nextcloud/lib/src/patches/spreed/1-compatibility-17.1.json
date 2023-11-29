@@ -1,7 +1,7 @@
 [
   {
     "op": "replace",
-    "path": "/components/schemas/PublicCapabilities/oneOf/0/properties/spreed/properties/config/properties/call/required",
+    "path": "/components/schemas/PublicCapabilities/anyOf/0/properties/spreed/properties/config/properties/call/required",
     "value": [
       "enabled",
       "breakout-rooms",
@@ -13,7 +13,7 @@
   },
   {
     "op": "replace",
-    "path": "/components/schemas/PublicCapabilities/oneOf/0/properties/spreed/properties/config/properties/chat/required",
+    "path": "/components/schemas/PublicCapabilities/anyOf/0/properties/spreed/properties/config/properties/chat/required",
     "value": [
       "max-length",
       "read-privacy",
@@ -22,7 +22,7 @@
   },
   {
     "op": "add",
-    "path": "/components/schemas/PublicCapabilities/oneOf/0/properties/spreed/properties/config/properties/chat/properties/translations",
+    "path": "/components/schemas/PublicCapabilities/anyOf/0/properties/spreed/properties/config/properties/chat/properties/translations",
     "value": {
       "type": "array",
       "items": {
