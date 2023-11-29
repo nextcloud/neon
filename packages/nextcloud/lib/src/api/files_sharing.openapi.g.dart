@@ -4704,9 +4704,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -4784,7 +4784,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -4849,9 +4849,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class DeletedShareInterfaceBuilder {
-  void replace(DeletedShareInterface other);
-  void update(void Function(DeletedShareInterfaceBuilder) updates);
+abstract mixin class $DeletedShareInterfaceBuilder {
+  void replace($DeletedShareInterface other);
+  void update(void Function($DeletedShareInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -5084,7 +5084,7 @@ class _$DeletedShare extends DeletedShare {
   }
 }
 
-class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>, DeletedShareInterfaceBuilder {
+class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>, $DeletedShareInterfaceBuilder {
   _$DeletedShare? _$v;
 
   String? _id;
@@ -5243,9 +5243,9 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
   }
 }
 
-abstract mixin class DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DeletedShareapiListResponseApplicationJson_OcsInterface other);
-  void update(void Function(DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DeletedShareapiListResponseApplicationJson_OcsInterface other);
+  void update(void Function($DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5304,7 +5304,7 @@ class _$DeletedShareapiListResponseApplicationJson_Ocs extends DeletedShareapiLi
 class DeletedShareapiListResponseApplicationJson_OcsBuilder
     implements
         Builder<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder>,
-        DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
+        $DeletedShareapiListResponseApplicationJson_OcsInterfaceBuilder {
   _$DeletedShareapiListResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5363,9 +5363,9 @@ class DeletedShareapiListResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
-  void replace(DeletedShareapiListResponseApplicationJsonInterface other);
-  void update(void Function(DeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
+  void replace($DeletedShareapiListResponseApplicationJsonInterface other);
+  void update(void Function($DeletedShareapiListResponseApplicationJsonInterfaceBuilder) updates);
   DeletedShareapiListResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DeletedShareapiListResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5414,7 +5414,7 @@ class _$DeletedShareapiListResponseApplicationJson extends DeletedShareapiListRe
 class DeletedShareapiListResponseApplicationJsonBuilder
     implements
         Builder<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder>,
-        DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
+        $DeletedShareapiListResponseApplicationJsonInterfaceBuilder {
   _$DeletedShareapiListResponseApplicationJson? _$v;
 
   DeletedShareapiListResponseApplicationJson_OcsBuilder? _ocs;
@@ -5466,9 +5466,9 @@ class DeletedShareapiListResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DeletedShareapiUndeleteResponseApplicationJson_OcsInterface other);
-  void update(void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DeletedShareapiUndeleteResponseApplicationJson_OcsInterface other);
+  void update(void Function($DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5528,7 +5528,7 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
     implements
         Builder<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
             DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder>,
-        DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
+        $DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
   _$DeletedShareapiUndeleteResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5589,9 +5589,9 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
-  void replace(DeletedShareapiUndeleteResponseApplicationJsonInterface other);
-  void update(void Function(DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
+  void replace($DeletedShareapiUndeleteResponseApplicationJsonInterface other);
+  void update(void Function($DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder) updates);
   DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5640,7 +5640,7 @@ class _$DeletedShareapiUndeleteResponseApplicationJson extends DeletedShareapiUn
 class DeletedShareapiUndeleteResponseApplicationJsonBuilder
     implements
         Builder<DeletedShareapiUndeleteResponseApplicationJson, DeletedShareapiUndeleteResponseApplicationJsonBuilder>,
-        DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
+        $DeletedShareapiUndeleteResponseApplicationJsonInterfaceBuilder {
   _$DeletedShareapiUndeleteResponseApplicationJson? _$v;
 
   DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder? _ocs;
@@ -5693,9 +5693,9 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteShareInterfaceBuilder {
-  void replace(RemoteShareInterface other);
-  void update(void Function(RemoteShareInterfaceBuilder) updates);
+abstract mixin class $RemoteShareInterfaceBuilder {
+  void replace($RemoteShareInterface other);
+  void update(void Function($RemoteShareInterfaceBuilder) updates);
   bool? get accepted;
   set accepted(bool? accepted);
 
@@ -5886,7 +5886,7 @@ class _$RemoteShare extends RemoteShare {
   }
 }
 
-class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, RemoteShareInterfaceBuilder {
+class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, $RemoteShareInterfaceBuilder {
   _$RemoteShare? _$v;
 
   bool? _accepted;
@@ -6017,9 +6017,9 @@ class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, Re
   }
 }
 
-abstract mixin class RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteGetSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteGetSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6078,7 +6078,7 @@ class _$RemoteGetSharesResponseApplicationJson_Ocs extends RemoteGetSharesRespon
 class RemoteGetSharesResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteGetSharesResponseApplicationJson_Ocs, RemoteGetSharesResponseApplicationJson_OcsBuilder>,
-        RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteGetSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteGetSharesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6136,9 +6136,9 @@ class RemoteGetSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteGetSharesResponseApplicationJsonInterface other);
-  void update(void Function(RemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteGetSharesResponseApplicationJsonInterface other);
+  void update(void Function($RemoteGetSharesResponseApplicationJsonInterfaceBuilder) updates);
   RemoteGetSharesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteGetSharesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6187,7 +6187,7 @@ class _$RemoteGetSharesResponseApplicationJson extends RemoteGetSharesResponseAp
 class RemoteGetSharesResponseApplicationJsonBuilder
     implements
         Builder<RemoteGetSharesResponseApplicationJson, RemoteGetSharesResponseApplicationJsonBuilder>,
-        RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
+        $RemoteGetSharesResponseApplicationJsonInterfaceBuilder {
   _$RemoteGetSharesResponseApplicationJson? _$v;
 
   RemoteGetSharesResponseApplicationJson_OcsBuilder? _ocs;
@@ -6239,9 +6239,9 @@ class RemoteGetSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteGetOpenSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteGetOpenSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6300,7 +6300,7 @@ class _$RemoteGetOpenSharesResponseApplicationJson_Ocs extends RemoteGetOpenShar
 class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteGetOpenSharesResponseApplicationJson_Ocs, RemoteGetOpenSharesResponseApplicationJson_OcsBuilder>,
-        RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteGetOpenSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteGetOpenSharesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6359,9 +6359,9 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteGetOpenSharesResponseApplicationJsonInterface other);
-  void update(void Function(RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteGetOpenSharesResponseApplicationJsonInterface other);
+  void update(void Function($RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder) updates);
   RemoteGetOpenSharesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6410,7 +6410,7 @@ class _$RemoteGetOpenSharesResponseApplicationJson extends RemoteGetOpenSharesRe
 class RemoteGetOpenSharesResponseApplicationJsonBuilder
     implements
         Builder<RemoteGetOpenSharesResponseApplicationJson, RemoteGetOpenSharesResponseApplicationJsonBuilder>,
-        RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
+        $RemoteGetOpenSharesResponseApplicationJsonInterfaceBuilder {
   _$RemoteGetOpenSharesResponseApplicationJson? _$v;
 
   RemoteGetOpenSharesResponseApplicationJson_OcsBuilder? _ocs;
@@ -6462,9 +6462,9 @@ class RemoteGetOpenSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteAcceptShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteAcceptShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6523,7 +6523,7 @@ class _$RemoteAcceptShareResponseApplicationJson_Ocs extends RemoteAcceptShareRe
 class RemoteAcceptShareResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteAcceptShareResponseApplicationJson_Ocs, RemoteAcceptShareResponseApplicationJson_OcsBuilder>,
-        RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteAcceptShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6583,9 +6583,9 @@ class RemoteAcceptShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteAcceptShareResponseApplicationJsonInterface other);
-  void update(void Function(RemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteAcceptShareResponseApplicationJsonInterface other);
+  void update(void Function($RemoteAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
   RemoteAcceptShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteAcceptShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6634,7 +6634,7 @@ class _$RemoteAcceptShareResponseApplicationJson extends RemoteAcceptShareRespon
 class RemoteAcceptShareResponseApplicationJsonBuilder
     implements
         Builder<RemoteAcceptShareResponseApplicationJson, RemoteAcceptShareResponseApplicationJsonBuilder>,
-        RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
+        $RemoteAcceptShareResponseApplicationJsonInterfaceBuilder {
   _$RemoteAcceptShareResponseApplicationJson? _$v;
 
   RemoteAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -6686,9 +6686,9 @@ class RemoteAcceptShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteDeclineShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteDeclineShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6747,7 +6747,7 @@ class _$RemoteDeclineShareResponseApplicationJson_Ocs extends RemoteDeclineShare
 class RemoteDeclineShareResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteDeclineShareResponseApplicationJson_Ocs, RemoteDeclineShareResponseApplicationJson_OcsBuilder>,
-        RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteDeclineShareResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteDeclineShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6807,9 +6807,9 @@ class RemoteDeclineShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteDeclineShareResponseApplicationJsonInterface other);
-  void update(void Function(RemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteDeclineShareResponseApplicationJsonInterface other);
+  void update(void Function($RemoteDeclineShareResponseApplicationJsonInterfaceBuilder) updates);
   RemoteDeclineShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteDeclineShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6858,7 +6858,7 @@ class _$RemoteDeclineShareResponseApplicationJson extends RemoteDeclineShareResp
 class RemoteDeclineShareResponseApplicationJsonBuilder
     implements
         Builder<RemoteDeclineShareResponseApplicationJson, RemoteDeclineShareResponseApplicationJsonBuilder>,
-        RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
+        $RemoteDeclineShareResponseApplicationJsonInterfaceBuilder {
   _$RemoteDeclineShareResponseApplicationJson? _$v;
 
   RemoteDeclineShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -6910,9 +6910,9 @@ class RemoteDeclineShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteGetShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteGetShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6971,7 +6971,7 @@ class _$RemoteGetShareResponseApplicationJson_Ocs extends RemoteGetShareResponse
 class RemoteGetShareResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteGetShareResponseApplicationJson_Ocs, RemoteGetShareResponseApplicationJson_OcsBuilder>,
-        RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteGetShareResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteGetShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -7029,9 +7029,9 @@ class RemoteGetShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteGetShareResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteGetShareResponseApplicationJsonInterface other);
-  void update(void Function(RemoteGetShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteGetShareResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteGetShareResponseApplicationJsonInterface other);
+  void update(void Function($RemoteGetShareResponseApplicationJsonInterfaceBuilder) updates);
   RemoteGetShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteGetShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -7079,7 +7079,7 @@ class _$RemoteGetShareResponseApplicationJson extends RemoteGetShareResponseAppl
 class RemoteGetShareResponseApplicationJsonBuilder
     implements
         Builder<RemoteGetShareResponseApplicationJson, RemoteGetShareResponseApplicationJsonBuilder>,
-        RemoteGetShareResponseApplicationJsonInterfaceBuilder {
+        $RemoteGetShareResponseApplicationJsonInterfaceBuilder {
   _$RemoteGetShareResponseApplicationJson? _$v;
 
   RemoteGetShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -7131,9 +7131,9 @@ class RemoteGetShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(RemoteUnshareResponseApplicationJson_OcsInterface other);
-  void update(void Function(RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($RemoteUnshareResponseApplicationJson_OcsInterface other);
+  void update(void Function($RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -7192,7 +7192,7 @@ class _$RemoteUnshareResponseApplicationJson_Ocs extends RemoteUnshareResponseAp
 class RemoteUnshareResponseApplicationJson_OcsBuilder
     implements
         Builder<RemoteUnshareResponseApplicationJson_Ocs, RemoteUnshareResponseApplicationJson_OcsBuilder>,
-        RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
+        $RemoteUnshareResponseApplicationJson_OcsInterfaceBuilder {
   _$RemoteUnshareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -7251,9 +7251,9 @@ class RemoteUnshareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class RemoteUnshareResponseApplicationJsonInterfaceBuilder {
-  void replace(RemoteUnshareResponseApplicationJsonInterface other);
-  void update(void Function(RemoteUnshareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $RemoteUnshareResponseApplicationJsonInterfaceBuilder {
+  void replace($RemoteUnshareResponseApplicationJsonInterface other);
+  void update(void Function($RemoteUnshareResponseApplicationJsonInterfaceBuilder) updates);
   RemoteUnshareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(RemoteUnshareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -7301,7 +7301,7 @@ class _$RemoteUnshareResponseApplicationJson extends RemoteUnshareResponseApplic
 class RemoteUnshareResponseApplicationJsonBuilder
     implements
         Builder<RemoteUnshareResponseApplicationJson, RemoteUnshareResponseApplicationJsonBuilder>,
-        RemoteUnshareResponseApplicationJsonInterfaceBuilder {
+        $RemoteUnshareResponseApplicationJsonInterfaceBuilder {
   _$RemoteUnshareResponseApplicationJson? _$v;
 
   RemoteUnshareResponseApplicationJson_OcsBuilder? _ocs;
@@ -7353,9 +7353,9 @@ class RemoteUnshareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareInfo_SizeInterfaceBuilder {
-  void replace(ShareInfo_SizeInterface other);
-  void update(void Function(ShareInfo_SizeInterfaceBuilder) updates);
+abstract mixin class $ShareInfo_SizeInterfaceBuilder {
+  void replace($ShareInfo_SizeInterface other);
+  void update(void Function($ShareInfo_SizeInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -7410,7 +7410,7 @@ class _$ShareInfo_Size extends ShareInfo_Size {
   }
 }
 
-class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder>, ShareInfo_SizeInterfaceBuilder {
+class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder>, $ShareInfo_SizeInterfaceBuilder {
   _$ShareInfo_Size? _$v;
 
   JsonObject? _data;
@@ -7462,9 +7462,9 @@ class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBui
   }
 }
 
-abstract mixin class ShareInfoInterfaceBuilder {
-  void replace(ShareInfoInterface other);
-  void update(void Function(ShareInfoInterfaceBuilder) updates);
+abstract mixin class $ShareInfoInterfaceBuilder {
+  void replace($ShareInfoInterface other);
+  void update(void Function($ShareInfoInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -7599,7 +7599,7 @@ class _$ShareInfo extends ShareInfo {
   }
 }
 
-class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInfoInterfaceBuilder {
+class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareInfoInterfaceBuilder {
   _$ShareInfo? _$v;
 
   int? _id;
@@ -7710,9 +7710,9 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, ShareInf
   }
 }
 
-abstract mixin class Share_ItemSizeInterfaceBuilder {
-  void replace(Share_ItemSizeInterface other);
-  void update(void Function(Share_ItemSizeInterfaceBuilder) updates);
+abstract mixin class $Share_ItemSizeInterfaceBuilder {
+  void replace($Share_ItemSizeInterface other);
+  void update(void Function($Share_ItemSizeInterfaceBuilder) updates);
   double? get $double;
   set $double(double? $double);
 
@@ -7767,7 +7767,7 @@ class _$Share_ItemSize extends Share_ItemSize {
   }
 }
 
-class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder>, Share_ItemSizeInterfaceBuilder {
+class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder>, $Share_ItemSizeInterfaceBuilder {
   _$Share_ItemSize? _$v;
 
   JsonObject? _data;
@@ -7819,9 +7819,9 @@ class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBui
   }
 }
 
-abstract mixin class Share_StatusInterfaceBuilder {
-  void replace(Share_StatusInterface other);
-  void update(void Function(Share_StatusInterfaceBuilder) updates);
+abstract mixin class $Share_StatusInterfaceBuilder {
+  void replace($Share_StatusInterface other);
+  void update(void Function($Share_StatusInterfaceBuilder) updates);
   int? get clearAt;
   set clearAt(int? clearAt);
 
@@ -7888,7 +7888,7 @@ class _$Share_Status extends Share_Status {
   }
 }
 
-class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>, Share_StatusInterfaceBuilder {
+class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>, $Share_StatusInterfaceBuilder {
   _$Share_Status? _$v;
 
   int? _clearAt;
@@ -7942,9 +7942,9 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
   }
 }
 
-abstract mixin class ShareInterfaceBuilder {
-  void replace(ShareInterface other);
-  void update(void Function(ShareInterfaceBuilder) updates);
+abstract mixin class $ShareInterfaceBuilder {
+  void replace($ShareInterface other);
+  void update(void Function($ShareInterfaceBuilder) updates);
   String? get attributes;
   set attributes(String? attributes);
 
@@ -8374,7 +8374,7 @@ class _$Share extends Share {
   }
 }
 
-class ShareBuilder implements Builder<Share, ShareBuilder>, ShareInterfaceBuilder {
+class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuilder {
   _$Share? _$v;
 
   String? _attributes;
@@ -8675,9 +8675,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, ShareInterfaceBuilde
   }
 }
 
-abstract mixin class ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiGetSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiGetSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -8736,7 +8736,7 @@ class _$ShareapiGetSharesResponseApplicationJson_Ocs extends ShareapiGetSharesRe
 class ShareapiGetSharesResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiGetSharesResponseApplicationJson_Ocs, ShareapiGetSharesResponseApplicationJson_OcsBuilder>,
-        ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiGetSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiGetSharesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -8794,9 +8794,9 @@ class ShareapiGetSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiGetSharesResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiGetSharesResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiGetSharesResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiGetSharesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiGetSharesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -8845,7 +8845,7 @@ class _$ShareapiGetSharesResponseApplicationJson extends ShareapiGetSharesRespon
 class ShareapiGetSharesResponseApplicationJsonBuilder
     implements
         Builder<ShareapiGetSharesResponseApplicationJson, ShareapiGetSharesResponseApplicationJsonBuilder>,
-        ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
+        $ShareapiGetSharesResponseApplicationJsonInterfaceBuilder {
   _$ShareapiGetSharesResponseApplicationJson? _$v;
 
   ShareapiGetSharesResponseApplicationJson_OcsBuilder? _ocs;
@@ -8897,9 +8897,9 @@ class ShareapiGetSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiCreateShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiCreateShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -8958,7 +8958,7 @@ class _$ShareapiCreateShareResponseApplicationJson_Ocs extends ShareapiCreateSha
 class ShareapiCreateShareResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiCreateShareResponseApplicationJson_Ocs, ShareapiCreateShareResponseApplicationJson_OcsBuilder>,
-        ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiCreateShareResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiCreateShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -9017,9 +9017,9 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiCreateShareResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiCreateShareResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiCreateShareResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiCreateShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiCreateShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -9068,7 +9068,7 @@ class _$ShareapiCreateShareResponseApplicationJson extends ShareapiCreateShareRe
 class ShareapiCreateShareResponseApplicationJsonBuilder
     implements
         Builder<ShareapiCreateShareResponseApplicationJson, ShareapiCreateShareResponseApplicationJsonBuilder>,
-        ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
+        $ShareapiCreateShareResponseApplicationJsonInterfaceBuilder {
   _$ShareapiCreateShareResponseApplicationJson? _$v;
 
   ShareapiCreateShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -9120,9 +9120,9 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -9183,7 +9183,7 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
             ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder>,
-        ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -9243,9 +9243,9 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiGetInheritedSharesResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiGetInheritedSharesResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -9296,7 +9296,7 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
     implements
         Builder<ShareapiGetInheritedSharesResponseApplicationJson,
             ShareapiGetInheritedSharesResponseApplicationJsonBuilder>,
-        ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
+        $ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
   _$ShareapiGetInheritedSharesResponseApplicationJson? _$v;
 
   ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder? _ocs;
@@ -9349,9 +9349,9 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiPendingSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiPendingSharesResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -9411,7 +9411,7 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiPendingSharesResponseApplicationJson_Ocs,
             ShareapiPendingSharesResponseApplicationJson_OcsBuilder>,
-        ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiPendingSharesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -9470,9 +9470,9 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiPendingSharesResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiPendingSharesResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiPendingSharesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiPendingSharesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -9521,7 +9521,7 @@ class _$ShareapiPendingSharesResponseApplicationJson extends ShareapiPendingShar
 class ShareapiPendingSharesResponseApplicationJsonBuilder
     implements
         Builder<ShareapiPendingSharesResponseApplicationJson, ShareapiPendingSharesResponseApplicationJsonBuilder>,
-        ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
+        $ShareapiPendingSharesResponseApplicationJsonInterfaceBuilder {
   _$ShareapiPendingSharesResponseApplicationJson? _$v;
 
   ShareapiPendingSharesResponseApplicationJson_OcsBuilder? _ocs;
@@ -9573,9 +9573,9 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiGetShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiGetShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -9634,7 +9634,7 @@ class _$ShareapiGetShareResponseApplicationJson_Ocs extends ShareapiGetShareResp
 class ShareapiGetShareResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiGetShareResponseApplicationJson_Ocs, ShareapiGetShareResponseApplicationJson_OcsBuilder>,
-        ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiGetShareResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiGetShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -9692,9 +9692,9 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiGetShareResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiGetShareResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiGetShareResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiGetShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiGetShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -9743,7 +9743,7 @@ class _$ShareapiGetShareResponseApplicationJson extends ShareapiGetShareResponse
 class ShareapiGetShareResponseApplicationJsonBuilder
     implements
         Builder<ShareapiGetShareResponseApplicationJson, ShareapiGetShareResponseApplicationJsonBuilder>,
-        ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
+        $ShareapiGetShareResponseApplicationJsonInterfaceBuilder {
   _$ShareapiGetShareResponseApplicationJson? _$v;
 
   ShareapiGetShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -9795,9 +9795,9 @@ class ShareapiGetShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiUpdateShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiUpdateShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -9856,7 +9856,7 @@ class _$ShareapiUpdateShareResponseApplicationJson_Ocs extends ShareapiUpdateSha
 class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiUpdateShareResponseApplicationJson_Ocs, ShareapiUpdateShareResponseApplicationJson_OcsBuilder>,
-        ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiUpdateShareResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiUpdateShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -9915,9 +9915,9 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiUpdateShareResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiUpdateShareResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiUpdateShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiUpdateShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -9966,7 +9966,7 @@ class _$ShareapiUpdateShareResponseApplicationJson extends ShareapiUpdateShareRe
 class ShareapiUpdateShareResponseApplicationJsonBuilder
     implements
         Builder<ShareapiUpdateShareResponseApplicationJson, ShareapiUpdateShareResponseApplicationJsonBuilder>,
-        ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
+        $ShareapiUpdateShareResponseApplicationJsonInterfaceBuilder {
   _$ShareapiUpdateShareResponseApplicationJson? _$v;
 
   ShareapiUpdateShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -10018,9 +10018,9 @@ class ShareapiUpdateShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiDeleteShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiDeleteShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -10079,7 +10079,7 @@ class _$ShareapiDeleteShareResponseApplicationJson_Ocs extends ShareapiDeleteSha
 class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiDeleteShareResponseApplicationJson_Ocs, ShareapiDeleteShareResponseApplicationJson_OcsBuilder>,
-        ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiDeleteShareResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiDeleteShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -10140,9 +10140,9 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiDeleteShareResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiDeleteShareResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiDeleteShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiDeleteShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -10191,7 +10191,7 @@ class _$ShareapiDeleteShareResponseApplicationJson extends ShareapiDeleteShareRe
 class ShareapiDeleteShareResponseApplicationJsonBuilder
     implements
         Builder<ShareapiDeleteShareResponseApplicationJson, ShareapiDeleteShareResponseApplicationJsonBuilder>,
-        ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
+        $ShareapiDeleteShareResponseApplicationJsonInterfaceBuilder {
   _$ShareapiDeleteShareResponseApplicationJson? _$v;
 
   ShareapiDeleteShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -10243,9 +10243,9 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareapiAcceptShareResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareapiAcceptShareResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -10304,7 +10304,7 @@ class _$ShareapiAcceptShareResponseApplicationJson_Ocs extends ShareapiAcceptSha
 class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareapiAcceptShareResponseApplicationJson_Ocs, ShareapiAcceptShareResponseApplicationJson_OcsBuilder>,
-        ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareapiAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiAcceptShareResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -10365,9 +10365,9 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareapiAcceptShareResponseApplicationJsonInterface other);
-  void update(void Function(ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareapiAcceptShareResponseApplicationJsonInterface other);
+  void update(void Function($ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
   ShareapiAcceptShareResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareapiAcceptShareResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -10416,7 +10416,7 @@ class _$ShareapiAcceptShareResponseApplicationJson extends ShareapiAcceptShareRe
 class ShareapiAcceptShareResponseApplicationJsonBuilder
     implements
         Builder<ShareapiAcceptShareResponseApplicationJson, ShareapiAcceptShareResponseApplicationJsonBuilder>,
-        ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
+        $ShareapiAcceptShareResponseApplicationJsonInterfaceBuilder {
   _$ShareapiAcceptShareResponseApplicationJson? _$v;
 
   ShareapiAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
@@ -10468,9 +10468,9 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareesapiSearchShareTypeInterfaceBuilder {
-  void replace(ShareesapiSearchShareTypeInterface other);
-  void update(void Function(ShareesapiSearchShareTypeInterfaceBuilder) updates);
+abstract mixin class $ShareesapiSearchShareTypeInterfaceBuilder {
+  void replace($ShareesapiSearchShareTypeInterface other);
+  void update(void Function($ShareesapiSearchShareTypeInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -10532,7 +10532,7 @@ class _$ShareesapiSearchShareType extends ShareesapiSearchShareType {
 class ShareesapiSearchShareTypeBuilder
     implements
         Builder<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder>,
-        ShareesapiSearchShareTypeInterfaceBuilder {
+        $ShareesapiSearchShareTypeInterfaceBuilder {
   _$ShareesapiSearchShareType? _$v;
 
   JsonObject? _data;
@@ -10598,9 +10598,9 @@ class ShareesapiSearchShareTypeBuilder
   }
 }
 
-abstract mixin class ShareesapiShareesapiSearchHeadersInterfaceBuilder {
-  void replace(ShareesapiShareesapiSearchHeadersInterface other);
-  void update(void Function(ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
+abstract mixin class $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+  void replace($ShareesapiShareesapiSearchHeadersInterface other);
+  void update(void Function($ShareesapiShareesapiSearchHeadersInterfaceBuilder) updates);
   String? get link;
   set link(String? link);
 }
@@ -10644,7 +10644,7 @@ class _$ShareesapiShareesapiSearchHeaders extends ShareesapiShareesapiSearchHead
 class ShareesapiShareesapiSearchHeadersBuilder
     implements
         Builder<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder>,
-        ShareesapiShareesapiSearchHeadersInterfaceBuilder {
+        $ShareesapiShareesapiSearchHeadersInterfaceBuilder {
   _$ShareesapiShareesapiSearchHeaders? _$v;
 
   String? _link;
@@ -10683,9 +10683,9 @@ class ShareesapiShareesapiSearchHeadersBuilder
   }
 }
 
-abstract mixin class ShareeInterfaceBuilder {
-  void replace(ShareeInterface other);
-  void update(void Function(ShareeInterfaceBuilder) updates);
+abstract mixin class $ShareeInterfaceBuilder {
+  void replace($ShareeInterface other);
+  void update(void Function($ShareeInterfaceBuilder) updates);
   int? get count;
   set count(int? count);
 
@@ -10735,7 +10735,7 @@ class _$Sharee extends Sharee {
   }
 }
 
-class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, ShareeInterfaceBuilder {
+class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceBuilder {
   _$Sharee? _$v;
 
   int? _count;
@@ -10780,9 +10780,9 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, ShareeInterfaceBu
   }
 }
 
-abstract mixin class ShareeValueInterfaceBuilder {
-  void replace(ShareeValueInterface other);
-  void update(void Function(ShareeValueInterfaceBuilder) updates);
+abstract mixin class $ShareeValueInterfaceBuilder {
+  void replace($ShareeValueInterface other);
+  void update(void Function($ShareeValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(int? shareType);
 
@@ -10834,7 +10834,7 @@ class _$ShareeValue extends ShareeValue {
   }
 }
 
-class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, ShareeValueInterfaceBuilder {
+class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $ShareeValueInterfaceBuilder {
   _$ShareeValue? _$v;
 
   int? _shareType;
@@ -10881,17 +10881,17 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, Sh
   }
 }
 
-abstract mixin class ShareeCircle_1_Value_1InterfaceBuilder {
-  void replace(ShareeCircle_1_Value_1Interface other);
-  void update(void Function(ShareeCircle_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeCircle_1_Value_1InterfaceBuilder {
+  void replace($ShareeCircle_1_Value_1Interface other);
+  void update(void Function($ShareeCircle_1_Value_1InterfaceBuilder) updates);
   String? get circle;
   set circle(String? circle);
 }
 
-abstract mixin class ShareeCircle_1_ValueInterfaceBuilder
-    implements ShareeValueInterfaceBuilder, ShareeCircle_1_Value_1InterfaceBuilder {
-  void replace(covariant ShareeCircle_1_ValueInterface other);
-  void update(void Function(ShareeCircle_1_ValueInterfaceBuilder) updates);
+abstract mixin class $ShareeCircle_1_ValueInterfaceBuilder
+    implements $ShareeValueInterfaceBuilder, $ShareeCircle_1_Value_1InterfaceBuilder {
+  void replace(covariant $ShareeCircle_1_ValueInterface other);
+  void update(void Function($ShareeCircle_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
@@ -10956,7 +10956,7 @@ class _$ShareeCircle_1_Value extends ShareeCircle_1_Value {
 }
 
 class ShareeCircle_1_ValueBuilder
-    implements Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>, ShareeCircle_1_ValueInterfaceBuilder {
+    implements Builder<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder>, $ShareeCircle_1_ValueInterfaceBuilder {
   _$ShareeCircle_1_Value? _$v;
 
   int? _shareType;
@@ -11009,9 +11009,9 @@ class ShareeCircle_1_ValueBuilder
   }
 }
 
-abstract mixin class ShareeCircle_1InterfaceBuilder {
-  void replace(ShareeCircle_1Interface other);
-  void update(void Function(ShareeCircle_1InterfaceBuilder) updates);
+abstract mixin class $ShareeCircle_1InterfaceBuilder {
+  void replace($ShareeCircle_1Interface other);
+  void update(void Function($ShareeCircle_1InterfaceBuilder) updates);
   String? get shareWithDescription;
   set shareWithDescription(String? shareWithDescription);
 
@@ -11019,9 +11019,9 @@ abstract mixin class ShareeCircle_1InterfaceBuilder {
   set value(ShareeCircle_1_ValueBuilder? value);
 }
 
-abstract mixin class ShareeCircleInterfaceBuilder implements ShareeInterfaceBuilder, ShareeCircle_1InterfaceBuilder {
-  void replace(covariant ShareeCircleInterface other);
-  void update(void Function(ShareeCircleInterfaceBuilder) updates);
+abstract mixin class $ShareeCircleInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeCircle_1InterfaceBuilder {
+  void replace(covariant $ShareeCircleInterface other);
+  void update(void Function($ShareeCircleInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -11093,7 +11093,7 @@ class _$ShareeCircle extends ShareeCircle {
   }
 }
 
-class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>, ShareeCircleInterfaceBuilder {
+class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>, $ShareeCircleInterfaceBuilder {
   _$ShareeCircle? _$v;
 
   int? _count;
@@ -11166,9 +11166,9 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
   }
 }
 
-abstract mixin class ShareeEmail_1InterfaceBuilder {
-  void replace(ShareeEmail_1Interface other);
-  void update(void Function(ShareeEmail_1InterfaceBuilder) updates);
+abstract mixin class $ShareeEmail_1InterfaceBuilder {
+  void replace($ShareeEmail_1Interface other);
+  void update(void Function($ShareeEmail_1InterfaceBuilder) updates);
   String? get uuid;
   set uuid(String? uuid);
 
@@ -11185,9 +11185,9 @@ abstract mixin class ShareeEmail_1InterfaceBuilder {
   set value(ShareeValueBuilder? value);
 }
 
-abstract mixin class ShareeEmailInterfaceBuilder implements ShareeInterfaceBuilder, ShareeEmail_1InterfaceBuilder {
-  void replace(covariant ShareeEmailInterface other);
-  void update(void Function(ShareeEmailInterfaceBuilder) updates);
+abstract mixin class $ShareeEmailInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeEmail_1InterfaceBuilder {
+  void replace(covariant $ShareeEmailInterface other);
+  void update(void Function($ShareeEmailInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -11293,7 +11293,7 @@ class _$ShareeEmail extends ShareeEmail {
   }
 }
 
-class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, ShareeEmailInterfaceBuilder {
+class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $ShareeEmailInterfaceBuilder {
   _$ShareeEmail? _$v;
 
   int? _count;
@@ -11384,17 +11384,17 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, Sh
   }
 }
 
-abstract mixin class ShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  void replace(ShareeRemoteGroup_1_Value_1Interface other);
-  void update(void Function(ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+  void replace($ShareeRemoteGroup_1_Value_1Interface other);
+  void update(void Function($ShareeRemoteGroup_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
 }
 
-abstract mixin class ShareeRemoteGroup_1_ValueInterfaceBuilder
-    implements ShareeValueInterfaceBuilder, ShareeRemoteGroup_1_Value_1InterfaceBuilder {
-  void replace(covariant ShareeRemoteGroup_1_ValueInterface other);
-  void update(void Function(ShareeRemoteGroup_1_ValueInterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteGroup_1_ValueInterfaceBuilder
+    implements $ShareeValueInterfaceBuilder, $ShareeRemoteGroup_1_Value_1InterfaceBuilder {
+  void replace(covariant $ShareeRemoteGroup_1_ValueInterface other);
+  void update(void Function($ShareeRemoteGroup_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
@@ -11461,7 +11461,7 @@ class _$ShareeRemoteGroup_1_Value extends ShareeRemoteGroup_1_Value {
 class ShareeRemoteGroup_1_ValueBuilder
     implements
         Builder<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder>,
-        ShareeRemoteGroup_1_ValueInterfaceBuilder {
+        $ShareeRemoteGroup_1_ValueInterfaceBuilder {
   _$ShareeRemoteGroup_1_Value? _$v;
 
   int? _shareType;
@@ -11514,9 +11514,9 @@ class ShareeRemoteGroup_1_ValueBuilder
   }
 }
 
-abstract mixin class ShareeRemoteGroup_1InterfaceBuilder {
-  void replace(ShareeRemoteGroup_1Interface other);
-  void update(void Function(ShareeRemoteGroup_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteGroup_1InterfaceBuilder {
+  void replace($ShareeRemoteGroup_1Interface other);
+  void update(void Function($ShareeRemoteGroup_1InterfaceBuilder) updates);
   String? get guid;
   set guid(String? guid);
 
@@ -11527,10 +11527,10 @@ abstract mixin class ShareeRemoteGroup_1InterfaceBuilder {
   set value(ShareeRemoteGroup_1_ValueBuilder? value);
 }
 
-abstract mixin class ShareeRemoteGroupInterfaceBuilder
-    implements ShareeInterfaceBuilder, ShareeRemoteGroup_1InterfaceBuilder {
-  void replace(covariant ShareeRemoteGroupInterface other);
-  void update(void Function(ShareeRemoteGroupInterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteGroupInterfaceBuilder
+    implements $ShareeInterfaceBuilder, $ShareeRemoteGroup_1InterfaceBuilder {
+  void replace(covariant $ShareeRemoteGroupInterface other);
+  void update(void Function($ShareeRemoteGroupInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -11612,7 +11612,7 @@ class _$ShareeRemoteGroup extends ShareeRemoteGroup {
 }
 
 class ShareeRemoteGroupBuilder
-    implements Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>, ShareeRemoteGroupInterfaceBuilder {
+    implements Builder<ShareeRemoteGroup, ShareeRemoteGroupBuilder>, $ShareeRemoteGroupInterfaceBuilder {
   _$ShareeRemoteGroup? _$v;
 
   int? _count;
@@ -11689,17 +11689,17 @@ class ShareeRemoteGroupBuilder
   }
 }
 
-abstract mixin class ShareeRemote_1_Value_1InterfaceBuilder {
-  void replace(ShareeRemote_1_Value_1Interface other);
-  void update(void Function(ShareeRemote_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemote_1_Value_1InterfaceBuilder {
+  void replace($ShareeRemote_1_Value_1Interface other);
+  void update(void Function($ShareeRemote_1_Value_1InterfaceBuilder) updates);
   String? get server;
   set server(String? server);
 }
 
-abstract mixin class ShareeRemote_1_ValueInterfaceBuilder
-    implements ShareeValueInterfaceBuilder, ShareeRemote_1_Value_1InterfaceBuilder {
-  void replace(covariant ShareeRemote_1_ValueInterface other);
-  void update(void Function(ShareeRemote_1_ValueInterfaceBuilder) updates);
+abstract mixin class $ShareeRemote_1_ValueInterfaceBuilder
+    implements $ShareeValueInterfaceBuilder, $ShareeRemote_1_Value_1InterfaceBuilder {
+  void replace(covariant $ShareeRemote_1_ValueInterface other);
+  void update(void Function($ShareeRemote_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
@@ -11764,7 +11764,7 @@ class _$ShareeRemote_1_Value extends ShareeRemote_1_Value {
 }
 
 class ShareeRemote_1_ValueBuilder
-    implements Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>, ShareeRemote_1_ValueInterfaceBuilder {
+    implements Builder<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder>, $ShareeRemote_1_ValueInterfaceBuilder {
   _$ShareeRemote_1_Value? _$v;
 
   int? _shareType;
@@ -11817,9 +11817,9 @@ class ShareeRemote_1_ValueBuilder
   }
 }
 
-abstract mixin class ShareeRemote_1InterfaceBuilder {
-  void replace(ShareeRemote_1Interface other);
-  void update(void Function(ShareeRemote_1InterfaceBuilder) updates);
+abstract mixin class $ShareeRemote_1InterfaceBuilder {
+  void replace($ShareeRemote_1Interface other);
+  void update(void Function($ShareeRemote_1InterfaceBuilder) updates);
   String? get uuid;
   set uuid(String? uuid);
 
@@ -11833,9 +11833,9 @@ abstract mixin class ShareeRemote_1InterfaceBuilder {
   set value(ShareeRemote_1_ValueBuilder? value);
 }
 
-abstract mixin class ShareeRemoteInterfaceBuilder implements ShareeInterfaceBuilder, ShareeRemote_1InterfaceBuilder {
-  void replace(covariant ShareeRemoteInterface other);
-  void update(void Function(ShareeRemoteInterfaceBuilder) updates);
+abstract mixin class $ShareeRemoteInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeRemote_1InterfaceBuilder {
+  void replace(covariant $ShareeRemoteInterface other);
+  void update(void Function($ShareeRemoteInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -11931,7 +11931,7 @@ class _$ShareeRemote extends ShareeRemote {
   }
 }
 
-class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>, ShareeRemoteInterfaceBuilder {
+class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>, $ShareeRemoteInterfaceBuilder {
   _$ShareeRemote? _$v;
 
   int? _count;
@@ -12014,9 +12014,9 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
   }
 }
 
-abstract mixin class ShareeUser_1_StatusInterfaceBuilder {
-  void replace(ShareeUser_1_StatusInterface other);
-  void update(void Function(ShareeUser_1_StatusInterfaceBuilder) updates);
+abstract mixin class $ShareeUser_1_StatusInterfaceBuilder {
+  void replace($ShareeUser_1_StatusInterface other);
+  void update(void Function($ShareeUser_1_StatusInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -12089,7 +12089,7 @@ class _$ShareeUser_1_Status extends ShareeUser_1_Status {
 }
 
 class ShareeUser_1_StatusBuilder
-    implements Builder<ShareeUser_1_Status, ShareeUser_1_StatusBuilder>, ShareeUser_1_StatusInterfaceBuilder {
+    implements Builder<ShareeUser_1_Status, ShareeUser_1_StatusBuilder>, $ShareeUser_1_StatusInterfaceBuilder {
   _$ShareeUser_1_Status? _$v;
 
   String? _status;
@@ -12148,9 +12148,9 @@ class ShareeUser_1_StatusBuilder
   }
 }
 
-abstract mixin class ShareeUser_1InterfaceBuilder {
-  void replace(ShareeUser_1Interface other);
-  void update(void Function(ShareeUser_1InterfaceBuilder) updates);
+abstract mixin class $ShareeUser_1InterfaceBuilder {
+  void replace($ShareeUser_1Interface other);
+  void update(void Function($ShareeUser_1InterfaceBuilder) updates);
   String? get subline;
   set subline(String? subline);
 
@@ -12167,9 +12167,9 @@ abstract mixin class ShareeUser_1InterfaceBuilder {
   set value(ShareeValueBuilder? value);
 }
 
-abstract mixin class ShareeUserInterfaceBuilder implements ShareeInterfaceBuilder, ShareeUser_1InterfaceBuilder {
-  void replace(covariant ShareeUserInterface other);
-  void update(void Function(ShareeUserInterfaceBuilder) updates);
+abstract mixin class $ShareeUserInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeUser_1InterfaceBuilder {
+  void replace(covariant $ShareeUserInterface other);
+  void update(void Function($ShareeUserInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -12274,7 +12274,7 @@ class _$ShareeUser extends ShareeUser {
   }
 }
 
-class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, ShareeUserInterfaceBuilder {
+class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $ShareeUserInterfaceBuilder {
   _$ShareeUser? _$v;
 
   int? _count;
@@ -12367,9 +12367,9 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, Share
   }
 }
 
-abstract mixin class ShareesSearchResult_ExactInterfaceBuilder {
-  void replace(ShareesSearchResult_ExactInterface other);
-  void update(void Function(ShareesSearchResult_ExactInterfaceBuilder) updates);
+abstract mixin class $ShareesSearchResult_ExactInterfaceBuilder {
+  void replace($ShareesSearchResult_ExactInterface other);
+  void update(void Function($ShareesSearchResult_ExactInterfaceBuilder) updates);
   ListBuilder<ShareeCircle> get circles;
   set circles(ListBuilder<ShareeCircle>? circles);
 
@@ -12480,7 +12480,7 @@ class _$ShareesSearchResult_Exact extends ShareesSearchResult_Exact {
 class ShareesSearchResult_ExactBuilder
     implements
         Builder<ShareesSearchResult_Exact, ShareesSearchResult_ExactBuilder>,
-        ShareesSearchResult_ExactInterfaceBuilder {
+        $ShareesSearchResult_ExactInterfaceBuilder {
   _$ShareesSearchResult_Exact? _$v;
 
   ListBuilder<ShareeCircle>? _circles;
@@ -12581,9 +12581,9 @@ class ShareesSearchResult_ExactBuilder
   }
 }
 
-abstract mixin class LookupInterfaceBuilder {
-  void replace(LookupInterface other);
-  void update(void Function(LookupInterfaceBuilder) updates);
+abstract mixin class $LookupInterfaceBuilder {
+  void replace($LookupInterface other);
+  void update(void Function($LookupInterfaceBuilder) updates);
   String? get value;
   set value(String? value);
 
@@ -12634,7 +12634,7 @@ class _$Lookup extends Lookup {
   }
 }
 
-class LookupBuilder implements Builder<Lookup, LookupBuilder>, LookupInterfaceBuilder {
+class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceBuilder {
   _$Lookup? _$v;
 
   String? _value;
@@ -12681,9 +12681,9 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, LookupInterfaceBu
   }
 }
 
-abstract mixin class ShareeLookup_1_ExtraInterfaceBuilder {
-  void replace(ShareeLookup_1_ExtraInterface other);
-  void update(void Function(ShareeLookup_1_ExtraInterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_1_ExtraInterfaceBuilder {
+  void replace($ShareeLookup_1_ExtraInterface other);
+  void update(void Function($ShareeLookup_1_ExtraInterfaceBuilder) updates);
   String? get federationId;
   set federationId(String? federationId);
 
@@ -12813,7 +12813,7 @@ class _$ShareeLookup_1_Extra extends ShareeLookup_1_Extra {
 }
 
 class ShareeLookup_1_ExtraBuilder
-    implements Builder<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder>, ShareeLookup_1_ExtraInterfaceBuilder {
+    implements Builder<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder>, $ShareeLookup_1_ExtraInterfaceBuilder {
   _$ShareeLookup_1_Extra? _$v;
 
   String? _federationId;
@@ -12937,17 +12937,17 @@ class ShareeLookup_1_ExtraBuilder
   }
 }
 
-abstract mixin class ShareeLookup_1_Value_1InterfaceBuilder {
-  void replace(ShareeLookup_1_Value_1Interface other);
-  void update(void Function(ShareeLookup_1_Value_1InterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_1_Value_1InterfaceBuilder {
+  void replace($ShareeLookup_1_Value_1Interface other);
+  void update(void Function($ShareeLookup_1_Value_1InterfaceBuilder) updates);
   bool? get globalScale;
   set globalScale(bool? globalScale);
 }
 
-abstract mixin class ShareeLookup_1_ValueInterfaceBuilder
-    implements ShareeValueInterfaceBuilder, ShareeLookup_1_Value_1InterfaceBuilder {
-  void replace(covariant ShareeLookup_1_ValueInterface other);
-  void update(void Function(ShareeLookup_1_ValueInterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_1_ValueInterfaceBuilder
+    implements $ShareeValueInterfaceBuilder, $ShareeLookup_1_Value_1InterfaceBuilder {
+  void replace(covariant $ShareeLookup_1_ValueInterface other);
+  void update(void Function($ShareeLookup_1_ValueInterfaceBuilder) updates);
   int? get shareType;
   set shareType(covariant int? shareType);
 
@@ -13012,7 +13012,7 @@ class _$ShareeLookup_1_Value extends ShareeLookup_1_Value {
 }
 
 class ShareeLookup_1_ValueBuilder
-    implements Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>, ShareeLookup_1_ValueInterfaceBuilder {
+    implements Builder<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder>, $ShareeLookup_1_ValueInterfaceBuilder {
   _$ShareeLookup_1_Value? _$v;
 
   int? _shareType;
@@ -13065,9 +13065,9 @@ class ShareeLookup_1_ValueBuilder
   }
 }
 
-abstract mixin class ShareeLookup_1InterfaceBuilder {
-  void replace(ShareeLookup_1Interface other);
-  void update(void Function(ShareeLookup_1InterfaceBuilder) updates);
+abstract mixin class $ShareeLookup_1InterfaceBuilder {
+  void replace($ShareeLookup_1Interface other);
+  void update(void Function($ShareeLookup_1InterfaceBuilder) updates);
   ShareeLookup_1_ExtraBuilder get extra;
   set extra(ShareeLookup_1_ExtraBuilder? extra);
 
@@ -13075,9 +13075,9 @@ abstract mixin class ShareeLookup_1InterfaceBuilder {
   set value(ShareeLookup_1_ValueBuilder? value);
 }
 
-abstract mixin class ShareeLookupInterfaceBuilder implements ShareeInterfaceBuilder, ShareeLookup_1InterfaceBuilder {
-  void replace(covariant ShareeLookupInterface other);
-  void update(void Function(ShareeLookupInterfaceBuilder) updates);
+abstract mixin class $ShareeLookupInterfaceBuilder implements $ShareeInterfaceBuilder, $ShareeLookup_1InterfaceBuilder {
+  void replace(covariant $ShareeLookupInterface other);
+  void update(void Function($ShareeLookupInterfaceBuilder) updates);
   int? get count;
   set count(covariant int? count);
 
@@ -13148,7 +13148,7 @@ class _$ShareeLookup extends ShareeLookup {
   }
 }
 
-class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>, ShareeLookupInterfaceBuilder {
+class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>, $ShareeLookupInterfaceBuilder {
   _$ShareeLookup? _$v;
 
   int? _count;
@@ -13221,9 +13221,9 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
   }
 }
 
-abstract mixin class ShareesSearchResultInterfaceBuilder {
-  void replace(ShareesSearchResultInterface other);
-  void update(void Function(ShareesSearchResultInterfaceBuilder) updates);
+abstract mixin class $ShareesSearchResultInterfaceBuilder {
+  void replace($ShareesSearchResultInterface other);
+  void update(void Function($ShareesSearchResultInterfaceBuilder) updates);
   ShareesSearchResult_ExactBuilder get exact;
   set exact(ShareesSearchResult_ExactBuilder? exact);
 
@@ -13362,7 +13362,7 @@ class _$ShareesSearchResult extends ShareesSearchResult {
 }
 
 class ShareesSearchResultBuilder
-    implements Builder<ShareesSearchResult, ShareesSearchResultBuilder>, ShareesSearchResultInterfaceBuilder {
+    implements Builder<ShareesSearchResult, ShareesSearchResultBuilder>, $ShareesSearchResultInterfaceBuilder {
   _$ShareesSearchResult? _$v;
 
   ShareesSearchResult_ExactBuilder? _exact;
@@ -13486,9 +13486,9 @@ class ShareesSearchResultBuilder
   }
 }
 
-abstract mixin class ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareesapiSearchResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareesapiSearchResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -13547,7 +13547,7 @@ class _$ShareesapiSearchResponseApplicationJson_Ocs extends ShareesapiSearchResp
 class ShareesapiSearchResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareesapiSearchResponseApplicationJson_Ocs, ShareesapiSearchResponseApplicationJson_OcsBuilder>,
-        ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareesapiSearchResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareesapiSearchResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -13605,9 +13605,9 @@ class ShareesapiSearchResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareesapiSearchResponseApplicationJsonInterface other);
-  void update(void Function(ShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareesapiSearchResponseApplicationJsonInterface other);
+  void update(void Function($ShareesapiSearchResponseApplicationJsonInterfaceBuilder) updates);
   ShareesapiSearchResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareesapiSearchResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -13656,7 +13656,7 @@ class _$ShareesapiSearchResponseApplicationJson extends ShareesapiSearchResponse
 class ShareesapiSearchResponseApplicationJsonBuilder
     implements
         Builder<ShareesapiSearchResponseApplicationJson, ShareesapiSearchResponseApplicationJsonBuilder>,
-        ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
+        $ShareesapiSearchResponseApplicationJsonInterfaceBuilder {
   _$ShareesapiSearchResponseApplicationJson? _$v;
 
   ShareesapiSearchResponseApplicationJson_OcsBuilder? _ocs;
@@ -13708,9 +13708,9 @@ class ShareesapiSearchResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ShareesapiFindRecommendedShareTypeInterfaceBuilder {
-  void replace(ShareesapiFindRecommendedShareTypeInterface other);
-  void update(void Function(ShareesapiFindRecommendedShareTypeInterfaceBuilder) updates);
+abstract mixin class $ShareesapiFindRecommendedShareTypeInterfaceBuilder {
+  void replace($ShareesapiFindRecommendedShareTypeInterface other);
+  void update(void Function($ShareesapiFindRecommendedShareTypeInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -13772,7 +13772,7 @@ class _$ShareesapiFindRecommendedShareType extends ShareesapiFindRecommendedShar
 class ShareesapiFindRecommendedShareTypeBuilder
     implements
         Builder<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder>,
-        ShareesapiFindRecommendedShareTypeInterfaceBuilder {
+        $ShareesapiFindRecommendedShareTypeInterfaceBuilder {
   _$ShareesapiFindRecommendedShareType? _$v;
 
   JsonObject? _data;
@@ -13838,9 +13838,9 @@ class ShareesapiFindRecommendedShareTypeBuilder
   }
 }
 
-abstract mixin class ShareesRecommendedResult_ExactInterfaceBuilder {
-  void replace(ShareesRecommendedResult_ExactInterface other);
-  void update(void Function(ShareesRecommendedResult_ExactInterfaceBuilder) updates);
+abstract mixin class $ShareesRecommendedResult_ExactInterfaceBuilder {
+  void replace($ShareesRecommendedResult_ExactInterface other);
+  void update(void Function($ShareesRecommendedResult_ExactInterfaceBuilder) updates);
   ListBuilder<ShareeEmail> get emails;
   set emails(ListBuilder<ShareeEmail>? emails);
 
@@ -13931,7 +13931,7 @@ class _$ShareesRecommendedResult_Exact extends ShareesRecommendedResult_Exact {
 class ShareesRecommendedResult_ExactBuilder
     implements
         Builder<ShareesRecommendedResult_Exact, ShareesRecommendedResult_ExactBuilder>,
-        ShareesRecommendedResult_ExactInterfaceBuilder {
+        $ShareesRecommendedResult_ExactInterfaceBuilder {
   _$ShareesRecommendedResult_Exact? _$v;
 
   ListBuilder<ShareeEmail>? _emails;
@@ -14016,9 +14016,9 @@ class ShareesRecommendedResult_ExactBuilder
   }
 }
 
-abstract mixin class ShareesRecommendedResultInterfaceBuilder {
-  void replace(ShareesRecommendedResultInterface other);
-  void update(void Function(ShareesRecommendedResultInterfaceBuilder) updates);
+abstract mixin class $ShareesRecommendedResultInterfaceBuilder {
+  void replace($ShareesRecommendedResultInterface other);
+  void update(void Function($ShareesRecommendedResultInterfaceBuilder) updates);
   ShareesRecommendedResult_ExactBuilder get exact;
   set exact(ShareesRecommendedResult_ExactBuilder? exact);
 
@@ -14119,7 +14119,7 @@ class _$ShareesRecommendedResult extends ShareesRecommendedResult {
 class ShareesRecommendedResultBuilder
     implements
         Builder<ShareesRecommendedResult, ShareesRecommendedResultBuilder>,
-        ShareesRecommendedResultInterfaceBuilder {
+        $ShareesRecommendedResultInterfaceBuilder {
   _$ShareesRecommendedResult? _$v;
 
   ShareesRecommendedResult_ExactBuilder? _exact;
@@ -14212,9 +14212,9 @@ class ShareesRecommendedResultBuilder
   }
 }
 
-abstract mixin class ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ShareesapiFindRecommendedResponseApplicationJson_OcsInterface other);
-  void update(void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ShareesapiFindRecommendedResponseApplicationJson_OcsInterface other);
+  void update(void Function($ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -14275,7 +14275,7 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
     implements
         Builder<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
             ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder>,
-        ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
+        $ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareesapiFindRecommendedResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -14335,9 +14335,9 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
-  void replace(ShareesapiFindRecommendedResponseApplicationJsonInterface other);
-  void update(void Function(ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
+  void replace($ShareesapiFindRecommendedResponseApplicationJsonInterface other);
+  void update(void Function($ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder) updates);
   ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -14388,7 +14388,7 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
     implements
         Builder<ShareesapiFindRecommendedResponseApplicationJson,
             ShareesapiFindRecommendedResponseApplicationJsonBuilder>,
-        ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
+        $ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
   _$ShareesapiFindRecommendedResponseApplicationJson? _$v;
 
   ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder? _ocs;
@@ -14441,9 +14441,9 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Public_PasswordInterface other);
-  void update(void Function(Capabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Public_PasswordInterface other);
+  void update(void Function($Capabilities_FilesSharing_Public_PasswordInterfaceBuilder) updates);
   bool? get enforced;
   set enforced(bool? enforced);
 
@@ -14506,7 +14506,7 @@ class _$Capabilities_FilesSharing_Public_Password extends Capabilities_FilesShar
 class Capabilities_FilesSharing_Public_PasswordBuilder
     implements
         Builder<Capabilities_FilesSharing_Public_Password, Capabilities_FilesSharing_Public_PasswordBuilder>,
-        Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
+        $Capabilities_FilesSharing_Public_PasswordInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_Password? _$v;
 
   bool? _enforced;
@@ -14556,9 +14556,9 @@ class Capabilities_FilesSharing_Public_PasswordBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Public_ExpireDateInterface other);
-  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Public_ExpireDateInterface other);
+  void update(void Function($Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -14626,7 +14626,7 @@ class _$Capabilities_FilesSharing_Public_ExpireDate extends Capabilities_FilesSh
 class Capabilities_FilesSharing_Public_ExpireDateBuilder
     implements
         Builder<Capabilities_FilesSharing_Public_ExpireDate, Capabilities_FilesSharing_Public_ExpireDateBuilder>,
-        Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
+        $Capabilities_FilesSharing_Public_ExpireDateInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_ExpireDate? _$v;
 
   bool? _enabled;
@@ -14680,9 +14680,9 @@ class Capabilities_FilesSharing_Public_ExpireDateBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Public_ExpireDateInternalInterface other);
-  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Public_ExpireDateInternalInterface other);
+  void update(void Function($Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -14753,7 +14753,7 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
     implements
         Builder<Capabilities_FilesSharing_Public_ExpireDateInternal,
             Capabilities_FilesSharing_Public_ExpireDateInternalBuilder>,
-        Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
+        $Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_ExpireDateInternal? _$v;
 
   bool? _enabled;
@@ -14807,9 +14807,9 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Public_ExpireDateRemoteInterface other);
-  void update(void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Public_ExpireDateRemoteInterface other);
+  void update(void Function($Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -14878,7 +14878,7 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     implements
         Builder<Capabilities_FilesSharing_Public_ExpireDateRemote,
             Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder>,
-        Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
+        $Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_ExpireDateRemote? _$v;
 
   bool? _enabled;
@@ -14932,9 +14932,9 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_PublicInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_PublicInterface other);
-  void update(void Function(Capabilities_FilesSharing_PublicInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_PublicInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_PublicInterface other);
+  void update(void Function($Capabilities_FilesSharing_PublicInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -15057,7 +15057,7 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
 class Capabilities_FilesSharing_PublicBuilder
     implements
         Builder<Capabilities_FilesSharing_Public, Capabilities_FilesSharing_PublicBuilder>,
-        Capabilities_FilesSharing_PublicInterfaceBuilder {
+        $Capabilities_FilesSharing_PublicInterfaceBuilder {
   _$Capabilities_FilesSharing_Public? _$v;
 
   bool? _enabled;
@@ -15172,9 +15172,9 @@ class Capabilities_FilesSharing_PublicBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_User_ExpireDateInterface other);
-  void update(void Function(Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_User_ExpireDateInterface other);
+  void update(void Function($Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -15224,7 +15224,7 @@ class _$Capabilities_FilesSharing_User_ExpireDate extends Capabilities_FilesShar
 class Capabilities_FilesSharing_User_ExpireDateBuilder
     implements
         Builder<Capabilities_FilesSharing_User_ExpireDate, Capabilities_FilesSharing_User_ExpireDateBuilder>,
-        Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
+        $Capabilities_FilesSharing_User_ExpireDateInterfaceBuilder {
   _$Capabilities_FilesSharing_User_ExpireDate? _$v;
 
   bool? _enabled;
@@ -15266,9 +15266,9 @@ class Capabilities_FilesSharing_User_ExpireDateBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_UserInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_UserInterface other);
-  void update(void Function(Capabilities_FilesSharing_UserInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_UserInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_UserInterface other);
+  void update(void Function($Capabilities_FilesSharing_UserInterfaceBuilder) updates);
   bool? get sendMail;
   set sendMail(bool? sendMail);
 
@@ -15323,7 +15323,7 @@ class _$Capabilities_FilesSharing_User extends Capabilities_FilesSharing_User {
 class Capabilities_FilesSharing_UserBuilder
     implements
         Builder<Capabilities_FilesSharing_User, Capabilities_FilesSharing_UserBuilder>,
-        Capabilities_FilesSharing_UserInterfaceBuilder {
+        $Capabilities_FilesSharing_UserInterfaceBuilder {
   _$Capabilities_FilesSharing_User? _$v;
 
   bool? _sendMail;
@@ -15384,9 +15384,9 @@ class Capabilities_FilesSharing_UserBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Group_ExpireDateInterface other);
-  void update(void Function(Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Group_ExpireDateInterface other);
+  void update(void Function($Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -15436,7 +15436,7 @@ class _$Capabilities_FilesSharing_Group_ExpireDate extends Capabilities_FilesSha
 class Capabilities_FilesSharing_Group_ExpireDateBuilder
     implements
         Builder<Capabilities_FilesSharing_Group_ExpireDate, Capabilities_FilesSharing_Group_ExpireDateBuilder>,
-        Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
+        $Capabilities_FilesSharing_Group_ExpireDateInterfaceBuilder {
   _$Capabilities_FilesSharing_Group_ExpireDate? _$v;
 
   bool? _enabled;
@@ -15478,9 +15478,9 @@ class Capabilities_FilesSharing_Group_ExpireDateBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_GroupInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_GroupInterface other);
-  void update(void Function(Capabilities_FilesSharing_GroupInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_GroupInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_GroupInterface other);
+  void update(void Function($Capabilities_FilesSharing_GroupInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -15535,7 +15535,7 @@ class _$Capabilities_FilesSharing_Group extends Capabilities_FilesSharing_Group 
 class Capabilities_FilesSharing_GroupBuilder
     implements
         Builder<Capabilities_FilesSharing_Group, Capabilities_FilesSharing_GroupBuilder>,
-        Capabilities_FilesSharing_GroupInterfaceBuilder {
+        $Capabilities_FilesSharing_GroupInterfaceBuilder {
   _$Capabilities_FilesSharing_Group? _$v;
 
   bool? _enabled;
@@ -15596,9 +15596,9 @@ class Capabilities_FilesSharing_GroupBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Federation_ExpireDateInterface other);
-  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Federation_ExpireDateInterface other);
+  void update(void Function($Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -15649,7 +15649,7 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
     implements
         Builder<Capabilities_FilesSharing_Federation_ExpireDate,
             Capabilities_FilesSharing_Federation_ExpireDateBuilder>,
-        Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
+        $Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
   _$Capabilities_FilesSharing_Federation_ExpireDate? _$v;
 
   bool? _enabled;
@@ -15691,9 +15691,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface other);
-  void update(void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface other);
+  void update(void Function($Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -15747,7 +15747,7 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     implements
         Builder<Capabilities_FilesSharing_Federation_ExpireDateSupported,
             Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder>,
-        Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
+        $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
   _$Capabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
 
   bool? _enabled;
@@ -15789,9 +15789,9 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_FederationInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_FederationInterface other);
-  void update(void Function(Capabilities_FilesSharing_FederationInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_FederationInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_FederationInterface other);
+  void update(void Function($Capabilities_FilesSharing_FederationInterfaceBuilder) updates);
   bool? get outgoing;
   set outgoing(bool? outgoing);
 
@@ -15872,7 +15872,7 @@ class _$Capabilities_FilesSharing_Federation extends Capabilities_FilesSharing_F
 class Capabilities_FilesSharing_FederationBuilder
     implements
         Builder<Capabilities_FilesSharing_Federation, Capabilities_FilesSharing_FederationBuilder>,
-        Capabilities_FilesSharing_FederationInterfaceBuilder {
+        $Capabilities_FilesSharing_FederationInterfaceBuilder {
   _$Capabilities_FilesSharing_Federation? _$v;
 
   bool? _outgoing;
@@ -15952,9 +15952,9 @@ class Capabilities_FilesSharing_FederationBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharing_ShareeInterfaceBuilder {
-  void replace(Capabilities_FilesSharing_ShareeInterface other);
-  void update(void Function(Capabilities_FilesSharing_ShareeInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharing_ShareeInterfaceBuilder {
+  void replace($Capabilities_FilesSharing_ShareeInterface other);
+  void update(void Function($Capabilities_FilesSharing_ShareeInterfaceBuilder) updates);
   bool? get queryLookupDefault;
   set queryLookupDefault(bool? queryLookupDefault);
 
@@ -16013,7 +16013,7 @@ class _$Capabilities_FilesSharing_Sharee extends Capabilities_FilesSharing_Share
 class Capabilities_FilesSharing_ShareeBuilder
     implements
         Builder<Capabilities_FilesSharing_Sharee, Capabilities_FilesSharing_ShareeBuilder>,
-        Capabilities_FilesSharing_ShareeInterfaceBuilder {
+        $Capabilities_FilesSharing_ShareeInterfaceBuilder {
   _$Capabilities_FilesSharing_Sharee? _$v;
 
   bool? _queryLookupDefault;
@@ -16062,9 +16062,9 @@ class Capabilities_FilesSharing_ShareeBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesSharingInterfaceBuilder {
-  void replace(Capabilities_FilesSharingInterface other);
-  void update(void Function(Capabilities_FilesSharingInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesSharingInterfaceBuilder {
+  void replace($Capabilities_FilesSharingInterface other);
+  void update(void Function($Capabilities_FilesSharingInterfaceBuilder) updates);
   bool? get apiEnabled;
   set apiEnabled(bool? apiEnabled);
 
@@ -16192,7 +16192,7 @@ class _$Capabilities_FilesSharing extends Capabilities_FilesSharing {
 class Capabilities_FilesSharingBuilder
     implements
         Builder<Capabilities_FilesSharing, Capabilities_FilesSharingBuilder>,
-        Capabilities_FilesSharingInterfaceBuilder {
+        $Capabilities_FilesSharingInterfaceBuilder {
   _$Capabilities_FilesSharing? _$v;
 
   bool? _apiEnabled;
@@ -16304,9 +16304,9 @@ class Capabilities_FilesSharingBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_FilesSharingBuilder get filesSharing;
   set filesSharing(Capabilities_FilesSharingBuilder? filesSharing);
 }
@@ -16348,7 +16348,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_FilesSharingBuilder? _filesSharing;

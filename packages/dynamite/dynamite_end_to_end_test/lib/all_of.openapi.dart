@@ -31,21 +31,21 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAllOf_0Interface {
+abstract interface class $ObjectAllOf_0Interface {
   @BuiltValueField(wireName: 'attribute1-allOf')
   String get attribute1AllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAllOf_1Interface {
+abstract interface class $ObjectAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute2-allOf')
   String get attribute2AllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ObjectAllOfInterface implements ObjectAllOf_0Interface, ObjectAllOf_1Interface {}
+abstract interface class $ObjectAllOfInterface implements $ObjectAllOf_0Interface, $ObjectAllOf_1Interface {}
 
-abstract class ObjectAllOf implements ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
+abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
   factory ObjectAllOf([final void Function(ObjectAllOfBuilder)? b]) = _$ObjectAllOf;
 
   const ObjectAllOf._();
@@ -58,15 +58,15 @@ abstract class ObjectAllOf implements ObjectAllOfInterface, Built<ObjectAllOf, O
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneObjectAllOf_0Interface {
+abstract interface class $OneObjectAllOf_0Interface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneObjectAllOfInterface implements OneObjectAllOf_0Interface {}
+abstract interface class $OneObjectAllOfInterface implements $OneObjectAllOf_0Interface {}
 
-abstract class OneObjectAllOf implements OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
+abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
   factory OneObjectAllOf([final void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
 
   const OneObjectAllOf._();
@@ -80,14 +80,14 @@ abstract class OneObjectAllOf implements OneObjectAllOfInterface, Built<OneObjec
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PrimitiveAllOfInterface {
+abstract interface class $PrimitiveAllOfInterface {
   @BuiltValueField(wireName: 'int')
   int get $int;
   @BuiltValueField(wireName: 'String')
   String get string;
 }
 
-abstract class PrimitiveAllOf implements PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
+abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
   factory PrimitiveAllOf([final void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
 
   const PrimitiveAllOf._();
@@ -101,18 +101,18 @@ abstract class PrimitiveAllOf implements PrimitiveAllOfInterface, Built<Primitiv
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MixedAllOf_1Interface {
+abstract interface class $MixedAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MixedAllOfInterface implements MixedAllOf_1Interface {
+abstract interface class $MixedAllOfInterface implements $MixedAllOf_1Interface {
   @BuiltValueField(wireName: 'String')
   String get string;
 }
 
-abstract class MixedAllOf implements MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
+abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
   factory MixedAllOf([final void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
 
   const MixedAllOf._();
@@ -125,12 +125,12 @@ abstract class MixedAllOf implements MixedAllOfInterface, Built<MixedAllOf, Mixe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OneValueAllOfInterface {
+abstract interface class $OneValueAllOfInterface {
   @BuiltValueField(wireName: 'String')
   String get string;
 }
 
-abstract class OneValueAllOf implements OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
+abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
   factory OneValueAllOf([final void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
 
   const OneValueAllOf._();

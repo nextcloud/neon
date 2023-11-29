@@ -122,14 +122,14 @@ class LogSettingsClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class LogSettingsLogSettingsDownloadHeadersInterface {
+abstract interface class $LogSettingsLogSettingsDownloadHeadersInterface {
   @BuiltValueField(wireName: 'content-disposition')
   String? get contentDisposition;
 }
 
 abstract class LogSettingsLogSettingsDownloadHeaders
     implements
-        LogSettingsLogSettingsDownloadHeadersInterface,
+        $LogSettingsLogSettingsDownloadHeadersInterface,
         Built<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder> {
   factory LogSettingsLogSettingsDownloadHeaders([
     final void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b,

@@ -303,9 +303,9 @@ class _$Capabilities0Serializer implements StructuredSerializer<Capabilities0> {
   }
 }
 
-abstract mixin class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
-  void replace(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface other);
-  void update(void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
+abstract mixin class $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+  void replace($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface other);
+  void update(void Function($Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 }
@@ -359,7 +359,7 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
     implements
         Builder<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
             Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder>,
-        Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
+        $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterfaceBuilder {
   _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop? _$v;
 
   bool? _enabled;
@@ -401,9 +401,9 @@ class Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder
   }
 }
 
-abstract mixin class Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
-  void replace(Capabilities0_FilesSharing_Sharebymail_PasswordInterface other);
-  void update(void Function(Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
+abstract mixin class $Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+  void replace($Capabilities0_FilesSharing_Sharebymail_PasswordInterface other);
+  void update(void Function($Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -465,7 +465,7 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
     implements
         Builder<Capabilities0_FilesSharing_Sharebymail_Password,
             Capabilities0_FilesSharing_Sharebymail_PasswordBuilder>,
-        Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
+        $Capabilities0_FilesSharing_Sharebymail_PasswordInterfaceBuilder {
   _$Capabilities0_FilesSharing_Sharebymail_Password? _$v;
 
   bool? _enabled;
@@ -514,9 +514,9 @@ class Capabilities0_FilesSharing_Sharebymail_PasswordBuilder
   }
 }
 
-abstract mixin class Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
-  void replace(Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface other);
-  void update(void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
+abstract mixin class $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+  void replace($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface other);
+  void update(void Function($Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -578,7 +578,7 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
     implements
         Builder<Capabilities0_FilesSharing_Sharebymail_ExpireDate,
             Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder>,
-        Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
+        $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterfaceBuilder {
   _$Capabilities0_FilesSharing_Sharebymail_ExpireDate? _$v;
 
   bool? _enabled;
@@ -627,9 +627,9 @@ class Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder
   }
 }
 
-abstract mixin class Capabilities0_FilesSharing_SharebymailInterfaceBuilder {
-  void replace(Capabilities0_FilesSharing_SharebymailInterface other);
-  void update(void Function(Capabilities0_FilesSharing_SharebymailInterfaceBuilder) updates);
+abstract mixin class $Capabilities0_FilesSharing_SharebymailInterfaceBuilder {
+  void replace($Capabilities0_FilesSharing_SharebymailInterface other);
+  void update(void Function($Capabilities0_FilesSharing_SharebymailInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -725,7 +725,7 @@ class _$Capabilities0_FilesSharing_Sharebymail extends Capabilities0_FilesSharin
 class Capabilities0_FilesSharing_SharebymailBuilder
     implements
         Builder<Capabilities0_FilesSharing_Sharebymail, Capabilities0_FilesSharing_SharebymailBuilder>,
-        Capabilities0_FilesSharing_SharebymailInterfaceBuilder {
+        $Capabilities0_FilesSharing_SharebymailInterfaceBuilder {
   _$Capabilities0_FilesSharing_Sharebymail? _$v;
 
   bool? _enabled;
@@ -814,9 +814,9 @@ class Capabilities0_FilesSharing_SharebymailBuilder
   }
 }
 
-abstract mixin class Capabilities0_FilesSharingInterfaceBuilder {
-  void replace(Capabilities0_FilesSharingInterface other);
-  void update(void Function(Capabilities0_FilesSharingInterfaceBuilder) updates);
+abstract mixin class $Capabilities0_FilesSharingInterfaceBuilder {
+  void replace($Capabilities0_FilesSharingInterface other);
+  void update(void Function($Capabilities0_FilesSharingInterfaceBuilder) updates);
   Capabilities0_FilesSharing_SharebymailBuilder get sharebymail;
   set sharebymail(Capabilities0_FilesSharing_SharebymailBuilder? sharebymail);
 }
@@ -862,7 +862,7 @@ class _$Capabilities0_FilesSharing extends Capabilities0_FilesSharing {
 class Capabilities0_FilesSharingBuilder
     implements
         Builder<Capabilities0_FilesSharing, Capabilities0_FilesSharingBuilder>,
-        Capabilities0_FilesSharingInterfaceBuilder {
+        $Capabilities0_FilesSharingInterfaceBuilder {
   _$Capabilities0_FilesSharing? _$v;
 
   Capabilities0_FilesSharing_SharebymailBuilder? _sharebymail;
@@ -915,9 +915,9 @@ class Capabilities0_FilesSharingBuilder
   }
 }
 
-abstract mixin class Capabilities0InterfaceBuilder {
-  void replace(Capabilities0Interface other);
-  void update(void Function(Capabilities0InterfaceBuilder) updates);
+abstract mixin class $Capabilities0InterfaceBuilder {
+  void replace($Capabilities0Interface other);
+  void update(void Function($Capabilities0InterfaceBuilder) updates);
   Capabilities0_FilesSharingBuilder get filesSharing;
   set filesSharing(Capabilities0_FilesSharingBuilder? filesSharing);
 }
@@ -959,7 +959,7 @@ class _$Capabilities0 extends Capabilities0 {
   }
 }
 
-class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builder>, Capabilities0InterfaceBuilder {
+class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builder>, $Capabilities0InterfaceBuilder {
   _$Capabilities0? _$v;
 
   Capabilities0_FilesSharingBuilder? _filesSharing;
@@ -1010,9 +1010,9 @@ class Capabilities0Builder implements Builder<Capabilities0, Capabilities0Builde
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities0Builder get capabilities0;
   set capabilities0(Capabilities0Builder? capabilities0);
 
@@ -1070,7 +1070,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   JsonObject? _data;

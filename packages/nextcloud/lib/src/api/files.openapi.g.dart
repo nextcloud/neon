@@ -2232,9 +2232,9 @@ class _$TemplateSerializer implements StructuredSerializer<Template> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -2312,7 +2312,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -2377,9 +2377,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
-  void replace(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface other);
-  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
+  void replace($DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface other);
+  void update(void Function($DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -2478,7 +2478,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
     implements
         Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder>,
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
+        $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors? _$v;
 
   String? _id;
@@ -2562,9 +2562,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
   }
 }
 
-abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
-  void replace(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface other);
-  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
+  void replace($DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface other);
+  void update(void Function($DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -2674,7 +2674,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
     implements
         Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder>,
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
+        $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators? _$v;
 
   String? _id;
@@ -2763,9 +2763,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
   }
 }
 
-abstract mixin class DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DirectEditingInfoResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($DirectEditingInfoResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get editors;
   set editors(MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? editors);
 
@@ -2827,7 +2827,7 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data,
             DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder>,
-        DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>? _editors;
@@ -2891,9 +2891,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DirectEditingInfoResponseApplicationJson_OcsInterface other);
-  void update(void Function(DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DirectEditingInfoResponseApplicationJson_OcsInterface other);
+  void update(void Function($DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2952,7 +2952,7 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs extends DirectEditingInfoRe
 class DirectEditingInfoResponseApplicationJson_OcsBuilder
     implements
         Builder<DirectEditingInfoResponseApplicationJson_Ocs, DirectEditingInfoResponseApplicationJson_OcsBuilder>,
-        DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
+        $DirectEditingInfoResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3011,9 +3011,9 @@ class DirectEditingInfoResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
-  void replace(DirectEditingInfoResponseApplicationJsonInterface other);
-  void update(void Function(DirectEditingInfoResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingInfoResponseApplicationJsonInterface other);
+  void update(void Function($DirectEditingInfoResponseApplicationJsonInterfaceBuilder) updates);
   DirectEditingInfoResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectEditingInfoResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3062,7 +3062,7 @@ class _$DirectEditingInfoResponseApplicationJson extends DirectEditingInfoRespon
 class DirectEditingInfoResponseApplicationJsonBuilder
     implements
         Builder<DirectEditingInfoResponseApplicationJson, DirectEditingInfoResponseApplicationJsonBuilder>,
-        DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
+        $DirectEditingInfoResponseApplicationJsonInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson? _$v;
 
   DirectEditingInfoResponseApplicationJson_OcsBuilder? _ocs;
@@ -3114,9 +3114,9 @@ class DirectEditingInfoResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
-  void replace(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface other);
-  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates);
+abstract mixin class $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
+  void replace($DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface other);
+  void update(void Function($DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -3211,7 +3211,7 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
     implements
         Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
             DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder>,
-        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
+        $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates? _$v;
 
   String? _id;
@@ -3280,9 +3280,9 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
   }
 }
 
-abstract mixin class DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates;
   set templates(MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates);
 }
@@ -3336,7 +3336,7 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
             DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder>,
-        DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data? _$v;
 
   MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? _templates;
@@ -3391,9 +3391,9 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DirectEditingTemplatesResponseApplicationJson_OcsInterface other);
-  void update(void Function(DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DirectEditingTemplatesResponseApplicationJson_OcsInterface other);
+  void update(void Function($DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3453,7 +3453,7 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
     implements
         Builder<DirectEditingTemplatesResponseApplicationJson_Ocs,
             DirectEditingTemplatesResponseApplicationJson_OcsBuilder>,
-        DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
+        $DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3513,9 +3513,9 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
-  void replace(DirectEditingTemplatesResponseApplicationJsonInterface other);
-  void update(void Function(DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingTemplatesResponseApplicationJsonInterface other);
+  void update(void Function($DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder) updates);
   DirectEditingTemplatesResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectEditingTemplatesResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3564,7 +3564,7 @@ class _$DirectEditingTemplatesResponseApplicationJson extends DirectEditingTempl
 class DirectEditingTemplatesResponseApplicationJsonBuilder
     implements
         Builder<DirectEditingTemplatesResponseApplicationJson, DirectEditingTemplatesResponseApplicationJsonBuilder>,
-        DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
+        $DirectEditingTemplatesResponseApplicationJsonInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson? _$v;
 
   DirectEditingTemplatesResponseApplicationJson_OcsBuilder? _ocs;
@@ -3616,9 +3616,9 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DirectEditingOpenResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($DirectEditingOpenResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
@@ -3669,7 +3669,7 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<DirectEditingOpenResponseApplicationJson_Ocs_Data,
             DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder>,
-        DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingOpenResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
@@ -3711,9 +3711,9 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DirectEditingOpenResponseApplicationJson_OcsInterface other);
-  void update(void Function(DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DirectEditingOpenResponseApplicationJson_OcsInterface other);
+  void update(void Function($DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3772,7 +3772,7 @@ class _$DirectEditingOpenResponseApplicationJson_Ocs extends DirectEditingOpenRe
 class DirectEditingOpenResponseApplicationJson_OcsBuilder
     implements
         Builder<DirectEditingOpenResponseApplicationJson_Ocs, DirectEditingOpenResponseApplicationJson_OcsBuilder>,
-        DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
+        $DirectEditingOpenResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectEditingOpenResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3831,9 +3831,9 @@ class DirectEditingOpenResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
-  void replace(DirectEditingOpenResponseApplicationJsonInterface other);
-  void update(void Function(DirectEditingOpenResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingOpenResponseApplicationJsonInterface other);
+  void update(void Function($DirectEditingOpenResponseApplicationJsonInterfaceBuilder) updates);
   DirectEditingOpenResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectEditingOpenResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3882,7 +3882,7 @@ class _$DirectEditingOpenResponseApplicationJson extends DirectEditingOpenRespon
 class DirectEditingOpenResponseApplicationJsonBuilder
     implements
         Builder<DirectEditingOpenResponseApplicationJson, DirectEditingOpenResponseApplicationJsonBuilder>,
-        DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
+        $DirectEditingOpenResponseApplicationJsonInterfaceBuilder {
   _$DirectEditingOpenResponseApplicationJson? _$v;
 
   DirectEditingOpenResponseApplicationJson_OcsBuilder? _ocs;
@@ -3934,9 +3934,9 @@ class DirectEditingOpenResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(DirectEditingCreateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($DirectEditingCreateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 }
@@ -3988,7 +3988,7 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<DirectEditingCreateResponseApplicationJson_Ocs_Data,
             DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder>,
-        DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingCreateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _url;
@@ -4030,9 +4030,9 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(DirectEditingCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($DirectEditingCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function($DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4091,7 +4091,7 @@ class _$DirectEditingCreateResponseApplicationJson_Ocs extends DirectEditingCrea
 class DirectEditingCreateResponseApplicationJson_OcsBuilder
     implements
         Builder<DirectEditingCreateResponseApplicationJson_Ocs, DirectEditingCreateResponseApplicationJson_OcsBuilder>,
-        DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
+        $DirectEditingCreateResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectEditingCreateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4151,9 +4151,9 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(DirectEditingCreateResponseApplicationJsonInterface other);
-  void update(void Function(DirectEditingCreateResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
+  void replace($DirectEditingCreateResponseApplicationJsonInterface other);
+  void update(void Function($DirectEditingCreateResponseApplicationJsonInterfaceBuilder) updates);
   DirectEditingCreateResponseApplicationJson_OcsBuilder get ocs;
   set ocs(DirectEditingCreateResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4202,7 +4202,7 @@ class _$DirectEditingCreateResponseApplicationJson extends DirectEditingCreateRe
 class DirectEditingCreateResponseApplicationJsonBuilder
     implements
         Builder<DirectEditingCreateResponseApplicationJson, DirectEditingCreateResponseApplicationJsonBuilder>,
-        DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
+        $DirectEditingCreateResponseApplicationJsonInterfaceBuilder {
   _$DirectEditingCreateResponseApplicationJson? _$v;
 
   DirectEditingCreateResponseApplicationJson_OcsBuilder? _ocs;
@@ -4254,9 +4254,9 @@ class DirectEditingCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -4340,7 +4340,7 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder>,
-        OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
@@ -4402,9 +4402,9 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(OpenLocalEditorCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OpenLocalEditorCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function($OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4464,7 +4464,7 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
     implements
         Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs,
             OpenLocalEditorCreateResponseApplicationJson_OcsBuilder>,
-        OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
+        $OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4524,9 +4524,9 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(OpenLocalEditorCreateResponseApplicationJsonInterface other);
-  void update(void Function(OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
+  void replace($OpenLocalEditorCreateResponseApplicationJsonInterface other);
+  void update(void Function($OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder) updates);
   OpenLocalEditorCreateResponseApplicationJson_OcsBuilder get ocs;
   set ocs(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4575,7 +4575,7 @@ class _$OpenLocalEditorCreateResponseApplicationJson extends OpenLocalEditorCrea
 class OpenLocalEditorCreateResponseApplicationJsonBuilder
     implements
         Builder<OpenLocalEditorCreateResponseApplicationJson, OpenLocalEditorCreateResponseApplicationJsonBuilder>,
-        OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
+        $OpenLocalEditorCreateResponseApplicationJsonInterfaceBuilder {
   _$OpenLocalEditorCreateResponseApplicationJson? _$v;
 
   OpenLocalEditorCreateResponseApplicationJson_OcsBuilder? _ocs;
@@ -4627,9 +4627,9 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -4714,7 +4714,7 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder>,
-        OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data? _$v;
 
   String? _userId;
@@ -4777,9 +4777,9 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(OpenLocalEditorValidateResponseApplicationJson_OcsInterface other);
-  void update(void Function(OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OpenLocalEditorValidateResponseApplicationJson_OcsInterface other);
+  void update(void Function($OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4839,7 +4839,7 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
     implements
         Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs,
             OpenLocalEditorValidateResponseApplicationJson_OcsBuilder>,
-        OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
+        $OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4899,9 +4899,9 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
-  void replace(OpenLocalEditorValidateResponseApplicationJsonInterface other);
-  void update(void Function(OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
+  void replace($OpenLocalEditorValidateResponseApplicationJsonInterface other);
+  void update(void Function($OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder) updates);
   OpenLocalEditorValidateResponseApplicationJson_OcsBuilder get ocs;
   set ocs(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4950,7 +4950,7 @@ class _$OpenLocalEditorValidateResponseApplicationJson extends OpenLocalEditorVa
 class OpenLocalEditorValidateResponseApplicationJsonBuilder
     implements
         Builder<OpenLocalEditorValidateResponseApplicationJson, OpenLocalEditorValidateResponseApplicationJsonBuilder>,
-        OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
+        $OpenLocalEditorValidateResponseApplicationJsonInterfaceBuilder {
   _$OpenLocalEditorValidateResponseApplicationJson? _$v;
 
   OpenLocalEditorValidateResponseApplicationJson_OcsBuilder? _ocs;
@@ -5003,9 +5003,9 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TemplateFileCreatorInterfaceBuilder {
-  void replace(TemplateFileCreatorInterface other);
-  void update(void Function(TemplateFileCreatorInterfaceBuilder) updates);
+abstract mixin class $TemplateFileCreatorInterfaceBuilder {
+  void replace($TemplateFileCreatorInterface other);
+  void update(void Function($TemplateFileCreatorInterfaceBuilder) updates);
   String? get app;
   set app(String? app);
 
@@ -5112,7 +5112,7 @@ class _$TemplateFileCreator extends TemplateFileCreator {
 }
 
 class TemplateFileCreatorBuilder
-    implements Builder<TemplateFileCreator, TemplateFileCreatorBuilder>, TemplateFileCreatorInterfaceBuilder {
+    implements Builder<TemplateFileCreator, TemplateFileCreatorBuilder>, $TemplateFileCreatorInterfaceBuilder {
   _$TemplateFileCreator? _$v;
 
   String? _app;
@@ -5201,9 +5201,9 @@ class TemplateFileCreatorBuilder
   }
 }
 
-abstract mixin class TemplateListResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TemplateListResponseApplicationJson_OcsInterface other);
-  void update(void Function(TemplateListResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TemplateListResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TemplateListResponseApplicationJson_OcsInterface other);
+  void update(void Function($TemplateListResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5262,7 +5262,7 @@ class _$TemplateListResponseApplicationJson_Ocs extends TemplateListResponseAppl
 class TemplateListResponseApplicationJson_OcsBuilder
     implements
         Builder<TemplateListResponseApplicationJson_Ocs, TemplateListResponseApplicationJson_OcsBuilder>,
-        TemplateListResponseApplicationJson_OcsInterfaceBuilder {
+        $TemplateListResponseApplicationJson_OcsInterfaceBuilder {
   _$TemplateListResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5320,9 +5320,9 @@ class TemplateListResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TemplateListResponseApplicationJsonInterfaceBuilder {
-  void replace(TemplateListResponseApplicationJsonInterface other);
-  void update(void Function(TemplateListResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TemplateListResponseApplicationJsonInterfaceBuilder {
+  void replace($TemplateListResponseApplicationJsonInterface other);
+  void update(void Function($TemplateListResponseApplicationJsonInterfaceBuilder) updates);
   TemplateListResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TemplateListResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5368,7 +5368,7 @@ class _$TemplateListResponseApplicationJson extends TemplateListResponseApplicat
 class TemplateListResponseApplicationJsonBuilder
     implements
         Builder<TemplateListResponseApplicationJson, TemplateListResponseApplicationJsonBuilder>,
-        TemplateListResponseApplicationJsonInterfaceBuilder {
+        $TemplateListResponseApplicationJsonInterfaceBuilder {
   _$TemplateListResponseApplicationJson? _$v;
 
   TemplateListResponseApplicationJson_OcsBuilder? _ocs;
@@ -5420,9 +5420,9 @@ class TemplateListResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TemplateFileInterfaceBuilder {
-  void replace(TemplateFileInterface other);
-  void update(void Function(TemplateFileInterfaceBuilder) updates);
+abstract mixin class $TemplateFileInterfaceBuilder {
+  void replace($TemplateFileInterface other);
+  void update(void Function($TemplateFileInterfaceBuilder) updates);
   String? get basename;
   set basename(String? basename);
 
@@ -5548,7 +5548,7 @@ class _$TemplateFile extends TemplateFile {
   }
 }
 
-class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>, TemplateFileInterfaceBuilder {
+class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>, $TemplateFileInterfaceBuilder {
   _$TemplateFile? _$v;
 
   String? _basename;
@@ -5637,9 +5637,9 @@ class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>,
   }
 }
 
-abstract mixin class TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TemplateCreateResponseApplicationJson_OcsInterface other);
-  void update(void Function(TemplateCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TemplateCreateResponseApplicationJson_OcsInterface other);
+  void update(void Function($TemplateCreateResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -5698,7 +5698,7 @@ class _$TemplateCreateResponseApplicationJson_Ocs extends TemplateCreateResponse
 class TemplateCreateResponseApplicationJson_OcsBuilder
     implements
         Builder<TemplateCreateResponseApplicationJson_Ocs, TemplateCreateResponseApplicationJson_OcsBuilder>,
-        TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
+        $TemplateCreateResponseApplicationJson_OcsInterfaceBuilder {
   _$TemplateCreateResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -5756,9 +5756,9 @@ class TemplateCreateResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TemplateCreateResponseApplicationJsonInterfaceBuilder {
-  void replace(TemplateCreateResponseApplicationJsonInterface other);
-  void update(void Function(TemplateCreateResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TemplateCreateResponseApplicationJsonInterfaceBuilder {
+  void replace($TemplateCreateResponseApplicationJsonInterface other);
+  void update(void Function($TemplateCreateResponseApplicationJsonInterfaceBuilder) updates);
   TemplateCreateResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TemplateCreateResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -5806,7 +5806,7 @@ class _$TemplateCreateResponseApplicationJson extends TemplateCreateResponseAppl
 class TemplateCreateResponseApplicationJsonBuilder
     implements
         Builder<TemplateCreateResponseApplicationJson, TemplateCreateResponseApplicationJsonBuilder>,
-        TemplateCreateResponseApplicationJsonInterfaceBuilder {
+        $TemplateCreateResponseApplicationJsonInterfaceBuilder {
   _$TemplateCreateResponseApplicationJson? _$v;
 
   TemplateCreateResponseApplicationJson_OcsBuilder? _ocs;
@@ -5858,9 +5858,9 @@ class TemplateCreateResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(TemplatePathResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($TemplatePathResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get templatePath;
   set templatePath(String? templatePath);
 
@@ -5922,7 +5922,7 @@ class _$TemplatePathResponseApplicationJson_Ocs_Data extends TemplatePathRespons
 class TemplatePathResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<TemplatePathResponseApplicationJson_Ocs_Data, TemplatePathResponseApplicationJson_Ocs_DataBuilder>,
-        TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $TemplatePathResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$TemplatePathResponseApplicationJson_Ocs_Data? _$v;
 
   String? _templatePath;
@@ -5982,9 +5982,9 @@ class TemplatePathResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TemplatePathResponseApplicationJson_OcsInterface other);
-  void update(void Function(TemplatePathResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TemplatePathResponseApplicationJson_OcsInterface other);
+  void update(void Function($TemplatePathResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6043,7 +6043,7 @@ class _$TemplatePathResponseApplicationJson_Ocs extends TemplatePathResponseAppl
 class TemplatePathResponseApplicationJson_OcsBuilder
     implements
         Builder<TemplatePathResponseApplicationJson_Ocs, TemplatePathResponseApplicationJson_OcsBuilder>,
-        TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
+        $TemplatePathResponseApplicationJson_OcsInterfaceBuilder {
   _$TemplatePathResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6102,9 +6102,9 @@ class TemplatePathResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TemplatePathResponseApplicationJsonInterfaceBuilder {
-  void replace(TemplatePathResponseApplicationJsonInterface other);
-  void update(void Function(TemplatePathResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TemplatePathResponseApplicationJsonInterfaceBuilder {
+  void replace($TemplatePathResponseApplicationJsonInterface other);
+  void update(void Function($TemplatePathResponseApplicationJsonInterfaceBuilder) updates);
   TemplatePathResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TemplatePathResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6150,7 +6150,7 @@ class _$TemplatePathResponseApplicationJson extends TemplatePathResponseApplicat
 class TemplatePathResponseApplicationJsonBuilder
     implements
         Builder<TemplatePathResponseApplicationJson, TemplatePathResponseApplicationJsonBuilder>,
-        TemplatePathResponseApplicationJsonInterfaceBuilder {
+        $TemplatePathResponseApplicationJsonInterfaceBuilder {
   _$TemplatePathResponseApplicationJson? _$v;
 
   TemplatePathResponseApplicationJson_OcsBuilder? _ocs;
@@ -6202,9 +6202,9 @@ class TemplatePathResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TransferOwnershipTransferResponseApplicationJson_OcsInterface other);
-  void update(void Function(TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TransferOwnershipTransferResponseApplicationJson_OcsInterface other);
+  void update(void Function($TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6265,7 +6265,7 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
     implements
         Builder<TransferOwnershipTransferResponseApplicationJson_Ocs,
             TransferOwnershipTransferResponseApplicationJson_OcsBuilder>,
-        TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
+        $TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipTransferResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6326,9 +6326,9 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
-  void replace(TransferOwnershipTransferResponseApplicationJsonInterface other);
-  void update(void Function(TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
+  void replace($TransferOwnershipTransferResponseApplicationJsonInterface other);
+  void update(void Function($TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder) updates);
   TransferOwnershipTransferResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TransferOwnershipTransferResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6379,7 +6379,7 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
     implements
         Builder<TransferOwnershipTransferResponseApplicationJson,
             TransferOwnershipTransferResponseApplicationJsonBuilder>,
-        TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
+        $TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
   _$TransferOwnershipTransferResponseApplicationJson? _$v;
 
   TransferOwnershipTransferResponseApplicationJson_OcsBuilder? _ocs;
@@ -6432,9 +6432,9 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TransferOwnershipAcceptResponseApplicationJson_OcsInterface other);
-  void update(void Function(TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TransferOwnershipAcceptResponseApplicationJson_OcsInterface other);
+  void update(void Function($TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6494,7 +6494,7 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
     implements
         Builder<TransferOwnershipAcceptResponseApplicationJson_Ocs,
             TransferOwnershipAcceptResponseApplicationJson_OcsBuilder>,
-        TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
+        $TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipAcceptResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6555,9 +6555,9 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
-  void replace(TransferOwnershipAcceptResponseApplicationJsonInterface other);
-  void update(void Function(TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
+  void replace($TransferOwnershipAcceptResponseApplicationJsonInterface other);
+  void update(void Function($TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder) updates);
   TransferOwnershipAcceptResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6606,7 +6606,7 @@ class _$TransferOwnershipAcceptResponseApplicationJson extends TransferOwnership
 class TransferOwnershipAcceptResponseApplicationJsonBuilder
     implements
         Builder<TransferOwnershipAcceptResponseApplicationJson, TransferOwnershipAcceptResponseApplicationJsonBuilder>,
-        TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
+        $TransferOwnershipAcceptResponseApplicationJsonInterfaceBuilder {
   _$TransferOwnershipAcceptResponseApplicationJson? _$v;
 
   TransferOwnershipAcceptResponseApplicationJson_OcsBuilder? _ocs;
@@ -6659,9 +6659,9 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(TransferOwnershipRejectResponseApplicationJson_OcsInterface other);
-  void update(void Function(TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($TransferOwnershipRejectResponseApplicationJson_OcsInterface other);
+  void update(void Function($TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -6721,7 +6721,7 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
     implements
         Builder<TransferOwnershipRejectResponseApplicationJson_Ocs,
             TransferOwnershipRejectResponseApplicationJson_OcsBuilder>,
-        TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
+        $TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipRejectResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -6782,9 +6782,9 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
-  void replace(TransferOwnershipRejectResponseApplicationJsonInterface other);
-  void update(void Function(TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
+  void replace($TransferOwnershipRejectResponseApplicationJsonInterface other);
+  void update(void Function($TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder) updates);
   TransferOwnershipRejectResponseApplicationJson_OcsBuilder get ocs;
   set ocs(TransferOwnershipRejectResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -6833,7 +6833,7 @@ class _$TransferOwnershipRejectResponseApplicationJson extends TransferOwnership
 class TransferOwnershipRejectResponseApplicationJsonBuilder
     implements
         Builder<TransferOwnershipRejectResponseApplicationJson, TransferOwnershipRejectResponseApplicationJsonBuilder>,
-        TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
+        $TransferOwnershipRejectResponseApplicationJsonInterfaceBuilder {
   _$TransferOwnershipRejectResponseApplicationJson? _$v;
 
   TransferOwnershipRejectResponseApplicationJson_OcsBuilder? _ocs;
@@ -6886,9 +6886,9 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_Files_DirectEditingInterfaceBuilder {
-  void replace(Capabilities_Files_DirectEditingInterface other);
-  void update(void Function(Capabilities_Files_DirectEditingInterfaceBuilder) updates);
+abstract mixin class $Capabilities_Files_DirectEditingInterfaceBuilder {
+  void replace($Capabilities_Files_DirectEditingInterface other);
+  void update(void Function($Capabilities_Files_DirectEditingInterfaceBuilder) updates);
   String? get url;
   set url(String? url);
 
@@ -6956,7 +6956,7 @@ class _$Capabilities_Files_DirectEditing extends Capabilities_Files_DirectEditin
 class Capabilities_Files_DirectEditingBuilder
     implements
         Builder<Capabilities_Files_DirectEditing, Capabilities_Files_DirectEditingBuilder>,
-        Capabilities_Files_DirectEditingInterfaceBuilder {
+        $Capabilities_Files_DirectEditingInterfaceBuilder {
   _$Capabilities_Files_DirectEditing? _$v;
 
   String? _url;
@@ -7010,9 +7010,9 @@ class Capabilities_Files_DirectEditingBuilder
   }
 }
 
-abstract mixin class Capabilities_FilesInterfaceBuilder {
-  void replace(Capabilities_FilesInterface other);
-  void update(void Function(Capabilities_FilesInterfaceBuilder) updates);
+abstract mixin class $Capabilities_FilesInterfaceBuilder {
+  void replace($Capabilities_FilesInterface other);
+  void update(void Function($Capabilities_FilesInterfaceBuilder) updates);
   bool? get bigfilechunking;
   set bigfilechunking(bool? bigfilechunking);
 
@@ -7078,7 +7078,7 @@ class _$Capabilities_Files extends Capabilities_Files {
 }
 
 class Capabilities_FilesBuilder
-    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, Capabilities_FilesInterfaceBuilder {
+    implements Builder<Capabilities_Files, Capabilities_FilesBuilder>, $Capabilities_FilesInterfaceBuilder {
   _$Capabilities_Files? _$v;
 
   bool? _bigfilechunking;
@@ -7149,9 +7149,9 @@ class Capabilities_FilesBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_FilesBuilder get files;
   set files(Capabilities_FilesBuilder? files);
 }
@@ -7193,7 +7193,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_FilesBuilder? _files;
@@ -7244,9 +7244,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   }
 }
 
-abstract mixin class TemplateInterfaceBuilder {
-  void replace(TemplateInterface other);
-  void update(void Function(TemplateInterfaceBuilder) updates);
+abstract mixin class $TemplateInterfaceBuilder {
+  void replace($TemplateInterface other);
+  void update(void Function($TemplateInterfaceBuilder) updates);
   String? get templateType;
   set templateType(String? templateType);
 
@@ -7401,7 +7401,7 @@ class _$Template extends Template {
   }
 }
 
-class TemplateBuilder implements Builder<Template, TemplateBuilder>, TemplateInterfaceBuilder {
+class TemplateBuilder implements Builder<Template, TemplateBuilder>, $TemplateInterfaceBuilder {
   _$Template? _$v;
 
   String? _templateType;

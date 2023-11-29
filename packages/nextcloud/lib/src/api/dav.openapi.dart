@@ -151,7 +151,7 @@ class DirectClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -159,7 +159,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -178,13 +178,13 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $DirectGetUrlResponseApplicationJson_Ocs_DataInterface {
   String get url;
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
     implements
-        DirectGetUrlResponseApplicationJson_Ocs_DataInterface,
+        $DirectGetUrlResponseApplicationJson_Ocs_DataInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectGetUrlResponseApplicationJson_Ocs_Data([
     final void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -208,14 +208,14 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectGetUrlResponseApplicationJson_OcsInterface {
+abstract interface class $DirectGetUrlResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   DirectGetUrlResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class DirectGetUrlResponseApplicationJson_Ocs
     implements
-        DirectGetUrlResponseApplicationJson_OcsInterface,
+        $DirectGetUrlResponseApplicationJson_OcsInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder> {
   factory DirectGetUrlResponseApplicationJson_Ocs([
     final void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? b,
@@ -239,13 +239,13 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class DirectGetUrlResponseApplicationJsonInterface {
+abstract interface class $DirectGetUrlResponseApplicationJsonInterface {
   DirectGetUrlResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class DirectGetUrlResponseApplicationJson
     implements
-        DirectGetUrlResponseApplicationJsonInterface,
+        $DirectGetUrlResponseApplicationJsonInterface,
         Built<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder> {
   factory DirectGetUrlResponseApplicationJson([final void Function(DirectGetUrlResponseApplicationJsonBuilder)? b]) =
       _$DirectGetUrlResponseApplicationJson;
@@ -268,12 +268,13 @@ abstract class DirectGetUrlResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_DavInterface {
+abstract interface class $Capabilities_DavInterface {
   String get chunking;
   String? get bulkupload;
 }
 
-abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
+abstract class Capabilities_Dav
+    implements $Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
   factory Capabilities_Dav([final void Function(Capabilities_DavBuilder)? b]) = _$Capabilities_Dav;
 
   // coverage:ignore-start
@@ -293,11 +294,11 @@ abstract class Capabilities_Dav implements Capabilities_DavInterface, Built<Capa
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities_Dav get dav;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start

@@ -718,7 +718,7 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NoteInterface {
+abstract interface class $NoteInterface {
   int get id;
   String get etag;
   bool get readonly;
@@ -731,7 +731,7 @@ abstract interface class NoteInterface {
   String get errorType;
 }
 
-abstract class Note implements NoteInterface, Built<Note, NoteBuilder> {
+abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
   factory Note([final void Function(NoteBuilder)? b]) = _$Note;
 
   // coverage:ignore-start
@@ -768,13 +768,13 @@ class Settings_NoteMode extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsInterface {
+abstract interface class $SettingsInterface {
   String get notesPath;
   String get fileSuffix;
   Settings_NoteMode get noteMode;
 }
 
-abstract class Settings implements SettingsInterface, Built<Settings, SettingsBuilder> {
+abstract class Settings implements $SettingsInterface, Built<Settings, SettingsBuilder> {
   factory Settings([final void Function(SettingsBuilder)? b]) = _$Settings;
 
   // coverage:ignore-start
@@ -793,14 +793,14 @@ abstract class Settings implements SettingsInterface, Built<Settings, SettingsBu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_NotesInterface {
+abstract interface class $Capabilities_NotesInterface {
   @BuiltValueField(wireName: 'api_version')
   BuiltList<String>? get apiVersion;
   String? get version;
 }
 
 abstract class Capabilities_Notes
-    implements Capabilities_NotesInterface, Built<Capabilities_Notes, Capabilities_NotesBuilder> {
+    implements $Capabilities_NotesInterface, Built<Capabilities_Notes, Capabilities_NotesBuilder> {
   factory Capabilities_Notes([final void Function(Capabilities_NotesBuilder)? b]) = _$Capabilities_Notes;
 
   // coverage:ignore-start
@@ -820,11 +820,11 @@ abstract class Capabilities_Notes
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities_Notes get notes;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
@@ -843,7 +843,7 @@ abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -851,7 +851,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -870,12 +870,12 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EmptyOCS_OcsInterface {
+abstract interface class $EmptyOCS_OcsInterface {
   OCSMeta get meta;
   BuiltList<JsonObject> get data;
 }
 
-abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
+abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
   factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
@@ -894,11 +894,11 @@ abstract class EmptyOCS_Ocs implements EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EmptyOCSInterface {
+abstract interface class $EmptyOCSInterface {
   EmptyOCS_Ocs get ocs;
 }
 
-abstract class EmptyOCS implements EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
+abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
   factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start

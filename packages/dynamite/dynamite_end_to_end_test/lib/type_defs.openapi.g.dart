@@ -109,9 +109,9 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
   }
 }
 
-abstract mixin class BaseInterfaceBuilder {
-  void replace(BaseInterface other);
-  void update(void Function(BaseInterfaceBuilder) updates);
+abstract mixin class $BaseInterfaceBuilder {
+  void replace($BaseInterface other);
+  void update(void Function($BaseInterfaceBuilder) updates);
   String? get attribute;
   set attribute(String? attribute);
 }
@@ -150,7 +150,7 @@ class _$Base extends Base {
   }
 }
 
-class BaseBuilder implements Builder<Base, BaseBuilder>, BaseInterfaceBuilder {
+class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   _$Base? _$v;
 
   String? _attribute;
@@ -189,9 +189,9 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, BaseInterfaceBuilder {
   }
 }
 
-abstract mixin class NestedRedirectInterfaceBuilder {
-  void replace(NestedRedirectInterface other);
-  void update(void Function(NestedRedirectInterfaceBuilder) updates);
+abstract mixin class $NestedRedirectInterfaceBuilder {
+  void replace($NestedRedirectInterface other);
+  void update(void Function($NestedRedirectInterfaceBuilder) updates);
   BaseBuilder get redirect;
   set redirect(BaseBuilder? redirect);
 
@@ -250,7 +250,7 @@ class _$NestedRedirect extends NestedRedirect {
   }
 }
 
-class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBuilder>, NestedRedirectInterfaceBuilder {
+class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBuilder>, $NestedRedirectInterfaceBuilder {
   _$NestedRedirect? _$v;
 
   BaseBuilder? _redirect;
@@ -313,9 +313,9 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
   }
 }
 
-abstract mixin class SomeOfRedirectInterfaceBuilder {
-  void replace(SomeOfRedirectInterface other);
-  void update(void Function(SomeOfRedirectInterfaceBuilder) updates);
+abstract mixin class $SomeOfRedirectInterfaceBuilder {
+  void replace($SomeOfRedirectInterface other);
+  void update(void Function($SomeOfRedirectInterfaceBuilder) updates);
   BaseBuilder get base;
   set base(BaseBuilder? base);
 
@@ -381,7 +381,7 @@ class _$SomeOfRedirect extends SomeOfRedirect {
   }
 }
 
-class SomeOfRedirectBuilder implements Builder<SomeOfRedirect, SomeOfRedirectBuilder>, SomeOfRedirectInterfaceBuilder {
+class SomeOfRedirectBuilder implements Builder<SomeOfRedirect, SomeOfRedirectBuilder>, $SomeOfRedirectInterfaceBuilder {
   _$SomeOfRedirect? _$v;
 
   JsonObject? _data;

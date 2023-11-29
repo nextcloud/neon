@@ -90,7 +90,7 @@ Spec buildInterface(
   final Iterable<TypeResultObject>? interfaces,
 }) {
   assert((interfaces == null) != (methods == null), 'Either provide an interface or methods.');
-  final className = '$identifier$interfaceSuffix';
+  final className = '\$$identifier$interfaceSuffix';
 
   return Class((final b) {
     b
@@ -101,7 +101,7 @@ Spec buildInterface(
 
     if (interfaces != null) {
       b.implements.addAll(
-        interfaces.map((final i) => refer('${i.name}$interfaceSuffix')),
+        interfaces.map((final i) => refer('\$${i.name}$interfaceSuffix')),
       );
     }
 

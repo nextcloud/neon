@@ -429,9 +429,9 @@ class _$EmptyOCSSerializer implements StructuredSerializer<EmptyOCS> {
   }
 }
 
-abstract mixin class NoteInterfaceBuilder {
-  void replace(NoteInterface other);
-  void update(void Function(NoteInterfaceBuilder) updates);
+abstract mixin class $NoteInterfaceBuilder {
+  void replace($NoteInterface other);
+  void update(void Function($NoteInterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 
@@ -567,7 +567,7 @@ class _$Note extends Note {
   }
 }
 
-class NoteBuilder implements Builder<Note, NoteBuilder>, NoteInterfaceBuilder {
+class NoteBuilder implements Builder<Note, NoteBuilder>, $NoteInterfaceBuilder {
   _$Note? _$v;
 
   int? _id;
@@ -662,9 +662,9 @@ class NoteBuilder implements Builder<Note, NoteBuilder>, NoteInterfaceBuilder {
   }
 }
 
-abstract mixin class SettingsInterfaceBuilder {
-  void replace(SettingsInterface other);
-  void update(void Function(SettingsInterfaceBuilder) updates);
+abstract mixin class $SettingsInterfaceBuilder {
+  void replace($SettingsInterface other);
+  void update(void Function($SettingsInterfaceBuilder) updates);
   String? get notesPath;
   set notesPath(String? notesPath);
 
@@ -726,7 +726,7 @@ class _$Settings extends Settings {
   }
 }
 
-class SettingsBuilder implements Builder<Settings, SettingsBuilder>, SettingsInterfaceBuilder {
+class SettingsBuilder implements Builder<Settings, SettingsBuilder>, $SettingsInterfaceBuilder {
   _$Settings? _$v;
 
   String? _notesPath;
@@ -779,9 +779,9 @@ class SettingsBuilder implements Builder<Settings, SettingsBuilder>, SettingsInt
   }
 }
 
-abstract mixin class Capabilities_NotesInterfaceBuilder {
-  void replace(Capabilities_NotesInterface other);
-  void update(void Function(Capabilities_NotesInterfaceBuilder) updates);
+abstract mixin class $Capabilities_NotesInterfaceBuilder {
+  void replace($Capabilities_NotesInterface other);
+  void update(void Function($Capabilities_NotesInterfaceBuilder) updates);
   ListBuilder<String> get apiVersion;
   set apiVersion(ListBuilder<String>? apiVersion);
 
@@ -832,7 +832,7 @@ class _$Capabilities_Notes extends Capabilities_Notes {
 }
 
 class Capabilities_NotesBuilder
-    implements Builder<Capabilities_Notes, Capabilities_NotesBuilder>, Capabilities_NotesInterfaceBuilder {
+    implements Builder<Capabilities_Notes, Capabilities_NotesBuilder>, $Capabilities_NotesInterfaceBuilder {
   _$Capabilities_Notes? _$v;
 
   ListBuilder<String>? _apiVersion;
@@ -888,9 +888,9 @@ class Capabilities_NotesBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_NotesBuilder get notes;
   set notes(Capabilities_NotesBuilder? notes);
 }
@@ -932,7 +932,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_NotesBuilder? _notes;
@@ -983,9 +983,9 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1063,7 +1063,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1128,9 +1128,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class EmptyOCS_OcsInterfaceBuilder {
-  void replace(EmptyOCS_OcsInterface other);
-  void update(void Function(EmptyOCS_OcsInterfaceBuilder) updates);
+abstract mixin class $EmptyOCS_OcsInterfaceBuilder {
+  void replace($EmptyOCS_OcsInterface other);
+  void update(void Function($EmptyOCS_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1182,7 +1182,7 @@ class _$EmptyOCS_Ocs extends EmptyOCS_Ocs {
   }
 }
 
-class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, EmptyOCS_OcsInterfaceBuilder {
+class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>, $EmptyOCS_OcsInterfaceBuilder {
   _$EmptyOCS_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1240,9 +1240,9 @@ class EmptyOCS_OcsBuilder implements Builder<EmptyOCS_Ocs, EmptyOCS_OcsBuilder>,
   }
 }
 
-abstract mixin class EmptyOCSInterfaceBuilder {
-  void replace(EmptyOCSInterface other);
-  void update(void Function(EmptyOCSInterfaceBuilder) updates);
+abstract mixin class $EmptyOCSInterfaceBuilder {
+  void replace($EmptyOCSInterface other);
+  void update(void Function($EmptyOCSInterfaceBuilder) updates);
   EmptyOCS_OcsBuilder get ocs;
   set ocs(EmptyOCS_OcsBuilder? ocs);
 }
@@ -1283,7 +1283,7 @@ class _$EmptyOCS extends EmptyOCS {
   }
 }
 
-class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, EmptyOCSInterfaceBuilder {
+class EmptyOCSBuilder implements Builder<EmptyOCS, EmptyOCSBuilder>, $EmptyOCSInterfaceBuilder {
   _$EmptyOCS? _$v;
 
   EmptyOCS_OcsBuilder? _ocs;

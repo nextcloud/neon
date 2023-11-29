@@ -320,12 +320,12 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NewPetInterface {
+abstract interface class $NewPetInterface {
   String get name;
   String? get tag;
 }
 
-abstract class NewPet implements NewPetInterface, Built<NewPet, NewPetBuilder> {
+abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> {
   factory NewPet([void Function(NewPetBuilder)? b]) = _$NewPet;
 
   // coverage:ignore-start
@@ -344,14 +344,14 @@ abstract class NewPet implements NewPetInterface, Built<NewPet, NewPetBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Pet_1Interface {
+abstract interface class $Pet_1Interface {
   int get id;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PetInterface implements NewPetInterface, Pet_1Interface {}
+abstract interface class $PetInterface implements $NewPetInterface, $Pet_1Interface {}
 
-abstract class Pet implements PetInterface, Built<Pet, PetBuilder> {
+abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   factory Pet([void Function(PetBuilder)? b]) = _$Pet;
 
   // coverage:ignore-start
@@ -370,12 +370,12 @@ abstract class Pet implements PetInterface, Built<Pet, PetBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ErrorInterface {
+abstract interface class $ErrorInterface {
   int get code;
   String get message;
 }
 
-abstract class Error implements ErrorInterface, Built<Error, ErrorBuilder> {
+abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   factory Error([void Function(ErrorBuilder)? b]) = _$Error;
 
   // coverage:ignore-start

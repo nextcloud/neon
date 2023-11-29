@@ -149,9 +149,9 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
   }
 }
 
-abstract mixin class NewPetInterfaceBuilder {
-  void replace(NewPetInterface other);
-  void update(void Function(NewPetInterfaceBuilder) updates);
+abstract mixin class $NewPetInterfaceBuilder {
+  void replace($NewPetInterface other);
+  void update(void Function($NewPetInterfaceBuilder) updates);
   String? get name;
   set name(String? name);
 
@@ -201,7 +201,7 @@ class _$NewPet extends NewPet {
   }
 }
 
-class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, NewPetInterfaceBuilder {
+class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, $NewPetInterfaceBuilder {
   _$NewPet? _$v;
 
   String? _name;
@@ -245,16 +245,16 @@ class NewPetBuilder implements Builder<NewPet, NewPetBuilder>, NewPetInterfaceBu
   }
 }
 
-abstract mixin class Pet_1InterfaceBuilder {
-  void replace(Pet_1Interface other);
-  void update(void Function(Pet_1InterfaceBuilder) updates);
+abstract mixin class $Pet_1InterfaceBuilder {
+  void replace($Pet_1Interface other);
+  void update(void Function($Pet_1InterfaceBuilder) updates);
   int? get id;
   set id(int? id);
 }
 
-abstract mixin class PetInterfaceBuilder implements NewPetInterfaceBuilder, Pet_1InterfaceBuilder {
-  void replace(covariant PetInterface other);
-  void update(void Function(PetInterfaceBuilder) updates);
+abstract mixin class $PetInterfaceBuilder implements $NewPetInterfaceBuilder, $Pet_1InterfaceBuilder {
+  void replace(covariant $PetInterface other);
+  void update(void Function($PetInterfaceBuilder) updates);
   String? get name;
   set name(covariant String? name);
 
@@ -312,7 +312,7 @@ class _$Pet extends Pet {
   }
 }
 
-class PetBuilder implements Builder<Pet, PetBuilder>, PetInterfaceBuilder {
+class PetBuilder implements Builder<Pet, PetBuilder>, $PetInterfaceBuilder {
   _$Pet? _$v;
 
   String? _name;
@@ -365,9 +365,9 @@ class PetBuilder implements Builder<Pet, PetBuilder>, PetInterfaceBuilder {
   }
 }
 
-abstract mixin class ErrorInterfaceBuilder {
-  void replace(ErrorInterface other);
-  void update(void Function(ErrorInterfaceBuilder) updates);
+abstract mixin class $ErrorInterfaceBuilder {
+  void replace($ErrorInterface other);
+  void update(void Function($ErrorInterfaceBuilder) updates);
   int? get code;
   set code(int? code);
 
@@ -418,7 +418,7 @@ class _$Error extends Error {
   }
 }
 
-class ErrorBuilder implements Builder<Error, ErrorBuilder>, ErrorInterfaceBuilder {
+class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuilder {
   _$Error? _$v;
 
   int? _code;

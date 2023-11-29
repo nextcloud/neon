@@ -1154,7 +1154,7 @@ class ApiGenerateNotificationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -1162,7 +1162,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -1181,14 +1181,14 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGenerateNotificationResponseApplicationJson_OcsInterface {
+abstract interface class $ApiGenerateNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
     implements
-        ApiGenerateNotificationResponseApplicationJson_OcsInterface,
+        $ApiGenerateNotificationResponseApplicationJson_OcsInterface,
         Built<ApiGenerateNotificationResponseApplicationJson_Ocs,
             ApiGenerateNotificationResponseApplicationJson_OcsBuilder> {
   factory ApiGenerateNotificationResponseApplicationJson_Ocs([
@@ -1213,13 +1213,13 @@ abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGenerateNotificationResponseApplicationJsonInterface {
+abstract interface class $ApiGenerateNotificationResponseApplicationJsonInterface {
   ApiGenerateNotificationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiGenerateNotificationResponseApplicationJson
     implements
-        ApiGenerateNotificationResponseApplicationJsonInterface,
+        $ApiGenerateNotificationResponseApplicationJsonInterface,
         Built<ApiGenerateNotificationResponseApplicationJson, ApiGenerateNotificationResponseApplicationJsonBuilder> {
   factory ApiGenerateNotificationResponseApplicationJson([
     final void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? b,
@@ -1261,14 +1261,14 @@ class EndpointListNotificationsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointEndpointListNotificationsHeadersInterface {
+abstract interface class $EndpointEndpointListNotificationsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-user-status')
   String? get xNextcloudUserStatus;
 }
 
 abstract class EndpointEndpointListNotificationsHeaders
     implements
-        EndpointEndpointListNotificationsHeadersInterface,
+        $EndpointEndpointListNotificationsHeadersInterface,
         Built<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder> {
   factory EndpointEndpointListNotificationsHeaders([
     final void Function(EndpointEndpointListNotificationsHeadersBuilder)? b,
@@ -1336,7 +1336,7 @@ class _$EndpointEndpointListNotificationsHeadersSerializer
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationActionInterface {
+abstract interface class $NotificationActionInterface {
   String get label;
   String get link;
   String get type;
@@ -1344,7 +1344,7 @@ abstract interface class NotificationActionInterface {
 }
 
 abstract class NotificationAction
-    implements NotificationActionInterface, Built<NotificationAction, NotificationActionBuilder> {
+    implements $NotificationActionInterface, Built<NotificationAction, NotificationActionBuilder> {
   factory NotificationAction([final void Function(NotificationActionBuilder)? b]) = _$NotificationAction;
 
   // coverage:ignore-start
@@ -1364,7 +1364,7 @@ abstract class NotificationAction
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class NotificationInterface {
+abstract interface class $NotificationInterface {
   @BuiltValueField(wireName: 'notification_id')
   int get notificationId;
   String get app;
@@ -1386,7 +1386,7 @@ abstract interface class NotificationInterface {
   bool? get shouldNotify;
 }
 
-abstract class Notification implements NotificationInterface, Built<Notification, NotificationBuilder> {
+abstract class Notification implements $NotificationInterface, Built<Notification, NotificationBuilder> {
   factory Notification([final void Function(NotificationBuilder)? b]) = _$Notification;
 
   // coverage:ignore-start
@@ -1405,14 +1405,14 @@ abstract class Notification implements NotificationInterface, Built<Notification
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointListNotificationsResponseApplicationJson_OcsInterface {
+abstract interface class $EndpointListNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Notification> get data;
 }
 
 abstract class EndpointListNotificationsResponseApplicationJson_Ocs
     implements
-        EndpointListNotificationsResponseApplicationJson_OcsInterface,
+        $EndpointListNotificationsResponseApplicationJson_OcsInterface,
         Built<EndpointListNotificationsResponseApplicationJson_Ocs,
             EndpointListNotificationsResponseApplicationJson_OcsBuilder> {
   factory EndpointListNotificationsResponseApplicationJson_Ocs([
@@ -1437,13 +1437,13 @@ abstract class EndpointListNotificationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointListNotificationsResponseApplicationJsonInterface {
+abstract interface class $EndpointListNotificationsResponseApplicationJsonInterface {
   EndpointListNotificationsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class EndpointListNotificationsResponseApplicationJson
     implements
-        EndpointListNotificationsResponseApplicationJsonInterface,
+        $EndpointListNotificationsResponseApplicationJsonInterface,
         Built<EndpointListNotificationsResponseApplicationJson,
             EndpointListNotificationsResponseApplicationJsonBuilder> {
   factory EndpointListNotificationsResponseApplicationJson([
@@ -1487,14 +1487,14 @@ class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
+abstract interface class $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
     implements
-        EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface,
+        $EndpointDeleteAllNotificationsResponseApplicationJson_OcsInterface,
         Built<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
             EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder> {
   factory EndpointDeleteAllNotificationsResponseApplicationJson_Ocs([
@@ -1519,13 +1519,13 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointDeleteAllNotificationsResponseApplicationJsonInterface {
+abstract interface class $EndpointDeleteAllNotificationsResponseApplicationJsonInterface {
   EndpointDeleteAllNotificationsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class EndpointDeleteAllNotificationsResponseApplicationJson
     implements
-        EndpointDeleteAllNotificationsResponseApplicationJsonInterface,
+        $EndpointDeleteAllNotificationsResponseApplicationJsonInterface,
         Built<EndpointDeleteAllNotificationsResponseApplicationJson,
             EndpointDeleteAllNotificationsResponseApplicationJsonBuilder> {
   factory EndpointDeleteAllNotificationsResponseApplicationJson([
@@ -1567,14 +1567,14 @@ class EndpointGetNotificationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointGetNotificationResponseApplicationJson_OcsInterface {
+abstract interface class $EndpointGetNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   Notification get data;
 }
 
 abstract class EndpointGetNotificationResponseApplicationJson_Ocs
     implements
-        EndpointGetNotificationResponseApplicationJson_OcsInterface,
+        $EndpointGetNotificationResponseApplicationJson_OcsInterface,
         Built<EndpointGetNotificationResponseApplicationJson_Ocs,
             EndpointGetNotificationResponseApplicationJson_OcsBuilder> {
   factory EndpointGetNotificationResponseApplicationJson_Ocs([
@@ -1599,13 +1599,13 @@ abstract class EndpointGetNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointGetNotificationResponseApplicationJsonInterface {
+abstract interface class $EndpointGetNotificationResponseApplicationJsonInterface {
   EndpointGetNotificationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class EndpointGetNotificationResponseApplicationJson
     implements
-        EndpointGetNotificationResponseApplicationJsonInterface,
+        $EndpointGetNotificationResponseApplicationJsonInterface,
         Built<EndpointGetNotificationResponseApplicationJson, EndpointGetNotificationResponseApplicationJsonBuilder> {
   factory EndpointGetNotificationResponseApplicationJson([
     final void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? b,
@@ -1647,14 +1647,14 @@ class EndpointDeleteNotificationApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointDeleteNotificationResponseApplicationJson_OcsInterface {
+abstract interface class $EndpointDeleteNotificationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
     implements
-        EndpointDeleteNotificationResponseApplicationJson_OcsInterface,
+        $EndpointDeleteNotificationResponseApplicationJson_OcsInterface,
         Built<EndpointDeleteNotificationResponseApplicationJson_Ocs,
             EndpointDeleteNotificationResponseApplicationJson_OcsBuilder> {
   factory EndpointDeleteNotificationResponseApplicationJson_Ocs([
@@ -1679,13 +1679,13 @@ abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointDeleteNotificationResponseApplicationJsonInterface {
+abstract interface class $EndpointDeleteNotificationResponseApplicationJsonInterface {
   EndpointDeleteNotificationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class EndpointDeleteNotificationResponseApplicationJson
     implements
-        EndpointDeleteNotificationResponseApplicationJsonInterface,
+        $EndpointDeleteNotificationResponseApplicationJsonInterface,
         Built<EndpointDeleteNotificationResponseApplicationJson,
             EndpointDeleteNotificationResponseApplicationJsonBuilder> {
   factory EndpointDeleteNotificationResponseApplicationJson([
@@ -1728,14 +1728,14 @@ class EndpointConfirmIdsForUserApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
+abstract interface class $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<int> get data;
 }
 
 abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
     implements
-        EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface,
+        $EndpointConfirmIdsForUserResponseApplicationJson_OcsInterface,
         Built<EndpointConfirmIdsForUserResponseApplicationJson_Ocs,
             EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder> {
   factory EndpointConfirmIdsForUserResponseApplicationJson_Ocs([
@@ -1760,13 +1760,13 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class EndpointConfirmIdsForUserResponseApplicationJsonInterface {
+abstract interface class $EndpointConfirmIdsForUserResponseApplicationJsonInterface {
   EndpointConfirmIdsForUserResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class EndpointConfirmIdsForUserResponseApplicationJson
     implements
-        EndpointConfirmIdsForUserResponseApplicationJsonInterface,
+        $EndpointConfirmIdsForUserResponseApplicationJsonInterface,
         Built<EndpointConfirmIdsForUserResponseApplicationJson,
             EndpointConfirmIdsForUserResponseApplicationJsonBuilder> {
   factory EndpointConfirmIdsForUserResponseApplicationJson([
@@ -1805,13 +1805,13 @@ class PushRegisterDeviceApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushDeviceInterface {
+abstract interface class $PushDeviceInterface {
   String get publicKey;
   String get deviceIdentifier;
   String get signature;
 }
 
-abstract class PushDevice implements PushDeviceInterface, Built<PushDevice, PushDeviceBuilder> {
+abstract class PushDevice implements $PushDeviceInterface, Built<PushDevice, PushDeviceBuilder> {
   factory PushDevice([final void Function(PushDeviceBuilder)? b]) = _$PushDevice;
 
   // coverage:ignore-start
@@ -1830,14 +1830,14 @@ abstract class PushDevice implements PushDeviceInterface, Built<PushDevice, Push
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushRegisterDeviceResponseApplicationJson_OcsInterface {
+abstract interface class $PushRegisterDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   PushDevice get data;
 }
 
 abstract class PushRegisterDeviceResponseApplicationJson_Ocs
     implements
-        PushRegisterDeviceResponseApplicationJson_OcsInterface,
+        $PushRegisterDeviceResponseApplicationJson_OcsInterface,
         Built<PushRegisterDeviceResponseApplicationJson_Ocs, PushRegisterDeviceResponseApplicationJson_OcsBuilder> {
   factory PushRegisterDeviceResponseApplicationJson_Ocs([
     final void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? b,
@@ -1861,13 +1861,13 @@ abstract class PushRegisterDeviceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushRegisterDeviceResponseApplicationJsonInterface {
+abstract interface class $PushRegisterDeviceResponseApplicationJsonInterface {
   PushRegisterDeviceResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PushRegisterDeviceResponseApplicationJson
     implements
-        PushRegisterDeviceResponseApplicationJsonInterface,
+        $PushRegisterDeviceResponseApplicationJsonInterface,
         Built<PushRegisterDeviceResponseApplicationJson, PushRegisterDeviceResponseApplicationJsonBuilder> {
   factory PushRegisterDeviceResponseApplicationJson([
     final void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? b,
@@ -1905,14 +1905,14 @@ class PushRemoveDeviceApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushRemoveDeviceResponseApplicationJson_OcsInterface {
+abstract interface class $PushRemoveDeviceResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class PushRemoveDeviceResponseApplicationJson_Ocs
     implements
-        PushRemoveDeviceResponseApplicationJson_OcsInterface,
+        $PushRemoveDeviceResponseApplicationJson_OcsInterface,
         Built<PushRemoveDeviceResponseApplicationJson_Ocs, PushRemoveDeviceResponseApplicationJson_OcsBuilder> {
   factory PushRemoveDeviceResponseApplicationJson_Ocs([
     final void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? b,
@@ -1936,13 +1936,13 @@ abstract class PushRemoveDeviceResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class PushRemoveDeviceResponseApplicationJsonInterface {
+abstract interface class $PushRemoveDeviceResponseApplicationJsonInterface {
   PushRemoveDeviceResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class PushRemoveDeviceResponseApplicationJson
     implements
-        PushRemoveDeviceResponseApplicationJsonInterface,
+        $PushRemoveDeviceResponseApplicationJsonInterface,
         Built<PushRemoveDeviceResponseApplicationJson, PushRemoveDeviceResponseApplicationJsonBuilder> {
   factory PushRemoveDeviceResponseApplicationJson([
     final void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? b,
@@ -1980,14 +1980,14 @@ class SettingsPersonalApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsPersonalResponseApplicationJson_OcsInterface {
+abstract interface class $SettingsPersonalResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class SettingsPersonalResponseApplicationJson_Ocs
     implements
-        SettingsPersonalResponseApplicationJson_OcsInterface,
+        $SettingsPersonalResponseApplicationJson_OcsInterface,
         Built<SettingsPersonalResponseApplicationJson_Ocs, SettingsPersonalResponseApplicationJson_OcsBuilder> {
   factory SettingsPersonalResponseApplicationJson_Ocs([
     final void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? b,
@@ -2011,13 +2011,13 @@ abstract class SettingsPersonalResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsPersonalResponseApplicationJsonInterface {
+abstract interface class $SettingsPersonalResponseApplicationJsonInterface {
   SettingsPersonalResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SettingsPersonalResponseApplicationJson
     implements
-        SettingsPersonalResponseApplicationJsonInterface,
+        $SettingsPersonalResponseApplicationJsonInterface,
         Built<SettingsPersonalResponseApplicationJson, SettingsPersonalResponseApplicationJsonBuilder> {
   factory SettingsPersonalResponseApplicationJson([
     final void Function(SettingsPersonalResponseApplicationJsonBuilder)? b,
@@ -2055,14 +2055,14 @@ class SettingsAdminApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsAdminResponseApplicationJson_OcsInterface {
+abstract interface class $SettingsAdminResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   JsonObject get data;
 }
 
 abstract class SettingsAdminResponseApplicationJson_Ocs
     implements
-        SettingsAdminResponseApplicationJson_OcsInterface,
+        $SettingsAdminResponseApplicationJson_OcsInterface,
         Built<SettingsAdminResponseApplicationJson_Ocs, SettingsAdminResponseApplicationJson_OcsBuilder> {
   factory SettingsAdminResponseApplicationJson_Ocs([
     final void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? b,
@@ -2086,13 +2086,13 @@ abstract class SettingsAdminResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class SettingsAdminResponseApplicationJsonInterface {
+abstract interface class $SettingsAdminResponseApplicationJsonInterface {
   SettingsAdminResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class SettingsAdminResponseApplicationJson
     implements
-        SettingsAdminResponseApplicationJsonInterface,
+        $SettingsAdminResponseApplicationJsonInterface,
         Built<SettingsAdminResponseApplicationJson, SettingsAdminResponseApplicationJsonBuilder> {
   factory SettingsAdminResponseApplicationJson([final void Function(SettingsAdminResponseApplicationJsonBuilder)? b]) =
       _$SettingsAdminResponseApplicationJson;
@@ -2115,7 +2115,7 @@ abstract class SettingsAdminResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_NotificationsInterface {
+abstract interface class $Capabilities_NotificationsInterface {
   @BuiltValueField(wireName: 'ocs-endpoints')
   BuiltList<String> get ocsEndpoints;
   BuiltList<String> get push;
@@ -2125,7 +2125,7 @@ abstract interface class Capabilities_NotificationsInterface {
 
 abstract class Capabilities_Notifications
     implements
-        Capabilities_NotificationsInterface,
+        $Capabilities_NotificationsInterface,
         Built<Capabilities_Notifications, Capabilities_NotificationsBuilder> {
   factory Capabilities_Notifications([final void Function(Capabilities_NotificationsBuilder)? b]) =
       _$Capabilities_Notifications;
@@ -2147,11 +2147,11 @@ abstract class Capabilities_Notifications
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities_Notifications get notifications;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start

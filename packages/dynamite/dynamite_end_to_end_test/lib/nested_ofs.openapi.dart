@@ -33,11 +33,11 @@ class Client extends DynamiteClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseInterface {
+abstract interface class $BaseInterface {
   String get attribute;
 }
 
-abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
+abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
   factory Base([final void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
@@ -50,15 +50,15 @@ abstract class Base implements BaseInterface, Built<Base, BaseBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseAllOf_1Interface {
+abstract interface class $BaseAllOf_1Interface {
   @BuiltValueField(wireName: 'attribute-allOf')
   String get attributeAllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseAllOfInterface implements BaseInterface, BaseAllOf_1Interface {}
+abstract interface class $BaseAllOfInterface implements $BaseInterface, $BaseAllOf_1Interface {}
 
-abstract class BaseAllOf implements BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
+abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
   factory BaseAllOf([final void Function(BaseAllOfBuilder)? b]) = _$BaseAllOf;
 
   const BaseAllOf._();
@@ -71,12 +71,12 @@ abstract class BaseAllOf implements BaseAllOfInterface, Built<BaseAllOf, BaseAll
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseOneOf1Interface {
+abstract interface class $BaseOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
 }
 
-abstract class BaseOneOf1 implements BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
+abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
   factory BaseOneOf1([final void Function(BaseOneOf1Builder)? b]) = _$BaseOneOf1;
 
   const BaseOneOf1._();
@@ -89,12 +89,12 @@ abstract class BaseOneOf1 implements BaseOneOf1Interface, Built<BaseOneOf1, Base
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseOneOfInterface {
+abstract interface class $BaseOneOfInterface {
   Base? get base;
   BaseOneOf1? get baseOneOf1;
 }
 
-abstract class BaseOneOf implements BaseOneOfInterface, Built<BaseOneOf, BaseOneOfBuilder> {
+abstract class BaseOneOf implements $BaseOneOfInterface, Built<BaseOneOf, BaseOneOfBuilder> {
   factory BaseOneOf([final void Function(BaseOneOfBuilder)? b]) = _$BaseOneOf;
 
   const BaseOneOf._();
@@ -156,12 +156,12 @@ class _$BaseOneOfSerializer implements PrimitiveSerializer<BaseOneOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseAnyOf1Interface {
+abstract interface class $BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
   String get attributeAnyOf;
 }
 
-abstract class BaseAnyOf1 implements BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
+abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
   factory BaseAnyOf1([final void Function(BaseAnyOf1Builder)? b]) = _$BaseAnyOf1;
 
   const BaseAnyOf1._();
@@ -174,12 +174,12 @@ abstract class BaseAnyOf1 implements BaseAnyOf1Interface, Built<BaseAnyOf1, Base
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseAnyOfInterface {
+abstract interface class $BaseAnyOfInterface {
   Base? get base;
   BaseAnyOf1? get baseAnyOf1;
 }
 
-abstract class BaseAnyOf implements BaseAnyOfInterface, Built<BaseAnyOf, BaseAnyOfBuilder> {
+abstract class BaseAnyOf implements $BaseAnyOfInterface, Built<BaseAnyOf, BaseAnyOfBuilder> {
   factory BaseAnyOf([final void Function(BaseAnyOfBuilder)? b]) = _$BaseAnyOf;
 
   const BaseAnyOf._();
@@ -241,16 +241,16 @@ class _$BaseAnyOfSerializer implements PrimitiveSerializer<BaseAnyOf> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAllOf_3Interface {
+abstract interface class $BaseNestedAllOf_3Interface {
   @BuiltValueField(wireName: 'attribute-nested-allOf')
   String get attributeNestedAllOf;
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAllOfInterface
-    implements BaseAllOfInterface, BaseOneOfInterface, BaseAnyOfInterface, BaseNestedAllOf_3Interface {}
+abstract interface class $BaseNestedAllOfInterface
+    implements $BaseAllOfInterface, $BaseOneOfInterface, $BaseAnyOfInterface, $BaseNestedAllOf_3Interface {}
 
-abstract class BaseNestedAllOf implements BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
+abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
   factory BaseNestedAllOf([final void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;
 
   const BaseNestedAllOf._();
@@ -264,12 +264,13 @@ abstract class BaseNestedAllOf implements BaseNestedAllOfInterface, Built<BaseNe
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedOneOf3Interface {
+abstract interface class $BaseNestedOneOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-oneOf')
   String get attributeNestedOneOf;
 }
 
-abstract class BaseNestedOneOf3 implements BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
+abstract class BaseNestedOneOf3
+    implements $BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
   factory BaseNestedOneOf3([final void Function(BaseNestedOneOf3Builder)? b]) = _$BaseNestedOneOf3;
 
   const BaseNestedOneOf3._();
@@ -283,14 +284,14 @@ abstract class BaseNestedOneOf3 implements BaseNestedOneOf3Interface, Built<Base
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedOneOfInterface {
+abstract interface class $BaseNestedOneOfInterface {
   BaseAllOf? get baseAllOf;
   BaseOneOf? get baseOneOf;
   BaseAnyOf? get baseAnyOf;
   BaseNestedOneOf3? get baseNestedOneOf3;
 }
 
-abstract class BaseNestedOneOf implements BaseNestedOneOfInterface, Built<BaseNestedOneOf, BaseNestedOneOfBuilder> {
+abstract class BaseNestedOneOf implements $BaseNestedOneOfInterface, Built<BaseNestedOneOf, BaseNestedOneOfBuilder> {
   factory BaseNestedOneOf([final void Function(BaseNestedOneOfBuilder)? b]) = _$BaseNestedOneOf;
 
   const BaseNestedOneOf._();
@@ -363,12 +364,13 @@ class _$BaseNestedOneOfSerializer implements PrimitiveSerializer<BaseNestedOneOf
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAnyOf3Interface {
+abstract interface class $BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
   String get attributeNestedAnyOf;
 }
 
-abstract class BaseNestedAnyOf3 implements BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
+abstract class BaseNestedAnyOf3
+    implements $BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
   factory BaseNestedAnyOf3([final void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
 
   const BaseNestedAnyOf3._();
@@ -382,14 +384,14 @@ abstract class BaseNestedAnyOf3 implements BaseNestedAnyOf3Interface, Built<Base
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class BaseNestedAnyOfInterface {
+abstract interface class $BaseNestedAnyOfInterface {
   BaseAllOf? get baseAllOf;
   BaseOneOf? get baseOneOf;
   BaseAnyOf? get baseAnyOf;
   BaseNestedAnyOf3? get baseNestedAnyOf3;
 }
 
-abstract class BaseNestedAnyOf implements BaseNestedAnyOfInterface, Built<BaseNestedAnyOf, BaseNestedAnyOfBuilder> {
+abstract class BaseNestedAnyOf implements $BaseNestedAnyOfInterface, Built<BaseNestedAnyOf, BaseNestedAnyOfBuilder> {
   factory BaseNestedAnyOf([final void Function(BaseNestedAnyOfBuilder)? b]) = _$BaseNestedAnyOf;
 
   const BaseNestedAnyOf._();

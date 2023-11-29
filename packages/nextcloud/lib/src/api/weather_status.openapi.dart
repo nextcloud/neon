@@ -686,7 +686,7 @@ class WeatherStatusClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -694,7 +694,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -713,13 +713,13 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface {
   bool get success;
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface,
+        $WeatherStatusSetModeResponseApplicationJson_Ocs_DataInterface,
         Built<WeatherStatusSetModeResponseApplicationJson_Ocs_Data,
             WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data([
@@ -744,14 +744,14 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetModeResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusSetModeResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetModeResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
     implements
-        WeatherStatusSetModeResponseApplicationJson_OcsInterface,
+        $WeatherStatusSetModeResponseApplicationJson_OcsInterface,
         Built<WeatherStatusSetModeResponseApplicationJson_Ocs, WeatherStatusSetModeResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson_Ocs([
     final void Function(WeatherStatusSetModeResponseApplicationJson_OcsBuilder)? b,
@@ -775,13 +775,13 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetModeResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusSetModeResponseApplicationJsonInterface {
   WeatherStatusSetModeResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusSetModeResponseApplicationJson
     implements
-        WeatherStatusSetModeResponseApplicationJsonInterface,
+        $WeatherStatusSetModeResponseApplicationJsonInterface,
         Built<WeatherStatusSetModeResponseApplicationJson, WeatherStatusSetModeResponseApplicationJsonBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson([
     final void Function(WeatherStatusSetModeResponseApplicationJsonBuilder)? b,
@@ -805,7 +805,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface {
   bool get success;
   double? get lat;
   double? get lon;
@@ -814,7 +814,7 @@ abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface,
+        $WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataInterface,
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data,
             WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data([
@@ -839,14 +839,14 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
     implements
-        WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface,
+        $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface,
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
             WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs([
@@ -871,13 +871,13 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
   WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
     implements
-        WeatherStatusUsePersonalAddressResponseApplicationJsonInterface,
+        $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface,
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson,
             WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson([
@@ -902,7 +902,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface {
   double get lat;
   double get lon;
   String get address;
@@ -911,7 +911,7 @@ abstract interface class WeatherStatusGetLocationResponseApplicationJson_Ocs_Dat
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface,
+        $WeatherStatusGetLocationResponseApplicationJson_Ocs_DataInterface,
         Built<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data([
@@ -936,14 +936,14 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusGetLocationResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
     implements
-        WeatherStatusGetLocationResponseApplicationJson_OcsInterface,
+        $WeatherStatusGetLocationResponseApplicationJson_OcsInterface,
         Built<WeatherStatusGetLocationResponseApplicationJson_Ocs,
             WeatherStatusGetLocationResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs([
@@ -968,13 +968,13 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetLocationResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusGetLocationResponseApplicationJsonInterface {
   WeatherStatusGetLocationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusGetLocationResponseApplicationJson
     implements
-        WeatherStatusGetLocationResponseApplicationJsonInterface,
+        $WeatherStatusGetLocationResponseApplicationJsonInterface,
         Built<WeatherStatusGetLocationResponseApplicationJson, WeatherStatusGetLocationResponseApplicationJsonBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson([
     final void Function(WeatherStatusGetLocationResponseApplicationJsonBuilder)? b,
@@ -998,7 +998,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface {
   bool get success;
   double? get lat;
   double? get lon;
@@ -1007,7 +1007,7 @@ abstract interface class WeatherStatusSetLocationResponseApplicationJson_Ocs_Dat
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface,
+        $WeatherStatusSetLocationResponseApplicationJson_Ocs_DataInterface,
         Built<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data([
@@ -1032,14 +1032,14 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetLocationResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
     implements
-        WeatherStatusSetLocationResponseApplicationJson_OcsInterface,
+        $WeatherStatusSetLocationResponseApplicationJson_OcsInterface,
         Built<WeatherStatusSetLocationResponseApplicationJson_Ocs,
             WeatherStatusSetLocationResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs([
@@ -1064,13 +1064,13 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetLocationResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusSetLocationResponseApplicationJsonInterface {
   WeatherStatusSetLocationResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusSetLocationResponseApplicationJson
     implements
-        WeatherStatusSetLocationResponseApplicationJsonInterface,
+        $WeatherStatusSetLocationResponseApplicationJsonInterface,
         Built<WeatherStatusSetLocationResponseApplicationJson, WeatherStatusSetLocationResponseApplicationJsonBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson([
     final void Function(WeatherStatusSetLocationResponseApplicationJsonBuilder)? b,
@@ -1094,7 +1094,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Instant_DetailsInterface {
+abstract interface class $Forecast_Data_Instant_DetailsInterface {
   @BuiltValueField(wireName: 'air_pressure_at_sea_level')
   double get airPressureAtSeaLevel;
   @BuiltValueField(wireName: 'air_temperature')
@@ -1125,7 +1125,7 @@ abstract interface class Forecast_Data_Instant_DetailsInterface {
 
 abstract class Forecast_Data_Instant_Details
     implements
-        Forecast_Data_Instant_DetailsInterface,
+        $Forecast_Data_Instant_DetailsInterface,
         Built<Forecast_Data_Instant_Details, Forecast_Data_Instant_DetailsBuilder> {
   factory Forecast_Data_Instant_Details([final void Function(Forecast_Data_Instant_DetailsBuilder)? b]) =
       _$Forecast_Data_Instant_Details;
@@ -1147,12 +1147,12 @@ abstract class Forecast_Data_Instant_Details
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_InstantInterface {
+abstract interface class $Forecast_Data_InstantInterface {
   Forecast_Data_Instant_Details get details;
 }
 
 abstract class Forecast_Data_Instant
-    implements Forecast_Data_InstantInterface, Built<Forecast_Data_Instant, Forecast_Data_InstantBuilder> {
+    implements $Forecast_Data_InstantInterface, Built<Forecast_Data_Instant, Forecast_Data_InstantBuilder> {
   factory Forecast_Data_Instant([final void Function(Forecast_Data_InstantBuilder)? b]) = _$Forecast_Data_Instant;
 
   // coverage:ignore-start
@@ -1172,14 +1172,14 @@ abstract class Forecast_Data_Instant
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next12Hours_SummaryInterface {
+abstract interface class $Forecast_Data_Next12Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
 }
 
 abstract class Forecast_Data_Next12Hours_Summary
     implements
-        Forecast_Data_Next12Hours_SummaryInterface,
+        $Forecast_Data_Next12Hours_SummaryInterface,
         Built<Forecast_Data_Next12Hours_Summary, Forecast_Data_Next12Hours_SummaryBuilder> {
   factory Forecast_Data_Next12Hours_Summary([final void Function(Forecast_Data_Next12Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next12Hours_Summary;
@@ -1201,14 +1201,14 @@ abstract class Forecast_Data_Next12Hours_Summary
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next12Hours_DetailsInterface {
+abstract interface class $Forecast_Data_Next12Hours_DetailsInterface {
   @BuiltValueField(wireName: 'probability_of_precipitation')
   double get probabilityOfPrecipitation;
 }
 
 abstract class Forecast_Data_Next12Hours_Details
     implements
-        Forecast_Data_Next12Hours_DetailsInterface,
+        $Forecast_Data_Next12Hours_DetailsInterface,
         Built<Forecast_Data_Next12Hours_Details, Forecast_Data_Next12Hours_DetailsBuilder> {
   factory Forecast_Data_Next12Hours_Details([final void Function(Forecast_Data_Next12Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next12Hours_Details;
@@ -1230,13 +1230,13 @@ abstract class Forecast_Data_Next12Hours_Details
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next12HoursInterface {
+abstract interface class $Forecast_Data_Next12HoursInterface {
   Forecast_Data_Next12Hours_Summary get summary;
   Forecast_Data_Next12Hours_Details get details;
 }
 
 abstract class Forecast_Data_Next12Hours
-    implements Forecast_Data_Next12HoursInterface, Built<Forecast_Data_Next12Hours, Forecast_Data_Next12HoursBuilder> {
+    implements $Forecast_Data_Next12HoursInterface, Built<Forecast_Data_Next12Hours, Forecast_Data_Next12HoursBuilder> {
   factory Forecast_Data_Next12Hours([final void Function(Forecast_Data_Next12HoursBuilder)? b]) =
       _$Forecast_Data_Next12Hours;
 
@@ -1257,14 +1257,14 @@ abstract class Forecast_Data_Next12Hours
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next1Hours_SummaryInterface {
+abstract interface class $Forecast_Data_Next1Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
 }
 
 abstract class Forecast_Data_Next1Hours_Summary
     implements
-        Forecast_Data_Next1Hours_SummaryInterface,
+        $Forecast_Data_Next1Hours_SummaryInterface,
         Built<Forecast_Data_Next1Hours_Summary, Forecast_Data_Next1Hours_SummaryBuilder> {
   factory Forecast_Data_Next1Hours_Summary([final void Function(Forecast_Data_Next1Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next1Hours_Summary;
@@ -1286,7 +1286,7 @@ abstract class Forecast_Data_Next1Hours_Summary
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next1Hours_DetailsInterface {
+abstract interface class $Forecast_Data_Next1Hours_DetailsInterface {
   @BuiltValueField(wireName: 'precipitation_amount')
   double get precipitationAmount;
   @BuiltValueField(wireName: 'precipitation_amount_max')
@@ -1301,7 +1301,7 @@ abstract interface class Forecast_Data_Next1Hours_DetailsInterface {
 
 abstract class Forecast_Data_Next1Hours_Details
     implements
-        Forecast_Data_Next1Hours_DetailsInterface,
+        $Forecast_Data_Next1Hours_DetailsInterface,
         Built<Forecast_Data_Next1Hours_Details, Forecast_Data_Next1Hours_DetailsBuilder> {
   factory Forecast_Data_Next1Hours_Details([final void Function(Forecast_Data_Next1Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next1Hours_Details;
@@ -1323,13 +1323,13 @@ abstract class Forecast_Data_Next1Hours_Details
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next1HoursInterface {
+abstract interface class $Forecast_Data_Next1HoursInterface {
   Forecast_Data_Next1Hours_Summary get summary;
   Forecast_Data_Next1Hours_Details get details;
 }
 
 abstract class Forecast_Data_Next1Hours
-    implements Forecast_Data_Next1HoursInterface, Built<Forecast_Data_Next1Hours, Forecast_Data_Next1HoursBuilder> {
+    implements $Forecast_Data_Next1HoursInterface, Built<Forecast_Data_Next1Hours, Forecast_Data_Next1HoursBuilder> {
   factory Forecast_Data_Next1Hours([final void Function(Forecast_Data_Next1HoursBuilder)? b]) =
       _$Forecast_Data_Next1Hours;
 
@@ -1350,14 +1350,14 @@ abstract class Forecast_Data_Next1Hours
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next6Hours_SummaryInterface {
+abstract interface class $Forecast_Data_Next6Hours_SummaryInterface {
   @BuiltValueField(wireName: 'symbol_code')
   String get symbolCode;
 }
 
 abstract class Forecast_Data_Next6Hours_Summary
     implements
-        Forecast_Data_Next6Hours_SummaryInterface,
+        $Forecast_Data_Next6Hours_SummaryInterface,
         Built<Forecast_Data_Next6Hours_Summary, Forecast_Data_Next6Hours_SummaryBuilder> {
   factory Forecast_Data_Next6Hours_Summary([final void Function(Forecast_Data_Next6Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next6Hours_Summary;
@@ -1379,7 +1379,7 @@ abstract class Forecast_Data_Next6Hours_Summary
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next6Hours_DetailsInterface {
+abstract interface class $Forecast_Data_Next6Hours_DetailsInterface {
   @BuiltValueField(wireName: 'air_temperature_max')
   double get airTemperatureMax;
   @BuiltValueField(wireName: 'air_temperature_min')
@@ -1396,7 +1396,7 @@ abstract interface class Forecast_Data_Next6Hours_DetailsInterface {
 
 abstract class Forecast_Data_Next6Hours_Details
     implements
-        Forecast_Data_Next6Hours_DetailsInterface,
+        $Forecast_Data_Next6Hours_DetailsInterface,
         Built<Forecast_Data_Next6Hours_Details, Forecast_Data_Next6Hours_DetailsBuilder> {
   factory Forecast_Data_Next6Hours_Details([final void Function(Forecast_Data_Next6Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next6Hours_Details;
@@ -1418,13 +1418,13 @@ abstract class Forecast_Data_Next6Hours_Details
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_Data_Next6HoursInterface {
+abstract interface class $Forecast_Data_Next6HoursInterface {
   Forecast_Data_Next6Hours_Summary get summary;
   Forecast_Data_Next6Hours_Details get details;
 }
 
 abstract class Forecast_Data_Next6Hours
-    implements Forecast_Data_Next6HoursInterface, Built<Forecast_Data_Next6Hours, Forecast_Data_Next6HoursBuilder> {
+    implements $Forecast_Data_Next6HoursInterface, Built<Forecast_Data_Next6Hours, Forecast_Data_Next6HoursBuilder> {
   factory Forecast_Data_Next6Hours([final void Function(Forecast_Data_Next6HoursBuilder)? b]) =
       _$Forecast_Data_Next6Hours;
 
@@ -1445,7 +1445,7 @@ abstract class Forecast_Data_Next6Hours
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Forecast_DataInterface {
+abstract interface class $Forecast_DataInterface {
   Forecast_Data_Instant get instant;
   @BuiltValueField(wireName: 'next_12_hours')
   Forecast_Data_Next12Hours get next12Hours;
@@ -1455,7 +1455,7 @@ abstract interface class Forecast_DataInterface {
   Forecast_Data_Next6Hours get next6Hours;
 }
 
-abstract class Forecast_Data implements Forecast_DataInterface, Built<Forecast_Data, Forecast_DataBuilder> {
+abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_Data, Forecast_DataBuilder> {
   factory Forecast_Data([final void Function(Forecast_DataBuilder)? b]) = _$Forecast_Data;
 
   // coverage:ignore-start
@@ -1475,12 +1475,12 @@ abstract class Forecast_Data implements Forecast_DataInterface, Built<Forecast_D
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ForecastInterface {
+abstract interface class $ForecastInterface {
   String get time;
   Forecast_Data get data;
 }
 
-abstract class Forecast implements ForecastInterface, Built<Forecast, ForecastBuilder> {
+abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastBuilder> {
   factory Forecast([final void Function(ForecastBuilder)? b]) = _$Forecast;
 
   // coverage:ignore-start
@@ -1499,14 +1499,14 @@ abstract class Forecast implements ForecastInterface, Built<Forecast, ForecastBu
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Forecast> get data;
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
     implements
-        WeatherStatusGetForecastResponseApplicationJson_OcsInterface,
+        $WeatherStatusGetForecastResponseApplicationJson_OcsInterface,
         Built<WeatherStatusGetForecastResponseApplicationJson_Ocs,
             WeatherStatusGetForecastResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetForecastResponseApplicationJson_Ocs([
@@ -1531,13 +1531,13 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetForecastResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusGetForecastResponseApplicationJsonInterface {
   WeatherStatusGetForecastResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusGetForecastResponseApplicationJson
     implements
-        WeatherStatusGetForecastResponseApplicationJsonInterface,
+        $WeatherStatusGetForecastResponseApplicationJsonInterface,
         Built<WeatherStatusGetForecastResponseApplicationJson, WeatherStatusGetForecastResponseApplicationJsonBuilder> {
   factory WeatherStatusGetForecastResponseApplicationJson([
     final void Function(WeatherStatusGetForecastResponseApplicationJsonBuilder)? b,
@@ -1561,14 +1561,14 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<String> get data;
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
     implements
-        WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface,
+        $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface,
         Built<WeatherStatusGetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs([
@@ -1593,13 +1593,13 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusGetFavoritesResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusGetFavoritesResponseApplicationJsonInterface {
   WeatherStatusGetFavoritesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusGetFavoritesResponseApplicationJson
     implements
-        WeatherStatusGetFavoritesResponseApplicationJsonInterface,
+        $WeatherStatusGetFavoritesResponseApplicationJsonInterface,
         Built<WeatherStatusGetFavoritesResponseApplicationJson,
             WeatherStatusGetFavoritesResponseApplicationJsonBuilder> {
   factory WeatherStatusGetFavoritesResponseApplicationJson([
@@ -1624,13 +1624,13 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface {
   bool get success;
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
     implements
-        WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface,
+        $WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataInterface,
         Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data,
             WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data([
@@ -1655,14 +1655,14 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
+abstract interface class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
     implements
-        WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface,
+        $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface,
         Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs([
@@ -1687,13 +1687,13 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class WeatherStatusSetFavoritesResponseApplicationJsonInterface {
+abstract interface class $WeatherStatusSetFavoritesResponseApplicationJsonInterface {
   WeatherStatusSetFavoritesResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class WeatherStatusSetFavoritesResponseApplicationJson
     implements
-        WeatherStatusSetFavoritesResponseApplicationJsonInterface,
+        $WeatherStatusSetFavoritesResponseApplicationJsonInterface,
         Built<WeatherStatusSetFavoritesResponseApplicationJson,
             WeatherStatusSetFavoritesResponseApplicationJsonBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson([
@@ -1718,13 +1718,13 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_WeatherStatusInterface {
+abstract interface class $Capabilities_WeatherStatusInterface {
   bool get enabled;
 }
 
 abstract class Capabilities_WeatherStatus
     implements
-        Capabilities_WeatherStatusInterface,
+        $Capabilities_WeatherStatusInterface,
         Built<Capabilities_WeatherStatus, Capabilities_WeatherStatusBuilder> {
   factory Capabilities_WeatherStatus([final void Function(Capabilities_WeatherStatusBuilder)? b]) =
       _$Capabilities_WeatherStatus;
@@ -1746,12 +1746,12 @@ abstract class Capabilities_WeatherStatus
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   @BuiltValueField(wireName: 'weather_status')
   Capabilities_WeatherStatus get weatherStatus;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start

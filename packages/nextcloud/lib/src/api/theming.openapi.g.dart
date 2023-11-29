@@ -604,9 +604,9 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   }
 }
 
-abstract mixin class ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder {
-  void replace(ThemingGetManifestResponseApplicationJson_IconsInterface other);
-  void update(void Function(ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder) updates);
+abstract mixin class $ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder {
+  void replace($ThemingGetManifestResponseApplicationJson_IconsInterface other);
+  void update(void Function($ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder) updates);
   String? get src;
   set src(String? src);
 
@@ -678,7 +678,7 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
     implements
         Builder<ThemingGetManifestResponseApplicationJson_Icons,
             ThemingGetManifestResponseApplicationJson_IconsBuilder>,
-        ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder {
+        $ThemingGetManifestResponseApplicationJson_IconsInterfaceBuilder {
   _$ThemingGetManifestResponseApplicationJson_Icons? _$v;
 
   String? _src;
@@ -734,9 +734,9 @@ class ThemingGetManifestResponseApplicationJson_IconsBuilder
   }
 }
 
-abstract mixin class ThemingGetManifestResponseApplicationJsonInterfaceBuilder {
-  void replace(ThemingGetManifestResponseApplicationJsonInterface other);
-  void update(void Function(ThemingGetManifestResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ThemingGetManifestResponseApplicationJsonInterfaceBuilder {
+  void replace($ThemingGetManifestResponseApplicationJsonInterface other);
+  void update(void Function($ThemingGetManifestResponseApplicationJsonInterfaceBuilder) updates);
   String? get name;
   set name(String? name);
 
@@ -861,7 +861,7 @@ class _$ThemingGetManifestResponseApplicationJson extends ThemingGetManifestResp
 class ThemingGetManifestResponseApplicationJsonBuilder
     implements
         Builder<ThemingGetManifestResponseApplicationJson, ThemingGetManifestResponseApplicationJsonBuilder>,
-        ThemingGetManifestResponseApplicationJsonInterfaceBuilder {
+        $ThemingGetManifestResponseApplicationJsonInterfaceBuilder {
   _$ThemingGetManifestResponseApplicationJson? _$v;
 
   String? _name;
@@ -963,9 +963,9 @@ class ThemingGetManifestResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class BackgroundInterfaceBuilder {
-  void replace(BackgroundInterface other);
-  void update(void Function(BackgroundInterfaceBuilder) updates);
+abstract mixin class $BackgroundInterfaceBuilder {
+  void replace($BackgroundInterface other);
+  void update(void Function($BackgroundInterfaceBuilder) updates);
   String? get backgroundImage;
   set backgroundImage(String? backgroundImage);
 
@@ -1026,7 +1026,7 @@ class _$Background extends Background {
   }
 }
 
-class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, BackgroundInterfaceBuilder {
+class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, $BackgroundInterfaceBuilder {
   _$Background? _$v;
 
   String? _backgroundImage;
@@ -1079,9 +1079,9 @@ class BackgroundBuilder implements Builder<Background, BackgroundBuilder>, Backg
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1159,7 +1159,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1224,9 +1224,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserThemeEnableThemeResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserThemeEnableThemeResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1286,7 +1286,7 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
     implements
         Builder<UserThemeEnableThemeResponseApplicationJson_Ocs,
             UserThemeEnableThemeResponseApplicationJson_OcsBuilder>,
-        UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder {
+        $UserThemeEnableThemeResponseApplicationJson_OcsInterfaceBuilder {
   _$UserThemeEnableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1347,9 +1347,9 @@ class UserThemeEnableThemeResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder {
-  void replace(UserThemeEnableThemeResponseApplicationJsonInterface other);
-  void update(void Function(UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder {
+  void replace($UserThemeEnableThemeResponseApplicationJsonInterface other);
+  void update(void Function($UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder) updates);
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserThemeEnableThemeResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1398,7 +1398,7 @@ class _$UserThemeEnableThemeResponseApplicationJson extends UserThemeEnableTheme
 class UserThemeEnableThemeResponseApplicationJsonBuilder
     implements
         Builder<UserThemeEnableThemeResponseApplicationJson, UserThemeEnableThemeResponseApplicationJsonBuilder>,
-        UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder {
+        $UserThemeEnableThemeResponseApplicationJsonInterfaceBuilder {
   _$UserThemeEnableThemeResponseApplicationJson? _$v;
 
   UserThemeEnableThemeResponseApplicationJson_OcsBuilder? _ocs;
@@ -1450,9 +1450,9 @@ class UserThemeEnableThemeResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserThemeDisableThemeResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserThemeDisableThemeResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1512,7 +1512,7 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
     implements
         Builder<UserThemeDisableThemeResponseApplicationJson_Ocs,
             UserThemeDisableThemeResponseApplicationJson_OcsBuilder>,
-        UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder {
+        $UserThemeDisableThemeResponseApplicationJson_OcsInterfaceBuilder {
   _$UserThemeDisableThemeResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1573,9 +1573,9 @@ class UserThemeDisableThemeResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder {
-  void replace(UserThemeDisableThemeResponseApplicationJsonInterface other);
-  void update(void Function(UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder {
+  void replace($UserThemeDisableThemeResponseApplicationJsonInterface other);
+  void update(void Function($UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder) updates);
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserThemeDisableThemeResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1624,7 +1624,7 @@ class _$UserThemeDisableThemeResponseApplicationJson extends UserThemeDisableThe
 class UserThemeDisableThemeResponseApplicationJsonBuilder
     implements
         Builder<UserThemeDisableThemeResponseApplicationJson, UserThemeDisableThemeResponseApplicationJsonBuilder>,
-        UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder {
+        $UserThemeDisableThemeResponseApplicationJsonInterfaceBuilder {
   _$UserThemeDisableThemeResponseApplicationJson? _$v;
 
   UserThemeDisableThemeResponseApplicationJson_OcsBuilder? _ocs;
@@ -1676,9 +1676,9 @@ class UserThemeDisableThemeResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class PublicCapabilities_ThemingInterfaceBuilder {
-  void replace(PublicCapabilities_ThemingInterface other);
-  void update(void Function(PublicCapabilities_ThemingInterfaceBuilder) updates);
+abstract mixin class $PublicCapabilities_ThemingInterfaceBuilder {
+  void replace($PublicCapabilities_ThemingInterface other);
+  void update(void Function($PublicCapabilities_ThemingInterfaceBuilder) updates);
   String? get name;
   set name(String? name);
 
@@ -1859,7 +1859,7 @@ class _$PublicCapabilities_Theming extends PublicCapabilities_Theming {
 class PublicCapabilities_ThemingBuilder
     implements
         Builder<PublicCapabilities_Theming, PublicCapabilities_ThemingBuilder>,
-        PublicCapabilities_ThemingInterfaceBuilder {
+        $PublicCapabilities_ThemingInterfaceBuilder {
   _$PublicCapabilities_Theming? _$v;
 
   String? _name;
@@ -1983,9 +1983,9 @@ class PublicCapabilities_ThemingBuilder
   }
 }
 
-abstract mixin class PublicCapabilitiesInterfaceBuilder {
-  void replace(PublicCapabilitiesInterface other);
-  void update(void Function(PublicCapabilitiesInterfaceBuilder) updates);
+abstract mixin class $PublicCapabilitiesInterfaceBuilder {
+  void replace($PublicCapabilitiesInterface other);
+  void update(void Function($PublicCapabilitiesInterfaceBuilder) updates);
   PublicCapabilities_ThemingBuilder get theming;
   set theming(PublicCapabilities_ThemingBuilder? theming);
 }
@@ -2029,7 +2029,7 @@ class _$PublicCapabilities extends PublicCapabilities {
 }
 
 class PublicCapabilitiesBuilder
-    implements Builder<PublicCapabilities, PublicCapabilitiesBuilder>, PublicCapabilitiesInterfaceBuilder {
+    implements Builder<PublicCapabilities, PublicCapabilitiesBuilder>, $PublicCapabilitiesInterfaceBuilder {
   _$PublicCapabilities? _$v;
 
   PublicCapabilities_ThemingBuilder? _theming;

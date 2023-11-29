@@ -326,9 +326,9 @@ class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAny
   }
 }
 
-abstract mixin class BaseInterfaceBuilder {
-  void replace(BaseInterface other);
-  void update(void Function(BaseInterfaceBuilder) updates);
+abstract mixin class $BaseInterfaceBuilder {
+  void replace($BaseInterface other);
+  void update(void Function($BaseInterfaceBuilder) updates);
   String? get attribute;
   set attribute(String? attribute);
 }
@@ -369,7 +369,7 @@ class _$Base extends Base {
   }
 }
 
-class BaseBuilder implements Builder<Base, BaseBuilder>, BaseInterfaceBuilder {
+class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
   _$Base? _$v;
 
   String? _attribute;
@@ -408,16 +408,16 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, BaseInterfaceBuilder {
   }
 }
 
-abstract mixin class BaseAllOf_1InterfaceBuilder {
-  void replace(BaseAllOf_1Interface other);
-  void update(void Function(BaseAllOf_1InterfaceBuilder) updates);
+abstract mixin class $BaseAllOf_1InterfaceBuilder {
+  void replace($BaseAllOf_1Interface other);
+  void update(void Function($BaseAllOf_1InterfaceBuilder) updates);
   String? get attributeAllOf;
   set attributeAllOf(String? attributeAllOf);
 }
 
-abstract mixin class BaseAllOfInterfaceBuilder implements BaseInterfaceBuilder, BaseAllOf_1InterfaceBuilder {
-  void replace(covariant BaseAllOfInterface other);
-  void update(void Function(BaseAllOfInterfaceBuilder) updates);
+abstract mixin class $BaseAllOfInterfaceBuilder implements $BaseInterfaceBuilder, $BaseAllOf_1InterfaceBuilder {
+  void replace(covariant $BaseAllOfInterface other);
+  void update(void Function($BaseAllOfInterfaceBuilder) updates);
   String? get attribute;
   set attribute(covariant String? attribute);
 
@@ -468,7 +468,7 @@ class _$BaseAllOf extends BaseAllOf {
   }
 }
 
-class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, BaseAllOfInterfaceBuilder {
+class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAllOfInterfaceBuilder {
   _$BaseAllOf? _$v;
 
   String? _attribute;
@@ -515,9 +515,9 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, BaseAllO
   }
 }
 
-abstract mixin class BaseOneOf1InterfaceBuilder {
-  void replace(BaseOneOf1Interface other);
-  void update(void Function(BaseOneOf1InterfaceBuilder) updates);
+abstract mixin class $BaseOneOf1InterfaceBuilder {
+  void replace($BaseOneOf1Interface other);
+  void update(void Function($BaseOneOf1InterfaceBuilder) updates);
   String? get attributeOneOf;
   set attributeOneOf(String? attributeOneOf);
 }
@@ -558,7 +558,7 @@ class _$BaseOneOf1 extends BaseOneOf1 {
   }
 }
 
-class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, BaseOneOf1InterfaceBuilder {
+class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $BaseOneOf1InterfaceBuilder {
   _$BaseOneOf1? _$v;
 
   String? _attributeOneOf;
@@ -599,9 +599,9 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, BaseO
   }
 }
 
-abstract mixin class BaseOneOfInterfaceBuilder {
-  void replace(BaseOneOfInterface other);
-  void update(void Function(BaseOneOfInterfaceBuilder) updates);
+abstract mixin class $BaseOneOfInterfaceBuilder {
+  void replace($BaseOneOfInterface other);
+  void update(void Function($BaseOneOfInterfaceBuilder) updates);
   BaseBuilder get base;
   set base(BaseBuilder? base);
 
@@ -655,7 +655,7 @@ class _$BaseOneOf extends BaseOneOf {
   }
 }
 
-class BaseOneOfBuilder implements Builder<BaseOneOf, BaseOneOfBuilder>, BaseOneOfInterfaceBuilder {
+class BaseOneOfBuilder implements Builder<BaseOneOf, BaseOneOfBuilder>, $BaseOneOfInterfaceBuilder {
   _$BaseOneOf? _$v;
 
   JsonObject? _data;
@@ -723,9 +723,9 @@ class BaseOneOfBuilder implements Builder<BaseOneOf, BaseOneOfBuilder>, BaseOneO
   }
 }
 
-abstract mixin class BaseAnyOf1InterfaceBuilder {
-  void replace(BaseAnyOf1Interface other);
-  void update(void Function(BaseAnyOf1InterfaceBuilder) updates);
+abstract mixin class $BaseAnyOf1InterfaceBuilder {
+  void replace($BaseAnyOf1Interface other);
+  void update(void Function($BaseAnyOf1InterfaceBuilder) updates);
   String? get attributeAnyOf;
   set attributeAnyOf(String? attributeAnyOf);
 }
@@ -766,7 +766,7 @@ class _$BaseAnyOf1 extends BaseAnyOf1 {
   }
 }
 
-class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, BaseAnyOf1InterfaceBuilder {
+class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $BaseAnyOf1InterfaceBuilder {
   _$BaseAnyOf1? _$v;
 
   String? _attributeAnyOf;
@@ -807,9 +807,9 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, BaseA
   }
 }
 
-abstract mixin class BaseAnyOfInterfaceBuilder {
-  void replace(BaseAnyOfInterface other);
-  void update(void Function(BaseAnyOfInterfaceBuilder) updates);
+abstract mixin class $BaseAnyOfInterfaceBuilder {
+  void replace($BaseAnyOfInterface other);
+  void update(void Function($BaseAnyOfInterfaceBuilder) updates);
   BaseBuilder get base;
   set base(BaseBuilder? base);
 
@@ -863,7 +863,7 @@ class _$BaseAnyOf extends BaseAnyOf {
   }
 }
 
-class BaseAnyOfBuilder implements Builder<BaseAnyOf, BaseAnyOfBuilder>, BaseAnyOfInterfaceBuilder {
+class BaseAnyOfBuilder implements Builder<BaseAnyOf, BaseAnyOfBuilder>, $BaseAnyOfInterfaceBuilder {
   _$BaseAnyOf? _$v;
 
   JsonObject? _data;
@@ -931,21 +931,21 @@ class BaseAnyOfBuilder implements Builder<BaseAnyOf, BaseAnyOfBuilder>, BaseAnyO
   }
 }
 
-abstract mixin class BaseNestedAllOf_3InterfaceBuilder {
-  void replace(BaseNestedAllOf_3Interface other);
-  void update(void Function(BaseNestedAllOf_3InterfaceBuilder) updates);
+abstract mixin class $BaseNestedAllOf_3InterfaceBuilder {
+  void replace($BaseNestedAllOf_3Interface other);
+  void update(void Function($BaseNestedAllOf_3InterfaceBuilder) updates);
   String? get attributeNestedAllOf;
   set attributeNestedAllOf(String? attributeNestedAllOf);
 }
 
-abstract mixin class BaseNestedAllOfInterfaceBuilder
+abstract mixin class $BaseNestedAllOfInterfaceBuilder
     implements
-        BaseAllOfInterfaceBuilder,
-        BaseOneOfInterfaceBuilder,
-        BaseAnyOfInterfaceBuilder,
-        BaseNestedAllOf_3InterfaceBuilder {
-  void replace(covariant BaseNestedAllOfInterface other);
-  void update(void Function(BaseNestedAllOfInterfaceBuilder) updates);
+        $BaseAllOfInterfaceBuilder,
+        $BaseOneOfInterfaceBuilder,
+        $BaseAnyOfInterfaceBuilder,
+        $BaseNestedAllOf_3InterfaceBuilder {
+  void replace(covariant $BaseNestedAllOfInterface other);
+  void update(void Function($BaseNestedAllOfInterfaceBuilder) updates);
   String? get attribute;
   set attribute(covariant String? attribute);
 
@@ -1040,7 +1040,7 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
 }
 
 class BaseNestedAllOfBuilder
-    implements Builder<BaseNestedAllOf, BaseNestedAllOfBuilder>, BaseNestedAllOfInterfaceBuilder {
+    implements Builder<BaseNestedAllOf, BaseNestedAllOfBuilder>, $BaseNestedAllOfInterfaceBuilder {
   _$BaseNestedAllOf? _$v;
 
   String? _attribute;
@@ -1130,9 +1130,9 @@ class BaseNestedAllOfBuilder
   }
 }
 
-abstract mixin class BaseNestedOneOf3InterfaceBuilder {
-  void replace(BaseNestedOneOf3Interface other);
-  void update(void Function(BaseNestedOneOf3InterfaceBuilder) updates);
+abstract mixin class $BaseNestedOneOf3InterfaceBuilder {
+  void replace($BaseNestedOneOf3Interface other);
+  void update(void Function($BaseNestedOneOf3InterfaceBuilder) updates);
   String? get attributeNestedOneOf;
   set attributeNestedOneOf(String? attributeNestedOneOf);
 }
@@ -1176,7 +1176,7 @@ class _$BaseNestedOneOf3 extends BaseNestedOneOf3 {
 }
 
 class BaseNestedOneOf3Builder
-    implements Builder<BaseNestedOneOf3, BaseNestedOneOf3Builder>, BaseNestedOneOf3InterfaceBuilder {
+    implements Builder<BaseNestedOneOf3, BaseNestedOneOf3Builder>, $BaseNestedOneOf3InterfaceBuilder {
   _$BaseNestedOneOf3? _$v;
 
   String? _attributeNestedOneOf;
@@ -1219,9 +1219,9 @@ class BaseNestedOneOf3Builder
   }
 }
 
-abstract mixin class BaseNestedOneOfInterfaceBuilder {
-  void replace(BaseNestedOneOfInterface other);
-  void update(void Function(BaseNestedOneOfInterfaceBuilder) updates);
+abstract mixin class $BaseNestedOneOfInterfaceBuilder {
+  void replace($BaseNestedOneOfInterface other);
+  void update(void Function($BaseNestedOneOfInterfaceBuilder) updates);
   BaseAllOfBuilder get baseAllOf;
   set baseAllOf(BaseAllOfBuilder? baseAllOf);
 
@@ -1297,7 +1297,7 @@ class _$BaseNestedOneOf extends BaseNestedOneOf {
 }
 
 class BaseNestedOneOfBuilder
-    implements Builder<BaseNestedOneOf, BaseNestedOneOfBuilder>, BaseNestedOneOfInterfaceBuilder {
+    implements Builder<BaseNestedOneOf, BaseNestedOneOfBuilder>, $BaseNestedOneOfInterfaceBuilder {
   _$BaseNestedOneOf? _$v;
 
   JsonObject? _data;
@@ -1382,9 +1382,9 @@ class BaseNestedOneOfBuilder
   }
 }
 
-abstract mixin class BaseNestedAnyOf3InterfaceBuilder {
-  void replace(BaseNestedAnyOf3Interface other);
-  void update(void Function(BaseNestedAnyOf3InterfaceBuilder) updates);
+abstract mixin class $BaseNestedAnyOf3InterfaceBuilder {
+  void replace($BaseNestedAnyOf3Interface other);
+  void update(void Function($BaseNestedAnyOf3InterfaceBuilder) updates);
   String? get attributeNestedAnyOf;
   set attributeNestedAnyOf(String? attributeNestedAnyOf);
 }
@@ -1428,7 +1428,7 @@ class _$BaseNestedAnyOf3 extends BaseNestedAnyOf3 {
 }
 
 class BaseNestedAnyOf3Builder
-    implements Builder<BaseNestedAnyOf3, BaseNestedAnyOf3Builder>, BaseNestedAnyOf3InterfaceBuilder {
+    implements Builder<BaseNestedAnyOf3, BaseNestedAnyOf3Builder>, $BaseNestedAnyOf3InterfaceBuilder {
   _$BaseNestedAnyOf3? _$v;
 
   String? _attributeNestedAnyOf;
@@ -1471,9 +1471,9 @@ class BaseNestedAnyOf3Builder
   }
 }
 
-abstract mixin class BaseNestedAnyOfInterfaceBuilder {
-  void replace(BaseNestedAnyOfInterface other);
-  void update(void Function(BaseNestedAnyOfInterfaceBuilder) updates);
+abstract mixin class $BaseNestedAnyOfInterfaceBuilder {
+  void replace($BaseNestedAnyOfInterface other);
+  void update(void Function($BaseNestedAnyOfInterfaceBuilder) updates);
   BaseAllOfBuilder get baseAllOf;
   set baseAllOf(BaseAllOfBuilder? baseAllOf);
 
@@ -1549,7 +1549,7 @@ class _$BaseNestedAnyOf extends BaseNestedAnyOf {
 }
 
 class BaseNestedAnyOfBuilder
-    implements Builder<BaseNestedAnyOf, BaseNestedAnyOfBuilder>, BaseNestedAnyOfInterfaceBuilder {
+    implements Builder<BaseNestedAnyOf, BaseNestedAnyOfBuilder>, $BaseNestedAnyOfInterfaceBuilder {
   _$BaseNestedAnyOf? _$v;
 
   JsonObject? _data;

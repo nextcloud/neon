@@ -384,9 +384,9 @@ class _$ApiRemoveResponseApplicationJsonSerializer implements StructuredSerializ
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -464,7 +464,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -529,9 +529,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(ApiGetResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($ApiGetResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get dueDate;
   set dueDate(String? dueDate);
 }
@@ -578,7 +578,7 @@ class _$ApiGetResponseApplicationJson_Ocs_Data extends ApiGetResponseApplication
 class ApiGetResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder>,
-        ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $ApiGetResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ApiGetResponseApplicationJson_Ocs_Data? _$v;
 
   String? _dueDate;
@@ -617,9 +617,9 @@ class ApiGetResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class ApiGetResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ApiGetResponseApplicationJson_OcsInterface other);
-  void update(void Function(ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ApiGetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiGetResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiGetResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -675,7 +675,7 @@ class _$ApiGetResponseApplicationJson_Ocs extends ApiGetResponseApplicationJson_
 class ApiGetResponseApplicationJson_OcsBuilder
     implements
         Builder<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder>,
-        ApiGetResponseApplicationJson_OcsInterfaceBuilder {
+        $ApiGetResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiGetResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -734,9 +734,9 @@ class ApiGetResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ApiGetResponseApplicationJsonInterfaceBuilder {
-  void replace(ApiGetResponseApplicationJsonInterface other);
-  void update(void Function(ApiGetResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ApiGetResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiGetResponseApplicationJsonInterface other);
+  void update(void Function($ApiGetResponseApplicationJsonInterfaceBuilder) updates);
   ApiGetResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiGetResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -782,7 +782,7 @@ class _$ApiGetResponseApplicationJson extends ApiGetResponseApplicationJson {
 class ApiGetResponseApplicationJsonBuilder
     implements
         Builder<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder>,
-        ApiGetResponseApplicationJsonInterfaceBuilder {
+        $ApiGetResponseApplicationJsonInterfaceBuilder {
   _$ApiGetResponseApplicationJson? _$v;
 
   ApiGetResponseApplicationJson_OcsBuilder? _ocs;
@@ -833,9 +833,9 @@ class ApiGetResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ApiSetResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ApiSetResponseApplicationJson_OcsInterface other);
-  void update(void Function(ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ApiSetResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiSetResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiSetResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -891,7 +891,7 @@ class _$ApiSetResponseApplicationJson_Ocs extends ApiSetResponseApplicationJson_
 class ApiSetResponseApplicationJson_OcsBuilder
     implements
         Builder<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder>,
-        ApiSetResponseApplicationJson_OcsInterfaceBuilder {
+        $ApiSetResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiSetResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -950,9 +950,9 @@ class ApiSetResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ApiSetResponseApplicationJsonInterfaceBuilder {
-  void replace(ApiSetResponseApplicationJsonInterface other);
-  void update(void Function(ApiSetResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ApiSetResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiSetResponseApplicationJsonInterface other);
+  void update(void Function($ApiSetResponseApplicationJsonInterfaceBuilder) updates);
   ApiSetResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiSetResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -998,7 +998,7 @@ class _$ApiSetResponseApplicationJson extends ApiSetResponseApplicationJson {
 class ApiSetResponseApplicationJsonBuilder
     implements
         Builder<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder>,
-        ApiSetResponseApplicationJsonInterfaceBuilder {
+        $ApiSetResponseApplicationJsonInterfaceBuilder {
   _$ApiSetResponseApplicationJson? _$v;
 
   ApiSetResponseApplicationJson_OcsBuilder? _ocs;
@@ -1049,9 +1049,9 @@ class ApiSetResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ApiRemoveResponseApplicationJson_OcsInterface other);
-  void update(void Function(ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiRemoveResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiRemoveResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1109,7 +1109,7 @@ class _$ApiRemoveResponseApplicationJson_Ocs extends ApiRemoveResponseApplicatio
 class ApiRemoveResponseApplicationJson_OcsBuilder
     implements
         Builder<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder>,
-        ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
+        $ApiRemoveResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiRemoveResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1168,9 +1168,9 @@ class ApiRemoveResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ApiRemoveResponseApplicationJsonInterfaceBuilder {
-  void replace(ApiRemoveResponseApplicationJsonInterface other);
-  void update(void Function(ApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ApiRemoveResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiRemoveResponseApplicationJsonInterface other);
+  void update(void Function($ApiRemoveResponseApplicationJsonInterfaceBuilder) updates);
   ApiRemoveResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiRemoveResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1216,7 +1216,7 @@ class _$ApiRemoveResponseApplicationJson extends ApiRemoveResponseApplicationJso
 class ApiRemoveResponseApplicationJsonBuilder
     implements
         Builder<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder>,
-        ApiRemoveResponseApplicationJsonInterfaceBuilder {
+        $ApiRemoveResponseApplicationJsonInterfaceBuilder {
   _$ApiRemoveResponseApplicationJson? _$v;
 
   ApiRemoveResponseApplicationJson_OcsBuilder? _ocs;

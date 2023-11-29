@@ -161,7 +161,7 @@ class PreviewClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class Capabilities_FilesInterface {
+abstract interface class $Capabilities_FilesInterface {
   bool get versioning;
   @BuiltValueField(wireName: 'version_labeling')
   bool get versionLabeling;
@@ -170,7 +170,7 @@ abstract interface class Capabilities_FilesInterface {
 }
 
 abstract class Capabilities_Files
-    implements Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
+    implements $Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
   factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
@@ -190,11 +190,11 @@ abstract class Capabilities_Files
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class CapabilitiesInterface {
+abstract interface class $CapabilitiesInterface {
   Capabilities_Files get files;
 }
 
-abstract class Capabilities implements CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
   factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start

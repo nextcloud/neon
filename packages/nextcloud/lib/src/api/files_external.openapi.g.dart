@@ -491,9 +491,9 @@ class _$ApiGetUserMountsResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -571,7 +571,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -636,9 +636,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class StorageConfigInterfaceBuilder {
-  void replace(StorageConfigInterface other);
-  void update(void Function(StorageConfigInterfaceBuilder) updates);
+abstract mixin class $StorageConfigInterfaceBuilder {
+  void replace($StorageConfigInterface other);
+  void update(void Function($StorageConfigInterfaceBuilder) updates);
   ListBuilder<String> get applicableGroups;
   set applicableGroups(ListBuilder<String>? applicableGroups);
 
@@ -798,7 +798,7 @@ class _$StorageConfig extends StorageConfig {
   }
 }
 
-class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilder>, StorageConfigInterfaceBuilder {
+class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilder>, $StorageConfigInterfaceBuilder {
   _$StorageConfig? _$v;
 
   ListBuilder<String>? _applicableGroups;
@@ -932,9 +932,9 @@ class StorageConfigBuilder implements Builder<StorageConfig, StorageConfigBuilde
   }
 }
 
-abstract mixin class MountInterfaceBuilder {
-  void replace(MountInterface other);
-  void update(void Function(MountInterfaceBuilder) updates);
+abstract mixin class $MountInterfaceBuilder {
+  void replace($MountInterface other);
+  void update(void Function($MountInterfaceBuilder) updates);
   String? get name;
   set name(String? name);
 
@@ -1060,7 +1060,7 @@ class _$Mount extends Mount {
   }
 }
 
-class MountBuilder implements Builder<Mount, MountBuilder>, MountInterfaceBuilder {
+class MountBuilder implements Builder<Mount, MountBuilder>, $MountInterfaceBuilder {
   _$Mount? _$v;
 
   String? _name;
@@ -1161,9 +1161,9 @@ class MountBuilder implements Builder<Mount, MountBuilder>, MountInterfaceBuilde
   }
 }
 
-abstract mixin class ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(ApiGetUserMountsResponseApplicationJson_OcsInterface other);
-  void update(void Function(ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($ApiGetUserMountsResponseApplicationJson_OcsInterface other);
+  void update(void Function($ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -1222,7 +1222,7 @@ class _$ApiGetUserMountsResponseApplicationJson_Ocs extends ApiGetUserMountsResp
 class ApiGetUserMountsResponseApplicationJson_OcsBuilder
     implements
         Builder<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder>,
-        ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
+        $ApiGetUserMountsResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiGetUserMountsResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -1280,9 +1280,9 @@ class ApiGetUserMountsResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
-  void replace(ApiGetUserMountsResponseApplicationJsonInterface other);
-  void update(void Function(ApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+  void replace($ApiGetUserMountsResponseApplicationJsonInterface other);
+  void update(void Function($ApiGetUserMountsResponseApplicationJsonInterfaceBuilder) updates);
   ApiGetUserMountsResponseApplicationJson_OcsBuilder get ocs;
   set ocs(ApiGetUserMountsResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -1331,7 +1331,7 @@ class _$ApiGetUserMountsResponseApplicationJson extends ApiGetUserMountsResponse
 class ApiGetUserMountsResponseApplicationJsonBuilder
     implements
         Builder<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder>,
-        ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
+        $ApiGetUserMountsResponseApplicationJsonInterfaceBuilder {
   _$ApiGetUserMountsResponseApplicationJson? _$v;
 
   ApiGetUserMountsResponseApplicationJson_OcsBuilder? _ocs;

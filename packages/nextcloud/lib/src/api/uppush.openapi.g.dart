@@ -568,9 +568,9 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
   }
 }
 
-abstract mixin class CheckResponseApplicationJsonInterfaceBuilder {
-  void replace(CheckResponseApplicationJsonInterface other);
-  void update(void Function(CheckResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $CheckResponseApplicationJsonInterfaceBuilder {
+  void replace($CheckResponseApplicationJsonInterface other);
+  void update(void Function($CheckResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -616,7 +616,7 @@ class _$CheckResponseApplicationJson extends CheckResponseApplicationJson {
 class CheckResponseApplicationJsonBuilder
     implements
         Builder<CheckResponseApplicationJson, CheckResponseApplicationJsonBuilder>,
-        CheckResponseApplicationJsonInterfaceBuilder {
+        $CheckResponseApplicationJsonInterfaceBuilder {
   _$CheckResponseApplicationJson? _$v;
 
   bool? _success;
@@ -657,9 +657,9 @@ class CheckResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class SetKeepaliveResponseApplicationJsonInterfaceBuilder {
-  void replace(SetKeepaliveResponseApplicationJsonInterface other);
-  void update(void Function(SetKeepaliveResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $SetKeepaliveResponseApplicationJsonInterfaceBuilder {
+  void replace($SetKeepaliveResponseApplicationJsonInterface other);
+  void update(void Function($SetKeepaliveResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -705,7 +705,7 @@ class _$SetKeepaliveResponseApplicationJson extends SetKeepaliveResponseApplicat
 class SetKeepaliveResponseApplicationJsonBuilder
     implements
         Builder<SetKeepaliveResponseApplicationJson, SetKeepaliveResponseApplicationJsonBuilder>,
-        SetKeepaliveResponseApplicationJsonInterfaceBuilder {
+        $SetKeepaliveResponseApplicationJsonInterfaceBuilder {
   _$SetKeepaliveResponseApplicationJson? _$v;
 
   bool? _success;
@@ -746,9 +746,9 @@ class SetKeepaliveResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class CreateDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(CreateDeviceResponseApplicationJsonInterface other);
-  void update(void Function(CreateDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $CreateDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace($CreateDeviceResponseApplicationJsonInterface other);
+  void update(void Function($CreateDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -804,7 +804,7 @@ class _$CreateDeviceResponseApplicationJson extends CreateDeviceResponseApplicat
 class CreateDeviceResponseApplicationJsonBuilder
     implements
         Builder<CreateDeviceResponseApplicationJson, CreateDeviceResponseApplicationJsonBuilder>,
-        CreateDeviceResponseApplicationJsonInterfaceBuilder {
+        $CreateDeviceResponseApplicationJsonInterfaceBuilder {
   _$CreateDeviceResponseApplicationJson? _$v;
 
   bool? _success;
@@ -852,9 +852,9 @@ class CreateDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class SyncDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(SyncDeviceResponseApplicationJsonInterface other);
-  void update(void Function(SyncDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $SyncDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace($SyncDeviceResponseApplicationJsonInterface other);
+  void update(void Function($SyncDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -900,7 +900,7 @@ class _$SyncDeviceResponseApplicationJson extends SyncDeviceResponseApplicationJ
 class SyncDeviceResponseApplicationJsonBuilder
     implements
         Builder<SyncDeviceResponseApplicationJson, SyncDeviceResponseApplicationJsonBuilder>,
-        SyncDeviceResponseApplicationJsonInterfaceBuilder {
+        $SyncDeviceResponseApplicationJsonInterfaceBuilder {
   _$SyncDeviceResponseApplicationJson? _$v;
 
   bool? _success;
@@ -941,9 +941,9 @@ class SyncDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DeleteDeviceResponseApplicationJsonInterfaceBuilder {
-  void replace(DeleteDeviceResponseApplicationJsonInterface other);
-  void update(void Function(DeleteDeviceResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DeleteDeviceResponseApplicationJsonInterfaceBuilder {
+  void replace($DeleteDeviceResponseApplicationJsonInterface other);
+  void update(void Function($DeleteDeviceResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -989,7 +989,7 @@ class _$DeleteDeviceResponseApplicationJson extends DeleteDeviceResponseApplicat
 class DeleteDeviceResponseApplicationJsonBuilder
     implements
         Builder<DeleteDeviceResponseApplicationJson, DeleteDeviceResponseApplicationJsonBuilder>,
-        DeleteDeviceResponseApplicationJsonInterfaceBuilder {
+        $DeleteDeviceResponseApplicationJsonInterfaceBuilder {
   _$DeleteDeviceResponseApplicationJson? _$v;
 
   bool? _success;
@@ -1030,9 +1030,9 @@ class DeleteDeviceResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class CreateAppResponseApplicationJsonInterfaceBuilder {
-  void replace(CreateAppResponseApplicationJsonInterface other);
-  void update(void Function(CreateAppResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $CreateAppResponseApplicationJsonInterfaceBuilder {
+  void replace($CreateAppResponseApplicationJsonInterface other);
+  void update(void Function($CreateAppResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 
@@ -1088,7 +1088,7 @@ class _$CreateAppResponseApplicationJson extends CreateAppResponseApplicationJso
 class CreateAppResponseApplicationJsonBuilder
     implements
         Builder<CreateAppResponseApplicationJson, CreateAppResponseApplicationJsonBuilder>,
-        CreateAppResponseApplicationJsonInterfaceBuilder {
+        $CreateAppResponseApplicationJsonInterfaceBuilder {
   _$CreateAppResponseApplicationJson? _$v;
 
   bool? _success;
@@ -1135,9 +1135,9 @@ class CreateAppResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class DeleteAppResponseApplicationJsonInterfaceBuilder {
-  void replace(DeleteAppResponseApplicationJsonInterface other);
-  void update(void Function(DeleteAppResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $DeleteAppResponseApplicationJsonInterfaceBuilder {
+  void replace($DeleteAppResponseApplicationJsonInterface other);
+  void update(void Function($DeleteAppResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -1183,7 +1183,7 @@ class _$DeleteAppResponseApplicationJson extends DeleteAppResponseApplicationJso
 class DeleteAppResponseApplicationJsonBuilder
     implements
         Builder<DeleteAppResponseApplicationJson, DeleteAppResponseApplicationJsonBuilder>,
-        DeleteAppResponseApplicationJsonInterfaceBuilder {
+        $DeleteAppResponseApplicationJsonInterfaceBuilder {
   _$DeleteAppResponseApplicationJson? _$v;
 
   bool? _success;
@@ -1224,9 +1224,9 @@ class DeleteAppResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  void replace(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface other);
-  void update(void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
+abstract mixin class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface other);
+  void update(void Function($UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
   int? get version;
   set version(int? version);
 }
@@ -1280,7 +1280,7 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
         Builder<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
             UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
-        UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+        $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
   int? _version;
@@ -1322,9 +1322,9 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
   }
 }
 
-abstract mixin class UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
-  void replace(UnifiedpushDiscoveryResponseApplicationJsonInterface other);
-  void update(void Function(UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
+  void replace($UnifiedpushDiscoveryResponseApplicationJsonInterface other);
+  void update(void Function($UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
   set unifiedpush(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
@@ -1375,7 +1375,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscovery
 class UnifiedpushDiscoveryResponseApplicationJsonBuilder
     implements
         Builder<UnifiedpushDiscoveryResponseApplicationJson, UnifiedpushDiscoveryResponseApplicationJsonBuilder>,
-        UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
+        $UnifiedpushDiscoveryResponseApplicationJsonInterfaceBuilder {
   _$UnifiedpushDiscoveryResponseApplicationJson? _$v;
 
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
@@ -1428,9 +1428,9 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class PushResponseApplicationJsonInterfaceBuilder {
-  void replace(PushResponseApplicationJsonInterface other);
-  void update(void Function(PushResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $PushResponseApplicationJsonInterfaceBuilder {
+  void replace($PushResponseApplicationJsonInterface other);
+  void update(void Function($PushResponseApplicationJsonInterfaceBuilder) updates);
   bool? get success;
   set success(bool? success);
 }
@@ -1476,7 +1476,7 @@ class _$PushResponseApplicationJson extends PushResponseApplicationJson {
 class PushResponseApplicationJsonBuilder
     implements
         Builder<PushResponseApplicationJson, PushResponseApplicationJsonBuilder>,
-        PushResponseApplicationJsonInterfaceBuilder {
+        $PushResponseApplicationJsonInterfaceBuilder {
   _$PushResponseApplicationJson? _$v;
 
   bool? _success;
@@ -1517,9 +1517,9 @@ class PushResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
-  void replace(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface other);
-  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
+abstract mixin class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+  void replace($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface other);
+  void update(void Function($GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder) updates);
   String? get gateway;
   set gateway(String? gateway);
 }
@@ -1573,7 +1573,7 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
         Builder<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
             GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
-        GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
+        $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
   String? _gateway;
@@ -1615,9 +1615,9 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
   }
 }
 
-abstract mixin class GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
-  void replace(GatewayMatrixDiscoveryResponseApplicationJsonInterface other);
-  void update(void Function(GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
+  void replace($GatewayMatrixDiscoveryResponseApplicationJsonInterface other);
+  void update(void Function($GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder) updates);
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder get unifiedpush;
   set unifiedpush(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? unifiedpush);
 }
@@ -1668,7 +1668,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDisco
 class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
     implements
         Builder<GatewayMatrixDiscoveryResponseApplicationJson, GatewayMatrixDiscoveryResponseApplicationJsonBuilder>,
-        GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
+        $GatewayMatrixDiscoveryResponseApplicationJsonInterfaceBuilder {
   _$GatewayMatrixDiscoveryResponseApplicationJson? _$v;
 
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder? _unifiedpush;
@@ -1721,9 +1721,9 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class GatewayMatrixResponseApplicationJsonInterfaceBuilder {
-  void replace(GatewayMatrixResponseApplicationJsonInterface other);
-  void update(void Function(GatewayMatrixResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $GatewayMatrixResponseApplicationJsonInterfaceBuilder {
+  void replace($GatewayMatrixResponseApplicationJsonInterface other);
+  void update(void Function($GatewayMatrixResponseApplicationJsonInterfaceBuilder) updates);
   ListBuilder<String> get rejected;
   set rejected(ListBuilder<String>? rejected);
 }
@@ -1771,7 +1771,7 @@ class _$GatewayMatrixResponseApplicationJson extends GatewayMatrixResponseApplic
 class GatewayMatrixResponseApplicationJsonBuilder
     implements
         Builder<GatewayMatrixResponseApplicationJson, GatewayMatrixResponseApplicationJsonBuilder>,
-        GatewayMatrixResponseApplicationJsonInterfaceBuilder {
+        $GatewayMatrixResponseApplicationJsonInterfaceBuilder {
   _$GatewayMatrixResponseApplicationJson? _$v;
 
   ListBuilder<String>? _rejected;

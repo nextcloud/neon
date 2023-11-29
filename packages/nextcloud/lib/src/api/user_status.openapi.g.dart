@@ -1482,9 +1482,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 }
 
-abstract mixin class OCSMetaInterfaceBuilder {
-  void replace(OCSMetaInterface other);
-  void update(void Function(OCSMetaInterfaceBuilder) updates);
+abstract mixin class $OCSMetaInterfaceBuilder {
+  void replace($OCSMetaInterface other);
+  void update(void Function($OCSMetaInterfaceBuilder) updates);
   String? get status;
   set status(String? status);
 
@@ -1562,7 +1562,7 @@ class _$OCSMeta extends OCSMeta {
   }
 }
 
-class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfaceBuilder {
+class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterfaceBuilder {
   _$OCSMeta? _$v;
 
   String? _status;
@@ -1627,9 +1627,9 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, OCSMetaInterfa
   }
 }
 
-abstract mixin class PublicInterfaceBuilder {
-  void replace(PublicInterface other);
-  void update(void Function(PublicInterfaceBuilder) updates);
+abstract mixin class $PublicInterfaceBuilder {
+  void replace($PublicInterface other);
+  void update(void Function($PublicInterfaceBuilder) updates);
   String? get userId;
   set userId(String? userId);
 
@@ -1706,7 +1706,7 @@ class _$Public extends Public {
   }
 }
 
-class PublicBuilder implements Builder<Public, PublicBuilder>, PublicInterfaceBuilder {
+class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceBuilder {
   _$Public? _$v;
 
   String? _userId;
@@ -1771,9 +1771,9 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, PublicInterfaceBu
   }
 }
 
-abstract mixin class Private_1InterfaceBuilder {
-  void replace(Private_1Interface other);
-  void update(void Function(Private_1InterfaceBuilder) updates);
+abstract mixin class $Private_1InterfaceBuilder {
+  void replace($Private_1Interface other);
+  void update(void Function($Private_1InterfaceBuilder) updates);
   String? get messageId;
   set messageId(String? messageId);
 
@@ -1784,9 +1784,9 @@ abstract mixin class Private_1InterfaceBuilder {
   set statusIsUserDefined(bool? statusIsUserDefined);
 }
 
-abstract mixin class PrivateInterfaceBuilder implements PublicInterfaceBuilder, Private_1InterfaceBuilder {
-  void replace(covariant PrivateInterface other);
-  void update(void Function(PrivateInterfaceBuilder) updates);
+abstract mixin class $PrivateInterfaceBuilder implements $PublicInterfaceBuilder, $Private_1InterfaceBuilder {
+  void replace(covariant $PrivateInterface other);
+  void update(void Function($PrivateInterfaceBuilder) updates);
   String? get userId;
   set userId(covariant String? userId);
 
@@ -1898,7 +1898,7 @@ class _$Private extends Private {
   }
 }
 
-class PrivateBuilder implements Builder<Private, PrivateBuilder>, PrivateInterfaceBuilder {
+class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterfaceBuilder {
   _$Private? _$v;
 
   String? _userId;
@@ -1983,9 +1983,9 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, PrivateInterfa
   }
 }
 
-abstract mixin class HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(HeartbeatHeartbeatResponseApplicationJson_OcsInterface other);
-  void update(void Function(HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($HeartbeatHeartbeatResponseApplicationJson_OcsInterface other);
+  void update(void Function($HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2044,7 +2044,7 @@ class _$HeartbeatHeartbeatResponseApplicationJson_Ocs extends HeartbeatHeartbeat
 class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
     implements
         Builder<HeartbeatHeartbeatResponseApplicationJson_Ocs, HeartbeatHeartbeatResponseApplicationJson_OcsBuilder>,
-        HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder {
+        $HeartbeatHeartbeatResponseApplicationJson_OcsInterfaceBuilder {
   _$HeartbeatHeartbeatResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2102,9 +2102,9 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder {
-  void replace(HeartbeatHeartbeatResponseApplicationJsonInterface other);
-  void update(void Function(HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder {
+  void replace($HeartbeatHeartbeatResponseApplicationJsonInterface other);
+  void update(void Function($HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder) updates);
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder get ocs;
   set ocs(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2153,7 +2153,7 @@ class _$HeartbeatHeartbeatResponseApplicationJson extends HeartbeatHeartbeatResp
 class HeartbeatHeartbeatResponseApplicationJsonBuilder
     implements
         Builder<HeartbeatHeartbeatResponseApplicationJson, HeartbeatHeartbeatResponseApplicationJsonBuilder>,
-        HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder {
+        $HeartbeatHeartbeatResponseApplicationJsonInterfaceBuilder {
   _$HeartbeatHeartbeatResponseApplicationJson? _$v;
 
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder? _ocs;
@@ -2205,9 +2205,9 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class ClearAt_TimeInterfaceBuilder {
-  void replace(ClearAt_TimeInterface other);
-  void update(void Function(ClearAt_TimeInterfaceBuilder) updates);
+abstract mixin class $ClearAt_TimeInterfaceBuilder {
+  void replace($ClearAt_TimeInterface other);
+  void update(void Function($ClearAt_TimeInterfaceBuilder) updates);
   int? get $int;
   set $int(int? $int);
 
@@ -2265,7 +2265,7 @@ class _$ClearAt_Time extends ClearAt_Time {
   }
 }
 
-class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>, ClearAt_TimeInterfaceBuilder {
+class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>, $ClearAt_TimeInterfaceBuilder {
   _$ClearAt_Time? _$v;
 
   JsonObject? _data;
@@ -2319,9 +2319,9 @@ class ClearAt_TimeBuilder implements Builder<ClearAt_Time, ClearAt_TimeBuilder>,
   }
 }
 
-abstract mixin class ClearAtInterfaceBuilder {
-  void replace(ClearAtInterface other);
-  void update(void Function(ClearAtInterfaceBuilder) updates);
+abstract mixin class $ClearAtInterfaceBuilder {
+  void replace($ClearAtInterface other);
+  void update(void Function($ClearAtInterfaceBuilder) updates);
   ClearAt_Type? get type;
   set type(ClearAt_Type? type);
 
@@ -2372,7 +2372,7 @@ class _$ClearAt extends ClearAt {
   }
 }
 
-class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, ClearAtInterfaceBuilder {
+class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterfaceBuilder {
   _$ClearAt? _$v;
 
   ClearAt_Type? _type;
@@ -2429,9 +2429,9 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, ClearAtInterfa
   }
 }
 
-abstract mixin class PredefinedInterfaceBuilder {
-  void replace(PredefinedInterface other);
-  void update(void Function(PredefinedInterfaceBuilder) updates);
+abstract mixin class $PredefinedInterfaceBuilder {
+  void replace($PredefinedInterface other);
+  void update(void Function($PredefinedInterfaceBuilder) updates);
   String? get id;
   set id(String? id);
 
@@ -2510,7 +2510,7 @@ class _$Predefined extends Predefined {
   }
 }
 
-class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, PredefinedInterfaceBuilder {
+class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $PredefinedInterfaceBuilder {
   _$Predefined? _$v;
 
   String? _id;
@@ -2587,9 +2587,9 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, Prede
   }
 }
 
-abstract mixin class PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(PredefinedStatusFindAllResponseApplicationJson_OcsInterface other);
-  void update(void Function(PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($PredefinedStatusFindAllResponseApplicationJson_OcsInterface other);
+  void update(void Function($PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2649,7 +2649,7 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
     implements
         Builder<PredefinedStatusFindAllResponseApplicationJson_Ocs,
             PredefinedStatusFindAllResponseApplicationJson_OcsBuilder>,
-        PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder {
+        $PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder {
   _$PredefinedStatusFindAllResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2708,9 +2708,9 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder {
-  void replace(PredefinedStatusFindAllResponseApplicationJsonInterface other);
-  void update(void Function(PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder {
+  void replace($PredefinedStatusFindAllResponseApplicationJsonInterface other);
+  void update(void Function($PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder) updates);
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder get ocs;
   set ocs(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2759,7 +2759,7 @@ class _$PredefinedStatusFindAllResponseApplicationJson extends PredefinedStatusF
 class PredefinedStatusFindAllResponseApplicationJsonBuilder
     implements
         Builder<PredefinedStatusFindAllResponseApplicationJson, PredefinedStatusFindAllResponseApplicationJsonBuilder>,
-        PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder {
+        $PredefinedStatusFindAllResponseApplicationJsonInterfaceBuilder {
   _$PredefinedStatusFindAllResponseApplicationJson? _$v;
 
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder? _ocs;
@@ -2812,9 +2812,9 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(StatusesFindAllResponseApplicationJson_OcsInterface other);
-  void update(void Function(StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($StatusesFindAllResponseApplicationJson_OcsInterface other);
+  void update(void Function($StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -2873,7 +2873,7 @@ class _$StatusesFindAllResponseApplicationJson_Ocs extends StatusesFindAllRespon
 class StatusesFindAllResponseApplicationJson_OcsBuilder
     implements
         Builder<StatusesFindAllResponseApplicationJson_Ocs, StatusesFindAllResponseApplicationJson_OcsBuilder>,
-        StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder {
+        $StatusesFindAllResponseApplicationJson_OcsInterfaceBuilder {
   _$StatusesFindAllResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -2931,9 +2931,9 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class StatusesFindAllResponseApplicationJsonInterfaceBuilder {
-  void replace(StatusesFindAllResponseApplicationJsonInterface other);
-  void update(void Function(StatusesFindAllResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $StatusesFindAllResponseApplicationJsonInterfaceBuilder {
+  void replace($StatusesFindAllResponseApplicationJsonInterface other);
+  void update(void Function($StatusesFindAllResponseApplicationJsonInterfaceBuilder) updates);
   StatusesFindAllResponseApplicationJson_OcsBuilder get ocs;
   set ocs(StatusesFindAllResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -2982,7 +2982,7 @@ class _$StatusesFindAllResponseApplicationJson extends StatusesFindAllResponseAp
 class StatusesFindAllResponseApplicationJsonBuilder
     implements
         Builder<StatusesFindAllResponseApplicationJson, StatusesFindAllResponseApplicationJsonBuilder>,
-        StatusesFindAllResponseApplicationJsonInterfaceBuilder {
+        $StatusesFindAllResponseApplicationJsonInterfaceBuilder {
   _$StatusesFindAllResponseApplicationJson? _$v;
 
   StatusesFindAllResponseApplicationJson_OcsBuilder? _ocs;
@@ -3034,9 +3034,9 @@ class StatusesFindAllResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class StatusesFindResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(StatusesFindResponseApplicationJson_OcsInterface other);
-  void update(void Function(StatusesFindResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $StatusesFindResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($StatusesFindResponseApplicationJson_OcsInterface other);
+  void update(void Function($StatusesFindResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3095,7 +3095,7 @@ class _$StatusesFindResponseApplicationJson_Ocs extends StatusesFindResponseAppl
 class StatusesFindResponseApplicationJson_OcsBuilder
     implements
         Builder<StatusesFindResponseApplicationJson_Ocs, StatusesFindResponseApplicationJson_OcsBuilder>,
-        StatusesFindResponseApplicationJson_OcsInterfaceBuilder {
+        $StatusesFindResponseApplicationJson_OcsInterfaceBuilder {
   _$StatusesFindResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3153,9 +3153,9 @@ class StatusesFindResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class StatusesFindResponseApplicationJsonInterfaceBuilder {
-  void replace(StatusesFindResponseApplicationJsonInterface other);
-  void update(void Function(StatusesFindResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $StatusesFindResponseApplicationJsonInterfaceBuilder {
+  void replace($StatusesFindResponseApplicationJsonInterface other);
+  void update(void Function($StatusesFindResponseApplicationJsonInterfaceBuilder) updates);
   StatusesFindResponseApplicationJson_OcsBuilder get ocs;
   set ocs(StatusesFindResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3201,7 +3201,7 @@ class _$StatusesFindResponseApplicationJson extends StatusesFindResponseApplicat
 class StatusesFindResponseApplicationJsonBuilder
     implements
         Builder<StatusesFindResponseApplicationJson, StatusesFindResponseApplicationJsonBuilder>,
-        StatusesFindResponseApplicationJsonInterfaceBuilder {
+        $StatusesFindResponseApplicationJsonInterfaceBuilder {
   _$StatusesFindResponseApplicationJson? _$v;
 
   StatusesFindResponseApplicationJson_OcsBuilder? _ocs;
@@ -3253,9 +3253,9 @@ class StatusesFindResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusGetStatusResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusGetStatusResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3314,7 +3314,7 @@ class _$UserStatusGetStatusResponseApplicationJson_Ocs extends UserStatusGetStat
 class UserStatusGetStatusResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusGetStatusResponseApplicationJson_Ocs, UserStatusGetStatusResponseApplicationJson_OcsBuilder>,
-        UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusGetStatusResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusGetStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3373,9 +3373,9 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusGetStatusResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusGetStatusResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusGetStatusResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusGetStatusResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusGetStatusResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusGetStatusResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusGetStatusResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusGetStatusResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3424,7 +3424,7 @@ class _$UserStatusGetStatusResponseApplicationJson extends UserStatusGetStatusRe
 class UserStatusGetStatusResponseApplicationJsonBuilder
     implements
         Builder<UserStatusGetStatusResponseApplicationJson, UserStatusGetStatusResponseApplicationJsonBuilder>,
-        UserStatusGetStatusResponseApplicationJsonInterfaceBuilder {
+        $UserStatusGetStatusResponseApplicationJsonInterfaceBuilder {
   _$UserStatusGetStatusResponseApplicationJson? _$v;
 
   UserStatusGetStatusResponseApplicationJson_OcsBuilder? _ocs;
@@ -3476,9 +3476,9 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusSetStatusResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusSetStatusResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3537,7 +3537,7 @@ class _$UserStatusSetStatusResponseApplicationJson_Ocs extends UserStatusSetStat
 class UserStatusSetStatusResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusSetStatusResponseApplicationJson_Ocs, UserStatusSetStatusResponseApplicationJson_OcsBuilder>,
-        UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusSetStatusResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusSetStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3596,9 +3596,9 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusSetStatusResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusSetStatusResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusSetStatusResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetStatusResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetStatusResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusSetStatusResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusSetStatusResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusSetStatusResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3647,7 +3647,7 @@ class _$UserStatusSetStatusResponseApplicationJson extends UserStatusSetStatusRe
 class UserStatusSetStatusResponseApplicationJsonBuilder
     implements
         Builder<UserStatusSetStatusResponseApplicationJson, UserStatusSetStatusResponseApplicationJsonBuilder>,
-        UserStatusSetStatusResponseApplicationJsonInterfaceBuilder {
+        $UserStatusSetStatusResponseApplicationJsonInterfaceBuilder {
   _$UserStatusSetStatusResponseApplicationJson? _$v;
 
   UserStatusSetStatusResponseApplicationJson_OcsBuilder? _ocs;
@@ -3699,9 +3699,9 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3764,7 +3764,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
             UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder>,
-        UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -3824,9 +3824,9 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusSetPredefinedMessageResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetPredefinedMessageResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -3878,7 +3878,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
     implements
         Builder<UserStatusSetPredefinedMessageResponseApplicationJson,
             UserStatusSetPredefinedMessageResponseApplicationJsonBuilder>,
-        UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder {
+        $UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder {
   _$UserStatusSetPredefinedMessageResponseApplicationJson? _$v;
 
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder? _ocs;
@@ -3931,9 +3931,9 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusSetCustomMessageResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusSetCustomMessageResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -3994,7 +3994,7 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusSetCustomMessageResponseApplicationJson_Ocs,
             UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder>,
-        UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusSetCustomMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4054,9 +4054,9 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusSetCustomMessageResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusSetCustomMessageResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4107,7 +4107,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
     implements
         Builder<UserStatusSetCustomMessageResponseApplicationJson,
             UserStatusSetCustomMessageResponseApplicationJsonBuilder>,
-        UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder {
+        $UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder {
   _$UserStatusSetCustomMessageResponseApplicationJson? _$v;
 
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder? _ocs;
@@ -4160,9 +4160,9 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusClearMessageResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusClearMessageResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4222,7 +4222,7 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusClearMessageResponseApplicationJson_Ocs,
             UserStatusClearMessageResponseApplicationJson_OcsBuilder>,
-        UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusClearMessageResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4283,9 +4283,9 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusClearMessageResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusClearMessageResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusClearMessageResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusClearMessageResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusClearMessageResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusClearMessageResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusClearMessageResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusClearMessageResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4334,7 +4334,7 @@ class _$UserStatusClearMessageResponseApplicationJson extends UserStatusClearMes
 class UserStatusClearMessageResponseApplicationJsonBuilder
     implements
         Builder<UserStatusClearMessageResponseApplicationJson, UserStatusClearMessageResponseApplicationJsonBuilder>,
-        UserStatusClearMessageResponseApplicationJsonInterfaceBuilder {
+        $UserStatusClearMessageResponseApplicationJsonInterfaceBuilder {
   _$UserStatusClearMessageResponseApplicationJson? _$v;
 
   UserStatusClearMessageResponseApplicationJson_OcsBuilder? _ocs;
@@ -4386,9 +4386,9 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function(UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
+abstract mixin class $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
+  void replace($UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterface other);
+  void update(void Function($UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   PrivateBuilder get private;
   set private(PrivateBuilder? private);
 
@@ -4457,7 +4457,7 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
     implements
         Builder<UserStatusRevertStatusResponseApplicationJson_Ocs_Data,
             UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder>,
-        UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
+        $UserStatusRevertStatusResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$UserStatusRevertStatusResponseApplicationJson_Ocs_Data? _$v;
 
   JsonObject? _data;
@@ -4528,9 +4528,9 @@ class UserStatusRevertStatusResponseApplicationJson_Ocs_DataBuilder
   }
 }
 
-abstract mixin class UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
-  void replace(UserStatusRevertStatusResponseApplicationJson_OcsInterface other);
-  void update(void Function(UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
+abstract mixin class $UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($UserStatusRevertStatusResponseApplicationJson_OcsInterface other);
+  void update(void Function($UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
@@ -4590,7 +4590,7 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     implements
         Builder<UserStatusRevertStatusResponseApplicationJson_Ocs,
             UserStatusRevertStatusResponseApplicationJson_OcsBuilder>,
-        UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
+        $UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusRevertStatusResponseApplicationJson_Ocs? _$v;
 
   OCSMetaBuilder? _meta;
@@ -4650,9 +4650,9 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
   }
 }
 
-abstract mixin class UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder {
-  void replace(UserStatusRevertStatusResponseApplicationJsonInterface other);
-  void update(void Function(UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder) updates);
+abstract mixin class $UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder {
+  void replace($UserStatusRevertStatusResponseApplicationJsonInterface other);
+  void update(void Function($UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder) updates);
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder get ocs;
   set ocs(UserStatusRevertStatusResponseApplicationJson_OcsBuilder? ocs);
 }
@@ -4701,7 +4701,7 @@ class _$UserStatusRevertStatusResponseApplicationJson extends UserStatusRevertSt
 class UserStatusRevertStatusResponseApplicationJsonBuilder
     implements
         Builder<UserStatusRevertStatusResponseApplicationJson, UserStatusRevertStatusResponseApplicationJsonBuilder>,
-        UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder {
+        $UserStatusRevertStatusResponseApplicationJsonInterfaceBuilder {
   _$UserStatusRevertStatusResponseApplicationJson? _$v;
 
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder? _ocs;
@@ -4753,9 +4753,9 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class Capabilities_UserStatusInterfaceBuilder {
-  void replace(Capabilities_UserStatusInterface other);
-  void update(void Function(Capabilities_UserStatusInterfaceBuilder) updates);
+abstract mixin class $Capabilities_UserStatusInterfaceBuilder {
+  void replace($Capabilities_UserStatusInterface other);
+  void update(void Function($Capabilities_UserStatusInterfaceBuilder) updates);
   bool? get enabled;
   set enabled(bool? enabled);
 
@@ -4822,7 +4822,7 @@ class _$Capabilities_UserStatus extends Capabilities_UserStatus {
 class Capabilities_UserStatusBuilder
     implements
         Builder<Capabilities_UserStatus, Capabilities_UserStatusBuilder>,
-        Capabilities_UserStatusInterfaceBuilder {
+        $Capabilities_UserStatusInterfaceBuilder {
   _$Capabilities_UserStatus? _$v;
 
   bool? _enabled;
@@ -4876,9 +4876,9 @@ class Capabilities_UserStatusBuilder
   }
 }
 
-abstract mixin class CapabilitiesInterfaceBuilder {
-  void replace(CapabilitiesInterface other);
-  void update(void Function(CapabilitiesInterfaceBuilder) updates);
+abstract mixin class $CapabilitiesInterfaceBuilder {
+  void replace($CapabilitiesInterface other);
+  void update(void Function($CapabilitiesInterfaceBuilder) updates);
   Capabilities_UserStatusBuilder get userStatus;
   set userStatus(Capabilities_UserStatusBuilder? userStatus);
 }
@@ -4920,7 +4920,7 @@ class _$Capabilities extends Capabilities {
   }
 }
 
-class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, CapabilitiesInterfaceBuilder {
+class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>, $CapabilitiesInterfaceBuilder {
   _$Capabilities? _$v;
 
   Capabilities_UserStatusBuilder? _userStatus;

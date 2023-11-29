@@ -166,7 +166,7 @@ class ApiGetAppListApiVersion extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -174,7 +174,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -193,12 +193,12 @@ abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilde
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class AppInterface {
+abstract interface class $AppInterface {
   String get appId;
   String get appName;
 }
 
-abstract class App implements AppInterface, Built<App, AppBuilder> {
+abstract class App implements $AppInterface, Built<App, AppBuilder> {
   factory App([final void Function(AppBuilder)? b]) = _$App;
 
   // coverage:ignore-start
@@ -217,14 +217,14 @@ abstract class App implements AppInterface, Built<App, AppBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
+abstract interface class $ApiGetAppListResponseApplicationJson_Ocs_DataInterface {
   BuiltList<App> get missing;
   BuiltList<App> get available;
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
     implements
-        ApiGetAppListResponseApplicationJson_Ocs_DataInterface,
+        $ApiGetAppListResponseApplicationJson_Ocs_DataInterface,
         Built<ApiGetAppListResponseApplicationJson_Ocs_Data, ApiGetAppListResponseApplicationJson_Ocs_DataBuilder> {
   factory ApiGetAppListResponseApplicationJson_Ocs_Data([
     final void Function(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -248,14 +248,14 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetAppListResponseApplicationJson_OcsInterface {
+abstract interface class $ApiGetAppListResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   ApiGetAppListResponseApplicationJson_Ocs_Data get data;
 }
 
 abstract class ApiGetAppListResponseApplicationJson_Ocs
     implements
-        ApiGetAppListResponseApplicationJson_OcsInterface,
+        $ApiGetAppListResponseApplicationJson_OcsInterface,
         Built<ApiGetAppListResponseApplicationJson_Ocs, ApiGetAppListResponseApplicationJson_OcsBuilder> {
   factory ApiGetAppListResponseApplicationJson_Ocs([
     final void Function(ApiGetAppListResponseApplicationJson_OcsBuilder)? b,
@@ -279,13 +279,13 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetAppListResponseApplicationJsonInterface {
+abstract interface class $ApiGetAppListResponseApplicationJsonInterface {
   ApiGetAppListResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiGetAppListResponseApplicationJson
     implements
-        ApiGetAppListResponseApplicationJsonInterface,
+        $ApiGetAppListResponseApplicationJsonInterface,
         Built<ApiGetAppListResponseApplicationJson, ApiGetAppListResponseApplicationJsonBuilder> {
   factory ApiGetAppListResponseApplicationJson([final void Function(ApiGetAppListResponseApplicationJsonBuilder)? b]) =
       _$ApiGetAppListResponseApplicationJson;

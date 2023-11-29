@@ -133,7 +133,7 @@ class ApiClient {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class OCSMetaInterface {
+abstract interface class $OCSMetaInterface {
   String get status;
   int get statuscode;
   String? get message;
@@ -141,7 +141,7 @@ abstract interface class OCSMetaInterface {
   String? get itemsperpage;
 }
 
-abstract class OCSMeta implements OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
   factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
@@ -206,7 +206,7 @@ class StorageConfig_Type extends EnumClass {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class StorageConfigInterface {
+abstract interface class $StorageConfigInterface {
   BuiltList<String>? get applicableGroups;
   BuiltList<String>? get applicableUsers;
   String get authMechanism;
@@ -222,7 +222,7 @@ abstract interface class StorageConfigInterface {
   bool get userProvided;
 }
 
-abstract class StorageConfig implements StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
+abstract class StorageConfig implements $StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
   factory StorageConfig([final void Function(StorageConfigBuilder)? b]) = _$StorageConfig;
 
   // coverage:ignore-start
@@ -242,7 +242,7 @@ abstract class StorageConfig implements StorageConfigInterface, Built<StorageCon
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class MountInterface {
+abstract interface class $MountInterface {
   String get name;
   String get path;
   Mount_Type get type;
@@ -255,7 +255,7 @@ abstract interface class MountInterface {
   StorageConfig get config;
 }
 
-abstract class Mount implements MountInterface, Built<Mount, MountBuilder> {
+abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
   factory Mount([final void Function(MountBuilder)? b]) = _$Mount;
 
   // coverage:ignore-start
@@ -274,14 +274,14 @@ abstract class Mount implements MountInterface, Built<Mount, MountBuilder> {
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetUserMountsResponseApplicationJson_OcsInterface {
+abstract interface class $ApiGetUserMountsResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
   BuiltList<Mount> get data;
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson_Ocs
     implements
-        ApiGetUserMountsResponseApplicationJson_OcsInterface,
+        $ApiGetUserMountsResponseApplicationJson_OcsInterface,
         Built<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder> {
   factory ApiGetUserMountsResponseApplicationJson_Ocs([
     final void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? b,
@@ -305,13 +305,13 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class ApiGetUserMountsResponseApplicationJsonInterface {
+abstract interface class $ApiGetUserMountsResponseApplicationJsonInterface {
   ApiGetUserMountsResponseApplicationJson_Ocs get ocs;
 }
 
 abstract class ApiGetUserMountsResponseApplicationJson
     implements
-        ApiGetUserMountsResponseApplicationJsonInterface,
+        $ApiGetUserMountsResponseApplicationJsonInterface,
         Built<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder> {
   factory ApiGetUserMountsResponseApplicationJson([
     final void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? b,
