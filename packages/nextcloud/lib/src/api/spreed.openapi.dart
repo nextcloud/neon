@@ -12836,7 +12836,7 @@ abstract interface class ChatMessageInterface {
   int get expirationTimestamp;
   int get id;
   bool get isReplyable;
-  bool get markdown;
+  bool? get markdown;
   String get message;
   BuiltMap<String, BuiltMap<String, JsonObject>> get messageParameters;
   String get messageType;

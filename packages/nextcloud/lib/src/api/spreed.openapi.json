@@ -187,7 +187,6 @@
                     "expirationTimestamp",
                     "id",
                     "isReplyable",
-                    "markdown",
                     "message",
                     "messageParameters",
                     "messageType",
