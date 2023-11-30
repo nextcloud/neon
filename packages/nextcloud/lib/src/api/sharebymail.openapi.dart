@@ -296,30 +296,30 @@ class _$CapabilitiesSerializer implements PrimitiveSerializer<Capabilities> {
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities0), Capabilities0.new)
+      ..addBuilderFactory(const FullType(Capabilities0), Capabilities0Builder.new)
       ..add(Capabilities0.serializer)
-      ..addBuilderFactory(const FullType(Capabilities0_FilesSharing), Capabilities0_FilesSharing.new)
+      ..addBuilderFactory(const FullType(Capabilities0_FilesSharing), Capabilities0_FilesSharingBuilder.new)
       ..add(Capabilities0_FilesSharing.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities0_FilesSharing_Sharebymail),
-        Capabilities0_FilesSharing_Sharebymail.new,
+        Capabilities0_FilesSharing_SharebymailBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
-        Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.new,
+        Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities0_FilesSharing_Sharebymail_Password),
-        Capabilities0_FilesSharing_Sharebymail_Password.new,
+        Capabilities0_FilesSharing_Sharebymail_PasswordBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
         const FullType(Capabilities0_FilesSharing_Sharebymail_ExpireDate),
-        Capabilities0_FilesSharing_Sharebymail_ExpireDate.new,
+        Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))

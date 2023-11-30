@@ -67,9 +67,9 @@ abstract class BaseInterface implements $BaseInterfaceInterface, Built<BaseInter
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Base), Base.new)
+      ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
       ..add(Base.serializer)
-      ..addBuilderFactory(const FullType(BaseInterface), BaseInterface.new)
+      ..addBuilderFactory(const FullType(BaseInterface), BaseInterfaceBuilder.new)
       ..add(BaseInterface.serializer))
     .build();
 

@@ -109,7 +109,7 @@ void main() {
       expect(
         type.serializers.toList(),
         const [
-          '..addBuilderFactory(FullType(CustomType, [FullType(String)]), CustomType<String>.new)',
+          '..addBuilderFactory(FullType(CustomType, [FullType(String)]), CustomTypeBuilder<String>.new)',
           '..add(CustomType.serializer)',
         ],
       );
@@ -120,6 +120,26 @@ void main() {
       expect(
         type.deserialize('value'),
         '(_jsonSerializers.deserialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))! as CustomType<String>)',
+      );
+    });
+
+    test('ContentString', () {
+      final subType = TypeResultBase('int');
+      final type = TypeResultObject('ContentString', generics: [subType]);
+
+      expect(type.name, 'ContentString<int>');
+      expect(type.fullType, 'FullType(ContentString, [FullType(int)])');
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)',
+        '..add(ContentString.serializer)',
+      ]);
+      expect(
+        type.serialize('value'),
+        '_jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))',
+      );
+      expect(
+        type.deserialize('value'),
+        '(_jsonSerializers.deserialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>)',
       );
     });
   });

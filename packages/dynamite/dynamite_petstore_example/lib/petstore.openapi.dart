@@ -396,12 +396,12 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(FullType(Pet), Pet.new)
+      ..addBuilderFactory(FullType(Pet), PetBuilder.new)
       ..add(Pet.serializer)
-      ..addBuilderFactory(FullType(NewPet), NewPet.new)
+      ..addBuilderFactory(FullType(NewPet), NewPetBuilder.new)
       ..add(NewPet.serializer)
       ..addBuilderFactory(FullType(BuiltList, [FullType(Pet)]), ListBuilder<Pet>.new)
-      ..addBuilderFactory(FullType(Error), Error.new)
+      ..addBuilderFactory(FullType(Error), ErrorBuilder.new)
       ..add(Error.serializer))
     .build();
 

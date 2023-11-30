@@ -2174,35 +2174,35 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ApiGenerateNotificationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ApiGenerateNotificationResponseApplicationJson),
-        ApiGenerateNotificationResponseApplicationJson.new,
+        ApiGenerateNotificationResponseApplicationJsonBuilder.new,
       )
       ..add(ApiGenerateNotificationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiGenerateNotificationResponseApplicationJson_Ocs),
-        ApiGenerateNotificationResponseApplicationJson_Ocs.new,
+        ApiGenerateNotificationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiGenerateNotificationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..add(EndpointListNotificationsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointEndpointListNotificationsHeaders),
-        EndpointEndpointListNotificationsHeaders.new,
+        EndpointEndpointListNotificationsHeadersBuilder.new,
       )
       ..add(EndpointEndpointListNotificationsHeaders.serializer)
       ..addBuilderFactory(
         const FullType(EndpointListNotificationsResponseApplicationJson),
-        EndpointListNotificationsResponseApplicationJson.new,
+        EndpointListNotificationsResponseApplicationJsonBuilder.new,
       )
       ..add(EndpointListNotificationsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(EndpointListNotificationsResponseApplicationJson_Ocs),
-        EndpointListNotificationsResponseApplicationJson_Ocs.new,
+        EndpointListNotificationsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointListNotificationsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Notification), Notification.new)
+      ..addBuilderFactory(const FullType(Notification), NotificationBuilder.new)
       ..add(Notification.serializer)
-      ..addBuilderFactory(const FullType(NotificationAction), NotificationAction.new)
+      ..addBuilderFactory(const FullType(NotificationAction), NotificationActionBuilder.new)
       ..add(NotificationAction.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(NotificationAction)]),
@@ -2216,97 +2216,97 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(EndpointDeleteAllNotificationsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
-        EndpointDeleteAllNotificationsResponseApplicationJson.new,
+        EndpointDeleteAllNotificationsResponseApplicationJsonBuilder.new,
       )
       ..add(EndpointDeleteAllNotificationsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(EndpointDeleteAllNotificationsResponseApplicationJson_Ocs),
-        EndpointDeleteAllNotificationsResponseApplicationJson_Ocs.new,
+        EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointDeleteAllNotificationsResponseApplicationJson_Ocs.serializer)
       ..add(EndpointGetNotificationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointGetNotificationResponseApplicationJson),
-        EndpointGetNotificationResponseApplicationJson.new,
+        EndpointGetNotificationResponseApplicationJsonBuilder.new,
       )
       ..add(EndpointGetNotificationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(EndpointGetNotificationResponseApplicationJson_Ocs),
-        EndpointGetNotificationResponseApplicationJson_Ocs.new,
+        EndpointGetNotificationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointGetNotificationResponseApplicationJson_Ocs.serializer)
       ..add(EndpointDeleteNotificationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointDeleteNotificationResponseApplicationJson),
-        EndpointDeleteNotificationResponseApplicationJson.new,
+        EndpointDeleteNotificationResponseApplicationJsonBuilder.new,
       )
       ..add(EndpointDeleteNotificationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(EndpointDeleteNotificationResponseApplicationJson_Ocs),
-        EndpointDeleteNotificationResponseApplicationJson_Ocs.new,
+        EndpointDeleteNotificationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointDeleteNotificationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add(EndpointConfirmIdsForUserApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
-        EndpointConfirmIdsForUserResponseApplicationJson.new,
+        EndpointConfirmIdsForUserResponseApplicationJsonBuilder.new,
       )
       ..add(EndpointConfirmIdsForUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(EndpointConfirmIdsForUserResponseApplicationJson_Ocs),
-        EndpointConfirmIdsForUserResponseApplicationJson_Ocs.new,
+        EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(EndpointConfirmIdsForUserResponseApplicationJson_Ocs.serializer)
       ..add(PushRegisterDeviceApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PushRegisterDeviceResponseApplicationJson),
-        PushRegisterDeviceResponseApplicationJson.new,
+        PushRegisterDeviceResponseApplicationJsonBuilder.new,
       )
       ..add(PushRegisterDeviceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PushRegisterDeviceResponseApplicationJson_Ocs),
-        PushRegisterDeviceResponseApplicationJson_Ocs.new,
+        PushRegisterDeviceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PushRegisterDeviceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(PushDevice), PushDevice.new)
+      ..addBuilderFactory(const FullType(PushDevice), PushDeviceBuilder.new)
       ..add(PushDevice.serializer)
       ..add(PushRemoveDeviceApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PushRemoveDeviceResponseApplicationJson),
-        PushRemoveDeviceResponseApplicationJson.new,
+        PushRemoveDeviceResponseApplicationJsonBuilder.new,
       )
       ..add(PushRemoveDeviceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PushRemoveDeviceResponseApplicationJson_Ocs),
-        PushRemoveDeviceResponseApplicationJson_Ocs.new,
+        PushRemoveDeviceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PushRemoveDeviceResponseApplicationJson_Ocs.serializer)
       ..add(SettingsPersonalApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsPersonalResponseApplicationJson),
-        SettingsPersonalResponseApplicationJson.new,
+        SettingsPersonalResponseApplicationJsonBuilder.new,
       )
       ..add(SettingsPersonalResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SettingsPersonalResponseApplicationJson_Ocs),
-        SettingsPersonalResponseApplicationJson_Ocs.new,
+        SettingsPersonalResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsPersonalResponseApplicationJson_Ocs.serializer)
       ..add(SettingsAdminApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsAdminResponseApplicationJson),
-        SettingsAdminResponseApplicationJson.new,
+        SettingsAdminResponseApplicationJsonBuilder.new,
       )
       ..add(SettingsAdminResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SettingsAdminResponseApplicationJson_Ocs),
-        SettingsAdminResponseApplicationJson_Ocs.new,
+        SettingsAdminResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsAdminResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Notifications), Capabilities_Notifications.new)
+      ..addBuilderFactory(const FullType(Capabilities_Notifications), Capabilities_NotificationsBuilder.new)
       ..add(Capabilities_Notifications.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();

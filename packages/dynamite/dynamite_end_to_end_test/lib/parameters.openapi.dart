@@ -184,7 +184,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
-        ContentString<BuiltMap<String, JsonObject>>.new,
+        ContentStringBuilder<BuiltMap<String, JsonObject>>.new,
       )
       ..add(ContentString.serializer))
     .build();

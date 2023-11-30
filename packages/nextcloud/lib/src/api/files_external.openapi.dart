@@ -338,21 +338,21 @@ abstract class ApiGetUserMountsResponseApplicationJson
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(ApiGetUserMountsResponseApplicationJson),
-        ApiGetUserMountsResponseApplicationJson.new,
+        ApiGetUserMountsResponseApplicationJsonBuilder.new,
       )
       ..add(ApiGetUserMountsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetUserMountsResponseApplicationJson_Ocs),
-        ApiGetUserMountsResponseApplicationJson_Ocs.new,
+        ApiGetUserMountsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiGetUserMountsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Mount), Mount.new)
+      ..addBuilderFactory(const FullType(Mount), MountBuilder.new)
       ..add(Mount.serializer)
       ..add(Mount_Type.serializer)
       ..add(Mount_Scope.serializer)
-      ..addBuilderFactory(const FullType(StorageConfig), StorageConfig.new)
+      ..addBuilderFactory(const FullType(StorageConfig), StorageConfigBuilder.new)
       ..add(StorageConfig.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(

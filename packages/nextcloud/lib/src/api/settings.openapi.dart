@@ -197,7 +197,7 @@ class _$LogSettingsLogSettingsDownloadHeadersSerializer
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(LogSettingsLogSettingsDownloadHeaders),
-        LogSettingsLogSettingsDownloadHeaders.new,
+        LogSettingsLogSettingsDownloadHeadersBuilder.new,
       )
       ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
     .build();

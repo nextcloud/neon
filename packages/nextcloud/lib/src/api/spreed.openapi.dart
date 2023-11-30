@@ -24139,21 +24139,21 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(AvatarUploadAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarUploadAvatarResponseApplicationJson),
-        AvatarUploadAvatarResponseApplicationJson.new,
+        AvatarUploadAvatarResponseApplicationJsonBuilder.new,
       )
       ..add(AvatarUploadAvatarResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AvatarUploadAvatarResponseApplicationJson_Ocs),
-        AvatarUploadAvatarResponseApplicationJson_Ocs.new,
+        AvatarUploadAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AvatarUploadAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Room), Room.new)
+      ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
       ..add(Room.serializer)
-      ..addBuilderFactory(const FullType(Room_LastMessage), Room_LastMessage.new)
+      ..addBuilderFactory(const FullType(Room_LastMessage), Room_LastMessageBuilder.new)
       ..add(Room_LastMessage.serializer)
-      ..addBuilderFactory(const FullType(ChatMessage), ChatMessage.new)
+      ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
       ..add(ChatMessage.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -24171,425 +24171,440 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(AvatarDeleteAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarDeleteAvatarResponseApplicationJson),
-        AvatarDeleteAvatarResponseApplicationJson.new,
+        AvatarDeleteAvatarResponseApplicationJsonBuilder.new,
       )
       ..add(AvatarDeleteAvatarResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AvatarDeleteAvatarResponseApplicationJson_Ocs),
-        AvatarDeleteAvatarResponseApplicationJson_Ocs.new,
+        AvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
       ..add(AvatarEmojiAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarEmojiAvatarResponseApplicationJson),
-        AvatarEmojiAvatarResponseApplicationJson.new,
+        AvatarEmojiAvatarResponseApplicationJsonBuilder.new,
       )
       ..add(AvatarEmojiAvatarResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AvatarEmojiAvatarResponseApplicationJson_Ocs),
-        AvatarEmojiAvatarResponseApplicationJson_Ocs.new,
+        AvatarEmojiAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AvatarEmojiAvatarResponseApplicationJson_Ocs.serializer)
       ..add(AvatarGetAvatarDarkApiVersion.serializer)
       ..add(BotSendMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotSendMessageResponseApplicationJson),
-        BotSendMessageResponseApplicationJson.new,
+        BotSendMessageResponseApplicationJsonBuilder.new,
       )
       ..add(BotSendMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotSendMessageResponseApplicationJson_Ocs),
-        BotSendMessageResponseApplicationJson_Ocs.new,
+        BotSendMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotSendMessageResponseApplicationJson_Ocs.serializer)
       ..add(BotReactApiVersion.serializer)
-      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson), BotReactResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson), BotReactResponseApplicationJsonBuilder.new)
       ..add(BotReactResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BotReactResponseApplicationJson_Ocs), BotReactResponseApplicationJson_Ocs.new)
+      ..addBuilderFactory(
+        const FullType(BotReactResponseApplicationJson_Ocs),
+        BotReactResponseApplicationJson_OcsBuilder.new,
+      )
       ..add(BotReactResponseApplicationJson_Ocs.serializer)
       ..add(BotDeleteReactionApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotDeleteReactionResponseApplicationJson),
-        BotDeleteReactionResponseApplicationJson.new,
+        BotDeleteReactionResponseApplicationJsonBuilder.new,
       )
       ..add(BotDeleteReactionResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
-        BotDeleteReactionResponseApplicationJson_Ocs.new,
+        BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
       ..add(BotAdminListBotsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotAdminListBotsResponseApplicationJson),
-        BotAdminListBotsResponseApplicationJson.new,
+        BotAdminListBotsResponseApplicationJsonBuilder.new,
       )
       ..add(BotAdminListBotsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
-        BotAdminListBotsResponseApplicationJson_Ocs.new,
+        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetails.new)
+      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
       ..add(BotWithDetails.serializer)
-      ..addBuilderFactory(const FullType(Bot), Bot.new)
+      ..addBuilderFactory(const FullType(Bot), BotBuilder.new)
       ..add(Bot.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
       ..add(BotListBotsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(BotListBotsResponseApplicationJson), BotListBotsResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(BotListBotsResponseApplicationJson),
+        BotListBotsResponseApplicationJsonBuilder.new,
+      )
       ..add(BotListBotsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotListBotsResponseApplicationJson_Ocs),
-        BotListBotsResponseApplicationJson_Ocs.new,
+        BotListBotsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotListBotsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Bot)]), ListBuilder<Bot>.new)
       ..add(BotEnableBotApiVersion.serializer)
-      ..addBuilderFactory(const FullType(BotEnableBotResponseApplicationJson), BotEnableBotResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(BotEnableBotResponseApplicationJson),
+        BotEnableBotResponseApplicationJsonBuilder.new,
+      )
       ..add(BotEnableBotResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotEnableBotResponseApplicationJson_Ocs),
-        BotEnableBotResponseApplicationJson_Ocs.new,
+        BotEnableBotResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotEnableBotResponseApplicationJson_Ocs.serializer)
       ..add(BotDisableBotApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BotDisableBotResponseApplicationJson),
-        BotDisableBotResponseApplicationJson.new,
+        BotDisableBotResponseApplicationJsonBuilder.new,
       )
       ..add(BotDisableBotResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BotDisableBotResponseApplicationJson_Ocs),
-        BotDisableBotResponseApplicationJson_Ocs.new,
+        BotDisableBotResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.new,
+        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.new,
+        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Room)]), ListBuilder<Room>.new)
       ..add(BreakoutRoomRemoveBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.new,
+        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.new,
+        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomBroadcastChatMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
-        BreakoutRoomBroadcastChatMessageResponseApplicationJson.new,
+        BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs),
-        BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.new,
+        BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomApplyAttendeeMapApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
-        BreakoutRoomApplyAttendeeMapResponseApplicationJson.new,
+        BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs),
-        BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.new,
+        BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomRequestAssistanceApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
-        BreakoutRoomRequestAssistanceResponseApplicationJson.new,
+        BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomRequestAssistanceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs),
-        BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.new,
+        BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomResetRequestForAssistanceApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJson.new,
+        BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs),
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.new,
+        BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomStartBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJson.new,
+        BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.new,
+        BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomStopBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJson.new,
+        BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.new,
+        BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..add(BreakoutRoomSwitchBreakoutRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.new,
+        BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder.new,
       )
       ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs),
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.new,
+        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.serializer)
       ..add(CallGetPeersForCallApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallGetPeersForCallResponseApplicationJson),
-        CallGetPeersForCallResponseApplicationJson.new,
+        CallGetPeersForCallResponseApplicationJsonBuilder.new,
       )
       ..add(CallGetPeersForCallResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallGetPeersForCallResponseApplicationJson_Ocs),
-        CallGetPeersForCallResponseApplicationJson_Ocs.new,
+        CallGetPeersForCallResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallGetPeersForCallResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CallPeer), CallPeer.new)
+      ..addBuilderFactory(const FullType(CallPeer), CallPeerBuilder.new)
       ..add(CallPeer.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(CallPeer)]), ListBuilder<CallPeer>.new)
       ..add(CallUpdateCallFlagsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallUpdateCallFlagsResponseApplicationJson),
-        CallUpdateCallFlagsResponseApplicationJson.new,
+        CallUpdateCallFlagsResponseApplicationJsonBuilder.new,
       )
       ..add(CallUpdateCallFlagsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallUpdateCallFlagsResponseApplicationJson_Ocs),
-        CallUpdateCallFlagsResponseApplicationJson_Ocs.new,
+        CallUpdateCallFlagsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
       ..add(CallJoinCallApiVersion.serializer)
-      ..addBuilderFactory(const FullType(CallJoinCallResponseApplicationJson), CallJoinCallResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(CallJoinCallResponseApplicationJson),
+        CallJoinCallResponseApplicationJsonBuilder.new,
+      )
       ..add(CallJoinCallResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallJoinCallResponseApplicationJson_Ocs),
-        CallJoinCallResponseApplicationJson_Ocs.new,
+        CallJoinCallResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallJoinCallResponseApplicationJson_Ocs.serializer)
       ..add(CallLeaveCallApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallLeaveCallResponseApplicationJson),
-        CallLeaveCallResponseApplicationJson.new,
+        CallLeaveCallResponseApplicationJsonBuilder.new,
       )
       ..add(CallLeaveCallResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallLeaveCallResponseApplicationJson_Ocs),
-        CallLeaveCallResponseApplicationJson_Ocs.new,
+        CallLeaveCallResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallLeaveCallResponseApplicationJson_Ocs.serializer)
       ..add(CallRingAttendeeApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallRingAttendeeResponseApplicationJson),
-        CallRingAttendeeResponseApplicationJson.new,
+        CallRingAttendeeResponseApplicationJsonBuilder.new,
       )
       ..add(CallRingAttendeeResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallRingAttendeeResponseApplicationJson_Ocs),
-        CallRingAttendeeResponseApplicationJson_Ocs.new,
+        CallRingAttendeeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallRingAttendeeResponseApplicationJson_Ocs.serializer)
       ..add(CallSipDialOutApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallSipDialOutResponseApplicationJson),
-        CallSipDialOutResponseApplicationJson.new,
+        CallSipDialOutResponseApplicationJsonBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CallSipDialOutResponseApplicationJson_Ocs),
-        CallSipDialOutResponseApplicationJson_Ocs.new,
+        CallSipDialOutResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CallSipDialOutResponseApplicationJson_Ocs_Data),
-        CallSipDialOutResponseApplicationJson_Ocs_Data.new,
+        CallSipDialOutResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(CallSipDialOutResponseApplicationJson_Ocs_Data.serializer)
       ..add(CertificateGetCertificateExpirationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-        CertificateGetCertificateExpirationResponseApplicationJson.new,
+        CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,
       )
       ..add(CertificateGetCertificateExpirationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
-        CertificateGetCertificateExpirationResponseApplicationJson_Ocs.new,
+        CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
-        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.new,
+        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
       ..add(ChatReceiveMessagesApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
       ..add(ChatChatReceiveMessagesHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatReceiveMessagesResponseApplicationJson),
-        ChatReceiveMessagesResponseApplicationJson.new,
+        ChatReceiveMessagesResponseApplicationJsonBuilder.new,
       )
       ..add(ChatReceiveMessagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatReceiveMessagesResponseApplicationJson_Ocs),
-        ChatReceiveMessagesResponseApplicationJson_Ocs.new,
+        ChatReceiveMessagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatReceiveMessagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatMessageWithParent), ChatMessageWithParent.new)
+      ..addBuilderFactory(const FullType(ChatMessageWithParent), ChatMessageWithParentBuilder.new)
       ..add(ChatMessageWithParent.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
         ListBuilder<ChatMessageWithParent>.new,
       )
       ..add(ChatSendMessageApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
       ..add(ChatChatSendMessageHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatSendMessageResponseApplicationJson),
-        ChatSendMessageResponseApplicationJson.new,
+        ChatSendMessageResponseApplicationJsonBuilder.new,
       )
       ..add(ChatSendMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatSendMessageResponseApplicationJson_Ocs),
-        ChatSendMessageResponseApplicationJson_Ocs.new,
+        ChatSendMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatSendMessageResponseApplicationJson_Ocs.serializer)
       ..add(ChatClearHistoryApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
       ..add(ChatChatClearHistoryHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatClearHistoryResponseApplicationJson),
-        ChatClearHistoryResponseApplicationJson.new,
+        ChatClearHistoryResponseApplicationJsonBuilder.new,
       )
       ..add(ChatClearHistoryResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatClearHistoryResponseApplicationJson_Ocs),
-        ChatClearHistoryResponseApplicationJson_Ocs.new,
+        ChatClearHistoryResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
       ..add(ChatDeleteMessageApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
       ..add(ChatChatDeleteMessageHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteMessageResponseApplicationJson),
-        ChatDeleteMessageResponseApplicationJson.new,
+        ChatDeleteMessageResponseApplicationJsonBuilder.new,
       )
       ..add(ChatDeleteMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteMessageResponseApplicationJson_Ocs),
-        ChatDeleteMessageResponseApplicationJson_Ocs.new,
+        ChatDeleteMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatDeleteMessageResponseApplicationJson_Ocs.serializer)
       ..add(ChatGetMessageContextApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatGetMessageContextHeaders), ChatChatGetMessageContextHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatGetMessageContextHeaders), ChatChatGetMessageContextHeadersBuilder.new)
       ..add(ChatChatGetMessageContextHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetMessageContextResponseApplicationJson),
-        ChatGetMessageContextResponseApplicationJson.new,
+        ChatGetMessageContextResponseApplicationJsonBuilder.new,
       )
       ..add(ChatGetMessageContextResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetMessageContextResponseApplicationJson_Ocs),
-        ChatGetMessageContextResponseApplicationJson_Ocs.new,
+        ChatGetMessageContextResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetMessageContextResponseApplicationJson_Ocs.serializer)
       ..add(ChatGetReminderApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetReminderResponseApplicationJson),
-        ChatGetReminderResponseApplicationJson.new,
+        ChatGetReminderResponseApplicationJsonBuilder.new,
       )
       ..add(ChatGetReminderResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetReminderResponseApplicationJson_Ocs),
-        ChatGetReminderResponseApplicationJson_Ocs.new,
+        ChatGetReminderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetReminderResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatReminder), ChatReminder.new)
+      ..addBuilderFactory(const FullType(ChatReminder), ChatReminderBuilder.new)
       ..add(ChatReminder.serializer)
       ..add(ChatSetReminderApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReminderResponseApplicationJson),
-        ChatSetReminderResponseApplicationJson.new,
+        ChatSetReminderResponseApplicationJsonBuilder.new,
       )
       ..add(ChatSetReminderResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReminderResponseApplicationJson_Ocs),
-        ChatSetReminderResponseApplicationJson_Ocs.new,
+        ChatSetReminderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatSetReminderResponseApplicationJson_Ocs.serializer)
       ..add(ChatDeleteReminderApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteReminderResponseApplicationJson),
-        ChatDeleteReminderResponseApplicationJson.new,
+        ChatDeleteReminderResponseApplicationJsonBuilder.new,
       )
       ..add(ChatDeleteReminderResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatDeleteReminderResponseApplicationJson_Ocs),
-        ChatDeleteReminderResponseApplicationJson_Ocs.new,
+        ChatDeleteReminderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatDeleteReminderResponseApplicationJson_Ocs.serializer)
       ..add(ChatSetReadMarkerApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeadersBuilder.new)
       ..add(ChatChatSetReadMarkerHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReadMarkerResponseApplicationJson),
-        ChatSetReadMarkerResponseApplicationJson.new,
+        ChatSetReadMarkerResponseApplicationJsonBuilder.new,
       )
       ..add(ChatSetReadMarkerResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatSetReadMarkerResponseApplicationJson_Ocs),
-        ChatSetReadMarkerResponseApplicationJson_Ocs.new,
+        ChatSetReadMarkerResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatSetReadMarkerResponseApplicationJson_Ocs.serializer)
       ..add(ChatMarkUnreadApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
       ..add(ChatChatMarkUnreadHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatMarkUnreadResponseApplicationJson),
-        ChatMarkUnreadResponseApplicationJson.new,
+        ChatMarkUnreadResponseApplicationJsonBuilder.new,
       )
       ..add(ChatMarkUnreadResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatMarkUnreadResponseApplicationJson_Ocs),
-        ChatMarkUnreadResponseApplicationJson_Ocs.new,
+        ChatMarkUnreadResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatMarkUnreadResponseApplicationJson_Ocs.serializer)
       ..add(ChatMentionsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatMentionsResponseApplicationJson), ChatMentionsResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(ChatMentionsResponseApplicationJson),
+        ChatMentionsResponseApplicationJsonBuilder.new,
+      )
       ..add(ChatMentionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatMentionsResponseApplicationJson_Ocs),
-        ChatMentionsResponseApplicationJson_Ocs.new,
+        ChatMentionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatMentionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatMentionSuggestion), ChatMentionSuggestion.new)
+      ..addBuilderFactory(const FullType(ChatMentionSuggestion), ChatMentionSuggestionBuilder.new)
       ..add(ChatMentionSuggestion.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ChatMentionSuggestion)]),
@@ -24598,42 +24613,42 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ChatGetObjectsSharedInRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-        ChatChatGetObjectsSharedInRoomHeaders.new,
+        ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
       )
       ..add(ChatChatGetObjectsSharedInRoomHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
-        ChatGetObjectsSharedInRoomResponseApplicationJson.new,
+        ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs),
-        ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.new,
+        ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
       ..add(ChatShareObjectToChatApiVersion.serializer)
-      ..addBuilderFactory(const FullType(ChatChatShareObjectToChatHeaders), ChatChatShareObjectToChatHeaders.new)
+      ..addBuilderFactory(const FullType(ChatChatShareObjectToChatHeaders), ChatChatShareObjectToChatHeadersBuilder.new)
       ..add(ChatChatShareObjectToChatHeaders.serializer)
       ..addBuilderFactory(
         const FullType(ChatShareObjectToChatResponseApplicationJson),
-        ChatShareObjectToChatResponseApplicationJson.new,
+        ChatShareObjectToChatResponseApplicationJsonBuilder.new,
       )
       ..add(ChatShareObjectToChatResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs),
-        ChatShareObjectToChatResponseApplicationJson_Ocs.new,
+        ChatShareObjectToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatShareObjectToChatResponseApplicationJson_Ocs.serializer)
       ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.new,
+        ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs),
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.new,
+        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
@@ -24646,118 +24661,118 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(FederationAcceptShareApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FederationAcceptShareResponseApplicationJson),
-        FederationAcceptShareResponseApplicationJson.new,
+        FederationAcceptShareResponseApplicationJsonBuilder.new,
       )
       ..add(FederationAcceptShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
-        FederationAcceptShareResponseApplicationJson_Ocs.new,
+        FederationAcceptShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(FederationAcceptShareResponseApplicationJson_Ocs.serializer)
       ..add(FederationRejectShareApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FederationRejectShareResponseApplicationJson),
-        FederationRejectShareResponseApplicationJson.new,
+        FederationRejectShareResponseApplicationJsonBuilder.new,
       )
       ..add(FederationRejectShareResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(FederationRejectShareResponseApplicationJson_Ocs),
-        FederationRejectShareResponseApplicationJson_Ocs.new,
+        FederationRejectShareResponseApplicationJson_OcsBuilder.new,
       )
       ..add(FederationRejectShareResponseApplicationJson_Ocs.serializer)
       ..add(FederationGetSharesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FederationGetSharesResponseApplicationJson),
-        FederationGetSharesResponseApplicationJson.new,
+        FederationGetSharesResponseApplicationJsonBuilder.new,
       )
       ..add(FederationGetSharesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(FederationGetSharesResponseApplicationJson_Ocs),
-        FederationGetSharesResponseApplicationJson_Ocs.new,
+        FederationGetSharesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(FederationInvite), FederationInvite.new)
+      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
       ..add(FederationInvite.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(FederationInvite)]), ListBuilder<FederationInvite>.new)
       ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson.new,
+        FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.new,
+        FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.new,
+        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.serializer)
       ..add(FilesIntegrationGetRoomByShareTokenApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson.new,
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.new,
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.new,
+        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.serializer)
       ..add(GuestSetDisplayNameApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(GuestSetDisplayNameResponseApplicationJson),
-        GuestSetDisplayNameResponseApplicationJson.new,
+        GuestSetDisplayNameResponseApplicationJsonBuilder.new,
       )
       ..add(GuestSetDisplayNameResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GuestSetDisplayNameResponseApplicationJson_Ocs),
-        GuestSetDisplayNameResponseApplicationJson_Ocs.new,
+        GuestSetDisplayNameResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GuestSetDisplayNameResponseApplicationJson_Ocs.serializer)
       ..add(HostedSignalingServerRequestTrialApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
-        HostedSignalingServerRequestTrialResponseApplicationJson.new,
+        HostedSignalingServerRequestTrialResponseApplicationJsonBuilder.new,
       )
       ..add(HostedSignalingServerRequestTrialResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs),
-        HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.new,
+        HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder.new,
       )
       ..add(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.serializer)
       ..add(HostedSignalingServerDeleteAccountApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
-        HostedSignalingServerDeleteAccountResponseApplicationJson.new,
+        HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder.new,
       )
       ..add(HostedSignalingServerDeleteAccountResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs),
-        HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.new,
+        HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder.new,
       )
       ..add(HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeGetBridgeOfRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
-        MatterbridgeGetBridgeOfRoomResponseApplicationJson.new,
+        MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.new,
+        MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(MatterbridgeWithProcessState), MatterbridgeWithProcessState.new)
+      ..addBuilderFactory(const FullType(MatterbridgeWithProcessState), MatterbridgeWithProcessStateBuilder.new)
       ..add(MatterbridgeWithProcessState.serializer)
-      ..addBuilderFactory(const FullType(Matterbridge), Matterbridge.new)
+      ..addBuilderFactory(const FullType(Matterbridge), MatterbridgeBuilder.new)
       ..add(Matterbridge.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [
@@ -24765,7 +24780,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         ]),
         ListBuilder<BuiltMap<String, JsonObject>>.new,
       )
-      ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessState.new)
+      ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessStateBuilder.new)
       ..add(MatterbridgeProcessState.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [
@@ -24773,142 +24788,148 @@ final Serializers _serializers = (Serializers().toBuilder()
             FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
           ]),
         ]),
-        ContentString<BuiltList<BuiltMap<String, JsonObject>>>.new,
+        ContentStringBuilder<BuiltList<BuiltMap<String, JsonObject>>>.new,
       )
       ..add(ContentString.serializer)
       ..add(MatterbridgeEditBridgeOfRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
-        MatterbridgeEditBridgeOfRoomResponseApplicationJson.new,
+        MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.new,
+        MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeDeleteBridgeOfRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.new,
+        MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.new,
+        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeGetBridgeProcessStateApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
-        MatterbridgeGetBridgeProcessStateResponseApplicationJson.new,
+        MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs),
-        MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.new,
+        MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeSettingsStopAllBridgesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJson.new,
+        MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs),
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.new,
+        MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.serializer)
       ..add(MatterbridgeSettingsGetMatterbridgeVersionApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.new,
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder.new,
       )
       ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.new,
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.new,
+        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..add(PollCreatePollApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PollCreatePollResponseApplicationJson),
-        PollCreatePollResponseApplicationJson.new,
+        PollCreatePollResponseApplicationJsonBuilder.new,
       )
       ..add(PollCreatePollResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PollCreatePollResponseApplicationJson_Ocs),
-        PollCreatePollResponseApplicationJson_Ocs.new,
+        PollCreatePollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollCreatePollResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Poll), Poll.new)
+      ..addBuilderFactory(const FullType(Poll), PollBuilder.new)
       ..add(Poll.serializer)
-      ..addBuilderFactory(const FullType(PollVote), PollVote.new)
+      ..addBuilderFactory(const FullType(PollVote), PollVoteBuilder.new)
       ..add(PollVote.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(PollVote)]), ListBuilder<PollVote>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add(PollShowPollApiVersion.serializer)
-      ..addBuilderFactory(const FullType(PollShowPollResponseApplicationJson), PollShowPollResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(PollShowPollResponseApplicationJson),
+        PollShowPollResponseApplicationJsonBuilder.new,
+      )
       ..add(PollShowPollResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PollShowPollResponseApplicationJson_Ocs),
-        PollShowPollResponseApplicationJson_Ocs.new,
+        PollShowPollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollShowPollResponseApplicationJson_Ocs.serializer)
       ..add(PollVotePollApiVersion.serializer)
-      ..addBuilderFactory(const FullType(PollVotePollResponseApplicationJson), PollVotePollResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(PollVotePollResponseApplicationJson),
+        PollVotePollResponseApplicationJsonBuilder.new,
+      )
       ..add(PollVotePollResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PollVotePollResponseApplicationJson_Ocs),
-        PollVotePollResponseApplicationJson_Ocs.new,
+        PollVotePollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollVotePollResponseApplicationJson_Ocs.serializer)
       ..add(PollClosePollApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PollClosePollResponseApplicationJson),
-        PollClosePollResponseApplicationJson.new,
+        PollClosePollResponseApplicationJsonBuilder.new,
       )
       ..add(PollClosePollResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PollClosePollResponseApplicationJson_Ocs),
-        PollClosePollResponseApplicationJson_Ocs.new,
+        PollClosePollResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PollClosePollResponseApplicationJson_Ocs.serializer)
       ..add(PublicShareAuthCreateRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-        PublicShareAuthCreateRoomResponseApplicationJson.new,
+        PublicShareAuthCreateRoomResponseApplicationJsonBuilder.new,
       )
       ..add(PublicShareAuthCreateRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
-        PublicShareAuthCreateRoomResponseApplicationJson_Ocs.new,
+        PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
-        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.new,
+        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.serializer)
       ..add(ReactionGetReactionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ReactionGetReactionsResponseApplicationJson),
-        ReactionGetReactionsResponseApplicationJson.new,
+        ReactionGetReactionsResponseApplicationJsonBuilder.new,
       )
       ..add(ReactionGetReactionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReactionGetReactionsResponseApplicationJson_Ocs),
-        ReactionGetReactionsResponseApplicationJson_Ocs.new,
+        ReactionGetReactionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReactionGetReactionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Reaction), Reaction.new)
+      ..addBuilderFactory(const FullType(Reaction), ReactionBuilder.new)
       ..add(Reaction.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Reaction)]), ListBuilder<Reaction>.new)
       ..addBuilderFactory(
@@ -24921,572 +24942,584 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ReactionReactApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ReactionReactResponseApplicationJson),
-        ReactionReactResponseApplicationJson.new,
+        ReactionReactResponseApplicationJsonBuilder.new,
       )
       ..add(ReactionReactResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReactionReactResponseApplicationJson_Ocs),
-        ReactionReactResponseApplicationJson_Ocs.new,
+        ReactionReactResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReactionReactResponseApplicationJson_Ocs.serializer)
       ..add(ReactionDeleteApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ReactionDeleteResponseApplicationJson),
-        ReactionDeleteResponseApplicationJson.new,
+        ReactionDeleteResponseApplicationJsonBuilder.new,
       )
       ..add(ReactionDeleteResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReactionDeleteResponseApplicationJson_Ocs),
-        ReactionDeleteResponseApplicationJson_Ocs.new,
+        ReactionDeleteResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReactionDeleteResponseApplicationJson_Ocs.serializer)
       ..add(RecordingGetWelcomeMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-        RecordingGetWelcomeMessageResponseApplicationJson.new,
+        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs.new,
+        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.new,
+        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
       ..add(RecordingStartApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStartResponseApplicationJson),
-        RecordingStartResponseApplicationJson.new,
+        RecordingStartResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingStartResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStartResponseApplicationJson_Ocs),
-        RecordingStartResponseApplicationJson_Ocs.new,
+        RecordingStartResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingStartResponseApplicationJson_Ocs.serializer)
       ..add(RecordingStopApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStopResponseApplicationJson),
-        RecordingStopResponseApplicationJson.new,
+        RecordingStopResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingStopResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStopResponseApplicationJson_Ocs),
-        RecordingStopResponseApplicationJson_Ocs.new,
+        RecordingStopResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingStopResponseApplicationJson_Ocs.serializer)
       ..add(RecordingStoreApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStoreResponseApplicationJson),
-        RecordingStoreResponseApplicationJson.new,
+        RecordingStoreResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingStoreResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingStoreResponseApplicationJson_Ocs),
-        RecordingStoreResponseApplicationJson_Ocs.new,
+        RecordingStoreResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
       ..add(RecordingNotificationDismissApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingNotificationDismissResponseApplicationJson),
-        RecordingNotificationDismissResponseApplicationJson.new,
+        RecordingNotificationDismissResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingNotificationDismissResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingNotificationDismissResponseApplicationJson_Ocs),
-        RecordingNotificationDismissResponseApplicationJson_Ocs.new,
+        RecordingNotificationDismissResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingNotificationDismissResponseApplicationJson_Ocs.serializer)
       ..add(RecordingShareToChatApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RecordingShareToChatResponseApplicationJson),
-        RecordingShareToChatResponseApplicationJson.new,
+        RecordingShareToChatResponseApplicationJsonBuilder.new,
       )
       ..add(RecordingShareToChatResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RecordingShareToChatResponseApplicationJson_Ocs),
-        RecordingShareToChatResponseApplicationJson_Ocs.new,
+        RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeaders.new)
+      ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
       ..add(RoomRoomGetRoomsHeaders.serializer)
-      ..addBuilderFactory(const FullType(RoomGetRoomsResponseApplicationJson), RoomGetRoomsResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(RoomGetRoomsResponseApplicationJson),
+        RoomGetRoomsResponseApplicationJsonBuilder.new,
+      )
       ..add(RoomGetRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetRoomsResponseApplicationJson_Ocs),
-        RoomGetRoomsResponseApplicationJson_Ocs.new,
+        RoomGetRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetRoomsResponseApplicationJson_Ocs.serializer)
       ..add(RoomCreateRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomCreateRoomResponseApplicationJson),
-        RoomCreateRoomResponseApplicationJson.new,
+        RoomCreateRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomCreateRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomCreateRoomResponseApplicationJson_Ocs),
-        RoomCreateRoomResponseApplicationJson_Ocs.new,
+        RoomCreateRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomCreateRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetListedRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetListedRoomsResponseApplicationJson),
-        RoomGetListedRoomsResponseApplicationJson.new,
+        RoomGetListedRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetListedRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetListedRoomsResponseApplicationJson_Ocs),
-        RoomGetListedRoomsResponseApplicationJson_Ocs.new,
+        RoomGetListedRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetListedRoomsResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetNoteToSelfConversationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-        RoomRoomGetNoteToSelfConversationHeaders.new,
+        RoomRoomGetNoteToSelfConversationHeadersBuilder.new,
       )
       ..add(RoomRoomGetNoteToSelfConversationHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
-        RoomGetNoteToSelfConversationResponseApplicationJson.new,
+        RoomGetNoteToSelfConversationResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetNoteToSelfConversationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs),
-        RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.new,
+        RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetSingleRoomApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeaders.new)
+      ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
       ..add(RoomRoomGetSingleRoomHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetSingleRoomResponseApplicationJson),
-        RoomGetSingleRoomResponseApplicationJson.new,
+        RoomGetSingleRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetSingleRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs),
-        RoomGetSingleRoomResponseApplicationJson_Ocs.new,
+        RoomGetSingleRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomRenameRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRenameRoomResponseApplicationJson),
-        RoomRenameRoomResponseApplicationJson.new,
+        RoomRenameRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomRenameRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
-        RoomRenameRoomResponseApplicationJson_Ocs.new,
+        RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomDeleteRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomDeleteRoomResponseApplicationJson),
-        RoomDeleteRoomResponseApplicationJson.new,
+        RoomDeleteRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomDeleteRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
-        RoomDeleteRoomResponseApplicationJson_Ocs.new,
+        RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
-        RoomGetBreakoutRoomsResponseApplicationJson.new,
+        RoomGetBreakoutRoomsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetBreakoutRoomsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs),
-        RoomGetBreakoutRoomsResponseApplicationJson_Ocs.new,
+        RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetBreakoutRoomsResponseApplicationJson_Ocs.serializer)
       ..add(RoomMakePublicApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomMakePublicResponseApplicationJson),
-        RoomMakePublicResponseApplicationJson.new,
+        RoomMakePublicResponseApplicationJsonBuilder.new,
       )
       ..add(RoomMakePublicResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomMakePublicResponseApplicationJson_Ocs),
-        RoomMakePublicResponseApplicationJson_Ocs.new,
+        RoomMakePublicResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomMakePublicResponseApplicationJson_Ocs.serializer)
       ..add(RoomMakePrivateApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomMakePrivateResponseApplicationJson),
-        RoomMakePrivateResponseApplicationJson.new,
+        RoomMakePrivateResponseApplicationJsonBuilder.new,
       )
       ..add(RoomMakePrivateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomMakePrivateResponseApplicationJson_Ocs),
-        RoomMakePrivateResponseApplicationJson_Ocs.new,
+        RoomMakePrivateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomMakePrivateResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetDescriptionApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetDescriptionResponseApplicationJson),
-        RoomSetDescriptionResponseApplicationJson.new,
+        RoomSetDescriptionResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetDescriptionResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetDescriptionResponseApplicationJson_Ocs),
-        RoomSetDescriptionResponseApplicationJson_Ocs.new,
+        RoomSetDescriptionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetDescriptionResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetReadOnlyApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetReadOnlyResponseApplicationJson),
-        RoomSetReadOnlyResponseApplicationJson.new,
+        RoomSetReadOnlyResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetReadOnlyResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetReadOnlyResponseApplicationJson_Ocs),
-        RoomSetReadOnlyResponseApplicationJson_Ocs.new,
+        RoomSetReadOnlyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetReadOnlyResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetListableApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetListableResponseApplicationJson),
-        RoomSetListableResponseApplicationJson.new,
+        RoomSetListableResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetListableResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetListableResponseApplicationJson_Ocs),
-        RoomSetListableResponseApplicationJson_Ocs.new,
+        RoomSetListableResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetListableResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetPasswordApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetPasswordResponseApplicationJson),
-        RoomSetPasswordResponseApplicationJson.new,
+        RoomSetPasswordResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetPasswordResponseApplicationJson_Ocs),
-        RoomSetPasswordResponseApplicationJson_Ocs.new,
+        RoomSetPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetPasswordResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetPermissionsResponseApplicationJson),
-        RoomSetPermissionsResponseApplicationJson.new,
+        RoomSetPermissionsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetPermissionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetPermissionsResponseApplicationJson_Ocs),
-        RoomSetPermissionsResponseApplicationJson_Ocs.new,
+        RoomSetPermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomGetParticipantsApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeaders.new)
+      ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
       ..add(RoomRoomGetParticipantsHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson),
-        RoomGetParticipantsResponseApplicationJson.new,
+        RoomGetParticipantsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetParticipantsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson_Ocs),
-        RoomGetParticipantsResponseApplicationJson_Ocs.new,
+        RoomGetParticipantsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetParticipantsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Participant), Participant.new)
+      ..addBuilderFactory(const FullType(Participant), ParticipantBuilder.new)
       ..add(Participant.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
       ..add(RoomAddParticipantToRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson),
-        RoomAddParticipantToRoomResponseApplicationJson.new,
+        RoomAddParticipantToRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs.new,
+        RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.new,
+        RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.new,
+        RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-        RoomRoomGetBreakoutRoomParticipantsHeaders.new,
+        RoomRoomGetBreakoutRoomParticipantsHeadersBuilder.new,
       )
       ..add(RoomRoomGetBreakoutRoomParticipantsHeaders.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
-        RoomGetBreakoutRoomParticipantsResponseApplicationJson.new,
+        RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs),
-        RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.new,
+        RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.serializer)
       ..add(RoomRemoveSelfFromRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
-        RoomRemoveSelfFromRoomResponseApplicationJson.new,
+        RoomRemoveSelfFromRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomRemoveSelfFromRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs),
-        RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.new,
+        RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomRemoveAttendeeFromRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
-        RoomRemoveAttendeeFromRoomResponseApplicationJson.new,
+        RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs),
-        RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.new,
+        RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetAttendeePermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
-        RoomSetAttendeePermissionsResponseApplicationJson.new,
+        RoomSetAttendeePermissionsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetAttendeePermissionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAttendeePermissionsResponseApplicationJson_Ocs),
-        RoomSetAttendeePermissionsResponseApplicationJson_Ocs.new,
+        RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
-        RoomSetAllAttendeesPermissionsResponseApplicationJson.new,
+        RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs),
-        RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.new,
+        RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.serializer)
       ..add(RoomJoinRoomApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomJoinRoomResponseApplicationJson), RoomJoinRoomResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(RoomJoinRoomResponseApplicationJson),
+        RoomJoinRoomResponseApplicationJsonBuilder.new,
+      )
       ..add(RoomJoinRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomJoinRoomResponseApplicationJson_Ocs),
-        RoomJoinRoomResponseApplicationJson_Ocs.new,
+        RoomJoinRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomJoinRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomLeaveRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomLeaveRoomResponseApplicationJson),
-        RoomLeaveRoomResponseApplicationJson.new,
+        RoomLeaveRoomResponseApplicationJsonBuilder.new,
       )
       ..add(RoomLeaveRoomResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomLeaveRoomResponseApplicationJson_Ocs),
-        RoomLeaveRoomResponseApplicationJson_Ocs.new,
+        RoomLeaveRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomLeaveRoomResponseApplicationJson_Ocs.serializer)
       ..add(RoomResendInvitationsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomResendInvitationsResponseApplicationJson),
-        RoomResendInvitationsResponseApplicationJson.new,
+        RoomResendInvitationsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomResendInvitationsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomResendInvitationsResponseApplicationJson_Ocs),
-        RoomResendInvitationsResponseApplicationJson_Ocs.new,
+        RoomResendInvitationsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomResendInvitationsResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetSessionStateApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetSessionStateResponseApplicationJson),
-        RoomSetSessionStateResponseApplicationJson.new,
+        RoomSetSessionStateResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetSessionStateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetSessionStateResponseApplicationJson_Ocs),
-        RoomSetSessionStateResponseApplicationJson_Ocs.new,
+        RoomSetSessionStateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetSessionStateResponseApplicationJson_Ocs.serializer)
       ..add(RoomPromoteModeratorApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomPromoteModeratorResponseApplicationJson),
-        RoomPromoteModeratorResponseApplicationJson.new,
+        RoomPromoteModeratorResponseApplicationJsonBuilder.new,
       )
       ..add(RoomPromoteModeratorResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs),
-        RoomPromoteModeratorResponseApplicationJson_Ocs.new,
+        RoomPromoteModeratorResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomPromoteModeratorResponseApplicationJson_Ocs.serializer)
       ..add(RoomDemoteModeratorApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomDemoteModeratorResponseApplicationJson),
-        RoomDemoteModeratorResponseApplicationJson.new,
+        RoomDemoteModeratorResponseApplicationJsonBuilder.new,
       )
       ..add(RoomDemoteModeratorResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomDemoteModeratorResponseApplicationJson_Ocs),
-        RoomDemoteModeratorResponseApplicationJson_Ocs.new,
+        RoomDemoteModeratorResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomDemoteModeratorResponseApplicationJson_Ocs.serializer)
       ..add(RoomAddToFavoritesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddToFavoritesResponseApplicationJson),
-        RoomAddToFavoritesResponseApplicationJson.new,
+        RoomAddToFavoritesResponseApplicationJsonBuilder.new,
       )
       ..add(RoomAddToFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddToFavoritesResponseApplicationJson_Ocs),
-        RoomAddToFavoritesResponseApplicationJson_Ocs.new,
+        RoomAddToFavoritesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomAddToFavoritesResponseApplicationJson_Ocs.serializer)
       ..add(RoomRemoveFromFavoritesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
-        RoomRemoveFromFavoritesResponseApplicationJson.new,
+        RoomRemoveFromFavoritesResponseApplicationJsonBuilder.new,
       )
       ..add(RoomRemoveFromFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomRemoveFromFavoritesResponseApplicationJson_Ocs),
-        RoomRemoveFromFavoritesResponseApplicationJson_Ocs.new,
+        RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomRemoveFromFavoritesResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetNotificationLevelApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetNotificationLevelResponseApplicationJson),
-        RoomSetNotificationLevelResponseApplicationJson.new,
+        RoomSetNotificationLevelResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetNotificationLevelResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetNotificationLevelResponseApplicationJson_Ocs),
-        RoomSetNotificationLevelResponseApplicationJson_Ocs.new,
+        RoomSetNotificationLevelResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetNotificationLevelResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetNotificationCallsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetNotificationCallsResponseApplicationJson),
-        RoomSetNotificationCallsResponseApplicationJson.new,
+        RoomSetNotificationCallsResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetNotificationCallsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetNotificationCallsResponseApplicationJson_Ocs),
-        RoomSetNotificationCallsResponseApplicationJson_Ocs.new,
+        RoomSetNotificationCallsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetNotificationCallsResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetLobbyApiVersion.serializer)
-      ..addBuilderFactory(const FullType(RoomSetLobbyResponseApplicationJson), RoomSetLobbyResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(RoomSetLobbyResponseApplicationJson),
+        RoomSetLobbyResponseApplicationJsonBuilder.new,
+      )
       ..add(RoomSetLobbyResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetLobbyResponseApplicationJson_Ocs),
-        RoomSetLobbyResponseApplicationJson_Ocs.new,
+        RoomSetLobbyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetLobbyResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetsipEnabledApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetsipEnabledResponseApplicationJson),
-        RoomSetsipEnabledResponseApplicationJson.new,
+        RoomSetsipEnabledResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetsipEnabledResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetsipEnabledResponseApplicationJson_Ocs),
-        RoomSetsipEnabledResponseApplicationJson_Ocs.new,
+        RoomSetsipEnabledResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetsipEnabledResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetRecordingConsentApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetRecordingConsentResponseApplicationJson),
-        RoomSetRecordingConsentResponseApplicationJson.new,
+        RoomSetRecordingConsentResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetRecordingConsentResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetRecordingConsentResponseApplicationJson_Ocs),
-        RoomSetRecordingConsentResponseApplicationJson_Ocs.new,
+        RoomSetRecordingConsentResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetRecordingConsentResponseApplicationJson_Ocs.serializer)
       ..add(RoomSetMessageExpirationApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetMessageExpirationResponseApplicationJson),
-        RoomSetMessageExpirationResponseApplicationJson.new,
+        RoomSetMessageExpirationResponseApplicationJsonBuilder.new,
       )
       ..add(RoomSetMessageExpirationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetMessageExpirationResponseApplicationJson_Ocs),
-        RoomSetMessageExpirationResponseApplicationJson_Ocs.new,
+        RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
       ..add(SettingsSetsipSettingsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetsipSettingsResponseApplicationJson),
-        SettingsSetsipSettingsResponseApplicationJson.new,
+        SettingsSetsipSettingsResponseApplicationJsonBuilder.new,
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
-        SettingsSetsipSettingsResponseApplicationJson_Ocs.new,
+        SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(SettingsSetUserSettingValue), SettingsSetUserSettingValue.new)
+      ..addBuilderFactory(const FullType(SettingsSetUserSettingValue), SettingsSetUserSettingValueBuilder.new)
       ..add(SettingsSetUserSettingValue.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
-        ContentString<SettingsSetUserSettingValue>.new,
+        ContentStringBuilder<SettingsSetUserSettingValue>.new,
       )
       ..add(SettingsSetUserSettingApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetUserSettingResponseApplicationJson),
-        SettingsSetUserSettingResponseApplicationJson.new,
+        SettingsSetUserSettingResponseApplicationJsonBuilder.new,
       )
       ..add(SettingsSetUserSettingResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs),
-        SettingsSetUserSettingResponseApplicationJson_Ocs.new,
+        SettingsSetUserSettingResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetUserSettingResponseApplicationJson_Ocs.serializer)
       ..add(SignalingGetSettingsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetSettingsResponseApplicationJson),
-        SignalingGetSettingsResponseApplicationJson.new,
+        SignalingGetSettingsResponseApplicationJsonBuilder.new,
       )
       ..add(SignalingGetSettingsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
-        SignalingGetSettingsResponseApplicationJson_Ocs.new,
+        SignalingGetSettingsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettings.new)
+      ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
       ..add(SignalingSettings.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings_HelloAuthParams), SignalingSettings_HelloAuthParams.new)
+      ..addBuilderFactory(
+        const FullType(SignalingSettings_HelloAuthParams),
+        SignalingSettings_HelloAuthParamsBuilder.new,
+      )
       ..add(SignalingSettings_HelloAuthParams.serializer)
       ..addBuilderFactory(
         const FullType(SignalingSettings_HelloAuthParams_$10),
-        SignalingSettings_HelloAuthParams_$10.new,
+        SignalingSettings_HelloAuthParams_$10Builder.new,
       )
       ..add(SignalingSettings_HelloAuthParams_$10.serializer)
       ..addBuilderFactory(
         const FullType(SignalingSettings_HelloAuthParams_$20),
-        SignalingSettings_HelloAuthParams_$20.new,
+        SignalingSettings_HelloAuthParams_$20Builder.new,
       )
       ..add(SignalingSettings_HelloAuthParams_$20.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_Stunservers.new)
+      ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
       ..add(SignalingSettings_Stunservers.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
         ListBuilder<SignalingSettings_Stunservers>.new,
       )
-      ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_Turnservers.new)
+      ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_TurnserversBuilder.new)
       ..add(SignalingSettings_Turnservers.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
@@ -25495,36 +25528,36 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(SignalingGetWelcomeMessageApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-        SignalingGetWelcomeMessageResponseApplicationJson.new,
+        SignalingGetWelcomeMessageResponseApplicationJsonBuilder.new,
       )
       ..add(SignalingGetWelcomeMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
-        SignalingGetWelcomeMessageResponseApplicationJson_Ocs.new,
+        SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
       ..add(SignalingPullMessagesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingPullMessagesResponseApplicationJson),
-        SignalingPullMessagesResponseApplicationJson.new,
+        SignalingPullMessagesResponseApplicationJsonBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
-        SignalingPullMessagesResponseApplicationJson_Ocs.new,
+        SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_Data.new,
+        SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.new,
+        SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder.new,
       )
       ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.serializer)
-      ..addBuilderFactory(const FullType(SignalingSession), SignalingSession.new)
+      ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
       ..add(SignalingSession.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
       ..addBuilderFactory(
@@ -25534,72 +25567,75 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(SignalingSendMessagesApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SignalingSendMessagesResponseApplicationJson),
-        SignalingSendMessagesResponseApplicationJson.new,
+        SignalingSendMessagesResponseApplicationJsonBuilder.new,
       )
       ..add(SignalingSendMessagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
-        SignalingSendMessagesResponseApplicationJson_Ocs.new,
+        SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarPostAvatarResponseApplicationJson),
-        TempAvatarPostAvatarResponseApplicationJson.new,
+        TempAvatarPostAvatarResponseApplicationJsonBuilder.new,
       )
       ..add(TempAvatarPostAvatarResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarPostAvatarResponseApplicationJson_Ocs),
-        TempAvatarPostAvatarResponseApplicationJson_Ocs.new,
+        TempAvatarPostAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TempAvatarPostAvatarResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
-        TempAvatarDeleteAvatarResponseApplicationJson.new,
+        TempAvatarDeleteAvatarResponseApplicationJsonBuilder.new,
       )
       ..add(TempAvatarDeleteAvatarResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TempAvatarDeleteAvatarResponseApplicationJson_Ocs),
-        TempAvatarDeleteAvatarResponseApplicationJson_Ocs.new,
+        TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecret.new)
+      ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecretBuilder.new)
       ..add(BotWithDetailsAndSecret.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilities.new)
+      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
       ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0.new)
+      ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0Builder.new)
       ..add(PublicCapabilities0.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed), PublicCapabilities0_Spreed.new)
+      ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed), PublicCapabilities0_SpreedBuilder.new)
       ..add(PublicCapabilities0_Spreed.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed_Config), PublicCapabilities0_Spreed_Config.new)
+      ..addBuilderFactory(
+        const FullType(PublicCapabilities0_Spreed_Config),
+        PublicCapabilities0_Spreed_ConfigBuilder.new,
+      )
       ..add(PublicCapabilities0_Spreed_Config.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Attachments),
-        PublicCapabilities0_Spreed_Config_Attachments.new,
+        PublicCapabilities0_Spreed_Config_AttachmentsBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Attachments.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Call),
-        PublicCapabilities0_Spreed_Config_Call.new,
+        PublicCapabilities0_Spreed_Config_CallBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Call.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Chat),
-        PublicCapabilities0_Spreed_Config_Chat.new,
+        PublicCapabilities0_Spreed_Config_ChatBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Chat.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Conversations),
-        PublicCapabilities0_Spreed_Config_Conversations.new,
+        PublicCapabilities0_Spreed_Config_ConversationsBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Conversations.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Previews),
-        PublicCapabilities0_Spreed_Config_Previews.new,
+        PublicCapabilities0_Spreed_Config_PreviewsBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Previews.serializer)
       ..addBuilderFactory(
         const FullType(PublicCapabilities0_Spreed_Config_Signaling),
-        PublicCapabilities0_Spreed_Config_Signaling.new,
+        PublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer))
     .build();

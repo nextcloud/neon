@@ -2660,24 +2660,24 @@ abstract class Template implements $TemplateInterface, Built<Template, TemplateB
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson),
-        DirectEditingInfoResponseApplicationJson.new,
+        DirectEditingInfoResponseApplicationJsonBuilder.new,
       )
       ..add(DirectEditingInfoResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson_Ocs),
-        DirectEditingInfoResponseApplicationJson_Ocs.new,
+        DirectEditingInfoResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DirectEditingInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data),
-        DirectEditingInfoResponseApplicationJson_Ocs_Data.new,
+        DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.new,
+        DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder.new,
       )
       ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
@@ -2690,7 +2690,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.new,
+        DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder.new,
       )
       ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.serializer)
       ..addBuilderFactory(
@@ -2702,22 +2702,22 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(DirectEditingTemplatesResponseApplicationJson),
-        DirectEditingTemplatesResponseApplicationJson.new,
+        DirectEditingTemplatesResponseApplicationJsonBuilder.new,
       )
       ..add(DirectEditingTemplatesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs),
-        DirectEditingTemplatesResponseApplicationJson_Ocs.new,
+        DirectEditingTemplatesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DirectEditingTemplatesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data),
-        DirectEditingTemplatesResponseApplicationJson_Ocs_Data.new,
+        DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
-        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.new,
+        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder.new,
       )
       ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.serializer)
       ..addBuilderFactory(
@@ -2729,72 +2729,75 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(DirectEditingOpenResponseApplicationJson),
-        DirectEditingOpenResponseApplicationJson.new,
+        DirectEditingOpenResponseApplicationJsonBuilder.new,
       )
       ..add(DirectEditingOpenResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingOpenResponseApplicationJson_Ocs),
-        DirectEditingOpenResponseApplicationJson_Ocs.new,
+        DirectEditingOpenResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DirectEditingOpenResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data),
-        DirectEditingOpenResponseApplicationJson_Ocs_Data.new,
+        DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectEditingOpenResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingCreateResponseApplicationJson),
-        DirectEditingCreateResponseApplicationJson.new,
+        DirectEditingCreateResponseApplicationJsonBuilder.new,
       )
       ..add(DirectEditingCreateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingCreateResponseApplicationJson_Ocs),
-        DirectEditingCreateResponseApplicationJson_Ocs.new,
+        DirectEditingCreateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DirectEditingCreateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data),
-        DirectEditingCreateResponseApplicationJson_Ocs_Data.new,
+        DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectEditingCreateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorCreateResponseApplicationJson),
-        OpenLocalEditorCreateResponseApplicationJson.new,
+        OpenLocalEditorCreateResponseApplicationJsonBuilder.new,
       )
       ..add(OpenLocalEditorCreateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs),
-        OpenLocalEditorCreateResponseApplicationJson_Ocs.new,
+        OpenLocalEditorCreateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data),
-        OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.new,
+        OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorValidateResponseApplicationJson),
-        OpenLocalEditorValidateResponseApplicationJson.new,
+        OpenLocalEditorValidateResponseApplicationJsonBuilder.new,
       )
       ..add(OpenLocalEditorValidateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs),
-        OpenLocalEditorValidateResponseApplicationJson_Ocs.new,
+        OpenLocalEditorValidateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data),
-        OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.new,
+        OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TemplateListResponseApplicationJson), TemplateListResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(TemplateListResponseApplicationJson),
+        TemplateListResponseApplicationJsonBuilder.new,
+      )
       ..add(TemplateListResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TemplateListResponseApplicationJson_Ocs),
-        TemplateListResponseApplicationJson_Ocs.new,
+        TemplateListResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TemplateListResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(TemplateFileCreator), TemplateFileCreator.new)
+      ..addBuilderFactory(const FullType(TemplateFileCreator), TemplateFileCreatorBuilder.new)
       ..add(TemplateFileCreator.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(TemplateFileCreator)]),
@@ -2802,66 +2805,69 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(TemplateCreateResponseApplicationJson),
-        TemplateCreateResponseApplicationJson.new,
+        TemplateCreateResponseApplicationJsonBuilder.new,
       )
       ..add(TemplateCreateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TemplateCreateResponseApplicationJson_Ocs),
-        TemplateCreateResponseApplicationJson_Ocs.new,
+        TemplateCreateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TemplateCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(TemplateFile), TemplateFile.new)
+      ..addBuilderFactory(const FullType(TemplateFile), TemplateFileBuilder.new)
       ..add(TemplateFile.serializer)
-      ..addBuilderFactory(const FullType(TemplatePathResponseApplicationJson), TemplatePathResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(TemplatePathResponseApplicationJson),
+        TemplatePathResponseApplicationJsonBuilder.new,
+      )
       ..add(TemplatePathResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TemplatePathResponseApplicationJson_Ocs),
-        TemplatePathResponseApplicationJson_Ocs.new,
+        TemplatePathResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TemplatePathResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TemplatePathResponseApplicationJson_Ocs_Data),
-        TemplatePathResponseApplicationJson_Ocs_Data.new,
+        TemplatePathResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TemplatePathResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipTransferResponseApplicationJson),
-        TransferOwnershipTransferResponseApplicationJson.new,
+        TransferOwnershipTransferResponseApplicationJsonBuilder.new,
       )
       ..add(TransferOwnershipTransferResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs),
-        TransferOwnershipTransferResponseApplicationJson_Ocs.new,
+        TransferOwnershipTransferResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TransferOwnershipTransferResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipAcceptResponseApplicationJson),
-        TransferOwnershipAcceptResponseApplicationJson.new,
+        TransferOwnershipAcceptResponseApplicationJsonBuilder.new,
       )
       ..add(TransferOwnershipAcceptResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs),
-        TransferOwnershipAcceptResponseApplicationJson_Ocs.new,
+        TransferOwnershipAcceptResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TransferOwnershipAcceptResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipRejectResponseApplicationJson),
-        TransferOwnershipRejectResponseApplicationJson.new,
+        TransferOwnershipRejectResponseApplicationJsonBuilder.new,
       )
       ..add(TransferOwnershipRejectResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs),
-        TransferOwnershipRejectResponseApplicationJson_Ocs.new,
+        TransferOwnershipRejectResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TransferOwnershipRejectResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_Files.new)
+      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
       ..add(Capabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(Capabilities_Files_DirectEditing), Capabilities_Files_DirectEditing.new)
+      ..addBuilderFactory(const FullType(Capabilities_Files_DirectEditing), Capabilities_Files_DirectEditingBuilder.new)
       ..add(Capabilities_Files_DirectEditing.serializer)
-      ..addBuilderFactory(const FullType(Template), Template.new)
+      ..addBuilderFactory(const FullType(Template), TemplateBuilder.new)
       ..add(Template.serializer))
     .build();
 

@@ -67,7 +67,7 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(TestObject), TestObject.new)
+      ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
       ..add(TestObject.serializer))
     .build();
 

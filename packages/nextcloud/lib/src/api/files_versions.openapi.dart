@@ -214,9 +214,9 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_Files.new)
+      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
       ..add(Capabilities_Files.serializer))
     .build();
 
