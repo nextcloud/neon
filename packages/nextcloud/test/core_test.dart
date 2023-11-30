@@ -126,11 +126,13 @@ void main() {
           test('Get', () async {
             final response = await client.core.avatar.getAvatar(userId: 'admin', size: 32);
             expect(response.body, isNotEmpty);
+            expect(response.headers.xNcIscustomavatar?.content, 0);
           });
 
           test('Get dark', () async {
             final response = await client.core.avatar.getAvatarDark(userId: 'admin', size: 32);
             expect(response.body, isNotEmpty);
+            expect(response.headers.xNcIscustomavatar?.content, 0);
           });
         });
 

@@ -3868,48 +3868,7 @@ abstract class ShareesapiShareesapiSearchHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ShareesapiShareesapiSearchHeaders> get serializer =>
-      _$ShareesapiShareesapiSearchHeadersSerializer();
-}
-
-class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSerializer<ShareesapiShareesapiSearchHeaders> {
-  @override
-  final Iterable<Type> types = const [ShareesapiShareesapiSearchHeaders, _$ShareesapiShareesapiSearchHeaders];
-
-  @override
-  final String wireName = 'ShareesapiShareesapiSearchHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ShareesapiShareesapiSearchHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ShareesapiShareesapiSearchHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ShareesapiShareesapiSearchHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'link':
-          result.link = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ShareesapiShareesapiSearchHeaders> get serializer => _$shareesapiShareesapiSearchHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)

@@ -1,6 +1,5 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:code_builder/code_builder.dart';
-import 'package:dynamite/src/builder/header_serializer.dart';
 import 'package:dynamite/src/builder/resolve_interface.dart';
 import 'package:dynamite/src/builder/resolve_type.dart';
 import 'package:dynamite/src/builder/state.dart';
@@ -41,7 +40,7 @@ TypeResultObject resolveObject(
       final propertySchema = property.value;
       final dartName = toDartName(propertyName);
 
-      final result = resolveType(
+      var result = resolveType(
         spec,
         state,
         '${identifier}_${toDartName(propertyName, uppercaseFirstCharacter: true)}',
@@ -51,6 +50,15 @@ TypeResultObject resolveObject(
           propertySchema,
         ),
       );
+
+      if (isHeader && result.className != 'String') {
+        result = TypeResultObject(
+          'ContentString',
+          generics: [result],
+          nullable: result.nullable,
+        );
+        state.resolvedTypes.add(result);
+      }
 
       final method = generateProperty(
         result,
@@ -76,17 +84,12 @@ TypeResultObject resolveObject(
       identifier,
       defaults: defaults.build(),
       validators: validators.build(),
-      customSerializer: isHeader,
     );
 
     state.output.addAll([
       $interface,
       $class,
     ]);
-
-    if (isHeader) {
-      state.output.add(buildHeaderSerializer(state, identifier, spec, schema));
-    }
   }
   return result;
 }

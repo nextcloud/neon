@@ -2,7 +2,6 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -15207,49 +15206,7 @@ abstract class ChatChatReceiveMessagesHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$ChatChatReceiveMessagesHeadersSerializer();
-}
-
-class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer<ChatChatReceiveMessagesHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatReceiveMessagesHeaders, _$ChatChatReceiveMessagesHeaders];
-
-  @override
-  final String wireName = 'ChatChatReceiveMessagesHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatReceiveMessagesHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatReceiveMessagesHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatReceiveMessagesHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-        case 'x-chat-last-given':
-          result.xChatLastGiven = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatReceiveMessagesHeaders> get serializer => _$chatChatReceiveMessagesHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -15382,47 +15339,7 @@ abstract class ChatChatSendMessageHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatSendMessageHeaders> get serializer => _$ChatChatSendMessageHeadersSerializer();
-}
-
-class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<ChatChatSendMessageHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatSendMessageHeaders, _$ChatChatSendMessageHeaders];
-
-  @override
-  final String wireName = 'ChatChatSendMessageHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatSendMessageHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatSendMessageHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatSendMessageHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatSendMessageHeaders> get serializer => _$chatChatSendMessageHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -15526,47 +15443,7 @@ abstract class ChatChatClearHistoryHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatClearHistoryHeaders> get serializer => _$ChatChatClearHistoryHeadersSerializer();
-}
-
-class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<ChatChatClearHistoryHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatClearHistoryHeaders, _$ChatChatClearHistoryHeaders];
-
-  @override
-  final String wireName = 'ChatChatClearHistoryHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatClearHistoryHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatClearHistoryHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatClearHistoryHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatClearHistoryHeaders> get serializer => _$chatChatClearHistoryHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -15670,47 +15547,7 @@ abstract class ChatChatDeleteMessageHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$ChatChatDeleteMessageHeadersSerializer();
-}
-
-class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<ChatChatDeleteMessageHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatDeleteMessageHeaders, _$ChatChatDeleteMessageHeaders];
-
-  @override
-  final String wireName = 'ChatChatDeleteMessageHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatDeleteMessageHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatDeleteMessageHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatDeleteMessageHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatDeleteMessageHeaders> get serializer => _$chatChatDeleteMessageHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -15816,49 +15653,7 @@ abstract class ChatChatGetMessageContextHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$ChatChatGetMessageContextHeadersSerializer();
-}
-
-class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializer<ChatChatGetMessageContextHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatGetMessageContextHeaders, _$ChatChatGetMessageContextHeaders];
-
-  @override
-  final String wireName = 'ChatChatGetMessageContextHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatGetMessageContextHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatGetMessageContextHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatGetMessageContextHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-        case 'x-chat-last-given':
-          result.xChatLastGiven = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatGetMessageContextHeaders> get serializer => _$chatChatGetMessageContextHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -16214,47 +16009,7 @@ abstract class ChatChatSetReadMarkerHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$ChatChatSetReadMarkerHeadersSerializer();
-}
-
-class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<ChatChatSetReadMarkerHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatSetReadMarkerHeaders, _$ChatChatSetReadMarkerHeaders];
-
-  @override
-  final String wireName = 'ChatChatSetReadMarkerHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatSetReadMarkerHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatSetReadMarkerHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatSetReadMarkerHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatSetReadMarkerHeaders> get serializer => _$chatChatSetReadMarkerHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -16356,47 +16111,7 @@ abstract class ChatChatMarkUnreadHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$ChatChatMarkUnreadHeadersSerializer();
-}
-
-class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<ChatChatMarkUnreadHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatMarkUnreadHeaders, _$ChatChatMarkUnreadHeaders];
-
-  @override
-  final String wireName = 'ChatChatMarkUnreadHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatMarkUnreadHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatMarkUnreadHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatMarkUnreadHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatMarkUnreadHeaders> get serializer => _$chatChatMarkUnreadHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -16608,49 +16323,8 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<ChatChatGetObjectsSharedInRoomHeaders> get serializer =>
-      _$ChatChatGetObjectsSharedInRoomHeadersSerializer();
-}
-
-class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
-    implements StructuredSerializer<ChatChatGetObjectsSharedInRoomHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatGetObjectsSharedInRoomHeaders, _$ChatChatGetObjectsSharedInRoomHeaders];
-
-  @override
-  final String wireName = 'ChatChatGetObjectsSharedInRoomHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatGetObjectsSharedInRoomHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatGetObjectsSharedInRoomHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatGetObjectsSharedInRoomHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-given':
-          result.xChatLastGiven = value;
-      }
-    }
-
-    return result.build();
-  }
+      _$chatChatGetObjectsSharedInRoomHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -16756,47 +16430,7 @@ abstract class ChatChatShareObjectToChatHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$ChatChatShareObjectToChatHeadersSerializer();
-}
-
-class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializer<ChatChatShareObjectToChatHeaders> {
-  @override
-  final Iterable<Type> types = const [ChatChatShareObjectToChatHeaders, _$ChatChatShareObjectToChatHeaders];
-
-  @override
-  final String wireName = 'ChatChatShareObjectToChatHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final ChatChatShareObjectToChatHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  ChatChatShareObjectToChatHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ChatChatShareObjectToChatHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-chat-last-common-read':
-          result.xChatLastCommonRead = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<ChatChatShareObjectToChatHeaders> get serializer => _$chatChatShareObjectToChatHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -19506,49 +19140,7 @@ abstract class RoomRoomGetRoomsHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$RoomRoomGetRoomsHeadersSerializer();
-}
-
-class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRoomGetRoomsHeaders> {
-  @override
-  final Iterable<Type> types = const [RoomRoomGetRoomsHeaders, _$RoomRoomGetRoomsHeaders];
-
-  @override
-  final String wireName = 'RoomRoomGetRoomsHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final RoomRoomGetRoomsHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  RoomRoomGetRoomsHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomRoomGetRoomsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-talk-hash':
-          result.xNextcloudTalkHash = value;
-        case 'x-nextcloud-talk-modified-before':
-          result.xNextcloudTalkModifiedBefore = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<RoomRoomGetRoomsHeaders> get serializer => _$roomRoomGetRoomsHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -19805,52 +19397,8 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRoomGetNoteToSelfConversationHeaders> get serializer =>
-      _$RoomRoomGetNoteToSelfConversationHeadersSerializer();
-}
-
-class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
-    implements StructuredSerializer<RoomRoomGetNoteToSelfConversationHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRoomGetNoteToSelfConversationHeaders,
-    _$RoomRoomGetNoteToSelfConversationHeaders,
-  ];
-
-  @override
-  final String wireName = 'RoomRoomGetNoteToSelfConversationHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final RoomRoomGetNoteToSelfConversationHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  RoomRoomGetNoteToSelfConversationHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomRoomGetNoteToSelfConversationHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-talk-hash':
-          result.xNextcloudTalkHash = value;
-      }
-    }
-
-    return result.build();
-  }
+      _$roomRoomGetNoteToSelfConversationHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -19956,47 +19504,7 @@ abstract class RoomRoomGetSingleRoomHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$RoomRoomGetSingleRoomHeadersSerializer();
-}
-
-class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<RoomRoomGetSingleRoomHeaders> {
-  @override
-  final Iterable<Type> types = const [RoomRoomGetSingleRoomHeaders, _$RoomRoomGetSingleRoomHeaders];
-
-  @override
-  final String wireName = 'RoomRoomGetSingleRoomHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final RoomRoomGetSingleRoomHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  RoomRoomGetSingleRoomHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomRoomGetSingleRoomHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-talk-hash':
-          result.xNextcloudTalkHash = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<RoomRoomGetSingleRoomHeaders> get serializer => _$roomRoomGetSingleRoomHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -20827,7 +20335,7 @@ class RoomGetParticipantsApiVersion extends EnumClass {
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  bool? get xNextcloudHasUserStatuses;
+  ContentString<bool>? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetParticipantsHeaders
@@ -20850,50 +20358,7 @@ abstract class RoomRoomGetParticipantsHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$RoomRoomGetParticipantsHeadersSerializer();
-}
-
-class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer<RoomRoomGetParticipantsHeaders> {
-  @override
-  final Iterable<Type> types = const [RoomRoomGetParticipantsHeaders, _$RoomRoomGetParticipantsHeaders];
-
-  @override
-  final String wireName = 'RoomRoomGetParticipantsHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final RoomRoomGetParticipantsHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  RoomRoomGetParticipantsHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomRoomGetParticipantsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses = _jsonSerializers.deserialize(
-            json.decode(value),
-            specifiedType: const FullType(bool),
-          )! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<RoomRoomGetParticipantsHeaders> get serializer => _$roomRoomGetParticipantsHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -21221,7 +20686,7 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  bool? get xNextcloudHasUserStatuses;
+  ContentString<bool>? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
@@ -21245,55 +20710,8 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> get serializer =>
-      _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer();
-}
-
-class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
-    implements StructuredSerializer<RoomRoomGetBreakoutRoomParticipantsHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    RoomRoomGetBreakoutRoomParticipantsHeaders,
-    _$RoomRoomGetBreakoutRoomParticipantsHeaders,
-  ];
-
-  @override
-  final String wireName = 'RoomRoomGetBreakoutRoomParticipantsHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final RoomRoomGetBreakoutRoomParticipantsHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  RoomRoomGetBreakoutRoomParticipantsHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-has-user-statuses':
-          result.xNextcloudHasUserStatuses = _jsonSerializers.deserialize(
-            json.decode(value),
-            specifiedType: const FullType(bool),
-          )! as bool;
-      }
-    }
-
-    return result.build();
-  }
+      _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -25209,6 +24627,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(RoomGetParticipantsApiVersion.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
       ..add(RoomRoomGetParticipantsHeaders.serializer)
+      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson),
         RoomGetParticipantsResponseApplicationJsonBuilder.new,

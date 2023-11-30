@@ -6,6 +6,51 @@ part of 'settings.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<LogSettingsLogSettingsDownloadHeaders> _$logSettingsLogSettingsDownloadHeadersSerializer =
+    _$LogSettingsLogSettingsDownloadHeadersSerializer();
+
+class _$LogSettingsLogSettingsDownloadHeadersSerializer
+    implements StructuredSerializer<LogSettingsLogSettingsDownloadHeaders> {
+  @override
+  final Iterable<Type> types = const [LogSettingsLogSettingsDownloadHeaders, _$LogSettingsLogSettingsDownloadHeaders];
+  @override
+  final String wireName = 'LogSettingsLogSettingsDownloadHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, LogSettingsLogSettingsDownloadHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.contentDisposition;
+    if (value != null) {
+      result
+        ..add('content-disposition')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  LogSettingsLogSettingsDownloadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = LogSettingsLogSettingsDownloadHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'content-disposition':
+          result.contentDisposition = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 abstract mixin class $LogSettingsLogSettingsDownloadHeadersInterfaceBuilder {
   void replace($LogSettingsLogSettingsDownloadHeadersInterface other);
   void update(void Function($LogSettingsLogSettingsDownloadHeadersInterfaceBuilder) updates);
