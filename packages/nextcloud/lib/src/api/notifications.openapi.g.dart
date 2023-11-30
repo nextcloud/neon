@@ -212,6 +212,8 @@ Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotifica
     _$ApiGenerateNotificationResponseApplicationJsonSerializer();
 Serializer<EndpointListNotificationsApiVersion> _$endpointListNotificationsApiVersionSerializer =
     _$EndpointListNotificationsApiVersionSerializer();
+Serializer<EndpointEndpointListNotificationsHeaders> _$endpointEndpointListNotificationsHeadersSerializer =
+    _$EndpointEndpointListNotificationsHeadersSerializer();
 Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
 Serializer<Notification> _$notificationSerializer = _$NotificationSerializer();
 Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
@@ -473,6 +475,52 @@ class _$EndpointListNotificationsApiVersionSerializer
   EndpointListNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       EndpointListNotificationsApiVersion.valueOf(serialized as String);
+}
+
+class _$EndpointEndpointListNotificationsHeadersSerializer
+    implements StructuredSerializer<EndpointEndpointListNotificationsHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    EndpointEndpointListNotificationsHeaders,
+    _$EndpointEndpointListNotificationsHeaders
+  ];
+  @override
+  final String wireName = 'EndpointEndpointListNotificationsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, EndpointEndpointListNotificationsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudUserStatus;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-user-status')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  EndpointEndpointListNotificationsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = EndpointEndpointListNotificationsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-user-status':
+          result.xNextcloudUserStatus =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$NotificationActionSerializer implements StructuredSerializer<NotificationAction> {

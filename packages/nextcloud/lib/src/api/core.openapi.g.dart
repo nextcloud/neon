@@ -38,6 +38,10 @@ Serializer<AutoCompleteGetResponseApplicationJson_Ocs> _$autoCompleteGetResponse
     _$AutoCompleteGetResponseApplicationJson_OcsSerializer();
 Serializer<AutoCompleteGetResponseApplicationJson> _$autoCompleteGetResponseApplicationJsonSerializer =
     _$AutoCompleteGetResponseApplicationJsonSerializer();
+Serializer<AvatarAvatarGetAvatarDarkHeaders> _$avatarAvatarGetAvatarDarkHeadersSerializer =
+    _$AvatarAvatarGetAvatarDarkHeadersSerializer();
+Serializer<AvatarAvatarGetAvatarHeaders> _$avatarAvatarGetAvatarHeadersSerializer =
+    _$AvatarAvatarGetAvatarHeadersSerializer();
 Serializer<LoginFlowV2Credentials> _$loginFlowV2CredentialsSerializer = _$LoginFlowV2CredentialsSerializer();
 Serializer<LoginFlowV2_Poll> _$loginFlowV2PollSerializer = _$LoginFlowV2_PollSerializer();
 Serializer<LoginFlowV2> _$loginFlowV2Serializer = _$LoginFlowV2Serializer();
@@ -107,6 +111,7 @@ Serializer<NavigationGetSettingsNavigationResponseApplicationJson_Ocs>
 Serializer<NavigationGetSettingsNavigationResponseApplicationJson>
     _$navigationGetSettingsNavigationResponseApplicationJsonSerializer =
     _$NavigationGetSettingsNavigationResponseApplicationJsonSerializer();
+Serializer<OcmOcmDiscoveryHeaders> _$ocmOcmDiscoveryHeadersSerializer = _$OcmOcmDiscoveryHeadersSerializer();
 Serializer<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols>
     _$ocmDiscoveryResponseApplicationJsonResourceTypesProtocolsSerializer =
     _$OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsSerializer();
@@ -1145,6 +1150,90 @@ class _$AutoCompleteGetResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(AutoCompleteGetResponseApplicationJson_Ocs))!
                   as AutoCompleteGetResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarDarkHeaders> {
+  @override
+  final Iterable<Type> types = const [AvatarAvatarGetAvatarDarkHeaders, _$AvatarAvatarGetAvatarDarkHeaders];
+  @override
+  final String wireName = 'AvatarAvatarGetAvatarDarkHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, AvatarAvatarGetAvatarDarkHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNcIscustomavatar;
+    if (value != null) {
+      result
+        ..add('x-nc-iscustomavatar')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+    }
+    return result;
+  }
+
+  @override
+  AvatarAvatarGetAvatarDarkHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = AvatarAvatarGetAvatarDarkHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nc-iscustomavatar':
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarHeaders> {
+  @override
+  final Iterable<Type> types = const [AvatarAvatarGetAvatarHeaders, _$AvatarAvatarGetAvatarHeaders];
+  @override
+  final String wireName = 'AvatarAvatarGetAvatarHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, AvatarAvatarGetAvatarHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNcIscustomavatar;
+    if (value != null) {
+      result
+        ..add('x-nc-iscustomavatar')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+    }
+    return result;
+  }
+
+  @override
+  AvatarAvatarGetAvatarHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = AvatarAvatarGetAvatarHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nc-iscustomavatar':
+          result.xNcIscustomavatar.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
           break;
       }
     }
@@ -2595,6 +2684,48 @@ class _$NavigationGetSettingsNavigationResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson_Ocs))!
               as NavigationGetSettingsNavigationResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmDiscoveryHeaders> {
+  @override
+  final Iterable<Type> types = const [OcmOcmDiscoveryHeaders, _$OcmOcmDiscoveryHeaders];
+  @override
+  final String wireName = 'OcmOcmDiscoveryHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OcmOcmDiscoveryHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudOcmProviders;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-ocm-providers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(bool)])));
+    }
+    return result;
+  }
+
+  @override
+  OcmOcmDiscoveryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OcmOcmDiscoveryHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-ocm-providers':
+          result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(bool)]))! as ContentString<bool>);
           break;
       }
     }
@@ -11232,13 +11363,13 @@ class AutoCompleteGetResponseApplicationJsonBuilder
 abstract mixin class $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarDarkHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates);
-  int? get xNcIscustomavatar;
-  set xNcIscustomavatar(int? xNcIscustomavatar);
+  ContentStringBuilder<int> get xNcIscustomavatar;
+  set xNcIscustomavatar(ContentStringBuilder<int>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarDarkHeaders extends AvatarAvatarGetAvatarDarkHeaders {
   @override
-  final int? xNcIscustomavatar;
+  final ContentString<int>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarDarkHeaders([void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarDarkHeadersBuilder()..update(updates))._build();
@@ -11280,16 +11411,17 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
         $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarDarkHeaders? _$v;
 
-  int? _xNcIscustomavatar;
-  int? get xNcIscustomavatar => _$this._xNcIscustomavatar;
-  set xNcIscustomavatar(covariant int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
+  ContentStringBuilder<int>? _xNcIscustomavatar;
+  ContentStringBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= ContentStringBuilder<int>();
+  set xNcIscustomavatar(covariant ContentStringBuilder<int>? xNcIscustomavatar) =>
+      _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarDarkHeadersBuilder();
 
   AvatarAvatarGetAvatarDarkHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xNcIscustomavatar = $v.xNcIscustomavatar;
+      _xNcIscustomavatar = $v.xNcIscustomavatar?.toBuilder();
       _$v = null;
     }
     return this;
@@ -11310,7 +11442,19 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
   AvatarAvatarGetAvatarDarkHeaders build() => _build();
 
   _$AvatarAvatarGetAvatarDarkHeaders _build() {
-    final _$result = _$v ?? _$AvatarAvatarGetAvatarDarkHeaders._(xNcIscustomavatar: xNcIscustomavatar);
+    _$AvatarAvatarGetAvatarDarkHeaders _$result;
+    try {
+      _$result = _$v ?? _$AvatarAvatarGetAvatarDarkHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNcIscustomavatar';
+        _xNcIscustomavatar?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'AvatarAvatarGetAvatarDarkHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -11319,13 +11463,13 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
 abstract mixin class $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarHeadersInterfaceBuilder) updates);
-  int? get xNcIscustomavatar;
-  set xNcIscustomavatar(int? xNcIscustomavatar);
+  ContentStringBuilder<int> get xNcIscustomavatar;
+  set xNcIscustomavatar(ContentStringBuilder<int>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarHeaders extends AvatarAvatarGetAvatarHeaders {
   @override
-  final int? xNcIscustomavatar;
+  final ContentString<int>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarHeaders([void Function(AvatarAvatarGetAvatarHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarHeadersBuilder()..update(updates))._build();
@@ -11366,16 +11510,17 @@ class AvatarAvatarGetAvatarHeadersBuilder
         $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarHeaders? _$v;
 
-  int? _xNcIscustomavatar;
-  int? get xNcIscustomavatar => _$this._xNcIscustomavatar;
-  set xNcIscustomavatar(covariant int? xNcIscustomavatar) => _$this._xNcIscustomavatar = xNcIscustomavatar;
+  ContentStringBuilder<int>? _xNcIscustomavatar;
+  ContentStringBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= ContentStringBuilder<int>();
+  set xNcIscustomavatar(covariant ContentStringBuilder<int>? xNcIscustomavatar) =>
+      _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarHeadersBuilder();
 
   AvatarAvatarGetAvatarHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xNcIscustomavatar = $v.xNcIscustomavatar;
+      _xNcIscustomavatar = $v.xNcIscustomavatar?.toBuilder();
       _$v = null;
     }
     return this;
@@ -11396,7 +11541,19 @@ class AvatarAvatarGetAvatarHeadersBuilder
   AvatarAvatarGetAvatarHeaders build() => _build();
 
   _$AvatarAvatarGetAvatarHeaders _build() {
-    final _$result = _$v ?? _$AvatarAvatarGetAvatarHeaders._(xNcIscustomavatar: xNcIscustomavatar);
+    _$AvatarAvatarGetAvatarHeaders _$result;
+    try {
+      _$result = _$v ?? _$AvatarAvatarGetAvatarHeaders._(xNcIscustomavatar: _xNcIscustomavatar?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNcIscustomavatar';
+        _xNcIscustomavatar?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'AvatarAvatarGetAvatarHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -15140,13 +15297,13 @@ class NavigationGetSettingsNavigationResponseApplicationJsonBuilder
 abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
   void replace($OcmOcmDiscoveryHeadersInterface other);
   void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  bool? get xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(bool? xNextcloudOcmProviders);
+  ContentStringBuilder<bool> get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(ContentStringBuilder<bool>? xNextcloudOcmProviders);
 }
 
 class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
   @override
-  final bool? xNextcloudOcmProviders;
+  final ContentString<bool>? xNextcloudOcmProviders;
 
   factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
       (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
@@ -15186,9 +15343,10 @@ class OcmOcmDiscoveryHeadersBuilder
     implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
   _$OcmOcmDiscoveryHeaders? _$v;
 
-  bool? _xNextcloudOcmProviders;
-  bool? get xNextcloudOcmProviders => _$this._xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(covariant bool? xNextcloudOcmProviders) =>
+  ContentStringBuilder<bool>? _xNextcloudOcmProviders;
+  ContentStringBuilder<bool> get xNextcloudOcmProviders =>
+      _$this._xNextcloudOcmProviders ??= ContentStringBuilder<bool>();
+  set xNextcloudOcmProviders(covariant ContentStringBuilder<bool>? xNextcloudOcmProviders) =>
       _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
 
   OcmOcmDiscoveryHeadersBuilder();
@@ -15196,7 +15354,7 @@ class OcmOcmDiscoveryHeadersBuilder
   OcmOcmDiscoveryHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xNextcloudOcmProviders = $v.xNextcloudOcmProviders;
+      _xNextcloudOcmProviders = $v.xNextcloudOcmProviders?.toBuilder();
       _$v = null;
     }
     return this;
@@ -15217,7 +15375,19 @@ class OcmOcmDiscoveryHeadersBuilder
   OcmOcmDiscoveryHeaders build() => _build();
 
   _$OcmOcmDiscoveryHeaders _build() {
-    final _$result = _$v ?? _$OcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: xNextcloudOcmProviders);
+    _$OcmOcmDiscoveryHeaders _$result;
+    try {
+      _$result = _$v ?? _$OcmOcmDiscoveryHeaders._(xNextcloudOcmProviders: _xNextcloudOcmProviders?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudOcmProviders';
+        _xNextcloudOcmProviders?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'OcmOcmDiscoveryHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

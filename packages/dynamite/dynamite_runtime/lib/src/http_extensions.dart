@@ -51,8 +51,8 @@ extension BytesStreamExtension on BytesStream {
 /// Extension on a http responses.
 extension HttpClientResponseExtension on HttpClientResponse {
   /// Returns a map of headers.
-  Map<String, String> get responseHeaders {
-    final responseHeaders = <String, String>{};
+  Map<String, Object?> get responseHeaders {
+    final responseHeaders = <String, Object?>{};
     headers.forEach((final name, final values) {
       responseHeaders[name] = values.last;
     });

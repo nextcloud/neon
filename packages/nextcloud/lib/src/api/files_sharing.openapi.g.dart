@@ -100,6 +100,8 @@ Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShare
     _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
     _$ShareapiAcceptShareResponseApplicationJsonSerializer();
+Serializer<ShareesapiShareesapiSearchHeaders> _$shareesapiShareesapiSearchHeadersSerializer =
+    _$ShareesapiShareesapiSearchHeadersSerializer();
 Serializer<Sharee> _$shareeSerializer = _$ShareeSerializer();
 Serializer<ShareeValue> _$shareeValueSerializer = _$ShareeValueSerializer();
 Serializer<ShareeCircle_1_Value> _$shareeCircle1ValueSerializer = _$ShareeCircle_1_ValueSerializer();
@@ -2456,6 +2458,47 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs))!
               as ShareapiAcceptShareResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSerializer<ShareesapiShareesapiSearchHeaders> {
+  @override
+  final Iterable<Type> types = const [ShareesapiShareesapiSearchHeaders, _$ShareesapiShareesapiSearchHeaders];
+  @override
+  final String wireName = 'ShareesapiShareesapiSearchHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ShareesapiShareesapiSearchHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.link;
+    if (value != null) {
+      result
+        ..add('link')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ShareesapiShareesapiSearchHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ShareesapiShareesapiSearchHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'link':
+          result.link = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
       }
     }

@@ -6,6 +6,134 @@ part of 'headers.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+Serializer<GetHeaders> _$getHeadersSerializer = _$GetHeadersSerializer();
+Serializer<WithContentOperationIdHeaders> _$withContentOperationIdHeadersSerializer =
+    _$WithContentOperationIdHeadersSerializer();
+Serializer<GetWithContentHeaders> _$getWithContentHeadersSerializer = _$GetWithContentHeadersSerializer();
+
+class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
+  @override
+  final Iterable<Type> types = const [GetHeaders, _$GetHeaders];
+  @override
+  final String wireName = 'GetHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GetHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.myHeader;
+    if (value != null) {
+      result
+        ..add('my-header')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GetHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GetHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'my-header':
+          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<WithContentOperationIdHeaders> {
+  @override
+  final Iterable<Type> types = const [WithContentOperationIdHeaders, _$WithContentOperationIdHeaders];
+  @override
+  final String wireName = 'WithContentOperationIdHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, WithContentOperationIdHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.myHeader;
+    if (value != null) {
+      result
+        ..add('my-header')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  WithContentOperationIdHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = WithContentOperationIdHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'my-header':
+          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithContentHeaders> {
+  @override
+  final Iterable<Type> types = const [GetWithContentHeaders, _$GetWithContentHeaders];
+  @override
+  final String wireName = 'GetWithContentHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, GetWithContentHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.myHeader;
+    if (value != null) {
+      result
+        ..add('my-header')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  GetWithContentHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = GetWithContentHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'my-header':
+          result.myHeader = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 abstract mixin class $GetHeadersInterfaceBuilder {
   void replace($GetHeadersInterface other);
   void update(void Function($GetHeadersInterfaceBuilder) updates);

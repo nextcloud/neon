@@ -148,49 +148,8 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
-      _$LogSettingsLogSettingsDownloadHeadersSerializer();
-}
-
-class _$LogSettingsLogSettingsDownloadHeadersSerializer
-    implements StructuredSerializer<LogSettingsLogSettingsDownloadHeaders> {
-  @override
-  final Iterable<Type> types = const [LogSettingsLogSettingsDownloadHeaders, _$LogSettingsLogSettingsDownloadHeaders];
-
-  @override
-  final String wireName = 'LogSettingsLogSettingsDownloadHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final LogSettingsLogSettingsDownloadHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  LogSettingsLogSettingsDownloadHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = LogSettingsLogSettingsDownloadHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'content-disposition':
-          result.contentDisposition = value;
-      }
-    }
-
-    return result.build();
-  }
+      _$logSettingsLogSettingsDownloadHeadersSerializer;
 }
 
 // coverage:ignore-start

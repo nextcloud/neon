@@ -1287,52 +1287,8 @@ abstract class EndpointEndpointListNotificationsHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
   static Serializer<EndpointEndpointListNotificationsHeaders> get serializer =>
-      _$EndpointEndpointListNotificationsHeadersSerializer();
-}
-
-class _$EndpointEndpointListNotificationsHeadersSerializer
-    implements StructuredSerializer<EndpointEndpointListNotificationsHeaders> {
-  @override
-  final Iterable<Type> types = const [
-    EndpointEndpointListNotificationsHeaders,
-    _$EndpointEndpointListNotificationsHeaders,
-  ];
-
-  @override
-  final String wireName = 'EndpointEndpointListNotificationsHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final EndpointEndpointListNotificationsHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  EndpointEndpointListNotificationsHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = EndpointEndpointListNotificationsHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-user-status':
-          result.xNextcloudUserStatus = value;
-      }
-    }
-
-    return result.build();
-  }
+      _$endpointEndpointListNotificationsHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)

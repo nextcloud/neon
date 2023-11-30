@@ -2022,30 +2022,40 @@ Serializer<CertificateGetCertificateExpirationResponseApplicationJson>
     _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer();
 Serializer<ChatReceiveMessagesApiVersion> _$chatReceiveMessagesApiVersionSerializer =
     _$ChatReceiveMessagesApiVersionSerializer();
+Serializer<ChatChatReceiveMessagesHeaders> _$chatChatReceiveMessagesHeadersSerializer =
+    _$ChatChatReceiveMessagesHeadersSerializer();
 Serializer<ChatMessageWithParent> _$chatMessageWithParentSerializer = _$ChatMessageWithParentSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> _$chatReceiveMessagesResponseApplicationJsonOcsSerializer =
     _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson> _$chatReceiveMessagesResponseApplicationJsonSerializer =
     _$ChatReceiveMessagesResponseApplicationJsonSerializer();
 Serializer<ChatSendMessageApiVersion> _$chatSendMessageApiVersionSerializer = _$ChatSendMessageApiVersionSerializer();
+Serializer<ChatChatSendMessageHeaders> _$chatChatSendMessageHeadersSerializer =
+    _$ChatChatSendMessageHeadersSerializer();
 Serializer<ChatSendMessageResponseApplicationJson_Ocs> _$chatSendMessageResponseApplicationJsonOcsSerializer =
     _$ChatSendMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatSendMessageResponseApplicationJson> _$chatSendMessageResponseApplicationJsonSerializer =
     _$ChatSendMessageResponseApplicationJsonSerializer();
 Serializer<ChatClearHistoryApiVersion> _$chatClearHistoryApiVersionSerializer =
     _$ChatClearHistoryApiVersionSerializer();
+Serializer<ChatChatClearHistoryHeaders> _$chatChatClearHistoryHeadersSerializer =
+    _$ChatChatClearHistoryHeadersSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson_Ocs> _$chatClearHistoryResponseApplicationJsonOcsSerializer =
     _$ChatClearHistoryResponseApplicationJson_OcsSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson> _$chatClearHistoryResponseApplicationJsonSerializer =
     _$ChatClearHistoryResponseApplicationJsonSerializer();
 Serializer<ChatDeleteMessageApiVersion> _$chatDeleteMessageApiVersionSerializer =
     _$ChatDeleteMessageApiVersionSerializer();
+Serializer<ChatChatDeleteMessageHeaders> _$chatChatDeleteMessageHeadersSerializer =
+    _$ChatChatDeleteMessageHeadersSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> _$chatDeleteMessageResponseApplicationJsonOcsSerializer =
     _$ChatDeleteMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson> _$chatDeleteMessageResponseApplicationJsonSerializer =
     _$ChatDeleteMessageResponseApplicationJsonSerializer();
 Serializer<ChatGetMessageContextApiVersion> _$chatGetMessageContextApiVersionSerializer =
     _$ChatGetMessageContextApiVersionSerializer();
+Serializer<ChatChatGetMessageContextHeaders> _$chatChatGetMessageContextHeadersSerializer =
+    _$ChatChatGetMessageContextHeadersSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson_Ocs>
     _$chatGetMessageContextResponseApplicationJsonOcsSerializer =
     _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
@@ -2070,11 +2080,14 @@ Serializer<ChatDeleteReminderResponseApplicationJson> _$chatDeleteReminderRespon
     _$ChatDeleteReminderResponseApplicationJsonSerializer();
 Serializer<ChatSetReadMarkerApiVersion> _$chatSetReadMarkerApiVersionSerializer =
     _$ChatSetReadMarkerApiVersionSerializer();
+Serializer<ChatChatSetReadMarkerHeaders> _$chatChatSetReadMarkerHeadersSerializer =
+    _$ChatChatSetReadMarkerHeadersSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> _$chatSetReadMarkerResponseApplicationJsonOcsSerializer =
     _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson> _$chatSetReadMarkerResponseApplicationJsonSerializer =
     _$ChatSetReadMarkerResponseApplicationJsonSerializer();
 Serializer<ChatMarkUnreadApiVersion> _$chatMarkUnreadApiVersionSerializer = _$ChatMarkUnreadApiVersionSerializer();
+Serializer<ChatChatMarkUnreadHeaders> _$chatChatMarkUnreadHeadersSerializer = _$ChatChatMarkUnreadHeadersSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> _$chatMarkUnreadResponseApplicationJsonOcsSerializer =
     _$ChatMarkUnreadResponseApplicationJson_OcsSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson> _$chatMarkUnreadResponseApplicationJsonSerializer =
@@ -2087,6 +2100,8 @@ Serializer<ChatMentionsResponseApplicationJson> _$chatMentionsResponseApplicatio
     _$ChatMentionsResponseApplicationJsonSerializer();
 Serializer<ChatGetObjectsSharedInRoomApiVersion> _$chatGetObjectsSharedInRoomApiVersionSerializer =
     _$ChatGetObjectsSharedInRoomApiVersionSerializer();
+Serializer<ChatChatGetObjectsSharedInRoomHeaders> _$chatChatGetObjectsSharedInRoomHeadersSerializer =
+    _$ChatChatGetObjectsSharedInRoomHeadersSerializer();
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer();
@@ -2095,6 +2110,8 @@ Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson>
     _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer();
 Serializer<ChatShareObjectToChatApiVersion> _$chatShareObjectToChatApiVersionSerializer =
     _$ChatShareObjectToChatApiVersionSerializer();
+Serializer<ChatChatShareObjectToChatHeaders> _$chatChatShareObjectToChatHeadersSerializer =
+    _$ChatChatShareObjectToChatHeadersSerializer();
 Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs>
     _$chatShareObjectToChatResponseApplicationJsonOcsSerializer =
     _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer();
@@ -2320,6 +2337,7 @@ Serializer<RecordingShareToChatResponseApplicationJson_Ocs> _$recordingShareToCh
 Serializer<RecordingShareToChatResponseApplicationJson> _$recordingShareToChatResponseApplicationJsonSerializer =
     _$RecordingShareToChatResponseApplicationJsonSerializer();
 Serializer<RoomGetRoomsApiVersion> _$roomGetRoomsApiVersionSerializer = _$RoomGetRoomsApiVersionSerializer();
+Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson> _$roomGetRoomsResponseApplicationJsonSerializer =
@@ -2337,6 +2355,8 @@ Serializer<RoomGetListedRoomsResponseApplicationJson> _$roomGetListedRoomsRespon
     _$RoomGetListedRoomsResponseApplicationJsonSerializer();
 Serializer<RoomGetNoteToSelfConversationApiVersion> _$roomGetNoteToSelfConversationApiVersionSerializer =
     _$RoomGetNoteToSelfConversationApiVersionSerializer();
+Serializer<RoomRoomGetNoteToSelfConversationHeaders> _$roomRoomGetNoteToSelfConversationHeadersSerializer =
+    _$RoomRoomGetNoteToSelfConversationHeadersSerializer();
 Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs>
     _$roomGetNoteToSelfConversationResponseApplicationJsonOcsSerializer =
     _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer();
@@ -2345,6 +2365,8 @@ Serializer<RoomGetNoteToSelfConversationResponseApplicationJson>
     _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer();
 Serializer<RoomGetSingleRoomApiVersion> _$roomGetSingleRoomApiVersionSerializer =
     _$RoomGetSingleRoomApiVersionSerializer();
+Serializer<RoomRoomGetSingleRoomHeaders> _$roomRoomGetSingleRoomHeadersSerializer =
+    _$RoomRoomGetSingleRoomHeadersSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> _$roomGetSingleRoomResponseApplicationJsonOcsSerializer =
     _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson> _$roomGetSingleRoomResponseApplicationJsonSerializer =
@@ -2404,6 +2426,8 @@ Serializer<RoomSetPermissionsResponseApplicationJson> _$roomSetPermissionsRespon
     _$RoomSetPermissionsResponseApplicationJsonSerializer();
 Serializer<RoomGetParticipantsApiVersion> _$roomGetParticipantsApiVersionSerializer =
     _$RoomGetParticipantsApiVersionSerializer();
+Serializer<RoomRoomGetParticipantsHeaders> _$roomRoomGetParticipantsHeadersSerializer =
+    _$RoomRoomGetParticipantsHeadersSerializer();
 Serializer<Participant> _$participantSerializer = _$ParticipantSerializer();
 Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> _$roomGetParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
@@ -2422,6 +2446,8 @@ Serializer<RoomAddParticipantToRoomResponseApplicationJson>
     _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsApiVersion> _$roomGetBreakoutRoomParticipantsApiVersionSerializer =
     _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
+Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer =
+    _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs>
     _$roomGetBreakoutRoomParticipantsResponseApplicationJsonOcsSerializer =
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer();
@@ -6363,6 +6389,56 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
       ChatReceiveMessagesApiVersion.valueOf(serialized as String);
 }
 
+class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer<ChatChatReceiveMessagesHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatReceiveMessagesHeaders, _$ChatChatReceiveMessagesHeaders];
+  @override
+  final String wireName = 'ChatChatReceiveMessagesHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatReceiveMessagesHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.xChatLastGiven;
+    if (value != null) {
+      result
+        ..add('x-chat-last-given')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatReceiveMessagesHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatReceiveMessagesHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatMessageWithParentSerializer implements StructuredSerializer<ChatMessageWithParent> {
   @override
   final Iterable<Type> types = const [ChatMessageWithParent, _$ChatMessageWithParent];
@@ -6613,6 +6689,47 @@ class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatS
       ChatSendMessageApiVersion.valueOf(serialized as String);
 }
 
+class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<ChatChatSendMessageHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatSendMessageHeaders, _$ChatChatSendMessageHeaders];
+  @override
+  final String wireName = 'ChatChatSendMessageHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatSendMessageHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatSendMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatSendMessageHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatSendMessageResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatSendMessageResponseApplicationJson_Ocs> {
   @override
@@ -6721,6 +6838,47 @@ class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<Chat
   ChatClearHistoryApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       ChatClearHistoryApiVersion.valueOf(serialized as String);
+}
+
+class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<ChatChatClearHistoryHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatClearHistoryHeaders, _$ChatChatClearHistoryHeaders];
+  @override
+  final String wireName = 'ChatChatClearHistoryHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatClearHistoryHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatClearHistoryHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatClearHistoryHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$ChatClearHistoryResponseApplicationJson_OcsSerializer
@@ -6832,6 +6990,47 @@ class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<Cha
       ChatDeleteMessageApiVersion.valueOf(serialized as String);
 }
 
+class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<ChatChatDeleteMessageHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatDeleteMessageHeaders, _$ChatChatDeleteMessageHeaders];
+  @override
+  final String wireName = 'ChatChatDeleteMessageHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatDeleteMessageHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatDeleteMessageHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatDeleteMessageHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatDeleteMessageResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatDeleteMessageResponseApplicationJson_Ocs> {
   @override
@@ -6939,6 +7138,56 @@ class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer
   ChatGetMessageContextApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       ChatGetMessageContextApiVersion.valueOf(serialized as String);
+}
+
+class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializer<ChatChatGetMessageContextHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatGetMessageContextHeaders, _$ChatChatGetMessageContextHeaders];
+  @override
+  final String wireName = 'ChatChatGetMessageContextHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatGetMessageContextHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.xChatLastGiven;
+    if (value != null) {
+      result
+        ..add('x-chat-last-given')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatGetMessageContextHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatGetMessageContextHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$ChatGetMessageContextResponseApplicationJson_OcsSerializer
@@ -7424,6 +7673,47 @@ class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<Cha
       ChatSetReadMarkerApiVersion.valueOf(serialized as String);
 }
 
+class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<ChatChatSetReadMarkerHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatSetReadMarkerHeaders, _$ChatChatSetReadMarkerHeaders];
+  @override
+  final String wireName = 'ChatChatSetReadMarkerHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatSetReadMarkerHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatSetReadMarkerHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatSetReadMarkerHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatSetReadMarkerResponseApplicationJson_Ocs> {
   @override
@@ -7530,6 +7820,47 @@ class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMa
   ChatMarkUnreadApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       ChatMarkUnreadApiVersion.valueOf(serialized as String);
+}
+
+class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<ChatChatMarkUnreadHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatMarkUnreadHeaders, _$ChatChatMarkUnreadHeaders];
+  @override
+  final String wireName = 'ChatChatMarkUnreadHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatMarkUnreadHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatMarkUnreadHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatMarkUnreadHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$ChatMarkUnreadResponseApplicationJson_OcsSerializer
@@ -7828,6 +8159,48 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
       ChatGetObjectsSharedInRoomApiVersion.valueOf(serialized as String);
 }
 
+class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
+    implements StructuredSerializer<ChatChatGetObjectsSharedInRoomHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatGetObjectsSharedInRoomHeaders, _$ChatChatGetObjectsSharedInRoomHeaders];
+  @override
+  final String wireName = 'ChatChatGetObjectsSharedInRoomHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatGetObjectsSharedInRoomHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastGiven;
+    if (value != null) {
+      result
+        ..add('x-chat-last-given')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatGetObjectsSharedInRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatGetObjectsSharedInRoomHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-given':
+          result.xChatLastGiven = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ChatGetObjectsSharedInRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs> {
   @override
@@ -7937,6 +8310,47 @@ class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer
   ChatShareObjectToChatApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       ChatShareObjectToChatApiVersion.valueOf(serialized as String);
+}
+
+class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializer<ChatChatShareObjectToChatHeaders> {
+  @override
+  final Iterable<Type> types = const [ChatChatShareObjectToChatHeaders, _$ChatChatShareObjectToChatHeaders];
+  @override
+  final String wireName = 'ChatChatShareObjectToChatHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, ChatChatShareObjectToChatHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xChatLastCommonRead;
+    if (value != null) {
+      result
+        ..add('x-chat-last-common-read')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  ChatChatShareObjectToChatHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = ChatChatShareObjectToChatHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-chat-last-common-read':
+          result.xChatLastCommonRead = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer
@@ -11966,6 +12380,57 @@ class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetR
       RoomGetRoomsApiVersion.valueOf(serialized as String);
 }
 
+class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRoomGetRoomsHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetRoomsHeaders, _$RoomRoomGetRoomsHeaders];
+  @override
+  final String wireName = 'RoomRoomGetRoomsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetRoomsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudTalkHash;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-hash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.xNextcloudTalkModifiedBefore;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-modified-before')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetRoomsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetRoomsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-talk-hash':
+          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+        case 'x-nextcloud-talk-modified-before':
+          result.xNextcloudTalkModifiedBefore =
+              serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomGetRoomsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetRoomsResponseApplicationJson_Ocs> {
   @override
@@ -12287,6 +12752,51 @@ class _$RoomGetNoteToSelfConversationApiVersionSerializer
       RoomGetNoteToSelfConversationApiVersion.valueOf(serialized as String);
 }
 
+class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
+    implements StructuredSerializer<RoomRoomGetNoteToSelfConversationHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    RoomRoomGetNoteToSelfConversationHeaders,
+    _$RoomRoomGetNoteToSelfConversationHeaders
+  ];
+  @override
+  final String wireName = 'RoomRoomGetNoteToSelfConversationHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetNoteToSelfConversationHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudTalkHash;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-hash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetNoteToSelfConversationHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetNoteToSelfConversationHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-talk-hash':
+          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$RoomGetNoteToSelfConversationResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs> {
   @override
@@ -12396,6 +12906,47 @@ class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<Roo
   RoomGetSingleRoomApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       RoomGetSingleRoomApiVersion.valueOf(serialized as String);
+}
+
+class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<RoomRoomGetSingleRoomHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetSingleRoomHeaders, _$RoomRoomGetSingleRoomHeaders];
+  @override
+  final String wireName = 'RoomRoomGetSingleRoomHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetSingleRoomHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudTalkHash;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-talk-hash')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetSingleRoomHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetSingleRoomHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-talk-hash':
+          result.xNextcloudTalkHash = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer
@@ -13566,6 +14117,48 @@ class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<R
       RoomGetParticipantsApiVersion.valueOf(serialized as String);
 }
 
+class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer<RoomRoomGetParticipantsHeaders> {
+  @override
+  final Iterable<Type> types = const [RoomRoomGetParticipantsHeaders, _$RoomRoomGetParticipantsHeaders];
+  @override
+  final String wireName = 'RoomRoomGetParticipantsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetParticipantsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudHasUserStatuses;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-has-user-statuses')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(bool)])));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetParticipantsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-has-user-statuses':
+          result.xNextcloudHasUserStatuses.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(bool)]))! as ContentString<bool>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$ParticipantSerializer implements StructuredSerializer<Participant> {
   @override
   final Iterable<Type> types = const [Participant, _$Participant];
@@ -13978,6 +14571,52 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
   RoomGetBreakoutRoomParticipantsApiVersion deserialize(Serializers serializers, Object serialized,
           {FullType specifiedType = FullType.unspecified}) =>
       RoomGetBreakoutRoomParticipantsApiVersion.valueOf(serialized as String);
+}
+
+class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
+    implements StructuredSerializer<RoomRoomGetBreakoutRoomParticipantsHeaders> {
+  @override
+  final Iterable<Type> types = const [
+    RoomRoomGetBreakoutRoomParticipantsHeaders,
+    _$RoomRoomGetBreakoutRoomParticipantsHeaders
+  ];
+  @override
+  final String wireName = 'RoomRoomGetBreakoutRoomParticipantsHeaders';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, RoomRoomGetBreakoutRoomParticipantsHeaders object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[];
+    Object? value;
+    value = object.xNextcloudHasUserStatuses;
+    if (value != null) {
+      result
+        ..add('x-nextcloud-has-user-statuses')
+        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(bool)])));
+    }
+    return result;
+  }
+
+  @override
+  RoomRoomGetBreakoutRoomParticipantsHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'x-nextcloud-has-user-statuses':
+          result.xNextcloudHasUserStatuses.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ContentString, [FullType(bool)]))! as ContentString<bool>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
 }
 
 class _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsSerializer
@@ -42481,13 +43120,13 @@ class RoomSetPermissionsResponseApplicationJsonBuilder
 abstract mixin class $RoomRoomGetParticipantsHeadersInterfaceBuilder {
   void replace($RoomRoomGetParticipantsHeadersInterface other);
   void update(void Function($RoomRoomGetParticipantsHeadersInterfaceBuilder) updates);
-  bool? get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(bool? xNextcloudHasUserStatuses);
+  ContentStringBuilder<bool> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(ContentStringBuilder<bool>? xNextcloudHasUserStatuses);
 }
 
 class _$RoomRoomGetParticipantsHeaders extends RoomRoomGetParticipantsHeaders {
   @override
-  final bool? xNextcloudHasUserStatuses;
+  final ContentString<bool>? xNextcloudHasUserStatuses;
 
   factory _$RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? updates]) =>
       (RoomRoomGetParticipantsHeadersBuilder()..update(updates))._build();
@@ -42529,9 +43168,10 @@ class RoomRoomGetParticipantsHeadersBuilder
         $RoomRoomGetParticipantsHeadersInterfaceBuilder {
   _$RoomRoomGetParticipantsHeaders? _$v;
 
-  bool? _xNextcloudHasUserStatuses;
-  bool? get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(covariant bool? xNextcloudHasUserStatuses) =>
+  ContentStringBuilder<bool>? _xNextcloudHasUserStatuses;
+  ContentStringBuilder<bool> get xNextcloudHasUserStatuses =>
+      _$this._xNextcloudHasUserStatuses ??= ContentStringBuilder<bool>();
+  set xNextcloudHasUserStatuses(covariant ContentStringBuilder<bool>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
   RoomRoomGetParticipantsHeadersBuilder();
@@ -42539,7 +43179,7 @@ class RoomRoomGetParticipantsHeadersBuilder
   RoomRoomGetParticipantsHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses;
+      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
       _$v = null;
     }
     return this;
@@ -42560,7 +43200,20 @@ class RoomRoomGetParticipantsHeadersBuilder
   RoomRoomGetParticipantsHeaders build() => _build();
 
   _$RoomRoomGetParticipantsHeaders _build() {
-    final _$result = _$v ?? _$RoomRoomGetParticipantsHeaders._(xNextcloudHasUserStatuses: xNextcloudHasUserStatuses);
+    _$RoomRoomGetParticipantsHeaders _$result;
+    try {
+      _$result =
+          _$v ?? _$RoomRoomGetParticipantsHeaders._(xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudHasUserStatuses';
+        _xNextcloudHasUserStatuses?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomRoomGetParticipantsHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -43646,13 +44299,13 @@ class RoomAddParticipantToRoomResponseApplicationJsonBuilder
 abstract mixin class $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
   void replace($RoomRoomGetBreakoutRoomParticipantsHeadersInterface other);
   void update(void Function($RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder) updates);
-  bool? get xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(bool? xNextcloudHasUserStatuses);
+  ContentStringBuilder<bool> get xNextcloudHasUserStatuses;
+  set xNextcloudHasUserStatuses(ContentStringBuilder<bool>? xNextcloudHasUserStatuses);
 }
 
 class _$RoomRoomGetBreakoutRoomParticipantsHeaders extends RoomRoomGetBreakoutRoomParticipantsHeaders {
   @override
-  final bool? xNextcloudHasUserStatuses;
+  final ContentString<bool>? xNextcloudHasUserStatuses;
 
   factory _$RoomRoomGetBreakoutRoomParticipantsHeaders(
           [void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? updates]) =>
@@ -43698,9 +44351,10 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
         $RoomRoomGetBreakoutRoomParticipantsHeadersInterfaceBuilder {
   _$RoomRoomGetBreakoutRoomParticipantsHeaders? _$v;
 
-  bool? _xNextcloudHasUserStatuses;
-  bool? get xNextcloudHasUserStatuses => _$this._xNextcloudHasUserStatuses;
-  set xNextcloudHasUserStatuses(covariant bool? xNextcloudHasUserStatuses) =>
+  ContentStringBuilder<bool>? _xNextcloudHasUserStatuses;
+  ContentStringBuilder<bool> get xNextcloudHasUserStatuses =>
+      _$this._xNextcloudHasUserStatuses ??= ContentStringBuilder<bool>();
+  set xNextcloudHasUserStatuses(covariant ContentStringBuilder<bool>? xNextcloudHasUserStatuses) =>
       _$this._xNextcloudHasUserStatuses = xNextcloudHasUserStatuses;
 
   RoomRoomGetBreakoutRoomParticipantsHeadersBuilder();
@@ -43708,7 +44362,7 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
   RoomRoomGetBreakoutRoomParticipantsHeadersBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses;
+      _xNextcloudHasUserStatuses = $v.xNextcloudHasUserStatuses?.toBuilder();
       _$v = null;
     }
     return this;
@@ -43729,8 +44383,21 @@ class RoomRoomGetBreakoutRoomParticipantsHeadersBuilder
   RoomRoomGetBreakoutRoomParticipantsHeaders build() => _build();
 
   _$RoomRoomGetBreakoutRoomParticipantsHeaders _build() {
-    final _$result =
-        _$v ?? _$RoomRoomGetBreakoutRoomParticipantsHeaders._(xNextcloudHasUserStatuses: xNextcloudHasUserStatuses);
+    _$RoomRoomGetBreakoutRoomParticipantsHeaders _$result;
+    try {
+      _$result = _$v ??
+          _$RoomRoomGetBreakoutRoomParticipantsHeaders._(
+              xNextcloudHasUserStatuses: _xNextcloudHasUserStatuses?.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'xNextcloudHasUserStatuses';
+        _xNextcloudHasUserStatuses?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'RoomRoomGetBreakoutRoomParticipantsHeaders', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

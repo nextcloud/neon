@@ -159,7 +159,7 @@ class DynamiteRawResponse<B, H> {
   ///
   /// Responses revived with [DynamiteRawResponse.fromJson] are not cached as
   /// they are not expected to be serialized again.
-  Map<String, String>? _rawHeaders;
+  Map<String, Object?>? _rawHeaders;
 
   DynamiteResponse<B, H>? _response;
 
@@ -286,7 +286,7 @@ class DynamiteApiException implements Exception {
   final int statusCode;
 
   /// The returned headers when the exception was thrown.
-  final Map<String, String> headers;
+  final Map<String, Object?> headers;
 
   /// The returned body code when the exception was thrown.
   final String body;

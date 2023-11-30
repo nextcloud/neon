@@ -2,7 +2,6 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
-import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -5689,7 +5688,7 @@ abstract class AutoCompleteGetResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  int? get xNcIscustomavatar;
+  ContentString<int>? get xNcIscustomavatar;
 }
 
 abstract class AvatarAvatarGetAvatarDarkHeaders
@@ -5712,54 +5711,13 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AvatarAvatarGetAvatarDarkHeaders> get serializer => _$AvatarAvatarGetAvatarDarkHeadersSerializer();
-}
-
-class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarDarkHeaders> {
-  @override
-  final Iterable<Type> types = const [AvatarAvatarGetAvatarDarkHeaders, _$AvatarAvatarGetAvatarDarkHeaders];
-
-  @override
-  final String wireName = 'AvatarAvatarGetAvatarDarkHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final AvatarAvatarGetAvatarDarkHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  AvatarAvatarGetAvatarDarkHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AvatarAvatarGetAvatarDarkHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar =
-              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<AvatarAvatarGetAvatarDarkHeaders> get serializer => _$avatarAvatarGetAvatarDarkHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  int? get xNcIscustomavatar;
+  ContentString<int>? get xNcIscustomavatar;
 }
 
 abstract class AvatarAvatarGetAvatarHeaders
@@ -5782,48 +5740,7 @@ abstract class AvatarAvatarGetAvatarHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<AvatarAvatarGetAvatarHeaders> get serializer => _$AvatarAvatarGetAvatarHeadersSerializer();
-}
-
-class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<AvatarAvatarGetAvatarHeaders> {
-  @override
-  final Iterable<Type> types = const [AvatarAvatarGetAvatarHeaders, _$AvatarAvatarGetAvatarHeaders];
-
-  @override
-  final String wireName = 'AvatarAvatarGetAvatarHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final AvatarAvatarGetAvatarHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  AvatarAvatarGetAvatarHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = AvatarAvatarGetAvatarHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar =
-              _jsonSerializers.deserialize(json.decode(value), specifiedType: const FullType(int))! as int;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<AvatarAvatarGetAvatarHeaders> get serializer => _$avatarAvatarGetAvatarHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -6790,7 +6707,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
-  bool? get xNextcloudOcmProviders;
+  ContentString<bool>? get xNextcloudOcmProviders;
 }
 
 abstract class OcmOcmDiscoveryHeaders
@@ -6810,50 +6727,7 @@ abstract class OcmOcmDiscoveryHeaders
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OcmOcmDiscoveryHeaders> get serializer => _$OcmOcmDiscoveryHeadersSerializer();
-}
-
-class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmDiscoveryHeaders> {
-  @override
-  final Iterable<Type> types = const [OcmOcmDiscoveryHeaders, _$OcmOcmDiscoveryHeaders];
-
-  @override
-  final String wireName = 'OcmOcmDiscoveryHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final OcmOcmDiscoveryHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  OcmOcmDiscoveryHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = OcmOcmDiscoveryHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders = _jsonSerializers.deserialize(
-            json.decode(value),
-            specifiedType: const FullType(bool),
-          )! as bool;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<OcmOcmDiscoveryHeaders> get serializer => _$ocmOcmDiscoveryHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -11535,6 +11409,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
+      ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
+      ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarHeaders.serializer)
       ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2CredentialsBuilder.new)
@@ -11670,6 +11546,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
       ..add(OcmOcmDiscoveryHeaders.serializer)
+      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson),
         OcmDiscoveryResponseApplicationJsonBuilder.new,
@@ -12240,7 +12117,6 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
         ContentStringBuilder<UnifiedSearchSearchCursor>.new,
       )
-      ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
         UnifiedSearchSearchResponseApplicationJsonBuilder.new,

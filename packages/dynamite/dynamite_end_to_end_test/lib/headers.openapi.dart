@@ -201,47 +201,7 @@ abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, Get
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GetHeaders> get serializer => _$GetHeadersSerializer();
-}
-
-class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
-  @override
-  final Iterable<Type> types = const [GetHeaders, _$GetHeaders];
-
-  @override
-  final String wireName = 'GetHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final GetHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  GetHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GetHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'my-header':
-          result.myHeader = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<GetHeaders> get serializer => _$getHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -264,47 +224,7 @@ abstract class WithContentOperationIdHeaders
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<WithContentOperationIdHeaders> get serializer => _$WithContentOperationIdHeadersSerializer();
-}
-
-class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<WithContentOperationIdHeaders> {
-  @override
-  final Iterable<Type> types = const [WithContentOperationIdHeaders, _$WithContentOperationIdHeaders];
-
-  @override
-  final String wireName = 'WithContentOperationIdHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final WithContentOperationIdHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  WithContentOperationIdHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = WithContentOperationIdHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'my-header':
-          result.myHeader = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<WithContentOperationIdHeaders> get serializer => _$withContentOperationIdHeadersSerializer;
 }
 
 @BuiltValue(instantiable: false)
@@ -324,47 +244,7 @@ abstract class GetWithContentHeaders
 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GetWithContentHeaders> get serializer => _$GetWithContentHeadersSerializer();
-}
-
-class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithContentHeaders> {
-  @override
-  final Iterable<Type> types = const [GetWithContentHeaders, _$GetWithContentHeaders];
-
-  @override
-  final String wireName = 'GetWithContentHeaders';
-
-  @override
-  Iterable<Object?> serialize(
-    final Serializers serializers,
-    final GetWithContentHeaders object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    throw UnimplementedError();
-  }
-
-  @override
-  GetWithContentHeaders deserialize(
-    final Serializers serializers,
-    final Iterable<Object?> serialized, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GetWithContentHeadersBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final value = iterator.current! as String;
-      switch (key) {
-        case 'my-header':
-          result.myHeader = value;
-      }
-    }
-
-    return result.build();
-  }
+  static Serializer<GetWithContentHeaders> get serializer => _$getWithContentHeadersSerializer;
 }
 
 // coverage:ignore-start
