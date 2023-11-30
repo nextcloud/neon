@@ -312,22 +312,22 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ApiGetAppListApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetAppListResponseApplicationJson),
-        ApiGetAppListResponseApplicationJson.new,
+        ApiGetAppListResponseApplicationJsonBuilder.new,
       )
       ..add(ApiGetAppListResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetAppListResponseApplicationJson_Ocs),
-        ApiGetAppListResponseApplicationJson_Ocs.new,
+        ApiGetAppListResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiGetAppListResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetAppListResponseApplicationJson_Ocs_Data),
-        ApiGetAppListResponseApplicationJson_Ocs_Data.new,
+        ApiGetAppListResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(App), App.new)
+      ..addBuilderFactory(const FullType(App), AppBuilder.new)
       ..add(App.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new))
     .build();

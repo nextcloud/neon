@@ -1407,45 +1407,45 @@ abstract class PublicCapabilities
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(ThemingGetManifestResponseApplicationJson),
-        ThemingGetManifestResponseApplicationJson.new,
+        ThemingGetManifestResponseApplicationJsonBuilder.new,
       )
       ..add(ThemingGetManifestResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ThemingGetManifestResponseApplicationJson_Icons),
-        ThemingGetManifestResponseApplicationJson_Icons.new,
+        ThemingGetManifestResponseApplicationJson_IconsBuilder.new,
       )
       ..add(ThemingGetManifestResponseApplicationJson_Icons.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
         ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>.new,
       )
-      ..addBuilderFactory(const FullType(Background), Background.new)
+      ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
       ..add(Background.serializer)
       ..addBuilderFactory(
         const FullType(UserThemeEnableThemeResponseApplicationJson),
-        UserThemeEnableThemeResponseApplicationJson.new,
+        UserThemeEnableThemeResponseApplicationJsonBuilder.new,
       )
       ..add(UserThemeEnableThemeResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UserThemeEnableThemeResponseApplicationJson_Ocs),
-        UserThemeEnableThemeResponseApplicationJson_Ocs.new,
+        UserThemeEnableThemeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserThemeEnableThemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(UserThemeDisableThemeResponseApplicationJson),
-        UserThemeDisableThemeResponseApplicationJson.new,
+        UserThemeDisableThemeResponseApplicationJsonBuilder.new,
       )
       ..add(UserThemeDisableThemeResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs),
-        UserThemeDisableThemeResponseApplicationJson_Ocs.new,
+        UserThemeDisableThemeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilities.new)
+      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
       ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_Theming.new)
+      ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_ThemingBuilder.new)
       ..add(PublicCapabilities_Theming.serializer))
     .build();
 

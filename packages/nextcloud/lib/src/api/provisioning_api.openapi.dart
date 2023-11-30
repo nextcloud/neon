@@ -8885,211 +8885,220 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(AppConfigGetAppsResponseApplicationJson),
-        AppConfigGetAppsResponseApplicationJson.new,
+        AppConfigGetAppsResponseApplicationJsonBuilder.new,
       )
       ..add(AppConfigGetAppsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetAppsResponseApplicationJson_Ocs),
-        AppConfigGetAppsResponseApplicationJson_Ocs.new,
+        AppConfigGetAppsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigGetAppsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetAppsResponseApplicationJson_Ocs_Data),
-        AppConfigGetAppsResponseApplicationJson_Ocs_Data.new,
+        AppConfigGetAppsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppConfigGetAppsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(AppConfigGetKeysResponseApplicationJson),
-        AppConfigGetKeysResponseApplicationJson.new,
+        AppConfigGetKeysResponseApplicationJsonBuilder.new,
       )
       ..add(AppConfigGetKeysResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetKeysResponseApplicationJson_Ocs),
-        AppConfigGetKeysResponseApplicationJson_Ocs.new,
+        AppConfigGetKeysResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigGetKeysResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetKeysResponseApplicationJson_Ocs_Data),
-        AppConfigGetKeysResponseApplicationJson_Ocs_Data.new,
+        AppConfigGetKeysResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppConfigGetKeysResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetValueResponseApplicationJson),
-        AppConfigGetValueResponseApplicationJson.new,
+        AppConfigGetValueResponseApplicationJsonBuilder.new,
       )
       ..add(AppConfigGetValueResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetValueResponseApplicationJson_Ocs),
-        AppConfigGetValueResponseApplicationJson_Ocs.new,
+        AppConfigGetValueResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigGetValueResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigGetValueResponseApplicationJson_Ocs_Data),
-        AppConfigGetValueResponseApplicationJson_Ocs_Data.new,
+        AppConfigGetValueResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppConfigGetValueResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigSetValueResponseApplicationJson),
-        AppConfigSetValueResponseApplicationJson.new,
+        AppConfigSetValueResponseApplicationJsonBuilder.new,
       )
       ..add(AppConfigSetValueResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigSetValueResponseApplicationJson_Ocs),
-        AppConfigSetValueResponseApplicationJson_Ocs.new,
+        AppConfigSetValueResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigSetValueResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigDeleteKeyResponseApplicationJson),
-        AppConfigDeleteKeyResponseApplicationJson.new,
+        AppConfigDeleteKeyResponseApplicationJsonBuilder.new,
       )
       ..add(AppConfigDeleteKeyResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppConfigDeleteKeyResponseApplicationJson_Ocs),
-        AppConfigDeleteKeyResponseApplicationJson_Ocs.new,
+        AppConfigDeleteKeyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppConfigDeleteKeyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AppsGetAppsResponseApplicationJson), AppsGetAppsResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(AppsGetAppsResponseApplicationJson),
+        AppsGetAppsResponseApplicationJsonBuilder.new,
+      )
       ..add(AppsGetAppsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppsResponseApplicationJson_Ocs),
-        AppsGetAppsResponseApplicationJson_Ocs.new,
+        AppsGetAppsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppsGetAppsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppsResponseApplicationJson_Ocs_Data),
-        AppsGetAppsResponseApplicationJson_Ocs_Data.new,
+        AppsGetAppsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppsGetAppsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppInfoResponseApplicationJson),
-        AppsGetAppInfoResponseApplicationJson.new,
+        AppsGetAppInfoResponseApplicationJsonBuilder.new,
       )
       ..add(AppsGetAppInfoResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppsGetAppInfoResponseApplicationJson_Ocs),
-        AppsGetAppInfoResponseApplicationJson_Ocs.new,
+        AppsGetAppInfoResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppsGetAppInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AppInfo), AppInfo.new)
+      ..addBuilderFactory(const FullType(AppInfo), AppInfoBuilder.new)
       ..add(AppInfo.serializer)
-      ..addBuilderFactory(const FullType(AppsEnableResponseApplicationJson), AppsEnableResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(AppsEnableResponseApplicationJson),
+        AppsEnableResponseApplicationJsonBuilder.new,
+      )
       ..add(AppsEnableResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppsEnableResponseApplicationJson_Ocs),
-        AppsEnableResponseApplicationJson_Ocs.new,
+        AppsEnableResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppsEnableResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AppsDisableResponseApplicationJson), AppsDisableResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(AppsDisableResponseApplicationJson),
+        AppsDisableResponseApplicationJsonBuilder.new,
+      )
       ..add(AppsDisableResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppsDisableResponseApplicationJson_Ocs),
-        AppsDisableResponseApplicationJson_Ocs.new,
+        AppsDisableResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppsDisableResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsResponseApplicationJson),
-        GroupsGetGroupsResponseApplicationJson.new,
+        GroupsGetGroupsResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetGroupsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsResponseApplicationJson_Ocs),
-        GroupsGetGroupsResponseApplicationJson_Ocs.new,
+        GroupsGetGroupsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetGroupsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupsResponseApplicationJson_Ocs_Data.new,
+        GroupsGetGroupsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(GroupsAddGroupResponseApplicationJson),
-        GroupsAddGroupResponseApplicationJson.new,
+        GroupsAddGroupResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsAddGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsAddGroupResponseApplicationJson_Ocs),
-        GroupsAddGroupResponseApplicationJson_Ocs.new,
+        GroupsAddGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsAddGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
-        GroupsGetGroupsDetailsResponseApplicationJson.new,
+        GroupsGetGroupsDetailsResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetGroupsDetailsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsDetailsResponseApplicationJson_Ocs),
-        GroupsGetGroupsDetailsResponseApplicationJson_Ocs.new,
+        GroupsGetGroupsDetailsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetGroupsDetailsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.new,
+        GroupsGetGroupsDetailsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(GroupDetails), GroupDetails.new)
+      ..addBuilderFactory(const FullType(GroupDetails), GroupDetailsBuilder.new)
       ..add(GroupDetails.serializer)
-      ..addBuilderFactory(const FullType(GroupDetails_Usercount), GroupDetails_Usercount.new)
+      ..addBuilderFactory(const FullType(GroupDetails_Usercount), GroupDetails_UsercountBuilder.new)
       ..add(GroupDetails_Usercount.serializer)
-      ..addBuilderFactory(const FullType(GroupDetails_Disabled), GroupDetails_Disabled.new)
+      ..addBuilderFactory(const FullType(GroupDetails_Disabled), GroupDetails_DisabledBuilder.new)
       ..add(GroupDetails_Disabled.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(GroupDetails)]), ListBuilder<GroupDetails>.new)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersResponseApplicationJson),
-        GroupsGetGroupUsersResponseApplicationJson.new,
+        GroupsGetGroupUsersResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetGroupUsersResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersResponseApplicationJson_Ocs),
-        GroupsGetGroupUsersResponseApplicationJson_Ocs.new,
+        GroupsGetGroupUsersResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetGroupUsersResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupUsersResponseApplicationJson_Ocs_Data.new,
+        GroupsGetGroupUsersResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupUsersResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
-        GroupsGetGroupUsersDetailsResponseApplicationJson.new,
+        GroupsGetGroupUsersDetailsResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs),
-        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs.new,
+        GroupsGetGroupUsersDetailsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.new,
+        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users.new,
+        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
-      ..addBuilderFactory(const FullType(UserDetails), UserDetails.new)
+      ..addBuilderFactory(const FullType(UserDetails), UserDetailsBuilder.new)
       ..add(UserDetails.serializer)
-      ..addBuilderFactory(const FullType(UserDetails_BackendCapabilities), UserDetails_BackendCapabilities.new)
+      ..addBuilderFactory(const FullType(UserDetails_BackendCapabilities), UserDetails_BackendCapabilitiesBuilder.new)
       ..add(UserDetails_BackendCapabilities.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuota.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuotaBuilder.new)
       ..add(UserDetailsQuota.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Free), UserDetailsQuota_Free.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Free), UserDetailsQuota_FreeBuilder.new)
       ..add(UserDetailsQuota_Free.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Quota), UserDetailsQuota_Quota.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Quota), UserDetailsQuota_QuotaBuilder.new)
       ..add(UserDetailsQuota_Quota.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Relative), UserDetailsQuota_Relative.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Relative), UserDetailsQuota_RelativeBuilder.new)
       ..add(UserDetailsQuota_Relative.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Total), UserDetailsQuota_Total.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Total), UserDetailsQuota_TotalBuilder.new)
       ..add(UserDetailsQuota_Total.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Used), UserDetailsQuota_Used.new)
+      ..addBuilderFactory(const FullType(UserDetailsQuota_Used), UserDetailsQuota_UsedBuilder.new)
       ..add(UserDetailsQuota_Used.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.new,
+        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
       ..addBuilderFactory(
@@ -9101,67 +9110,67 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
-        GroupsGetSubAdminsOfGroupResponseApplicationJson.new,
+        GroupsGetSubAdminsOfGroupResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs),
-        GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.new,
+        GroupsGetSubAdminsOfGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupResponseApplicationJson),
-        GroupsGetGroupResponseApplicationJson.new,
+        GroupsGetGroupResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsGetGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupResponseApplicationJson_Ocs),
-        GroupsGetGroupResponseApplicationJson_Ocs.new,
+        GroupsGetGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsGetGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupResponseApplicationJson_Ocs_Data),
-        GroupsGetGroupResponseApplicationJson_Ocs_Data.new,
+        GroupsGetGroupResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(GroupsUpdateGroupResponseApplicationJson),
-        GroupsUpdateGroupResponseApplicationJson.new,
+        GroupsUpdateGroupResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsUpdateGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsUpdateGroupResponseApplicationJson_Ocs),
-        GroupsUpdateGroupResponseApplicationJson_Ocs.new,
+        GroupsUpdateGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsUpdateGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(GroupsDeleteGroupResponseApplicationJson),
-        GroupsDeleteGroupResponseApplicationJson.new,
+        GroupsDeleteGroupResponseApplicationJsonBuilder.new,
       )
       ..add(GroupsDeleteGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GroupsDeleteGroupResponseApplicationJson_Ocs),
-        GroupsDeleteGroupResponseApplicationJson_Ocs.new,
+        GroupsDeleteGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(GroupsDeleteGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesSetPreferenceResponseApplicationJson),
-        PreferencesSetPreferenceResponseApplicationJson.new,
+        PreferencesSetPreferenceResponseApplicationJsonBuilder.new,
       )
       ..add(PreferencesSetPreferenceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesSetPreferenceResponseApplicationJson_Ocs),
-        PreferencesSetPreferenceResponseApplicationJson_Ocs.new,
+        PreferencesSetPreferenceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesSetPreferenceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesDeletePreferenceResponseApplicationJson),
-        PreferencesDeletePreferenceResponseApplicationJson.new,
+        PreferencesDeletePreferenceResponseApplicationJsonBuilder.new,
       )
       ..add(PreferencesDeletePreferenceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesDeletePreferenceResponseApplicationJson_Ocs),
-        PreferencesDeletePreferenceResponseApplicationJson_Ocs.new,
+        PreferencesDeletePreferenceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesDeletePreferenceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
@@ -9172,79 +9181,82 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(String)]),
         ]),
-        ContentString<BuiltMap<String, String>>.new,
+        ContentStringBuilder<BuiltMap<String, String>>.new,
       )
       ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
-        PreferencesSetMultiplePreferencesResponseApplicationJson.new,
+        PreferencesSetMultiplePreferencesResponseApplicationJsonBuilder.new,
       )
       ..add(PreferencesSetMultiplePreferencesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs),
-        PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs.new,
+        PreferencesSetMultiplePreferencesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
-        PreferencesDeleteMultiplePreferenceResponseApplicationJson.new,
+        PreferencesDeleteMultiplePreferenceResponseApplicationJsonBuilder.new,
       )
       ..add(PreferencesDeleteMultiplePreferenceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs),
-        PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.new,
+        PreferencesDeleteMultiplePreferenceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersResponseApplicationJson),
-        UsersGetUsersResponseApplicationJson.new,
+        UsersGetUsersResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetUsersResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersResponseApplicationJson_Ocs),
-        UsersGetUsersResponseApplicationJson_Ocs.new,
+        UsersGetUsersResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUsersResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersResponseApplicationJson_Ocs_Data),
-        UsersGetUsersResponseApplicationJson_Ocs_Data.new,
+        UsersGetUsersResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersGetUsersResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(UsersAddUserResponseApplicationJson), UsersAddUserResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(UsersAddUserResponseApplicationJson),
+        UsersAddUserResponseApplicationJsonBuilder.new,
+      )
       ..add(UsersAddUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddUserResponseApplicationJson_Ocs),
-        UsersAddUserResponseApplicationJson_Ocs.new,
+        UsersAddUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersAddUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddUserResponseApplicationJson_Ocs_Data),
-        UsersAddUserResponseApplicationJson_Ocs_Data.new,
+        UsersAddUserResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersAddUserResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson),
-        UsersGetUsersDetailsResponseApplicationJson.new,
+        UsersGetUsersDetailsResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs),
-        UsersGetUsersDetailsResponseApplicationJson_Ocs.new,
+        UsersGetUsersDetailsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data),
-        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data.new,
+        UsersGetUsersDetailsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users.new,
+        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.new,
+        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
       ..addBuilderFactory(
@@ -9256,27 +9268,27 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
-        UsersGetDisabledUsersDetailsResponseApplicationJson.new,
+        UsersGetDisabledUsersDetailsResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs),
-        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.new,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data),
-        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.new,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.new,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.new,
+        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
       ..addBuilderFactory(
@@ -9300,193 +9312,196 @@ final Serializers _serializers = (Serializers().toBuilder()
             FullType(BuiltList, [FullType(String)]),
           ]),
         ]),
-        ContentString<BuiltMap<String, BuiltList<String>>>.new,
+        ContentStringBuilder<BuiltMap<String, BuiltList<String>>>.new,
       )
       ..addBuilderFactory(
         const FullType(UsersSearchByPhoneNumbersResponseApplicationJson),
-        UsersSearchByPhoneNumbersResponseApplicationJson.new,
+        UsersSearchByPhoneNumbersResponseApplicationJsonBuilder.new,
       )
       ..add(UsersSearchByPhoneNumbersResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersSearchByPhoneNumbersResponseApplicationJson_Ocs),
-        UsersSearchByPhoneNumbersResponseApplicationJson_Ocs.new,
+        UsersSearchByPhoneNumbersResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersSearchByPhoneNumbersResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UsersGetUserResponseApplicationJson), UsersGetUserResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(UsersGetUserResponseApplicationJson),
+        UsersGetUserResponseApplicationJsonBuilder.new,
+      )
       ..add(UsersGetUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUserResponseApplicationJson_Ocs),
-        UsersGetUserResponseApplicationJson_Ocs.new,
+        UsersGetUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserResponseApplicationJson),
-        UsersEditUserResponseApplicationJson.new,
+        UsersEditUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersEditUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserResponseApplicationJson_Ocs),
-        UsersEditUserResponseApplicationJson_Ocs.new,
+        UsersEditUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersEditUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersDeleteUserResponseApplicationJson),
-        UsersDeleteUserResponseApplicationJson.new,
+        UsersDeleteUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersDeleteUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersDeleteUserResponseApplicationJson_Ocs),
-        UsersDeleteUserResponseApplicationJson_Ocs.new,
+        UsersDeleteUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersDeleteUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetCurrentUserResponseApplicationJson),
-        UsersGetCurrentUserResponseApplicationJson.new,
+        UsersGetCurrentUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetCurrentUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetCurrentUserResponseApplicationJson_Ocs),
-        UsersGetCurrentUserResponseApplicationJson_Ocs.new,
+        UsersGetCurrentUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetCurrentUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetEditableFieldsResponseApplicationJson),
-        UsersGetEditableFieldsResponseApplicationJson.new,
+        UsersGetEditableFieldsResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetEditableFieldsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetEditableFieldsResponseApplicationJson_Ocs),
-        UsersGetEditableFieldsResponseApplicationJson_Ocs.new,
+        UsersGetEditableFieldsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetEditableFieldsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetEditableFieldsForUserResponseApplicationJson),
-        UsersGetEditableFieldsForUserResponseApplicationJson.new,
+        UsersGetEditableFieldsForUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetEditableFieldsForUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetEditableFieldsForUserResponseApplicationJson_Ocs),
-        UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.new,
+        UsersGetEditableFieldsForUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserMultiValueResponseApplicationJson),
-        UsersEditUserMultiValueResponseApplicationJson.new,
+        UsersEditUserMultiValueResponseApplicationJsonBuilder.new,
       )
       ..add(UsersEditUserMultiValueResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersEditUserMultiValueResponseApplicationJson_Ocs),
-        UsersEditUserMultiValueResponseApplicationJson_Ocs.new,
+        UsersEditUserMultiValueResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersEditUserMultiValueResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersWipeUserDevicesResponseApplicationJson),
-        UsersWipeUserDevicesResponseApplicationJson.new,
+        UsersWipeUserDevicesResponseApplicationJsonBuilder.new,
       )
       ..add(UsersWipeUserDevicesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersWipeUserDevicesResponseApplicationJson_Ocs),
-        UsersWipeUserDevicesResponseApplicationJson_Ocs.new,
+        UsersWipeUserDevicesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersWipeUserDevicesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersEnableUserResponseApplicationJson),
-        UsersEnableUserResponseApplicationJson.new,
+        UsersEnableUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersEnableUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersEnableUserResponseApplicationJson_Ocs),
-        UsersEnableUserResponseApplicationJson_Ocs.new,
+        UsersEnableUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersEnableUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersDisableUserResponseApplicationJson),
-        UsersDisableUserResponseApplicationJson.new,
+        UsersDisableUserResponseApplicationJsonBuilder.new,
       )
       ..add(UsersDisableUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersDisableUserResponseApplicationJson_Ocs),
-        UsersDisableUserResponseApplicationJson_Ocs.new,
+        UsersDisableUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersDisableUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersGroupsResponseApplicationJson),
-        UsersGetUsersGroupsResponseApplicationJson.new,
+        UsersGetUsersGroupsResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetUsersGroupsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersGroupsResponseApplicationJson_Ocs),
-        UsersGetUsersGroupsResponseApplicationJson_Ocs.new,
+        UsersGetUsersGroupsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUsersGroupsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUsersGroupsResponseApplicationJson_Ocs_Data),
-        UsersGetUsersGroupsResponseApplicationJson_Ocs_Data.new,
+        UsersGetUsersGroupsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(UsersGetUsersGroupsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddToGroupResponseApplicationJson),
-        UsersAddToGroupResponseApplicationJson.new,
+        UsersAddToGroupResponseApplicationJsonBuilder.new,
       )
       ..add(UsersAddToGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddToGroupResponseApplicationJson_Ocs),
-        UsersAddToGroupResponseApplicationJson_Ocs.new,
+        UsersAddToGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersAddToGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersRemoveFromGroupResponseApplicationJson),
-        UsersRemoveFromGroupResponseApplicationJson.new,
+        UsersRemoveFromGroupResponseApplicationJsonBuilder.new,
       )
       ..add(UsersRemoveFromGroupResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersRemoveFromGroupResponseApplicationJson_Ocs),
-        UsersRemoveFromGroupResponseApplicationJson_Ocs.new,
+        UsersRemoveFromGroupResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersRemoveFromGroupResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
-        UsersGetUserSubAdminGroupsResponseApplicationJson.new,
+        UsersGetUserSubAdminGroupsResponseApplicationJsonBuilder.new,
       )
       ..add(UsersGetUserSubAdminGroupsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs),
-        UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.new,
+        UsersGetUserSubAdminGroupsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddSubAdminResponseApplicationJson),
-        UsersAddSubAdminResponseApplicationJson.new,
+        UsersAddSubAdminResponseApplicationJsonBuilder.new,
       )
       ..add(UsersAddSubAdminResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersAddSubAdminResponseApplicationJson_Ocs),
-        UsersAddSubAdminResponseApplicationJson_Ocs.new,
+        UsersAddSubAdminResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersAddSubAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersRemoveSubAdminResponseApplicationJson),
-        UsersRemoveSubAdminResponseApplicationJson.new,
+        UsersRemoveSubAdminResponseApplicationJsonBuilder.new,
       )
       ..add(UsersRemoveSubAdminResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersRemoveSubAdminResponseApplicationJson_Ocs),
-        UsersRemoveSubAdminResponseApplicationJson_Ocs.new,
+        UsersRemoveSubAdminResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersRemoveSubAdminResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(UsersResendWelcomeMessageResponseApplicationJson),
-        UsersResendWelcomeMessageResponseApplicationJson.new,
+        UsersResendWelcomeMessageResponseApplicationJsonBuilder.new,
       )
       ..add(UsersResendWelcomeMessageResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UsersResendWelcomeMessageResponseApplicationJson_Ocs),
-        UsersResendWelcomeMessageResponseApplicationJson_Ocs.new,
+        UsersResendWelcomeMessageResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UsersResendWelcomeMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_ProvisioningApi), Capabilities_ProvisioningApi.new)
+      ..addBuilderFactory(const FullType(Capabilities_ProvisioningApi), Capabilities_ProvisioningApiBuilder.new)
       ..add(Capabilities_ProvisioningApi.serializer))
     .build();
 

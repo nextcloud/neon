@@ -1292,45 +1292,57 @@ abstract class GatewayMatrixResponseApplicationJson
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
       ..add(CheckResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(SetKeepaliveResponseApplicationJson), SetKeepaliveResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(SetKeepaliveResponseApplicationJson),
+        SetKeepaliveResponseApplicationJsonBuilder.new,
+      )
       ..add(SetKeepaliveResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(CreateDeviceResponseApplicationJson), CreateDeviceResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(CreateDeviceResponseApplicationJson),
+        CreateDeviceResponseApplicationJsonBuilder.new,
+      )
       ..add(CreateDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(SyncDeviceResponseApplicationJson), SyncDeviceResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(SyncDeviceResponseApplicationJson),
+        SyncDeviceResponseApplicationJsonBuilder.new,
+      )
       ..add(SyncDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(DeleteDeviceResponseApplicationJson), DeleteDeviceResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(DeleteDeviceResponseApplicationJson),
+        DeleteDeviceResponseApplicationJsonBuilder.new,
+      )
       ..add(DeleteDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(CreateAppResponseApplicationJson), CreateAppResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(CreateAppResponseApplicationJson), CreateAppResponseApplicationJsonBuilder.new)
       ..add(CreateAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(DeleteAppResponseApplicationJson), DeleteAppResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(DeleteAppResponseApplicationJson), DeleteAppResponseApplicationJsonBuilder.new)
       ..add(DeleteAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedpushDiscoveryResponseApplicationJson),
-        UnifiedpushDiscoveryResponseApplicationJson.new,
+        UnifiedpushDiscoveryResponseApplicationJsonBuilder.new,
       )
       ..add(UnifiedpushDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
-        UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.new,
+        UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
       )
       ..add(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.serializer)
-      ..addBuilderFactory(const FullType(PushResponseApplicationJson), PushResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(PushResponseApplicationJson), PushResponseApplicationJsonBuilder.new)
       ..add(PushResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
-        GatewayMatrixDiscoveryResponseApplicationJson.new,
+        GatewayMatrixDiscoveryResponseApplicationJsonBuilder.new,
       )
       ..add(GatewayMatrixDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
-        GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.new,
+        GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
       )
       ..add(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.serializer)
       ..addBuilderFactory(
         const FullType(GatewayMatrixResponseApplicationJson),
-        GatewayMatrixResponseApplicationJson.new,
+        GatewayMatrixResponseApplicationJsonBuilder.new,
       )
       ..add(GatewayMatrixResponseApplicationJson.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))

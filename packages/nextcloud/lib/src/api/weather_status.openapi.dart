@@ -1773,132 +1773,138 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(WeatherStatusSetModeResponseApplicationJson),
-        WeatherStatusSetModeResponseApplicationJson.new,
+        WeatherStatusSetModeResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusSetModeResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetModeResponseApplicationJson_Ocs),
-        WeatherStatusSetModeResponseApplicationJson_Ocs.new,
+        WeatherStatusSetModeResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusSetModeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetModeResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetModeResponseApplicationJson_Ocs_Data.new,
+        WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WeatherStatusSetModeResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
-        WeatherStatusUsePersonalAddressResponseApplicationJson.new,
+        WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusUsePersonalAddressResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs),
-        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.new,
+        WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data),
-        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.new,
+        WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetLocationResponseApplicationJson),
-        WeatherStatusGetLocationResponseApplicationJson.new,
+        WeatherStatusGetLocationResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusGetLocationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs),
-        WeatherStatusGetLocationResponseApplicationJson_Ocs.new,
+        WeatherStatusGetLocationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs_Data),
-        WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.new,
+        WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetLocationResponseApplicationJson),
-        WeatherStatusSetLocationResponseApplicationJson.new,
+        WeatherStatusSetLocationResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusSetLocationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetLocationResponseApplicationJson_Ocs),
-        WeatherStatusSetLocationResponseApplicationJson_Ocs.new,
+        WeatherStatusSetLocationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetLocationResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.new,
+        WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetForecastResponseApplicationJson),
-        WeatherStatusGetForecastResponseApplicationJson.new,
+        WeatherStatusGetForecastResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusGetForecastResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs),
-        WeatherStatusGetForecastResponseApplicationJson_Ocs.new,
+        WeatherStatusGetForecastResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Forecast), Forecast.new)
+      ..addBuilderFactory(const FullType(Forecast), ForecastBuilder.new)
       ..add(Forecast.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data), Forecast_Data.new)
+      ..addBuilderFactory(const FullType(Forecast_Data), Forecast_DataBuilder.new)
       ..add(Forecast_Data.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Instant), Forecast_Data_Instant.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Instant), Forecast_Data_InstantBuilder.new)
       ..add(Forecast_Data_Instant.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Instant_Details), Forecast_Data_Instant_Details.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Instant_Details), Forecast_Data_Instant_DetailsBuilder.new)
       ..add(Forecast_Data_Instant_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours), Forecast_Data_Next12Hours.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours), Forecast_Data_Next12HoursBuilder.new)
       ..add(Forecast_Data_Next12Hours.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours_Summary), Forecast_Data_Next12Hours_Summary.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next12Hours_Summary),
+        Forecast_Data_Next12Hours_SummaryBuilder.new,
+      )
       ..add(Forecast_Data_Next12Hours_Summary.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours_Details), Forecast_Data_Next12Hours_Details.new)
+      ..addBuilderFactory(
+        const FullType(Forecast_Data_Next12Hours_Details),
+        Forecast_Data_Next12Hours_DetailsBuilder.new,
+      )
       ..add(Forecast_Data_Next12Hours_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours), Forecast_Data_Next1Hours.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours), Forecast_Data_Next1HoursBuilder.new)
       ..add(Forecast_Data_Next1Hours.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Summary), Forecast_Data_Next1Hours_Summary.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Summary), Forecast_Data_Next1Hours_SummaryBuilder.new)
       ..add(Forecast_Data_Next1Hours_Summary.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Details), Forecast_Data_Next1Hours_Details.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours_Details), Forecast_Data_Next1Hours_DetailsBuilder.new)
       ..add(Forecast_Data_Next1Hours_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours), Forecast_Data_Next6Hours.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours), Forecast_Data_Next6HoursBuilder.new)
       ..add(Forecast_Data_Next6Hours.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Summary), Forecast_Data_Next6Hours_Summary.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Summary), Forecast_Data_Next6Hours_SummaryBuilder.new)
       ..add(Forecast_Data_Next6Hours_Summary.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Details), Forecast_Data_Next6Hours_Details.new)
+      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours_Details), Forecast_Data_Next6Hours_DetailsBuilder.new)
       ..add(Forecast_Data_Next6Hours_Details.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Forecast)]), ListBuilder<Forecast>.new)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
-        WeatherStatusGetFavoritesResponseApplicationJson.new,
+        WeatherStatusGetFavoritesResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusGetFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusGetFavoritesResponseApplicationJson_Ocs),
-        WeatherStatusGetFavoritesResponseApplicationJson_Ocs.new,
+        WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusGetFavoritesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
-        WeatherStatusSetFavoritesResponseApplicationJson.new,
+        WeatherStatusSetFavoritesResponseApplicationJsonBuilder.new,
       )
       ..add(WeatherStatusSetFavoritesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetFavoritesResponseApplicationJson_Ocs),
-        WeatherStatusSetFavoritesResponseApplicationJson_Ocs.new,
+        WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data),
-        WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.new,
+        WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_WeatherStatus), Capabilities_WeatherStatus.new)
+      ..addBuilderFactory(const FullType(Capabilities_WeatherStatus), Capabilities_WeatherStatusBuilder.new)
       ..add(Capabilities_WeatherStatus.serializer))
     .build();
 

@@ -369,11 +369,11 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(GetHeaders), GetHeaders.new)
+      ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
       ..add(GetHeaders.serializer)
-      ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeaders.new)
+      ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
       ..add(WithContentOperationIdHeaders.serializer)
-      ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeaders.new)
+      ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeadersBuilder.new)
       ..add(GetWithContentHeaders.serializer))
     .build();
 

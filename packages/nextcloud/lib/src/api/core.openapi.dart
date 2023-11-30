@@ -11468,219 +11468,222 @@ abstract class WipeCheckWipeResponseApplicationJson
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Status), Status.new)
+      ..addBuilderFactory(const FullType(Status), StatusBuilder.new)
       ..add(Status.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
-        AppPasswordGetAppPasswordResponseApplicationJson.new,
+        AppPasswordGetAppPasswordResponseApplicationJsonBuilder.new,
       )
       ..add(AppPasswordGetAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordGetAppPasswordResponseApplicationJson_Ocs.new,
+        AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data),
-        AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.new,
+        AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
-        AppPasswordRotateAppPasswordResponseApplicationJson.new,
+        AppPasswordRotateAppPasswordResponseApplicationJsonBuilder.new,
       )
       ..add(AppPasswordRotateAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.new,
+        AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data),
-        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.new,
+        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
-        AppPasswordDeleteAppPasswordResponseApplicationJson.new,
+        AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder.new,
       )
       ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.new,
+        AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(AutoCompleteGetResponseApplicationJson),
-        AutoCompleteGetResponseApplicationJson.new,
+        AutoCompleteGetResponseApplicationJsonBuilder.new,
       )
       ..add(AutoCompleteGetResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(AutoCompleteGetResponseApplicationJson_Ocs),
-        AutoCompleteGetResponseApplicationJson_Ocs.new,
+        AutoCompleteGetResponseApplicationJson_OcsBuilder.new,
       )
       ..add(AutoCompleteGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResult.new)
+      ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResultBuilder.new)
       ..add(AutocompleteResult.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult_Status), AutocompleteResult_Status.new)
+      ..addBuilderFactory(const FullType(AutocompleteResult_Status), AutocompleteResult_StatusBuilder.new)
       ..add(AutocompleteResult_Status.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0.new)
+      ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0Builder.new)
       ..add(AutocompleteResult_Status0.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AutocompleteResult)]),
         ListBuilder<AutocompleteResult>.new,
       )
-      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeaders.new)
+      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeaders.new)
+      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarHeaders.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2Credentials.new)
+      ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2CredentialsBuilder.new)
       ..add(LoginFlowV2Credentials.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2), LoginFlowV2.new)
+      ..addBuilderFactory(const FullType(LoginFlowV2), LoginFlowV2Builder.new)
       ..add(LoginFlowV2.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_Poll.new)
+      ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_PollBuilder.new)
       ..add(LoginFlowV2_Poll.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
-        CollaborationResourcesSearchCollectionsResponseApplicationJson.new,
+        CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
-        CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.new,
+        CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Collection), Collection.new)
+      ..addBuilderFactory(const FullType(Collection), CollectionBuilder.new)
       ..add(Collection.serializer)
-      ..addBuilderFactory(const FullType(Resource), Resource.new)
+      ..addBuilderFactory(const FullType(Resource), ResourceBuilder.new)
       ..add(Resource.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
       )
-      ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObject.new)
+      ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObjectBuilder.new)
       ..add(OpenGraphObject.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Resource)]), ListBuilder<Resource>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
-        CollaborationResourcesListCollectionResponseApplicationJson.new,
+        CollaborationResourcesListCollectionResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
-        CollaborationResourcesListCollectionResponseApplicationJson_Ocs.new,
+        CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
-        CollaborationResourcesRenameCollectionResponseApplicationJson.new,
+        CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesRenameCollectionResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs),
-        CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.new,
+        CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
-        CollaborationResourcesAddResourceResponseApplicationJson.new,
+        CollaborationResourcesAddResourceResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesAddResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesAddResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesAddResourceResponseApplicationJson_Ocs.new,
+        CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
-        CollaborationResourcesRemoveResourceResponseApplicationJson.new,
+        CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesRemoveResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.new,
+        CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.new,
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.new,
+        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.new,
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder.new,
       )
       ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.new,
+        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson),
-        HoverCardGetUserResponseApplicationJson.new,
+        HoverCardGetUserResponseApplicationJsonBuilder.new,
       )
       ..add(HoverCardGetUserResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson_Ocs),
-        HoverCardGetUserResponseApplicationJson_Ocs.new,
+        HoverCardGetUserResponseApplicationJson_OcsBuilder.new,
       )
       ..add(HoverCardGetUserResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(HoverCardGetUserResponseApplicationJson_Ocs_Data),
-        HoverCardGetUserResponseApplicationJson_Ocs_Data.new,
+        HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(HoverCardGetUserResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(ContactsAction), ContactsAction.new)
+      ..addBuilderFactory(const FullType(ContactsAction), ContactsActionBuilder.new)
       ..add(ContactsAction.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
       ..addBuilderFactory(
         const FullType(NavigationGetAppsNavigationResponseApplicationJson),
-        NavigationGetAppsNavigationResponseApplicationJson.new,
+        NavigationGetAppsNavigationResponseApplicationJsonBuilder.new,
       )
       ..add(NavigationGetAppsNavigationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetAppsNavigationResponseApplicationJson_Ocs),
-        NavigationGetAppsNavigationResponseApplicationJson_Ocs.new,
+        NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntry.new)
+      ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
       ..add(NavigationEntry.serializer)
-      ..addBuilderFactory(const FullType(NavigationEntry_Order), NavigationEntry_Order.new)
+      ..addBuilderFactory(const FullType(NavigationEntry_Order), NavigationEntry_OrderBuilder.new)
       ..add(NavigationEntry_Order.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
-        NavigationGetSettingsNavigationResponseApplicationJson.new,
+        NavigationGetSettingsNavigationResponseApplicationJsonBuilder.new,
       )
       ..add(NavigationGetSettingsNavigationResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson_Ocs),
-        NavigationGetSettingsNavigationResponseApplicationJson_Ocs.new,
+        NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder.new,
       )
       ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeaders.new)
+      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
       ..add(OcmOcmDiscoveryHeaders.serializer)
-      ..addBuilderFactory(const FullType(OcmDiscoveryResponseApplicationJson), OcmDiscoveryResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(OcmDiscoveryResponseApplicationJson),
+        OcmDiscoveryResponseApplicationJsonBuilder.new,
+      )
       ..add(OcmDiscoveryResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes),
-        OcmDiscoveryResponseApplicationJson_ResourceTypes.new,
+        OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder.new,
       )
       ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
-        OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.new,
+        OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder.new,
       )
       ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
       ..addBuilderFactory(
@@ -11689,256 +11692,262 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson),
-        OcsGetCapabilitiesResponseApplicationJson.new,
+        OcsGetCapabilitiesResponseApplicationJsonBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs.new,
+        OcsGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.new,
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.new,
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
       ..addBuilderFactory(
         const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.new,
+        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesBuilder.new,
       )
       ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities.serializer)
-      ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilities.new)
+      ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilitiesBuilder.new)
       ..add(CommentsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_Files.new)
+      ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_FilesBuilder.new)
       ..add(CommentsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilities.new)
+      ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilitiesBuilder.new)
       ..add(DavCapabilities.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_Dav.new)
+      ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_DavBuilder.new)
       ..add(DavCapabilities_Dav.serializer)
-      ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilities.new)
+      ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilitiesBuilder.new)
       ..add(FilesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_Files.new)
+      ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_FilesBuilder.new)
       ..add(FilesCapabilities_Files.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(
         const FullType(FilesCapabilities_Files_DirectEditing),
-        FilesCapabilities_Files_DirectEditing.new,
+        FilesCapabilities_Files_DirectEditingBuilder.new,
       )
       ..add(FilesCapabilities_Files_DirectEditing.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingCapabilities), FilesSharingCapabilities.new)
+      ..addBuilderFactory(const FullType(FilesSharingCapabilities), FilesSharingCapabilitiesBuilder.new)
       ..add(FilesSharingCapabilities.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing),
-        FilesSharingCapabilities_FilesSharing.new,
+        FilesSharingCapabilities_FilesSharingBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Public),
-        FilesSharingCapabilities_FilesSharing_Public.new,
+        FilesSharingCapabilities_FilesSharing_PublicBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Public.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Public_Password),
-        FilesSharingCapabilities_FilesSharing_Public_Password.new,
+        FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Public_Password.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDate.new,
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.new,
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.new,
+        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_User),
-        FilesSharingCapabilities_FilesSharing_User.new,
+        FilesSharingCapabilities_FilesSharing_UserBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_User.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_User_ExpireDate.new,
+        FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Group),
-        FilesSharingCapabilities_FilesSharing_Group.new,
+        FilesSharingCapabilities_FilesSharing_GroupBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Group.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Group_ExpireDate.new,
+        FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Federation),
-        FilesSharingCapabilities_FilesSharing_Federation.new,
+        FilesSharingCapabilities_FilesSharing_FederationBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Federation.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.new,
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.new,
+        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
       ..addBuilderFactory(
         const FullType(FilesSharingCapabilities_FilesSharing_Sharee),
-        FilesSharingCapabilities_FilesSharing_Sharee.new,
+        FilesSharingCapabilities_FilesSharing_ShareeBuilder.new,
       )
       ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer)
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilities.new)
+      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilitiesBuilder.new)
       ..add(FilesTrashbinCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities_Files), FilesTrashbinCapabilities_Files.new)
+      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities_Files), FilesTrashbinCapabilities_FilesBuilder.new)
       ..add(FilesTrashbinCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilities.new)
+      ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilitiesBuilder.new)
       ..add(FilesVersionsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesVersionsCapabilities_Files), FilesVersionsCapabilities_Files.new)
+      ..addBuilderFactory(const FullType(FilesVersionsCapabilities_Files), FilesVersionsCapabilities_FilesBuilder.new)
       ..add(FilesVersionsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilities.new)
+      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilitiesBuilder.new)
       ..add(NotesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_Notes.new)
+      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
       ..add(NotesCapabilities_Notes.serializer)
-      ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilities.new)
+      ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
       ..add(NotificationsCapabilities.serializer)
       ..addBuilderFactory(
         const FullType(NotificationsCapabilities_Notifications),
-        NotificationsCapabilities_Notifications.new,
+        NotificationsCapabilities_NotificationsBuilder.new,
       )
       ..add(NotificationsCapabilities_Notifications.serializer)
-      ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilities.new)
+      ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilitiesBuilder.new)
       ..add(ProvisioningApiCapabilities.serializer)
       ..addBuilderFactory(
         const FullType(ProvisioningApiCapabilities_ProvisioningApi),
-        ProvisioningApiCapabilities_ProvisioningApi.new,
+        ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
       )
       ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilities.new)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
       ..add(SharebymailCapabilities.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0.new)
+      ..addBuilderFactory(const FullType(SharebymailCapabilities0), SharebymailCapabilities0Builder.new)
       ..add(SharebymailCapabilities0.serializer)
       ..addBuilderFactory(
         const FullType(SharebymailCapabilities0_FilesSharing),
-        SharebymailCapabilities0_FilesSharing.new,
+        SharebymailCapabilities0_FilesSharingBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing.serializer)
       ..addBuilderFactory(
         const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail),
-        SharebymailCapabilities0_FilesSharing_Sharebymail.new,
+        SharebymailCapabilities0_FilesSharing_SharebymailBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail.serializer)
       ..addBuilderFactory(
         const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.new,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
       ..addBuilderFactory(
         const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_Password),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_Password.new,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_Password.serializer)
       ..addBuilderFactory(
         const FullType(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate),
-        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.new,
+        SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilities.new)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
       ..add(SpreedPublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0.new)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_Spreed.new)
+      ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_SpreedBuilder.new)
       ..add(SpreedPublicCapabilities0_Spreed.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config),
-        SpreedPublicCapabilities0_Spreed_Config.new,
+        SpreedPublicCapabilities0_Spreed_ConfigBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Attachments),
-        SpreedPublicCapabilities0_Spreed_Config_Attachments.new,
+        SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Attachments.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Call),
-        SpreedPublicCapabilities0_Spreed_Config_Call.new,
+        SpreedPublicCapabilities0_Spreed_Config_CallBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Call.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Chat),
-        SpreedPublicCapabilities0_Spreed_Config_Chat.new,
+        SpreedPublicCapabilities0_Spreed_Config_ChatBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Chat.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Conversations),
-        SpreedPublicCapabilities0_Spreed_Config_Conversations.new,
+        SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Conversations.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Previews),
-        SpreedPublicCapabilities0_Spreed_Config_Previews.new,
+        SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Previews.serializer)
       ..addBuilderFactory(
         const FullType(SpreedPublicCapabilities0_Spreed_Config_Signaling),
-        SpreedPublicCapabilities0_Spreed_Config_Signaling.new,
+        SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
-      ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilities.new)
+      ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(ThemingPublicCapabilities_Theming), ThemingPublicCapabilities_Theming.new)
+      ..addBuilderFactory(
+        const FullType(ThemingPublicCapabilities_Theming),
+        ThemingPublicCapabilities_ThemingBuilder.new,
+      )
       ..add(ThemingPublicCapabilities_Theming.serializer)
-      ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilities.new)
+      ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilitiesBuilder.new)
       ..add(UserStatusCapabilities.serializer)
-      ..addBuilderFactory(const FullType(UserStatusCapabilities_UserStatus), UserStatusCapabilities_UserStatus.new)
+      ..addBuilderFactory(
+        const FullType(UserStatusCapabilities_UserStatus),
+        UserStatusCapabilities_UserStatusBuilder.new,
+      )
       ..add(UserStatusCapabilities_UserStatus.serializer)
-      ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilities.new)
+      ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilitiesBuilder.new)
       ..add(WeatherStatusCapabilities.serializer)
       ..addBuilderFactory(
         const FullType(WeatherStatusCapabilities_WeatherStatus),
-        WeatherStatusCapabilities_WeatherStatus.new,
+        WeatherStatusCapabilities_WeatherStatusBuilder.new,
       )
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson),
-        ProfileApiSetVisibilityResponseApplicationJson.new,
+        ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
       )
       ..add(ProfileApiSetVisibilityResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson_Ocs),
-        ProfileApiSetVisibilityResponseApplicationJson_Ocs.new,
+        ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson),
-        ReferenceApiResolveOneResponseApplicationJson.new,
+        ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
       )
       ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
-        ReferenceApiResolveOneResponseApplicationJson_Ocs.new,
+        ReferenceApiResolveOneResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.new,
+        ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Reference), Reference.new)
+      ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
       ..add(Reference.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(Reference)]),
@@ -11946,80 +11955,80 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveResponseApplicationJson),
-        ReferenceApiResolveResponseApplicationJson.new,
+        ReferenceApiResolveResponseApplicationJsonBuilder.new,
       )
       ..add(ReferenceApiResolveResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
-        ReferenceApiResolveResponseApplicationJson_Ocs.new,
+        ReferenceApiResolveResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveResponseApplicationJson_Ocs_Data.new,
+        ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiExtractResponseApplicationJson),
-        ReferenceApiExtractResponseApplicationJson.new,
+        ReferenceApiExtractResponseApplicationJsonBuilder.new,
       )
       ..add(ReferenceApiExtractResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiExtractResponseApplicationJson_Ocs),
-        ReferenceApiExtractResponseApplicationJson_Ocs.new,
+        ReferenceApiExtractResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReferenceApiExtractResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data),
-        ReferenceApiExtractResponseApplicationJson_Ocs_Data.new,
+        ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
-        ReferenceApiGetProvidersInfoResponseApplicationJson.new,
+        ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder.new,
       )
       ..add(ReferenceApiGetProvidersInfoResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs),
-        ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.new,
+        ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProvider.new)
+      ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProviderBuilder.new)
       ..add(ReferenceProvider.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ReferenceProvider)]), ListBuilder<ReferenceProvider>.new)
       ..addBuilderFactory(
         const FullType(ReferenceApiTouchProviderResponseApplicationJson),
-        ReferenceApiTouchProviderResponseApplicationJson.new,
+        ReferenceApiTouchProviderResponseApplicationJsonBuilder.new,
       )
       ..add(ReferenceApiTouchProviderResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs),
-        ReferenceApiTouchProviderResponseApplicationJson_Ocs.new,
+        ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data),
-        ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.new,
+        ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
-        TextProcessingApiTaskTypesResponseApplicationJson.new,
+        TextProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
       )
       ..add(TextProcessingApiTaskTypesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs),
-        TextProcessingApiTaskTypesResponseApplicationJson_Ocs.new,
+        TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
-        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.new,
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types),
-        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.new,
+        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder.new,
       )
       ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.serializer)
       ..addBuilderFactory(
@@ -12028,64 +12037,64 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(TextProcessingApiScheduleResponseApplicationJson),
-        TextProcessingApiScheduleResponseApplicationJson.new,
+        TextProcessingApiScheduleResponseApplicationJsonBuilder.new,
       )
       ..add(TextProcessingApiScheduleResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs),
-        TextProcessingApiScheduleResponseApplicationJson_Ocs.new,
+        TextProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data),
-        TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.new,
+        TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTask.new)
+      ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTaskBuilder.new)
       ..add(TextProcessingTask.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiGetTaskResponseApplicationJson),
-        TextProcessingApiGetTaskResponseApplicationJson.new,
+        TextProcessingApiGetTaskResponseApplicationJsonBuilder.new,
       )
       ..add(TextProcessingApiGetTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs),
-        TextProcessingApiGetTaskResponseApplicationJson_Ocs.new,
+        TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
-        TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.new,
+        TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
-        TextProcessingApiDeleteTaskResponseApplicationJson.new,
+        TextProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
       )
       ..add(TextProcessingApiDeleteTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs),
-        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.new,
+        TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data),
-        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.new,
+        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
-        TextProcessingApiListTasksByAppResponseApplicationJson.new,
+        TextProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
       )
       ..add(TextProcessingApiListTasksByAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs),
-        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.new,
+        TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.new,
+        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
@@ -12094,100 +12103,100 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(TextToImageApiIsAvailableResponseApplicationJson),
-        TextToImageApiIsAvailableResponseApplicationJson.new,
+        TextToImageApiIsAvailableResponseApplicationJsonBuilder.new,
       )
       ..add(TextToImageApiIsAvailableResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs),
-        TextToImageApiIsAvailableResponseApplicationJson_Ocs.new,
+        TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data),
-        TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.new,
+        TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiScheduleResponseApplicationJson),
-        TextToImageApiScheduleResponseApplicationJson.new,
+        TextToImageApiScheduleResponseApplicationJsonBuilder.new,
       )
       ..add(TextToImageApiScheduleResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs),
-        TextToImageApiScheduleResponseApplicationJson_Ocs.new,
+        TextToImageApiScheduleResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextToImageApiScheduleResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data),
-        TextToImageApiScheduleResponseApplicationJson_Ocs_Data.new,
+        TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextToImageApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTask.new)
+      ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTaskBuilder.new)
       ..add(TextToImageTask.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiGetTaskResponseApplicationJson),
-        TextToImageApiGetTaskResponseApplicationJson.new,
+        TextToImageApiGetTaskResponseApplicationJsonBuilder.new,
       )
       ..add(TextToImageApiGetTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs),
-        TextToImageApiGetTaskResponseApplicationJson_Ocs.new,
+        TextToImageApiGetTaskResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data),
-        TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.new,
+        TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
-        TextToImageApiDeleteTaskResponseApplicationJson.new,
+        TextToImageApiDeleteTaskResponseApplicationJsonBuilder.new,
       )
       ..add(TextToImageApiDeleteTaskResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs),
-        TextToImageApiDeleteTaskResponseApplicationJson_Ocs.new,
+        TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data),
-        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.new,
+        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
-        TextToImageApiListTasksByAppResponseApplicationJson.new,
+        TextToImageApiListTasksByAppResponseApplicationJsonBuilder.new,
       )
       ..add(TextToImageApiListTasksByAppResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs),
-        TextToImageApiListTasksByAppResponseApplicationJson_Ocs.new,
+        TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.new,
+        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(TextToImageTask)]), ListBuilder<TextToImageTask>.new)
       ..addBuilderFactory(
         const FullType(TranslationApiLanguagesResponseApplicationJson),
-        TranslationApiLanguagesResponseApplicationJson.new,
+        TranslationApiLanguagesResponseApplicationJsonBuilder.new,
       )
       ..add(TranslationApiLanguagesResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs),
-        TranslationApiLanguagesResponseApplicationJson_Ocs.new,
+        TranslationApiLanguagesResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TranslationApiLanguagesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data),
-        TranslationApiLanguagesResponseApplicationJson_Ocs_Data.new,
+        TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages),
-        TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.new,
+        TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder.new,
       )
       ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.serializer)
       ..addBuilderFactory(
@@ -12196,92 +12205,95 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(TranslationApiTranslateResponseApplicationJson),
-        TranslationApiTranslateResponseApplicationJson.new,
+        TranslationApiTranslateResponseApplicationJsonBuilder.new,
       )
       ..add(TranslationApiTranslateResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(TranslationApiTranslateResponseApplicationJson_Ocs),
-        TranslationApiTranslateResponseApplicationJson_Ocs.new,
+        TranslationApiTranslateResponseApplicationJson_OcsBuilder.new,
       )
       ..add(TranslationApiTranslateResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(TranslationApiTranslateResponseApplicationJson_Ocs_Data),
-        TranslationApiTranslateResponseApplicationJson_Ocs_Data.new,
+        TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
-        UnifiedSearchGetProvidersResponseApplicationJson.new,
+        UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
       )
       ..add(UnifiedSearchGetProvidersResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchGetProvidersResponseApplicationJson_Ocs),
-        UnifiedSearchGetProvidersResponseApplicationJson_Ocs.new,
+        UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UnifiedSearchGetProvidersResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProvider.new)
+      ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProviderBuilder.new)
       ..add(UnifiedSearchProvider.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
         ListBuilder<UnifiedSearchProvider>.new,
       )
-      ..addBuilderFactory(const FullType(UnifiedSearchSearchCursor), UnifiedSearchSearchCursor.new)
+      ..addBuilderFactory(const FullType(UnifiedSearchSearchCursor), UnifiedSearchSearchCursorBuilder.new)
       ..add(UnifiedSearchSearchCursor.serializer)
       ..addBuilderFactory(
         const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
-        ContentString<UnifiedSearchSearchCursor>.new,
+        ContentStringBuilder<UnifiedSearchSearchCursor>.new,
       )
       ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
-        UnifiedSearchSearchResponseApplicationJson.new,
+        UnifiedSearchSearchResponseApplicationJsonBuilder.new,
       )
       ..add(UnifiedSearchSearchResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson_Ocs),
-        UnifiedSearchSearchResponseApplicationJson_Ocs.new,
+        UnifiedSearchSearchResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UnifiedSearchSearchResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchResult), UnifiedSearchResult.new)
+      ..addBuilderFactory(const FullType(UnifiedSearchResult), UnifiedSearchResultBuilder.new)
       ..add(UnifiedSearchResult.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchResultEntry), UnifiedSearchResultEntry.new)
+      ..addBuilderFactory(const FullType(UnifiedSearchResultEntry), UnifiedSearchResultEntryBuilder.new)
       ..add(UnifiedSearchResultEntry.serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]),
         ListBuilder<UnifiedSearchResultEntry>.new,
       )
-      ..addBuilderFactory(const FullType(UnifiedSearchResult_Cursor), UnifiedSearchResult_Cursor.new)
+      ..addBuilderFactory(const FullType(UnifiedSearchResult_Cursor), UnifiedSearchResult_CursorBuilder.new)
       ..add(UnifiedSearchResult_Cursor.serializer)
-      ..addBuilderFactory(const FullType(WhatsNewGetResponseApplicationJson), WhatsNewGetResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(WhatsNewGetResponseApplicationJson),
+        WhatsNewGetResponseApplicationJsonBuilder.new,
+      )
       ..add(WhatsNewGetResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewGetResponseApplicationJson_Ocs),
-        WhatsNewGetResponseApplicationJson_Ocs.new,
+        WhatsNewGetResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WhatsNewGetResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data),
-        WhatsNewGetResponseApplicationJson_Ocs_Data.new,
+        WhatsNewGetResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(WhatsNewGetResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew),
-        WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.new,
+        WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder.new,
       )
       ..add(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewDismissResponseApplicationJson),
-        WhatsNewDismissResponseApplicationJson.new,
+        WhatsNewDismissResponseApplicationJsonBuilder.new,
       )
       ..add(WhatsNewDismissResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(WhatsNewDismissResponseApplicationJson_Ocs),
-        WhatsNewDismissResponseApplicationJson_Ocs.new,
+        WhatsNewDismissResponseApplicationJson_OcsBuilder.new,
       )
       ..add(WhatsNewDismissResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(
         const FullType(WipeCheckWipeResponseApplicationJson),
-        WipeCheckWipeResponseApplicationJson.new,
+        WipeCheckWipeResponseApplicationJsonBuilder.new,
       )
       ..add(WipeCheckWipeResponseApplicationJson.serializer))
     .build();

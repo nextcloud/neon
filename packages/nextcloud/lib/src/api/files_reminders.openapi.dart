@@ -594,26 +594,32 @@ abstract class ApiRemoveResponseApplicationJson
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
       ..add(ApiGetResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson_Ocs), ApiGetResponseApplicationJson_Ocs.new)
+      ..addBuilderFactory(
+        const FullType(ApiGetResponseApplicationJson_Ocs),
+        ApiGetResponseApplicationJson_OcsBuilder.new,
+      )
       ..add(ApiGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetResponseApplicationJson_Ocs_Data),
-        ApiGetResponseApplicationJson_Ocs_Data.new,
+        ApiGetResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(ApiGetResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJsonBuilder.new)
       ..add(ApiSetResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson_Ocs), ApiSetResponseApplicationJson_Ocs.new)
+      ..addBuilderFactory(
+        const FullType(ApiSetResponseApplicationJson_Ocs),
+        ApiSetResponseApplicationJson_OcsBuilder.new,
+      )
       ..add(ApiSetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ApiRemoveResponseApplicationJson), ApiRemoveResponseApplicationJson.new)
+      ..addBuilderFactory(const FullType(ApiRemoveResponseApplicationJson), ApiRemoveResponseApplicationJsonBuilder.new)
       ..add(ApiRemoveResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(ApiRemoveResponseApplicationJson_Ocs),
-        ApiRemoveResponseApplicationJson_Ocs.new,
+        ApiRemoveResponseApplicationJson_OcsBuilder.new,
       )
       ..add(ApiRemoveResponseApplicationJson_Ocs.serializer))
     .build();

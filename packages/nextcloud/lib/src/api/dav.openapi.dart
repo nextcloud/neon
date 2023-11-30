@@ -318,23 +318,26 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(DirectGetUrlResponseApplicationJson), DirectGetUrlResponseApplicationJson.new)
+      ..addBuilderFactory(
+        const FullType(DirectGetUrlResponseApplicationJson),
+        DirectGetUrlResponseApplicationJsonBuilder.new,
+      )
       ..add(DirectGetUrlResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DirectGetUrlResponseApplicationJson_Ocs),
-        DirectGetUrlResponseApplicationJson_Ocs.new,
+        DirectGetUrlResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DirectGetUrlResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
       ..addBuilderFactory(
         const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data),
-        DirectGetUrlResponseApplicationJson_Ocs_Data.new,
+        DirectGetUrlResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(DirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), Capabilities.new)
+      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_Dav.new)
+      ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_DavBuilder.new)
       ..add(Capabilities_Dav.serializer))
     .build();
 

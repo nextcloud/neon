@@ -154,11 +154,11 @@ class _$SomeOfRedirectSerializer implements PrimitiveSerializer<SomeOfRedirect> 
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Base), Base.new)
+      ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
       ..add(Base.serializer)
-      ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirect.new)
+      ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
       ..add(NestedRedirect.serializer)
-      ..addBuilderFactory(const FullType(SomeOfRedirect), SomeOfRedirect.new)
+      ..addBuilderFactory(const FullType(SomeOfRedirect), SomeOfRedirectBuilder.new)
       ..add(SomeOfRedirect.serializer))
     .build();
 

@@ -145,15 +145,15 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOf.new)
+      ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
       ..add(ObjectAllOf.serializer)
-      ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOf.new)
+      ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOfBuilder.new)
       ..add(OneObjectAllOf.serializer)
-      ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOf.new)
+      ..addBuilderFactory(const FullType(PrimitiveAllOf), PrimitiveAllOfBuilder.new)
       ..add(PrimitiveAllOf.serializer)
-      ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOf.new)
+      ..addBuilderFactory(const FullType(MixedAllOf), MixedAllOfBuilder.new)
       ..add(MixedAllOf.serializer)
-      ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOf.new)
+      ..addBuilderFactory(const FullType(OneValueAllOf), OneValueAllOfBuilder.new)
       ..add(OneValueAllOf.serializer))
     .build();
 

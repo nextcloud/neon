@@ -702,20 +702,20 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetsResponseApplicationJson),
-        DashboardApiGetWidgetsResponseApplicationJson.new,
+        DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
       )
       ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetsResponseApplicationJson_Ocs.new,
+        DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMeta.new)
+      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
       ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Widget), Widget.new)
+      ..addBuilderFactory(const FullType(Widget), WidgetBuilder.new)
       ..add(Widget.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_Buttons.new)
+      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_ButtonsBuilder.new)
       ..add(Widget_Buttons.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
       ..addBuilderFactory(
@@ -730,21 +730,21 @@ final Serializers _serializers = (Serializers().toBuilder()
         const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(String)]),
         ]),
-        ContentString<BuiltMap<String, String>>.new,
+        ContentStringBuilder<BuiltMap<String, String>>.new,
       )
       ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
-        DashboardApiGetWidgetItemsResponseApplicationJson.new,
+        DashboardApiGetWidgetItemsResponseApplicationJsonBuilder.new,
       )
       ..add(DashboardApiGetWidgetItemsResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.new,
+        DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(WidgetItem), WidgetItem.new)
+      ..addBuilderFactory(const FullType(WidgetItem), WidgetItemBuilder.new)
       ..add(WidgetItem.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(WidgetItem)]), ListBuilder<WidgetItem>.new)
       ..addBuilderFactory(
@@ -756,15 +756,15 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
-        DashboardApiGetWidgetItemsV2ResponseApplicationJson.new,
+        DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder.new,
       )
       ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson.serializer)
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.new,
+        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder.new,
       )
       ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(WidgetItems), WidgetItems.new)
+      ..addBuilderFactory(const FullType(WidgetItems), WidgetItemsBuilder.new)
       ..add(WidgetItems.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),

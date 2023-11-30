@@ -9,10 +9,11 @@ class TypeResultObject extends TypeResult {
     super.generics,
     super.nullable,
     super.isTypeDef,
-  }) : assert(
+  })  : assert(
           className != 'JsonObject' && className != 'Object' && className != 'dynamic',
           'Use TypeResultBase instead',
-        );
+        ),
+        super(builderName: '${className}Builder');
 
   @override
   String encode(
