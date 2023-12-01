@@ -7,9 +7,9 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 
 part 'type_defs.openapi.g.dart';
 
@@ -34,13 +34,13 @@ class Client extends DynamiteClient {
 
 typedef TypeResultBase = int;
 
-typedef EmptySchema = JsonObject;
+typedef EmptySchema = dynamic;
 
 typedef Redirect = Base;
 
 typedef RedirectBaseType = int;
 
-typedef RedirectEmptyType = JsonObject;
+typedef RedirectEmptyType = dynamic;
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterface {
@@ -79,76 +79,70 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
   static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $SomeOfRedirectInterface {
-  Base? get base;
-  int? get $int;
-  JsonObject? get jsonObject;
+typedef SomeOfRedirect = ({Base? base, int? $int, JsonObject? jsonObject});
+
+typedef $BaseIntJsonObject = ({Base? base, int? $int, JsonObject? jsonObject});
+
+extension $BaseIntJsonObjectExtension on $BaseIntJsonObject {
+  List<dynamic> get _values => [base, $int, jsonObject];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BaseIntJsonObject> get serializer => const _$BaseIntJsonObjectSerializer();
+  static $BaseIntJsonObject fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class SomeOfRedirect implements $SomeOfRedirectInterface, Built<SomeOfRedirect, SomeOfRedirectBuilder> {
-  factory SomeOfRedirect([final void Function(SomeOfRedirectBuilder)? b]) = _$SomeOfRedirect;
-
-  const SomeOfRedirect._();
-
-  factory SomeOfRedirect.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<SomeOfRedirect> get serializer => _$SomeOfRedirectSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SomeOfRedirectBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._base, b._$int, b._jsonObject].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'base', '$int', 'jsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$SomeOfRedirectSerializer implements PrimitiveSerializer<SomeOfRedirect> {
-  @override
-  final Iterable<Type> types = const [SomeOfRedirect, _$SomeOfRedirect];
+class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonObject> {
+  const _$BaseIntJsonObjectSerializer();
 
   @override
-  final String wireName = 'SomeOfRedirect';
+  Iterable<Type> get types => const [$BaseIntJsonObject];
+
+  @override
+  String get wireName => r'$BaseIntJsonObject';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final SomeOfRedirect object, {
+    final $BaseIntJsonObject object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.base;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(Base))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.jsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(JsonObject))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  SomeOfRedirect deserialize(
+  $BaseIntJsonObject deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = SomeOfRedirectBuilder()..data = JsonObject(data);
+    Base? base;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
-      result.base.replace(value);
+      base = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
     } catch (_) {}
+    int? $int;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
+    JsonObject? jsonObject;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
-      result.jsonObject = value;
+      jsonObject = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
     } catch (_) {}
-    return result.build();
+    return (base: base, $int: $int, jsonObject: jsonObject);
   }
 }
 
@@ -158,8 +152,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(Base.serializer)
       ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
       ..add(NestedRedirect.serializer)
-      ..addBuilderFactory(const FullType(SomeOfRedirect), SomeOfRedirectBuilder.new)
-      ..add(SomeOfRedirect.serializer))
+      ..add($BaseIntJsonObjectExtension.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

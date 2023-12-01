@@ -4,12 +4,11 @@
 // ignore_for_file: unreachable_switch_case
 
 import 'package:built_value/built_value.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 
 part 'one_of.openapi.g.dart';
 
@@ -31,6 +30,10 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 }
+
+typedef OneObjectOneOf = OneObjectOneOf0;
+
+typedef OneValueOneOf = String;
 
 @BuiltValue(instantiable: false)
 abstract interface class $ObjectOneOf0Interface {
@@ -69,73 +72,6 @@ abstract class ObjectOneOf1 implements $ObjectOneOf1Interface, Built<ObjectOneOf
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $ObjectOneOfInterface {
-  ObjectOneOf0? get objectOneOf0;
-  ObjectOneOf1? get objectOneOf1;
-}
-
-abstract class ObjectOneOf implements $ObjectOneOfInterface, Built<ObjectOneOf, ObjectOneOfBuilder> {
-  factory ObjectOneOf([final void Function(ObjectOneOfBuilder)? b]) = _$ObjectOneOf;
-
-  const ObjectOneOf._();
-
-  factory ObjectOneOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<ObjectOneOf> get serializer => _$ObjectOneOfSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ObjectOneOfBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._objectOneOf0, b._objectOneOf1].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'objectOneOf0', 'objectOneOf1' for ${b._data}");
-    }
-  }
-}
-
-class _$ObjectOneOfSerializer implements PrimitiveSerializer<ObjectOneOf> {
-  @override
-  final Iterable<Type> types = const [ObjectOneOf, _$ObjectOneOf];
-
-  @override
-  final String wireName = 'ObjectOneOf';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final ObjectOneOf object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  ObjectOneOf deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = ObjectOneOfBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectOneOf0))! as ObjectOneOf0;
-      result.objectOneOf0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectOneOf1))! as ObjectOneOf1;
-      result.objectOneOf1.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $MixedOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
   String get attributeOneOf;
@@ -151,73 +87,6 @@ abstract class MixedOneOf1 implements $MixedOneOf1Interface, Built<MixedOneOf1, 
   Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<MixedOneOf1> get serializer => _$mixedOneOf1Serializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $MixedOneOfInterface {
-  String? get string;
-  MixedOneOf1? get mixedOneOf1;
-}
-
-abstract class MixedOneOf implements $MixedOneOfInterface, Built<MixedOneOf, MixedOneOfBuilder> {
-  factory MixedOneOf([final void Function(MixedOneOfBuilder)? b]) = _$MixedOneOf;
-
-  const MixedOneOf._();
-
-  factory MixedOneOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<MixedOneOf> get serializer => _$MixedOneOfSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final MixedOneOfBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._string, b._mixedOneOf1].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'string', 'mixedOneOf1' for ${b._data}");
-    }
-  }
-}
-
-class _$MixedOneOfSerializer implements PrimitiveSerializer<MixedOneOf> {
-  @override
-  final Iterable<Type> types = const [MixedOneOf, _$MixedOneOf];
-
-  @override
-  final String wireName = 'MixedOneOf';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final MixedOneOf object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  MixedOneOf deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = MixedOneOfBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(MixedOneOf1))! as MixedOneOf1;
-      result.mixedOneOf1.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -239,297 +108,264 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
   static Serializer<OneObjectOneOf0> get serializer => _$oneObjectOneOf0Serializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $OneObjectOneOfInterface {
-  OneObjectOneOf0? get oneObjectOneOf0;
+typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
+
+typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
+
+typedef OneOfIntDouble = ({double? $double, int? $int});
+
+typedef OneOfIntDoubleOther = ({double? $double, int? $int, String? string});
+
+typedef $ObjectOneOf0ObjectOneOf1 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
+
+extension $ObjectOneOf0ObjectOneOf1Extension on $ObjectOneOf0ObjectOneOf1 {
+  List<dynamic> get _values => [objectOneOf0, objectOneOf1];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$ObjectOneOf0ObjectOneOf1> get serializer => const _$ObjectOneOf0ObjectOneOf1Serializer();
+  static $ObjectOneOf0ObjectOneOf1 fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class OneObjectOneOf implements $OneObjectOneOfInterface, Built<OneObjectOneOf, OneObjectOneOfBuilder> {
-  factory OneObjectOneOf([final void Function(OneObjectOneOfBuilder)? b]) = _$OneObjectOneOf;
-
-  const OneObjectOneOf._();
-
-  factory OneObjectOneOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OneObjectOneOf> get serializer => _$OneObjectOneOfSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OneObjectOneOfBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._oneObjectOneOf0].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'oneObjectOneOf0' for ${b._data}");
-    }
-  }
-}
-
-class _$OneObjectOneOfSerializer implements PrimitiveSerializer<OneObjectOneOf> {
-  @override
-  final Iterable<Type> types = const [OneObjectOneOf, _$OneObjectOneOf];
+class _$ObjectOneOf0ObjectOneOf1Serializer implements PrimitiveSerializer<$ObjectOneOf0ObjectOneOf1> {
+  const _$ObjectOneOf0ObjectOneOf1Serializer();
 
   @override
-  final String wireName = 'OneObjectOneOf';
+  Iterable<Type> get types => const [$ObjectOneOf0ObjectOneOf1];
+
+  @override
+  String get wireName => r'$ObjectOneOf0ObjectOneOf1';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final OneObjectOneOf object, {
+    final $ObjectOneOf0ObjectOneOf1 object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.objectOneOf0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ObjectOneOf0))!;
+    }
+    value = object.objectOneOf1;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(ObjectOneOf1))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  OneObjectOneOf deserialize(
+  $ObjectOneOf0ObjectOneOf1 deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = OneObjectOneOfBuilder()..data = JsonObject(data);
+    ObjectOneOf0? objectOneOf0;
     try {
-      final value =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(OneObjectOneOf0))! as OneObjectOneOf0;
-      result.oneObjectOneOf0.replace(value);
+      objectOneOf0 = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectOneOf0))! as ObjectOneOf0;
     } catch (_) {}
-    return result.build();
+    ObjectOneOf1? objectOneOf1;
+    try {
+      objectOneOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectOneOf1))! as ObjectOneOf1;
+    } catch (_) {}
+    return (objectOneOf0: objectOneOf0, objectOneOf1: objectOneOf1);
   }
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $OneValueOneOfInterface {
-  String? get string;
+typedef $MixedOneOf1String = ({MixedOneOf1? mixedOneOf1, String? string});
+
+extension $MixedOneOf1StringExtension on $MixedOneOf1String {
+  List<dynamic> get _values => [mixedOneOf1, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$MixedOneOf1String> get serializer => const _$MixedOneOf1StringSerializer();
+  static $MixedOneOf1String fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class OneValueOneOf implements $OneValueOneOfInterface, Built<OneValueOneOf, OneValueOneOfBuilder> {
-  factory OneValueOneOf([final void Function(OneValueOneOfBuilder)? b]) = _$OneValueOneOf;
-
-  const OneValueOneOf._();
-
-  factory OneValueOneOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OneValueOneOf> get serializer => _$OneValueOneOfSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OneValueOneOfBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$OneValueOneOfSerializer implements PrimitiveSerializer<OneValueOneOf> {
-  @override
-  final Iterable<Type> types = const [OneValueOneOf, _$OneValueOneOf];
+class _$MixedOneOf1StringSerializer implements PrimitiveSerializer<$MixedOneOf1String> {
+  const _$MixedOneOf1StringSerializer();
 
   @override
-  final String wireName = 'OneValueOneOf';
+  Iterable<Type> get types => const [$MixedOneOf1String];
+
+  @override
+  String get wireName => r'$MixedOneOf1String';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final OneValueOneOf object, {
+    final $MixedOneOf1String object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.mixedOneOf1;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(MixedOneOf1))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  OneValueOneOf deserialize(
+  $MixedOneOf1String deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = OneValueOneOfBuilder()..data = JsonObject(data);
+    MixedOneOf1? mixedOneOf1;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
+      mixedOneOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(MixedOneOf1))! as MixedOneOf1;
     } catch (_) {}
-    return result.build();
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return (mixedOneOf1: mixedOneOf1, string: string);
   }
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $OneOfIntDoubleInterface {
-  int? get $int;
-  double? get $double;
+typedef $DoubleInt = ({double? $double, int? $int});
+
+extension $DoubleIntExtension on $DoubleInt {
+  List<dynamic> get _values => [$double, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$DoubleInt> get serializer => const _$DoubleIntSerializer();
+  static $DoubleInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class OneOfIntDouble implements $OneOfIntDoubleInterface, Built<OneOfIntDouble, OneOfIntDoubleBuilder> {
-  factory OneOfIntDouble([final void Function(OneOfIntDoubleBuilder)? b]) = _$OneOfIntDouble;
-
-  const OneOfIntDouble._();
-
-  factory OneOfIntDouble.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OneOfIntDouble> get serializer => _$OneOfIntDoubleSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OneOfIntDoubleBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._$double].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', '$double' for ${b._data}");
-    }
-  }
-}
-
-class _$OneOfIntDoubleSerializer implements PrimitiveSerializer<OneOfIntDouble> {
-  @override
-  final Iterable<Type> types = const [OneOfIntDouble, _$OneOfIntDouble];
+class _$DoubleIntSerializer implements PrimitiveSerializer<$DoubleInt> {
+  const _$DoubleIntSerializer();
 
   @override
-  final String wireName = 'OneOfIntDouble';
+  Iterable<Type> get types => const [$DoubleInt];
+
+  @override
+  String get wireName => r'$DoubleInt';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final OneOfIntDouble object, {
+    final $DoubleInt object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.$double;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  OneOfIntDouble deserialize(
+  $DoubleInt deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = OneOfIntDoubleBuilder()..data = JsonObject(data);
+    double? $double;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
+      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
+    int? $int;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
-    return result.build();
+    return ($double: $double, $int: $int);
   }
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $OneOfIntDoubleOtherInterface {
-  int? get $int;
-  double? get $double;
-  String? get string;
+typedef $DoubleIntString = ({double? $double, int? $int, String? string});
+
+extension $DoubleIntStringExtension on $DoubleIntString {
+  List<dynamic> get _values => [$double, $int, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$DoubleIntString> get serializer => const _$DoubleIntStringSerializer();
+  static $DoubleIntString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class OneOfIntDoubleOther
-    implements $OneOfIntDoubleOtherInterface, Built<OneOfIntDoubleOther, OneOfIntDoubleOtherBuilder> {
-  factory OneOfIntDoubleOther([final void Function(OneOfIntDoubleOtherBuilder)? b]) = _$OneOfIntDoubleOther;
-
-  const OneOfIntDoubleOther._();
-
-  factory OneOfIntDoubleOther.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<OneOfIntDoubleOther> get serializer => _$OneOfIntDoubleOtherSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OneOfIntDoubleOtherBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$int, b._$double, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$int', '$double', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$OneOfIntDoubleOtherSerializer implements PrimitiveSerializer<OneOfIntDoubleOther> {
-  @override
-  final Iterable<Type> types = const [OneOfIntDoubleOther, _$OneOfIntDoubleOther];
+class _$DoubleIntStringSerializer implements PrimitiveSerializer<$DoubleIntString> {
+  const _$DoubleIntStringSerializer();
 
   @override
-  final String wireName = 'OneOfIntDoubleOther';
+  Iterable<Type> get types => const [$DoubleIntString];
+
+  @override
+  String get wireName => r'$DoubleIntString';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final OneOfIntDoubleOther object, {
+    final $DoubleIntString object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.$double;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  OneOfIntDoubleOther deserialize(
+  $DoubleIntString deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = OneOfIntDoubleOtherBuilder()..data = JsonObject(data);
+    double? $double;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
+      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
+    int? $int;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
+    String? string;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
-    return result.build();
+    return ($double: $double, $int: $int, string: string);
   }
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ObjectOneOf), ObjectOneOfBuilder.new)
-      ..add(ObjectOneOf.serializer)
       ..addBuilderFactory(const FullType(ObjectOneOf0), ObjectOneOf0Builder.new)
       ..add(ObjectOneOf0.serializer)
       ..addBuilderFactory(const FullType(ObjectOneOf1), ObjectOneOf1Builder.new)
       ..add(ObjectOneOf1.serializer)
-      ..addBuilderFactory(const FullType(MixedOneOf), MixedOneOfBuilder.new)
-      ..add(MixedOneOf.serializer)
+      ..add($ObjectOneOf0ObjectOneOf1Extension.serializer)
       ..addBuilderFactory(const FullType(MixedOneOf1), MixedOneOf1Builder.new)
       ..add(MixedOneOf1.serializer)
-      ..addBuilderFactory(const FullType(OneObjectOneOf), OneObjectOneOfBuilder.new)
-      ..add(OneObjectOneOf.serializer)
+      ..add($MixedOneOf1StringExtension.serializer)
       ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
       ..add(OneObjectOneOf0.serializer)
-      ..addBuilderFactory(const FullType(OneValueOneOf), OneValueOneOfBuilder.new)
-      ..add(OneValueOneOf.serializer)
-      ..addBuilderFactory(const FullType(OneOfIntDouble), OneOfIntDoubleBuilder.new)
-      ..add(OneOfIntDouble.serializer)
-      ..addBuilderFactory(const FullType(OneOfIntDoubleOther), OneOfIntDoubleOtherBuilder.new)
-      ..add(OneOfIntDoubleOther.serializer))
+      ..add($DoubleIntExtension.serializer)
+      ..add($DoubleIntStringExtension.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

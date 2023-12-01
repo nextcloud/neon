@@ -9,5 +9,6 @@ void main() {
     expect(Base(), isA<Redirect>());
     expect(1, isA<RedirectBaseType>());
     expect(JsonObject('value'), isA<RedirectEmptyType>());
+    expect(($int: null, base: null, jsonObject: null), isA<SomeOfRedirect>());
   });
 }

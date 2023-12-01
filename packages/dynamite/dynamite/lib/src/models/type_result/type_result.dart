@@ -1,3 +1,6 @@
+import 'package:built_collection/built_collection.dart';
+import 'package:collection/collection.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:meta/meta.dart';
 
 part 'base.dart';
@@ -5,6 +8,7 @@ part 'enum.dart';
 part 'list.dart';
 part 'map.dart';
 part 'object.dart';
+part 'some_of.dart';
 
 @immutable
 sealed class TypeResult {
@@ -87,14 +91,14 @@ sealed class TypeResult {
   /// Serializes the variable named [object].
   ///
   /// The serialized result is an [Object]?
-  @nonVirtual
+  @mustCallSuper
   String serialize(final String object, [final String? serializerName]) =>
       '${serializerName ?? '_jsonSerializers'}.serialize($object, specifiedType: const $fullType)';
 
   /// Deserializes the variable named [object].
   ///
   /// The serialized result will be of [name].
-  @nonVirtual
+  @mustCallSuper
   String deserialize(final String object, [final String? serializerName]) {
     final buffer = StringBuffer()
       ..write(serializerName ?? '_jsonSerializers')
@@ -177,6 +181,8 @@ sealed class TypeResult {
           nullable: nullable,
           isTypeDef: true,
         ),
+      // SomeOfs are always typeDefs
+      TypeResultSomeOf() => $this,
     };
   }
 

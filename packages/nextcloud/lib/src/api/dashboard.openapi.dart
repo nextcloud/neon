@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';

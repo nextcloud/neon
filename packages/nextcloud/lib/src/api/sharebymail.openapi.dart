@@ -2,15 +2,16 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
-import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 
 part 'sharebymail.openapi.g.dart';
 
@@ -218,86 +219,71 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
 }
 
-@BuiltValue(instantiable: false)
-abstract interface class $CapabilitiesInterface {
-  Capabilities0? get capabilities0;
-  BuiltList<JsonObject>? get builtListJsonObject;
+typedef Capabilities = ({BuiltList<JsonObject>? builtListJsonObject, Capabilities0? capabilities0});
+
+typedef $BuiltListCapabilities0 = ({BuiltList<JsonObject>? builtListJsonObject, Capabilities0? capabilities0});
+
+extension $BuiltListCapabilities0Extension on $BuiltListCapabilities0 {
+  List<dynamic> get _values => [builtListJsonObject, capabilities0];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListCapabilities0> get serializer => const _$BuiltListCapabilities0Serializer();
+  static $BuiltListCapabilities0 fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
 }
 
-abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
-
-  // coverage:ignore-start
-  const Capabilities._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<Capabilities> get serializer => _$CapabilitiesSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final CapabilitiesBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._capabilities0, b._builtListJsonObject].firstWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need at least one of 'capabilities0', 'builtListJsonObject' for ${b._data}");
-    }
-  }
-}
-
-class _$CapabilitiesSerializer implements PrimitiveSerializer<Capabilities> {
-  @override
-  final Iterable<Type> types = const [Capabilities, _$Capabilities];
+class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltListCapabilities0> {
+  const _$BuiltListCapabilities0Serializer();
 
   @override
-  final String wireName = 'Capabilities';
+  Iterable<Type> get types => const [$BuiltListCapabilities0];
+
+  @override
+  String get wireName => r'$BuiltListCapabilities0';
 
   @override
   Object serialize(
     final Serializers serializers,
-    final Capabilities object, {
+    final $BuiltListCapabilities0 object, {
     final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
+  }) {
+    dynamic value;
+    value = object.builtListJsonObject;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+    }
+    value = object.capabilities0;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(Capabilities0))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
 
   @override
-  Capabilities deserialize(
+  $BuiltListCapabilities0 deserialize(
     final Serializers serializers,
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    final result = CapabilitiesBuilder()..data = JsonObject(data);
+    BuiltList<JsonObject>? builtListJsonObject;
     try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
-      result.capabilities0.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
+      builtListJsonObject = _jsonSerializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
-      result.builtListJsonObject.replace(value);
     } catch (_) {}
-    return result.build();
+    Capabilities0? capabilities0;
+    try {
+      capabilities0 =
+          _jsonSerializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
+    } catch (_) {}
+    return (builtListJsonObject: builtListJsonObject, capabilities0: capabilities0);
   }
 }
 
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities0), Capabilities0Builder.new)
       ..add(Capabilities0.serializer)
       ..addBuilderFactory(const FullType(Capabilities0_FilesSharing), Capabilities0_FilesSharingBuilder.new)
@@ -322,7 +308,8 @@ final Serializers _serializers = (Serializers().toBuilder()
         Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..add($BuiltListCapabilities0Extension.serializer))
     .build();
 
 final Serializers _jsonSerializers = (_serializers.toBuilder()

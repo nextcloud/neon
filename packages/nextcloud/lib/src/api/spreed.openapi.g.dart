@@ -3130,8 +3130,8 @@ class _$RoomSerializer implements StructuredSerializer<Room> {
           result.lastCommonReadMessage = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'lastMessage':
-          result.lastMessage.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Room_LastMessage))! as Room_LastMessage);
+          result.lastMessage =
+              serializers.deserialize(value, specifiedType: const FullType(Room_LastMessage))! as Room_LastMessage;
           break;
         case 'lastPing':
           result.lastPing = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -14499,9 +14499,9 @@ class _$RoomAddParticipantToRoomResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
+          result.data = serializers.deserialize(value,
                   specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data))!
-              as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data);
+              as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data;
           break;
       }
     }
@@ -17541,9 +17541,9 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs_DataSerializer
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
+          result.data = serializers.deserialize(value,
                   specifiedType: const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data))!
-              as SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data);
+              as SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data;
           break;
       }
     }
@@ -19047,136 +19047,6 @@ class ChatMessageBuilder implements Builder<ChatMessage, ChatMessageBuilder>, $C
   }
 }
 
-abstract mixin class $Room_LastMessageInterfaceBuilder {
-  void replace($Room_LastMessageInterface other);
-  void update(void Function($Room_LastMessageInterfaceBuilder) updates);
-  ChatMessageBuilder get chatMessage;
-  set chatMessage(ChatMessageBuilder? chatMessage);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$Room_LastMessage extends Room_LastMessage {
-  @override
-  final JsonObject data;
-  @override
-  final ChatMessage? chatMessage;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$Room_LastMessage([void Function(Room_LastMessageBuilder)? updates]) =>
-      (Room_LastMessageBuilder()..update(updates))._build();
-
-  _$Room_LastMessage._({required this.data, this.chatMessage, this.builtListJsonObject}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'Room_LastMessage', 'data');
-  }
-
-  @override
-  Room_LastMessage rebuild(void Function(Room_LastMessageBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  Room_LastMessageBuilder toBuilder() => Room_LastMessageBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is Room_LastMessage &&
-        data == other.data &&
-        chatMessage == other.chatMessage &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, chatMessage.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'Room_LastMessage')
-          ..add('data', data)
-          ..add('chatMessage', chatMessage)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class Room_LastMessageBuilder
-    implements Builder<Room_LastMessage, Room_LastMessageBuilder>, $Room_LastMessageInterfaceBuilder {
-  _$Room_LastMessage? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  ChatMessageBuilder? _chatMessage;
-  ChatMessageBuilder get chatMessage => _$this._chatMessage ??= ChatMessageBuilder();
-  set chatMessage(covariant ChatMessageBuilder? chatMessage) => _$this._chatMessage = chatMessage;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  Room_LastMessageBuilder();
-
-  Room_LastMessageBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _chatMessage = $v.chatMessage?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant Room_LastMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Room_LastMessage;
-  }
-
-  @override
-  void update(void Function(Room_LastMessageBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  Room_LastMessage build() => _build();
-
-  _$Room_LastMessage _build() {
-    Room_LastMessage._validate(this);
-    _$Room_LastMessage _$result;
-    try {
-      _$result = _$v ??
-          _$Room_LastMessage._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'Room_LastMessage', 'data'),
-              chatMessage: _chatMessage?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'chatMessage';
-        _chatMessage?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'Room_LastMessage', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomInterfaceBuilder {
   void replace($RoomInterface other);
   void update(void Function($RoomInterfaceBuilder) updates);
@@ -19258,8 +19128,8 @@ abstract mixin class $RoomInterfaceBuilder {
   int? get lastCommonReadMessage;
   set lastCommonReadMessage(int? lastCommonReadMessage);
 
-  Room_LastMessageBuilder get lastMessage;
-  set lastMessage(Room_LastMessageBuilder? lastMessage);
+  Room_LastMessage? get lastMessage;
+  set lastMessage(Room_LastMessage? lastMessage);
 
   int? get lastPing;
   set lastPing(int? lastPing);
@@ -19570,6 +19440,7 @@ class _$Room extends Room {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is Room &&
         actorId == other.actorId &&
         actorType == other.actorType &&
@@ -19597,7 +19468,7 @@ class _$Room extends Room {
         isFavorite == other.isFavorite &&
         lastActivity == other.lastActivity &&
         lastCommonReadMessage == other.lastCommonReadMessage &&
-        lastMessage == other.lastMessage &&
+        lastMessage == _$dynamicOther.lastMessage &&
         lastPing == other.lastPing &&
         lastReadMessage == other.lastReadMessage &&
         listable == other.listable &&
@@ -19858,9 +19729,9 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
   set lastCommonReadMessage(covariant int? lastCommonReadMessage) =>
       _$this._lastCommonReadMessage = lastCommonReadMessage;
 
-  Room_LastMessageBuilder? _lastMessage;
-  Room_LastMessageBuilder get lastMessage => _$this._lastMessage ??= Room_LastMessageBuilder();
-  set lastMessage(covariant Room_LastMessageBuilder? lastMessage) => _$this._lastMessage = lastMessage;
+  Room_LastMessage? _lastMessage;
+  Room_LastMessage? get lastMessage => _$this._lastMessage;
+  set lastMessage(covariant Room_LastMessage? lastMessage) => _$this._lastMessage = lastMessage;
 
   int? _lastPing;
   int? get lastPing => _$this._lastPing;
@@ -20001,7 +19872,7 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
       _isFavorite = $v.isFavorite;
       _lastActivity = $v.lastActivity;
       _lastCommonReadMessage = $v.lastCommonReadMessage;
-      _lastMessage = $v.lastMessage.toBuilder();
+      _lastMessage = $v.lastMessage;
       _lastPing = $v.lastPing;
       _lastReadMessage = $v.lastReadMessage;
       _listable = $v.listable;
@@ -20049,81 +19920,70 @@ class RoomBuilder implements Builder<Room, RoomBuilder>, $RoomInterfaceBuilder {
   Room build() => _build();
 
   _$Room _build() {
-    _$Room _$result;
-    try {
-      _$result = _$v ??
-          _$Room._(
-              actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'Room', 'actorId'),
-              actorType: BuiltValueNullFieldError.checkNotNull(actorType, r'Room', 'actorType'),
-              attendeeId: BuiltValueNullFieldError.checkNotNull(attendeeId, r'Room', 'attendeeId'),
-              attendeePermissions:
-                  BuiltValueNullFieldError.checkNotNull(attendeePermissions, r'Room', 'attendeePermissions'),
-              attendeePin: attendeePin,
-              avatarVersion: BuiltValueNullFieldError.checkNotNull(avatarVersion, r'Room', 'avatarVersion'),
-              breakoutRoomMode: BuiltValueNullFieldError.checkNotNull(breakoutRoomMode, r'Room', 'breakoutRoomMode'),
-              breakoutRoomStatus:
-                  BuiltValueNullFieldError.checkNotNull(breakoutRoomStatus, r'Room', 'breakoutRoomStatus'),
-              callFlag: BuiltValueNullFieldError.checkNotNull(callFlag, r'Room', 'callFlag'),
-              callPermissions: BuiltValueNullFieldError.checkNotNull(callPermissions, r'Room', 'callPermissions'),
-              callRecording: BuiltValueNullFieldError.checkNotNull(callRecording, r'Room', 'callRecording'),
-              callStartTime: BuiltValueNullFieldError.checkNotNull(callStartTime, r'Room', 'callStartTime'),
-              canDeleteConversation:
-                  BuiltValueNullFieldError.checkNotNull(canDeleteConversation, r'Room', 'canDeleteConversation'),
-              canEnableSIP: BuiltValueNullFieldError.checkNotNull(canEnableSIP, r'Room', 'canEnableSIP'),
-              canLeaveConversation:
-                  BuiltValueNullFieldError.checkNotNull(canLeaveConversation, r'Room', 'canLeaveConversation'),
-              canStartCall: BuiltValueNullFieldError.checkNotNull(canStartCall, r'Room', 'canStartCall'),
-              defaultPermissions:
-                  BuiltValueNullFieldError.checkNotNull(defaultPermissions, r'Room', 'defaultPermissions'),
-              description: BuiltValueNullFieldError.checkNotNull(description, r'Room', 'description'),
-              displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'Room', 'displayName'),
-              hasCall: BuiltValueNullFieldError.checkNotNull(hasCall, r'Room', 'hasCall'),
-              hasPassword: BuiltValueNullFieldError.checkNotNull(hasPassword, r'Room', 'hasPassword'),
-              id: BuiltValueNullFieldError.checkNotNull(id, r'Room', 'id'),
-              isCustomAvatar: BuiltValueNullFieldError.checkNotNull(isCustomAvatar, r'Room', 'isCustomAvatar'),
-              isFavorite: BuiltValueNullFieldError.checkNotNull(isFavorite, r'Room', 'isFavorite'),
-              lastActivity: BuiltValueNullFieldError.checkNotNull(lastActivity, r'Room', 'lastActivity'),
-              lastCommonReadMessage:
-                  BuiltValueNullFieldError.checkNotNull(lastCommonReadMessage, r'Room', 'lastCommonReadMessage'),
-              lastMessage: lastMessage.build(),
-              lastPing: BuiltValueNullFieldError.checkNotNull(lastPing, r'Room', 'lastPing'),
-              lastReadMessage: BuiltValueNullFieldError.checkNotNull(lastReadMessage, r'Room', 'lastReadMessage'),
-              listable: BuiltValueNullFieldError.checkNotNull(listable, r'Room', 'listable'),
-              lobbyState: BuiltValueNullFieldError.checkNotNull(lobbyState, r'Room', 'lobbyState'),
-              lobbyTimer: BuiltValueNullFieldError.checkNotNull(lobbyTimer, r'Room', 'lobbyTimer'),
-              messageExpiration: BuiltValueNullFieldError.checkNotNull(messageExpiration, r'Room', 'messageExpiration'),
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Room', 'name'),
-              notificationCalls: BuiltValueNullFieldError.checkNotNull(notificationCalls, r'Room', 'notificationCalls'),
-              notificationLevel: BuiltValueNullFieldError.checkNotNull(notificationLevel, r'Room', 'notificationLevel'),
-              objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'Room', 'objectId'),
-              objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'Room', 'objectType'),
-              participantFlags: BuiltValueNullFieldError.checkNotNull(participantFlags, r'Room', 'participantFlags'),
-              participantType: BuiltValueNullFieldError.checkNotNull(participantType, r'Room', 'participantType'),
-              permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Room', 'permissions'),
-              readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'Room', 'readOnly'),
-              recordingConsent: recordingConsent,
-              sessionId: BuiltValueNullFieldError.checkNotNull(sessionId, r'Room', 'sessionId'),
-              sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Room', 'sipEnabled'),
-              status: status,
-              statusClearAt: statusClearAt,
-              statusIcon: statusIcon,
-              statusMessage: statusMessage,
-              token: BuiltValueNullFieldError.checkNotNull(token, r'Room', 'token'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'Room', 'type'),
-              unreadMention: BuiltValueNullFieldError.checkNotNull(unreadMention, r'Room', 'unreadMention'),
-              unreadMentionDirect:
-                  BuiltValueNullFieldError.checkNotNull(unreadMentionDirect, r'Room', 'unreadMentionDirect'),
-              unreadMessages: BuiltValueNullFieldError.checkNotNull(unreadMessages, r'Room', 'unreadMessages'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'lastMessage';
-        lastMessage.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'Room', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    Room._validate(this);
+    final _$result = _$v ??
+        _$Room._(
+            actorId: BuiltValueNullFieldError.checkNotNull(actorId, r'Room', 'actorId'),
+            actorType: BuiltValueNullFieldError.checkNotNull(actorType, r'Room', 'actorType'),
+            attendeeId: BuiltValueNullFieldError.checkNotNull(attendeeId, r'Room', 'attendeeId'),
+            attendeePermissions:
+                BuiltValueNullFieldError.checkNotNull(attendeePermissions, r'Room', 'attendeePermissions'),
+            attendeePin: attendeePin,
+            avatarVersion: BuiltValueNullFieldError.checkNotNull(avatarVersion, r'Room', 'avatarVersion'),
+            breakoutRoomMode: BuiltValueNullFieldError.checkNotNull(breakoutRoomMode, r'Room', 'breakoutRoomMode'),
+            breakoutRoomStatus:
+                BuiltValueNullFieldError.checkNotNull(breakoutRoomStatus, r'Room', 'breakoutRoomStatus'),
+            callFlag: BuiltValueNullFieldError.checkNotNull(callFlag, r'Room', 'callFlag'),
+            callPermissions: BuiltValueNullFieldError.checkNotNull(callPermissions, r'Room', 'callPermissions'),
+            callRecording: BuiltValueNullFieldError.checkNotNull(callRecording, r'Room', 'callRecording'),
+            callStartTime: BuiltValueNullFieldError.checkNotNull(callStartTime, r'Room', 'callStartTime'),
+            canDeleteConversation:
+                BuiltValueNullFieldError.checkNotNull(canDeleteConversation, r'Room', 'canDeleteConversation'),
+            canEnableSIP: BuiltValueNullFieldError.checkNotNull(canEnableSIP, r'Room', 'canEnableSIP'),
+            canLeaveConversation:
+                BuiltValueNullFieldError.checkNotNull(canLeaveConversation, r'Room', 'canLeaveConversation'),
+            canStartCall: BuiltValueNullFieldError.checkNotNull(canStartCall, r'Room', 'canStartCall'),
+            defaultPermissions:
+                BuiltValueNullFieldError.checkNotNull(defaultPermissions, r'Room', 'defaultPermissions'),
+            description: BuiltValueNullFieldError.checkNotNull(description, r'Room', 'description'),
+            displayName: BuiltValueNullFieldError.checkNotNull(displayName, r'Room', 'displayName'),
+            hasCall: BuiltValueNullFieldError.checkNotNull(hasCall, r'Room', 'hasCall'),
+            hasPassword: BuiltValueNullFieldError.checkNotNull(hasPassword, r'Room', 'hasPassword'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'Room', 'id'),
+            isCustomAvatar: BuiltValueNullFieldError.checkNotNull(isCustomAvatar, r'Room', 'isCustomAvatar'),
+            isFavorite: BuiltValueNullFieldError.checkNotNull(isFavorite, r'Room', 'isFavorite'),
+            lastActivity: BuiltValueNullFieldError.checkNotNull(lastActivity, r'Room', 'lastActivity'),
+            lastCommonReadMessage:
+                BuiltValueNullFieldError.checkNotNull(lastCommonReadMessage, r'Room', 'lastCommonReadMessage'),
+            lastMessage: BuiltValueNullFieldError.checkNotNull(lastMessage, r'Room', 'lastMessage'),
+            lastPing: BuiltValueNullFieldError.checkNotNull(lastPing, r'Room', 'lastPing'),
+            lastReadMessage: BuiltValueNullFieldError.checkNotNull(lastReadMessage, r'Room', 'lastReadMessage'),
+            listable: BuiltValueNullFieldError.checkNotNull(listable, r'Room', 'listable'),
+            lobbyState: BuiltValueNullFieldError.checkNotNull(lobbyState, r'Room', 'lobbyState'),
+            lobbyTimer: BuiltValueNullFieldError.checkNotNull(lobbyTimer, r'Room', 'lobbyTimer'),
+            messageExpiration: BuiltValueNullFieldError.checkNotNull(messageExpiration, r'Room', 'messageExpiration'),
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Room', 'name'),
+            notificationCalls: BuiltValueNullFieldError.checkNotNull(notificationCalls, r'Room', 'notificationCalls'),
+            notificationLevel: BuiltValueNullFieldError.checkNotNull(notificationLevel, r'Room', 'notificationLevel'),
+            objectId: BuiltValueNullFieldError.checkNotNull(objectId, r'Room', 'objectId'),
+            objectType: BuiltValueNullFieldError.checkNotNull(objectType, r'Room', 'objectType'),
+            participantFlags: BuiltValueNullFieldError.checkNotNull(participantFlags, r'Room', 'participantFlags'),
+            participantType: BuiltValueNullFieldError.checkNotNull(participantType, r'Room', 'participantType'),
+            permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'Room', 'permissions'),
+            readOnly: BuiltValueNullFieldError.checkNotNull(readOnly, r'Room', 'readOnly'),
+            recordingConsent: recordingConsent,
+            sessionId: BuiltValueNullFieldError.checkNotNull(sessionId, r'Room', 'sessionId'),
+            sipEnabled: BuiltValueNullFieldError.checkNotNull(sipEnabled, r'Room', 'sipEnabled'),
+            status: status,
+            statusClearAt: statusClearAt,
+            statusIcon: statusIcon,
+            statusMessage: statusMessage,
+            token: BuiltValueNullFieldError.checkNotNull(token, r'Room', 'token'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'Room', 'type'),
+            unreadMention: BuiltValueNullFieldError.checkNotNull(unreadMention, r'Room', 'unreadMention'),
+            unreadMentionDirect:
+                BuiltValueNullFieldError.checkNotNull(unreadMentionDirect, r'Room', 'unreadMentionDirect'),
+            unreadMessages: BuiltValueNullFieldError.checkNotNull(unreadMessages, r'Room', 'unreadMessages'));
     replace(_$result);
     return _$result;
   }
@@ -43909,172 +43769,14 @@ class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder
   }
 }
 
-abstract mixin class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  void replace($RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface other);
-  void update(void Function($RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder
-      get roomAddParticipantToRoomResponseApplicationJsonOcsData0;
-  set roomAddParticipantToRoomResponseApplicationJsonOcsData0(
-      RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder?
-          roomAddParticipantToRoomResponseApplicationJsonOcsData0);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
-    extends RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
-  @override
-  final JsonObject data;
-  @override
-  final RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0?
-      roomAddParticipantToRoomResponseApplicationJsonOcsData0;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data(
-          [void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
-
-  _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data._(
-      {required this.data, this.roomAddParticipantToRoomResponseApplicationJsonOcsData0, this.builtListJsonObject})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data', 'data');
-  }
-
-  @override
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data rebuild(
-          void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
-      RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data &&
-        data == other.data &&
-        roomAddParticipantToRoomResponseApplicationJsonOcsData0 ==
-            other.roomAddParticipantToRoomResponseApplicationJsonOcsData0 &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, roomAddParticipantToRoomResponseApplicationJsonOcsData0.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data')
-          ..add('data', data)
-          ..add('roomAddParticipantToRoomResponseApplicationJsonOcsData0',
-              roomAddParticipantToRoomResponseApplicationJsonOcsData0)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder
-    implements
-        Builder<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
-            RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder>,
-        $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterfaceBuilder {
-  _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder?
-      _roomAddParticipantToRoomResponseApplicationJsonOcsData0;
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder
-      get roomAddParticipantToRoomResponseApplicationJsonOcsData0 =>
-          _$this._roomAddParticipantToRoomResponseApplicationJsonOcsData0 ??=
-              RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder();
-  set roomAddParticipantToRoomResponseApplicationJsonOcsData0(
-          covariant RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder?
-              roomAddParticipantToRoomResponseApplicationJsonOcsData0) =>
-      _$this._roomAddParticipantToRoomResponseApplicationJsonOcsData0 =
-          roomAddParticipantToRoomResponseApplicationJsonOcsData0;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder();
-
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _roomAddParticipantToRoomResponseApplicationJsonOcsData0 =
-          $v.roomAddParticipantToRoomResponseApplicationJsonOcsData0?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data;
-  }
-
-  @override
-  void update(void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data build() => _build();
-
-  _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data _build() {
-    RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data._validate(this);
-    _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data _$result;
-    try {
-      _$result = _$v ??
-          _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data', 'data'),
-              roomAddParticipantToRoomResponseApplicationJsonOcsData0:
-                  _roomAddParticipantToRoomResponseApplicationJsonOcsData0?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'roomAddParticipantToRoomResponseApplicationJsonOcsData0';
-        _roomAddParticipantToRoomResponseApplicationJsonOcsData0?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterfaceBuilder {
   void replace($RoomAddParticipantToRoomResponseApplicationJson_OcsInterface other);
   void update(void Function($RoomAddParticipantToRoomResponseApplicationJson_OcsInterfaceBuilder) updates);
   OCSMetaBuilder get meta;
   set meta(OCSMetaBuilder? meta);
 
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder get data;
-  set data(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder? data);
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? get data;
+  set data(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? data);
 }
 
 class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs
@@ -44105,7 +43807,10 @@ class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is RoomAddParticipantToRoomResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+    final dynamic _$dynamicOther = other;
+    return other is RoomAddParticipantToRoomResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == _$dynamicOther.data;
   }
 
   @override
@@ -44137,10 +43842,9 @@ class RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder
   OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
   set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
 
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder? _data;
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder get data =>
-      _$this._data ??= RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder();
-  set data(covariant RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder? data) => _$this._data = data;
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? _data;
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? get data => _$this._data;
+  set data(covariant RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data? data) => _$this._data = data;
 
   RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder();
 
@@ -44148,7 +43852,7 @@ class RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder
     final $v = _$v;
     if ($v != null) {
       _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
+      _data = $v.data;
       _$v = null;
     }
     return this;
@@ -44169,16 +43873,19 @@ class RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder
   RoomAddParticipantToRoomResponseApplicationJson_Ocs build() => _build();
 
   _$RoomAddParticipantToRoomResponseApplicationJson_Ocs _build() {
+    RoomAddParticipantToRoomResponseApplicationJson_Ocs._validate(this);
     _$RoomAddParticipantToRoomResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ?? _$RoomAddParticipantToRoomResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+      _$result = _$v ??
+          _$RoomAddParticipantToRoomResponseApplicationJson_Ocs._(
+              meta: meta.build(),
+              data: BuiltValueNullFieldError.checkNotNull(
+                  data, r'RoomAddParticipantToRoomResponseApplicationJson_Ocs', 'data'));
     } catch (_) {
       late String _$failedField;
       try {
         _$failedField = 'meta';
         meta.build();
-        _$failedField = 'data';
-        data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'RoomAddParticipantToRoomResponseApplicationJson_Ocs', _$failedField, e.toString());
@@ -48927,121 +48634,6 @@ class SettingsSetsipSettingsResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $SettingsSetUserSettingValueInterfaceBuilder {
-  void replace($SettingsSetUserSettingValueInterface other);
-  void update(void Function($SettingsSetUserSettingValueInterfaceBuilder) updates);
-  String? get string;
-  set string(String? string);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$SettingsSetUserSettingValue extends SettingsSetUserSettingValue {
-  @override
-  final JsonObject data;
-  @override
-  final String? string;
-  @override
-  final int? $int;
-
-  factory _$SettingsSetUserSettingValue([void Function(SettingsSetUserSettingValueBuilder)? updates]) =>
-      (SettingsSetUserSettingValueBuilder()..update(updates))._build();
-
-  _$SettingsSetUserSettingValue._({required this.data, this.string, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'SettingsSetUserSettingValue', 'data');
-  }
-
-  @override
-  SettingsSetUserSettingValue rebuild(void Function(SettingsSetUserSettingValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SettingsSetUserSettingValueBuilder toBuilder() => SettingsSetUserSettingValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SettingsSetUserSettingValue && data == other.data && string == other.string && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SettingsSetUserSettingValue')
-          ..add('data', data)
-          ..add('string', string)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class SettingsSetUserSettingValueBuilder
-    implements
-        Builder<SettingsSetUserSettingValue, SettingsSetUserSettingValueBuilder>,
-        $SettingsSetUserSettingValueInterfaceBuilder {
-  _$SettingsSetUserSettingValue? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  SettingsSetUserSettingValueBuilder();
-
-  SettingsSetUserSettingValueBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _string = $v.string;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SettingsSetUserSettingValue other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SettingsSetUserSettingValue;
-  }
-
-  @override
-  void update(void Function(SettingsSetUserSettingValueBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SettingsSetUserSettingValue build() => _build();
-
-  _$SettingsSetUserSettingValue _build() {
-    SettingsSetUserSettingValue._validate(this);
-    final _$result = _$v ??
-        _$SettingsSetUserSettingValue._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'SettingsSetUserSettingValue', 'data'),
-            string: string,
-            $int: $int);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $SettingsSetUserSettingResponseApplicationJson_OcsInterfaceBuilder {
   void replace($SettingsSetUserSettingResponseApplicationJson_OcsInterface other);
   void update(void Function($SettingsSetUserSettingResponseApplicationJson_OcsInterfaceBuilder) updates);
@@ -50688,155 +50280,14 @@ class SignalingSessionBuilder
   }
 }
 
-abstract mixin class $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterfaceBuilder {
-  void replace($SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterface other);
-  void update(void Function($SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterfaceBuilder) updates);
-  ListBuilder<SignalingSession> get builtListSignalingSession;
-  set builtListSignalingSession(ListBuilder<SignalingSession>? builtListSignalingSession);
-
-  String? get string;
-  set string(String? string);
-}
-
-class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data
-    extends SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
-  @override
-  final JsonObject data;
-  @override
-  final BuiltList<SignalingSession>? builtListSignalingSession;
-  @override
-  final String? string;
-
-  factory _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data(
-          [void Function(SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder)? updates]) =>
-      (SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder()..update(updates))._build();
-
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data._(
-      {required this.data, this.builtListSignalingSession, this.string})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data', 'data');
-  }
-
-  @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data rebuild(
-          void Function(SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder toBuilder() =>
-      SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data &&
-        data == other.data &&
-        builtListSignalingSession == other.builtListSignalingSession &&
-        string == other.string;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, builtListSignalingSession.hashCode);
-    _$hash = $jc(_$hash, string.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data')
-          ..add('data', data)
-          ..add('builtListSignalingSession', builtListSignalingSession)
-          ..add('string', string))
-        .toString();
-  }
-}
-
-class SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder
-    implements
-        Builder<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder>,
-        $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataInterfaceBuilder {
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  ListBuilder<SignalingSession>? _builtListSignalingSession;
-  ListBuilder<SignalingSession> get builtListSignalingSession =>
-      _$this._builtListSignalingSession ??= ListBuilder<SignalingSession>();
-  set builtListSignalingSession(covariant ListBuilder<SignalingSession>? builtListSignalingSession) =>
-      _$this._builtListSignalingSession = builtListSignalingSession;
-
-  String? _string;
-  String? get string => _$this._string;
-  set string(covariant String? string) => _$this._string = string;
-
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder();
-
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _builtListSignalingSession = $v.builtListSignalingSession?.toBuilder();
-      _string = $v.string;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data;
-  }
-
-  @override
-  void update(void Function(SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data build() => _build();
-
-  _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data _build() {
-    SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data._validate(this);
-    _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data _$result;
-    try {
-      _$result = _$v ??
-          _$SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data._(
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data', 'data'),
-              builtListSignalingSession: _builtListSignalingSession?.build(),
-              string: string);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'builtListSignalingSession';
-        _builtListSignalingSession?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   void replace($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface other);
   void update(void Function($SignalingPullMessagesResponseApplicationJson_Ocs_DataInterfaceBuilder) updates);
   String? get type;
   set type(String? type);
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder get data;
-  set data(SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder? data);
+  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? get data;
+  set data(SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? data);
 }
 
 class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data
@@ -50867,7 +50318,10 @@ class _$SignalingPullMessagesResponseApplicationJson_Ocs_Data
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SignalingPullMessagesResponseApplicationJson_Ocs_Data && type == other.type && data == other.data;
+    final dynamic _$dynamicOther = other;
+    return other is SignalingPullMessagesResponseApplicationJson_Ocs_Data &&
+        type == other.type &&
+        data == _$dynamicOther.data;
   }
 
   @override
@@ -50899,10 +50353,9 @@ class SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
   String? get type => _$this._type;
   set type(covariant String? type) => _$this._type = type;
 
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder? _data;
-  SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder get data =>
-      _$this._data ??= SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder();
-  set data(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataBuilder? data) => _$this._data = data;
+  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? _data;
+  SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? get data => _$this._data;
+  set data(covariant SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data? data) => _$this._data = data;
 
   SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder();
 
@@ -50910,7 +50363,7 @@ class SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
     final $v = _$v;
     if ($v != null) {
       _type = $v.type;
-      _data = $v.data.toBuilder();
+      _data = $v.data;
       _$v = null;
     }
     return this;
@@ -50931,24 +50384,13 @@ class SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
   SignalingPullMessagesResponseApplicationJson_Ocs_Data build() => _build();
 
   _$SignalingPullMessagesResponseApplicationJson_Ocs_Data _build() {
-    _$SignalingPullMessagesResponseApplicationJson_Ocs_Data _$result;
-    try {
-      _$result = _$v ??
-          _$SignalingPullMessagesResponseApplicationJson_Ocs_Data._(
-              type: BuiltValueNullFieldError.checkNotNull(
-                  type, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'type'),
-              data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    SignalingPullMessagesResponseApplicationJson_Ocs_Data._validate(this);
+    final _$result = _$v ??
+        _$SignalingPullMessagesResponseApplicationJson_Ocs_Data._(
+            type: BuiltValueNullFieldError.checkNotNull(
+                type, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'type'),
+            data: BuiltValueNullFieldError.checkNotNull(
+                data, r'SignalingPullMessagesResponseApplicationJson_Ocs_Data', 'data'));
     replace(_$result);
     return _$result;
   }
@@ -53394,138 +52836,6 @@ class PublicCapabilities0Builder
         spreed.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'PublicCapabilities0', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $PublicCapabilitiesInterfaceBuilder {
-  void replace($PublicCapabilitiesInterface other);
-  void update(void Function($PublicCapabilitiesInterfaceBuilder) updates);
-  PublicCapabilities0Builder get publicCapabilities0;
-  set publicCapabilities0(PublicCapabilities0Builder? publicCapabilities0);
-
-  ListBuilder<JsonObject> get builtListJsonObject;
-  set builtListJsonObject(ListBuilder<JsonObject>? builtListJsonObject);
-}
-
-class _$PublicCapabilities extends PublicCapabilities {
-  @override
-  final JsonObject data;
-  @override
-  final PublicCapabilities0? publicCapabilities0;
-  @override
-  final BuiltList<JsonObject>? builtListJsonObject;
-
-  factory _$PublicCapabilities([void Function(PublicCapabilitiesBuilder)? updates]) =>
-      (PublicCapabilitiesBuilder()..update(updates))._build();
-
-  _$PublicCapabilities._({required this.data, this.publicCapabilities0, this.builtListJsonObject}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'PublicCapabilities', 'data');
-  }
-
-  @override
-  PublicCapabilities rebuild(void Function(PublicCapabilitiesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  PublicCapabilitiesBuilder toBuilder() => PublicCapabilitiesBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is PublicCapabilities &&
-        data == other.data &&
-        publicCapabilities0 == other.publicCapabilities0 &&
-        builtListJsonObject == other.builtListJsonObject;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, publicCapabilities0.hashCode);
-    _$hash = $jc(_$hash, builtListJsonObject.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'PublicCapabilities')
-          ..add('data', data)
-          ..add('publicCapabilities0', publicCapabilities0)
-          ..add('builtListJsonObject', builtListJsonObject))
-        .toString();
-  }
-}
-
-class PublicCapabilitiesBuilder
-    implements Builder<PublicCapabilities, PublicCapabilitiesBuilder>, $PublicCapabilitiesInterfaceBuilder {
-  _$PublicCapabilities? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  PublicCapabilities0Builder? _publicCapabilities0;
-  PublicCapabilities0Builder get publicCapabilities0 => _$this._publicCapabilities0 ??= PublicCapabilities0Builder();
-  set publicCapabilities0(covariant PublicCapabilities0Builder? publicCapabilities0) =>
-      _$this._publicCapabilities0 = publicCapabilities0;
-
-  ListBuilder<JsonObject>? _builtListJsonObject;
-  ListBuilder<JsonObject> get builtListJsonObject => _$this._builtListJsonObject ??= ListBuilder<JsonObject>();
-  set builtListJsonObject(covariant ListBuilder<JsonObject>? builtListJsonObject) =>
-      _$this._builtListJsonObject = builtListJsonObject;
-
-  PublicCapabilitiesBuilder();
-
-  PublicCapabilitiesBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _publicCapabilities0 = $v.publicCapabilities0?.toBuilder();
-      _builtListJsonObject = $v.builtListJsonObject?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant PublicCapabilities other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$PublicCapabilities;
-  }
-
-  @override
-  void update(void Function(PublicCapabilitiesBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  PublicCapabilities build() => _build();
-
-  _$PublicCapabilities _build() {
-    PublicCapabilities._validate(this);
-    _$PublicCapabilities _$result;
-    try {
-      _$result = _$v ??
-          _$PublicCapabilities._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'PublicCapabilities', 'data'),
-              publicCapabilities0: _publicCapabilities0?.build(),
-              builtListJsonObject: _builtListJsonObject?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'publicCapabilities0';
-        _publicCapabilities0?.build();
-        _$failedField = 'builtListJsonObject';
-        _builtListJsonObject?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'PublicCapabilities', _$failedField, e.toString());
       }
       rethrow;
     }

@@ -11,6 +11,17 @@ class State {
   final resolvedTypes = <TypeResult>{};
   final resolvedInterfaces = <TypeResult>{};
 
+  Iterable<TypeResultSomeOf> get uniqueSomeOfTypes {
+    final someOfs = resolvedTypes.whereType<TypeResultSomeOf>();
+    final uniqueTypes = <String, TypeResultSomeOf>{};
+
+    for (final result in someOfs) {
+      uniqueTypes[result.typeName] = result;
+    }
+
+    return uniqueTypes.values;
+  }
+
   /// Wether the state contains resolved types that need the built_value generator.
   bool get hasResolvedBuiltTypes => resolvedTypes
       .where(

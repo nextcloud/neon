@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: camel_case_extensions
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -5456,156 +5457,6 @@ abstract class GroupsAddGroupResponseApplicationJson
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $GroupDetails_UsercountInterface {
-  bool? get $bool;
-  int? get $int;
-}
-
-abstract class GroupDetails_Usercount
-    implements $GroupDetails_UsercountInterface, Built<GroupDetails_Usercount, GroupDetails_UsercountBuilder> {
-  factory GroupDetails_Usercount([final void Function(GroupDetails_UsercountBuilder)? b]) = _$GroupDetails_Usercount;
-
-  // coverage:ignore-start
-  const GroupDetails_Usercount._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory GroupDetails_Usercount.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GroupDetails_Usercount> get serializer => _$GroupDetails_UsercountSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final GroupDetails_UsercountBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$bool, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$bool', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$GroupDetails_UsercountSerializer implements PrimitiveSerializer<GroupDetails_Usercount> {
-  @override
-  final Iterable<Type> types = const [GroupDetails_Usercount, _$GroupDetails_Usercount];
-
-  @override
-  final String wireName = 'GroupDetails_Usercount';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final GroupDetails_Usercount object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  GroupDetails_Usercount deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GroupDetails_UsercountBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
-      result.$bool = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupDetails_DisabledInterface {
-  bool? get $bool;
-  int? get $int;
-}
-
-abstract class GroupDetails_Disabled
-    implements $GroupDetails_DisabledInterface, Built<GroupDetails_Disabled, GroupDetails_DisabledBuilder> {
-  factory GroupDetails_Disabled([final void Function(GroupDetails_DisabledBuilder)? b]) = _$GroupDetails_Disabled;
-
-  // coverage:ignore-start
-  const GroupDetails_Disabled._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory GroupDetails_Disabled.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GroupDetails_Disabled> get serializer => _$GroupDetails_DisabledSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final GroupDetails_DisabledBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$bool, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$bool', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$GroupDetails_DisabledSerializer implements PrimitiveSerializer<GroupDetails_Disabled> {
-  @override
-  final Iterable<Type> types = const [GroupDetails_Disabled, _$GroupDetails_Disabled];
-
-  @override
-  final String wireName = 'GroupDetails_Disabled';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final GroupDetails_Disabled object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  GroupDetails_Disabled deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GroupDetails_DisabledBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
-      result.$bool = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $GroupDetailsInterface {
   String get id;
   String get displayname;
@@ -5631,6 +5482,12 @@ abstract class GroupDetails implements $GroupDetailsInterface, Built<GroupDetail
   // coverage:ignore-end
 
   static Serializer<GroupDetails> get serializer => _$groupDetailsSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final GroupDetailsBuilder b) {
+    b.usercount?.validateOneOf();
+    b.disabled?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -5848,387 +5705,6 @@ abstract class UserDetails_BackendCapabilities
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuota_FreeInterface {
-  double? get $double;
-  int? get $int;
-}
-
-abstract class UserDetailsQuota_Free
-    implements $UserDetailsQuota_FreeInterface, Built<UserDetailsQuota_Free, UserDetailsQuota_FreeBuilder> {
-  factory UserDetailsQuota_Free([final void Function(UserDetailsQuota_FreeBuilder)? b]) = _$UserDetailsQuota_Free;
-
-  // coverage:ignore-start
-  const UserDetailsQuota_Free._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserDetailsQuota_Free.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserDetailsQuota_Free> get serializer => _$UserDetailsQuota_FreeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserDetailsQuota_FreeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$UserDetailsQuota_FreeSerializer implements PrimitiveSerializer<UserDetailsQuota_Free> {
-  @override
-  final Iterable<Type> types = const [UserDetailsQuota_Free, _$UserDetailsQuota_Free];
-
-  @override
-  final String wireName = 'UserDetailsQuota_Free';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserDetailsQuota_Free object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserDetailsQuota_Free deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserDetailsQuota_FreeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuota_QuotaInterface {
-  double? get $double;
-  int? get $int;
-  String? get string;
-}
-
-abstract class UserDetailsQuota_Quota
-    implements $UserDetailsQuota_QuotaInterface, Built<UserDetailsQuota_Quota, UserDetailsQuota_QuotaBuilder> {
-  factory UserDetailsQuota_Quota([final void Function(UserDetailsQuota_QuotaBuilder)? b]) = _$UserDetailsQuota_Quota;
-
-  // coverage:ignore-start
-  const UserDetailsQuota_Quota._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserDetailsQuota_Quota.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserDetailsQuota_Quota> get serializer => _$UserDetailsQuota_QuotaSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserDetailsQuota_QuotaBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int, b._string].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int', 'string' for ${b._data}");
-    }
-  }
-}
-
-class _$UserDetailsQuota_QuotaSerializer implements PrimitiveSerializer<UserDetailsQuota_Quota> {
-  @override
-  final Iterable<Type> types = const [UserDetailsQuota_Quota, _$UserDetailsQuota_Quota];
-
-  @override
-  final String wireName = 'UserDetailsQuota_Quota';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserDetailsQuota_Quota object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserDetailsQuota_Quota deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserDetailsQuota_QuotaBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
-      result.string = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuota_RelativeInterface {
-  double? get $double;
-  int? get $int;
-}
-
-abstract class UserDetailsQuota_Relative
-    implements $UserDetailsQuota_RelativeInterface, Built<UserDetailsQuota_Relative, UserDetailsQuota_RelativeBuilder> {
-  factory UserDetailsQuota_Relative([final void Function(UserDetailsQuota_RelativeBuilder)? b]) =
-      _$UserDetailsQuota_Relative;
-
-  // coverage:ignore-start
-  const UserDetailsQuota_Relative._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserDetailsQuota_Relative.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserDetailsQuota_Relative> get serializer => _$UserDetailsQuota_RelativeSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserDetailsQuota_RelativeBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$UserDetailsQuota_RelativeSerializer implements PrimitiveSerializer<UserDetailsQuota_Relative> {
-  @override
-  final Iterable<Type> types = const [UserDetailsQuota_Relative, _$UserDetailsQuota_Relative];
-
-  @override
-  final String wireName = 'UserDetailsQuota_Relative';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserDetailsQuota_Relative object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserDetailsQuota_Relative deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserDetailsQuota_RelativeBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuota_TotalInterface {
-  double? get $double;
-  int? get $int;
-}
-
-abstract class UserDetailsQuota_Total
-    implements $UserDetailsQuota_TotalInterface, Built<UserDetailsQuota_Total, UserDetailsQuota_TotalBuilder> {
-  factory UserDetailsQuota_Total([final void Function(UserDetailsQuota_TotalBuilder)? b]) = _$UserDetailsQuota_Total;
-
-  // coverage:ignore-start
-  const UserDetailsQuota_Total._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserDetailsQuota_Total.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserDetailsQuota_Total> get serializer => _$UserDetailsQuota_TotalSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserDetailsQuota_TotalBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$UserDetailsQuota_TotalSerializer implements PrimitiveSerializer<UserDetailsQuota_Total> {
-  @override
-  final Iterable<Type> types = const [UserDetailsQuota_Total, _$UserDetailsQuota_Total];
-
-  @override
-  final String wireName = 'UserDetailsQuota_Total';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserDetailsQuota_Total object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserDetailsQuota_Total deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserDetailsQuota_TotalBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UserDetailsQuota_UsedInterface {
-  double? get $double;
-  int? get $int;
-}
-
-abstract class UserDetailsQuota_Used
-    implements $UserDetailsQuota_UsedInterface, Built<UserDetailsQuota_Used, UserDetailsQuota_UsedBuilder> {
-  factory UserDetailsQuota_Used([final void Function(UserDetailsQuota_UsedBuilder)? b]) = _$UserDetailsQuota_Used;
-
-  // coverage:ignore-start
-  const UserDetailsQuota_Used._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UserDetailsQuota_Used.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UserDetailsQuota_Used> get serializer => _$UserDetailsQuota_UsedSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UserDetailsQuota_UsedBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._$double, b._$int].singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError("Need exactly one of '$double', '$int' for ${b._data}");
-    }
-  }
-}
-
-class _$UserDetailsQuota_UsedSerializer implements PrimitiveSerializer<UserDetailsQuota_Used> {
-  @override
-  final Iterable<Type> types = const [UserDetailsQuota_Used, _$UserDetailsQuota_Used];
-
-  @override
-  final String wireName = 'UserDetailsQuota_Used';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UserDetailsQuota_Used object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UserDetailsQuota_Used deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UserDetailsQuota_UsedBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-      result.$double = value;
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-      result.$int = value;
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UserDetailsQuotaInterface {
   UserDetailsQuota_Free? get free;
   UserDetailsQuota_Quota? get quota;
@@ -6255,6 +5731,15 @@ abstract class UserDetailsQuota
   // coverage:ignore-end
 
   static Serializer<UserDetailsQuota> get serializer => _$userDetailsQuotaSerializer;
+
+  @BuiltValueHook(finalizeBuilder: true)
+  static void _validate(final UserDetailsQuotaBuilder b) {
+    b.free?.validateOneOf();
+    b.quota?.validateOneOf();
+    b.relative?.validateOneOf();
+    b.total?.validateOneOf();
+    b.used?.validateOneOf();
+  }
 }
 
 @BuiltValue(instantiable: false)
@@ -6355,98 +5840,6 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
-  UserDetails? get userDetails;
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      get groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
-}
-
-abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    implements
-        $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
-        Built<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
-  factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users([
-    final void Function(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? b,
-  ]) = _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-
-  // coverage:ignore-start
-  const GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
-      _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._userDetails, b._groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1]
-        .singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError(
-        "Need exactly one of 'userDetails', 'groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
-      );
-    }
-  }
-}
-
-class _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
-    implements PrimitiveSerializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> {
-  @override
-  final Iterable<Type> types = const [
-    GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-    _$GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-  ];
-
-  @override
-  final String wireName = 'GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
-      result.userDetails.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
-      result.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -7282,98 +6675,6 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 }
 
 @BuiltValue(instantiable: false)
-abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
-  UserDetails? get userDetails;
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      get usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
-}
-
-abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    implements
-        $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
-        Built<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
-  factory UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users([
-    final void Function(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? b,
-  ]) = _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-
-  // coverage:ignore-start
-  const UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
-      _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._userDetails, b._usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1]
-        .singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError(
-        "Need exactly one of 'userDetails', 'usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
-      );
-    }
-  }
-}
-
-class _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
-    implements PrimitiveSerializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> {
-  @override
-  final Iterable<Type> types = const [
-    UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-    _$UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-  ];
-
-  @override
-  final String wireName = 'UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
-      result.userDetails.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
-      result.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
-}
-
-@BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
 }
@@ -7496,100 +6797,6 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_User
 
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface {
-  UserDetails? get userDetails;
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
-      get usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
-}
-
-abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users
-    implements
-        $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersInterface,
-        Built<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-            UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder> {
-  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users([
-    final void Function(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder)? b,
-  ]) = _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users;
-
-  // coverage:ignore-start
-  const UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
-      _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer();
-
-  JsonObject get data;
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder b) {
-    // When this is rebuild from another builder
-    if (b._data == null) {
-      return;
-    }
-
-    final match = [b._userDetails, b._usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1]
-        .singleWhereOrNull((final x) => x != null);
-    if (match == null) {
-      throw StateError(
-        "Need exactly one of 'userDetails', 'usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1' for ${b._data}",
-      );
-    }
-  }
-}
-
-class _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersSerializer
-    implements PrimitiveSerializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> {
-  @override
-  final Iterable<Type> types = const [
-    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-    _$UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users,
-  ];
-
-  @override
-  final String wireName = 'UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) =>
-      object.data.value;
-
-  @override
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder()..data = JsonObject(data);
-    try {
-      final value = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
-      result.userDetails.replace(value);
-    } catch (_) {}
-    try {
-      final value = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
-      )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
-      result.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1.replace(value);
-    } catch (_) {}
-    return result.build();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -8881,6 +8088,438 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
+
+typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
+
+typedef UserDetailsQuota_Free = ({double? $double, int? $int});
+
+typedef UserDetailsQuota_Quota = ({double? $double, int? $int, String? string});
+
+typedef UserDetailsQuota_Relative = ({double? $double, int? $int});
+
+typedef UserDetailsQuota_Total = ({double? $double, int? $int});
+
+typedef UserDetailsQuota_Used = ({double? $double, int? $int});
+
+typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
+  UserDetails? userDetails
+});
+
+typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  UserDetails? userDetails,
+  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
+
+typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  UserDetails? userDetails,
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
+
+typedef $BoolInt = ({bool? $bool, int? $int});
+
+extension $BoolIntExtension on $BoolInt {
+  List<dynamic> get _values => [$bool, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BoolInt> get serializer => const _$BoolIntSerializer();
+  static $BoolInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
+  const _$BoolIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BoolInt];
+
+  @override
+  String get wireName => r'$BoolInt';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BoolInt object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$bool;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(bool))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BoolInt deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    bool? $bool;
+    try {
+      $bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return ($bool: $bool, $int: $int);
+  }
+}
+
+typedef $DoubleInt = ({double? $double, int? $int});
+
+extension $DoubleIntExtension on $DoubleInt {
+  List<dynamic> get _values => [$double, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$DoubleInt> get serializer => const _$DoubleIntSerializer();
+  static $DoubleInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$DoubleIntSerializer implements PrimitiveSerializer<$DoubleInt> {
+  const _$DoubleIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$DoubleInt];
+
+  @override
+  String get wireName => r'$DoubleInt';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $DoubleInt object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$double;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $DoubleInt deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    double? $double;
+    try {
+      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return ($double: $double, $int: $int);
+  }
+}
+
+typedef $DoubleIntString = ({double? $double, int? $int, String? string});
+
+extension $DoubleIntStringExtension on $DoubleIntString {
+  List<dynamic> get _values => [$double, $int, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$DoubleIntString> get serializer => const _$DoubleIntStringSerializer();
+  static $DoubleIntString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$DoubleIntStringSerializer implements PrimitiveSerializer<$DoubleIntString> {
+  const _$DoubleIntStringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$DoubleIntString];
+
+  @override
+  String get wireName => r'$DoubleIntString';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $DoubleIntString object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$double;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $DoubleIntString deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    double? $double;
+    try {
+      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    String? string;
+    try {
+      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return ($double: $double, $int: $int, string: string);
+  }
+}
+
+typedef $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails = ({
+  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
+  UserDetails? userDetails
+});
+
+extension $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsExtension
+    on $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails {
+  List<dynamic> get _values => [groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1, userDetails];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails> get serializer =>
+      const _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer();
+  static $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer
+    implements PrimitiveSerializer<$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails> {
+  const _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer();
+
+  @override
+  Iterable<Type> get types => const [$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails];
+
+  @override
+  String get wireName => r'$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    if (value != null) {
+      return _jsonSerializers.serialize(
+        value,
+        specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )!;
+    }
+    value = object.userDetails;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+        groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    try {
+      groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+    } catch (_) {}
+    UserDetails? userDetails;
+    try {
+      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+    } catch (_) {}
+    return (
+      groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1:
+          groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
+      userDetails: userDetails
+    );
+  }
+}
+
+typedef $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = ({
+  UserDetails? userDetails,
+  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
+
+extension $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Extension
+    on $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 {
+  List<dynamic> get _values => [userDetails, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
+      const _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+  static $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
+    implements PrimitiveSerializer<$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1> {
+  const _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+
+  @override
+  Iterable<Type> get types => const [$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
+
+  @override
+  String get wireName => r'$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.userDetails;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+    }
+    value = object.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    if (value != null) {
+      return _jsonSerializers.serialize(
+        value,
+        specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    UserDetails? userDetails;
+    try {
+      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+    } catch (_) {}
+    UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+        usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    try {
+      usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+    } catch (_) {}
+    return (
+      userDetails: userDetails,
+      usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1: usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
+    );
+  }
+}
+
+typedef $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = ({
+  UserDetails? userDetails,
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
+
+extension $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Extension
+    on $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 {
+  List<dynamic> get _values => [userDetails, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
+      const _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+  static $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(final Object? json) =>
+      _jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
+    implements PrimitiveSerializer<$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1> {
+  const _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+
+  @override
+  Iterable<Type> get types => const [$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
+
+  @override
+  String get wireName => r'$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.userDetails;
+    if (value != null) {
+      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+    }
+    value = object.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    if (value != null) {
+      return _jsonSerializers.serialize(
+        value,
+        specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    UserDetails? userDetails;
+    try {
+      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+    } catch (_) {}
+    UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
+        usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
+    try {
+      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+        data,
+        specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
+      )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
+    } catch (_) {}
+    return (
+      userDetails: userDetails,
+      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1:
+          usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
+    );
+  }
+}
+
 // coverage:ignore-start
 final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -9040,10 +8679,7 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(GroupDetails), GroupDetailsBuilder.new)
       ..add(GroupDetails.serializer)
-      ..addBuilderFactory(const FullType(GroupDetails_Usercount), GroupDetails_UsercountBuilder.new)
-      ..add(GroupDetails_Usercount.serializer)
-      ..addBuilderFactory(const FullType(GroupDetails_Disabled), GroupDetails_DisabledBuilder.new)
-      ..add(GroupDetails_Disabled.serializer)
+      ..add($BoolIntExtension.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(GroupDetails)]), ListBuilder<GroupDetails>.new)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersResponseApplicationJson),
@@ -9075,32 +8711,20 @@ final Serializers _serializers = (Serializers().toBuilder()
         GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
-      )
-      ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
       ..addBuilderFactory(const FullType(UserDetails), UserDetailsBuilder.new)
       ..add(UserDetails.serializer)
       ..addBuilderFactory(const FullType(UserDetails_BackendCapabilities), UserDetails_BackendCapabilitiesBuilder.new)
       ..add(UserDetails_BackendCapabilities.serializer)
       ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuotaBuilder.new)
       ..add(UserDetailsQuota.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Free), UserDetailsQuota_FreeBuilder.new)
-      ..add(UserDetailsQuota_Free.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Quota), UserDetailsQuota_QuotaBuilder.new)
-      ..add(UserDetailsQuota_Quota.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Relative), UserDetailsQuota_RelativeBuilder.new)
-      ..add(UserDetailsQuota_Relative.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Total), UserDetailsQuota_TotalBuilder.new)
-      ..add(UserDetailsQuota_Total.serializer)
-      ..addBuilderFactory(const FullType(UserDetailsQuota_Used), UserDetailsQuota_UsedBuilder.new)
-      ..add(UserDetailsQuota_Used.serializer)
+      ..add($DoubleIntExtension.serializer)
+      ..add($DoubleIntStringExtension.serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
         GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
+      ..add($GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsExtension.serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,
@@ -9250,15 +8874,11 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
-      )
-      ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
-      ..addBuilderFactory(
         const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
         UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
+      ..add($UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Extension.serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,
@@ -9282,15 +8902,11 @@ final Serializers _serializers = (Serializers().toBuilder()
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(
-        const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users),
-        UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersBuilder.new,
-      )
-      ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users.serializer)
-      ..addBuilderFactory(
         const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
         UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
+      ..add($UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Extension.serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,

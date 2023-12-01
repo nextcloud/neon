@@ -24,7 +24,7 @@ Iterable<Spec> generateSchemas(
         yield TypeDef(
           (final b) => b
             ..name = identifier
-            ..definition = refer(result.name),
+            ..definition = refer(result.dartType.name),
         );
       }
     }

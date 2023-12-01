@@ -11,6 +11,7 @@ targets:
             - discarded_futures
             - public_member_api_docs
             - unreachable_switch_case
+            - camel_case_extensions
           coverage_ignores:
             - 'const .*\._\(\);'
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => _jsonSerializers\.deserializeWith\(serializer, json\)!;'

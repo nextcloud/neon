@@ -73,6 +73,12 @@ TypeResultObject resolveObject(
         defaults.add('..$dartName = ${valueToEscapedValue(result, value)}');
       }
 
+      if (result is TypeResultOneOf && !result.isSingleValue) {
+        validators.add('b.$dartName?.validateOneOf();');
+      } else if (result is TypeResultAnyOf && !result.isSingleValue) {
+        validators.add('b.$dartName?.validateAnyOf();');
+      }
+
       validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName'));
     }
 

@@ -1318,8 +1318,8 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'size':
-          result.size.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareInfo_Size))! as ShareInfo_Size);
+          result.size =
+              serializers.deserialize(value, specifiedType: const FullType(ShareInfo_Size))! as ShareInfo_Size;
           break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1639,8 +1639,8 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.itemPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'item_size':
-          result.itemSize.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Share_ItemSize))! as Share_ItemSize);
+          result.itemSize =
+              serializers.deserialize(value, specifiedType: const FullType(Share_ItemSize))! as Share_ItemSize;
           break;
         case 'item_source':
           result.itemSource = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -7396,115 +7396,6 @@ class RemoteUnshareResponseApplicationJsonBuilder
   }
 }
 
-abstract mixin class $ShareInfo_SizeInterfaceBuilder {
-  void replace($ShareInfo_SizeInterface other);
-  void update(void Function($ShareInfo_SizeInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  double? get $double;
-  set $double(double? $double);
-}
-
-class _$ShareInfo_Size extends ShareInfo_Size {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final double? $double;
-
-  factory _$ShareInfo_Size([void Function(ShareInfo_SizeBuilder)? updates]) =>
-      (ShareInfo_SizeBuilder()..update(updates))._build();
-
-  _$ShareInfo_Size._({required this.data, this.$int, this.$double}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data');
-  }
-
-  @override
-  ShareInfo_Size rebuild(void Function(ShareInfo_SizeBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  ShareInfo_SizeBuilder toBuilder() => ShareInfo_SizeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareInfo_Size && data == other.data && $int == other.$int && $double == other.$double;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareInfo_Size')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('\$double', $double))
-        .toString();
-  }
-}
-
-class ShareInfo_SizeBuilder implements Builder<ShareInfo_Size, ShareInfo_SizeBuilder>, $ShareInfo_SizeInterfaceBuilder {
-  _$ShareInfo_Size? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  ShareInfo_SizeBuilder();
-
-  ShareInfo_SizeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _$double = $v.$double;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareInfo_Size other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareInfo_Size;
-  }
-
-  @override
-  void update(void Function(ShareInfo_SizeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareInfo_Size build() => _build();
-
-  _$ShareInfo_Size _build() {
-    ShareInfo_Size._validate(this);
-    final _$result = _$v ??
-        _$ShareInfo_Size._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'ShareInfo_Size', 'data'), $int: $int, $double: $double);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 abstract mixin class $ShareInfoInterfaceBuilder {
   void replace($ShareInfoInterface other);
   void update(void Function($ShareInfoInterfaceBuilder) updates);
@@ -7526,8 +7417,8 @@ abstract mixin class $ShareInfoInterfaceBuilder {
   String? get mimetype;
   set mimetype(String? mimetype);
 
-  ShareInfo_SizeBuilder get size;
-  set size(ShareInfo_SizeBuilder? size);
+  ShareInfo_Size? get size;
+  set size(ShareInfo_Size? size);
 
   String? get type;
   set type(String? type);
@@ -7595,6 +7486,7 @@ class _$ShareInfo extends ShareInfo {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is ShareInfo &&
         id == other.id &&
         parentId == other.parentId &&
@@ -7602,7 +7494,7 @@ class _$ShareInfo extends ShareInfo {
         name == other.name &&
         permissions == other.permissions &&
         mimetype == other.mimetype &&
-        size == other.size &&
+        size == _$dynamicOther.size &&
         type == other.type &&
         etag == other.etag &&
         children == other.children;
@@ -7669,9 +7561,9 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  ShareInfo_SizeBuilder? _size;
-  ShareInfo_SizeBuilder get size => _$this._size ??= ShareInfo_SizeBuilder();
-  set size(covariant ShareInfo_SizeBuilder? size) => _$this._size = size;
+  ShareInfo_Size? _size;
+  ShareInfo_Size? get size => _$this._size;
+  set size(covariant ShareInfo_Size? size) => _$this._size = size;
 
   String? _type;
   String? get type => _$this._type;
@@ -7697,7 +7589,7 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
       _name = $v.name;
       _permissions = $v.permissions;
       _mimetype = $v.mimetype;
-      _size = $v.size.toBuilder();
+      _size = $v.size;
       _type = $v.type;
       _etag = $v.etag;
       _children = $v.children?.toBuilder();
@@ -7721,6 +7613,7 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   ShareInfo build() => _build();
 
   _$ShareInfo _build() {
+    ShareInfo._validate(this);
     _$ShareInfo _$result;
     try {
       _$result = _$v ??
@@ -7731,16 +7624,13 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
               name: BuiltValueNullFieldError.checkNotNull(name, r'ShareInfo', 'name'),
               permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'ShareInfo', 'permissions'),
               mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'ShareInfo', 'mimetype'),
-              size: size.build(),
+              size: BuiltValueNullFieldError.checkNotNull(size, r'ShareInfo', 'size'),
               type: BuiltValueNullFieldError.checkNotNull(type, r'ShareInfo', 'type'),
               etag: BuiltValueNullFieldError.checkNotNull(etag, r'ShareInfo', 'etag'),
               children: _children?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'size';
-        size.build();
-
         _$failedField = 'children';
         _children?.build();
       } catch (e) {
@@ -7748,115 +7638,6 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $Share_ItemSizeInterfaceBuilder {
-  void replace($Share_ItemSizeInterface other);
-  void update(void Function($Share_ItemSizeInterfaceBuilder) updates);
-  double? get $double;
-  set $double(double? $double);
-
-  int? get $int;
-  set $int(int? $int);
-}
-
-class _$Share_ItemSize extends Share_ItemSize {
-  @override
-  final JsonObject data;
-  @override
-  final double? $double;
-  @override
-  final int? $int;
-
-  factory _$Share_ItemSize([void Function(Share_ItemSizeBuilder)? updates]) =>
-      (Share_ItemSizeBuilder()..update(updates))._build();
-
-  _$Share_ItemSize._({required this.data, this.$double, this.$int}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data');
-  }
-
-  @override
-  Share_ItemSize rebuild(void Function(Share_ItemSizeBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  Share_ItemSizeBuilder toBuilder() => Share_ItemSizeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is Share_ItemSize && data == other.data && $double == other.$double && $int == other.$int;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $double.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'Share_ItemSize')
-          ..add('data', data)
-          ..add('\$double', $double)
-          ..add('\$int', $int))
-        .toString();
-  }
-}
-
-class Share_ItemSizeBuilder implements Builder<Share_ItemSize, Share_ItemSizeBuilder>, $Share_ItemSizeInterfaceBuilder {
-  _$Share_ItemSize? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  double? _$double;
-  double? get $double => _$this._$double;
-  set $double(covariant double? $double) => _$this._$double = $double;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  Share_ItemSizeBuilder();
-
-  Share_ItemSizeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$double = $v.$double;
-      _$int = $v.$int;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant Share_ItemSize other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Share_ItemSize;
-  }
-
-  @override
-  void update(void Function(Share_ItemSizeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  Share_ItemSize build() => _build();
-
-  _$Share_ItemSize _build() {
-    Share_ItemSize._validate(this);
-    final _$result = _$v ??
-        _$Share_ItemSize._(
-            data: BuiltValueNullFieldError.checkNotNull(data, r'Share_ItemSize', 'data'), $double: $double, $int: $int);
     replace(_$result);
     return _$result;
   }
@@ -8030,8 +7811,8 @@ abstract mixin class $ShareInterfaceBuilder {
   int? get itemPermissions;
   set itemPermissions(int? itemPermissions);
 
-  Share_ItemSizeBuilder get itemSize;
-  set itemSize(Share_ItemSizeBuilder? itemSize);
+  Share_ItemSize? get itemSize;
+  set itemSize(Share_ItemSize? itemSize);
 
   int? get itemSource;
   set itemSource(int? itemSource);
@@ -8277,6 +8058,7 @@ class _$Share extends Share {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
+    final dynamic _$dynamicOther = other;
     return other is Share &&
         attributes == other.attributes &&
         canDelete == other.canDelete &&
@@ -8292,7 +8074,7 @@ class _$Share extends Share {
         id == other.id &&
         itemMtime == other.itemMtime &&
         itemPermissions == other.itemPermissions &&
-        itemSize == other.itemSize &&
+        itemSize == _$dynamicOther.itemSize &&
         itemSource == other.itemSource &&
         itemType == other.itemType &&
         label == other.label &&
@@ -8477,9 +8259,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   int? get itemPermissions => _$this._itemPermissions;
   set itemPermissions(covariant int? itemPermissions) => _$this._itemPermissions = itemPermissions;
 
-  Share_ItemSizeBuilder? _itemSize;
-  Share_ItemSizeBuilder get itemSize => _$this._itemSize ??= Share_ItemSizeBuilder();
-  set itemSize(covariant Share_ItemSizeBuilder? itemSize) => _$this._itemSize = itemSize;
+  Share_ItemSize? _itemSize;
+  Share_ItemSize? get itemSize => _$this._itemSize;
+  set itemSize(covariant Share_ItemSize? itemSize) => _$this._itemSize = itemSize;
 
   int? _itemSource;
   int? get itemSource => _$this._itemSource;
@@ -8607,7 +8389,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
       _id = $v.id;
       _itemMtime = $v.itemMtime;
       _itemPermissions = $v.itemPermissions;
-      _itemSize = $v.itemSize.toBuilder();
+      _itemSize = $v.itemSize;
       _itemSource = $v.itemSource;
       _itemType = $v.itemType;
       _label = $v.label;
@@ -8654,6 +8436,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   Share build() => _build();
 
   _$Share _build() {
+    Share._validate(this);
     _$Share _$result;
     try {
       _$result = _$v ??
@@ -8673,7 +8456,7 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
               id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
               itemMtime: BuiltValueNullFieldError.checkNotNull(itemMtime, r'Share', 'itemMtime'),
               itemPermissions: itemPermissions,
-              itemSize: itemSize.build(),
+              itemSize: BuiltValueNullFieldError.checkNotNull(itemSize, r'Share', 'itemSize'),
               itemSource: BuiltValueNullFieldError.checkNotNull(itemSource, r'Share', 'itemSource'),
               itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'Share', 'itemType'),
               label: BuiltValueNullFieldError.checkNotNull(label, r'Share', 'label'),
@@ -8703,9 +8486,6 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'itemSize';
-        itemSize.build();
-
         _$failedField = 'status';
         _status?.build();
       } catch (e) {
@@ -10503,136 +10283,6 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ShareapiAcceptShareResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ShareesapiSearchShareTypeInterfaceBuilder {
-  void replace($ShareesapiSearchShareTypeInterface other);
-  void update(void Function($ShareesapiSearchShareTypeInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  ListBuilder<int> get builtListInt;
-  set builtListInt(ListBuilder<int>? builtListInt);
-}
-
-class _$ShareesapiSearchShareType extends ShareesapiSearchShareType {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final BuiltList<int>? builtListInt;
-
-  factory _$ShareesapiSearchShareType([void Function(ShareesapiSearchShareTypeBuilder)? updates]) =>
-      (ShareesapiSearchShareTypeBuilder()..update(updates))._build();
-
-  _$ShareesapiSearchShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiSearchShareType', 'data');
-  }
-
-  @override
-  ShareesapiSearchShareType rebuild(void Function(ShareesapiSearchShareTypeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareesapiSearchShareTypeBuilder toBuilder() => ShareesapiSearchShareTypeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareesapiSearchShareType &&
-        data == other.data &&
-        $int == other.$int &&
-        builtListInt == other.builtListInt;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, builtListInt.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiSearchShareType')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('builtListInt', builtListInt))
-        .toString();
-  }
-}
-
-class ShareesapiSearchShareTypeBuilder
-    implements
-        Builder<ShareesapiSearchShareType, ShareesapiSearchShareTypeBuilder>,
-        $ShareesapiSearchShareTypeInterfaceBuilder {
-  _$ShareesapiSearchShareType? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  ListBuilder<int>? _builtListInt;
-  ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
-  set builtListInt(covariant ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
-
-  ShareesapiSearchShareTypeBuilder();
-
-  ShareesapiSearchShareTypeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _builtListInt = $v.builtListInt?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareesapiSearchShareType other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareesapiSearchShareType;
-  }
-
-  @override
-  void update(void Function(ShareesapiSearchShareTypeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareesapiSearchShareType build() => _build();
-
-  _$ShareesapiSearchShareType _build() {
-    ShareesapiSearchShareType._validate(this);
-    _$ShareesapiSearchShareType _$result;
-    try {
-      _$result = _$v ??
-          _$ShareesapiSearchShareType._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiSearchShareType', 'data'),
-              $int: $int,
-              builtListInt: _builtListInt?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'builtListInt';
-        _builtListInt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'ShareesapiSearchShareType', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -13743,136 +13393,6 @@ class ShareesapiSearchResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'ShareesapiSearchResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $ShareesapiFindRecommendedShareTypeInterfaceBuilder {
-  void replace($ShareesapiFindRecommendedShareTypeInterface other);
-  void update(void Function($ShareesapiFindRecommendedShareTypeInterfaceBuilder) updates);
-  int? get $int;
-  set $int(int? $int);
-
-  ListBuilder<int> get builtListInt;
-  set builtListInt(ListBuilder<int>? builtListInt);
-}
-
-class _$ShareesapiFindRecommendedShareType extends ShareesapiFindRecommendedShareType {
-  @override
-  final JsonObject data;
-  @override
-  final int? $int;
-  @override
-  final BuiltList<int>? builtListInt;
-
-  factory _$ShareesapiFindRecommendedShareType([void Function(ShareesapiFindRecommendedShareTypeBuilder)? updates]) =>
-      (ShareesapiFindRecommendedShareTypeBuilder()..update(updates))._build();
-
-  _$ShareesapiFindRecommendedShareType._({required this.data, this.$int, this.builtListInt}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiFindRecommendedShareType', 'data');
-  }
-
-  @override
-  ShareesapiFindRecommendedShareType rebuild(void Function(ShareesapiFindRecommendedShareTypeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ShareesapiFindRecommendedShareTypeBuilder toBuilder() => ShareesapiFindRecommendedShareTypeBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ShareesapiFindRecommendedShareType &&
-        data == other.data &&
-        $int == other.$int &&
-        builtListInt == other.builtListInt;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jc(_$hash, $int.hashCode);
-    _$hash = $jc(_$hash, builtListInt.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedShareType')
-          ..add('data', data)
-          ..add('\$int', $int)
-          ..add('builtListInt', builtListInt))
-        .toString();
-  }
-}
-
-class ShareesapiFindRecommendedShareTypeBuilder
-    implements
-        Builder<ShareesapiFindRecommendedShareType, ShareesapiFindRecommendedShareTypeBuilder>,
-        $ShareesapiFindRecommendedShareTypeInterfaceBuilder {
-  _$ShareesapiFindRecommendedShareType? _$v;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  int? _$int;
-  int? get $int => _$this._$int;
-  set $int(covariant int? $int) => _$this._$int = $int;
-
-  ListBuilder<int>? _builtListInt;
-  ListBuilder<int> get builtListInt => _$this._builtListInt ??= ListBuilder<int>();
-  set builtListInt(covariant ListBuilder<int>? builtListInt) => _$this._builtListInt = builtListInt;
-
-  ShareesapiFindRecommendedShareTypeBuilder();
-
-  ShareesapiFindRecommendedShareTypeBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _data = $v.data;
-      _$int = $v.$int;
-      _builtListInt = $v.builtListInt?.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant ShareesapiFindRecommendedShareType other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ShareesapiFindRecommendedShareType;
-  }
-
-  @override
-  void update(void Function(ShareesapiFindRecommendedShareTypeBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ShareesapiFindRecommendedShareType build() => _build();
-
-  _$ShareesapiFindRecommendedShareType _build() {
-    ShareesapiFindRecommendedShareType._validate(this);
-    _$ShareesapiFindRecommendedShareType _$result;
-    try {
-      _$result = _$v ??
-          _$ShareesapiFindRecommendedShareType._(
-              data: BuiltValueNullFieldError.checkNotNull(data, r'ShareesapiFindRecommendedShareType', 'data'),
-              $int: $int,
-              builtListInt: _builtListInt?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'builtListInt';
-        _builtListInt?.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'ShareesapiFindRecommendedShareType', _$failedField, e.toString());
       }
       rethrow;
     }
