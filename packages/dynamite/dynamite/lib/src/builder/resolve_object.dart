@@ -54,7 +54,7 @@ TypeResultObject resolveObject(
       if (isHeader && result.className != 'String') {
         result = TypeResultObject(
           'ContentString',
-          generics: [result],
+          generics: BuiltList([result]),
           nullable: result.nullable,
         );
         state.resolvedTypes.add(result);

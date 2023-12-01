@@ -79,7 +79,7 @@ TypeResult resolveType(
 
     result = TypeResultObject(
       'ContentString',
-      generics: [subResult],
+      generics: BuiltList([subResult]),
       nullable: nullable,
     );
   } else {
