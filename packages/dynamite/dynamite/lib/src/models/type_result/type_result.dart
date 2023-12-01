@@ -13,17 +13,18 @@ part 'some_of.dart';
 sealed class TypeResult {
   TypeResult(
     this.className, {
-    this.generics = const [],
+    final BuiltList<TypeResult>? generics,
     this.nullable = false,
     this.isTypeDef = false,
     final String? builderName,
   })  : builderName = builderName ?? className,
+        generics = generics ?? BuiltList(),
         assert(!className.contains('<'), 'Specify generics in the generics parameter.'),
         assert(!className.contains('?'), 'Nullability should not be specified in the type.');
 
   final String className;
   final String builderName;
-  final List<TypeResult> generics;
+  final BuiltList<TypeResult> generics;
   final bool nullable;
 
   /// Whether this type should be represented as a typedef.

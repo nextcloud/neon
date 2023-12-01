@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:test/test.dart';
 
@@ -45,6 +46,17 @@ void main() {
         type.deserialize('value'),
         '(_jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))! as BuiltList<BuiltList<String>>)',
       );
+    });
+
+    test('equality', () {
+      final subType1 = TypeResultBase('String');
+      final type1 = TypeResultList('BuiltList', subType1);
+
+      final subType2 = TypeResultBase('String');
+      final type2 = TypeResultList('BuiltList', subType2);
+
+      expect(type1, equals(type2));
+      expect(type1.hashCode, type2.hashCode);
     });
   });
 
@@ -97,12 +109,23 @@ void main() {
         '(_jsonSerializers.deserialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))! as BuiltMap<String, BuiltMap<String, int>>)',
       );
     });
+
+    test('equality', () {
+      final subType1 = TypeResultBase('String');
+      final type1 = TypeResultMap('BuiltList', subType1);
+
+      final subType2 = TypeResultBase('String');
+      final type2 = TypeResultMap('BuiltList', subType2);
+
+      expect(type1, equals(type2));
+      expect(type1.hashCode, type2.hashCode);
+    });
   });
 
   group(TypeResultObject, () {
     test('name', () {
       final subType = TypeResultBase('String');
-      final type = TypeResultObject('CustomType', generics: [subType]);
+      final type = TypeResultObject('CustomType', generics: BuiltList([subType]));
 
       expect(type.name, 'CustomType<String>');
       expect(type.fullType, 'FullType(CustomType, [FullType(String)])');
@@ -125,7 +148,7 @@ void main() {
 
     test('ContentString', () {
       final subType = TypeResultBase('int');
-      final type = TypeResultObject('ContentString', generics: [subType]);
+      final type = TypeResultObject('ContentString', generics: BuiltList([subType]));
 
       expect(type.name, 'ContentString<int>');
       expect(type.fullType, 'FullType(ContentString, [FullType(int)])');
@@ -141,6 +164,17 @@ void main() {
         type.deserialize('value'),
         '(_jsonSerializers.deserialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>)',
       );
+    });
+
+    test('equality', () {
+      final subType1 = TypeResultBase('String');
+      final type1 = TypeResultObject('CustomType', generics: BuiltList([subType1]));
+
+      final subType2 = TypeResultBase('String');
+      final type2 = TypeResultObject('CustomType', generics: BuiltList([subType2]));
+
+      expect(type1, equals(type2));
+      expect(type1.hashCode, type2.hashCode);
     });
   });
 
@@ -159,6 +193,15 @@ void main() {
         type.deserialize('value'),
         '(_jsonSerializers.deserialize(value, specifiedType: const FullType(String))! as String)',
       );
+    });
+
+    test('equality', () {
+      final type1 = TypeResultBase('String');
+
+      final type2 = TypeResultBase('String');
+
+      expect(type1, equals(type2));
+      expect(type1.hashCode, type2.hashCode);
     });
   });
 }

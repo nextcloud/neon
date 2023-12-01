@@ -8,7 +8,7 @@ class TypeResultList extends TypeResult {
     super.nullable,
     super.isTypeDef,
     super.builderName = 'ListBuilder',
-  }) : super(generics: [subType]);
+  }) : super(generics: BuiltList([subType]));
 
   TypeResult get subType => generics.first;
 

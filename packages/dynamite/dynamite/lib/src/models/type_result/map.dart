@@ -8,7 +8,7 @@ class TypeResultMap extends TypeResult {
     super.nullable,
     super.isTypeDef,
     super.builderName = 'MapBuilder',
-  }) : super(generics: [TypeResultBase('String'), subType]);
+  }) : super(generics: BuiltList([TypeResultBase('String'), subType]));
 
   TypeResult get subType => generics[1];
 
