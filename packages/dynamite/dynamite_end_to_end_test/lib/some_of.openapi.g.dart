@@ -20,14 +20,10 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
     final result = <Object?>[
       'OneValue',
       serializers.serialize(object.oneValue, specifiedType: const FullType(int)),
+      'IntDouble',
+      serializers.serialize(object.intDouble, specifiedType: const FullType(num)),
     ];
     Object? value;
-    value = object.intDouble;
-    if (value != null) {
-      result
-        ..add('IntDouble')
-        ..add(serializers.serialize(value, specifiedType: const FullType(OneValueSomeOfInObject_IntDouble)));
-    }
     value = object.intDoubleString;
     if (value != null) {
       result
@@ -52,8 +48,7 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
           result.oneValue = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'IntDouble':
-          result.intDouble = serializers.deserialize(value,
-              specifiedType: const FullType(OneValueSomeOfInObject_IntDouble)) as OneValueSomeOfInObject_IntDouble?;
+          result.intDouble = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
           break;
         case 'IntDoubleString':
           result.intDoubleString =
@@ -73,8 +68,8 @@ abstract mixin class $OneValueSomeOfInObjectInterfaceBuilder {
   int? get oneValue;
   set oneValue(int? oneValue);
 
-  OneValueSomeOfInObject_IntDouble? get intDouble;
-  set intDouble(OneValueSomeOfInObject_IntDouble? intDouble);
+  num? get intDouble;
+  set intDouble(num? intDouble);
 
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
   set intDoubleString(OneValueSomeOfInObject_IntDoubleString? intDoubleString);
@@ -84,15 +79,16 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
   @override
   final int oneValue;
   @override
-  final OneValueSomeOfInObject_IntDouble? intDouble;
+  final num intDouble;
   @override
   final OneValueSomeOfInObject_IntDoubleString? intDoubleString;
 
   factory _$OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? updates]) =>
       (OneValueSomeOfInObjectBuilder()..update(updates))._build();
 
-  _$OneValueSomeOfInObject._({required this.oneValue, this.intDouble, this.intDoubleString}) : super._() {
+  _$OneValueSomeOfInObject._({required this.oneValue, required this.intDouble, this.intDoubleString}) : super._() {
     BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue');
+    BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble');
   }
 
   @override
@@ -108,7 +104,7 @@ class _$OneValueSomeOfInObject extends OneValueSomeOfInObject {
     final dynamic _$dynamicOther = other;
     return other is OneValueSomeOfInObject &&
         oneValue == other.oneValue &&
-        intDouble == _$dynamicOther.intDouble &&
+        intDouble == other.intDouble &&
         intDoubleString == _$dynamicOther.intDoubleString;
   }
 
@@ -140,9 +136,9 @@ class OneValueSomeOfInObjectBuilder
   int? get oneValue => _$this._oneValue;
   set oneValue(covariant int? oneValue) => _$this._oneValue = oneValue;
 
-  OneValueSomeOfInObject_IntDouble? _intDouble;
-  OneValueSomeOfInObject_IntDouble? get intDouble => _$this._intDouble;
-  set intDouble(covariant OneValueSomeOfInObject_IntDouble? intDouble) => _$this._intDouble = intDouble;
+  num? _intDouble;
+  num? get intDouble => _$this._intDouble;
+  set intDouble(covariant num? intDouble) => _$this._intDouble = intDouble;
 
   OneValueSomeOfInObject_IntDoubleString? _intDoubleString;
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString => _$this._intDoubleString;
@@ -181,7 +177,7 @@ class OneValueSomeOfInObjectBuilder
     final _$result = _$v ??
         _$OneValueSomeOfInObject._(
             oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
-            intDouble: intDouble,
+            intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),
             intDoubleString: intDoubleString);
     replace(_$result);
     return _$result;

@@ -88,6 +88,21 @@
                     }
                 ]
             },
+            "OneOfIntDoubleNum": {
+                "description": "One of with an integer, double and number.",
+                "oneOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    {
+                        "type": "number"
+                    }
+                ]
+            },
             "OneOfIntDoubleOther": {
                 "description": "One of with an integer, double and other value.",
                 "oneOf": [

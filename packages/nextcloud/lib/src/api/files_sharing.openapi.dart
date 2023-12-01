@@ -2974,7 +2974,7 @@ abstract interface class $ShareInfoInterface {
   String get name;
   int get permissions;
   String get mimetype;
-  ShareInfo_Size get size;
+  num get size;
   String get type;
   String get etag;
   BuiltList<BuiltMap<String, JsonObject>>? get children;
@@ -2996,11 +2996,6 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
   // coverage:ignore-end
 
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ShareInfoBuilder b) {
-    b.size?.validateOneOf();
-  }
 }
 
 class Share_ItemType extends EnumClass {
@@ -3073,7 +3068,7 @@ abstract interface class $ShareInterface {
   @BuiltValueField(wireName: 'item_permissions')
   int? get itemPermissions;
   @BuiltValueField(wireName: 'item_size')
-  Share_ItemSize get itemSize;
+  num get itemSize;
   @BuiltValueField(wireName: 'item_source')
   int get itemSource;
   @BuiltValueField(wireName: 'item_type')
@@ -3132,11 +3127,6 @@ abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
   // coverage:ignore-end
 
   static Serializer<Share> get serializer => _$shareSerializer;
-
-  @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ShareBuilder b) {
-    b.itemSize?.validateOneOf();
-  }
 }
 
 @BuiltValue(instantiable: false)
@@ -4820,70 +4810,9 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-typedef ShareInfo_Size = ({double? $double, int? $int});
-
-typedef Share_ItemSize = ({double? $double, int? $int});
-
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
 
 typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
-
-typedef $DoubleInt = ({double? $double, int? $int});
-
-extension $DoubleIntExtension on $DoubleInt {
-  List<dynamic> get _values => [$double, $int];
-  void validateOneOf() => dynamite_utils.validateOneOf(_values);
-  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$DoubleInt> get serializer => const _$DoubleIntSerializer();
-  static $DoubleInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
-}
-
-class _$DoubleIntSerializer implements PrimitiveSerializer<$DoubleInt> {
-  const _$DoubleIntSerializer();
-
-  @override
-  Iterable<Type> get types => const [$DoubleInt];
-
-  @override
-  String get wireName => r'$DoubleInt';
-
-  @override
-  Object serialize(
-    final Serializers serializers,
-    final $DoubleInt object, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    dynamic value;
-    value = object.$double;
-    if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
-    }
-    value = object.$int;
-    if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
-    }
-// Should not be possible after validation.
-    throw StateError('Tried to serialize without any value.');
-  }
-
-  @override
-  $DoubleInt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
-  }) {
-    double? $double;
-    try {
-      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
-    } catch (_) {}
-    int? $int;
-    try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
-    } catch (_) {}
-    return ($double: $double, $int: $int);
-  }
-}
 
 typedef $BuiltListInt = ({BuiltList<int>? builtListInt, int? $int});
 
@@ -5035,7 +4964,6 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(RemoteUnshareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(ShareInfo), ShareInfoBuilder.new)
       ..add(ShareInfo.serializer)
-      ..add($DoubleIntExtension.serializer)
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,

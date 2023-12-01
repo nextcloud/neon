@@ -103,10 +103,9 @@ class AccountSettingsPage extends StatelessWidget {
                 double? value;
                 Widget? subtitle;
                 if (userDetails.hasData) {
-                  final quotaRelative =
-                      userDetails.data?.quota.relative?.$int ?? userDetails.data?.quota.relative?.$double ?? 0;
-                  final quotaTotal = userDetails.data?.quota.total?.$int ?? userDetails.data?.quota.total?.$double ?? 0;
-                  final quotaUsed = userDetails.data?.quota.used?.$int ?? userDetails.data?.quota.used?.$double ?? 0;
+                  final quotaRelative = userDetails.data?.quota.relative ?? 0;
+                  final quotaTotal = userDetails.data?.quota.total ?? 0;
+                  final quotaUsed = userDetails.data?.quota.used ?? 0;
 
                   value = quotaRelative / 100;
                   subtitle = Text(

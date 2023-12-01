@@ -1269,7 +1269,7 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
       'mimetype',
       serializers.serialize(object.mimetype, specifiedType: const FullType(String)),
       'size',
-      serializers.serialize(object.size, specifiedType: const FullType(ShareInfo_Size)),
+      serializers.serialize(object.size, specifiedType: const FullType(num)),
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'etag',
@@ -1318,8 +1318,7 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'size':
-          result.size =
-              serializers.deserialize(value, specifiedType: const FullType(ShareInfo_Size))! as ShareInfo_Size;
+          result.size = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
           break;
         case 'type':
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1456,7 +1455,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       'item_mtime',
       serializers.serialize(object.itemMtime, specifiedType: const FullType(int)),
       'item_size',
-      serializers.serialize(object.itemSize, specifiedType: const FullType(Share_ItemSize)),
+      serializers.serialize(object.itemSize, specifiedType: const FullType(num)),
       'item_source',
       serializers.serialize(object.itemSource, specifiedType: const FullType(int)),
       'item_type',
@@ -1639,8 +1638,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.itemPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'item_size':
-          result.itemSize =
-              serializers.deserialize(value, specifiedType: const FullType(Share_ItemSize))! as Share_ItemSize;
+          result.itemSize = serializers.deserialize(value, specifiedType: const FullType(num))! as num;
           break;
         case 'item_source':
           result.itemSource = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -7417,8 +7415,8 @@ abstract mixin class $ShareInfoInterfaceBuilder {
   String? get mimetype;
   set mimetype(String? mimetype);
 
-  ShareInfo_Size? get size;
-  set size(ShareInfo_Size? size);
+  num? get size;
+  set size(num? size);
 
   String? get type;
   set type(String? type);
@@ -7444,7 +7442,7 @@ class _$ShareInfo extends ShareInfo {
   @override
   final String mimetype;
   @override
-  final ShareInfo_Size size;
+  final num size;
   @override
   final String type;
   @override
@@ -7486,7 +7484,6 @@ class _$ShareInfo extends ShareInfo {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is ShareInfo &&
         id == other.id &&
         parentId == other.parentId &&
@@ -7494,7 +7491,7 @@ class _$ShareInfo extends ShareInfo {
         name == other.name &&
         permissions == other.permissions &&
         mimetype == other.mimetype &&
-        size == _$dynamicOther.size &&
+        size == other.size &&
         type == other.type &&
         etag == other.etag &&
         children == other.children;
@@ -7561,9 +7558,9 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   String? get mimetype => _$this._mimetype;
   set mimetype(covariant String? mimetype) => _$this._mimetype = mimetype;
 
-  ShareInfo_Size? _size;
-  ShareInfo_Size? get size => _$this._size;
-  set size(covariant ShareInfo_Size? size) => _$this._size = size;
+  num? _size;
+  num? get size => _$this._size;
+  set size(covariant num? size) => _$this._size = size;
 
   String? _type;
   String? get type => _$this._type;
@@ -7613,7 +7610,6 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
   ShareInfo build() => _build();
 
   _$ShareInfo _build() {
-    ShareInfo._validate(this);
     _$ShareInfo _$result;
     try {
       _$result = _$v ??
@@ -7811,8 +7807,8 @@ abstract mixin class $ShareInterfaceBuilder {
   int? get itemPermissions;
   set itemPermissions(int? itemPermissions);
 
-  Share_ItemSize? get itemSize;
-  set itemSize(Share_ItemSize? itemSize);
+  num? get itemSize;
+  set itemSize(num? itemSize);
 
   int? get itemSource;
   set itemSource(int? itemSource);
@@ -7923,7 +7919,7 @@ class _$Share extends Share {
   @override
   final int? itemPermissions;
   @override
-  final Share_ItemSize itemSize;
+  final num itemSize;
   @override
   final int itemSource;
   @override
@@ -8058,7 +8054,6 @@ class _$Share extends Share {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    final dynamic _$dynamicOther = other;
     return other is Share &&
         attributes == other.attributes &&
         canDelete == other.canDelete &&
@@ -8074,7 +8069,7 @@ class _$Share extends Share {
         id == other.id &&
         itemMtime == other.itemMtime &&
         itemPermissions == other.itemPermissions &&
-        itemSize == _$dynamicOther.itemSize &&
+        itemSize == other.itemSize &&
         itemSource == other.itemSource &&
         itemType == other.itemType &&
         label == other.label &&
@@ -8259,9 +8254,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   int? get itemPermissions => _$this._itemPermissions;
   set itemPermissions(covariant int? itemPermissions) => _$this._itemPermissions = itemPermissions;
 
-  Share_ItemSize? _itemSize;
-  Share_ItemSize? get itemSize => _$this._itemSize;
-  set itemSize(covariant Share_ItemSize? itemSize) => _$this._itemSize = itemSize;
+  num? _itemSize;
+  num? get itemSize => _$this._itemSize;
+  set itemSize(covariant num? itemSize) => _$this._itemSize = itemSize;
 
   int? _itemSource;
   int? get itemSource => _$this._itemSource;
@@ -8436,7 +8431,6 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   Share build() => _build();
 
   _$Share _build() {
-    Share._validate(this);
     _$Share _$result;
     try {
       _$result = _$v ??
