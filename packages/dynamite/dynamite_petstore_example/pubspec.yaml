@@ -16,7 +16,7 @@ dependencies:
   uri: ^1.0.0
 
 dev_dependencies:
-  build_runner: ^2.4.6
+  build_runner: ^2.4.7
   built_value_generator: ^8.8.0
   dynamite:
     git:
