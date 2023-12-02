@@ -95,11 +95,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
     dynamic value;
     value = object.$num;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(num))!;
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -113,11 +113,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }) {
     num? $num;
     try {
-      $num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }

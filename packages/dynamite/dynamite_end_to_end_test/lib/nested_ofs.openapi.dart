@@ -205,11 +205,11 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
     dynamic value;
     value = object.baseOneOf1;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseOneOf1))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf1))!;
     }
     value = object.$double;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(double))!;
+      return serializers.serialize(value, specifiedType: const FullType(double))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -223,11 +223,11 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
   }) {
     BaseOneOf1? baseOneOf1;
     try {
-      baseOneOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
+      baseOneOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseOneOf1))! as BaseOneOf1;
     } catch (_) {}
     double? $double;
     try {
-      $double = _jsonSerializers.deserialize(data, specifiedType: const FullType(double))! as double;
+      $double = serializers.deserialize(data, specifiedType: const FullType(double))! as double;
     } catch (_) {}
     return (baseOneOf1: baseOneOf1, $double: $double);
   }
@@ -262,11 +262,11 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
     dynamic value;
     value = object.baseAnyOf1;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseAnyOf1))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAnyOf1))!;
     }
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -280,11 +280,11 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
   }) {
     BaseAnyOf1? baseAnyOf1;
     try {
-      baseAnyOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
+      baseAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf1))! as BaseAnyOf1;
     } catch (_) {}
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return (baseAnyOf1: baseAnyOf1, $int: $int);
   }
@@ -327,19 +327,19 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer
     dynamic value;
     value = object.baseAllOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseAllOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAllOf))!;
     }
     value = object.baseAnyOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseAnyOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAnyOf))!;
     }
     value = object.baseNestedOneOf3;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseNestedOneOf3))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseNestedOneOf3))!;
     }
     value = object.baseOneOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -353,22 +353,22 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOfSerializer
   }) {
     BaseAllOf? baseAllOf;
     try {
-      baseAllOf = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      baseAllOf = serializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
     } catch (_) {}
     BaseAnyOf? baseAnyOf;
     try {
-      baseAnyOf = ((_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)
-        ..validateAnyOf());
+      baseAnyOf =
+          ((serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)..validateAnyOf());
     } catch (_) {}
     BaseNestedOneOf3? baseNestedOneOf3;
     try {
       baseNestedOneOf3 =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
+          serializers.deserialize(data, specifiedType: const FullType(BaseNestedOneOf3))! as BaseNestedOneOf3;
     } catch (_) {}
     BaseOneOf? baseOneOf;
     try {
-      baseOneOf = ((_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)
-        ..validateOneOf());
+      baseOneOf =
+          ((serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf());
     } catch (_) {}
     return (baseAllOf: baseAllOf, baseAnyOf: baseAnyOf, baseNestedOneOf3: baseNestedOneOf3, baseOneOf: baseOneOf);
   }
@@ -411,19 +411,19 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
     dynamic value;
     value = object.baseAllOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseAllOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAllOf))!;
     }
     value = object.baseAnyOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseAnyOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseAnyOf))!;
     }
     value = object.baseNestedAnyOf3;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseNestedAnyOf3))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseNestedAnyOf3))!;
     }
     value = object.baseOneOf;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
+      return serializers.serialize(value, specifiedType: const FullType(BaseOneOf))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -437,22 +437,22 @@ class _$BaseAllOfBaseAnyOfBaseNestedAnyOf3BaseOneOfSerializer
   }) {
     BaseAllOf? baseAllOf;
     try {
-      baseAllOf = _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
+      baseAllOf = serializers.deserialize(data, specifiedType: const FullType(BaseAllOf))! as BaseAllOf;
     } catch (_) {}
     BaseAnyOf? baseAnyOf;
     try {
-      baseAnyOf = ((_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)
-        ..validateAnyOf());
+      baseAnyOf =
+          ((serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)..validateAnyOf());
     } catch (_) {}
     BaseNestedAnyOf3? baseNestedAnyOf3;
     try {
       baseNestedAnyOf3 =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(BaseNestedAnyOf3))! as BaseNestedAnyOf3;
+          serializers.deserialize(data, specifiedType: const FullType(BaseNestedAnyOf3))! as BaseNestedAnyOf3;
     } catch (_) {}
     BaseOneOf? baseOneOf;
     try {
-      baseOneOf = ((_jsonSerializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)
-        ..validateOneOf());
+      baseOneOf =
+          ((serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf());
     } catch (_) {}
     return (baseAllOf: baseAllOf, baseAnyOf: baseAnyOf, baseNestedAnyOf3: baseNestedAnyOf3, baseOneOf: baseOneOf);
   }

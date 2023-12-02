@@ -1912,11 +1912,11 @@ class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTime
     dynamic value;
     value = object.clearAtTimeType;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ClearAtTimeType))!;
+      return serializers.serialize(value, specifiedType: const FullType(ClearAtTimeType))!;
     }
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -1931,11 +1931,11 @@ class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTime
     ClearAtTimeType? clearAtTimeType;
     try {
       clearAtTimeType =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
+          serializers.deserialize(data, specifiedType: const FullType(ClearAtTimeType))! as ClearAtTimeType;
     } catch (_) {}
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return (clearAtTimeType: clearAtTimeType, $int: $int);
   }
@@ -1970,11 +1970,11 @@ class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPriv
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.private;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(Private))!;
+      return serializers.serialize(value, specifiedType: const FullType(Private))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -1988,14 +1988,14 @@ class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPriv
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     Private? private;
     try {
-      private = _jsonSerializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
+      private = serializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, private: private);
   }

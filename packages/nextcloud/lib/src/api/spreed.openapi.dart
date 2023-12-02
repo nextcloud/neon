@@ -23194,11 +23194,11 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.chatMessage;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
+      return serializers.serialize(value, specifiedType: const FullType(ChatMessage))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -23212,14 +23212,14 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     ChatMessage? chatMessage;
     try {
-      chatMessage = _jsonSerializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
+      chatMessage = serializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, chatMessage: chatMessage);
   }
@@ -23261,11 +23261,11 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.roomAddParticipantToRoomResponseApplicationJsonOcsData0;
     if (value != null) {
-      return _jsonSerializers.serialize(
+      return serializers.serialize(
         value,
         specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
       )!;
@@ -23282,14 +23282,14 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0;
     try {
-      roomAddParticipantToRoomResponseApplicationJsonOcsData0 = _jsonSerializers.deserialize(
+      roomAddParticipantToRoomResponseApplicationJsonOcsData0 = serializers.deserialize(
         data,
         specifiedType: const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0),
       )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
@@ -23330,11 +23330,11 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
     dynamic value;
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -23348,11 +23348,11 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }) {
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
@@ -23387,11 +23387,11 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
     dynamic value;
     value = object.builtListSignalingSession;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -23405,14 +23405,14 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
   }) {
     BuiltList<SignalingSession>? builtListSignalingSession;
     try {
-      builtListSignalingSession = _jsonSerializers.deserialize(
+      builtListSignalingSession = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
       )! as BuiltList<SignalingSession>;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (builtListSignalingSession: builtListSignalingSession, string: string);
   }
@@ -23451,11 +23451,11 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.publicCapabilities0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(PublicCapabilities0))!;
+      return serializers.serialize(value, specifiedType: const FullType(PublicCapabilities0))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -23469,15 +23469,15 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     PublicCapabilities0? publicCapabilities0;
     try {
-      publicCapabilities0 = _jsonSerializers.deserialize(data, specifiedType: const FullType(PublicCapabilities0))!
-          as PublicCapabilities0;
+      publicCapabilities0 =
+          serializers.deserialize(data, specifiedType: const FullType(PublicCapabilities0))! as PublicCapabilities0;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, publicCapabilities0: publicCapabilities0);
   }
