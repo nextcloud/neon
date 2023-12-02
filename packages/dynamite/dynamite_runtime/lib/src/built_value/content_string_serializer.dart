@@ -17,7 +17,7 @@ class ContentStringPlugin implements SerializerPlugin {
 
   @override
   Object? afterSerialize(final Object? object, final FullType specifiedType) {
-    if (!specifiedType.root.toString().contains('ContentString')) {
+    if (specifiedType.root != ContentString) {
       return object;
     }
 
@@ -33,7 +33,7 @@ class ContentStringPlugin implements SerializerPlugin {
 
   @override
   Object? beforeDeserialize(final Object? object, final FullType specifiedType) {
-    if (!specifiedType.root.toString().contains('ContentString')) {
+    if (specifiedType.root != ContentString) {
       return object;
     }
 
