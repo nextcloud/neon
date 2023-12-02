@@ -39,7 +39,7 @@ Future<void> main() async {
         }
       }
 
-      File('${appPresetsDir.path}/${release.version}').writeAsStringSync(buffer.toString());
+      File('${appPresetsDir.path}/${release.version.withoutPatch()}').writeAsStringSync(buffer.toString());
     }
   }
 
@@ -56,21 +56,21 @@ Future<void> main() async {
       buffer.writeln('${app.id.toUpperCase()}_URL=${app.findLatestRelease(serverVersion).url}');
     }
 
-    File('${serverPresetsDir.path}/$serverVersion').writeAsStringSync(buffer.toString());
+    File('${serverPresetsDir.path}/${serverVersion.withoutPatch()}').writeAsStringSync(buffer.toString());
   }
 
   final latestPresetLink = Link('docker/presets/latest');
   if (latestPresetLink.existsSync()) {
-    latestPresetLink.updateSync('server/${serverVersions.first}');
+    latestPresetLink.updateSync('server/${serverVersions.first.withoutPatch()}');
   } else {
-    latestPresetLink.createSync('server/${serverVersions.first}');
+    latestPresetLink.createSync('server/${serverVersions.first.withoutPatch()}');
   }
 
   httpClient.close(force: true);
 }
 
 Future<List<ExtendedVersion>> _getServerVersions(final HttpClient httpClient) async {
-  final versions = <ExtendedVersion>[];
+  final versions = <ExtendedVersion, ExtendedVersion>{};
   String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
   while (next != null) {
@@ -93,16 +93,21 @@ Future<List<ExtendedVersion>> _getServerVersions(final HttpClient httpClient) as
         continue;
       }
       final version = ExtendedVersion.parse(name);
+      final normalizedVersion = version.withoutPatch();
 
       if (version < coreMinVersion || version.major > core.maxMajor) {
         continue;
       }
 
-      versions.add(version);
+      if (!versions.containsKey(normalizedVersion)) {
+        versions[normalizedVersion] = version;
+      } else if (version > versions[normalizedVersion]) {
+        versions[normalizedVersion] = version;
+      }
     }
   }
 
-  return versions;
+  return versions.values.toList();
 }
 
 Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClient) async {
@@ -124,7 +129,7 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
       continue;
     }
 
-    final releases = <AppRelease>[];
+    final releases = <ExtendedVersion, AppRelease>{};
 
     final releasesItems = app['releases'] as List;
     for (final releaseItem in releasesItems) {
@@ -135,6 +140,7 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
         continue;
       }
       final version = ExtendedVersion.parse(versionString);
+      final normalizedVersion = version.withoutPatch();
 
       final rawPlatformVersionSpec = release['rawPlatformVersionSpec'] as String;
       final minimumServerVersionRequirement =
@@ -151,17 +157,26 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
 
       final download = release['download'] as String;
 
-      releases.add(
-        (
-          version: version,
-          url: download,
-          minimumServerVersion: minimumServerVersionRequirement,
-          maximumServerVersion: maximumServerVersionRequirement,
-        ),
+      final appRelease = (
+        version: version,
+        url: download,
+        minimumServerVersion: minimumServerVersionRequirement,
+        maximumServerVersion: maximumServerVersionRequirement,
       );
+
+      if (!releases.containsKey(normalizedVersion)) {
+        releases[normalizedVersion] = appRelease;
+      } else if (appRelease.version > releases[normalizedVersion]!.version) {
+        releases[normalizedVersion] = appRelease;
+      }
     }
 
-    apps.add((id: id, releases: releases));
+    apps.add(
+      (
+        id: id,
+        releases: releases.values.toList(),
+      ),
+    );
   }
 
   apps.sort((final a, final b) => a.id.compareTo(b.id));

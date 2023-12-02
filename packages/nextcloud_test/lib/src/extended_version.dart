@@ -39,6 +39,10 @@ class ExtendedVersion implements Comparable<ExtendedVersion> {
 
   final int? patch;
 
+  ExtendedVersion withoutPatch() => ExtendedVersion(major, minor, null);
+
+  Version toVersion() => Version(major, minor ?? 0, patch ?? 0);
+
   @override
   String toString() {
     final buffer = StringBuffer('$major');
