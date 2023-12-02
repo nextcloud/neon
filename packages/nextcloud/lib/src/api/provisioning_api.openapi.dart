@@ -8134,11 +8134,11 @@ class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
     dynamic value;
     value = object.$bool;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(bool))!;
+      return serializers.serialize(value, specifiedType: const FullType(bool))!;
     }
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -8152,11 +8152,11 @@ class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
   }) {
     bool? $bool;
     try {
-      $bool = _jsonSerializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
     } catch (_) {}
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return ($bool: $bool, $int: $int);
   }
@@ -8191,11 +8191,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
     dynamic value;
     value = object.$num;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(num))!;
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -8209,11 +8209,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }) {
     num? $num;
     try {
-      $num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }
@@ -8255,14 +8255,14 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetail
     dynamic value;
     value = object.groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
     if (value != null) {
-      return _jsonSerializers.serialize(
+      return serializers.serialize(
         value,
         specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )!;
     }
     value = object.userDetails;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+      return serializers.serialize(value, specifiedType: const FullType(UserDetails))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -8277,14 +8277,14 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetail
     GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
         groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1;
     try {
-      groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+      groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1 = serializers.deserialize(
         data,
         specifiedType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
     } catch (_) {}
     UserDetails? userDetails;
     try {
-      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
     } catch (_) {}
     return (
       groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1:
@@ -8330,11 +8330,11 @@ class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Seria
     dynamic value;
     value = object.userDetails;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+      return serializers.serialize(value, specifiedType: const FullType(UserDetails))!;
     }
     value = object.usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
     if (value != null) {
-      return _jsonSerializers.serialize(
+      return serializers.serialize(
         value,
         specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )!;
@@ -8351,12 +8351,12 @@ class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Seria
   }) {
     UserDetails? userDetails;
     try {
-      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
     } catch (_) {}
     UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
         usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1;
     try {
-      usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+      usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = serializers.deserialize(
         data,
         specifiedType: const FullType(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1;
@@ -8404,11 +8404,11 @@ class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUse
     dynamic value;
     value = object.userDetails;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserDetails))!;
+      return serializers.serialize(value, specifiedType: const FullType(UserDetails))!;
     }
     value = object.usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
     if (value != null) {
-      return _jsonSerializers.serialize(
+      return serializers.serialize(
         value,
         specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )!;
@@ -8425,12 +8425,12 @@ class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUse
   }) {
     UserDetails? userDetails;
     try {
-      userDetails = _jsonSerializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
+      userDetails = serializers.deserialize(data, specifiedType: const FullType(UserDetails))! as UserDetails;
     } catch (_) {}
     UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1?
         usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1;
     try {
-      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = _jsonSerializers.deserialize(
+      usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = serializers.deserialize(
         data,
         specifiedType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
       )! as UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1;

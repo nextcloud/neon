@@ -4843,11 +4843,11 @@ class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
     dynamic value;
     value = object.builtListInt;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!;
     }
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -4861,12 +4861,12 @@ class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
   }) {
     BuiltList<int>? builtListInt;
     try {
-      builtListInt = _jsonSerializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))!
-          as BuiltList<int>;
+      builtListInt =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
     } catch (_) {}
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     return (builtListInt: builtListInt, $int: $int);
   }

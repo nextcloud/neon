@@ -250,11 +250,11 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.capabilities0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(Capabilities0))!;
+      return serializers.serialize(value, specifiedType: const FullType(Capabilities0))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -268,15 +268,14 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     Capabilities0? capabilities0;
     try {
-      capabilities0 =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
+      capabilities0 = serializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, capabilities0: capabilities0);
   }

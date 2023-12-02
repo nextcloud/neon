@@ -10787,11 +10787,11 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
     dynamic value;
     value = object.autocompleteResultStatus0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(AutocompleteResult_Status0))!;
+      return serializers.serialize(value, specifiedType: const FullType(AutocompleteResult_Status0))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -10805,14 +10805,14 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
   }) {
     AutocompleteResult_Status0? autocompleteResultStatus0;
     try {
-      autocompleteResultStatus0 = _jsonSerializers.deserialize(
+      autocompleteResultStatus0 = serializers.deserialize(
         data,
         specifiedType: const FullType(AutocompleteResult_Status0),
       )! as AutocompleteResult_Status0;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (autocompleteResultStatus0: autocompleteResultStatus0, string: string);
   }
@@ -10847,11 +10847,11 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
     dynamic value;
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -10865,11 +10865,11 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }) {
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($int: $int, string: string);
   }
@@ -10909,11 +10909,11 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.sharebymailCapabilities0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities0))!;
+      return serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities0))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -10927,17 +10927,15 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     SharebymailCapabilities0? sharebymailCapabilities0;
     try {
-      sharebymailCapabilities0 = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities0),
-      )! as SharebymailCapabilities0;
+      sharebymailCapabilities0 = serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities0))!
+          as SharebymailCapabilities0;
     } catch (_) {}
     return (builtListJsonObject: builtListJsonObject, sharebymailCapabilities0: sharebymailCapabilities0);
   }
@@ -10978,11 +10976,11 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
     dynamic value;
     value = object.builtListJsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
     }
     value = object.spreedPublicCapabilities0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
+      return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities0))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -10996,14 +10994,14 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
   }) {
     BuiltList<JsonObject>? builtListJsonObject;
     try {
-      builtListJsonObject = _jsonSerializers.deserialize(
+      builtListJsonObject = serializers.deserialize(
         data,
         specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
       )! as BuiltList<JsonObject>;
     } catch (_) {}
     SpreedPublicCapabilities0? spreedPublicCapabilities0;
     try {
-      spreedPublicCapabilities0 = _jsonSerializers.deserialize(
+      spreedPublicCapabilities0 = serializers.deserialize(
         data,
         specifiedType: const FullType(SpreedPublicCapabilities0),
       )! as SpreedPublicCapabilities0;
@@ -11084,59 +11082,59 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
     dynamic value;
     value = object.commentsCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(CommentsCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(CommentsCapabilities))!;
     }
     value = object.davCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(DavCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(DavCapabilities))!;
     }
     value = object.filesCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(FilesCapabilities))!;
     }
     value = object.filesSharingCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesSharingCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(FilesSharingCapabilities))!;
     }
     value = object.filesTrashbinCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesTrashbinCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(FilesTrashbinCapabilities))!;
     }
     value = object.filesVersionsCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(FilesVersionsCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(FilesVersionsCapabilities))!;
     }
     value = object.notesCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(NotesCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(NotesCapabilities))!;
     }
     value = object.notificationsCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(NotificationsCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(NotificationsCapabilities))!;
     }
     value = object.provisioningApiCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ProvisioningApiCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(ProvisioningApiCapabilities))!;
     }
     value = object.sharebymailCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(SharebymailCapabilities))!;
     }
     value = object.spreedPublicCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(SpreedPublicCapabilities))!;
     }
     value = object.themingPublicCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(ThemingPublicCapabilities))!;
     }
     value = object.userStatusCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(UserStatusCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(UserStatusCapabilities))!;
     }
     value = object.weatherStatusCapabilities;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(WeatherStatusCapabilities))!;
+      return serializers.serialize(value, specifiedType: const FullType(WeatherStatusCapabilities))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -11151,36 +11149,34 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
   }) {
     CommentsCapabilities? commentsCapabilities;
     try {
-      commentsCapabilities = _jsonSerializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))!
-          as CommentsCapabilities;
+      commentsCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(CommentsCapabilities))! as CommentsCapabilities;
     } catch (_) {}
     DavCapabilities? davCapabilities;
     try {
       davCapabilities =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
+          serializers.deserialize(data, specifiedType: const FullType(DavCapabilities))! as DavCapabilities;
     } catch (_) {}
     FilesCapabilities? filesCapabilities;
     try {
       filesCapabilities =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
+          serializers.deserialize(data, specifiedType: const FullType(FilesCapabilities))! as FilesCapabilities;
     } catch (_) {}
     FilesSharingCapabilities? filesSharingCapabilities;
     try {
-      filesSharingCapabilities = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesSharingCapabilities),
-      )! as FilesSharingCapabilities;
+      filesSharingCapabilities = serializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
+          as FilesSharingCapabilities;
     } catch (_) {}
     FilesTrashbinCapabilities? filesTrashbinCapabilities;
     try {
-      filesTrashbinCapabilities = _jsonSerializers.deserialize(
+      filesTrashbinCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(FilesTrashbinCapabilities),
       )! as FilesTrashbinCapabilities;
     } catch (_) {}
     FilesVersionsCapabilities? filesVersionsCapabilities;
     try {
-      filesVersionsCapabilities = _jsonSerializers.deserialize(
+      filesVersionsCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(FilesVersionsCapabilities),
       )! as FilesVersionsCapabilities;
@@ -11188,33 +11184,31 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
     NotesCapabilities? notesCapabilities;
     try {
       notesCapabilities =
-          _jsonSerializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
+          serializers.deserialize(data, specifiedType: const FullType(NotesCapabilities))! as NotesCapabilities;
     } catch (_) {}
     NotificationsCapabilities? notificationsCapabilities;
     try {
-      notificationsCapabilities = _jsonSerializers.deserialize(
+      notificationsCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(NotificationsCapabilities),
       )! as NotificationsCapabilities;
     } catch (_) {}
     ProvisioningApiCapabilities? provisioningApiCapabilities;
     try {
-      provisioningApiCapabilities = _jsonSerializers.deserialize(
+      provisioningApiCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(ProvisioningApiCapabilities),
       )! as ProvisioningApiCapabilities;
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = ((_jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(SharebymailCapabilities),
-      )! as SharebymailCapabilities)
+      sharebymailCapabilities = ((serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
+          as SharebymailCapabilities)
         ..validateAnyOf());
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = ((_jsonSerializers.deserialize(
+      spreedPublicCapabilities = ((serializers.deserialize(
         data,
         specifiedType: const FullType(SpreedPublicCapabilities),
       )! as SpreedPublicCapabilities)
@@ -11222,21 +11216,19 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
     } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
-      themingPublicCapabilities = _jsonSerializers.deserialize(
+      themingPublicCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(ThemingPublicCapabilities),
       )! as ThemingPublicCapabilities;
     } catch (_) {}
     UserStatusCapabilities? userStatusCapabilities;
     try {
-      userStatusCapabilities = _jsonSerializers.deserialize(
-        data,
-        specifiedType: const FullType(UserStatusCapabilities),
-      )! as UserStatusCapabilities;
+      userStatusCapabilities = serializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
+          as UserStatusCapabilities;
     } catch (_) {}
     WeatherStatusCapabilities? weatherStatusCapabilities;
     try {
-      weatherStatusCapabilities = _jsonSerializers.deserialize(
+      weatherStatusCapabilities = serializers.deserialize(
         data,
         specifiedType: const FullType(WeatherStatusCapabilities),
       )! as WeatherStatusCapabilities;

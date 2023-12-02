@@ -147,11 +147,11 @@ class _$ObjectAnyOf0ObjectAnyOf1Serializer implements PrimitiveSerializer<$Objec
     dynamic value;
     value = object.objectAnyOf0;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ObjectAnyOf0))!;
+      return serializers.serialize(value, specifiedType: const FullType(ObjectAnyOf0))!;
     }
     value = object.objectAnyOf1;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(ObjectAnyOf1))!;
+      return serializers.serialize(value, specifiedType: const FullType(ObjectAnyOf1))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -165,11 +165,11 @@ class _$ObjectAnyOf0ObjectAnyOf1Serializer implements PrimitiveSerializer<$Objec
   }) {
     ObjectAnyOf0? objectAnyOf0;
     try {
-      objectAnyOf0 = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf0))! as ObjectAnyOf0;
+      objectAnyOf0 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf0))! as ObjectAnyOf0;
     } catch (_) {}
     ObjectAnyOf1? objectAnyOf1;
     try {
-      objectAnyOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf1))! as ObjectAnyOf1;
+      objectAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(ObjectAnyOf1))! as ObjectAnyOf1;
     } catch (_) {}
     return (objectAnyOf0: objectAnyOf0, objectAnyOf1: objectAnyOf1);
   }
@@ -204,11 +204,11 @@ class _$MixedAnyOf1StringSerializer implements PrimitiveSerializer<$MixedAnyOf1S
     dynamic value;
     value = object.mixedAnyOf1;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(MixedAnyOf1))!;
+      return serializers.serialize(value, specifiedType: const FullType(MixedAnyOf1))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -222,11 +222,11 @@ class _$MixedAnyOf1StringSerializer implements PrimitiveSerializer<$MixedAnyOf1S
   }) {
     MixedAnyOf1? mixedAnyOf1;
     try {
-      mixedAnyOf1 = _jsonSerializers.deserialize(data, specifiedType: const FullType(MixedAnyOf1))! as MixedAnyOf1;
+      mixedAnyOf1 = serializers.deserialize(data, specifiedType: const FullType(MixedAnyOf1))! as MixedAnyOf1;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return (mixedAnyOf1: mixedAnyOf1, string: string);
   }
@@ -261,11 +261,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
     dynamic value;
     value = object.$num;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(num))!;
+      return serializers.serialize(value, specifiedType: const FullType(num))!;
     }
     value = object.string;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(String))!;
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -279,11 +279,11 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }) {
     num? $num;
     try {
-      $num = _jsonSerializers.deserialize(data, specifiedType: const FullType(num))! as num;
+      $num = serializers.deserialize(data, specifiedType: const FullType(num))! as num;
     } catch (_) {}
     String? string;
     try {
-      string = _jsonSerializers.deserialize(data, specifiedType: const FullType(String))! as String;
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
     } catch (_) {}
     return ($num: $num, string: string);
   }

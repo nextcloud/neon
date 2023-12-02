@@ -110,15 +110,15 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
     dynamic value;
     value = object.base;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(Base))!;
+      return serializers.serialize(value, specifiedType: const FullType(Base))!;
     }
     value = object.$int;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(int))!;
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
     }
     value = object.jsonObject;
     if (value != null) {
-      return _jsonSerializers.serialize(value, specifiedType: const FullType(JsonObject))!;
+      return serializers.serialize(value, specifiedType: const FullType(JsonObject))!;
     }
 // Should not be possible after validation.
     throw StateError('Tried to serialize without any value.');
@@ -132,15 +132,15 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
   }) {
     Base? base;
     try {
-      base = _jsonSerializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
+      base = serializers.deserialize(data, specifiedType: const FullType(Base))! as Base;
     } catch (_) {}
     int? $int;
     try {
-      $int = _jsonSerializers.deserialize(data, specifiedType: const FullType(int))! as int;
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
     } catch (_) {}
     JsonObject? jsonObject;
     try {
-      jsonObject = _jsonSerializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
+      jsonObject = serializers.deserialize(data, specifiedType: const FullType(JsonObject))! as JsonObject;
     } catch (_) {}
     return (base: base, $int: $int, jsonObject: jsonObject);
   }

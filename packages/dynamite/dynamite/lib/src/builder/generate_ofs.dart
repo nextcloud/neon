@@ -184,7 +184,7 @@ Iterable<Spec> generateSomeOf(
               [
                 'value = object.$fieldName;',
                 'if (value != null) {',
-                '  return ${result.serialize('value')}!;',
+                '  return ${result.serialize('value', 'serializers')}!;',
                 '}',
               ],
               '\n',
@@ -233,7 +233,7 @@ Iterable<Spec> generateSomeOf(
             buffer.write('''
 $dartName $fieldName;
 try {
-  $fieldName = ${result.deserialize('data')};
+  $fieldName = ${result.deserialize('data', 'serializers')};
 } catch (_) {}
 ''');
           }
