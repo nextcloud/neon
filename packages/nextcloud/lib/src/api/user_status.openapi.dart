@@ -1790,7 +1790,7 @@ abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final UserStatusRevertStatusResponseApplicationJson_OcsBuilder b) {
-    b.data?.validateAnyOf();
+    b.data?.validateOneOf();
   }
 }
 
@@ -1878,10 +1878,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 
 typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
 
-typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({
-  BuiltList<JsonObject>? builtListJsonObject,
-  Private? private
-});
+typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
 
 typedef $ClearAtTimeTypeInt = ({ClearAtTimeType? clearAtTimeType, int? $int});
 
@@ -1941,10 +1938,10 @@ class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTime
   }
 }
 
-typedef $BuiltListPrivate = ({BuiltList<JsonObject>? builtListJsonObject, Private? private});
+typedef $BuiltListPrivate = ({BuiltList<Never>? builtListNever, Private? private});
 
 extension $BuiltListPrivateExtension on $BuiltListPrivate {
-  List<dynamic> get _values => [builtListJsonObject, private];
+  List<dynamic> get _values => [builtListNever, private];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListPrivate> get serializer => const _$BuiltListPrivateSerializer();
@@ -1968,9 +1965,9 @@ class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPriv
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.private;
     if (value != null) {
@@ -1986,18 +1983,16 @@ class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPriv
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     Private? private;
     try {
       private = serializers.deserialize(data, specifiedType: const FullType(Private))! as Private;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, private: private);
+    return (builtListNever: builtListNever, private: private);
   }
 }
 
@@ -2118,7 +2113,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         UserStatusRevertStatusResponseApplicationJson_OcsBuilder.new,
       )
       ..add(UserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($BuiltListPrivateExtension.serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)

@@ -602,7 +602,7 @@
                 }
             },
             "PublicCapabilities": {
-                "anyOf": [
+                "oneOf": [
                     {
                         "type": "object",
                         "required": [
@@ -947,7 +947,7 @@
                         "format": "int64"
                     },
                     "lastMessage": {
-                        "anyOf": [
+                        "oneOf": [
                             {
                                 "$ref": "#/components/schemas/ChatMessage"
                             },
@@ -12890,7 +12890,7 @@
                                                     "$ref": "#/components/schemas/OCSMeta"
                                                 },
                                                 "data": {
-                                                    "anyOf": [
+                                                    "oneOf": [
                                                         {
                                                             "type": "object",
                                                             "required": [

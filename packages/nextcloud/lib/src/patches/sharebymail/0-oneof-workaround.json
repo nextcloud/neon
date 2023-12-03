@@ -1,7 +1,0 @@
-[
-  {
-    "op": "move",
-    "from": "/components/schemas/Capabilities/oneOf",
-    "path": "/components/schemas/Capabilities/anyOf"
-  }
-]
