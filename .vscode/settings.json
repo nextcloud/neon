@@ -2,6 +2,7 @@
   "dart.lineLength": 120,
   "yaml.format.singleQuote": true,
   "dart.flutterSdkPath": ".fvm/flutter_sdk",
+  "dart.testInvocationMode": "line",
   "files.insertFinalNewline": true,
   "search.exclude": {
     "**/.fvm": true
