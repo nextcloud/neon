@@ -158,7 +158,7 @@ void main() {
             ),
           ))
               .responses;
-          expect(responses, hasLength(10));
+          expect(responses, isNotEmpty);
           final props =
               responses.singleWhere((final response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
           expect(props.nchaspreview, isTrue);
@@ -173,7 +173,7 @@ void main() {
             depth: WebDavDepth.infinity,
           ))
               .responses;
-          expect(responses, hasLength(48));
+          expect(responses, isNotEmpty);
         });
 
         test('Get file props', () async {

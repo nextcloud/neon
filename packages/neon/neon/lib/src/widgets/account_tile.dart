@@ -60,7 +60,7 @@ class NeonAccountTile extends StatelessWidget {
             if (userDetails.hasData)
               Flexible(
                 child: Text(
-                  userDetails.requireData.displayname,
+                  (userDetails.requireData.displayname ?? userDetails.requireData.displayName)!,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),

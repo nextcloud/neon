@@ -4973,12 +4973,6 @@ class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
       serializers.serialize(object.breakoutRooms, specifiedType: const FullType(bool)),
       'recording',
       serializers.serialize(object.recording, specifiedType: const FullType(bool)),
-      'supported-reactions',
-      serializers.serialize(object.supportedReactions, specifiedType: const FullType(BuiltList, [FullType(String)])),
-      'predefined-backgrounds',
-      serializers.serialize(object.predefinedBackgrounds, specifiedType: const FullType(BuiltList, [FullType(String)])),
-      'can-upload-background',
-      serializers.serialize(object.canUploadBackground, specifiedType: const FullType(bool)),
     ];
     Object? value;
     value = object.recordingConsent;
@@ -4986,6 +4980,24 @@ class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
       result
         ..add('recording-consent')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.supportedReactions;
+    if (value != null) {
+      result
+        ..add('supported-reactions')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.predefinedBackgrounds;
+    if (value != null) {
+      result
+        ..add('predefined-backgrounds')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.canUploadBackground;
+    if (value != null) {
+      result
+        ..add('can-upload-background')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
     }
     value = object.sipEnabled;
     if (value != null) {
@@ -5040,7 +5052,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config_CallSerializer
               specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
           break;
         case 'can-upload-background':
-          result.canUploadBackground = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.canUploadBackground = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'sip-enabled':
           result.sipEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -5076,8 +5088,6 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
       serializers.serialize(object.maxLength, specifiedType: const FullType(int)),
       'read-privacy',
       serializers.serialize(object.readPrivacy, specifiedType: const FullType(int)),
-      'typing-privacy',
-      serializers.serialize(object.typingPrivacy, specifiedType: const FullType(int)),
     ];
     Object? value;
     value = object.hasTranslationProviders;
@@ -5085,6 +5095,12 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
       result
         ..add('has-translation-providers')
         ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
+    value = object.typingPrivacy;
+    if (value != null) {
+      result
+        ..add('typing-privacy')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.translations;
     if (value != null) {
@@ -5116,7 +5132,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config_ChatSerializer
           result.hasTranslationProviders = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'typing-privacy':
-          result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.typingPrivacy = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'translations':
           result.translations.replace(serializers.deserialize(value,
@@ -5592,12 +5608,16 @@ class _$UserStatusCapabilities_UserStatusSerializer implements StructuredSeriali
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-      'restore',
-      serializers.serialize(object.restore, specifiedType: const FullType(bool)),
       'supports_emoji',
       serializers.serialize(object.supportsEmoji, specifiedType: const FullType(bool)),
     ];
-
+    Object? value;
+    value = object.restore;
+    if (value != null) {
+      result
+        ..add('restore')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -5616,7 +5636,7 @@ class _$UserStatusCapabilities_UserStatusSerializer implements StructuredSeriali
           result.enabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'restore':
-          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          result.restore = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'supports_emoji':
           result.supportsEmoji = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -20504,11 +20524,11 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
   @override
   final int? recordingConsent;
   @override
-  final BuiltList<String> supportedReactions;
+  final BuiltList<String>? supportedReactions;
   @override
-  final BuiltList<String> predefinedBackgrounds;
+  final BuiltList<String>? predefinedBackgrounds;
   @override
-  final bool canUploadBackground;
+  final bool? canUploadBackground;
   @override
   final bool? sipEnabled;
   @override
@@ -20525,9 +20545,9 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
       required this.breakoutRooms,
       required this.recording,
       this.recordingConsent,
-      required this.supportedReactions,
-      required this.predefinedBackgrounds,
-      required this.canUploadBackground,
+      this.supportedReactions,
+      this.predefinedBackgrounds,
+      this.canUploadBackground,
       this.sipEnabled,
       this.sipDialoutEnabled,
       this.canEnableSip})
@@ -20536,12 +20556,6 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Call extends SpreedPublicCapabil
     BuiltValueNullFieldError.checkNotNull(
         breakoutRooms, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'breakoutRooms');
     BuiltValueNullFieldError.checkNotNull(recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording');
-    BuiltValueNullFieldError.checkNotNull(
-        supportedReactions, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'supportedReactions');
-    BuiltValueNullFieldError.checkNotNull(
-        predefinedBackgrounds, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'predefinedBackgrounds');
-    BuiltValueNullFieldError.checkNotNull(
-        canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground');
   }
 
   @override
@@ -20660,8 +20674,8 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
       _breakoutRooms = $v.breakoutRooms;
       _recording = $v.recording;
       _recordingConsent = $v.recordingConsent;
-      _supportedReactions = $v.supportedReactions.toBuilder();
-      _predefinedBackgrounds = $v.predefinedBackgrounds.toBuilder();
+      _supportedReactions = $v.supportedReactions?.toBuilder();
+      _predefinedBackgrounds = $v.predefinedBackgrounds?.toBuilder();
       _canUploadBackground = $v.canUploadBackground;
       _sipEnabled = $v.sipEnabled;
       _sipDialoutEnabled = $v.sipDialoutEnabled;
@@ -20697,10 +20711,9 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
               recording: BuiltValueNullFieldError.checkNotNull(
                   recording, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'recording'),
               recordingConsent: recordingConsent,
-              supportedReactions: supportedReactions.build(),
-              predefinedBackgrounds: predefinedBackgrounds.build(),
-              canUploadBackground: BuiltValueNullFieldError.checkNotNull(
-                  canUploadBackground, r'SpreedPublicCapabilities0_Spreed_Config_Call', 'canUploadBackground'),
+              supportedReactions: _supportedReactions?.build(),
+              predefinedBackgrounds: _predefinedBackgrounds?.build(),
+              canUploadBackground: canUploadBackground,
               sipEnabled: sipEnabled,
               sipDialoutEnabled: sipDialoutEnabled,
               canEnableSip: canEnableSip);
@@ -20708,9 +20721,9 @@ class SpreedPublicCapabilities0_Spreed_Config_CallBuilder
       late String _$failedField;
       try {
         _$failedField = 'supportedReactions';
-        supportedReactions.build();
+        _supportedReactions?.build();
         _$failedField = 'predefinedBackgrounds';
-        predefinedBackgrounds.build();
+        _predefinedBackgrounds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'SpreedPublicCapabilities0_Spreed_Config_Call', _$failedField, e.toString());
       }
@@ -20748,7 +20761,7 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabil
   @override
   final bool? hasTranslationProviders;
   @override
-  final int typingPrivacy;
+  final int? typingPrivacy;
   @override
   final BuiltList<String>? translations;
 
@@ -20760,13 +20773,11 @@ class _$SpreedPublicCapabilities0_Spreed_Config_Chat extends SpreedPublicCapabil
       {required this.maxLength,
       required this.readPrivacy,
       this.hasTranslationProviders,
-      required this.typingPrivacy,
+      this.typingPrivacy,
       this.translations})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(maxLength, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'maxLength');
     BuiltValueNullFieldError.checkNotNull(readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy');
-    BuiltValueNullFieldError.checkNotNull(
-        typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy');
   }
 
   @override
@@ -20879,8 +20890,7 @@ class SpreedPublicCapabilities0_Spreed_Config_ChatBuilder
               readPrivacy: BuiltValueNullFieldError.checkNotNull(
                   readPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'readPrivacy'),
               hasTranslationProviders: hasTranslationProviders,
-              typingPrivacy: BuiltValueNullFieldError.checkNotNull(
-                  typingPrivacy, r'SpreedPublicCapabilities0_Spreed_Config_Chat', 'typingPrivacy'),
+              typingPrivacy: typingPrivacy,
               translations: _translations?.build());
     } catch (_) {
       late String _$failedField;
@@ -22079,17 +22089,16 @@ class _$UserStatusCapabilities_UserStatus extends UserStatusCapabilities_UserSta
   @override
   final bool enabled;
   @override
-  final bool restore;
+  final bool? restore;
   @override
   final bool supportsEmoji;
 
   factory _$UserStatusCapabilities_UserStatus([void Function(UserStatusCapabilities_UserStatusBuilder)? updates]) =>
       (UserStatusCapabilities_UserStatusBuilder()..update(updates))._build();
 
-  _$UserStatusCapabilities_UserStatus._({required this.enabled, required this.restore, required this.supportsEmoji})
+  _$UserStatusCapabilities_UserStatus._({required this.enabled, this.restore, required this.supportsEmoji})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled');
-    BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore');
     BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji');
   }
 
@@ -22178,7 +22187,7 @@ class UserStatusCapabilities_UserStatusBuilder
     final _$result = _$v ??
         _$UserStatusCapabilities_UserStatus._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'UserStatusCapabilities_UserStatus', 'enabled'),
-            restore: BuiltValueNullFieldError.checkNotNull(restore, r'UserStatusCapabilities_UserStatus', 'restore'),
+            restore: restore,
             supportsEmoji: BuiltValueNullFieldError.checkNotNull(
                 supportsEmoji, r'UserStatusCapabilities_UserStatus', 'supportsEmoji'));
     replace(_$result);
