@@ -64,3 +64,8 @@ For an example checkout the [example](./example/example.dart).
 
 Except for WebDAV all client code is generated using OpenAPI specifications which can be found in the `lib/src/api/` folder.  
 These OpenAPI specifications are [generated](https://github.com/nextcloud/openapi-extractor) from the PHP source code.
+
+## Running tests with VScode
+
+Due to our testing infrastructure the VScode plugin for Dart is not able to run tests from withing VScode using the default settings.
+Please change the option `Dart: Test Invocation Mode` to `line` to be able to run tests from within VScode.
