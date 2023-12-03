@@ -59,8 +59,7 @@ for spec in packages/nextcloud/lib/src/api/*.openapi.json; do
   dir="packages/nextcloud/lib/src/patches/$name"
   if [ -d "$dir" ]; then
     for patch in "$dir/"*; do
-      cp "$spec" "/tmp/nextcloud-neon/$name.json"
-      jsonpatch --indent 4 "/tmp/nextcloud-neon/$name.json" "$patch" > "$spec"
+      jsonpatch --indent 4 --in-place "$spec" "$patch"
     done
   fi
 done
