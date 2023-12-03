@@ -64,3 +64,16 @@ For an example checkout the [example](./example/example.dart).
 
 Except for WebDAV all client code is generated using OpenAPI specifications which can be found in the `lib/src/api/` folder.  
 These OpenAPI specifications are [generated](https://github.com/nextcloud/openapi-extractor) from the PHP source code.
+
+## Compatibility/Support policy
+
+We aim to support all currently maintained server versions and all app versions that support those server versions.
+The currently maintained server versions can be found here: https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule
+Once a server version becomes EOL the support for it will be removed.
+
+To ensure this package is compatible with the supported server versions we run API unit tests.
+Since we do not cover all endpoints we can not claim compatibility for endpoints we do not test against.
+Even if there are unit tests for an endpoint we can not guarantee that it will work fine in every scenario.
+
+Please report any compatibility problems (if you are using a compatible server version) and feel free to add unit tests for endpoints you depend on.
+This will increase our test coverage and enables everyone to work more confidently with the endpoints.
