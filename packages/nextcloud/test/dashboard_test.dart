@@ -42,7 +42,7 @@ void main() {
               final items = response.body.ocs.data['recommendations']!.items;
               expect(items, hasLength(7));
             },
-            skip: preset.version < Version(27, 1, 0),
+            skip: preset.version.toVersion() < Version(27, 1, 0),
           );
         });
       },

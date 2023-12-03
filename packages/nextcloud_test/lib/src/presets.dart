@@ -1,15 +1,13 @@
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud_test/src/extended_version.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
-import 'package:version/version.dart';
 
 /// Combination of preset `name` and preset `version`.
-typedef Preset = ({String name, Version version});
+typedef Preset = ({String name, ExtendedVersion version});
 
-final Map<String, List<Version>> _presets = () {
-  final presets = <String, List<Version>>{};
-
-  final filter = Platform.environment['PRESETS'];
+final Map<String, List<ExtendedVersion>> _presets = () {
+  final presets = <String, List<ExtendedVersion>>{};
 
   final presetGroups = Directory('../nextcloud_test/docker/presets')
       .listSync(followLinks: false)
@@ -17,30 +15,12 @@ final Map<String, List<Version>> _presets = () {
       .map((final d) => PathUri.parse(d.path).name);
 
   for (final presetGroup in presetGroups) {
-    final versions = <Version?, Version>{};
-
     final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
         .listSync(followLinks: false)
         .whereType<File>()
-        .map((final f) => Version.parse(PathUri.parse(f.path).name));
+        .map((final f) => ExtendedVersion.parse(PathUri.parse(f.path).name));
 
-    for (final presetVersion in presetVersions) {
-      final normalizedVersion = switch (filter) {
-        'major' => Version(presetVersion.major, 0, 0),
-        'minor' => Version(presetVersion.major, presetVersion.minor, 0),
-        'patch' => presetVersion,
-        'latest' || null || '' => null,
-        _ => throw Exception('Unknown presets filter "$filter"'),
-      };
-
-      if (!versions.containsKey(normalizedVersion)) {
-        versions[normalizedVersion] = presetVersion;
-      } else if (presetVersion > versions[normalizedVersion]) {
-        versions[normalizedVersion] = presetVersion;
-      }
-    }
-
-    presets[presetGroup] = versions.values.toList();
+    presets[presetGroup] = presetVersions.toList();
   }
 
   return presets;
