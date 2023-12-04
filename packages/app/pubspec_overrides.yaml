@@ -1,15 +1,15 @@
-# melos_managed_dependency_overrides: dynamite_runtime,file_icons,neon,neon_dashboard,neon_files,neon_lints,neon_news,neon_notes,neon_notifications,nextcloud,sort_box
+# melos_managed_dependency_overrides: dynamite_runtime,neon_framework,neon_lints,nextcloud,sort_box
 dependency_overrides:
   dynamite_runtime:
     path: ../dynamite/dynamite_runtime
   file_icons:
     path: ../file_icons
-  neon:
-    path: ../neon/neon
   neon_dashboard:
     path: ../neon/neon_dashboard
   neon_files:
     path: ../neon/neon_files
+  neon_framework:
+    path: ../neon_framework
   neon_lints:
     path: ../neon_lints
   neon_news:

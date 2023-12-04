@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:html/dom.dart' as html_dom;
 import 'package:html/parser.dart' as html_parser;
-import 'package:neon/blocs.dart';
-import 'package:neon/platform.dart';
-import 'package:neon/sort_box.dart';
-import 'package:neon/theme.dart';
-import 'package:neon/widgets.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/platform.dart';
+import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/article.dart';
 import 'package:neon_news/src/blocs/articles.dart';

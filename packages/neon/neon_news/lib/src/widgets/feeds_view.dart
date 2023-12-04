@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/sort_box.dart';
-import 'package:neon/utils.dart';
-import 'package:neon/widgets.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/utils.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/dialogs/feed_show_url.dart';

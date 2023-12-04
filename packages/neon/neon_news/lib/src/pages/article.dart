@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
-import 'package:neon/widgets.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/article.dart';
 import 'package:neon_news/src/blocs/articles.dart';

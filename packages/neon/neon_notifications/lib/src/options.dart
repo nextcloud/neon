@@ -1,5 +1,5 @@
-import 'package:neon/models.dart';
-import 'package:neon/settings.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/settings.dart';
 
 class NotificationsAppSpecificOptions extends NextcloudAppOptions implements NotificationsOptionsInterface {
   NotificationsAppSpecificOptions(super.storage) {

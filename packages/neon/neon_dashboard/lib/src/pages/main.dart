@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/utils.dart';
-import 'package:neon/widgets.dart';
 import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_dashboard/src/widgets/widget.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/utils.dart';
+import 'package:neon_framework/widgets.dart';
 
 /// Displays the whole dashboard page layout.
 class DashboardMainPage extends StatelessWidget {

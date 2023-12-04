@@ -1,8 +1,5 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/sort_box.dart';
-import 'package:neon/widgets.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
@@ -11,6 +8,9 @@ import 'package:neon_files/src/sort/files.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_files/src/widgets/file_list_tile.dart';
 import 'package:neon_files/src/widgets/navigator.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/sort_box.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart';
 
 /// Mode to operate the [FilesBrowserView] in.

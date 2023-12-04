@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:crypto/crypto.dart';
 import 'package:flutter/painting.dart';
-import 'package:neon/utils.dart';
+import 'package:neon_framework/utils.dart';
 
 class NotesCategoryColor {
   const NotesCategoryColor._();

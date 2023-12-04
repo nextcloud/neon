@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:neon/blocs.dart';
-import 'package:neon/models.dart';
-import 'package:neon/utils.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_notifications/src/options.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';

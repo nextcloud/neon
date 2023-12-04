@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/models.dart';
 import 'package:neon_dashboard/src/utils/find.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
