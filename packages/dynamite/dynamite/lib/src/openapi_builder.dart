@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:build/build.dart';
@@ -89,9 +90,11 @@ class OpenAPIBuilder implements Builder {
       }
 
       final formatter = DartFormatter(pageWidth: buildConfig.pageWidth);
-      await buildStep.writeAsString(
-        outputId,
-        formatter.format(outputString),
+      unawaited(
+        buildStep.writeAsString(
+          outputId,
+          formatter.format(outputString),
+        ),
       );
     } catch (e, s) {
       print(s);
