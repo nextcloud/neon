@@ -1,4 +1,10 @@
-part of '../neon_news.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon_news/src/blocs/articles.dart';
+import 'package:nextcloud/news.dart' as news;
+import 'package:rxdart/rxdart.dart';
 
 abstract interface class NewsArticleBlocEvents {
   void markArticleAsRead();

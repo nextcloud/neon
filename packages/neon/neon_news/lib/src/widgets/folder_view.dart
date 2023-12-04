@@ -1,4 +1,10 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_news/src/blocs/articles.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
+import 'package:neon_news/src/widgets/articles_view.dart';
+import 'package:neon_news/src/widgets/feeds_view.dart';
+import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderView extends StatefulWidget {
   const NewsFolderView({

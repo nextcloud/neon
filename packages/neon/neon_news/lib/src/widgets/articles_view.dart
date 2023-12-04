@@ -1,4 +1,21 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:html/dom.dart' as html_dom;
+import 'package:html/parser.dart' as html_parser;
+import 'package:neon/blocs.dart';
+import 'package:neon/platform.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon/theme.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/article.dart';
+import 'package:neon_news/src/blocs/articles.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
+import 'package:neon_news/src/pages/article.dart';
+import 'package:neon_news/src/sort/articles.dart';
+import 'package:neon_news/src/widgets/feed_icon.dart';
+import 'package:nextcloud/news.dart' as news;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class NewsArticlesView extends StatefulWidget {
   const NewsArticlesView({

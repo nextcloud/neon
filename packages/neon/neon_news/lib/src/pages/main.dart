@@ -1,4 +1,13 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/widgets/articles_view.dart';
+import 'package:neon_news/src/widgets/feed_floating_action_button.dart';
+import 'package:neon_news/src/widgets/feeds_view.dart';
+import 'package:neon_news/src/widgets/folder_floating_action_button.dart';
+import 'package:neon_news/src/widgets/folders_view.dart';
 
 class NewsMainPage extends StatefulWidget {
   const NewsMainPage({

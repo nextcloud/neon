@@ -1,4 +1,8 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/widgets/feed_floating_action_button.dart';
+import 'package:neon_news/src/widgets/folder_view.dart';
+import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderPage extends StatelessWidget {
   const NewsFolderPage({

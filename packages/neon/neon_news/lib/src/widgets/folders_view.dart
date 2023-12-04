@@ -1,4 +1,15 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon/theme.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/options.dart';
+import 'package:neon_news/src/pages/folder.dart';
+import 'package:neon_news/src/sort/folders.dart';
+import 'package:nextcloud/news.dart' as news;
 
 class NewsFoldersView extends StatelessWidget {
   const NewsFoldersView({

@@ -1,4 +1,7 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/dialogs/create_folder.dart';
 
 class NewsFolderFloatingActionButton extends StatelessWidget {
   const NewsFolderFloatingActionButton({

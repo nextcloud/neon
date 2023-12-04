@@ -1,4 +1,16 @@
-part of '../neon_news.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/article.dart';
+import 'package:neon_news/src/blocs/articles.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class NewsArticlePage extends StatefulWidget {
   const NewsArticlePage({

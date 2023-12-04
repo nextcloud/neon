@@ -1,4 +1,12 @@
-part of '../neon_news.dart';
+import 'dart:async';
+
+import 'package:neon/blocs.dart';
+import 'package:neon/models.dart';
+import 'package:neon/utils.dart';
+import 'package:neon_news/src/blocs/articles.dart';
+import 'package:neon_news/src/options.dart';
+import 'package:nextcloud/news.dart' as news;
+import 'package:rxdart/rxdart.dart';
 
 abstract interface class NewsBlocEvents {
   void addFeed(final String url, final int? folderId);
@@ -44,8 +52,6 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
     unawaited(mainArticlesBloc.refresh());
   }
 
-  @override
-  NewsBloc get _newsBloc => this;
   @override
   final NewsAppSpecificOptions options;
   @override

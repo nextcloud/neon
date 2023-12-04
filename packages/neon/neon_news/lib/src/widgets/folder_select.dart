@@ -1,4 +1,6 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderSelect extends StatelessWidget {
   const NewsFolderSelect({

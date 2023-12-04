@@ -1,4 +1,7 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
 
 class NewsCreateFolderDialog extends StatefulWidget {
   const NewsCreateFolderDialog({

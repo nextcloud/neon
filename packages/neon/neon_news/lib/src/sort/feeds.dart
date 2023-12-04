@@ -1,4 +1,6 @@
-part of '../neon_news.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon_news/src/options.dart';
+import 'package:nextcloud/news.dart' as news;
 
 final feedsSortBox = SortBox<FeedsSortProperty, news.Feed>(
   {

@@ -1,7 +1,10 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:nextcloud/news.dart' as news;
 
-class NewsFeedUpdateErrorDialog extends StatefulWidget {
-  const NewsFeedUpdateErrorDialog({
+class NewsFeedShowURLDialog extends StatefulWidget {
+  const NewsFeedShowURLDialog({
     required this.feed,
     super.key,
   });
@@ -9,31 +12,31 @@ class NewsFeedUpdateErrorDialog extends StatefulWidget {
   final news.Feed feed;
 
   @override
-  State<NewsFeedUpdateErrorDialog> createState() => _NewsFeedUpdateErrorDialogState();
+  State<NewsFeedShowURLDialog> createState() => _NewsFeedShowURLDialogState();
 }
 
-class _NewsFeedUpdateErrorDialogState extends State<NewsFeedUpdateErrorDialog> {
+class _NewsFeedShowURLDialogState extends State<NewsFeedShowURLDialog> {
   @override
   Widget build(final BuildContext context) => AlertDialog(
-        title: Text(widget.feed.lastUpdateError!),
+        title: Text(widget.feed.url),
         actions: [
           ElevatedButton(
             onPressed: () async {
               await Clipboard.setData(
                 ClipboardData(
-                  text: widget.feed.lastUpdateError!,
+                  text: widget.feed.url,
                 ),
               );
               if (mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage),
+                    content: Text(NewsLocalizations.of(context).feedCopiedURL),
                   ),
                 );
                 Navigator.of(context).pop();
               }
             },
-            child: Text(NewsLocalizations.of(context).feedCopyErrorMessage),
+            child: Text(NewsLocalizations.of(context).feedCopyURL),
           ),
           ElevatedButton(
             onPressed: () {

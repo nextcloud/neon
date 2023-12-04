@@ -1,4 +1,14 @@
-part of '../neon_news.dart';
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/widgets/folder_select.dart';
+import 'package:nextcloud/news.dart' as news;
 
 class NewsAddFeedDialog extends StatefulWidget {
   const NewsAddFeedDialog({

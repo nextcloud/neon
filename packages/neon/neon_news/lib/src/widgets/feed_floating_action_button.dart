@@ -1,4 +1,7 @@
-part of '../neon_news.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_news/l10n/localizations.dart';
+import 'package:neon_news/src/blocs/news.dart';
+import 'package:neon_news/src/dialogs/add_feed.dart';
 
 class NewsFeedFloatingActionButton extends StatelessWidget {
   const NewsFeedFloatingActionButton({
