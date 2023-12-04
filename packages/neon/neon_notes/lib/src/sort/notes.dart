@@ -1,4 +1,6 @@
-part of '../neon_notes.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon_notes/src/options.dart';
+import 'package:nextcloud/notes.dart' as notes;
 
 final notesSortBox = SortBox<NotesSortProperty, notes.Note>(
   {

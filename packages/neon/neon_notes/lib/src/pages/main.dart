@@ -1,4 +1,12 @@
-part of '../neon_notes.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/utils.dart';
+import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/utils/exception_handler.dart';
+import 'package:neon_notes/src/widgets/categories_view.dart';
+import 'package:neon_notes/src/widgets/notes_floating_action_button.dart';
+import 'package:neon_notes/src/widgets/notes_view.dart';
 
 class NotesMainPage extends StatefulWidget {
   const NotesMainPage({

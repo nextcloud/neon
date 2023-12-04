@@ -1,4 +1,9 @@
-part of '../neon_notes.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/sort/categories.dart';
+import 'package:neon_notes/src/widgets/notes_floating_action_button.dart';
+import 'package:neon_notes/src/widgets/notes_view.dart';
 
 class NotesCategoryPage extends StatelessWidget {
   const NotesCategoryPage({

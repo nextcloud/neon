@@ -1,4 +1,16 @@
-part of '../neon_notes.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon/theme.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/options.dart';
+import 'package:neon_notes/src/pages/category.dart';
+import 'package:neon_notes/src/sort/categories.dart';
+import 'package:neon_notes/src/utils/category_color.dart';
+import 'package:nextcloud/notes.dart' as notes;
 
 class NotesCategoriesView extends StatelessWidget {
   const NotesCategoriesView({

@@ -1,4 +1,13 @@
-part of '../neon_notes.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/options.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/notes.dart' as notes;
+import 'package:queue/queue.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract interface class NotesNoteBlocEvents {
   void updateContent(final String content);

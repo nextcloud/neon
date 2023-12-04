@@ -1,4 +1,7 @@
-part of '../neon_notes.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/dialogs/create_note.dart';
 
 class NotesFloatingActionButton extends StatelessWidget {
   const NotesFloatingActionButton({

@@ -1,4 +1,10 @@
-part of '../neon_notes.dart';
+import 'package:flutter/material.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_notes/l10n/localizations.dart';
+import 'package:neon_notes/src/blocs/notes.dart';
+import 'package:neon_notes/src/widgets/category_select.dart';
+import 'package:nextcloud/notes.dart' as notes;
 
 class NotesSelectCategoryDialog extends StatefulWidget {
   const NotesSelectCategoryDialog({
