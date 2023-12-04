@@ -1,4 +1,7 @@
-part of '../neon_files.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/browser.dart';
+import 'package:nextcloud/webdav.dart';
 
 class FilesBrowserNavigator extends StatelessWidget {
   const FilesBrowserNavigator({

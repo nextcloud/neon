@@ -1,4 +1,8 @@
-part of '../neon_files.dart';
+import 'dart:async';
+
+import 'package:meta/meta.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:universal_io/io.dart';
 
 sealed class FilesTask {
   FilesTask({

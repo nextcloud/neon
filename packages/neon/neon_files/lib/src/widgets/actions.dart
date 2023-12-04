@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:neon/platform.dart';
 import 'package:neon/utils.dart';
 import 'package:neon_files/l10n/localizations.dart';
-import 'package:neon_files/neon_files.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/dialogs/choose_folder.dart';
+import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_files/src/pages/details.dart';
 import 'package:nextcloud/webdav.dart';
 
 class FileActions extends StatelessWidget {

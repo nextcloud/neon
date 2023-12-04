@@ -1,4 +1,10 @@
-part of '../neon_files.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/browser.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/dialogs/create_folder.dart';
+import 'package:neon_files/src/widgets/browser_view.dart';
+import 'package:nextcloud/webdav.dart';
 
 class FilesChooseFolderDialog extends StatelessWidget {
   const FilesChooseFolderDialog({

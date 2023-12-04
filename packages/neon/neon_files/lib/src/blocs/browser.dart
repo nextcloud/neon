@@ -1,4 +1,11 @@
-part of '../neon_files.dart';
+import 'dart:async';
+
+import 'package:neon/blocs.dart';
+import 'package:neon/models.dart';
+import 'package:neon/utils.dart';
+import 'package:neon_files/src/options.dart';
+import 'package:nextcloud/webdav.dart';
+import 'package:rxdart/rxdart.dart';
 
 abstract interface class FilesBrowserBlocEvents {
   void setPath(final PathUri uri);

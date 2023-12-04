@@ -1,4 +1,9 @@
-part of '../neon_files.dart';
+import 'package:filesize/filesize.dart';
+import 'package:flutter/material.dart';
+import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_files/src/widgets/file_preview.dart';
 
 class FilesDetailsPage extends StatelessWidget {
   const FilesDetailsPage({

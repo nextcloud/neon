@@ -1,4 +1,17 @@
-part of '../neon_files.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:filesize/filesize.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:neon/platform.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/dialogs/create_folder.dart';
+import 'package:nextcloud/webdav.dart';
+import 'package:path/path.dart' as p;
+import 'package:universal_io/io.dart';
 
 class FilesChooseCreateDialog extends StatefulWidget {
   const FilesChooseCreateDialog({

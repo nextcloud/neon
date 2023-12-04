@@ -5,8 +5,13 @@ import 'package:neon/theme.dart';
 import 'package:neon/utils.dart';
 import 'package:neon/widgets.dart';
 import 'package:neon_files/l10n/localizations.dart';
-import 'package:neon_files/neon_files.dart';
-import 'package:neon_files/widgets/actions.dart';
+import 'package:neon_files/src/blocs/browser.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/models/file_details.dart';
+import 'package:neon_files/src/utils/task.dart';
+import 'package:neon_files/src/widgets/actions.dart';
+import 'package:neon_files/src/widgets/browser_view.dart';
+import 'package:neon_files/src/widgets/file_preview.dart';
 
 class FileListTile extends StatelessWidget {
   const FileListTile({

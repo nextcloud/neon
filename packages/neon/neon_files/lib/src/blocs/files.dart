@@ -1,4 +1,22 @@
-part of '../neon_files.dart';
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/models.dart';
+import 'package:neon/platform.dart';
+import 'package:neon/utils.dart';
+import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/browser.dart';
+import 'package:neon_files/src/options.dart';
+import 'package:neon_files/src/utils/task.dart';
+import 'package:nextcloud/webdav.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
+import 'package:queue/queue.dart';
+import 'package:rxdart/rxdart.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:universal_io/io.dart';
 
 abstract interface class FilesBlocEvents {
   void uploadFile(final PathUri uri, final String localPath);

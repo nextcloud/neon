@@ -1,4 +1,7 @@
-part of 'neon_files.dart';
+import 'package:filesize/filesize.dart';
+import 'package:neon/settings.dart';
+import 'package:neon/sort_box.dart';
+import 'package:neon_files/l10n/localizations.dart';
 
 class FilesAppSpecificOptions extends NextcloudAppOptions {
   FilesAppSpecificOptions(super.storage) {

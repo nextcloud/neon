@@ -1,4 +1,11 @@
-part of '../neon_files.dart';
+import 'package:file_icons/file_icons.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/theme.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_files/src/blocs/files.dart';
+import 'package:neon_files/src/models/file_details.dart';
+import 'package:nextcloud/core.dart';
 
 class FilePreview extends StatelessWidget {
   const FilePreview({

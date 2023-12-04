@@ -1,4 +1,6 @@
-part of '../neon_files.dart';
+import 'package:meta/meta.dart';
+import 'package:neon_files/src/utils/task.dart';
+import 'package:nextcloud/webdav.dart';
 
 @immutable
 class FileDetails {
