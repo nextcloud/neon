@@ -1039,7 +1039,7 @@
         }
       },
       "SharebymailCapabilities": {
-        "anyOf": [
+        "oneOf": [
           {
             "type": "object",
             "required": [
@@ -1122,7 +1122,7 @@
         ]
       },
       "SpreedPublicCapabilities": {
-        "anyOf": [
+        "oneOf": [
           {
             "type": "object",
             "required": [

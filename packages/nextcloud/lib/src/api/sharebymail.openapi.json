@@ -22,7 +22,7 @@
         },
         "schemas": {
             "Capabilities": {
-                "anyOf": [
+                "oneOf": [
                     {
                         "type": "object",
                         "required": [

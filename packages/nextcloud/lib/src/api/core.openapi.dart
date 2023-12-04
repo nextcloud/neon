@@ -10726,12 +10726,12 @@ typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteRe
 typedef NavigationEntry_Order = ({int? $int, String? string});
 
 typedef SharebymailCapabilities = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   SharebymailCapabilities0? sharebymailCapabilities0
 });
 
 typedef SpreedPublicCapabilities = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
 
@@ -10876,12 +10876,12 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
 }
 
 typedef $BuiltListSharebymailCapabilities0 = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   SharebymailCapabilities0? sharebymailCapabilities0
 });
 
 extension $BuiltListSharebymailCapabilities0Extension on $BuiltListSharebymailCapabilities0 {
-  List<dynamic> get _values => [builtListJsonObject, sharebymailCapabilities0];
+  List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListSharebymailCapabilities0> get serializer =>
@@ -10907,9 +10907,9 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.sharebymailCapabilities0;
     if (value != null) {
@@ -10925,29 +10925,27 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     SharebymailCapabilities0? sharebymailCapabilities0;
     try {
       sharebymailCapabilities0 = serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities0))!
           as SharebymailCapabilities0;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, sharebymailCapabilities0: sharebymailCapabilities0);
+    return (builtListNever: builtListNever, sharebymailCapabilities0: sharebymailCapabilities0);
   }
 }
 
 typedef $BuiltListSpreedPublicCapabilities0 = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
 
 extension $BuiltListSpreedPublicCapabilities0Extension on $BuiltListSpreedPublicCapabilities0 {
-  List<dynamic> get _values => [builtListJsonObject, spreedPublicCapabilities0];
+  List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListSpreedPublicCapabilities0> get serializer =>
@@ -10974,9 +10972,9 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.spreedPublicCapabilities0;
     if (value != null) {
@@ -10992,12 +10990,10 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     SpreedPublicCapabilities0? spreedPublicCapabilities0;
     try {
@@ -11006,7 +11002,7 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
         specifiedType: const FullType(SpreedPublicCapabilities0),
       )! as SpreedPublicCapabilities0;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, spreedPublicCapabilities0: spreedPublicCapabilities0);
+    return (builtListNever: builtListNever, spreedPublicCapabilities0: spreedPublicCapabilities0);
   }
 }
 
@@ -11204,7 +11200,7 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
     try {
       sharebymailCapabilities = ((serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
           as SharebymailCapabilities)
-        ..validateAnyOf());
+        ..validateOneOf());
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
@@ -11212,7 +11208,7 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
         data,
         specifiedType: const FullType(SpreedPublicCapabilities),
       )! as SpreedPublicCapabilities)
-        ..validateAnyOf());
+        ..validateOneOf());
     } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
@@ -11640,6 +11636,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($BuiltListSharebymailCapabilities0Extension.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)

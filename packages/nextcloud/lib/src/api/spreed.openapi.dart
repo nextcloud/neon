@@ -12942,7 +12942,7 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final RoomBuilder b) {
-    b.lastMessage?.validateAnyOf();
+    b.lastMessage?.validateOneOf();
   }
 }
 
@@ -20470,7 +20470,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder b) {
-    b.data?.validateAnyOf();
+    b.data?.validateOneOf();
   }
 }
 
@@ -23149,10 +23149,10 @@ abstract class PublicCapabilities0
   static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
 }
 
-typedef Room_LastMessage = ({BuiltList<JsonObject>? builtListJsonObject, ChatMessage? chatMessage});
+typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
 });
 
@@ -23163,12 +23163,12 @@ typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
   String? string
 });
 
-typedef PublicCapabilities = ({BuiltList<JsonObject>? builtListJsonObject, PublicCapabilities0? publicCapabilities0});
+typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
-typedef $BuiltListChatMessage = ({BuiltList<JsonObject>? builtListJsonObject, ChatMessage? chatMessage});
+typedef $BuiltListChatMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 extension $BuiltListChatMessageExtension on $BuiltListChatMessage {
-  List<dynamic> get _values => [builtListJsonObject, chatMessage];
+  List<dynamic> get _values => [builtListNever, chatMessage];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListChatMessage> get serializer => const _$BuiltListChatMessageSerializer();
@@ -23192,9 +23192,9 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.chatMessage;
     if (value != null) {
@@ -23210,29 +23210,27 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     ChatMessage? chatMessage;
     try {
       chatMessage = serializers.deserialize(data, specifiedType: const FullType(ChatMessage))! as ChatMessage;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, chatMessage: chatMessage);
+    return (builtListNever: builtListNever, chatMessage: chatMessage);
   }
 }
 
 typedef $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 = ({
-  BuiltList<JsonObject>? builtListJsonObject,
+  BuiltList<Never>? builtListNever,
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
 });
 
 extension $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Extension
     on $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 {
-  List<dynamic> get _values => [builtListJsonObject, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
+  List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> get serializer =>
@@ -23259,9 +23257,9 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.roomAddParticipantToRoomResponseApplicationJsonOcsData0;
     if (value != null) {
@@ -23280,12 +23278,10 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0;
     try {
@@ -23295,7 +23291,7 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
       )! as RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
     } catch (_) {}
     return (
-      builtListJsonObject: builtListJsonObject,
+      builtListNever: builtListNever,
       roomAddParticipantToRoomResponseApplicationJsonOcsData0: roomAddParticipantToRoomResponseApplicationJsonOcsData0
     );
   }
@@ -23418,13 +23414,10 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
   }
 }
 
-typedef $BuiltListPublicCapabilities0 = ({
-  BuiltList<JsonObject>? builtListJsonObject,
-  PublicCapabilities0? publicCapabilities0
-});
+typedef $BuiltListPublicCapabilities0 = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
 extension $BuiltListPublicCapabilities0Extension on $BuiltListPublicCapabilities0 {
-  List<dynamic> get _values => [builtListJsonObject, publicCapabilities0];
+  List<dynamic> get _values => [builtListNever, publicCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListPublicCapabilities0> get serializer => const _$BuiltListPublicCapabilities0Serializer();
@@ -23449,9 +23442,9 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.publicCapabilities0;
     if (value != null) {
@@ -23467,19 +23460,17 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     PublicCapabilities0? publicCapabilities0;
     try {
       publicCapabilities0 =
           serializers.deserialize(data, specifiedType: const FullType(PublicCapabilities0))! as PublicCapabilities0;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, publicCapabilities0: publicCapabilities0);
+    return (builtListNever: builtListNever, publicCapabilities0: publicCapabilities0);
   }
 }
 
@@ -23515,7 +23506,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         MapBuilder<String, BuiltMap<String, JsonObject>>.new,
       )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($BuiltListChatMessageExtension.serializer)
       ..add(AvatarDeleteAvatarApiVersion.serializer)
       ..addBuilderFactory(

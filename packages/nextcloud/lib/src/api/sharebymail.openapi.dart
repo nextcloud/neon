@@ -6,7 +6,6 @@
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
-import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
@@ -219,12 +218,12 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
 }
 
-typedef Capabilities = ({BuiltList<JsonObject>? builtListJsonObject, Capabilities0? capabilities0});
+typedef Capabilities = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
 
-typedef $BuiltListCapabilities0 = ({BuiltList<JsonObject>? builtListJsonObject, Capabilities0? capabilities0});
+typedef $BuiltListCapabilities0 = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
 
 extension $BuiltListCapabilities0Extension on $BuiltListCapabilities0 {
-  List<dynamic> get _values => [builtListJsonObject, capabilities0];
+  List<dynamic> get _values => [builtListNever, capabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListCapabilities0> get serializer => const _$BuiltListCapabilities0Serializer();
@@ -248,9 +247,9 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
     final FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
-    value = object.builtListJsonObject;
+    value = object.builtListNever;
     if (value != null) {
-      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!;
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Never)]))!;
     }
     value = object.capabilities0;
     if (value != null) {
@@ -266,18 +265,16 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
     final Object data, {
     final FullType specifiedType = FullType.unspecified,
   }) {
-    BuiltList<JsonObject>? builtListJsonObject;
+    BuiltList<Never>? builtListNever;
     try {
-      builtListJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-      )! as BuiltList<JsonObject>;
+      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
     } catch (_) {}
     Capabilities0? capabilities0;
     try {
       capabilities0 = serializers.deserialize(data, specifiedType: const FullType(Capabilities0))! as Capabilities0;
     } catch (_) {}
-    return (builtListJsonObject: builtListJsonObject, capabilities0: capabilities0);
+    return (builtListNever: builtListNever, capabilities0: capabilities0);
   }
 }
 
@@ -307,7 +304,7 @@ final Serializers _serializers = (Serializers().toBuilder()
         Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder.new,
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..add($BuiltListCapabilities0Extension.serializer))
     .build();
 

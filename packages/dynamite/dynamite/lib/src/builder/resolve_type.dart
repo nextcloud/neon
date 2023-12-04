@@ -120,25 +120,25 @@ TypeResult resolveType(
         };
 
       case openapi.SchemaType.array:
-        if (schema.items != null) {
-          final subResult = resolveType(
+        final TypeResult subResult;
+        if (schema.maxLength == 0) {
+          subResult = TypeResultBase('Never');
+        } else if (schema.items != null) {
+          subResult = resolveType(
             spec,
             state,
             identifier,
             schema.items!,
           );
-          result = TypeResultList(
-            'BuiltList',
-            subResult,
-            nullable: nullable,
-          );
         } else {
-          result = TypeResultList(
-            'BuiltList',
-            TypeResultBase('JsonObject'),
-            nullable: nullable,
-          );
+          subResult = TypeResultBase('JsonObject');
         }
+
+        result = TypeResultList(
+          'BuiltList',
+          subResult,
+          nullable: nullable,
+        );
       case openapi.SchemaType.object:
         if (schema.properties == null) {
           if (schema.additionalProperties == null) {
