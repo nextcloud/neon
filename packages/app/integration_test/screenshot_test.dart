@@ -8,7 +8,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:neon/models.dart';
 import 'package:neon/neon.dart';
 import 'package:neon/settings.dart';
-import 'package:neon_files/widgets/actions.dart';
+import 'package:neon_files/src/widgets/actions.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/nextcloud.dart';
