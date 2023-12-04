@@ -1,4 +1,14 @@
-part of '../neon_notifications.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
+import 'package:neon/blocs.dart';
+import 'package:neon/models.dart';
+import 'package:neon/theme.dart';
+import 'package:neon/utils.dart';
+import 'package:neon/widgets.dart';
+import 'package:neon_notifications/l10n/localizations.dart';
+import 'package:neon_notifications/src/blocs/notifications.dart';
+import 'package:nextcloud/ids.dart';
+import 'package:nextcloud/notifications.dart' as notifications;
 
 class NotificationsMainPage extends StatefulWidget {
   const NotificationsMainPage({
