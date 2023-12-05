@@ -1,29 +1,3 @@
-/// The Neon client for the dashboard app.
-///
-/// Add `DashboardApp()` to your runNeon command to execute this app.
-///
-/// A basic implementation could look like:
-///```dart
-///Future<void> main() async {
-///  await runNeon(
-///    appImplementations: {
-///      DashboardApp()
-///    },
-///    theme: NeonTheme(
-///      branding: Branding(
-///       name: 'Dashboard',
-///       logo: VectorGraphic(
-///         loader: AssetBytesLoader(
-///           'assets/logo.svg.vec',
-///         ),
-///       ),
-///      ),
-///    ),
-///  );
-/// }
-///```
-library dashboard;
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:neon_dashboard/l10n/localizations.dart';
