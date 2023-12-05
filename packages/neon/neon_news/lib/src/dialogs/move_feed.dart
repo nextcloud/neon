@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neon/widgets.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/widgets/folder_select.dart';
 import 'package:nextcloud/news.dart' as news;

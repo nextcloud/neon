@@ -1,4 +1,4 @@
-import 'package:neon/settings.dart';
+import 'package:neon_framework/settings.dart';
 
 /// Settings options specific to the dashboard app.
 class DashboardAppSpecificOptions extends NextcloudAppOptions {

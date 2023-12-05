@@ -26,12 +26,12 @@ library dashboard;
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/models.dart';
 import 'package:neon_dashboard/l10n/localizations.dart';
 import 'package:neon_dashboard/src/blocs/dashboard.dart';
 import 'package:neon_dashboard/src/options.dart';
 import 'package:neon_dashboard/src/pages/main.dart';
 import 'package:neon_dashboard/src/routes.dart';
+import 'package:neon_framework/models.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// Implementation of the server `dashboard` app.

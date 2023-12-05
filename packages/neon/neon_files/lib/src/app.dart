@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/models.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/pages/main.dart';
 import 'package:neon_files/src/routes.dart';
+import 'package:neon_framework/models.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {

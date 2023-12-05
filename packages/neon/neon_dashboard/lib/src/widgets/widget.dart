@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/theme.dart';
-import 'package:neon/widgets.dart';
 import 'package:neon_dashboard/l10n/localizations.dart';
 import 'package:neon_dashboard/src/widgets/widget_button.dart';
 import 'package:neon_dashboard/src/widgets/widget_item.dart';
+import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 
 /// Displays a single dashboard widget and its items.

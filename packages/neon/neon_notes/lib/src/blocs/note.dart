@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:neon/blocs.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
 import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/nextcloud.dart';

@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:neon/theme.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 /// The custom theme used in the Neon app.

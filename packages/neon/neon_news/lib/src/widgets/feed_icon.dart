@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neon/theme.dart';
-import 'package:neon/widgets.dart';
+import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFeedIcon extends StatelessWidget {

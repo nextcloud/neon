@@ -8,7 +8,7 @@ A framework for building convergent cross-platform Nextcloud clients using Flutt
 
 The Neon project has three main goals:
 
-1. The [Neon framework](packages/neon/neon) does the heavy lifting for Nextcloud client developers. Neon already handles the authentication flow and manages data requests and caching. This means that developers can reuse a lot of the code and do not need to reinvent the wheel.
+1. The [Neon framework](packages/neon_framework) does the heavy lifting for Nextcloud client developers. Neon already handles the authentication flow and manages data requests and caching. This means that developers can reuse a lot of the code and do not need to reinvent the wheel.
 2. The [Neon app](packages/app) is a cross-platform Nextcloud client that runs on iOS, Android, macOS, Windows, Linux and Web. We already support Android and Linux with the other platforms being work in progress.
 3. The [Neon app](packages/app) is a multi client app. This means that you can have multiple clients in the same mobile app. It enables seamless switching between multiple apps as Nextcloud users have enjoyed on the web forever.
 

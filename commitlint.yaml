@@ -17,7 +17,7 @@ rules:
       - dynamite_runtime
       - dynamite_end_to_end_test
       - file_icons
-      - neon
+      - neon_framework
       - neon_dashboard
       - neon_files
       - neon_news

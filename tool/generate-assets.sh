@@ -49,9 +49,9 @@ function precompile_assets() {
 wget https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg/cable-data.svg -O assets/logo.svg
 sed -i "s/<path /<path fill=\"$color\" /g" assets/logo.svg
 
-wget https://raw.githubusercontent.com/nextcloud/promo/master/nextcloud-logo-inverted.svg -O packages/neon/neon/assets/logo_nextcloud.svg
+wget https://raw.githubusercontent.com/nextcloud/promo/master/nextcloud-logo-inverted.svg -O packages/neon_framework/assets/logo_nextcloud.svg
 
-icons_dir="packages/neon/neon/assets/icons/server/"
+icons_dir="packages/neon_framework/assets/icons/server/"
 rm -rf "$icons_dir"
 mkdir -p "$icons_dir"
 
@@ -64,7 +64,7 @@ for file in external/nextcloud-server/{core/img/*,apps/*/img}/!(app|app-dark).sv
 done
 
 (
-  cd packages/neon/neon
+  cd packages/neon_framework
   precompile_assets
 )
 

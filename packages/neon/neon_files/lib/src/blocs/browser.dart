@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:neon/blocs.dart';
-import 'package:neon/models.dart';
-import 'package:neon/utils.dart';
 import 'package:neon_files/src/options.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 

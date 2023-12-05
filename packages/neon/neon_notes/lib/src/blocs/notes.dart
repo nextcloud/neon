@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/models.dart';
-import 'package:neon/utils.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/notes.dart' as notes;
 import 'package:rxdart/rxdart.dart';

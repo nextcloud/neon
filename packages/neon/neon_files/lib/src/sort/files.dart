@@ -1,5 +1,5 @@
-import 'package:neon/sort_box.dart';
 import 'package:neon_files/src/options.dart';
+import 'package:neon_framework/sort_box.dart';
 import 'package:nextcloud/webdav.dart';
 
 final filesSortBox = SortBox<FilesSortProperty, WebDavFile>(

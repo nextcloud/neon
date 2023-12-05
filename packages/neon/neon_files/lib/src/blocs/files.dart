@@ -1,14 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:neon/blocs.dart';
-import 'package:neon/models.dart';
-import 'package:neon/platform.dart';
-import 'package:neon/utils.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_files/src/utils/task.dart';
+import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
+import 'package:neon_framework/platform.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as p;

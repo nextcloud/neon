@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:neon/models.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_notifications/l10n/localizations.dart';
 import 'package:neon_notifications/src/blocs/notifications.dart';
 import 'package:neon_notifications/src/options.dart';

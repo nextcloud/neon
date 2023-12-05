@@ -1,7 +1,7 @@
 @startuml architecture
 
 package "Neon framework" {
-    component neon
+    component neon_framework
     component nextcloud
     component sort_box
     component file_icons
@@ -28,15 +28,15 @@ app ..> neon_news
 app ..> neon_notes
 app ..> neon_notifications
 
-neon_files --> neon
-neon_news --> neon
-neon_notes --> neon
-neon_notifications --> neon
+neon_files --> neon_framework
+neon_news --> neon_framework
+neon_notes --> neon_framework
+neon_notifications --> neon_framework
 
 
-neon --> nextcloud
-neon --> sort_box
-neon --> file_icons
+neon_framework --> nextcloud
+neon_framework --> sort_box
+neon_framework --> file_icons
 
 dynamite --> nextcloud
 specifications --> nextcloud

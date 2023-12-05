@@ -1,9 +1,6 @@
 import 'package:filesize/filesize.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_material_design_icons/flutter_material_design_icons.dart';
-import 'package:neon/theme.dart';
-import 'package:neon/utils.dart';
-import 'package:neon/widgets.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
@@ -12,6 +9,9 @@ import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_files/src/widgets/actions.dart';
 import 'package:neon_files/src/widgets/browser_view.dart';
 import 'package:neon_files/src/widgets/file_preview.dart';
+import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
+import 'package:neon_framework/widgets.dart';
 
 class FileListTile extends StatelessWidget {
   const FileListTile({

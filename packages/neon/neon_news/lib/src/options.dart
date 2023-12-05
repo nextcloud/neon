@@ -1,6 +1,6 @@
-import 'package:neon/platform.dart';
-import 'package:neon/settings.dart';
-import 'package:neon/sort_box.dart';
+import 'package:neon_framework/platform.dart';
+import 'package:neon_framework/settings.dart';
+import 'package:neon_framework/sort_box.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 

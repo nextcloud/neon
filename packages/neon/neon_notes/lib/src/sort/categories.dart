@@ -1,4 +1,4 @@
-import 'package:neon/sort_box.dart';
+import 'package:neon_framework/sort_box.dart';
 import 'package:neon_notes/src/options.dart';
 
 final categoriesSortBox = SortBox<CategoriesSortProperty, NoteCategory>(
