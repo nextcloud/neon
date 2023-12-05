@@ -28,6 +28,7 @@ app ..> neon_news
 app ..> neon_notes
 app ..> neon_notifications
 
+neon_dashboard --> neon_framework
 neon_files --> neon_framework
 neon_news --> neon_framework
 neon_notes --> neon_framework
