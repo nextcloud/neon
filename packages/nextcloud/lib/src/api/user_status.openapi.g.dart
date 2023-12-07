@@ -51,8 +51,6 @@ Serializer<HeartbeatHeartbeatResponseApplicationJson_Ocs> _$heartbeatHeartbeatRe
     _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer();
 Serializer<HeartbeatHeartbeatResponseApplicationJson> _$heartbeatHeartbeatResponseApplicationJsonSerializer =
     _$HeartbeatHeartbeatResponseApplicationJsonSerializer();
-Serializer<ClearAt_Type> _$clearAtTypeSerializer = _$ClearAt_TypeSerializer();
-Serializer<ClearAtTimeType> _$clearAtTimeTypeSerializer = _$ClearAtTimeTypeSerializer();
 Serializer<ClearAt> _$clearAtSerializer = _$ClearAtSerializer();
 Serializer<Predefined> _$predefinedSerializer = _$PredefinedSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
@@ -418,45 +416,6 @@ class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
-  static const Map<String, Object> _toWire = <String, Object>{
-    'endOf': 'end-of',
-  };
-  static const Map<Object, String> _fromWire = <Object, String>{
-    'end-of': 'endOf',
-  };
-
-  @override
-  final Iterable<Type> types = const <Type>[ClearAt_Type];
-  @override
-  final String wireName = 'ClearAt_Type';
-
-  @override
-  Object serialize(Serializers serializers, ClearAt_Type object, {FullType specifiedType = FullType.unspecified}) =>
-      _toWire[object.name] ?? object.name;
-
-  @override
-  ClearAt_Type deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ClearAt_Type.valueOf(_fromWire[serialized] ?? (serialized is String ? serialized : ''));
-}
-
-class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType> {
-  @override
-  final Iterable<Type> types = const <Type>[ClearAtTimeType];
-  @override
-  final String wireName = 'ClearAtTimeType';
-
-  @override
-  Object serialize(Serializers serializers, ClearAtTimeType object, {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ClearAtTimeType deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ClearAtTimeType.valueOf(serialized as String);
 }
 
 class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {

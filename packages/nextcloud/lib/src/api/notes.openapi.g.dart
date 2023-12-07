@@ -30,7 +30,6 @@ final BuiltSet<Settings_NoteMode> _$settingsNoteModeValues = BuiltSet<Settings_N
 ]);
 
 Serializer<Note> _$noteSerializer = _$NoteSerializer();
-Serializer<Settings_NoteMode> _$settingsNoteModeSerializer = _$Settings_NoteModeSerializer();
 Serializer<Settings> _$settingsSerializer = _$SettingsSerializer();
 Serializer<Capabilities_Notes> _$capabilitiesNotesSerializer = _$Capabilities_NotesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
@@ -118,23 +117,6 @@ class _$NoteSerializer implements StructuredSerializer<Note> {
 
     return result.build();
   }
-}
-
-class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_NoteMode> {
-  @override
-  final Iterable<Type> types = const <Type>[Settings_NoteMode];
-  @override
-  final String wireName = 'Settings_NoteMode';
-
-  @override
-  Object serialize(Serializers serializers, Settings_NoteMode object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  Settings_NoteMode deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      Settings_NoteMode.valueOf(serialized as String);
 }
 
 class _$SettingsSerializer implements StructuredSerializer<Settings> {

@@ -39,7 +39,7 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
   JsonObject? get $default;
 
   @BuiltValueField(wireName: 'enum')
-  BuiltList<String>? get $enum;
+  BuiltList<JsonObject>? get $enum;
 
   BuiltMap<String, Schema>? get properties;
 

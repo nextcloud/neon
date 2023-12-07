@@ -271,4 +271,11 @@ void main() {
       );
     });
   });
+
+  group('PatternCheck', () {
+    test('enum', () async {
+      expect(() => client.$get(enumPattern: GetEnumPattern.$0), throwsA(isA<FormatException>()));
+      expect(() => client.getHeaders(enumPattern: GetHeadersEnumPattern.$0), throwsA(isA<FormatException>()));
+    });
+  });
 }

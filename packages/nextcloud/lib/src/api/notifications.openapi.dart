@@ -1183,7 +1183,47 @@ class ApiGenerateNotificationApiVersion extends EnumClass {
 
   static ApiGenerateNotificationApiVersion valueOf(String name) => _$valueOfApiGenerateNotificationApiVersion(name);
 
-  static Serializer<ApiGenerateNotificationApiVersion> get serializer => _$apiGenerateNotificationApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ApiGenerateNotificationApiVersion> get serializer =>
+      const _$ApiGenerateNotificationApiVersionSerializer();
+}
+
+class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializer<ApiGenerateNotificationApiVersion> {
+  const _$ApiGenerateNotificationApiVersionSerializer();
+
+  static const Map<ApiGenerateNotificationApiVersion, Object> _toWire = <ApiGenerateNotificationApiVersion, Object>{
+    ApiGenerateNotificationApiVersion.v1: 'v1',
+    ApiGenerateNotificationApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, ApiGenerateNotificationApiVersion> _fromWire = <Object, ApiGenerateNotificationApiVersion>{
+    'v1': ApiGenerateNotificationApiVersion.v1,
+    'v2': ApiGenerateNotificationApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [ApiGenerateNotificationApiVersion];
+
+  @override
+  String get wireName => 'ApiGenerateNotificationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ApiGenerateNotificationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ApiGenerateNotificationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1288,8 +1328,49 @@ class EndpointListNotificationsApiVersion extends EnumClass {
 
   static EndpointListNotificationsApiVersion valueOf(String name) => _$valueOfEndpointListNotificationsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<EndpointListNotificationsApiVersion> get serializer =>
-      _$endpointListNotificationsApiVersionSerializer;
+      const _$EndpointListNotificationsApiVersionSerializer();
+}
+
+class _$EndpointListNotificationsApiVersionSerializer
+    implements PrimitiveSerializer<EndpointListNotificationsApiVersion> {
+  const _$EndpointListNotificationsApiVersionSerializer();
+
+  static const Map<EndpointListNotificationsApiVersion, Object> _toWire = <EndpointListNotificationsApiVersion, Object>{
+    EndpointListNotificationsApiVersion.v1: 'v1',
+    EndpointListNotificationsApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, EndpointListNotificationsApiVersion> _fromWire =
+      <Object, EndpointListNotificationsApiVersion>{
+    'v1': EndpointListNotificationsApiVersion.v1,
+    'v2': EndpointListNotificationsApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [EndpointListNotificationsApiVersion];
+
+  @override
+  String get wireName => 'EndpointListNotificationsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EndpointListNotificationsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  EndpointListNotificationsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1469,8 +1550,50 @@ class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
   static EndpointDeleteAllNotificationsApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteAllNotificationsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<EndpointDeleteAllNotificationsApiVersion> get serializer =>
-      _$endpointDeleteAllNotificationsApiVersionSerializer;
+      const _$EndpointDeleteAllNotificationsApiVersionSerializer();
+}
+
+class _$EndpointDeleteAllNotificationsApiVersionSerializer
+    implements PrimitiveSerializer<EndpointDeleteAllNotificationsApiVersion> {
+  const _$EndpointDeleteAllNotificationsApiVersionSerializer();
+
+  static const Map<EndpointDeleteAllNotificationsApiVersion, Object> _toWire =
+      <EndpointDeleteAllNotificationsApiVersion, Object>{
+    EndpointDeleteAllNotificationsApiVersion.v1: 'v1',
+    EndpointDeleteAllNotificationsApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, EndpointDeleteAllNotificationsApiVersion> _fromWire =
+      <Object, EndpointDeleteAllNotificationsApiVersion>{
+    'v1': EndpointDeleteAllNotificationsApiVersion.v1,
+    'v2': EndpointDeleteAllNotificationsApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [EndpointDeleteAllNotificationsApiVersion];
+
+  @override
+  String get wireName => 'EndpointDeleteAllNotificationsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EndpointDeleteAllNotificationsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  EndpointDeleteAllNotificationsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1549,7 +1672,47 @@ class EndpointGetNotificationApiVersion extends EnumClass {
 
   static EndpointGetNotificationApiVersion valueOf(String name) => _$valueOfEndpointGetNotificationApiVersion(name);
 
-  static Serializer<EndpointGetNotificationApiVersion> get serializer => _$endpointGetNotificationApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<EndpointGetNotificationApiVersion> get serializer =>
+      const _$EndpointGetNotificationApiVersionSerializer();
+}
+
+class _$EndpointGetNotificationApiVersionSerializer implements PrimitiveSerializer<EndpointGetNotificationApiVersion> {
+  const _$EndpointGetNotificationApiVersionSerializer();
+
+  static const Map<EndpointGetNotificationApiVersion, Object> _toWire = <EndpointGetNotificationApiVersion, Object>{
+    EndpointGetNotificationApiVersion.v1: 'v1',
+    EndpointGetNotificationApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, EndpointGetNotificationApiVersion> _fromWire = <Object, EndpointGetNotificationApiVersion>{
+    'v1': EndpointGetNotificationApiVersion.v1,
+    'v2': EndpointGetNotificationApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [EndpointGetNotificationApiVersion];
+
+  @override
+  String get wireName => 'EndpointGetNotificationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EndpointGetNotificationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  EndpointGetNotificationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1628,8 +1791,50 @@ class EndpointDeleteNotificationApiVersion extends EnumClass {
   static EndpointDeleteNotificationApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteNotificationApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<EndpointDeleteNotificationApiVersion> get serializer =>
-      _$endpointDeleteNotificationApiVersionSerializer;
+      const _$EndpointDeleteNotificationApiVersionSerializer();
+}
+
+class _$EndpointDeleteNotificationApiVersionSerializer
+    implements PrimitiveSerializer<EndpointDeleteNotificationApiVersion> {
+  const _$EndpointDeleteNotificationApiVersionSerializer();
+
+  static const Map<EndpointDeleteNotificationApiVersion, Object> _toWire =
+      <EndpointDeleteNotificationApiVersion, Object>{
+    EndpointDeleteNotificationApiVersion.v1: 'v1',
+    EndpointDeleteNotificationApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, EndpointDeleteNotificationApiVersion> _fromWire =
+      <Object, EndpointDeleteNotificationApiVersion>{
+    'v1': EndpointDeleteNotificationApiVersion.v1,
+    'v2': EndpointDeleteNotificationApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [EndpointDeleteNotificationApiVersion];
+
+  @override
+  String get wireName => 'EndpointDeleteNotificationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EndpointDeleteNotificationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  EndpointDeleteNotificationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1708,8 +1913,49 @@ class EndpointConfirmIdsForUserApiVersion extends EnumClass {
 
   static EndpointConfirmIdsForUserApiVersion valueOf(String name) => _$valueOfEndpointConfirmIdsForUserApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<EndpointConfirmIdsForUserApiVersion> get serializer =>
-      _$endpointConfirmIdsForUserApiVersionSerializer;
+      const _$EndpointConfirmIdsForUserApiVersionSerializer();
+}
+
+class _$EndpointConfirmIdsForUserApiVersionSerializer
+    implements PrimitiveSerializer<EndpointConfirmIdsForUserApiVersion> {
+  const _$EndpointConfirmIdsForUserApiVersionSerializer();
+
+  static const Map<EndpointConfirmIdsForUserApiVersion, Object> _toWire = <EndpointConfirmIdsForUserApiVersion, Object>{
+    EndpointConfirmIdsForUserApiVersion.v1: 'v1',
+    EndpointConfirmIdsForUserApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, EndpointConfirmIdsForUserApiVersion> _fromWire =
+      <Object, EndpointConfirmIdsForUserApiVersion>{
+    'v1': EndpointConfirmIdsForUserApiVersion.v1,
+    'v2': EndpointConfirmIdsForUserApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [EndpointConfirmIdsForUserApiVersion];
+
+  @override
+  String get wireName => 'EndpointConfirmIdsForUserApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    EndpointConfirmIdsForUserApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  EndpointConfirmIdsForUserApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1786,7 +2032,44 @@ class PushRegisterDeviceApiVersion extends EnumClass {
 
   static PushRegisterDeviceApiVersion valueOf(String name) => _$valueOfPushRegisterDeviceApiVersion(name);
 
-  static Serializer<PushRegisterDeviceApiVersion> get serializer => _$pushRegisterDeviceApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PushRegisterDeviceApiVersion> get serializer => const _$PushRegisterDeviceApiVersionSerializer();
+}
+
+class _$PushRegisterDeviceApiVersionSerializer implements PrimitiveSerializer<PushRegisterDeviceApiVersion> {
+  const _$PushRegisterDeviceApiVersionSerializer();
+
+  static const Map<PushRegisterDeviceApiVersion, Object> _toWire = <PushRegisterDeviceApiVersion, Object>{
+    PushRegisterDeviceApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, PushRegisterDeviceApiVersion> _fromWire = <Object, PushRegisterDeviceApiVersion>{
+    'v2': PushRegisterDeviceApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [PushRegisterDeviceApiVersion];
+
+  @override
+  String get wireName => 'PushRegisterDeviceApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PushRegisterDeviceApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PushRegisterDeviceApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1886,7 +2169,44 @@ class PushRemoveDeviceApiVersion extends EnumClass {
 
   static PushRemoveDeviceApiVersion valueOf(String name) => _$valueOfPushRemoveDeviceApiVersion(name);
 
-  static Serializer<PushRemoveDeviceApiVersion> get serializer => _$pushRemoveDeviceApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PushRemoveDeviceApiVersion> get serializer => const _$PushRemoveDeviceApiVersionSerializer();
+}
+
+class _$PushRemoveDeviceApiVersionSerializer implements PrimitiveSerializer<PushRemoveDeviceApiVersion> {
+  const _$PushRemoveDeviceApiVersionSerializer();
+
+  static const Map<PushRemoveDeviceApiVersion, Object> _toWire = <PushRemoveDeviceApiVersion, Object>{
+    PushRemoveDeviceApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, PushRemoveDeviceApiVersion> _fromWire = <Object, PushRemoveDeviceApiVersion>{
+    'v2': PushRemoveDeviceApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [PushRemoveDeviceApiVersion];
+
+  @override
+  String get wireName => 'PushRemoveDeviceApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PushRemoveDeviceApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PushRemoveDeviceApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1960,7 +2280,44 @@ class SettingsPersonalApiVersion extends EnumClass {
 
   static SettingsPersonalApiVersion valueOf(String name) => _$valueOfSettingsPersonalApiVersion(name);
 
-  static Serializer<SettingsPersonalApiVersion> get serializer => _$settingsPersonalApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsPersonalApiVersion> get serializer => const _$SettingsPersonalApiVersionSerializer();
+}
+
+class _$SettingsPersonalApiVersionSerializer implements PrimitiveSerializer<SettingsPersonalApiVersion> {
+  const _$SettingsPersonalApiVersionSerializer();
+
+  static const Map<SettingsPersonalApiVersion, Object> _toWire = <SettingsPersonalApiVersion, Object>{
+    SettingsPersonalApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, SettingsPersonalApiVersion> _fromWire = <Object, SettingsPersonalApiVersion>{
+    'v2': SettingsPersonalApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsPersonalApiVersion];
+
+  @override
+  String get wireName => 'SettingsPersonalApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsPersonalApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsPersonalApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -2034,7 +2391,44 @@ class SettingsAdminApiVersion extends EnumClass {
 
   static SettingsAdminApiVersion valueOf(String name) => _$valueOfSettingsAdminApiVersion(name);
 
-  static Serializer<SettingsAdminApiVersion> get serializer => _$settingsAdminApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsAdminApiVersion> get serializer => const _$SettingsAdminApiVersionSerializer();
+}
+
+class _$SettingsAdminApiVersionSerializer implements PrimitiveSerializer<SettingsAdminApiVersion> {
+  const _$SettingsAdminApiVersionSerializer();
+
+  static const Map<SettingsAdminApiVersion, Object> _toWire = <SettingsAdminApiVersion, Object>{
+    SettingsAdminApiVersion.v2: 'v2',
+  };
+
+  static const Map<Object, SettingsAdminApiVersion> _fromWire = <Object, SettingsAdminApiVersion>{
+    'v2': SettingsAdminApiVersion.v2,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsAdminApiVersion];
+
+  @override
+  String get wireName => 'SettingsAdminApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsAdminApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsAdminApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

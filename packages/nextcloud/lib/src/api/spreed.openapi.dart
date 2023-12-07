@@ -13201,7 +13201,44 @@ class AvatarGetAvatarApiVersion extends EnumClass {
 
   static AvatarGetAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarApiVersion(name);
 
-  static Serializer<AvatarGetAvatarApiVersion> get serializer => _$avatarGetAvatarApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarApiVersion> get serializer => const _$AvatarGetAvatarApiVersionSerializer();
+}
+
+class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarGetAvatarApiVersion> {
+  const _$AvatarGetAvatarApiVersionSerializer();
+
+  static const Map<AvatarGetAvatarApiVersion, Object> _toWire = <AvatarGetAvatarApiVersion, Object>{
+    AvatarGetAvatarApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetAvatarApiVersion> _fromWire = <Object, AvatarGetAvatarApiVersion>{
+    'v1': AvatarGetAvatarApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetAvatarApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class AvatarUploadAvatarApiVersion extends EnumClass {
@@ -13215,7 +13252,44 @@ class AvatarUploadAvatarApiVersion extends EnumClass {
 
   static AvatarUploadAvatarApiVersion valueOf(String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
 
-  static Serializer<AvatarUploadAvatarApiVersion> get serializer => _$avatarUploadAvatarApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarUploadAvatarApiVersion> get serializer => const _$AvatarUploadAvatarApiVersionSerializer();
+}
+
+class _$AvatarUploadAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarUploadAvatarApiVersion> {
+  const _$AvatarUploadAvatarApiVersionSerializer();
+
+  static const Map<AvatarUploadAvatarApiVersion, Object> _toWire = <AvatarUploadAvatarApiVersion, Object>{
+    AvatarUploadAvatarApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarUploadAvatarApiVersion> _fromWire = <Object, AvatarUploadAvatarApiVersion>{
+    'v1': AvatarUploadAvatarApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarUploadAvatarApiVersion];
+
+  @override
+  String get wireName => 'AvatarUploadAvatarApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarUploadAvatarApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarUploadAvatarApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13436,7 +13510,44 @@ class AvatarDeleteAvatarApiVersion extends EnumClass {
 
   static AvatarDeleteAvatarApiVersion valueOf(String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
 
-  static Serializer<AvatarDeleteAvatarApiVersion> get serializer => _$avatarDeleteAvatarApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarDeleteAvatarApiVersion> get serializer => const _$AvatarDeleteAvatarApiVersionSerializer();
+}
+
+class _$AvatarDeleteAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarDeleteAvatarApiVersion> {
+  const _$AvatarDeleteAvatarApiVersionSerializer();
+
+  static const Map<AvatarDeleteAvatarApiVersion, Object> _toWire = <AvatarDeleteAvatarApiVersion, Object>{
+    AvatarDeleteAvatarApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarDeleteAvatarApiVersion> _fromWire = <Object, AvatarDeleteAvatarApiVersion>{
+    'v1': AvatarDeleteAvatarApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarDeleteAvatarApiVersion];
+
+  @override
+  String get wireName => 'AvatarDeleteAvatarApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarDeleteAvatarApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarDeleteAvatarApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13511,7 +13622,44 @@ class AvatarEmojiAvatarApiVersion extends EnumClass {
 
   static AvatarEmojiAvatarApiVersion valueOf(String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
 
-  static Serializer<AvatarEmojiAvatarApiVersion> get serializer => _$avatarEmojiAvatarApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarEmojiAvatarApiVersion> get serializer => const _$AvatarEmojiAvatarApiVersionSerializer();
+}
+
+class _$AvatarEmojiAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarEmojiAvatarApiVersion> {
+  const _$AvatarEmojiAvatarApiVersionSerializer();
+
+  static const Map<AvatarEmojiAvatarApiVersion, Object> _toWire = <AvatarEmojiAvatarApiVersion, Object>{
+    AvatarEmojiAvatarApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarEmojiAvatarApiVersion> _fromWire = <Object, AvatarEmojiAvatarApiVersion>{
+    'v1': AvatarEmojiAvatarApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarEmojiAvatarApiVersion];
+
+  @override
+  String get wireName => 'AvatarEmojiAvatarApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarEmojiAvatarApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarEmojiAvatarApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13586,7 +13734,44 @@ class AvatarGetAvatarDarkApiVersion extends EnumClass {
 
   static AvatarGetAvatarDarkApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
 
-  static Serializer<AvatarGetAvatarDarkApiVersion> get serializer => _$avatarGetAvatarDarkApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<AvatarGetAvatarDarkApiVersion> get serializer => const _$AvatarGetAvatarDarkApiVersionSerializer();
+}
+
+class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkApiVersion> {
+  const _$AvatarGetAvatarDarkApiVersionSerializer();
+
+  static const Map<AvatarGetAvatarDarkApiVersion, Object> _toWire = <AvatarGetAvatarDarkApiVersion, Object>{
+    AvatarGetAvatarDarkApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, AvatarGetAvatarDarkApiVersion> _fromWire = <Object, AvatarGetAvatarDarkApiVersion>{
+    'v1': AvatarGetAvatarDarkApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [AvatarGetAvatarDarkApiVersion];
+
+  @override
+  String get wireName => 'AvatarGetAvatarDarkApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    AvatarGetAvatarDarkApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  AvatarGetAvatarDarkApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class BotSendMessageApiVersion extends EnumClass {
@@ -13600,7 +13785,44 @@ class BotSendMessageApiVersion extends EnumClass {
 
   static BotSendMessageApiVersion valueOf(String name) => _$valueOfBotSendMessageApiVersion(name);
 
-  static Serializer<BotSendMessageApiVersion> get serializer => _$botSendMessageApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotSendMessageApiVersion> get serializer => const _$BotSendMessageApiVersionSerializer();
+}
+
+class _$BotSendMessageApiVersionSerializer implements PrimitiveSerializer<BotSendMessageApiVersion> {
+  const _$BotSendMessageApiVersionSerializer();
+
+  static const Map<BotSendMessageApiVersion, Object> _toWire = <BotSendMessageApiVersion, Object>{
+    BotSendMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotSendMessageApiVersion> _fromWire = <Object, BotSendMessageApiVersion>{
+    'v1': BotSendMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotSendMessageApiVersion];
+
+  @override
+  String get wireName => 'BotSendMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotSendMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotSendMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13674,7 +13896,44 @@ class BotReactApiVersion extends EnumClass {
 
   static BotReactApiVersion valueOf(String name) => _$valueOfBotReactApiVersion(name);
 
-  static Serializer<BotReactApiVersion> get serializer => _$botReactApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotReactApiVersion> get serializer => const _$BotReactApiVersionSerializer();
+}
+
+class _$BotReactApiVersionSerializer implements PrimitiveSerializer<BotReactApiVersion> {
+  const _$BotReactApiVersionSerializer();
+
+  static const Map<BotReactApiVersion, Object> _toWire = <BotReactApiVersion, Object>{
+    BotReactApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotReactApiVersion> _fromWire = <Object, BotReactApiVersion>{
+    'v1': BotReactApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotReactApiVersion];
+
+  @override
+  String get wireName => 'BotReactApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotReactApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotReactApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13746,7 +14005,44 @@ class BotDeleteReactionApiVersion extends EnumClass {
 
   static BotDeleteReactionApiVersion valueOf(String name) => _$valueOfBotDeleteReactionApiVersion(name);
 
-  static Serializer<BotDeleteReactionApiVersion> get serializer => _$botDeleteReactionApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotDeleteReactionApiVersion> get serializer => const _$BotDeleteReactionApiVersionSerializer();
+}
+
+class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<BotDeleteReactionApiVersion> {
+  const _$BotDeleteReactionApiVersionSerializer();
+
+  static const Map<BotDeleteReactionApiVersion, Object> _toWire = <BotDeleteReactionApiVersion, Object>{
+    BotDeleteReactionApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotDeleteReactionApiVersion> _fromWire = <Object, BotDeleteReactionApiVersion>{
+    'v1': BotDeleteReactionApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotDeleteReactionApiVersion];
+
+  @override
+  String get wireName => 'BotDeleteReactionApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotDeleteReactionApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotDeleteReactionApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13821,7 +14117,44 @@ class BotAdminListBotsApiVersion extends EnumClass {
 
   static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
 
-  static Serializer<BotAdminListBotsApiVersion> get serializer => _$botAdminListBotsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotAdminListBotsApiVersion> get serializer => const _$BotAdminListBotsApiVersionSerializer();
+}
+
+class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
+  const _$BotAdminListBotsApiVersionSerializer();
+
+  static const Map<BotAdminListBotsApiVersion, Object> _toWire = <BotAdminListBotsApiVersion, Object>{
+    BotAdminListBotsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotAdminListBotsApiVersion> _fromWire = <Object, BotAdminListBotsApiVersion>{
+    'v1': BotAdminListBotsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotAdminListBotsApiVersion];
+
+  @override
+  String get wireName => 'BotAdminListBotsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotAdminListBotsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotAdminListBotsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -13956,7 +14289,44 @@ class BotListBotsApiVersion extends EnumClass {
 
   static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
 
-  static Serializer<BotListBotsApiVersion> get serializer => _$botListBotsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotListBotsApiVersion> get serializer => const _$BotListBotsApiVersionSerializer();
+}
+
+class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBotsApiVersion> {
+  const _$BotListBotsApiVersionSerializer();
+
+  static const Map<BotListBotsApiVersion, Object> _toWire = <BotListBotsApiVersion, Object>{
+    BotListBotsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotListBotsApiVersion> _fromWire = <Object, BotListBotsApiVersion>{
+    'v1': BotListBotsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotListBotsApiVersion];
+
+  @override
+  String get wireName => 'BotListBotsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotListBotsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotListBotsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14029,7 +14399,44 @@ class BotEnableBotApiVersion extends EnumClass {
 
   static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
 
-  static Serializer<BotEnableBotApiVersion> get serializer => _$botEnableBotApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotEnableBotApiVersion> get serializer => const _$BotEnableBotApiVersionSerializer();
+}
+
+class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnableBotApiVersion> {
+  const _$BotEnableBotApiVersionSerializer();
+
+  static const Map<BotEnableBotApiVersion, Object> _toWire = <BotEnableBotApiVersion, Object>{
+    BotEnableBotApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotEnableBotApiVersion> _fromWire = <Object, BotEnableBotApiVersion>{
+    'v1': BotEnableBotApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotEnableBotApiVersion];
+
+  @override
+  String get wireName => 'BotEnableBotApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotEnableBotApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotEnableBotApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14102,7 +14509,44 @@ class BotDisableBotApiVersion extends EnumClass {
 
   static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
 
-  static Serializer<BotDisableBotApiVersion> get serializer => _$botDisableBotApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BotDisableBotApiVersion> get serializer => const _$BotDisableBotApiVersionSerializer();
+}
+
+class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisableBotApiVersion> {
+  const _$BotDisableBotApiVersionSerializer();
+
+  static const Map<BotDisableBotApiVersion, Object> _toWire = <BotDisableBotApiVersion, Object>{
+    BotDisableBotApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BotDisableBotApiVersion> _fromWire = <Object, BotDisableBotApiVersion>{
+    'v1': BotDisableBotApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BotDisableBotApiVersion];
+
+  @override
+  String get wireName => 'BotDisableBotApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BotDisableBotApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BotDisableBotApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14178,8 +14622,48 @@ class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
   static BreakoutRoomConfigureBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> get serializer =>
-      _$breakoutRoomConfigureBreakoutRoomsApiVersionSerializer;
+      const _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer();
+}
+
+class _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> {
+  const _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer();
+
+  static const Map<BreakoutRoomConfigureBreakoutRoomsApiVersion, Object> _toWire =
+      <BreakoutRoomConfigureBreakoutRoomsApiVersion, Object>{
+    BreakoutRoomConfigureBreakoutRoomsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomConfigureBreakoutRoomsApiVersion> _fromWire =
+      <Object, BreakoutRoomConfigureBreakoutRoomsApiVersion>{
+    'v1': BreakoutRoomConfigureBreakoutRoomsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomConfigureBreakoutRoomsApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomConfigureBreakoutRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomConfigureBreakoutRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomConfigureBreakoutRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14258,8 +14742,48 @@ class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
   static BreakoutRoomRemoveBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRemoveBreakoutRoomsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> get serializer =>
-      _$breakoutRoomRemoveBreakoutRoomsApiVersionSerializer;
+      const _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer();
+}
+
+class _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> {
+  const _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer();
+
+  static const Map<BreakoutRoomRemoveBreakoutRoomsApiVersion, Object> _toWire =
+      <BreakoutRoomRemoveBreakoutRoomsApiVersion, Object>{
+    BreakoutRoomRemoveBreakoutRoomsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomRemoveBreakoutRoomsApiVersion> _fromWire =
+      <Object, BreakoutRoomRemoveBreakoutRoomsApiVersion>{
+    'v1': BreakoutRoomRemoveBreakoutRoomsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomRemoveBreakoutRoomsApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomRemoveBreakoutRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomRemoveBreakoutRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomRemoveBreakoutRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14338,8 +14862,48 @@ class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
   static BreakoutRoomBroadcastChatMessageApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomBroadcastChatMessageApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomBroadcastChatMessageApiVersion> get serializer =>
-      _$breakoutRoomBroadcastChatMessageApiVersionSerializer;
+      const _$BreakoutRoomBroadcastChatMessageApiVersionSerializer();
+}
+
+class _$BreakoutRoomBroadcastChatMessageApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomBroadcastChatMessageApiVersion> {
+  const _$BreakoutRoomBroadcastChatMessageApiVersionSerializer();
+
+  static const Map<BreakoutRoomBroadcastChatMessageApiVersion, Object> _toWire =
+      <BreakoutRoomBroadcastChatMessageApiVersion, Object>{
+    BreakoutRoomBroadcastChatMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomBroadcastChatMessageApiVersion> _fromWire =
+      <Object, BreakoutRoomBroadcastChatMessageApiVersion>{
+    'v1': BreakoutRoomBroadcastChatMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomBroadcastChatMessageApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomBroadcastChatMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomBroadcastChatMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomBroadcastChatMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14417,8 +14981,48 @@ class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
   static BreakoutRoomApplyAttendeeMapApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomApplyAttendeeMapApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomApplyAttendeeMapApiVersion> get serializer =>
-      _$breakoutRoomApplyAttendeeMapApiVersionSerializer;
+      const _$BreakoutRoomApplyAttendeeMapApiVersionSerializer();
+}
+
+class _$BreakoutRoomApplyAttendeeMapApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomApplyAttendeeMapApiVersion> {
+  const _$BreakoutRoomApplyAttendeeMapApiVersionSerializer();
+
+  static const Map<BreakoutRoomApplyAttendeeMapApiVersion, Object> _toWire =
+      <BreakoutRoomApplyAttendeeMapApiVersion, Object>{
+    BreakoutRoomApplyAttendeeMapApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomApplyAttendeeMapApiVersion> _fromWire =
+      <Object, BreakoutRoomApplyAttendeeMapApiVersion>{
+    'v1': BreakoutRoomApplyAttendeeMapApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomApplyAttendeeMapApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomApplyAttendeeMapApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomApplyAttendeeMapApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomApplyAttendeeMapApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14497,8 +15101,48 @@ class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
   static BreakoutRoomRequestAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRequestAssistanceApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomRequestAssistanceApiVersion> get serializer =>
-      _$breakoutRoomRequestAssistanceApiVersionSerializer;
+      const _$BreakoutRoomRequestAssistanceApiVersionSerializer();
+}
+
+class _$BreakoutRoomRequestAssistanceApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomRequestAssistanceApiVersion> {
+  const _$BreakoutRoomRequestAssistanceApiVersionSerializer();
+
+  static const Map<BreakoutRoomRequestAssistanceApiVersion, Object> _toWire =
+      <BreakoutRoomRequestAssistanceApiVersion, Object>{
+    BreakoutRoomRequestAssistanceApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomRequestAssistanceApiVersion> _fromWire =
+      <Object, BreakoutRoomRequestAssistanceApiVersion>{
+    'v1': BreakoutRoomRequestAssistanceApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomRequestAssistanceApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomRequestAssistanceApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomRequestAssistanceApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomRequestAssistanceApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14577,8 +15221,48 @@ class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
   static BreakoutRoomResetRequestForAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomResetRequestForAssistanceApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomResetRequestForAssistanceApiVersion> get serializer =>
-      _$breakoutRoomResetRequestForAssistanceApiVersionSerializer;
+      const _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer();
+}
+
+class _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomResetRequestForAssistanceApiVersion> {
+  const _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer();
+
+  static const Map<BreakoutRoomResetRequestForAssistanceApiVersion, Object> _toWire =
+      <BreakoutRoomResetRequestForAssistanceApiVersion, Object>{
+    BreakoutRoomResetRequestForAssistanceApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomResetRequestForAssistanceApiVersion> _fromWire =
+      <Object, BreakoutRoomResetRequestForAssistanceApiVersion>{
+    'v1': BreakoutRoomResetRequestForAssistanceApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomResetRequestForAssistanceApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomResetRequestForAssistanceApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomResetRequestForAssistanceApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomResetRequestForAssistanceApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14657,8 +15341,48 @@ class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
   static BreakoutRoomStartBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStartBreakoutRoomsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStartBreakoutRoomsApiVersion> get serializer =>
-      _$breakoutRoomStartBreakoutRoomsApiVersionSerializer;
+      const _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer();
+}
+
+class _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomStartBreakoutRoomsApiVersion> {
+  const _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer();
+
+  static const Map<BreakoutRoomStartBreakoutRoomsApiVersion, Object> _toWire =
+      <BreakoutRoomStartBreakoutRoomsApiVersion, Object>{
+    BreakoutRoomStartBreakoutRoomsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomStartBreakoutRoomsApiVersion> _fromWire =
+      <Object, BreakoutRoomStartBreakoutRoomsApiVersion>{
+    'v1': BreakoutRoomStartBreakoutRoomsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomStartBreakoutRoomsApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomStartBreakoutRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomStartBreakoutRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomStartBreakoutRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14737,8 +15461,48 @@ class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
   static BreakoutRoomStopBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStopBreakoutRoomsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomStopBreakoutRoomsApiVersion> get serializer =>
-      _$breakoutRoomStopBreakoutRoomsApiVersionSerializer;
+      const _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer();
+}
+
+class _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomStopBreakoutRoomsApiVersion> {
+  const _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer();
+
+  static const Map<BreakoutRoomStopBreakoutRoomsApiVersion, Object> _toWire =
+      <BreakoutRoomStopBreakoutRoomsApiVersion, Object>{
+    BreakoutRoomStopBreakoutRoomsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomStopBreakoutRoomsApiVersion> _fromWire =
+      <Object, BreakoutRoomStopBreakoutRoomsApiVersion>{
+    'v1': BreakoutRoomStopBreakoutRoomsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomStopBreakoutRoomsApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomStopBreakoutRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomStopBreakoutRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomStopBreakoutRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14817,8 +15581,48 @@ class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
   static BreakoutRoomSwitchBreakoutRoomApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomSwitchBreakoutRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<BreakoutRoomSwitchBreakoutRoomApiVersion> get serializer =>
-      _$breakoutRoomSwitchBreakoutRoomApiVersionSerializer;
+      const _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer();
+}
+
+class _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer
+    implements PrimitiveSerializer<BreakoutRoomSwitchBreakoutRoomApiVersion> {
+  const _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer();
+
+  static const Map<BreakoutRoomSwitchBreakoutRoomApiVersion, Object> _toWire =
+      <BreakoutRoomSwitchBreakoutRoomApiVersion, Object>{
+    BreakoutRoomSwitchBreakoutRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, BreakoutRoomSwitchBreakoutRoomApiVersion> _fromWire =
+      <Object, BreakoutRoomSwitchBreakoutRoomApiVersion>{
+    'v1': BreakoutRoomSwitchBreakoutRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomSwitchBreakoutRoomApiVersion];
+
+  @override
+  String get wireName => 'BreakoutRoomSwitchBreakoutRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomSwitchBreakoutRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomSwitchBreakoutRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14895,7 +15699,44 @@ class CallGetPeersForCallApiVersion extends EnumClass {
 
   static CallGetPeersForCallApiVersion valueOf(String name) => _$valueOfCallGetPeersForCallApiVersion(name);
 
-  static Serializer<CallGetPeersForCallApiVersion> get serializer => _$callGetPeersForCallApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallGetPeersForCallApiVersion> get serializer => const _$CallGetPeersForCallApiVersionSerializer();
+}
+
+class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<CallGetPeersForCallApiVersion> {
+  const _$CallGetPeersForCallApiVersionSerializer();
+
+  static const Map<CallGetPeersForCallApiVersion, Object> _toWire = <CallGetPeersForCallApiVersion, Object>{
+    CallGetPeersForCallApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallGetPeersForCallApiVersion> _fromWire = <Object, CallGetPeersForCallApiVersion>{
+    'v4': CallGetPeersForCallApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallGetPeersForCallApiVersion];
+
+  @override
+  String get wireName => 'CallGetPeersForCallApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallGetPeersForCallApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallGetPeersForCallApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -14998,7 +15839,44 @@ class CallUpdateCallFlagsApiVersion extends EnumClass {
 
   static CallUpdateCallFlagsApiVersion valueOf(String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
 
-  static Serializer<CallUpdateCallFlagsApiVersion> get serializer => _$callUpdateCallFlagsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallUpdateCallFlagsApiVersion> get serializer => const _$CallUpdateCallFlagsApiVersionSerializer();
+}
+
+class _$CallUpdateCallFlagsApiVersionSerializer implements PrimitiveSerializer<CallUpdateCallFlagsApiVersion> {
+  const _$CallUpdateCallFlagsApiVersionSerializer();
+
+  static const Map<CallUpdateCallFlagsApiVersion, Object> _toWire = <CallUpdateCallFlagsApiVersion, Object>{
+    CallUpdateCallFlagsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallUpdateCallFlagsApiVersion> _fromWire = <Object, CallUpdateCallFlagsApiVersion>{
+    'v4': CallUpdateCallFlagsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallUpdateCallFlagsApiVersion];
+
+  @override
+  String get wireName => 'CallUpdateCallFlagsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallUpdateCallFlagsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallUpdateCallFlagsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15073,7 +15951,44 @@ class CallJoinCallApiVersion extends EnumClass {
 
   static CallJoinCallApiVersion valueOf(String name) => _$valueOfCallJoinCallApiVersion(name);
 
-  static Serializer<CallJoinCallApiVersion> get serializer => _$callJoinCallApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallJoinCallApiVersion> get serializer => const _$CallJoinCallApiVersionSerializer();
+}
+
+class _$CallJoinCallApiVersionSerializer implements PrimitiveSerializer<CallJoinCallApiVersion> {
+  const _$CallJoinCallApiVersionSerializer();
+
+  static const Map<CallJoinCallApiVersion, Object> _toWire = <CallJoinCallApiVersion, Object>{
+    CallJoinCallApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallJoinCallApiVersion> _fromWire = <Object, CallJoinCallApiVersion>{
+    'v4': CallJoinCallApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallApiVersion];
+
+  @override
+  String get wireName => 'CallJoinCallApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallJoinCallApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallJoinCallApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15146,7 +16061,44 @@ class CallLeaveCallApiVersion extends EnumClass {
 
   static CallLeaveCallApiVersion valueOf(String name) => _$valueOfCallLeaveCallApiVersion(name);
 
-  static Serializer<CallLeaveCallApiVersion> get serializer => _$callLeaveCallApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallLeaveCallApiVersion> get serializer => const _$CallLeaveCallApiVersionSerializer();
+}
+
+class _$CallLeaveCallApiVersionSerializer implements PrimitiveSerializer<CallLeaveCallApiVersion> {
+  const _$CallLeaveCallApiVersionSerializer();
+
+  static const Map<CallLeaveCallApiVersion, Object> _toWire = <CallLeaveCallApiVersion, Object>{
+    CallLeaveCallApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallLeaveCallApiVersion> _fromWire = <Object, CallLeaveCallApiVersion>{
+    'v4': CallLeaveCallApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallLeaveCallApiVersion];
+
+  @override
+  String get wireName => 'CallLeaveCallApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallLeaveCallApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallLeaveCallApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15220,7 +16172,44 @@ class CallRingAttendeeApiVersion extends EnumClass {
 
   static CallRingAttendeeApiVersion valueOf(String name) => _$valueOfCallRingAttendeeApiVersion(name);
 
-  static Serializer<CallRingAttendeeApiVersion> get serializer => _$callRingAttendeeApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallRingAttendeeApiVersion> get serializer => const _$CallRingAttendeeApiVersionSerializer();
+}
+
+class _$CallRingAttendeeApiVersionSerializer implements PrimitiveSerializer<CallRingAttendeeApiVersion> {
+  const _$CallRingAttendeeApiVersionSerializer();
+
+  static const Map<CallRingAttendeeApiVersion, Object> _toWire = <CallRingAttendeeApiVersion, Object>{
+    CallRingAttendeeApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallRingAttendeeApiVersion> _fromWire = <Object, CallRingAttendeeApiVersion>{
+    'v4': CallRingAttendeeApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallRingAttendeeApiVersion];
+
+  @override
+  String get wireName => 'CallRingAttendeeApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallRingAttendeeApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallRingAttendeeApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15294,7 +16283,44 @@ class CallSipDialOutApiVersion extends EnumClass {
 
   static CallSipDialOutApiVersion valueOf(String name) => _$valueOfCallSipDialOutApiVersion(name);
 
-  static Serializer<CallSipDialOutApiVersion> get serializer => _$callSipDialOutApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallSipDialOutApiVersion> get serializer => const _$CallSipDialOutApiVersionSerializer();
+}
+
+class _$CallSipDialOutApiVersionSerializer implements PrimitiveSerializer<CallSipDialOutApiVersion> {
+  const _$CallSipDialOutApiVersionSerializer();
+
+  static const Map<CallSipDialOutApiVersion, Object> _toWire = <CallSipDialOutApiVersion, Object>{
+    CallSipDialOutApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, CallSipDialOutApiVersion> _fromWire = <Object, CallSipDialOutApiVersion>{
+    'v4': CallSipDialOutApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallSipDialOutApiVersion];
+
+  @override
+  String get wireName => 'CallSipDialOutApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallSipDialOutApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallSipDialOutApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15401,8 +16427,48 @@ class CertificateGetCertificateExpirationApiVersion extends EnumClass {
   static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
       _$valueOfCertificateGetCertificateExpirationApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<CertificateGetCertificateExpirationApiVersion> get serializer =>
-      _$certificateGetCertificateExpirationApiVersionSerializer;
+      const _$CertificateGetCertificateExpirationApiVersionSerializer();
+}
+
+class _$CertificateGetCertificateExpirationApiVersionSerializer
+    implements PrimitiveSerializer<CertificateGetCertificateExpirationApiVersion> {
+  const _$CertificateGetCertificateExpirationApiVersionSerializer();
+
+  static const Map<CertificateGetCertificateExpirationApiVersion, Object> _toWire =
+      <CertificateGetCertificateExpirationApiVersion, Object>{
+    CertificateGetCertificateExpirationApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, CertificateGetCertificateExpirationApiVersion> _fromWire =
+      <Object, CertificateGetCertificateExpirationApiVersion>{
+    'v1': CertificateGetCertificateExpirationApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [CertificateGetCertificateExpirationApiVersion];
+
+  @override
+  String get wireName => 'CertificateGetCertificateExpirationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CertificateGetCertificateExpirationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CertificateGetCertificateExpirationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15511,7 +16577,44 @@ class ChatReceiveMessagesApiVersion extends EnumClass {
 
   static ChatReceiveMessagesApiVersion valueOf(String name) => _$valueOfChatReceiveMessagesApiVersion(name);
 
-  static Serializer<ChatReceiveMessagesApiVersion> get serializer => _$chatReceiveMessagesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesApiVersion> get serializer => const _$ChatReceiveMessagesApiVersionSerializer();
+}
+
+class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<ChatReceiveMessagesApiVersion> {
+  const _$ChatReceiveMessagesApiVersionSerializer();
+
+  static const Map<ChatReceiveMessagesApiVersion, Object> _toWire = <ChatReceiveMessagesApiVersion, Object>{
+    ChatReceiveMessagesApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatReceiveMessagesApiVersion> _fromWire = <Object, ChatReceiveMessagesApiVersion>{
+    'v1': ChatReceiveMessagesApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesApiVersion];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15646,7 +16749,44 @@ class ChatSendMessageApiVersion extends EnumClass {
 
   static ChatSendMessageApiVersion valueOf(String name) => _$valueOfChatSendMessageApiVersion(name);
 
-  static Serializer<ChatSendMessageApiVersion> get serializer => _$chatSendMessageApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatSendMessageApiVersion> get serializer => const _$ChatSendMessageApiVersionSerializer();
+}
+
+class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatSendMessageApiVersion> {
+  const _$ChatSendMessageApiVersionSerializer();
+
+  static const Map<ChatSendMessageApiVersion, Object> _toWire = <ChatSendMessageApiVersion, Object>{
+    ChatSendMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatSendMessageApiVersion> _fromWire = <Object, ChatSendMessageApiVersion>{
+    'v1': ChatSendMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatSendMessageApiVersion];
+
+  @override
+  String get wireName => 'ChatSendMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatSendMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatSendMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15749,7 +16889,44 @@ class ChatClearHistoryApiVersion extends EnumClass {
 
   static ChatClearHistoryApiVersion valueOf(String name) => _$valueOfChatClearHistoryApiVersion(name);
 
-  static Serializer<ChatClearHistoryApiVersion> get serializer => _$chatClearHistoryApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatClearHistoryApiVersion> get serializer => const _$ChatClearHistoryApiVersionSerializer();
+}
+
+class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<ChatClearHistoryApiVersion> {
+  const _$ChatClearHistoryApiVersionSerializer();
+
+  static const Map<ChatClearHistoryApiVersion, Object> _toWire = <ChatClearHistoryApiVersion, Object>{
+    ChatClearHistoryApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatClearHistoryApiVersion> _fromWire = <Object, ChatClearHistoryApiVersion>{
+    'v1': ChatClearHistoryApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatClearHistoryApiVersion];
+
+  @override
+  String get wireName => 'ChatClearHistoryApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatClearHistoryApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatClearHistoryApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15852,7 +17029,44 @@ class ChatDeleteMessageApiVersion extends EnumClass {
 
   static ChatDeleteMessageApiVersion valueOf(String name) => _$valueOfChatDeleteMessageApiVersion(name);
 
-  static Serializer<ChatDeleteMessageApiVersion> get serializer => _$chatDeleteMessageApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatDeleteMessageApiVersion> get serializer => const _$ChatDeleteMessageApiVersionSerializer();
+}
+
+class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<ChatDeleteMessageApiVersion> {
+  const _$ChatDeleteMessageApiVersionSerializer();
+
+  static const Map<ChatDeleteMessageApiVersion, Object> _toWire = <ChatDeleteMessageApiVersion, Object>{
+    ChatDeleteMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatDeleteMessageApiVersion> _fromWire = <Object, ChatDeleteMessageApiVersion>{
+    'v1': ChatDeleteMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatDeleteMessageApiVersion];
+
+  @override
+  String get wireName => 'ChatDeleteMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatDeleteMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatDeleteMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15956,7 +17170,45 @@ class ChatGetMessageContextApiVersion extends EnumClass {
 
   static ChatGetMessageContextApiVersion valueOf(String name) => _$valueOfChatGetMessageContextApiVersion(name);
 
-  static Serializer<ChatGetMessageContextApiVersion> get serializer => _$chatGetMessageContextApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatGetMessageContextApiVersion> get serializer =>
+      const _$ChatGetMessageContextApiVersionSerializer();
+}
+
+class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer<ChatGetMessageContextApiVersion> {
+  const _$ChatGetMessageContextApiVersionSerializer();
+
+  static const Map<ChatGetMessageContextApiVersion, Object> _toWire = <ChatGetMessageContextApiVersion, Object>{
+    ChatGetMessageContextApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatGetMessageContextApiVersion> _fromWire = <Object, ChatGetMessageContextApiVersion>{
+    'v1': ChatGetMessageContextApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatGetMessageContextApiVersion];
+
+  @override
+  String get wireName => 'ChatGetMessageContextApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatGetMessageContextApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatGetMessageContextApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16063,7 +17315,44 @@ class ChatGetReminderApiVersion extends EnumClass {
 
   static ChatGetReminderApiVersion valueOf(String name) => _$valueOfChatGetReminderApiVersion(name);
 
-  static Serializer<ChatGetReminderApiVersion> get serializer => _$chatGetReminderApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatGetReminderApiVersion> get serializer => const _$ChatGetReminderApiVersionSerializer();
+}
+
+class _$ChatGetReminderApiVersionSerializer implements PrimitiveSerializer<ChatGetReminderApiVersion> {
+  const _$ChatGetReminderApiVersionSerializer();
+
+  static const Map<ChatGetReminderApiVersion, Object> _toWire = <ChatGetReminderApiVersion, Object>{
+    ChatGetReminderApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatGetReminderApiVersion> _fromWire = <Object, ChatGetReminderApiVersion>{
+    'v1': ChatGetReminderApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatGetReminderApiVersion];
+
+  @override
+  String get wireName => 'ChatGetReminderApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatGetReminderApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatGetReminderApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16163,7 +17452,44 @@ class ChatSetReminderApiVersion extends EnumClass {
 
   static ChatSetReminderApiVersion valueOf(String name) => _$valueOfChatSetReminderApiVersion(name);
 
-  static Serializer<ChatSetReminderApiVersion> get serializer => _$chatSetReminderApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatSetReminderApiVersion> get serializer => const _$ChatSetReminderApiVersionSerializer();
+}
+
+class _$ChatSetReminderApiVersionSerializer implements PrimitiveSerializer<ChatSetReminderApiVersion> {
+  const _$ChatSetReminderApiVersionSerializer();
+
+  static const Map<ChatSetReminderApiVersion, Object> _toWire = <ChatSetReminderApiVersion, Object>{
+    ChatSetReminderApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatSetReminderApiVersion> _fromWire = <Object, ChatSetReminderApiVersion>{
+    'v1': ChatSetReminderApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatSetReminderApiVersion];
+
+  @override
+  String get wireName => 'ChatSetReminderApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatSetReminderApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatSetReminderApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16237,7 +17563,44 @@ class ChatDeleteReminderApiVersion extends EnumClass {
 
   static ChatDeleteReminderApiVersion valueOf(String name) => _$valueOfChatDeleteReminderApiVersion(name);
 
-  static Serializer<ChatDeleteReminderApiVersion> get serializer => _$chatDeleteReminderApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatDeleteReminderApiVersion> get serializer => const _$ChatDeleteReminderApiVersionSerializer();
+}
+
+class _$ChatDeleteReminderApiVersionSerializer implements PrimitiveSerializer<ChatDeleteReminderApiVersion> {
+  const _$ChatDeleteReminderApiVersionSerializer();
+
+  static const Map<ChatDeleteReminderApiVersion, Object> _toWire = <ChatDeleteReminderApiVersion, Object>{
+    ChatDeleteReminderApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatDeleteReminderApiVersion> _fromWire = <Object, ChatDeleteReminderApiVersion>{
+    'v1': ChatDeleteReminderApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatDeleteReminderApiVersion];
+
+  @override
+  String get wireName => 'ChatDeleteReminderApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatDeleteReminderApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatDeleteReminderApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16312,7 +17675,44 @@ class ChatSetReadMarkerApiVersion extends EnumClass {
 
   static ChatSetReadMarkerApiVersion valueOf(String name) => _$valueOfChatSetReadMarkerApiVersion(name);
 
-  static Serializer<ChatSetReadMarkerApiVersion> get serializer => _$chatSetReadMarkerApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatSetReadMarkerApiVersion> get serializer => const _$ChatSetReadMarkerApiVersionSerializer();
+}
+
+class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<ChatSetReadMarkerApiVersion> {
+  const _$ChatSetReadMarkerApiVersionSerializer();
+
+  static const Map<ChatSetReadMarkerApiVersion, Object> _toWire = <ChatSetReadMarkerApiVersion, Object>{
+    ChatSetReadMarkerApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatSetReadMarkerApiVersion> _fromWire = <Object, ChatSetReadMarkerApiVersion>{
+    'v1': ChatSetReadMarkerApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatSetReadMarkerApiVersion];
+
+  @override
+  String get wireName => 'ChatSetReadMarkerApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatSetReadMarkerApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatSetReadMarkerApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16416,7 +17816,44 @@ class ChatMarkUnreadApiVersion extends EnumClass {
 
   static ChatMarkUnreadApiVersion valueOf(String name) => _$valueOfChatMarkUnreadApiVersion(name);
 
-  static Serializer<ChatMarkUnreadApiVersion> get serializer => _$chatMarkUnreadApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMarkUnreadApiVersion> get serializer => const _$ChatMarkUnreadApiVersionSerializer();
+}
+
+class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMarkUnreadApiVersion> {
+  const _$ChatMarkUnreadApiVersionSerializer();
+
+  static const Map<ChatMarkUnreadApiVersion, Object> _toWire = <ChatMarkUnreadApiVersion, Object>{
+    ChatMarkUnreadApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatMarkUnreadApiVersion> _fromWire = <Object, ChatMarkUnreadApiVersion>{
+    'v1': ChatMarkUnreadApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatMarkUnreadApiVersion];
+
+  @override
+  String get wireName => 'ChatMarkUnreadApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMarkUnreadApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatMarkUnreadApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16516,7 +17953,44 @@ class ChatMentionsApiVersion extends EnumClass {
 
   static ChatMentionsApiVersion valueOf(String name) => _$valueOfChatMentionsApiVersion(name);
 
-  static Serializer<ChatMentionsApiVersion> get serializer => _$chatMentionsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatMentionsApiVersion> get serializer => const _$ChatMentionsApiVersionSerializer();
+}
+
+class _$ChatMentionsApiVersionSerializer implements PrimitiveSerializer<ChatMentionsApiVersion> {
+  const _$ChatMentionsApiVersionSerializer();
+
+  static const Map<ChatMentionsApiVersion, Object> _toWire = <ChatMentionsApiVersion, Object>{
+    ChatMentionsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatMentionsApiVersion> _fromWire = <Object, ChatMentionsApiVersion>{
+    'v1': ChatMentionsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatMentionsApiVersion];
+
+  @override
+  String get wireName => 'ChatMentionsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatMentionsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatMentionsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16621,8 +18095,48 @@ class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
   static ChatGetObjectsSharedInRoomApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomApiVersion> get serializer =>
-      _$chatGetObjectsSharedInRoomApiVersionSerializer;
+      const _$ChatGetObjectsSharedInRoomApiVersionSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomApiVersionSerializer
+    implements PrimitiveSerializer<ChatGetObjectsSharedInRoomApiVersion> {
+  const _$ChatGetObjectsSharedInRoomApiVersionSerializer();
+
+  static const Map<ChatGetObjectsSharedInRoomApiVersion, Object> _toWire =
+      <ChatGetObjectsSharedInRoomApiVersion, Object>{
+    ChatGetObjectsSharedInRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatGetObjectsSharedInRoomApiVersion> _fromWire =
+      <Object, ChatGetObjectsSharedInRoomApiVersion>{
+    'v1': ChatGetObjectsSharedInRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatGetObjectsSharedInRoomApiVersion];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatGetObjectsSharedInRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatGetObjectsSharedInRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16729,7 +18243,45 @@ class ChatShareObjectToChatApiVersion extends EnumClass {
 
   static ChatShareObjectToChatApiVersion valueOf(String name) => _$valueOfChatShareObjectToChatApiVersion(name);
 
-  static Serializer<ChatShareObjectToChatApiVersion> get serializer => _$chatShareObjectToChatApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatShareObjectToChatApiVersion> get serializer =>
+      const _$ChatShareObjectToChatApiVersionSerializer();
+}
+
+class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer<ChatShareObjectToChatApiVersion> {
+  const _$ChatShareObjectToChatApiVersionSerializer();
+
+  static const Map<ChatShareObjectToChatApiVersion, Object> _toWire = <ChatShareObjectToChatApiVersion, Object>{
+    ChatShareObjectToChatApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatShareObjectToChatApiVersion> _fromWire = <Object, ChatShareObjectToChatApiVersion>{
+    'v1': ChatShareObjectToChatApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatShareObjectToChatApiVersion];
+
+  @override
+  String get wireName => 'ChatShareObjectToChatApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatShareObjectToChatApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatShareObjectToChatApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16836,8 +18388,48 @@ class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
   static ChatGetObjectsSharedInRoomOverviewApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomOverviewApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<ChatGetObjectsSharedInRoomOverviewApiVersion> get serializer =>
-      _$chatGetObjectsSharedInRoomOverviewApiVersionSerializer;
+      const _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer();
+}
+
+class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
+    implements PrimitiveSerializer<ChatGetObjectsSharedInRoomOverviewApiVersion> {
+  const _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer();
+
+  static const Map<ChatGetObjectsSharedInRoomOverviewApiVersion, Object> _toWire =
+      <ChatGetObjectsSharedInRoomOverviewApiVersion, Object>{
+    ChatGetObjectsSharedInRoomOverviewApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ChatGetObjectsSharedInRoomOverviewApiVersion> _fromWire =
+      <Object, ChatGetObjectsSharedInRoomOverviewApiVersion>{
+    'v1': ChatGetObjectsSharedInRoomOverviewApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatGetObjectsSharedInRoomOverviewApiVersion];
+
+  @override
+  String get wireName => 'ChatGetObjectsSharedInRoomOverviewApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatGetObjectsSharedInRoomOverviewApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatGetObjectsSharedInRoomOverviewApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16914,7 +18506,45 @@ class FederationAcceptShareApiVersion extends EnumClass {
 
   static FederationAcceptShareApiVersion valueOf(String name) => _$valueOfFederationAcceptShareApiVersion(name);
 
-  static Serializer<FederationAcceptShareApiVersion> get serializer => _$federationAcceptShareApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationAcceptShareApiVersion> get serializer =>
+      const _$FederationAcceptShareApiVersionSerializer();
+}
+
+class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer<FederationAcceptShareApiVersion> {
+  const _$FederationAcceptShareApiVersionSerializer();
+
+  static const Map<FederationAcceptShareApiVersion, Object> _toWire = <FederationAcceptShareApiVersion, Object>{
+    FederationAcceptShareApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationAcceptShareApiVersion> _fromWire = <Object, FederationAcceptShareApiVersion>{
+    'v1': FederationAcceptShareApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationAcceptShareApiVersion];
+
+  @override
+  String get wireName => 'FederationAcceptShareApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationAcceptShareApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationAcceptShareApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16990,7 +18620,45 @@ class FederationRejectShareApiVersion extends EnumClass {
 
   static FederationRejectShareApiVersion valueOf(String name) => _$valueOfFederationRejectShareApiVersion(name);
 
-  static Serializer<FederationRejectShareApiVersion> get serializer => _$federationRejectShareApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationRejectShareApiVersion> get serializer =>
+      const _$FederationRejectShareApiVersionSerializer();
+}
+
+class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer<FederationRejectShareApiVersion> {
+  const _$FederationRejectShareApiVersionSerializer();
+
+  static const Map<FederationRejectShareApiVersion, Object> _toWire = <FederationRejectShareApiVersion, Object>{
+    FederationRejectShareApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationRejectShareApiVersion> _fromWire = <Object, FederationRejectShareApiVersion>{
+    'v1': FederationRejectShareApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationRejectShareApiVersion];
+
+  @override
+  String get wireName => 'FederationRejectShareApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationRejectShareApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationRejectShareApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17066,7 +18734,44 @@ class FederationGetSharesApiVersion extends EnumClass {
 
   static FederationGetSharesApiVersion valueOf(String name) => _$valueOfFederationGetSharesApiVersion(name);
 
-  static Serializer<FederationGetSharesApiVersion> get serializer => _$federationGetSharesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<FederationGetSharesApiVersion> get serializer => const _$FederationGetSharesApiVersionSerializer();
+}
+
+class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<FederationGetSharesApiVersion> {
+  const _$FederationGetSharesApiVersionSerializer();
+
+  static const Map<FederationGetSharesApiVersion, Object> _toWire = <FederationGetSharesApiVersion, Object>{
+    FederationGetSharesApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FederationGetSharesApiVersion> _fromWire = <Object, FederationGetSharesApiVersion>{
+    'v1': FederationGetSharesApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FederationGetSharesApiVersion];
+
+  @override
+  String get wireName => 'FederationGetSharesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FederationGetSharesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FederationGetSharesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17179,8 +18884,48 @@ class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
   static FilesIntegrationGetRoomByFileIdApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByFileIdApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByFileIdApiVersion> get serializer =>
-      _$filesIntegrationGetRoomByFileIdApiVersionSerializer;
+      const _$FilesIntegrationGetRoomByFileIdApiVersionSerializer();
+}
+
+class _$FilesIntegrationGetRoomByFileIdApiVersionSerializer
+    implements PrimitiveSerializer<FilesIntegrationGetRoomByFileIdApiVersion> {
+  const _$FilesIntegrationGetRoomByFileIdApiVersionSerializer();
+
+  static const Map<FilesIntegrationGetRoomByFileIdApiVersion, Object> _toWire =
+      <FilesIntegrationGetRoomByFileIdApiVersion, Object>{
+    FilesIntegrationGetRoomByFileIdApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FilesIntegrationGetRoomByFileIdApiVersion> _fromWire =
+      <Object, FilesIntegrationGetRoomByFileIdApiVersion>{
+    'v1': FilesIntegrationGetRoomByFileIdApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FilesIntegrationGetRoomByFileIdApiVersion];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByFileIdApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FilesIntegrationGetRoomByFileIdApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FilesIntegrationGetRoomByFileIdApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17290,8 +19035,48 @@ class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
   static FilesIntegrationGetRoomByShareTokenApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByShareTokenApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<FilesIntegrationGetRoomByShareTokenApiVersion> get serializer =>
-      _$filesIntegrationGetRoomByShareTokenApiVersionSerializer;
+      const _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer();
+}
+
+class _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer
+    implements PrimitiveSerializer<FilesIntegrationGetRoomByShareTokenApiVersion> {
+  const _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer();
+
+  static const Map<FilesIntegrationGetRoomByShareTokenApiVersion, Object> _toWire =
+      <FilesIntegrationGetRoomByShareTokenApiVersion, Object>{
+    FilesIntegrationGetRoomByShareTokenApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, FilesIntegrationGetRoomByShareTokenApiVersion> _fromWire =
+      <Object, FilesIntegrationGetRoomByShareTokenApiVersion>{
+    'v1': FilesIntegrationGetRoomByShareTokenApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [FilesIntegrationGetRoomByShareTokenApiVersion];
+
+  @override
+  String get wireName => 'FilesIntegrationGetRoomByShareTokenApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    FilesIntegrationGetRoomByShareTokenApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  FilesIntegrationGetRoomByShareTokenApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17401,7 +19186,44 @@ class GuestSetDisplayNameApiVersion extends EnumClass {
 
   static GuestSetDisplayNameApiVersion valueOf(String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
 
-  static Serializer<GuestSetDisplayNameApiVersion> get serializer => _$guestSetDisplayNameApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GuestSetDisplayNameApiVersion> get serializer => const _$GuestSetDisplayNameApiVersionSerializer();
+}
+
+class _$GuestSetDisplayNameApiVersionSerializer implements PrimitiveSerializer<GuestSetDisplayNameApiVersion> {
+  const _$GuestSetDisplayNameApiVersionSerializer();
+
+  static const Map<GuestSetDisplayNameApiVersion, Object> _toWire = <GuestSetDisplayNameApiVersion, Object>{
+    GuestSetDisplayNameApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, GuestSetDisplayNameApiVersion> _fromWire = <Object, GuestSetDisplayNameApiVersion>{
+    'v1': GuestSetDisplayNameApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [GuestSetDisplayNameApiVersion];
+
+  @override
+  String get wireName => 'GuestSetDisplayNameApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GuestSetDisplayNameApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GuestSetDisplayNameApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17478,8 +19300,48 @@ class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
   static HostedSignalingServerRequestTrialApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerRequestTrialApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerRequestTrialApiVersion> get serializer =>
-      _$hostedSignalingServerRequestTrialApiVersionSerializer;
+      const _$HostedSignalingServerRequestTrialApiVersionSerializer();
+}
+
+class _$HostedSignalingServerRequestTrialApiVersionSerializer
+    implements PrimitiveSerializer<HostedSignalingServerRequestTrialApiVersion> {
+  const _$HostedSignalingServerRequestTrialApiVersionSerializer();
+
+  static const Map<HostedSignalingServerRequestTrialApiVersion, Object> _toWire =
+      <HostedSignalingServerRequestTrialApiVersion, Object>{
+    HostedSignalingServerRequestTrialApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, HostedSignalingServerRequestTrialApiVersion> _fromWire =
+      <Object, HostedSignalingServerRequestTrialApiVersion>{
+    'v1': HostedSignalingServerRequestTrialApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [HostedSignalingServerRequestTrialApiVersion];
+
+  @override
+  String get wireName => 'HostedSignalingServerRequestTrialApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    HostedSignalingServerRequestTrialApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  HostedSignalingServerRequestTrialApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17558,8 +19420,48 @@ class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
   static HostedSignalingServerDeleteAccountApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerDeleteAccountApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<HostedSignalingServerDeleteAccountApiVersion> get serializer =>
-      _$hostedSignalingServerDeleteAccountApiVersionSerializer;
+      const _$HostedSignalingServerDeleteAccountApiVersionSerializer();
+}
+
+class _$HostedSignalingServerDeleteAccountApiVersionSerializer
+    implements PrimitiveSerializer<HostedSignalingServerDeleteAccountApiVersion> {
+  const _$HostedSignalingServerDeleteAccountApiVersionSerializer();
+
+  static const Map<HostedSignalingServerDeleteAccountApiVersion, Object> _toWire =
+      <HostedSignalingServerDeleteAccountApiVersion, Object>{
+    HostedSignalingServerDeleteAccountApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, HostedSignalingServerDeleteAccountApiVersion> _fromWire =
+      <Object, HostedSignalingServerDeleteAccountApiVersion>{
+    'v1': HostedSignalingServerDeleteAccountApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [HostedSignalingServerDeleteAccountApiVersion];
+
+  @override
+  String get wireName => 'HostedSignalingServerDeleteAccountApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    HostedSignalingServerDeleteAccountApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  HostedSignalingServerDeleteAccountApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17637,8 +19539,48 @@ class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
   static MatterbridgeGetBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeOfRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeOfRoomApiVersion> get serializer =>
-      _$matterbridgeGetBridgeOfRoomApiVersionSerializer;
+      const _$MatterbridgeGetBridgeOfRoomApiVersionSerializer();
+}
+
+class _$MatterbridgeGetBridgeOfRoomApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeGetBridgeOfRoomApiVersion> {
+  const _$MatterbridgeGetBridgeOfRoomApiVersionSerializer();
+
+  static const Map<MatterbridgeGetBridgeOfRoomApiVersion, Object> _toWire =
+      <MatterbridgeGetBridgeOfRoomApiVersion, Object>{
+    MatterbridgeGetBridgeOfRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeGetBridgeOfRoomApiVersion> _fromWire =
+      <Object, MatterbridgeGetBridgeOfRoomApiVersion>{
+    'v1': MatterbridgeGetBridgeOfRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeGetBridgeOfRoomApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeOfRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeGetBridgeOfRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeGetBridgeOfRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17794,8 +19736,48 @@ class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
   static MatterbridgeEditBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeEditBridgeOfRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeEditBridgeOfRoomApiVersion> get serializer =>
-      _$matterbridgeEditBridgeOfRoomApiVersionSerializer;
+      const _$MatterbridgeEditBridgeOfRoomApiVersionSerializer();
+}
+
+class _$MatterbridgeEditBridgeOfRoomApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeEditBridgeOfRoomApiVersion> {
+  const _$MatterbridgeEditBridgeOfRoomApiVersionSerializer();
+
+  static const Map<MatterbridgeEditBridgeOfRoomApiVersion, Object> _toWire =
+      <MatterbridgeEditBridgeOfRoomApiVersion, Object>{
+    MatterbridgeEditBridgeOfRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeEditBridgeOfRoomApiVersion> _fromWire =
+      <Object, MatterbridgeEditBridgeOfRoomApiVersion>{
+    'v1': MatterbridgeEditBridgeOfRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeEditBridgeOfRoomApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeEditBridgeOfRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeEditBridgeOfRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeEditBridgeOfRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17874,8 +19856,48 @@ class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
   static MatterbridgeDeleteBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeDeleteBridgeOfRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeDeleteBridgeOfRoomApiVersion> get serializer =>
-      _$matterbridgeDeleteBridgeOfRoomApiVersionSerializer;
+      const _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer();
+}
+
+class _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeDeleteBridgeOfRoomApiVersion> {
+  const _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer();
+
+  static const Map<MatterbridgeDeleteBridgeOfRoomApiVersion, Object> _toWire =
+      <MatterbridgeDeleteBridgeOfRoomApiVersion, Object>{
+    MatterbridgeDeleteBridgeOfRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeDeleteBridgeOfRoomApiVersion> _fromWire =
+      <Object, MatterbridgeDeleteBridgeOfRoomApiVersion>{
+    'v1': MatterbridgeDeleteBridgeOfRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeDeleteBridgeOfRoomApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeDeleteBridgeOfRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeDeleteBridgeOfRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeDeleteBridgeOfRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17954,8 +19976,48 @@ class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
   static MatterbridgeGetBridgeProcessStateApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeProcessStateApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeGetBridgeProcessStateApiVersion> get serializer =>
-      _$matterbridgeGetBridgeProcessStateApiVersionSerializer;
+      const _$MatterbridgeGetBridgeProcessStateApiVersionSerializer();
+}
+
+class _$MatterbridgeGetBridgeProcessStateApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeGetBridgeProcessStateApiVersion> {
+  const _$MatterbridgeGetBridgeProcessStateApiVersionSerializer();
+
+  static const Map<MatterbridgeGetBridgeProcessStateApiVersion, Object> _toWire =
+      <MatterbridgeGetBridgeProcessStateApiVersion, Object>{
+    MatterbridgeGetBridgeProcessStateApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeGetBridgeProcessStateApiVersion> _fromWire =
+      <Object, MatterbridgeGetBridgeProcessStateApiVersion>{
+    'v1': MatterbridgeGetBridgeProcessStateApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeGetBridgeProcessStateApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeGetBridgeProcessStateApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeGetBridgeProcessStateApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeGetBridgeProcessStateApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18034,8 +20096,48 @@ class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
   static MatterbridgeSettingsStopAllBridgesApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsStopAllBridgesApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsStopAllBridgesApiVersion> get serializer =>
-      _$matterbridgeSettingsStopAllBridgesApiVersionSerializer;
+      const _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer();
+}
+
+class _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeSettingsStopAllBridgesApiVersion> {
+  const _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer();
+
+  static const Map<MatterbridgeSettingsStopAllBridgesApiVersion, Object> _toWire =
+      <MatterbridgeSettingsStopAllBridgesApiVersion, Object>{
+    MatterbridgeSettingsStopAllBridgesApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeSettingsStopAllBridgesApiVersion> _fromWire =
+      <Object, MatterbridgeSettingsStopAllBridgesApiVersion>{
+    'v1': MatterbridgeSettingsStopAllBridgesApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeSettingsStopAllBridgesApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsStopAllBridgesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeSettingsStopAllBridgesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeSettingsStopAllBridgesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18115,8 +20217,48 @@ class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
   static MatterbridgeSettingsGetMatterbridgeVersionApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsGetMatterbridgeVersionApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> get serializer =>
-      _$matterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer;
+      const _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer();
+}
+
+class _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer
+    implements PrimitiveSerializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> {
+  const _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer();
+
+  static const Map<MatterbridgeSettingsGetMatterbridgeVersionApiVersion, Object> _toWire =
+      <MatterbridgeSettingsGetMatterbridgeVersionApiVersion, Object>{
+    MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, MatterbridgeSettingsGetMatterbridgeVersionApiVersion> _fromWire =
+      <Object, MatterbridgeSettingsGetMatterbridgeVersionApiVersion>{
+    'v1': MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [MatterbridgeSettingsGetMatterbridgeVersionApiVersion];
+
+  @override
+  String get wireName => 'MatterbridgeSettingsGetMatterbridgeVersionApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    MatterbridgeSettingsGetMatterbridgeVersionApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  MatterbridgeSettingsGetMatterbridgeVersionApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18226,7 +20368,44 @@ class PollCreatePollApiVersion extends EnumClass {
 
   static PollCreatePollApiVersion valueOf(String name) => _$valueOfPollCreatePollApiVersion(name);
 
-  static Serializer<PollCreatePollApiVersion> get serializer => _$pollCreatePollApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollCreatePollApiVersion> get serializer => const _$PollCreatePollApiVersionSerializer();
+}
+
+class _$PollCreatePollApiVersionSerializer implements PrimitiveSerializer<PollCreatePollApiVersion> {
+  const _$PollCreatePollApiVersionSerializer();
+
+  static const Map<PollCreatePollApiVersion, Object> _toWire = <PollCreatePollApiVersion, Object>{
+    PollCreatePollApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollCreatePollApiVersion> _fromWire = <Object, PollCreatePollApiVersion>{
+    'v1': PollCreatePollApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollCreatePollApiVersion];
+
+  @override
+  String get wireName => 'PollCreatePollApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollCreatePollApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollCreatePollApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18361,7 +20540,44 @@ class PollShowPollApiVersion extends EnumClass {
 
   static PollShowPollApiVersion valueOf(String name) => _$valueOfPollShowPollApiVersion(name);
 
-  static Serializer<PollShowPollApiVersion> get serializer => _$pollShowPollApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollShowPollApiVersion> get serializer => const _$PollShowPollApiVersionSerializer();
+}
+
+class _$PollShowPollApiVersionSerializer implements PrimitiveSerializer<PollShowPollApiVersion> {
+  const _$PollShowPollApiVersionSerializer();
+
+  static const Map<PollShowPollApiVersion, Object> _toWire = <PollShowPollApiVersion, Object>{
+    PollShowPollApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollShowPollApiVersion> _fromWire = <Object, PollShowPollApiVersion>{
+    'v1': PollShowPollApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollShowPollApiVersion];
+
+  @override
+  String get wireName => 'PollShowPollApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollShowPollApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollShowPollApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18434,7 +20650,44 @@ class PollVotePollApiVersion extends EnumClass {
 
   static PollVotePollApiVersion valueOf(String name) => _$valueOfPollVotePollApiVersion(name);
 
-  static Serializer<PollVotePollApiVersion> get serializer => _$pollVotePollApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollVotePollApiVersion> get serializer => const _$PollVotePollApiVersionSerializer();
+}
+
+class _$PollVotePollApiVersionSerializer implements PrimitiveSerializer<PollVotePollApiVersion> {
+  const _$PollVotePollApiVersionSerializer();
+
+  static const Map<PollVotePollApiVersion, Object> _toWire = <PollVotePollApiVersion, Object>{
+    PollVotePollApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollVotePollApiVersion> _fromWire = <Object, PollVotePollApiVersion>{
+    'v1': PollVotePollApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollVotePollApiVersion];
+
+  @override
+  String get wireName => 'PollVotePollApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollVotePollApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollVotePollApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18507,7 +20760,44 @@ class PollClosePollApiVersion extends EnumClass {
 
   static PollClosePollApiVersion valueOf(String name) => _$valueOfPollClosePollApiVersion(name);
 
-  static Serializer<PollClosePollApiVersion> get serializer => _$pollClosePollApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollClosePollApiVersion> get serializer => const _$PollClosePollApiVersionSerializer();
+}
+
+class _$PollClosePollApiVersionSerializer implements PrimitiveSerializer<PollClosePollApiVersion> {
+  const _$PollClosePollApiVersionSerializer();
+
+  static const Map<PollClosePollApiVersion, Object> _toWire = <PollClosePollApiVersion, Object>{
+    PollClosePollApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PollClosePollApiVersion> _fromWire = <Object, PollClosePollApiVersion>{
+    'v1': PollClosePollApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollClosePollApiVersion];
+
+  @override
+  String get wireName => 'PollClosePollApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollClosePollApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollClosePollApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18581,8 +20871,47 @@ class PublicShareAuthCreateRoomApiVersion extends EnumClass {
 
   static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicShareAuthCreateRoomApiVersion> get serializer =>
-      _$publicShareAuthCreateRoomApiVersionSerializer;
+      const _$PublicShareAuthCreateRoomApiVersionSerializer();
+}
+
+class _$PublicShareAuthCreateRoomApiVersionSerializer
+    implements PrimitiveSerializer<PublicShareAuthCreateRoomApiVersion> {
+  const _$PublicShareAuthCreateRoomApiVersionSerializer();
+
+  static const Map<PublicShareAuthCreateRoomApiVersion, Object> _toWire = <PublicShareAuthCreateRoomApiVersion, Object>{
+    PublicShareAuthCreateRoomApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, PublicShareAuthCreateRoomApiVersion> _fromWire =
+      <Object, PublicShareAuthCreateRoomApiVersion>{
+    'v1': PublicShareAuthCreateRoomApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PublicShareAuthCreateRoomApiVersion];
+
+  @override
+  String get wireName => 'PublicShareAuthCreateRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PublicShareAuthCreateRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PublicShareAuthCreateRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18692,7 +21021,45 @@ class ReactionGetReactionsApiVersion extends EnumClass {
 
   static ReactionGetReactionsApiVersion valueOf(String name) => _$valueOfReactionGetReactionsApiVersion(name);
 
-  static Serializer<ReactionGetReactionsApiVersion> get serializer => _$reactionGetReactionsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ReactionGetReactionsApiVersion> get serializer =>
+      const _$ReactionGetReactionsApiVersionSerializer();
+}
+
+class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<ReactionGetReactionsApiVersion> {
+  const _$ReactionGetReactionsApiVersionSerializer();
+
+  static const Map<ReactionGetReactionsApiVersion, Object> _toWire = <ReactionGetReactionsApiVersion, Object>{
+    ReactionGetReactionsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ReactionGetReactionsApiVersion> _fromWire = <Object, ReactionGetReactionsApiVersion>{
+    'v1': ReactionGetReactionsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ReactionGetReactionsApiVersion];
+
+  @override
+  String get wireName => 'ReactionGetReactionsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ReactionGetReactionsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ReactionGetReactionsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18793,7 +21160,44 @@ class ReactionReactApiVersion extends EnumClass {
 
   static ReactionReactApiVersion valueOf(String name) => _$valueOfReactionReactApiVersion(name);
 
-  static Serializer<ReactionReactApiVersion> get serializer => _$reactionReactApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ReactionReactApiVersion> get serializer => const _$ReactionReactApiVersionSerializer();
+}
+
+class _$ReactionReactApiVersionSerializer implements PrimitiveSerializer<ReactionReactApiVersion> {
+  const _$ReactionReactApiVersionSerializer();
+
+  static const Map<ReactionReactApiVersion, Object> _toWire = <ReactionReactApiVersion, Object>{
+    ReactionReactApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ReactionReactApiVersion> _fromWire = <Object, ReactionReactApiVersion>{
+    'v1': ReactionReactApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ReactionReactApiVersion];
+
+  @override
+  String get wireName => 'ReactionReactApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ReactionReactApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ReactionReactApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18867,7 +21271,44 @@ class ReactionDeleteApiVersion extends EnumClass {
 
   static ReactionDeleteApiVersion valueOf(String name) => _$valueOfReactionDeleteApiVersion(name);
 
-  static Serializer<ReactionDeleteApiVersion> get serializer => _$reactionDeleteApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ReactionDeleteApiVersion> get serializer => const _$ReactionDeleteApiVersionSerializer();
+}
+
+class _$ReactionDeleteApiVersionSerializer implements PrimitiveSerializer<ReactionDeleteApiVersion> {
+  const _$ReactionDeleteApiVersionSerializer();
+
+  static const Map<ReactionDeleteApiVersion, Object> _toWire = <ReactionDeleteApiVersion, Object>{
+    ReactionDeleteApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ReactionDeleteApiVersion> _fromWire = <Object, ReactionDeleteApiVersion>{
+    'v1': ReactionDeleteApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ReactionDeleteApiVersion];
+
+  @override
+  String get wireName => 'ReactionDeleteApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ReactionDeleteApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ReactionDeleteApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18942,8 +21383,48 @@ class RecordingGetWelcomeMessageApiVersion extends EnumClass {
   static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfRecordingGetWelcomeMessageApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
-      _$recordingGetWelcomeMessageApiVersionSerializer;
+      const _$RecordingGetWelcomeMessageApiVersionSerializer();
+}
+
+class _$RecordingGetWelcomeMessageApiVersionSerializer
+    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
+  const _$RecordingGetWelcomeMessageApiVersionSerializer();
+
+  static const Map<RecordingGetWelcomeMessageApiVersion, Object> _toWire =
+      <RecordingGetWelcomeMessageApiVersion, Object>{
+    RecordingGetWelcomeMessageApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingGetWelcomeMessageApiVersion> _fromWire =
+      <Object, RecordingGetWelcomeMessageApiVersion>{
+    'v1': RecordingGetWelcomeMessageApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingGetWelcomeMessageApiVersion];
+
+  @override
+  String get wireName => 'RecordingGetWelcomeMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingGetWelcomeMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingGetWelcomeMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19051,7 +21532,44 @@ class RecordingStartApiVersion extends EnumClass {
 
   static RecordingStartApiVersion valueOf(String name) => _$valueOfRecordingStartApiVersion(name);
 
-  static Serializer<RecordingStartApiVersion> get serializer => _$recordingStartApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingStartApiVersion> get serializer => const _$RecordingStartApiVersionSerializer();
+}
+
+class _$RecordingStartApiVersionSerializer implements PrimitiveSerializer<RecordingStartApiVersion> {
+  const _$RecordingStartApiVersionSerializer();
+
+  static const Map<RecordingStartApiVersion, Object> _toWire = <RecordingStartApiVersion, Object>{
+    RecordingStartApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingStartApiVersion> _fromWire = <Object, RecordingStartApiVersion>{
+    'v1': RecordingStartApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingStartApiVersion];
+
+  @override
+  String get wireName => 'RecordingStartApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingStartApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingStartApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19125,7 +21643,44 @@ class RecordingStopApiVersion extends EnumClass {
 
   static RecordingStopApiVersion valueOf(String name) => _$valueOfRecordingStopApiVersion(name);
 
-  static Serializer<RecordingStopApiVersion> get serializer => _$recordingStopApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingStopApiVersion> get serializer => const _$RecordingStopApiVersionSerializer();
+}
+
+class _$RecordingStopApiVersionSerializer implements PrimitiveSerializer<RecordingStopApiVersion> {
+  const _$RecordingStopApiVersionSerializer();
+
+  static const Map<RecordingStopApiVersion, Object> _toWire = <RecordingStopApiVersion, Object>{
+    RecordingStopApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingStopApiVersion> _fromWire = <Object, RecordingStopApiVersion>{
+    'v1': RecordingStopApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingStopApiVersion];
+
+  @override
+  String get wireName => 'RecordingStopApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingStopApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingStopApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19199,7 +21754,44 @@ class RecordingStoreApiVersion extends EnumClass {
 
   static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
 
-  static Serializer<RecordingStoreApiVersion> get serializer => _$recordingStoreApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingStoreApiVersion> get serializer => const _$RecordingStoreApiVersionSerializer();
+}
+
+class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<RecordingStoreApiVersion> {
+  const _$RecordingStoreApiVersionSerializer();
+
+  static const Map<RecordingStoreApiVersion, Object> _toWire = <RecordingStoreApiVersion, Object>{
+    RecordingStoreApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingStoreApiVersion> _fromWire = <Object, RecordingStoreApiVersion>{
+    'v1': RecordingStoreApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingStoreApiVersion];
+
+  @override
+  String get wireName => 'RecordingStoreApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingStoreApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingStoreApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19274,8 +21866,48 @@ class RecordingNotificationDismissApiVersion extends EnumClass {
   static RecordingNotificationDismissApiVersion valueOf(String name) =>
       _$valueOfRecordingNotificationDismissApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RecordingNotificationDismissApiVersion> get serializer =>
-      _$recordingNotificationDismissApiVersionSerializer;
+      const _$RecordingNotificationDismissApiVersionSerializer();
+}
+
+class _$RecordingNotificationDismissApiVersionSerializer
+    implements PrimitiveSerializer<RecordingNotificationDismissApiVersion> {
+  const _$RecordingNotificationDismissApiVersionSerializer();
+
+  static const Map<RecordingNotificationDismissApiVersion, Object> _toWire =
+      <RecordingNotificationDismissApiVersion, Object>{
+    RecordingNotificationDismissApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingNotificationDismissApiVersion> _fromWire =
+      <Object, RecordingNotificationDismissApiVersion>{
+    'v1': RecordingNotificationDismissApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingNotificationDismissApiVersion];
+
+  @override
+  String get wireName => 'RecordingNotificationDismissApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingNotificationDismissApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingNotificationDismissApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19352,7 +21984,45 @@ class RecordingShareToChatApiVersion extends EnumClass {
 
   static RecordingShareToChatApiVersion valueOf(String name) => _$valueOfRecordingShareToChatApiVersion(name);
 
-  static Serializer<RecordingShareToChatApiVersion> get serializer => _$recordingShareToChatApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RecordingShareToChatApiVersion> get serializer =>
+      const _$RecordingShareToChatApiVersionSerializer();
+}
+
+class _$RecordingShareToChatApiVersionSerializer implements PrimitiveSerializer<RecordingShareToChatApiVersion> {
+  const _$RecordingShareToChatApiVersionSerializer();
+
+  static const Map<RecordingShareToChatApiVersion, Object> _toWire = <RecordingShareToChatApiVersion, Object>{
+    RecordingShareToChatApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, RecordingShareToChatApiVersion> _fromWire = <Object, RecordingShareToChatApiVersion>{
+    'v1': RecordingShareToChatApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RecordingShareToChatApiVersion];
+
+  @override
+  String get wireName => 'RecordingShareToChatApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RecordingShareToChatApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RecordingShareToChatApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19427,7 +22097,44 @@ class RoomGetRoomsApiVersion extends EnumClass {
 
   static RoomGetRoomsApiVersion valueOf(String name) => _$valueOfRoomGetRoomsApiVersion(name);
 
-  static Serializer<RoomGetRoomsApiVersion> get serializer => _$roomGetRoomsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsApiVersion> get serializer => const _$RoomGetRoomsApiVersionSerializer();
+}
+
+class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetRoomsApiVersion> {
+  const _$RoomGetRoomsApiVersionSerializer();
+
+  static const Map<RoomGetRoomsApiVersion, Object> _toWire = <RoomGetRoomsApiVersion, Object>{
+    RoomGetRoomsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetRoomsApiVersion> _fromWire = <Object, RoomGetRoomsApiVersion>{
+    'v4': RoomGetRoomsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsApiVersion];
+
+  @override
+  String get wireName => 'RoomGetRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19528,7 +22235,44 @@ class RoomCreateRoomApiVersion extends EnumClass {
 
   static RoomCreateRoomApiVersion valueOf(String name) => _$valueOfRoomCreateRoomApiVersion(name);
 
-  static Serializer<RoomCreateRoomApiVersion> get serializer => _$roomCreateRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomCreateRoomApiVersion> get serializer => const _$RoomCreateRoomApiVersionSerializer();
+}
+
+class _$RoomCreateRoomApiVersionSerializer implements PrimitiveSerializer<RoomCreateRoomApiVersion> {
+  const _$RoomCreateRoomApiVersionSerializer();
+
+  static const Map<RoomCreateRoomApiVersion, Object> _toWire = <RoomCreateRoomApiVersion, Object>{
+    RoomCreateRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomCreateRoomApiVersion> _fromWire = <Object, RoomCreateRoomApiVersion>{
+    'v4': RoomCreateRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomCreateRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomCreateRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomCreateRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomCreateRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19602,7 +22346,44 @@ class RoomGetListedRoomsApiVersion extends EnumClass {
 
   static RoomGetListedRoomsApiVersion valueOf(String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
 
-  static Serializer<RoomGetListedRoomsApiVersion> get serializer => _$roomGetListedRoomsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetListedRoomsApiVersion> get serializer => const _$RoomGetListedRoomsApiVersionSerializer();
+}
+
+class _$RoomGetListedRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetListedRoomsApiVersion> {
+  const _$RoomGetListedRoomsApiVersionSerializer();
+
+  static const Map<RoomGetListedRoomsApiVersion, Object> _toWire = <RoomGetListedRoomsApiVersion, Object>{
+    RoomGetListedRoomsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetListedRoomsApiVersion> _fromWire = <Object, RoomGetListedRoomsApiVersion>{
+    'v4': RoomGetListedRoomsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetListedRoomsApiVersion];
+
+  @override
+  String get wireName => 'RoomGetListedRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetListedRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetListedRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19679,8 +22460,48 @@ class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
   static RoomGetNoteToSelfConversationApiVersion valueOf(String name) =>
       _$valueOfRoomGetNoteToSelfConversationApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetNoteToSelfConversationApiVersion> get serializer =>
-      _$roomGetNoteToSelfConversationApiVersionSerializer;
+      const _$RoomGetNoteToSelfConversationApiVersionSerializer();
+}
+
+class _$RoomGetNoteToSelfConversationApiVersionSerializer
+    implements PrimitiveSerializer<RoomGetNoteToSelfConversationApiVersion> {
+  const _$RoomGetNoteToSelfConversationApiVersionSerializer();
+
+  static const Map<RoomGetNoteToSelfConversationApiVersion, Object> _toWire =
+      <RoomGetNoteToSelfConversationApiVersion, Object>{
+    RoomGetNoteToSelfConversationApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetNoteToSelfConversationApiVersion> _fromWire =
+      <Object, RoomGetNoteToSelfConversationApiVersion>{
+    'v4': RoomGetNoteToSelfConversationApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetNoteToSelfConversationApiVersion];
+
+  @override
+  String get wireName => 'RoomGetNoteToSelfConversationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetNoteToSelfConversationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetNoteToSelfConversationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19788,7 +22609,44 @@ class RoomGetSingleRoomApiVersion extends EnumClass {
 
   static RoomGetSingleRoomApiVersion valueOf(String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
 
-  static Serializer<RoomGetSingleRoomApiVersion> get serializer => _$roomGetSingleRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetSingleRoomApiVersion> get serializer => const _$RoomGetSingleRoomApiVersionSerializer();
+}
+
+class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<RoomGetSingleRoomApiVersion> {
+  const _$RoomGetSingleRoomApiVersionSerializer();
+
+  static const Map<RoomGetSingleRoomApiVersion, Object> _toWire = <RoomGetSingleRoomApiVersion, Object>{
+    RoomGetSingleRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetSingleRoomApiVersion> _fromWire = <Object, RoomGetSingleRoomApiVersion>{
+    'v4': RoomGetSingleRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetSingleRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomGetSingleRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetSingleRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetSingleRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19892,7 +22750,44 @@ class RoomRenameRoomApiVersion extends EnumClass {
 
   static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
 
-  static Serializer<RoomRenameRoomApiVersion> get serializer => _$roomRenameRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRenameRoomApiVersion> get serializer => const _$RoomRenameRoomApiVersionSerializer();
+}
+
+class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRenameRoomApiVersion> {
+  const _$RoomRenameRoomApiVersionSerializer();
+
+  static const Map<RoomRenameRoomApiVersion, Object> _toWire = <RoomRenameRoomApiVersion, Object>{
+    RoomRenameRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRenameRoomApiVersion> _fromWire = <Object, RoomRenameRoomApiVersion>{
+    'v4': RoomRenameRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRenameRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomRenameRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRenameRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRenameRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19966,7 +22861,44 @@ class RoomDeleteRoomApiVersion extends EnumClass {
 
   static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
 
-  static Serializer<RoomDeleteRoomApiVersion> get serializer => _$roomDeleteRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomDeleteRoomApiVersion> get serializer => const _$RoomDeleteRoomApiVersionSerializer();
+}
+
+class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDeleteRoomApiVersion> {
+  const _$RoomDeleteRoomApiVersionSerializer();
+
+  static const Map<RoomDeleteRoomApiVersion, Object> _toWire = <RoomDeleteRoomApiVersion, Object>{
+    RoomDeleteRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomDeleteRoomApiVersion> _fromWire = <Object, RoomDeleteRoomApiVersion>{
+    'v4': RoomDeleteRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomDeleteRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomDeleteRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomDeleteRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomDeleteRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20040,7 +22972,45 @@ class RoomGetBreakoutRoomsApiVersion extends EnumClass {
 
   static RoomGetBreakoutRoomsApiVersion valueOf(String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
 
-  static Serializer<RoomGetBreakoutRoomsApiVersion> get serializer => _$roomGetBreakoutRoomsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetBreakoutRoomsApiVersion> get serializer =>
+      const _$RoomGetBreakoutRoomsApiVersionSerializer();
+}
+
+class _$RoomGetBreakoutRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetBreakoutRoomsApiVersion> {
+  const _$RoomGetBreakoutRoomsApiVersionSerializer();
+
+  static const Map<RoomGetBreakoutRoomsApiVersion, Object> _toWire = <RoomGetBreakoutRoomsApiVersion, Object>{
+    RoomGetBreakoutRoomsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetBreakoutRoomsApiVersion> _fromWire = <Object, RoomGetBreakoutRoomsApiVersion>{
+    'v4': RoomGetBreakoutRoomsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetBreakoutRoomsApiVersion];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetBreakoutRoomsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetBreakoutRoomsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20115,7 +23085,44 @@ class RoomMakePublicApiVersion extends EnumClass {
 
   static RoomMakePublicApiVersion valueOf(String name) => _$valueOfRoomMakePublicApiVersion(name);
 
-  static Serializer<RoomMakePublicApiVersion> get serializer => _$roomMakePublicApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomMakePublicApiVersion> get serializer => const _$RoomMakePublicApiVersionSerializer();
+}
+
+class _$RoomMakePublicApiVersionSerializer implements PrimitiveSerializer<RoomMakePublicApiVersion> {
+  const _$RoomMakePublicApiVersionSerializer();
+
+  static const Map<RoomMakePublicApiVersion, Object> _toWire = <RoomMakePublicApiVersion, Object>{
+    RoomMakePublicApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomMakePublicApiVersion> _fromWire = <Object, RoomMakePublicApiVersion>{
+    'v4': RoomMakePublicApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomMakePublicApiVersion];
+
+  @override
+  String get wireName => 'RoomMakePublicApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomMakePublicApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomMakePublicApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20189,7 +23196,44 @@ class RoomMakePrivateApiVersion extends EnumClass {
 
   static RoomMakePrivateApiVersion valueOf(String name) => _$valueOfRoomMakePrivateApiVersion(name);
 
-  static Serializer<RoomMakePrivateApiVersion> get serializer => _$roomMakePrivateApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomMakePrivateApiVersion> get serializer => const _$RoomMakePrivateApiVersionSerializer();
+}
+
+class _$RoomMakePrivateApiVersionSerializer implements PrimitiveSerializer<RoomMakePrivateApiVersion> {
+  const _$RoomMakePrivateApiVersionSerializer();
+
+  static const Map<RoomMakePrivateApiVersion, Object> _toWire = <RoomMakePrivateApiVersion, Object>{
+    RoomMakePrivateApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomMakePrivateApiVersion> _fromWire = <Object, RoomMakePrivateApiVersion>{
+    'v4': RoomMakePrivateApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomMakePrivateApiVersion];
+
+  @override
+  String get wireName => 'RoomMakePrivateApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomMakePrivateApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomMakePrivateApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20263,7 +23307,44 @@ class RoomSetDescriptionApiVersion extends EnumClass {
 
   static RoomSetDescriptionApiVersion valueOf(String name) => _$valueOfRoomSetDescriptionApiVersion(name);
 
-  static Serializer<RoomSetDescriptionApiVersion> get serializer => _$roomSetDescriptionApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetDescriptionApiVersion> get serializer => const _$RoomSetDescriptionApiVersionSerializer();
+}
+
+class _$RoomSetDescriptionApiVersionSerializer implements PrimitiveSerializer<RoomSetDescriptionApiVersion> {
+  const _$RoomSetDescriptionApiVersionSerializer();
+
+  static const Map<RoomSetDescriptionApiVersion, Object> _toWire = <RoomSetDescriptionApiVersion, Object>{
+    RoomSetDescriptionApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetDescriptionApiVersion> _fromWire = <Object, RoomSetDescriptionApiVersion>{
+    'v4': RoomSetDescriptionApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetDescriptionApiVersion];
+
+  @override
+  String get wireName => 'RoomSetDescriptionApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetDescriptionApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetDescriptionApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20338,7 +23419,44 @@ class RoomSetReadOnlyApiVersion extends EnumClass {
 
   static RoomSetReadOnlyApiVersion valueOf(String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
 
-  static Serializer<RoomSetReadOnlyApiVersion> get serializer => _$roomSetReadOnlyApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetReadOnlyApiVersion> get serializer => const _$RoomSetReadOnlyApiVersionSerializer();
+}
+
+class _$RoomSetReadOnlyApiVersionSerializer implements PrimitiveSerializer<RoomSetReadOnlyApiVersion> {
+  const _$RoomSetReadOnlyApiVersionSerializer();
+
+  static const Map<RoomSetReadOnlyApiVersion, Object> _toWire = <RoomSetReadOnlyApiVersion, Object>{
+    RoomSetReadOnlyApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetReadOnlyApiVersion> _fromWire = <Object, RoomSetReadOnlyApiVersion>{
+    'v4': RoomSetReadOnlyApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetReadOnlyApiVersion];
+
+  @override
+  String get wireName => 'RoomSetReadOnlyApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetReadOnlyApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetReadOnlyApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20412,7 +23530,44 @@ class RoomSetListableApiVersion extends EnumClass {
 
   static RoomSetListableApiVersion valueOf(String name) => _$valueOfRoomSetListableApiVersion(name);
 
-  static Serializer<RoomSetListableApiVersion> get serializer => _$roomSetListableApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetListableApiVersion> get serializer => const _$RoomSetListableApiVersionSerializer();
+}
+
+class _$RoomSetListableApiVersionSerializer implements PrimitiveSerializer<RoomSetListableApiVersion> {
+  const _$RoomSetListableApiVersionSerializer();
+
+  static const Map<RoomSetListableApiVersion, Object> _toWire = <RoomSetListableApiVersion, Object>{
+    RoomSetListableApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetListableApiVersion> _fromWire = <Object, RoomSetListableApiVersion>{
+    'v4': RoomSetListableApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetListableApiVersion];
+
+  @override
+  String get wireName => 'RoomSetListableApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetListableApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetListableApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20486,7 +23641,44 @@ class RoomSetPasswordApiVersion extends EnumClass {
 
   static RoomSetPasswordApiVersion valueOf(String name) => _$valueOfRoomSetPasswordApiVersion(name);
 
-  static Serializer<RoomSetPasswordApiVersion> get serializer => _$roomSetPasswordApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetPasswordApiVersion> get serializer => const _$RoomSetPasswordApiVersionSerializer();
+}
+
+class _$RoomSetPasswordApiVersionSerializer implements PrimitiveSerializer<RoomSetPasswordApiVersion> {
+  const _$RoomSetPasswordApiVersionSerializer();
+
+  static const Map<RoomSetPasswordApiVersion, Object> _toWire = <RoomSetPasswordApiVersion, Object>{
+    RoomSetPasswordApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetPasswordApiVersion> _fromWire = <Object, RoomSetPasswordApiVersion>{
+    'v4': RoomSetPasswordApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetPasswordApiVersion];
+
+  @override
+  String get wireName => 'RoomSetPasswordApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetPasswordApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetPasswordApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20560,7 +23752,44 @@ class RoomSetPermissionsApiVersion extends EnumClass {
 
   static RoomSetPermissionsApiVersion valueOf(String name) => _$valueOfRoomSetPermissionsApiVersion(name);
 
-  static Serializer<RoomSetPermissionsApiVersion> get serializer => _$roomSetPermissionsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetPermissionsApiVersion> get serializer => const _$RoomSetPermissionsApiVersionSerializer();
+}
+
+class _$RoomSetPermissionsApiVersionSerializer implements PrimitiveSerializer<RoomSetPermissionsApiVersion> {
+  const _$RoomSetPermissionsApiVersionSerializer();
+
+  static const Map<RoomSetPermissionsApiVersion, Object> _toWire = <RoomSetPermissionsApiVersion, Object>{
+    RoomSetPermissionsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetPermissionsApiVersion> _fromWire = <Object, RoomSetPermissionsApiVersion>{
+    'v4': RoomSetPermissionsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetPermissionsApiVersion];
+
+  @override
+  String get wireName => 'RoomSetPermissionsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetPermissionsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetPermissionsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20635,7 +23864,44 @@ class RoomGetParticipantsApiVersion extends EnumClass {
 
   static RoomGetParticipantsApiVersion valueOf(String name) => _$valueOfRoomGetParticipantsApiVersion(name);
 
-  static Serializer<RoomGetParticipantsApiVersion> get serializer => _$roomGetParticipantsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetParticipantsApiVersion> get serializer => const _$RoomGetParticipantsApiVersionSerializer();
+}
+
+class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<RoomGetParticipantsApiVersion> {
+  const _$RoomGetParticipantsApiVersionSerializer();
+
+  static const Map<RoomGetParticipantsApiVersion, Object> _toWire = <RoomGetParticipantsApiVersion, Object>{
+    RoomGetParticipantsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetParticipantsApiVersion> _fromWire = <Object, RoomGetParticipantsApiVersion>{
+    'v4': RoomGetParticipantsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetParticipantsApiVersion];
+
+  @override
+  String get wireName => 'RoomGetParticipantsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetParticipantsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetParticipantsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20779,8 +24045,46 @@ class RoomAddParticipantToRoomApiVersion extends EnumClass {
 
   static RoomAddParticipantToRoomApiVersion valueOf(String name) => _$valueOfRoomAddParticipantToRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomApiVersion> get serializer =>
-      _$roomAddParticipantToRoomApiVersionSerializer;
+      const _$RoomAddParticipantToRoomApiVersionSerializer();
+}
+
+class _$RoomAddParticipantToRoomApiVersionSerializer
+    implements PrimitiveSerializer<RoomAddParticipantToRoomApiVersion> {
+  const _$RoomAddParticipantToRoomApiVersionSerializer();
+
+  static const Map<RoomAddParticipantToRoomApiVersion, Object> _toWire = <RoomAddParticipantToRoomApiVersion, Object>{
+    RoomAddParticipantToRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomAddParticipantToRoomApiVersion> _fromWire = <Object, RoomAddParticipantToRoomApiVersion>{
+    'v4': RoomAddParticipantToRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomAddParticipantToRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomAddParticipantToRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomAddParticipantToRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomAddParticipantToRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20894,8 +24198,48 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
   static RoomGetBreakoutRoomParticipantsApiVersion valueOf(String name) =>
       _$valueOfRoomGetBreakoutRoomParticipantsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomGetBreakoutRoomParticipantsApiVersion> get serializer =>
-      _$roomGetBreakoutRoomParticipantsApiVersionSerializer;
+      const _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
+}
+
+class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
+    implements PrimitiveSerializer<RoomGetBreakoutRoomParticipantsApiVersion> {
+  const _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
+
+  static const Map<RoomGetBreakoutRoomParticipantsApiVersion, Object> _toWire =
+      <RoomGetBreakoutRoomParticipantsApiVersion, Object>{
+    RoomGetBreakoutRoomParticipantsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomGetBreakoutRoomParticipantsApiVersion> _fromWire =
+      <Object, RoomGetBreakoutRoomParticipantsApiVersion>{
+    'v4': RoomGetBreakoutRoomParticipantsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetBreakoutRoomParticipantsApiVersion];
+
+  @override
+  String get wireName => 'RoomGetBreakoutRoomParticipantsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetBreakoutRoomParticipantsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetBreakoutRoomParticipantsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21003,7 +24347,45 @@ class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
 
   static RoomRemoveSelfFromRoomApiVersion valueOf(String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
 
-  static Serializer<RoomRemoveSelfFromRoomApiVersion> get serializer => _$roomRemoveSelfFromRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRemoveSelfFromRoomApiVersion> get serializer =>
+      const _$RoomRemoveSelfFromRoomApiVersionSerializer();
+}
+
+class _$RoomRemoveSelfFromRoomApiVersionSerializer implements PrimitiveSerializer<RoomRemoveSelfFromRoomApiVersion> {
+  const _$RoomRemoveSelfFromRoomApiVersionSerializer();
+
+  static const Map<RoomRemoveSelfFromRoomApiVersion, Object> _toWire = <RoomRemoveSelfFromRoomApiVersion, Object>{
+    RoomRemoveSelfFromRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRemoveSelfFromRoomApiVersion> _fromWire = <Object, RoomRemoveSelfFromRoomApiVersion>{
+    'v4': RoomRemoveSelfFromRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRemoveSelfFromRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomRemoveSelfFromRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRemoveSelfFromRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRemoveSelfFromRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21080,8 +24462,48 @@ class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
   static RoomRemoveAttendeeFromRoomApiVersion valueOf(String name) =>
       _$valueOfRoomRemoveAttendeeFromRoomApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomRemoveAttendeeFromRoomApiVersion> get serializer =>
-      _$roomRemoveAttendeeFromRoomApiVersionSerializer;
+      const _$RoomRemoveAttendeeFromRoomApiVersionSerializer();
+}
+
+class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
+    implements PrimitiveSerializer<RoomRemoveAttendeeFromRoomApiVersion> {
+  const _$RoomRemoveAttendeeFromRoomApiVersionSerializer();
+
+  static const Map<RoomRemoveAttendeeFromRoomApiVersion, Object> _toWire =
+      <RoomRemoveAttendeeFromRoomApiVersion, Object>{
+    RoomRemoveAttendeeFromRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRemoveAttendeeFromRoomApiVersion> _fromWire =
+      <Object, RoomRemoveAttendeeFromRoomApiVersion>{
+    'v4': RoomRemoveAttendeeFromRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRemoveAttendeeFromRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomRemoveAttendeeFromRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRemoveAttendeeFromRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRemoveAttendeeFromRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21159,8 +24581,48 @@ class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   static RoomSetAttendeePermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAttendeePermissionsApiVersion> get serializer =>
-      _$roomSetAttendeePermissionsApiVersionSerializer;
+      const _$RoomSetAttendeePermissionsApiVersionSerializer();
+}
+
+class _$RoomSetAttendeePermissionsApiVersionSerializer
+    implements PrimitiveSerializer<RoomSetAttendeePermissionsApiVersion> {
+  const _$RoomSetAttendeePermissionsApiVersionSerializer();
+
+  static const Map<RoomSetAttendeePermissionsApiVersion, Object> _toWire =
+      <RoomSetAttendeePermissionsApiVersion, Object>{
+    RoomSetAttendeePermissionsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetAttendeePermissionsApiVersion> _fromWire =
+      <Object, RoomSetAttendeePermissionsApiVersion>{
+    'v4': RoomSetAttendeePermissionsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAttendeePermissionsApiVersion];
+
+  @override
+  String get wireName => 'RoomSetAttendeePermissionsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAttendeePermissionsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAttendeePermissionsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21239,8 +24701,48 @@ class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
   static RoomSetAllAttendeesPermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetAllAttendeesPermissionsApiVersion> get serializer =>
-      _$roomSetAllAttendeesPermissionsApiVersionSerializer;
+      const _$RoomSetAllAttendeesPermissionsApiVersionSerializer();
+}
+
+class _$RoomSetAllAttendeesPermissionsApiVersionSerializer
+    implements PrimitiveSerializer<RoomSetAllAttendeesPermissionsApiVersion> {
+  const _$RoomSetAllAttendeesPermissionsApiVersionSerializer();
+
+  static const Map<RoomSetAllAttendeesPermissionsApiVersion, Object> _toWire =
+      <RoomSetAllAttendeesPermissionsApiVersion, Object>{
+    RoomSetAllAttendeesPermissionsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetAllAttendeesPermissionsApiVersion> _fromWire =
+      <Object, RoomSetAllAttendeesPermissionsApiVersion>{
+    'v4': RoomSetAllAttendeesPermissionsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsApiVersion];
+
+  @override
+  String get wireName => 'RoomSetAllAttendeesPermissionsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAllAttendeesPermissionsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAllAttendeesPermissionsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21317,7 +24819,44 @@ class RoomJoinRoomApiVersion extends EnumClass {
 
   static RoomJoinRoomApiVersion valueOf(String name) => _$valueOfRoomJoinRoomApiVersion(name);
 
-  static Serializer<RoomJoinRoomApiVersion> get serializer => _$roomJoinRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomJoinRoomApiVersion> get serializer => const _$RoomJoinRoomApiVersionSerializer();
+}
+
+class _$RoomJoinRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoinRoomApiVersion> {
+  const _$RoomJoinRoomApiVersionSerializer();
+
+  static const Map<RoomJoinRoomApiVersion, Object> _toWire = <RoomJoinRoomApiVersion, Object>{
+    RoomJoinRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomJoinRoomApiVersion> _fromWire = <Object, RoomJoinRoomApiVersion>{
+    'v4': RoomJoinRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomJoinRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomJoinRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomJoinRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomJoinRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21390,7 +24929,44 @@ class RoomLeaveRoomApiVersion extends EnumClass {
 
   static RoomLeaveRoomApiVersion valueOf(String name) => _$valueOfRoomLeaveRoomApiVersion(name);
 
-  static Serializer<RoomLeaveRoomApiVersion> get serializer => _$roomLeaveRoomApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomLeaveRoomApiVersion> get serializer => const _$RoomLeaveRoomApiVersionSerializer();
+}
+
+class _$RoomLeaveRoomApiVersionSerializer implements PrimitiveSerializer<RoomLeaveRoomApiVersion> {
+  const _$RoomLeaveRoomApiVersionSerializer();
+
+  static const Map<RoomLeaveRoomApiVersion, Object> _toWire = <RoomLeaveRoomApiVersion, Object>{
+    RoomLeaveRoomApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomLeaveRoomApiVersion> _fromWire = <Object, RoomLeaveRoomApiVersion>{
+    'v4': RoomLeaveRoomApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomLeaveRoomApiVersion];
+
+  @override
+  String get wireName => 'RoomLeaveRoomApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomLeaveRoomApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomLeaveRoomApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21464,7 +25040,45 @@ class RoomResendInvitationsApiVersion extends EnumClass {
 
   static RoomResendInvitationsApiVersion valueOf(String name) => _$valueOfRoomResendInvitationsApiVersion(name);
 
-  static Serializer<RoomResendInvitationsApiVersion> get serializer => _$roomResendInvitationsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomResendInvitationsApiVersion> get serializer =>
+      const _$RoomResendInvitationsApiVersionSerializer();
+}
+
+class _$RoomResendInvitationsApiVersionSerializer implements PrimitiveSerializer<RoomResendInvitationsApiVersion> {
+  const _$RoomResendInvitationsApiVersionSerializer();
+
+  static const Map<RoomResendInvitationsApiVersion, Object> _toWire = <RoomResendInvitationsApiVersion, Object>{
+    RoomResendInvitationsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomResendInvitationsApiVersion> _fromWire = <Object, RoomResendInvitationsApiVersion>{
+    'v4': RoomResendInvitationsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomResendInvitationsApiVersion];
+
+  @override
+  String get wireName => 'RoomResendInvitationsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomResendInvitationsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomResendInvitationsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21540,7 +25154,44 @@ class RoomSetSessionStateApiVersion extends EnumClass {
 
   static RoomSetSessionStateApiVersion valueOf(String name) => _$valueOfRoomSetSessionStateApiVersion(name);
 
-  static Serializer<RoomSetSessionStateApiVersion> get serializer => _$roomSetSessionStateApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetSessionStateApiVersion> get serializer => const _$RoomSetSessionStateApiVersionSerializer();
+}
+
+class _$RoomSetSessionStateApiVersionSerializer implements PrimitiveSerializer<RoomSetSessionStateApiVersion> {
+  const _$RoomSetSessionStateApiVersionSerializer();
+
+  static const Map<RoomSetSessionStateApiVersion, Object> _toWire = <RoomSetSessionStateApiVersion, Object>{
+    RoomSetSessionStateApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetSessionStateApiVersion> _fromWire = <Object, RoomSetSessionStateApiVersion>{
+    'v4': RoomSetSessionStateApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetSessionStateApiVersion];
+
+  @override
+  String get wireName => 'RoomSetSessionStateApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetSessionStateApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetSessionStateApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21615,7 +25266,45 @@ class RoomPromoteModeratorApiVersion extends EnumClass {
 
   static RoomPromoteModeratorApiVersion valueOf(String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
 
-  static Serializer<RoomPromoteModeratorApiVersion> get serializer => _$roomPromoteModeratorApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomPromoteModeratorApiVersion> get serializer =>
+      const _$RoomPromoteModeratorApiVersionSerializer();
+}
+
+class _$RoomPromoteModeratorApiVersionSerializer implements PrimitiveSerializer<RoomPromoteModeratorApiVersion> {
+  const _$RoomPromoteModeratorApiVersionSerializer();
+
+  static const Map<RoomPromoteModeratorApiVersion, Object> _toWire = <RoomPromoteModeratorApiVersion, Object>{
+    RoomPromoteModeratorApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomPromoteModeratorApiVersion> _fromWire = <Object, RoomPromoteModeratorApiVersion>{
+    'v4': RoomPromoteModeratorApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomPromoteModeratorApiVersion];
+
+  @override
+  String get wireName => 'RoomPromoteModeratorApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomPromoteModeratorApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomPromoteModeratorApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21690,7 +25379,44 @@ class RoomDemoteModeratorApiVersion extends EnumClass {
 
   static RoomDemoteModeratorApiVersion valueOf(String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
 
-  static Serializer<RoomDemoteModeratorApiVersion> get serializer => _$roomDemoteModeratorApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomDemoteModeratorApiVersion> get serializer => const _$RoomDemoteModeratorApiVersionSerializer();
+}
+
+class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<RoomDemoteModeratorApiVersion> {
+  const _$RoomDemoteModeratorApiVersionSerializer();
+
+  static const Map<RoomDemoteModeratorApiVersion, Object> _toWire = <RoomDemoteModeratorApiVersion, Object>{
+    RoomDemoteModeratorApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomDemoteModeratorApiVersion> _fromWire = <Object, RoomDemoteModeratorApiVersion>{
+    'v4': RoomDemoteModeratorApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomDemoteModeratorApiVersion];
+
+  @override
+  String get wireName => 'RoomDemoteModeratorApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomDemoteModeratorApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomDemoteModeratorApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21765,7 +25491,44 @@ class RoomAddToFavoritesApiVersion extends EnumClass {
 
   static RoomAddToFavoritesApiVersion valueOf(String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
 
-  static Serializer<RoomAddToFavoritesApiVersion> get serializer => _$roomAddToFavoritesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomAddToFavoritesApiVersion> get serializer => const _$RoomAddToFavoritesApiVersionSerializer();
+}
+
+class _$RoomAddToFavoritesApiVersionSerializer implements PrimitiveSerializer<RoomAddToFavoritesApiVersion> {
+  const _$RoomAddToFavoritesApiVersionSerializer();
+
+  static const Map<RoomAddToFavoritesApiVersion, Object> _toWire = <RoomAddToFavoritesApiVersion, Object>{
+    RoomAddToFavoritesApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomAddToFavoritesApiVersion> _fromWire = <Object, RoomAddToFavoritesApiVersion>{
+    'v4': RoomAddToFavoritesApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomAddToFavoritesApiVersion];
+
+  @override
+  String get wireName => 'RoomAddToFavoritesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomAddToFavoritesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomAddToFavoritesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21840,7 +25603,45 @@ class RoomRemoveFromFavoritesApiVersion extends EnumClass {
 
   static RoomRemoveFromFavoritesApiVersion valueOf(String name) => _$valueOfRoomRemoveFromFavoritesApiVersion(name);
 
-  static Serializer<RoomRemoveFromFavoritesApiVersion> get serializer => _$roomRemoveFromFavoritesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomRemoveFromFavoritesApiVersion> get serializer =>
+      const _$RoomRemoveFromFavoritesApiVersionSerializer();
+}
+
+class _$RoomRemoveFromFavoritesApiVersionSerializer implements PrimitiveSerializer<RoomRemoveFromFavoritesApiVersion> {
+  const _$RoomRemoveFromFavoritesApiVersionSerializer();
+
+  static const Map<RoomRemoveFromFavoritesApiVersion, Object> _toWire = <RoomRemoveFromFavoritesApiVersion, Object>{
+    RoomRemoveFromFavoritesApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomRemoveFromFavoritesApiVersion> _fromWire = <Object, RoomRemoveFromFavoritesApiVersion>{
+    'v4': RoomRemoveFromFavoritesApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomRemoveFromFavoritesApiVersion];
+
+  @override
+  String get wireName => 'RoomRemoveFromFavoritesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomRemoveFromFavoritesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomRemoveFromFavoritesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21916,8 +25717,46 @@ class RoomSetNotificationLevelApiVersion extends EnumClass {
 
   static RoomSetNotificationLevelApiVersion valueOf(String name) => _$valueOfRoomSetNotificationLevelApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationLevelApiVersion> get serializer =>
-      _$roomSetNotificationLevelApiVersionSerializer;
+      const _$RoomSetNotificationLevelApiVersionSerializer();
+}
+
+class _$RoomSetNotificationLevelApiVersionSerializer
+    implements PrimitiveSerializer<RoomSetNotificationLevelApiVersion> {
+  const _$RoomSetNotificationLevelApiVersionSerializer();
+
+  static const Map<RoomSetNotificationLevelApiVersion, Object> _toWire = <RoomSetNotificationLevelApiVersion, Object>{
+    RoomSetNotificationLevelApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetNotificationLevelApiVersion> _fromWire = <Object, RoomSetNotificationLevelApiVersion>{
+    'v4': RoomSetNotificationLevelApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetNotificationLevelApiVersion];
+
+  @override
+  String get wireName => 'RoomSetNotificationLevelApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetNotificationLevelApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetNotificationLevelApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21993,8 +25832,46 @@ class RoomSetNotificationCallsApiVersion extends EnumClass {
 
   static RoomSetNotificationCallsApiVersion valueOf(String name) => _$valueOfRoomSetNotificationCallsApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetNotificationCallsApiVersion> get serializer =>
-      _$roomSetNotificationCallsApiVersionSerializer;
+      const _$RoomSetNotificationCallsApiVersionSerializer();
+}
+
+class _$RoomSetNotificationCallsApiVersionSerializer
+    implements PrimitiveSerializer<RoomSetNotificationCallsApiVersion> {
+  const _$RoomSetNotificationCallsApiVersionSerializer();
+
+  static const Map<RoomSetNotificationCallsApiVersion, Object> _toWire = <RoomSetNotificationCallsApiVersion, Object>{
+    RoomSetNotificationCallsApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetNotificationCallsApiVersion> _fromWire = <Object, RoomSetNotificationCallsApiVersion>{
+    'v4': RoomSetNotificationCallsApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetNotificationCallsApiVersion];
+
+  @override
+  String get wireName => 'RoomSetNotificationCallsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetNotificationCallsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetNotificationCallsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22070,7 +25947,44 @@ class RoomSetLobbyApiVersion extends EnumClass {
 
   static RoomSetLobbyApiVersion valueOf(String name) => _$valueOfRoomSetLobbyApiVersion(name);
 
-  static Serializer<RoomSetLobbyApiVersion> get serializer => _$roomSetLobbyApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetLobbyApiVersion> get serializer => const _$RoomSetLobbyApiVersionSerializer();
+}
+
+class _$RoomSetLobbyApiVersionSerializer implements PrimitiveSerializer<RoomSetLobbyApiVersion> {
+  const _$RoomSetLobbyApiVersionSerializer();
+
+  static const Map<RoomSetLobbyApiVersion, Object> _toWire = <RoomSetLobbyApiVersion, Object>{
+    RoomSetLobbyApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetLobbyApiVersion> _fromWire = <Object, RoomSetLobbyApiVersion>{
+    'v4': RoomSetLobbyApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetLobbyApiVersion];
+
+  @override
+  String get wireName => 'RoomSetLobbyApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetLobbyApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetLobbyApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22143,7 +26057,44 @@ class RoomSetsipEnabledApiVersion extends EnumClass {
 
   static RoomSetsipEnabledApiVersion valueOf(String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
 
-  static Serializer<RoomSetsipEnabledApiVersion> get serializer => _$roomSetsipEnabledApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetsipEnabledApiVersion> get serializer => const _$RoomSetsipEnabledApiVersionSerializer();
+}
+
+class _$RoomSetsipEnabledApiVersionSerializer implements PrimitiveSerializer<RoomSetsipEnabledApiVersion> {
+  const _$RoomSetsipEnabledApiVersionSerializer();
+
+  static const Map<RoomSetsipEnabledApiVersion, Object> _toWire = <RoomSetsipEnabledApiVersion, Object>{
+    RoomSetsipEnabledApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetsipEnabledApiVersion> _fromWire = <Object, RoomSetsipEnabledApiVersion>{
+    'v4': RoomSetsipEnabledApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetsipEnabledApiVersion];
+
+  @override
+  String get wireName => 'RoomSetsipEnabledApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetsipEnabledApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetsipEnabledApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22218,7 +26169,45 @@ class RoomSetRecordingConsentApiVersion extends EnumClass {
 
   static RoomSetRecordingConsentApiVersion valueOf(String name) => _$valueOfRoomSetRecordingConsentApiVersion(name);
 
-  static Serializer<RoomSetRecordingConsentApiVersion> get serializer => _$roomSetRecordingConsentApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetRecordingConsentApiVersion> get serializer =>
+      const _$RoomSetRecordingConsentApiVersionSerializer();
+}
+
+class _$RoomSetRecordingConsentApiVersionSerializer implements PrimitiveSerializer<RoomSetRecordingConsentApiVersion> {
+  const _$RoomSetRecordingConsentApiVersionSerializer();
+
+  static const Map<RoomSetRecordingConsentApiVersion, Object> _toWire = <RoomSetRecordingConsentApiVersion, Object>{
+    RoomSetRecordingConsentApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetRecordingConsentApiVersion> _fromWire = <Object, RoomSetRecordingConsentApiVersion>{
+    'v4': RoomSetRecordingConsentApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetRecordingConsentApiVersion];
+
+  @override
+  String get wireName => 'RoomSetRecordingConsentApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetRecordingConsentApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetRecordingConsentApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22294,8 +26283,46 @@ class RoomSetMessageExpirationApiVersion extends EnumClass {
 
   static RoomSetMessageExpirationApiVersion valueOf(String name) => _$valueOfRoomSetMessageExpirationApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomSetMessageExpirationApiVersion> get serializer =>
-      _$roomSetMessageExpirationApiVersionSerializer;
+      const _$RoomSetMessageExpirationApiVersionSerializer();
+}
+
+class _$RoomSetMessageExpirationApiVersionSerializer
+    implements PrimitiveSerializer<RoomSetMessageExpirationApiVersion> {
+  const _$RoomSetMessageExpirationApiVersionSerializer();
+
+  static const Map<RoomSetMessageExpirationApiVersion, Object> _toWire = <RoomSetMessageExpirationApiVersion, Object>{
+    RoomSetMessageExpirationApiVersion.v4: 'v4',
+  };
+
+  static const Map<Object, RoomSetMessageExpirationApiVersion> _fromWire = <Object, RoomSetMessageExpirationApiVersion>{
+    'v4': RoomSetMessageExpirationApiVersion.v4,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetMessageExpirationApiVersion];
+
+  @override
+  String get wireName => 'RoomSetMessageExpirationApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetMessageExpirationApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetMessageExpirationApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22371,7 +26398,45 @@ class SettingsSetsipSettingsApiVersion extends EnumClass {
 
   static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
 
-  static Serializer<SettingsSetsipSettingsApiVersion> get serializer => _$settingsSetsipSettingsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetsipSettingsApiVersion> get serializer =>
+      const _$SettingsSetsipSettingsApiVersionSerializer();
+}
+
+class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerializer<SettingsSetsipSettingsApiVersion> {
+  const _$SettingsSetsipSettingsApiVersionSerializer();
+
+  static const Map<SettingsSetsipSettingsApiVersion, Object> _toWire = <SettingsSetsipSettingsApiVersion, Object>{
+    SettingsSetsipSettingsApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, SettingsSetsipSettingsApiVersion> _fromWire = <Object, SettingsSetsipSettingsApiVersion>{
+    'v1': SettingsSetsipSettingsApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsSetsipSettingsApiVersion];
+
+  @override
+  String get wireName => 'SettingsSetsipSettingsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsSetsipSettingsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsSetsipSettingsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22447,7 +26512,45 @@ class SettingsSetUserSettingApiVersion extends EnumClass {
 
   static SettingsSetUserSettingApiVersion valueOf(String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
 
-  static Serializer<SettingsSetUserSettingApiVersion> get serializer => _$settingsSetUserSettingApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetUserSettingApiVersion> get serializer =>
+      const _$SettingsSetUserSettingApiVersionSerializer();
+}
+
+class _$SettingsSetUserSettingApiVersionSerializer implements PrimitiveSerializer<SettingsSetUserSettingApiVersion> {
+  const _$SettingsSetUserSettingApiVersionSerializer();
+
+  static const Map<SettingsSetUserSettingApiVersion, Object> _toWire = <SettingsSetUserSettingApiVersion, Object>{
+    SettingsSetUserSettingApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, SettingsSetUserSettingApiVersion> _fromWire = <Object, SettingsSetUserSettingApiVersion>{
+    'v1': SettingsSetUserSettingApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsSetUserSettingApiVersion];
+
+  @override
+  String get wireName => 'SettingsSetUserSettingApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsSetUserSettingApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsSetUserSettingApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22523,7 +26626,45 @@ class SignalingGetSettingsApiVersion extends EnumClass {
 
   static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
 
-  static Serializer<SignalingGetSettingsApiVersion> get serializer => _$signalingGetSettingsApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingGetSettingsApiVersion> get serializer =>
+      const _$SignalingGetSettingsApiVersionSerializer();
+}
+
+class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<SignalingGetSettingsApiVersion> {
+  const _$SignalingGetSettingsApiVersionSerializer();
+
+  static const Map<SignalingGetSettingsApiVersion, Object> _toWire = <SignalingGetSettingsApiVersion, Object>{
+    SignalingGetSettingsApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingGetSettingsApiVersion> _fromWire = <Object, SignalingGetSettingsApiVersion>{
+    'v3': SignalingGetSettingsApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingGetSettingsApiVersion];
+
+  @override
+  String get wireName => 'SignalingGetSettingsApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingGetSettingsApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingGetSettingsApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22779,8 +26920,48 @@ class SignalingGetWelcomeMessageApiVersion extends EnumClass {
   static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfSignalingGetWelcomeMessageApiVersion(name);
 
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingGetWelcomeMessageApiVersion> get serializer =>
-      _$signalingGetWelcomeMessageApiVersionSerializer;
+      const _$SignalingGetWelcomeMessageApiVersionSerializer();
+}
+
+class _$SignalingGetWelcomeMessageApiVersionSerializer
+    implements PrimitiveSerializer<SignalingGetWelcomeMessageApiVersion> {
+  const _$SignalingGetWelcomeMessageApiVersionSerializer();
+
+  static const Map<SignalingGetWelcomeMessageApiVersion, Object> _toWire =
+      <SignalingGetWelcomeMessageApiVersion, Object>{
+    SignalingGetWelcomeMessageApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingGetWelcomeMessageApiVersion> _fromWire =
+      <Object, SignalingGetWelcomeMessageApiVersion>{
+    'v3': SignalingGetWelcomeMessageApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingGetWelcomeMessageApiVersion];
+
+  @override
+  String get wireName => 'SignalingGetWelcomeMessageApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingGetWelcomeMessageApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingGetWelcomeMessageApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22857,7 +27038,45 @@ class SignalingPullMessagesApiVersion extends EnumClass {
 
   static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
 
-  static Serializer<SignalingPullMessagesApiVersion> get serializer => _$signalingPullMessagesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingPullMessagesApiVersion> get serializer =>
+      const _$SignalingPullMessagesApiVersionSerializer();
+}
+
+class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingPullMessagesApiVersion> {
+  const _$SignalingPullMessagesApiVersionSerializer();
+
+  static const Map<SignalingPullMessagesApiVersion, Object> _toWire = <SignalingPullMessagesApiVersion, Object>{
+    SignalingPullMessagesApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingPullMessagesApiVersion> _fromWire = <Object, SignalingPullMessagesApiVersion>{
+    'v3': SignalingPullMessagesApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingPullMessagesApiVersion];
+
+  @override
+  String get wireName => 'SignalingPullMessagesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingPullMessagesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingPullMessagesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22999,7 +27218,45 @@ class SignalingSendMessagesApiVersion extends EnumClass {
 
   static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
 
-  static Serializer<SignalingSendMessagesApiVersion> get serializer => _$signalingSendMessagesApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SignalingSendMessagesApiVersion> get serializer =>
+      const _$SignalingSendMessagesApiVersionSerializer();
+}
+
+class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingSendMessagesApiVersion> {
+  const _$SignalingSendMessagesApiVersionSerializer();
+
+  static const Map<SignalingSendMessagesApiVersion, Object> _toWire = <SignalingSendMessagesApiVersion, Object>{
+    SignalingSendMessagesApiVersion.v3: 'v3',
+  };
+
+  static const Map<Object, SignalingSendMessagesApiVersion> _fromWire = <Object, SignalingSendMessagesApiVersion>{
+    'v3': SignalingSendMessagesApiVersion.v3,
+  };
+
+  @override
+  Iterable<Type> get types => const [SignalingSendMessagesApiVersion];
+
+  @override
+  String get wireName => 'SignalingSendMessagesApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SignalingSendMessagesApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SignalingSendMessagesApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

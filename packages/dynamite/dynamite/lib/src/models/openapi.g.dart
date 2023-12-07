@@ -31,7 +31,7 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Schema)]), () => ListBuilder<Schema>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), () => ListBuilder<JsonObject>())
       ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(Schema)]), () => MapBuilder<String, Schema>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())

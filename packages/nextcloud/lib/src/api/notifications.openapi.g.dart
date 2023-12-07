@@ -202,16 +202,12 @@ final BuiltSet<SettingsAdminApiVersion> _$settingsAdminApiVersionValues =
   _$settingsAdminApiVersionV2,
 ]);
 
-Serializer<ApiGenerateNotificationApiVersion> _$apiGenerateNotificationApiVersionSerializer =
-    _$ApiGenerateNotificationApiVersionSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson_Ocs>
     _$apiGenerateNotificationResponseApplicationJsonOcsSerializer =
     _$ApiGenerateNotificationResponseApplicationJson_OcsSerializer();
 Serializer<ApiGenerateNotificationResponseApplicationJson> _$apiGenerateNotificationResponseApplicationJsonSerializer =
     _$ApiGenerateNotificationResponseApplicationJsonSerializer();
-Serializer<EndpointListNotificationsApiVersion> _$endpointListNotificationsApiVersionSerializer =
-    _$EndpointListNotificationsApiVersionSerializer();
 Serializer<EndpointEndpointListNotificationsHeaders> _$endpointEndpointListNotificationsHeadersSerializer =
     _$EndpointEndpointListNotificationsHeadersSerializer();
 Serializer<NotificationAction> _$notificationActionSerializer = _$NotificationActionSerializer();
@@ -222,80 +218,48 @@ Serializer<EndpointListNotificationsResponseApplicationJson_Ocs>
 Serializer<EndpointListNotificationsResponseApplicationJson>
     _$endpointListNotificationsResponseApplicationJsonSerializer =
     _$EndpointListNotificationsResponseApplicationJsonSerializer();
-Serializer<EndpointDeleteAllNotificationsApiVersion> _$endpointDeleteAllNotificationsApiVersionSerializer =
-    _$EndpointDeleteAllNotificationsApiVersionSerializer();
 Serializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs>
     _$endpointDeleteAllNotificationsResponseApplicationJsonOcsSerializer =
     _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer();
 Serializer<EndpointDeleteAllNotificationsResponseApplicationJson>
     _$endpointDeleteAllNotificationsResponseApplicationJsonSerializer =
     _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer();
-Serializer<EndpointGetNotificationApiVersion> _$endpointGetNotificationApiVersionSerializer =
-    _$EndpointGetNotificationApiVersionSerializer();
 Serializer<EndpointGetNotificationResponseApplicationJson_Ocs>
     _$endpointGetNotificationResponseApplicationJsonOcsSerializer =
     _$EndpointGetNotificationResponseApplicationJson_OcsSerializer();
 Serializer<EndpointGetNotificationResponseApplicationJson> _$endpointGetNotificationResponseApplicationJsonSerializer =
     _$EndpointGetNotificationResponseApplicationJsonSerializer();
-Serializer<EndpointDeleteNotificationApiVersion> _$endpointDeleteNotificationApiVersionSerializer =
-    _$EndpointDeleteNotificationApiVersionSerializer();
 Serializer<EndpointDeleteNotificationResponseApplicationJson_Ocs>
     _$endpointDeleteNotificationResponseApplicationJsonOcsSerializer =
     _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer();
 Serializer<EndpointDeleteNotificationResponseApplicationJson>
     _$endpointDeleteNotificationResponseApplicationJsonSerializer =
     _$EndpointDeleteNotificationResponseApplicationJsonSerializer();
-Serializer<EndpointConfirmIdsForUserApiVersion> _$endpointConfirmIdsForUserApiVersionSerializer =
-    _$EndpointConfirmIdsForUserApiVersionSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson_Ocs>
     _$endpointConfirmIdsForUserResponseApplicationJsonOcsSerializer =
     _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer();
 Serializer<EndpointConfirmIdsForUserResponseApplicationJson>
     _$endpointConfirmIdsForUserResponseApplicationJsonSerializer =
     _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer();
-Serializer<PushRegisterDeviceApiVersion> _$pushRegisterDeviceApiVersionSerializer =
-    _$PushRegisterDeviceApiVersionSerializer();
 Serializer<PushDevice> _$pushDeviceSerializer = _$PushDeviceSerializer();
 Serializer<PushRegisterDeviceResponseApplicationJson_Ocs> _$pushRegisterDeviceResponseApplicationJsonOcsSerializer =
     _$PushRegisterDeviceResponseApplicationJson_OcsSerializer();
 Serializer<PushRegisterDeviceResponseApplicationJson> _$pushRegisterDeviceResponseApplicationJsonSerializer =
     _$PushRegisterDeviceResponseApplicationJsonSerializer();
-Serializer<PushRemoveDeviceApiVersion> _$pushRemoveDeviceApiVersionSerializer =
-    _$PushRemoveDeviceApiVersionSerializer();
 Serializer<PushRemoveDeviceResponseApplicationJson_Ocs> _$pushRemoveDeviceResponseApplicationJsonOcsSerializer =
     _$PushRemoveDeviceResponseApplicationJson_OcsSerializer();
 Serializer<PushRemoveDeviceResponseApplicationJson> _$pushRemoveDeviceResponseApplicationJsonSerializer =
     _$PushRemoveDeviceResponseApplicationJsonSerializer();
-Serializer<SettingsPersonalApiVersion> _$settingsPersonalApiVersionSerializer =
-    _$SettingsPersonalApiVersionSerializer();
 Serializer<SettingsPersonalResponseApplicationJson_Ocs> _$settingsPersonalResponseApplicationJsonOcsSerializer =
     _$SettingsPersonalResponseApplicationJson_OcsSerializer();
 Serializer<SettingsPersonalResponseApplicationJson> _$settingsPersonalResponseApplicationJsonSerializer =
     _$SettingsPersonalResponseApplicationJsonSerializer();
-Serializer<SettingsAdminApiVersion> _$settingsAdminApiVersionSerializer = _$SettingsAdminApiVersionSerializer();
 Serializer<SettingsAdminResponseApplicationJson_Ocs> _$settingsAdminResponseApplicationJsonOcsSerializer =
     _$SettingsAdminResponseApplicationJson_OcsSerializer();
 Serializer<SettingsAdminResponseApplicationJson> _$settingsAdminResponseApplicationJsonSerializer =
     _$SettingsAdminResponseApplicationJsonSerializer();
 Serializer<Capabilities_Notifications> _$capabilitiesNotificationsSerializer = _$Capabilities_NotificationsSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
-
-class _$ApiGenerateNotificationApiVersionSerializer implements PrimitiveSerializer<ApiGenerateNotificationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ApiGenerateNotificationApiVersion];
-  @override
-  final String wireName = 'ApiGenerateNotificationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ApiGenerateNotificationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ApiGenerateNotificationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ApiGenerateNotificationApiVersion.valueOf(serialized as String);
-}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -457,24 +421,6 @@ class _$ApiGenerateNotificationResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$EndpointListNotificationsApiVersionSerializer
-    implements PrimitiveSerializer<EndpointListNotificationsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[EndpointListNotificationsApiVersion];
-  @override
-  final String wireName = 'EndpointListNotificationsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, EndpointListNotificationsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  EndpointListNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      EndpointListNotificationsApiVersion.valueOf(serialized as String);
 }
 
 class _$EndpointEndpointListNotificationsHeadersSerializer
@@ -812,24 +758,6 @@ class _$EndpointListNotificationsResponseApplicationJsonSerializer
   }
 }
 
-class _$EndpointDeleteAllNotificationsApiVersionSerializer
-    implements PrimitiveSerializer<EndpointDeleteAllNotificationsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[EndpointDeleteAllNotificationsApiVersion];
-  @override
-  final String wireName = 'EndpointDeleteAllNotificationsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, EndpointDeleteAllNotificationsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  EndpointDeleteAllNotificationsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      EndpointDeleteAllNotificationsApiVersion.valueOf(serialized as String);
-}
-
 class _$EndpointDeleteAllNotificationsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs> {
   @override
@@ -922,23 +850,6 @@ class _$EndpointDeleteAllNotificationsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$EndpointGetNotificationApiVersionSerializer implements PrimitiveSerializer<EndpointGetNotificationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[EndpointGetNotificationApiVersion];
-  @override
-  final String wireName = 'EndpointGetNotificationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, EndpointGetNotificationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  EndpointGetNotificationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      EndpointGetNotificationApiVersion.valueOf(serialized as String);
 }
 
 class _$EndpointGetNotificationResponseApplicationJson_OcsSerializer
@@ -1034,24 +945,6 @@ class _$EndpointGetNotificationResponseApplicationJsonSerializer
   }
 }
 
-class _$EndpointDeleteNotificationApiVersionSerializer
-    implements PrimitiveSerializer<EndpointDeleteNotificationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[EndpointDeleteNotificationApiVersion];
-  @override
-  final String wireName = 'EndpointDeleteNotificationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, EndpointDeleteNotificationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  EndpointDeleteNotificationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      EndpointDeleteNotificationApiVersion.valueOf(serialized as String);
-}
-
 class _$EndpointDeleteNotificationResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<EndpointDeleteNotificationResponseApplicationJson_Ocs> {
   @override
@@ -1143,24 +1036,6 @@ class _$EndpointDeleteNotificationResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$EndpointConfirmIdsForUserApiVersionSerializer
-    implements PrimitiveSerializer<EndpointConfirmIdsForUserApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[EndpointConfirmIdsForUserApiVersion];
-  @override
-  final String wireName = 'EndpointConfirmIdsForUserApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, EndpointConfirmIdsForUserApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  EndpointConfirmIdsForUserApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      EndpointConfirmIdsForUserApiVersion.valueOf(serialized as String);
 }
 
 class _$EndpointConfirmIdsForUserResponseApplicationJson_OcsSerializer
@@ -1255,23 +1130,6 @@ class _$EndpointConfirmIdsForUserResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$PushRegisterDeviceApiVersionSerializer implements PrimitiveSerializer<PushRegisterDeviceApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PushRegisterDeviceApiVersion];
-  @override
-  final String wireName = 'PushRegisterDeviceApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PushRegisterDeviceApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PushRegisterDeviceApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PushRegisterDeviceApiVersion.valueOf(serialized as String);
 }
 
 class _$PushDeviceSerializer implements StructuredSerializer<PushDevice> {
@@ -1413,23 +1271,6 @@ class _$PushRegisterDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$PushRemoveDeviceApiVersionSerializer implements PrimitiveSerializer<PushRemoveDeviceApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PushRemoveDeviceApiVersion];
-  @override
-  final String wireName = 'PushRemoveDeviceApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PushRemoveDeviceApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PushRemoveDeviceApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PushRemoveDeviceApiVersion.valueOf(serialized as String);
-}
-
 class _$PushRemoveDeviceResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<PushRemoveDeviceResponseApplicationJson_Ocs> {
   @override
@@ -1521,23 +1362,6 @@ class _$PushRemoveDeviceResponseApplicationJsonSerializer
   }
 }
 
-class _$SettingsPersonalApiVersionSerializer implements PrimitiveSerializer<SettingsPersonalApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SettingsPersonalApiVersion];
-  @override
-  final String wireName = 'SettingsPersonalApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SettingsPersonalApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SettingsPersonalApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SettingsPersonalApiVersion.valueOf(serialized as String);
-}
-
 class _$SettingsPersonalResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SettingsPersonalResponseApplicationJson_Ocs> {
   @override
@@ -1627,23 +1451,6 @@ class _$SettingsPersonalResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$SettingsAdminApiVersionSerializer implements PrimitiveSerializer<SettingsAdminApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SettingsAdminApiVersion];
-  @override
-  final String wireName = 'SettingsAdminApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SettingsAdminApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SettingsAdminApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SettingsAdminApiVersion.valueOf(serialized as String);
 }
 
 class _$SettingsAdminResponseApplicationJson_OcsSerializer

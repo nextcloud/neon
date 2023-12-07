@@ -1155,7 +1155,46 @@ class ClearAt_Type extends EnumClass {
 
   static ClearAt_Type valueOf(String name) => _$valueOfClearAt_Type(name);
 
-  static Serializer<ClearAt_Type> get serializer => _$clearAtTypeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ClearAt_Type> get serializer => const _$ClearAt_TypeSerializer();
+}
+
+class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
+  const _$ClearAt_TypeSerializer();
+
+  static const Map<ClearAt_Type, Object> _toWire = <ClearAt_Type, Object>{
+    ClearAt_Type.period: 'period',
+    ClearAt_Type.endOf: 'end-of',
+  };
+
+  static const Map<Object, ClearAt_Type> _fromWire = <Object, ClearAt_Type>{
+    'period': ClearAt_Type.period,
+    'end-of': ClearAt_Type.endOf,
+  };
+
+  @override
+  Iterable<Type> get types => const [ClearAt_Type];
+
+  @override
+  String get wireName => 'ClearAt_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ClearAt_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ClearAt_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class ClearAtTimeType extends EnumClass {
@@ -1171,7 +1210,46 @@ class ClearAtTimeType extends EnumClass {
 
   static ClearAtTimeType valueOf(String name) => _$valueOfClearAtTimeType(name);
 
-  static Serializer<ClearAtTimeType> get serializer => _$clearAtTimeTypeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ClearAtTimeType> get serializer => const _$ClearAtTimeTypeSerializer();
+}
+
+class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType> {
+  const _$ClearAtTimeTypeSerializer();
+
+  static const Map<ClearAtTimeType, Object> _toWire = <ClearAtTimeType, Object>{
+    ClearAtTimeType.day: 'day',
+    ClearAtTimeType.week: 'week',
+  };
+
+  static const Map<Object, ClearAtTimeType> _fromWire = <Object, ClearAtTimeType>{
+    'day': ClearAtTimeType.day,
+    'week': ClearAtTimeType.week,
+  };
+
+  @override
+  Iterable<Type> get types => const [ClearAtTimeType];
+
+  @override
+  String get wireName => 'ClearAtTimeType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ClearAtTimeType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ClearAtTimeType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

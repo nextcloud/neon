@@ -165,7 +165,44 @@ class ApiGetAppListApiVersion extends EnumClass {
 
   static ApiGetAppListApiVersion valueOf(String name) => _$valueOfApiGetAppListApiVersion(name);
 
-  static Serializer<ApiGetAppListApiVersion> get serializer => _$apiGetAppListApiVersionSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ApiGetAppListApiVersion> get serializer => const _$ApiGetAppListApiVersionSerializer();
+}
+
+class _$ApiGetAppListApiVersionSerializer implements PrimitiveSerializer<ApiGetAppListApiVersion> {
+  const _$ApiGetAppListApiVersionSerializer();
+
+  static const Map<ApiGetAppListApiVersion, Object> _toWire = <ApiGetAppListApiVersion, Object>{
+    ApiGetAppListApiVersion.v1: 'v1',
+  };
+
+  static const Map<Object, ApiGetAppListApiVersion> _fromWire = <Object, ApiGetAppListApiVersion>{
+    'v1': ApiGetAppListApiVersion.v1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ApiGetAppListApiVersion];
+
+  @override
+  String get wireName => 'ApiGetAppListApiVersion';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ApiGetAppListApiVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ApiGetAppListApiVersion deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

@@ -749,7 +749,48 @@ class Settings_NoteMode extends EnumClass {
 
   static Settings_NoteMode valueOf(String name) => _$valueOfSettings_NoteMode(name);
 
-  static Serializer<Settings_NoteMode> get serializer => _$settingsNoteModeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Settings_NoteMode> get serializer => const _$Settings_NoteModeSerializer();
+}
+
+class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_NoteMode> {
+  const _$Settings_NoteModeSerializer();
+
+  static const Map<Settings_NoteMode, Object> _toWire = <Settings_NoteMode, Object>{
+    Settings_NoteMode.edit: 'edit',
+    Settings_NoteMode.preview: 'preview',
+    Settings_NoteMode.rich: 'rich',
+  };
+
+  static const Map<Object, Settings_NoteMode> _fromWire = <Object, Settings_NoteMode>{
+    'edit': Settings_NoteMode.edit,
+    'preview': Settings_NoteMode.preview,
+    'rich': Settings_NoteMode.rich,
+  };
+
+  @override
+  Iterable<Type> get types => const [Settings_NoteMode];
+
+  @override
+  String get wireName => 'Settings_NoteMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Settings_NoteMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Settings_NoteMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
