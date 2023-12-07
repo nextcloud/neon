@@ -12,6 +12,38 @@
                     "test",
                     "default"
                 ]
+            },
+            "enum-int": {
+                "type": "integer",
+                "enum": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "wrapped-enum": {
+                "type": "object",
+                "required": [
+                    "string",
+                    "integer"
+                ],
+                "properties": {
+                    "string": {
+                        "type": "string",
+                        "enum": [
+                            "test",
+                            "default"
+                        ]
+                    },
+                    "integer": {
+                        "type": "integer",
+                        "enum": [
+                            0,
+                            1,
+                            2
+                        ]
+                    }
+                }
             }
         }
     },

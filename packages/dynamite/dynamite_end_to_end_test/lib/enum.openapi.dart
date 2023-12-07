@@ -48,9 +48,87 @@ class EnumString extends EnumClass {
   static Serializer<EnumString> get serializer => _$enumStringSerializer;
 }
 
+class EnumInt extends EnumClass {
+  const EnumInt._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const EnumInt $0 = _$enumInt$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const EnumInt $1 = _$enumInt$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const EnumInt $2 = _$enumInt$2;
+
+  static BuiltSet<EnumInt> get values => _$enumIntValues;
+
+  static EnumInt valueOf(final String name) => _$valueOfEnumInt(name);
+
+  static Serializer<EnumInt> get serializer => _$enumIntSerializer;
+}
+
+class WrappedEnum_String extends EnumClass {
+  const WrappedEnum_String._(super.name);
+
+  static const WrappedEnum_String test = _$wrappedEnumStringTest;
+
+  @BuiltValueEnumConst(wireName: 'default')
+  static const WrappedEnum_String $default = _$wrappedEnumStringDefault;
+
+  static BuiltSet<WrappedEnum_String> get values => _$wrappedEnumStringValues;
+
+  static WrappedEnum_String valueOf(final String name) => _$valueOfWrappedEnum_String(name);
+
+  static Serializer<WrappedEnum_String> get serializer => _$wrappedEnumStringSerializer;
+}
+
+class WrappedEnum_Integer extends EnumClass {
+  const WrappedEnum_Integer._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const WrappedEnum_Integer $0 = _$wrappedEnumInteger$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const WrappedEnum_Integer $1 = _$wrappedEnumInteger$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const WrappedEnum_Integer $2 = _$wrappedEnumInteger$2;
+
+  static BuiltSet<WrappedEnum_Integer> get values => _$wrappedEnumIntegerValues;
+
+  static WrappedEnum_Integer valueOf(final String name) => _$valueOfWrappedEnum_Integer(name);
+
+  static Serializer<WrappedEnum_Integer> get serializer => _$wrappedEnumIntegerSerializer;
+}
+
+@BuiltValue(instantiable: false)
+abstract interface class $WrappedEnumInterface {
+  WrappedEnum_String get string;
+  WrappedEnum_Integer get integer;
+}
+
+abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, WrappedEnumBuilder> {
+  factory WrappedEnum([final void Function(WrappedEnumBuilder)? b]) = _$WrappedEnum;
+
+  const WrappedEnum._();
+
+  factory WrappedEnum.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+
+  static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
+}
+
 // coverage:ignore-start
 @visibleForTesting
-final Serializers serializers = (Serializers().toBuilder()..add(EnumString.serializer)).build();
+final Serializers serializers = (Serializers().toBuilder()
+      ..add(EnumString.serializer)
+      ..add(EnumInt.serializer)
+      ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
+      ..add(WrappedEnum.serializer)
+      ..add(WrappedEnum_String.serializer)
+      ..add(WrappedEnum_Integer.serializer))
+    .build();
 
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
