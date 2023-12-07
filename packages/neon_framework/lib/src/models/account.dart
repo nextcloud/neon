@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:crypto/crypto.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 part 'account.g.dart';
@@ -25,7 +25,7 @@ abstract interface class Credentials {
 /// Account data.
 @JsonSerializable()
 @immutable
-class Account implements Credentials {
+class Account implements Credentials, Findable {
   /// Creates a new account.
   Account({
     required this.serverURL,
@@ -75,6 +75,7 @@ class Account implements Credentials {
   ///
   /// Implemented in a primitive way hashing the [username] and [serverURL].
   /// IDs are globally cached in [_idCache].
+  @override
   String get id {
     final key = '$username@$serverURL';
 
@@ -121,20 +122,6 @@ class Account implements Credentials {
 
 /// Global [Account.id] cache.
 Map<String, String> _idCache = {};
-
-/// Extension to find an account by id in a Iterable.
-extension AccountFind on Iterable<Account> {
-  /// Returns the first [Account] matching [accountID] by [Account.id].
-  ///
-  /// If no `Account` was found `null` is returned.
-  Account? tryFind(final String? accountID) => firstWhereOrNull((final account) => account.id == accountID);
-
-  /// Returns the first [Account] matching [accountID] by [Account.id].
-  ///
-  /// Throws a [StateError] if no `Account` was found.
-  /// Use [tryFind] to get a nullable result.
-  Account find(final String accountID) => firstWhere((final account) => account.id == accountID);
-}
 
 /// QRcode Login credentials.
 ///

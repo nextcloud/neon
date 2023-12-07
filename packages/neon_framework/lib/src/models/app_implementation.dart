@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
@@ -12,6 +11,7 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/widgets/drawer_destination.dart';
 import 'package:nextcloud/core.dart' as core;
@@ -25,10 +25,11 @@ import 'package:vector_graphics/vector_graphics.dart';
 /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
 /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
 @immutable
-abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable {
+abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable, Findable {
   /// The unique id of an app.
   ///
   /// It is common to specify them in `AppIDs`.
+  @override
   String get id;
 
   /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
@@ -187,18 +188,4 @@ abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> 
 
   @override
   int get hashCode => id.hashCode;
-}
-
-/// Extension to find an app implementation by id in a Iterable.
-extension AppImplementationFind on Iterable<AppImplementation> {
-  /// Returns the first [AppImplementation] matching [appID] by [AppImplementation.id].
-  ///
-  /// If no `AppImplementation` was found `null` is returned.
-  AppImplementation? tryFind(final String? appID) => firstWhereOrNull((final app) => app.id == appID);
-
-  /// Returns the first [AppImplementation] matching [appID] by [AppImplementation.id].
-  ///
-  /// Throws a [StateError] if no `AppImplementation` was found.
-  /// Use [tryFind] to get a nullable result.
-  AppImplementation find(final String appID) => firstWhere((final app) => app.id == appID);
 }

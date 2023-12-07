@@ -1,5 +1,6 @@
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types

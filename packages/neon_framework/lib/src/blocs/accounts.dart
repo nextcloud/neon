@@ -15,6 +15,7 @@ import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';

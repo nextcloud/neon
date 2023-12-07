@@ -10,6 +10,7 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/models/notifications_interface.dart';
 import 'package:neon_framework/src/settings/models/options_collection.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
