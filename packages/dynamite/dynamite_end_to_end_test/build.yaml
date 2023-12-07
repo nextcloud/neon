@@ -11,3 +11,4 @@ targets:
             - discarded_futures
             - public_member_api_docs
             - unreachable_switch_case
+            - unused_element
