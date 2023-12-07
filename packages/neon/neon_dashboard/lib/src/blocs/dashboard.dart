@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
-import 'package:neon_dashboard/src/utils/find.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
@@ -109,7 +108,7 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
             Result.success(
               widgets.map(
                 (final id, final items) => MapEntry(
-                  response.body.ocs.data.values.find(id),
+                  response.body.ocs.data.values.firstWhere((final widget) => widget.id == id),
                   items,
                 ),
               ),
