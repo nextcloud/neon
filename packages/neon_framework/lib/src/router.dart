@@ -53,8 +53,9 @@ GoRouter buildAppRouter({
           }
         }
 
-        // redirect to login screen when no account is logged in
-        if (!accountsBloc.hasAccounts && !state.uri.toString().startsWith(const LoginRoute().location)) {
+        // Redirect to login screen when no account is logged in
+        // We only check the prefix of the current location as we also don't want to redirect on any of the other login routes.
+        if (!accountsBloc.hasAccounts && !state.matchedLocation.startsWith(const LoginRoute().location)) {
           return const LoginRoute().location;
         }
 
