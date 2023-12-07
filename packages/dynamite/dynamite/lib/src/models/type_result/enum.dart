@@ -20,7 +20,7 @@ class TypeResultEnum extends TypeResult {
     final bool onlyChildren = false,
     final String? mimeType,
   }) {
-    if (subType.name == 'String') {
+    if (subType.name == 'String' || subType.name == 'int') {
       return '$object.name';
     }
 

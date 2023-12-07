@@ -39,23 +39,25 @@ TypeResult resolveEnum(
             schema.$enum!.map(
               (final value) => Field(
                 (final b) {
+                  final stringValue = value.toString();
+
                   final result = resolveType(
                     spec,
                     state,
-                    '$identifier${toDartName(value, uppercaseFirstCharacter: true)}',
+                    '$identifier${toDartName(stringValue, uppercaseFirstCharacter: true)}',
                     schema,
                     ignoreEnum: true,
                   );
                   b
-                    ..name = toDartName(value)
+                    ..name = toDartName(stringValue)
                     ..static = true
                     ..modifier = FieldModifier.constant
                     ..type = refer(identifier)
                     ..assignment = Code(
-                      '_\$${toCamelCase(identifier)}${toDartName(value, uppercaseFirstCharacter: true)}',
+                      '_\$${toCamelCase(identifier)}${toDartName(stringValue, uppercaseFirstCharacter: true)}',
                     );
 
-                  if (toDartName(value) != value) {
+                  if (toDartName(stringValue) != stringValue) {
                     if (result.name != 'String' && result.name != 'int') {
                       throw Exception(
                         'Sorry enum values are a bit broken. '
@@ -65,7 +67,7 @@ TypeResult resolveEnum(
                     }
                     b.annotations.add(
                       refer('BuiltValueEnumConst').call([], {
-                        'wireName': refer(valueToEscapedValue(result, value)),
+                        'wireName': refer(valueToEscapedValue(result, stringValue, forceString: true)),
                       }),
                     );
                   }
@@ -93,7 +95,7 @@ TypeResult resolveEnum(
                   Parameter(
                     (final b) => b
                       ..name = 'name'
-                      ..type = refer(subResult.name),
+                      ..type = refer('String'),
                   ),
                 )
                 ..body = Code('_\$valueOf$identifier(name)'),
