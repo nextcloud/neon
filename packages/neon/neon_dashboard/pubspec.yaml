@@ -29,7 +29,7 @@ dev_dependencies:
   flutter_cache_manager: ^3.3.1
   flutter_test:
     sdk: flutter
-  go_router_builder: ^2.3.4
+  go_router_builder: ^2.4.0
   mocktail: ^1.0.1
   neon_lints:
     git:
