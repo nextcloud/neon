@@ -44,7 +44,10 @@ abstract class TypeResultSomeOf extends TypeResult {
       return '$dartType $fieldName';
     });
 
-    return TypeResultBase('({${record.join(',')}})');
+    return TypeResultBase(
+      '({${record.join(',')}})',
+      nullable: nullable,
+    );
   }
 
   late final String typeName = _typeName;

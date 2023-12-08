@@ -12,6 +12,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/models.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -48,6 +49,8 @@ class Client extends DynamiteClient {
   ///   * [$double]
   ///   * [$num]
   ///   * [object]
+  ///   * [oneOf]
+  ///   * [anyOf]
   ///
   /// Status codes:
   ///   * 200
@@ -65,6 +68,8 @@ class Client extends DynamiteClient {
     final double? $double,
     final num? $num,
     final JsonObject? object,
+    final GetOneOf? oneOf,
+    final GetAnyOf? anyOf,
   }) async {
     final rawResponse = $getRaw(
       contentString: contentString,
@@ -77,6 +82,8 @@ class Client extends DynamiteClient {
       $double: $double,
       $num: $num,
       object: object,
+      oneOf: oneOf,
+      anyOf: anyOf,
     );
 
     return rawResponse.future;
@@ -98,6 +105,8 @@ class Client extends DynamiteClient {
   ///   * [$double]
   ///   * [$num]
   ///   * [object]
+  ///   * [oneOf]
+  ///   * [anyOf]
   ///
   /// Status codes:
   ///   * 200
@@ -116,6 +125,8 @@ class Client extends DynamiteClient {
     final double? $double,
     final num? $num,
     final JsonObject? object,
+    final GetOneOf? oneOf,
+    final GetAnyOf? anyOf,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -163,9 +174,15 @@ class Client extends DynamiteClient {
     final $object = jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
     parameters['object'] = $object;
 
+    final $oneOf = jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
+    parameters['oneOf'] = $oneOf;
+
+    final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
+    parameters['anyOf'] = $anyOf;
+
     final uri = Uri.parse(
       UriTemplate(
-        '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*}',
+        '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*}',
       ).expand(parameters),
     );
     return DynamiteRawResponse<JsonObject, void>(
@@ -349,6 +366,67 @@ class Client extends DynamiteClient {
   }
 }
 
+typedef GetOneOf = ({bool? $bool, String? string});
+
+typedef GetAnyOf = ({bool? $bool, String? string});
+
+typedef $BoolString = ({bool? $bool, String? string});
+
+extension $BoolStringExtension on $BoolString {
+  List<dynamic> get _values => [$bool, string];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BoolString> get serializer => const _$BoolStringSerializer();
+  static $BoolString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BoolStringSerializer implements PrimitiveSerializer<$BoolString> {
+  const _$BoolStringSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BoolString];
+
+  @override
+  String get wireName => r'$BoolString';
+
+  @override
+  Object serialize(
+    final Serializers serializers,
+    final $BoolString object, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.$bool;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(bool))!;
+    }
+    value = object.string;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(String))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BoolString deserialize(
+    final Serializers serializers,
+    final Object data, {
+    final FullType specifiedType = FullType.unspecified,
+  }) {
+    bool? $bool;
+    try {
+      $bool = serializers.deserialize(data, specifiedType: const FullType(bool))! as bool;
+    } catch (_) {}
+    String? string;
+    try {
+      string = serializers.deserialize(data, specifiedType: const FullType(String))! as String;
+    } catch (_) {}
+    return ($bool: $bool, string: string);
+  }
+}
+
 // coverage:ignore-start
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
@@ -363,7 +441,8 @@ final Serializers serializers = (Serializers().toBuilder()
         ContentStringBuilder<BuiltMap<String, JsonObject>>.new,
       )
       ..add(ContentString.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..add($BoolStringExtension.serializer))
     .build();
 
 @visibleForTesting
