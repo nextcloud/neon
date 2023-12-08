@@ -79,6 +79,46 @@
             }
         }
     },
-    "paths": {},
+    "paths": {
+        "/": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "oneOf",
+                        "in": "query",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "anyOf",
+                        "in": "query",
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
     "tags": []
 }
