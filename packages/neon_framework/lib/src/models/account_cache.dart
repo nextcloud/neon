@@ -1,5 +1,6 @@
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/models/disposable.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 
 /// Cache for [Account] specific [Disposable] objects.
 class AccountCache<T extends Disposable> implements Disposable {

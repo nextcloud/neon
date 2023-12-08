@@ -19,6 +19,7 @@ import 'package:neon_framework/src/pages/login_qr_code.dart';
 import 'package:neon_framework/src/pages/nextcloud_app_settings.dart';
 import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/stream_listenable.dart';
 

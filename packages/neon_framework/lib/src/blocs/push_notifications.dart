@@ -8,6 +8,7 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:nextcloud/notifications.dart' as notifications;

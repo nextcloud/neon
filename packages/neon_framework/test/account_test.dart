@@ -1,4 +1,5 @@
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:test/test.dart';
 
 void main() {

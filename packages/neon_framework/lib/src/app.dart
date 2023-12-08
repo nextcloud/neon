@@ -17,6 +17,7 @@ import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/theme/theme.dart';
+import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
