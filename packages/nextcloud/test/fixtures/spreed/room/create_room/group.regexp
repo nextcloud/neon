@@ -1,0 +1,7 @@
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=2&invite=admin
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true

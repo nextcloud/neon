@@ -1,0 +1,13 @@
+PUT http://localhost/remote\.php/webdav/res
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 19
+authorization: Bearer mock
+This is a test file
+GET http://localhost/remote\.php/webdav/res
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock

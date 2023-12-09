@@ -1,0 +1,21 @@
+MKCOL http://localhost/remote\.php/webdav/test
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+PUT http://localhost/remote\.php/webdav/test/test\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 4
+authorization: Bearer mock
+test
+PROPFIND http://localhost/remote\.php/webdav/test
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+accept-encoding: gzip
+depth: 0
+authorization: Bearer mock
+content-type: application/xml
+<d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><d:getlastmodified/><d:getcontenttype/><d:resourcetype/><oc:size/></d:prop></d:propfind>

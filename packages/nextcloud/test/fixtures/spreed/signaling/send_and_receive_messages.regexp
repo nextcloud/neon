@@ -1,0 +1,49 @@
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=1&invite=user2
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants/active
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room/[a-z0-9]{8}/participants/active
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/call/[a-z0-9]{8}
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/[a-z0-9]{8}\?messages=[a-zA-Z0-9%]+
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/[a-z0-9]{8}
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock
+ocs-apirequest: true

@@ -1,0 +1,18 @@
+POST http://localhost/index\.php/apps/notes/api/v1/notes\?title=a
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock
+PUT http://localhost/index\.php/apps/notes/api/v1/notes/182\?title=b
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock
+GET http://localhost/index\.php/apps/notes/api/v1/notes/182
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Basic mock

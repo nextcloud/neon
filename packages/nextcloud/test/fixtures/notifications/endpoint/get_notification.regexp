@@ -1,0 +1,14 @@
+POST http://localhost/ocs/v2\.php/apps/notifications/api/v2/admin_notifications/admin\?shortMessage=123&longMessage=456
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/apps/notifications/api/v2/notifications/2
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock
+ocs-apirequest: true

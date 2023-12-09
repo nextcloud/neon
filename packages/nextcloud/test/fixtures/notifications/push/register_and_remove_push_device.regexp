@@ -1,0 +1,14 @@
+POST http://localhost/ocs/v2\.php/apps/notifications/api/v2/push\?pushTokenHash=[a-z0-9]{128}&devicePublicKey=-----BEGIN\+PUBLIC\+KEY-----[a-zA-Z0-9%]+-----END\+PUBLIC\+KEY-----&proxyServer=https%3A%2F%2Fexample\.com%2F
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+DELETE http://localhost/ocs/v2\.php/apps/notifications/api/v2/push
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true

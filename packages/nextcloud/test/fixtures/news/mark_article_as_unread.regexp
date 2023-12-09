@@ -1,0 +1,34 @@
+POST http://localhost/index\.php/apps/news/api/v1-3/feeds\?url=http%3A%2F%2Flocalhost%2Fstatic%2Fwikipedia\.xml
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=6
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Basic mock
+POST http://localhost/index\.php/apps/news/api/v1-3/items/10/read
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=6
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Basic mock
+POST http://localhost/index\.php/apps/news/api/v1-3/items/10/unread
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=6
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Basic mock

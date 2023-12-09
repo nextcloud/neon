@@ -1,0 +1,7 @@
+PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/heartbeat\?status=online
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
