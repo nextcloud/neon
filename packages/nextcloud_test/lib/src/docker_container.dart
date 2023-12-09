@@ -82,18 +82,18 @@ class DockerContainer {
         ),
       );
 
-  /// Reads the server logs.
-  Future<String> serverLogs() async {
+  /// Reads the web server logs.
+  Future<String> webServerLogs() async {
     final result = await runExecutableArguments(
       'docker',
       [
         'logs',
         id,
       ],
-      stdoutEncoding: utf8,
+      stderrEncoding: utf8,
     );
 
-    return result.stdout as String;
+    return result.stderr as String;
   }
 
   /// Reads the Nextcloud logs.
@@ -114,6 +114,6 @@ class DockerContainer {
 
   /// Reads all logs.
   ///
-  /// Combines the output of [serverLogs] and [nextcloudLogs].
-  Future<String> allLogs() async => '${await serverLogs()}\n\n${await nextcloudLogs()}';
+  /// Combines the output of [webServerLogs] and [nextcloudLogs].
+  Future<String> allLogs() async => 'Web server:\n${await webServerLogs()}\nNextcloud:\n${await nextcloudLogs()}';
 }
