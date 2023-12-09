@@ -153,8 +153,8 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    pathParameters['path-parameter'] = pathParameter;
-    var uri = Uri.parse(UriTemplate('/{path-parameter}').expand(pathParameters));
+    pathParameters['path_parameter'] = pathParameter;
+    var uri = Uri.parse(UriTemplate('/{path_parameter}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
     }

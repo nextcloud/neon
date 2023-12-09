@@ -45,10 +45,10 @@
                 }
             }
         },
-        "/{path-parameter}": {
+        "/{path_parameter}": {
             "parameters": [
                 {
-                    "name": "path-parameter",
+                    "name": "path_parameter",
                     "in": "path",
                     "required": true,
                     "schema": {
