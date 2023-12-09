@@ -4,6 +4,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notifications.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets('server', (final preset) {
@@ -19,7 +20,12 @@ void main() {
             username: 'admin',
           );
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         Future<void> sendTestNotification() async {
           await client.notifications.api.generateNotification(
@@ -118,7 +124,12 @@ void main() {
               username: 'admin',
             );
           });
-          tearDown(() => container.destroy());
+          tearDown(() async {
+            if (Invoker.current!.liveTest.errors.isNotEmpty) {
+              print(await container.allLogs());
+            }
+            container.destroy();
+          });
 
           // The key size has to be 2048, other sizes are not accepted by Nextcloud (at the moment at least)
           // ignore: avoid_redundant_argument_values

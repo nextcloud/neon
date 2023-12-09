@@ -2,6 +2,7 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets('server', (final preset) {
@@ -14,7 +15,12 @@ void main() {
           container = await DockerContainer.create(preset);
           client = await TestNextcloudClient.create(container);
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         test('Is supported from capabilities', () async {
           final response = await client.core.ocs.getCapabilities();

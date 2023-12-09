@@ -2,6 +2,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/uppush.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets('uppush', (final preset) {
@@ -17,7 +18,12 @@ void main() {
             username: 'admin',
           );
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         test('Is installed', () async {
           final response = await client.uppush.check();
