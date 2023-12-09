@@ -134,7 +134,7 @@ class WebDavClient {
         headers: _getUploadHeaders(
           lastModified: lastModified,
           created: created,
-          contentLength: null,
+          contentLength: localData.length,
         ),
       );
 
