@@ -27,22 +27,33 @@ final Map<String, List<ExtendedVersion>> _presets = () {
 }();
 
 /// All tests for apps that depend on the server version must be wrapped with this method and pass along the preset.
-void presets(final String presetGroup, final dynamic Function(Preset preset) body) {
+void presets(
+  final String presetGroup,
+  final String app,
+  final dynamic Function(Preset preset) body, {
+  final int? retry,
+  final Timeout? timeout,
+}) {
   if (!_presets.containsKey(presetGroup)) {
     throw Exception('Unknown preset type "$presetGroup"');
   }
 
-  group(presetGroup, () {
+  void innerBody() {
     for (final presetVersion in _presets[presetGroup]!) {
-      group(
-        presetVersion,
-        () => body(
-          (
-            name: presetGroup,
-            version: presetVersion,
-          ),
-        ),
-      );
+      group(presetVersion, () => body((name: presetGroup, version: presetVersion)));
     }
-  });
+  }
+
+  group(
+    presetGroup,
+    () {
+      if (app != presetGroup) {
+        group(app, innerBody);
+      } else {
+        innerBody();
+      }
+    },
+    retry: retry,
+    timeout: timeout,
+  );
 }
