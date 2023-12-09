@@ -7,6 +7,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/spreed.dart' as spreed;
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets('spreed', (final preset) {
@@ -19,7 +20,12 @@ void main() {
           container = await DockerContainer.create(preset);
           client1 = await TestNextcloudClient.create(container);
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         Future<spreed.Room> createTestRoom() async => (await client1.spreed.room.createRoom(
               roomType: spreed.RoomType.public.value,

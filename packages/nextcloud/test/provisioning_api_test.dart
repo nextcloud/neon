@@ -2,6 +2,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
   presets('server', (final preset) {
@@ -17,7 +18,12 @@ void main() {
             username: 'admin',
           );
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         group('Users', () {
           test('Get current user', () async {

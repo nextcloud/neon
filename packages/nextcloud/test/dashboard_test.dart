@@ -2,6 +2,7 @@ import 'package:nextcloud/dashboard.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 import 'package:version/version.dart';
 
 void main() {
@@ -15,7 +16,12 @@ void main() {
           container = await DockerContainer.create(preset);
           client = await TestNextcloudClient.create(container);
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         test('Get widgets', () async {
           final response = await client.dashboard.dashboardApi.getWidgets();

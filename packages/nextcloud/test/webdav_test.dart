@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:test/test.dart';
+import 'package:test_api/src/backend/invoker.dart';
 import 'package:universal_io/io.dart';
 
 void main() {
@@ -145,7 +146,12 @@ void main() {
           container = await DockerContainer.create(preset);
           client = await TestNextcloudClient.create(container);
         });
-        tearDown(() => container.destroy());
+        tearDown(() async {
+          if (Invoker.current!.liveTest.errors.isNotEmpty) {
+            print(await container.allLogs());
+          }
+          container.destroy();
+        });
 
         test('List directory', () async {
           final responses = (await client.webdav.propfind(
