@@ -1,14 +1,14 @@
-name: Neon
+name: Lint
 on:
   pull_request:
 
 concurrency:
-  group: neon-${{ github.head_ref || github.run_id }}
+  group: lint-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
-  untested-apis:
-    name: Untested APIs
+  lint:
+    name: Linting
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
@@ -16,13 +16,6 @@ jobs:
 
       - name: Find untested Neon APIs
         run: ./tool/find-untested-neon-apis.sh
-
-  dart-io-usage:
-    name: dart:io usage
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
       - name: Find dart:io usage
         run: ./tool/find-dart-io-usage.sh
