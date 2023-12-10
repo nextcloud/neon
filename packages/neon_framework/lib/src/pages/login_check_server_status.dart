@@ -61,7 +61,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
                   subject: bloc.state,
                   builder: (final context, final state) {
                     final success =
-                        state.hasData && state.requireData.versionCheck.isSupported && !state.requireData.maintenance;
+                        state.hasData && _isServerVersionAllowed(state.requireData) && !state.requireData.maintenance;
 
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -107,6 +107,9 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
     }
   }
 
+  bool _isServerVersionAllowed(final core.Status status) =>
+      status.versionCheck.isSupported || status.versionstring.contains('dev');
+
   Widget _buildServerVersionTile(final Result<core.Status> result) {
     if (result.hasError) {
       return NeonValidationTile(
@@ -122,7 +125,7 @@ class _LoginCheckServerStatusPageState extends State<LoginCheckServerStatusPage>
       );
     }
 
-    if (result.requireData.versionCheck.isSupported) {
+    if (_isServerVersionAllowed(result.requireData)) {
       return NeonValidationTile(
         title: NeonLocalizations.of(context).loginSupportedServerVersion(result.requireData.versionstring),
         state: ValidationState.success,

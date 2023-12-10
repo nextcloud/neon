@@ -136,7 +136,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
 
     try {
       final coreCheck = _account.client.core.getVersionCheck(capabilities.requireData);
-      if (!coreCheck.isSupported) {
+      if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
         notSupported['core'] = coreCheck;
       }
     } catch (e, s) {
