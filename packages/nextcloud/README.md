@@ -58,7 +58,7 @@ Alternatively you can also go to https://pub.dev/documentation/nextcloud/latest 
 The endpoints are grouped by app and most apps also group their endpoints again.
 They can be accessed using getters on the `NextcloudClient`.
 
-For an example checkout the [example](./example/example.dart).  
+For an example checkout the [example](https://github.com/nextcloud/neon/blob/main/packages/nextcloud/example/example.dart).  
 
 ## Development
 
