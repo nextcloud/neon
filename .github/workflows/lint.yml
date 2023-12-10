@@ -19,3 +19,6 @@ jobs:
 
       - name: Find dart:io usage
         run: ./tool/find-dart-io-usage.sh
+
+      - name: Find relative markdown links
+        run: ./tool/find-relative-markdown-links.sh
