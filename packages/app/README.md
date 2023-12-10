@@ -10,7 +10,7 @@ The app will be published on F-Droid, the Google Playstore and Flathub later on.
 
 For more screenshots see `./screenshots/`.
 
-| ![](screenshots/login_server_selection.png) | ![](screenshots/home_drawer.png)               | ![](screenshots/settings_oled.png)   |
-|---------------------------------------------|------------------------------------------------|--------------------------------------|
-| ![](screenshots/files_photos.png)           | ![](screenshots/news_articles_unread_list.png) | ![](screenshots/notes_note_edit.png) |
-| ![](screenshots/notifications_list.png)     |                                                |                                      |
+| ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/login_server_selection.png) | ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/home_drawer.png)               | ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/settings_oled.png)   |
+|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/files_photos.png)           | ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/news_articles_unread_list.png) | ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/notes_note_edit.png) |
+| ![](https://raw.githubusercontent.com/nextcloud/neon/main/packages/app/screenshots/notifications_list.png)     |                                                                                                                   |                                                                                                         |
