@@ -77,10 +77,10 @@ packages:
     dependency: transitive
     description:
       name: camera
-      sha256: "1f9010f0689774380fbcd7d6b7820a5157e8e97685fa66d619e1d1f58b3fdf93"
+      sha256: "71fb0e03618a8629a912bbf49bb664869bd16830c1d363b1096df99727b0bebb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.10.5+5"
+    version: "0.10.5+6"
   camera_android:
     dependency: transitive
     description:
@@ -402,10 +402,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_native_splash
-      sha256: c4d899312b36e7454bedfd0a4740275837b99e532d81c8477579d8183db1de6c
+      sha256: "141b20f15a2c4fe6e33c49257ca1bc114fc5c500b04fcbc8d75016bb86af672f"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.6"
+    version: "2.3.8"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -436,10 +436,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_zxing
-      sha256: "748fbd181d58335cefb0168f270c8fc5977f16bc1b2f90eb7658784e37f6e9f2"
+      sha256: "41c46b20d04c5b1cc76417a7c507de97764285ee9bfeeb363545f89754709b71"
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.1"
+    version: "1.5.0"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -457,10 +457,10 @@ packages:
     dependency: transitive
     description:
       name: go_router
-      sha256: c247a4f76071c3b97bb5ae8912968870d5565644801c5e09f3bc961b4d874895
+      sha256: c5fa45fa502ee880839e3b2152d987c44abae26d064a2376d4aad434cf0f7b15
       url: "https://pub.dev"
     source: hosted
-    version: "12.1.1"
+    version: "12.1.3"
   html:
     dependency: transitive
     description:
@@ -854,10 +854,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_html
-      sha256: d96ff56a757b7f04fa825c469d296c5aebc55f743e87bd639fef91a466a24da8
+      sha256: "11b762a8c123dced6461933a88ea1edbbe036078c3f9f41b08886e678e7864df"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0+1"
+    version: "0.1.0+2"
   permission_handler_platform_interface:
     dependency: transitive
     description:
@@ -1138,18 +1138,18 @@ packages:
     dependency: transitive
     description:
       name: sqflite_common_ffi
-      sha256: "35d2fce1e971707c227cc4775cc017d5eafe06c2654c3435ebd5c3ad6c170f5f"
+      sha256: "873677ee78738a723d1ded4ccb23980581998d873d30ee9c331f6a81748663ff"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0+4"
+    version: "2.3.1"
   sqlite3:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: db65233e6b99e99b2548932f55a987961bc06d82a31a0665451fa0b4fff4c3fb
+      sha256: "8922805564b78eb7aa9386c10056d377a541ac7270dc6a1589176277ebb4d15d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.0"
   stack_trace:
     dependency: transitive
     description:
@@ -1282,10 +1282,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher
-      sha256: b1c9e98774adf8820c96fbc7ae3601231d324a7d5ebd8babe27b6dfac91357ba
+      sha256: e9aa5ea75c84cf46b3db4eea212523591211c3cf2e13099ee4ec147f54201c86
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.1"
+    version: "6.2.2"
   url_launcher_android:
     dependency: transitive
     description:
@@ -1330,10 +1330,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_web
-      sha256: "138bd45b3a456dcfafc46d1a146787424f8d2edfbf2809c9324361e58f851cf7"
+      sha256: "7286aec002c8feecc338cc33269e96b73955ab227456e9fb2a91f7fab8a358e9"
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.1"
+    version: "2.2.2"
   url_launcher_windows:
     dependency: transitive
     description:
