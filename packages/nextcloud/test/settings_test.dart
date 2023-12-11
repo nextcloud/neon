@@ -7,36 +7,35 @@ import 'package:test/test.dart';
 import 'package:test_api/src/backend/invoker.dart';
 
 void main() {
-  presets('server', (final preset) {
-    group(
-      'settings',
-      () {
-        late DockerContainer container;
-        late NextcloudClient client;
-        setUp(() async {
-          container = await DockerContainer.create(preset);
-          client = await TestNextcloudClient.create(
-            container,
-            username: 'admin',
-          );
-        });
-        tearDown(() async {
-          if (Invoker.current!.liveTest.errors.isNotEmpty) {
-            print(await container.allLogs());
-          }
-          container.destroy();
-        });
+  presets(
+    'server',
+    'settings',
+    (final preset) {
+      late DockerContainer container;
+      late NextcloudClient client;
+      setUp(() async {
+        container = await DockerContainer.create(preset);
+        client = await TestNextcloudClient.create(
+          container,
+          username: 'admin',
+        );
+      });
+      tearDown(() async {
+        if (Invoker.current!.liveTest.errors.isNotEmpty) {
+          print(await container.allLogs());
+        }
+        container.destroy();
+      });
 
-        group('Logs', () {
-          test('Download', () async {
-            final response = await client.settings.logSettings.download();
-            final logs = utf8.decode(response.body);
-            expect(logs, await container.nextcloudLogs());
-          });
+      group('Logs', () {
+        test('Download', () async {
+          final response = await client.settings.logSettings.download();
+          final logs = utf8.decode(response.body);
+          expect(logs, await container.nextcloudLogs());
         });
-      },
-      retry: retryCount,
-      timeout: timeout,
-    );
-  });
+      });
+    },
+    retry: retryCount,
+    timeout: timeout,
+  );
 }
