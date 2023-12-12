@@ -13,7 +13,7 @@ final dependencies = {
 };
 
 final devDependencies = {
-  'built_value_generator': Version.parse('8.8.0'),
+  'built_value_generator': Version.parse('8.8.1'),
 };
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
