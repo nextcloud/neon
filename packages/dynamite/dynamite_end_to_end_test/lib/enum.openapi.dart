@@ -10,6 +10,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 
 part 'enum.openapi.g.dart';
 
@@ -48,9 +49,11 @@ class EnumString extends EnumClass {
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()..add(EnumString.serializer)).build();
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()..add(EnumString.serializer)).build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

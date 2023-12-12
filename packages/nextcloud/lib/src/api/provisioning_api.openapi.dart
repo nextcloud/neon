@@ -140,7 +140,7 @@ class AppConfigClient {
       ),
       bodyType: const FullType(AppConfigGetAppsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -239,7 +239,7 @@ class AppConfigClient {
       ),
       bodyType: const FullType(AppConfigGetKeysResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -353,7 +353,7 @@ class AppConfigClient {
       ),
       bodyType: const FullType(AppConfigGetValueResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -461,7 +461,7 @@ class AppConfigClient {
       ),
       bodyType: const FullType(AppConfigSetValueResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -567,7 +567,7 @@ class AppConfigClient {
       ),
       bodyType: const FullType(AppConfigDeleteKeyResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -671,7 +671,7 @@ class AppsClient {
       ),
       bodyType: const FullType(AppsGetAppsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -767,7 +767,7 @@ class AppsClient {
       ),
       bodyType: const FullType(AppsGetAppInfoResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -863,7 +863,7 @@ class AppsClient {
       ),
       bodyType: const FullType(AppsEnableResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -959,7 +959,7 @@ class AppsClient {
       ),
       bodyType: const FullType(AppsDisableResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -1075,7 +1075,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetGroupsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1179,7 +1179,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsAddGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1289,7 +1289,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetGroupsDetailsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1386,7 +1386,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetGroupUsersResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1503,7 +1503,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1600,7 +1600,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetSubAdminsOfGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1695,7 +1695,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsGetGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1804,7 +1804,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsUpdateGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1901,7 +1901,7 @@ class GroupsClient {
       ),
       bodyType: const FullType(GroupsDeleteGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -2015,7 +2015,7 @@ class PreferencesClient {
       ),
       bodyType: const FullType(PreferencesSetPreferenceResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2117,7 +2117,7 @@ class PreferencesClient {
       ),
       bodyType: const FullType(PreferencesDeletePreferenceResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2199,7 +2199,7 @@ class PreferencesClient {
     }
 
 // coverage:ignore-end
-    queryParameters['configs'] = _jsonSerializers.serialize(
+    queryParameters['configs'] = jsonSerializers.serialize(
       configs,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -2223,7 +2223,7 @@ class PreferencesClient {
       ),
       bodyType: const FullType(PreferencesSetMultiplePreferencesResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2324,7 +2324,7 @@ class PreferencesClient {
       ),
       bodyType: const FullType(PreferencesDeleteMultiplePreferenceResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -2440,7 +2440,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetUsersResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2598,7 +2598,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersAddUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2708,7 +2708,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetUsersDetailsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2810,7 +2810,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetDisabledUsersDetailsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -2893,7 +2893,7 @@ class UsersClient {
 
 // coverage:ignore-end
     queryParameters['location'] = location;
-    queryParameters['search'] = _jsonSerializers.serialize(
+    queryParameters['search'] = jsonSerializers.serialize(
       search,
       specifiedType: const FullType(ContentString, [
         FullType(BuiltMap, [
@@ -2918,7 +2918,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersSearchByPhoneNumbersResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3010,7 +3010,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3114,7 +3114,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersEditUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3206,7 +3206,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersDeleteUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3292,7 +3292,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetCurrentUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3378,7 +3378,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetEditableFieldsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3470,7 +3470,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetEditableFieldsForUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3581,7 +3581,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersEditUserMultiValueResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3673,7 +3673,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersWipeUserDevicesResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3765,7 +3765,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersEnableUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3857,7 +3857,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersDisableUserResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -3949,7 +3949,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetUsersGroupsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4049,7 +4049,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersAddToGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4147,7 +4147,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersRemoveFromGroupResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4243,7 +4243,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersGetUserSubAdminGroupsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4345,7 +4345,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersAddSubAdminResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4447,7 +4447,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersRemoveSubAdminResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -4539,7 +4539,7 @@ class UsersClient {
       ),
       bodyType: const FullType(UsersResendWelcomeMessageResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -4561,11 +4561,11 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -4591,11 +4591,11 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory AppConfigGetAppsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -4622,11 +4622,11 @@ abstract class AppConfigGetAppsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppConfigGetAppsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetAppsResponseApplicationJson_Ocs> get serializer =>
@@ -4652,11 +4652,11 @@ abstract class AppConfigGetAppsResponseApplicationJson
 
   // coverage:ignore-start
   factory AppConfigGetAppsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetAppsResponseApplicationJson> get serializer =>
@@ -4683,11 +4683,11 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory AppConfigGetKeysResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetKeysResponseApplicationJson_Ocs_Data> get serializer =>
@@ -4714,11 +4714,11 @@ abstract class AppConfigGetKeysResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppConfigGetKeysResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetKeysResponseApplicationJson_Ocs> get serializer =>
@@ -4744,11 +4744,11 @@ abstract class AppConfigGetKeysResponseApplicationJson
 
   // coverage:ignore-start
   factory AppConfigGetKeysResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetKeysResponseApplicationJson> get serializer =>
@@ -4775,11 +4775,11 @@ abstract class AppConfigGetValueResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory AppConfigGetValueResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetValueResponseApplicationJson_Ocs_Data> get serializer =>
@@ -4806,11 +4806,11 @@ abstract class AppConfigGetValueResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppConfigGetValueResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetValueResponseApplicationJson_Ocs> get serializer =>
@@ -4836,11 +4836,11 @@ abstract class AppConfigGetValueResponseApplicationJson
 
   // coverage:ignore-start
   factory AppConfigGetValueResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigGetValueResponseApplicationJson> get serializer =>
@@ -4867,11 +4867,11 @@ abstract class AppConfigSetValueResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppConfigSetValueResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigSetValueResponseApplicationJson_Ocs> get serializer =>
@@ -4897,11 +4897,11 @@ abstract class AppConfigSetValueResponseApplicationJson
 
   // coverage:ignore-start
   factory AppConfigSetValueResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigSetValueResponseApplicationJson> get serializer =>
@@ -4928,11 +4928,11 @@ abstract class AppConfigDeleteKeyResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppConfigDeleteKeyResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigDeleteKeyResponseApplicationJson_Ocs> get serializer =>
@@ -4958,11 +4958,11 @@ abstract class AppConfigDeleteKeyResponseApplicationJson
 
   // coverage:ignore-start
   factory AppConfigDeleteKeyResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppConfigDeleteKeyResponseApplicationJson> get serializer =>
@@ -4988,11 +4988,11 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory AppsGetAppsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsGetAppsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -5019,11 +5019,11 @@ abstract class AppsGetAppsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppsGetAppsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsGetAppsResponseApplicationJson_Ocs> get serializer =>
@@ -5048,11 +5048,11 @@ abstract class AppsGetAppsResponseApplicationJson
 
   // coverage:ignore-start
   factory AppsGetAppsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsGetAppsResponseApplicationJson> get serializer =>
@@ -5114,11 +5114,11 @@ abstract class AppInfo implements $AppInfoInterface, Built<AppInfo, AppInfoBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppInfo.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory AppInfo.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppInfo> get serializer => _$appInfoSerializer;
@@ -5144,11 +5144,11 @@ abstract class AppsGetAppInfoResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppsGetAppInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsGetAppInfoResponseApplicationJson_Ocs> get serializer =>
@@ -5174,11 +5174,11 @@ abstract class AppsGetAppInfoResponseApplicationJson
 
   // coverage:ignore-start
   factory AppsGetAppInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsGetAppInfoResponseApplicationJson> get serializer =>
@@ -5205,11 +5205,11 @@ abstract class AppsEnableResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppsEnableResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsEnableResponseApplicationJson_Ocs> get serializer =>
@@ -5234,11 +5234,11 @@ abstract class AppsEnableResponseApplicationJson
 
   // coverage:ignore-start
   factory AppsEnableResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsEnableResponseApplicationJson> get serializer => _$appsEnableResponseApplicationJsonSerializer;
@@ -5264,11 +5264,11 @@ abstract class AppsDisableResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory AppsDisableResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsDisableResponseApplicationJson_Ocs> get serializer =>
@@ -5293,11 +5293,11 @@ abstract class AppsDisableResponseApplicationJson
 
   // coverage:ignore-start
   factory AppsDisableResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<AppsDisableResponseApplicationJson> get serializer =>
@@ -5323,11 +5323,11 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory GroupsGetGroupsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -5354,11 +5354,11 @@ abstract class GroupsGetGroupsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetGroupsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsResponseApplicationJson_Ocs> get serializer =>
@@ -5384,11 +5384,11 @@ abstract class GroupsGetGroupsResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetGroupsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsResponseApplicationJson> get serializer =>
@@ -5415,11 +5415,11 @@ abstract class GroupsAddGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsAddGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsAddGroupResponseApplicationJson_Ocs> get serializer =>
@@ -5445,11 +5445,11 @@ abstract class GroupsAddGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsAddGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsAddGroupResponseApplicationJson> get serializer =>
@@ -5474,11 +5474,11 @@ abstract class GroupDetails implements $GroupDetailsInterface, Built<GroupDetail
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GroupDetails.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory GroupDetails.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupDetails> get serializer => _$groupDetailsSerializer;
@@ -5510,11 +5510,11 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -5542,11 +5542,11 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetGroupsDetailsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson_Ocs> get serializer =>
@@ -5572,11 +5572,11 @@ abstract class GroupsGetGroupsDetailsResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetGroupsDetailsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupsDetailsResponseApplicationJson> get serializer =>
@@ -5603,11 +5603,11 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersResponseApplicationJson_Ocs_Data> get serializer =>
@@ -5634,11 +5634,11 @@ abstract class GroupsGetGroupUsersResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersResponseApplicationJson_Ocs> get serializer =>
@@ -5664,11 +5664,11 @@ abstract class GroupsGetGroupUsersResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersResponseApplicationJson> get serializer =>
@@ -5694,11 +5694,11 @@ abstract class UserDetails_BackendCapabilities
 
   // coverage:ignore-start
   factory UserDetails_BackendCapabilities.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UserDetails_BackendCapabilities> get serializer => _$userDetailsBackendCapabilitiesSerializer;
@@ -5723,11 +5723,11 @@ abstract class UserDetailsQuota
 
   // coverage:ignore-start
   factory UserDetailsQuota.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UserDetailsQuota> get serializer => _$userDetailsQuotaSerializer;
@@ -5797,11 +5797,11 @@ abstract class UserDetails implements $UserDetailsInterface, Built<UserDetails, 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserDetails.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory UserDetails.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UserDetails> get serializer => _$userDetailsSerializer;
@@ -5827,11 +5827,11 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
@@ -5858,11 +5858,11 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -5890,11 +5890,11 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs> get serializer =>
@@ -5921,11 +5921,11 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetGroupUsersDetailsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson> get serializer =>
@@ -5953,11 +5953,11 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson_Ocs> get serializer =>
@@ -5984,11 +5984,11 @@ abstract class GroupsGetSubAdminsOfGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetSubAdminsOfGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetSubAdminsOfGroupResponseApplicationJson> get serializer =>
@@ -6014,11 +6014,11 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory GroupsGetGroupResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupResponseApplicationJson_Ocs_Data> get serializer =>
@@ -6045,11 +6045,11 @@ abstract class GroupsGetGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsGetGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupResponseApplicationJson_Ocs> get serializer =>
@@ -6075,11 +6075,11 @@ abstract class GroupsGetGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsGetGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsGetGroupResponseApplicationJson> get serializer =>
@@ -6106,11 +6106,11 @@ abstract class GroupsUpdateGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsUpdateGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsUpdateGroupResponseApplicationJson_Ocs> get serializer =>
@@ -6136,11 +6136,11 @@ abstract class GroupsUpdateGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsUpdateGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsUpdateGroupResponseApplicationJson> get serializer =>
@@ -6167,11 +6167,11 @@ abstract class GroupsDeleteGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory GroupsDeleteGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsDeleteGroupResponseApplicationJson_Ocs> get serializer =>
@@ -6197,11 +6197,11 @@ abstract class GroupsDeleteGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory GroupsDeleteGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<GroupsDeleteGroupResponseApplicationJson> get serializer =>
@@ -6229,11 +6229,11 @@ abstract class PreferencesSetPreferenceResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory PreferencesSetPreferenceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesSetPreferenceResponseApplicationJson_Ocs> get serializer =>
@@ -6259,11 +6259,11 @@ abstract class PreferencesSetPreferenceResponseApplicationJson
 
   // coverage:ignore-start
   factory PreferencesSetPreferenceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesSetPreferenceResponseApplicationJson> get serializer =>
@@ -6291,11 +6291,11 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory PreferencesDeletePreferenceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesDeletePreferenceResponseApplicationJson_Ocs> get serializer =>
@@ -6322,11 +6322,11 @@ abstract class PreferencesDeletePreferenceResponseApplicationJson
 
   // coverage:ignore-start
   factory PreferencesDeletePreferenceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesDeletePreferenceResponseApplicationJson> get serializer =>
@@ -6354,11 +6354,11 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson_Ocs> get serializer =>
@@ -6385,11 +6385,11 @@ abstract class PreferencesSetMultiplePreferencesResponseApplicationJson
 
   // coverage:ignore-start
   factory PreferencesSetMultiplePreferencesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesSetMultiplePreferencesResponseApplicationJson> get serializer =>
@@ -6417,11 +6417,11 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson_Ocs> get serializer =>
@@ -6448,11 +6448,11 @@ abstract class PreferencesDeleteMultiplePreferenceResponseApplicationJson
 
   // coverage:ignore-start
   factory PreferencesDeleteMultiplePreferenceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<PreferencesDeleteMultiplePreferenceResponseApplicationJson> get serializer =>
@@ -6478,11 +6478,11 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory UsersGetUsersResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersResponseApplicationJson_Ocs_Data> get serializer =>
@@ -6509,11 +6509,11 @@ abstract class UsersGetUsersResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetUsersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersResponseApplicationJson_Ocs> get serializer =>
@@ -6538,11 +6538,11 @@ abstract class UsersGetUsersResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetUsersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersResponseApplicationJson> get serializer =>
@@ -6568,11 +6568,11 @@ abstract class UsersAddUserResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory UsersAddUserResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddUserResponseApplicationJson_Ocs_Data> get serializer =>
@@ -6599,11 +6599,11 @@ abstract class UsersAddUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersAddUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddUserResponseApplicationJson_Ocs> get serializer =>
@@ -6628,11 +6628,11 @@ abstract class UsersAddUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersAddUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddUserResponseApplicationJson> get serializer =>
@@ -6659,11 +6659,11 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
 
   // coverage:ignore-start
   factory UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
@@ -6690,11 +6690,11 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory UsersGetUsersDetailsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -6721,11 +6721,11 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetUsersDetailsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs> get serializer =>
@@ -6751,11 +6751,11 @@ abstract class UsersGetUsersDetailsResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetUsersDetailsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersDetailsResponseApplicationJson> get serializer =>
@@ -6784,11 +6784,11 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_User
   factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.fromJson(
     final Map<String, dynamic> json,
   ) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
@@ -6815,11 +6815,11 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -6847,11 +6847,11 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs> get serializer =>
@@ -6878,11 +6878,11 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetDisabledUsersDetailsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson> get serializer =>
@@ -6910,11 +6910,11 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersSearchByPhoneNumbersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersSearchByPhoneNumbersResponseApplicationJson_Ocs> get serializer =>
@@ -6941,11 +6941,11 @@ abstract class UsersSearchByPhoneNumbersResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersSearchByPhoneNumbersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersSearchByPhoneNumbersResponseApplicationJson> get serializer =>
@@ -6972,11 +6972,11 @@ abstract class UsersGetUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUserResponseApplicationJson_Ocs> get serializer =>
@@ -7001,11 +7001,11 @@ abstract class UsersGetUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUserResponseApplicationJson> get serializer =>
@@ -7032,11 +7032,11 @@ abstract class UsersEditUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersEditUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEditUserResponseApplicationJson_Ocs> get serializer =>
@@ -7061,11 +7061,11 @@ abstract class UsersEditUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersEditUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEditUserResponseApplicationJson> get serializer =>
@@ -7092,11 +7092,11 @@ abstract class UsersDeleteUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersDeleteUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersDeleteUserResponseApplicationJson_Ocs> get serializer =>
@@ -7122,11 +7122,11 @@ abstract class UsersDeleteUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersDeleteUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersDeleteUserResponseApplicationJson> get serializer =>
@@ -7153,11 +7153,11 @@ abstract class UsersGetCurrentUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetCurrentUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetCurrentUserResponseApplicationJson_Ocs> get serializer =>
@@ -7183,11 +7183,11 @@ abstract class UsersGetCurrentUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetCurrentUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetCurrentUserResponseApplicationJson> get serializer =>
@@ -7215,11 +7215,11 @@ abstract class UsersGetEditableFieldsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetEditableFieldsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetEditableFieldsResponseApplicationJson_Ocs> get serializer =>
@@ -7245,11 +7245,11 @@ abstract class UsersGetEditableFieldsResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetEditableFieldsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetEditableFieldsResponseApplicationJson> get serializer =>
@@ -7277,11 +7277,11 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetEditableFieldsForUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetEditableFieldsForUserResponseApplicationJson_Ocs> get serializer =>
@@ -7308,11 +7308,11 @@ abstract class UsersGetEditableFieldsForUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetEditableFieldsForUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetEditableFieldsForUserResponseApplicationJson> get serializer =>
@@ -7340,11 +7340,11 @@ abstract class UsersEditUserMultiValueResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersEditUserMultiValueResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEditUserMultiValueResponseApplicationJson_Ocs> get serializer =>
@@ -7370,11 +7370,11 @@ abstract class UsersEditUserMultiValueResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersEditUserMultiValueResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEditUserMultiValueResponseApplicationJson> get serializer =>
@@ -7401,11 +7401,11 @@ abstract class UsersWipeUserDevicesResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersWipeUserDevicesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersWipeUserDevicesResponseApplicationJson_Ocs> get serializer =>
@@ -7431,11 +7431,11 @@ abstract class UsersWipeUserDevicesResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersWipeUserDevicesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersWipeUserDevicesResponseApplicationJson> get serializer =>
@@ -7462,11 +7462,11 @@ abstract class UsersEnableUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersEnableUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEnableUserResponseApplicationJson_Ocs> get serializer =>
@@ -7492,11 +7492,11 @@ abstract class UsersEnableUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersEnableUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersEnableUserResponseApplicationJson> get serializer =>
@@ -7523,11 +7523,11 @@ abstract class UsersDisableUserResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersDisableUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersDisableUserResponseApplicationJson_Ocs> get serializer =>
@@ -7553,11 +7553,11 @@ abstract class UsersDisableUserResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersDisableUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersDisableUserResponseApplicationJson> get serializer =>
@@ -7584,11 +7584,11 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory UsersGetUsersGroupsResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersGroupsResponseApplicationJson_Ocs_Data> get serializer =>
@@ -7615,11 +7615,11 @@ abstract class UsersGetUsersGroupsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetUsersGroupsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersGroupsResponseApplicationJson_Ocs> get serializer =>
@@ -7645,11 +7645,11 @@ abstract class UsersGetUsersGroupsResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetUsersGroupsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUsersGroupsResponseApplicationJson> get serializer =>
@@ -7676,11 +7676,11 @@ abstract class UsersAddToGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersAddToGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddToGroupResponseApplicationJson_Ocs> get serializer =>
@@ -7706,11 +7706,11 @@ abstract class UsersAddToGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersAddToGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddToGroupResponseApplicationJson> get serializer =>
@@ -7737,11 +7737,11 @@ abstract class UsersRemoveFromGroupResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersRemoveFromGroupResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersRemoveFromGroupResponseApplicationJson_Ocs> get serializer =>
@@ -7767,11 +7767,11 @@ abstract class UsersRemoveFromGroupResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersRemoveFromGroupResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersRemoveFromGroupResponseApplicationJson> get serializer =>
@@ -7799,11 +7799,11 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson_Ocs> get serializer =>
@@ -7830,11 +7830,11 @@ abstract class UsersGetUserSubAdminGroupsResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersGetUserSubAdminGroupsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersGetUserSubAdminGroupsResponseApplicationJson> get serializer =>
@@ -7861,11 +7861,11 @@ abstract class UsersAddSubAdminResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersAddSubAdminResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddSubAdminResponseApplicationJson_Ocs> get serializer =>
@@ -7891,11 +7891,11 @@ abstract class UsersAddSubAdminResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersAddSubAdminResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersAddSubAdminResponseApplicationJson> get serializer =>
@@ -7922,11 +7922,11 @@ abstract class UsersRemoveSubAdminResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersRemoveSubAdminResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersRemoveSubAdminResponseApplicationJson_Ocs> get serializer =>
@@ -7952,11 +7952,11 @@ abstract class UsersRemoveSubAdminResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersRemoveSubAdminResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersRemoveSubAdminResponseApplicationJson> get serializer =>
@@ -7984,11 +7984,11 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory UsersResendWelcomeMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersResendWelcomeMessageResponseApplicationJson_Ocs> get serializer =>
@@ -8015,11 +8015,11 @@ abstract class UsersResendWelcomeMessageResponseApplicationJson
 
   // coverage:ignore-start
   factory UsersResendWelcomeMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<UsersResendWelcomeMessageResponseApplicationJson> get serializer =>
@@ -8050,11 +8050,11 @@ abstract class Capabilities_ProvisioningApi
 
   // coverage:ignore-start
   factory Capabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities_ProvisioningApi> get serializer => _$capabilitiesProvisioningApiSerializer;
@@ -8074,11 +8074,11 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
@@ -8112,8 +8112,8 @@ extension $BoolIntExtension on $BoolInt {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BoolInt> get serializer => const _$BoolIntSerializer();
-  static $BoolInt fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BoolInt fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
@@ -8169,8 +8169,8 @@ extension $NumStringExtension on $NumString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $NumString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
@@ -8232,8 +8232,8 @@ extension $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDet
   static Serializer<$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails> get serializer =>
       const _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer();
   static $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails fromJson(final Object? json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer
@@ -8307,8 +8307,8 @@ extension $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Ex
   static Serializer<$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
       const _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
   static $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(final Object? json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
@@ -8381,8 +8381,8 @@ extension $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsData
   static Serializer<$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
       const _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
   static $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(final Object? json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
@@ -8444,7 +8444,8 @@ class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUse
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(AppConfigGetAppsResponseApplicationJson),
         AppConfigGetAppsResponseApplicationJsonBuilder.new,
@@ -9043,7 +9044,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(Capabilities_ProvisioningApi.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

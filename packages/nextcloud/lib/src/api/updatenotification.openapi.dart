@@ -147,7 +147,7 @@ class ApiClient {
       ),
       bodyType: const FullType(ApiGetAppListResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -183,11 +183,11 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -207,11 +207,11 @@ abstract class App implements $AppInterface, Built<App, AppBuilder> {
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory App.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory App.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<App> get serializer => _$appSerializer;
@@ -237,11 +237,11 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> get serializer =>
@@ -268,11 +268,11 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ApiGetAppListResponseApplicationJson_Ocs> get serializer =>
@@ -297,11 +297,11 @@ abstract class ApiGetAppListResponseApplicationJson
 
   // coverage:ignore-start
   factory ApiGetAppListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ApiGetAppListResponseApplicationJson> get serializer =>
@@ -309,7 +309,8 @@ abstract class ApiGetAppListResponseApplicationJson
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..add(ApiGetAppListApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(ApiGetAppListResponseApplicationJson),
@@ -333,7 +334,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

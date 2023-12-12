@@ -10,6 +10,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:meta/meta.dart';
 
 part 'any_of.openapi.g.dart';
 
@@ -51,9 +52,9 @@ abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf
 
   const ObjectAnyOf0._();
 
-  factory ObjectAnyOf0.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf0.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
 }
@@ -69,9 +70,9 @@ abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf
 
   const ObjectAnyOf1._();
 
-  factory ObjectAnyOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
 }
@@ -87,9 +88,9 @@ abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, 
 
   const MixedAnyOf1._();
 
-  factory MixedAnyOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
 }
@@ -106,9 +107,9 @@ abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneOb
   const OneObjectAnyOf0._();
 
   factory OneObjectAnyOf0.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
 }
@@ -126,8 +127,8 @@ extension $ObjectAnyOf0ObjectAnyOf1Extension on $ObjectAnyOf0ObjectAnyOf1 {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$ObjectAnyOf0ObjectAnyOf1> get serializer => const _$ObjectAnyOf0ObjectAnyOf1Serializer();
-  static $ObjectAnyOf0ObjectAnyOf1 fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $ObjectAnyOf0ObjectAnyOf1 fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$ObjectAnyOf0ObjectAnyOf1Serializer implements PrimitiveSerializer<$ObjectAnyOf0ObjectAnyOf1> {
@@ -183,8 +184,8 @@ extension $MixedAnyOf1StringExtension on $MixedAnyOf1String {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$MixedAnyOf1String> get serializer => const _$MixedAnyOf1StringSerializer();
-  static $MixedAnyOf1String fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $MixedAnyOf1String fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$MixedAnyOf1StringSerializer implements PrimitiveSerializer<$MixedAnyOf1String> {
@@ -240,8 +241,8 @@ extension $NumStringExtension on $NumString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $NumString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
@@ -291,7 +292,8 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAnyOf0), ObjectAnyOf0Builder.new)
       ..add(ObjectAnyOf0.serializer)
       ..addBuilderFactory(const FullType(ObjectAnyOf1), ObjectAnyOf1Builder.new)
@@ -305,7 +307,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add($NumStringExtension.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

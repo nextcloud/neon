@@ -128,7 +128,7 @@ class DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -214,7 +214,7 @@ class DashboardApiClient {
 
 // coverage:ignore-end
     if (sinceIds != null) {
-      queryParameters['sinceIds'] = _jsonSerializers.serialize(
+      queryParameters['sinceIds'] = jsonSerializers.serialize(
         sinceIds,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -243,7 +243,7 @@ class DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -333,7 +333,7 @@ class DashboardApiClient {
 
 // coverage:ignore-end
     if (sinceIds != null) {
-      queryParameters['sinceIds'] = _jsonSerializers.serialize(
+      queryParameters['sinceIds'] = jsonSerializers.serialize(
         sinceIds,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(String)]),
@@ -362,7 +362,7 @@ class DashboardApiClient {
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -384,11 +384,11 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -410,11 +410,11 @@ abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_
 
   // coverage:ignore-start
   factory Widget_Buttons.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Widget_Buttons> get serializer => _$widgetButtonsSerializer;
@@ -448,11 +448,11 @@ abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Widget.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Widget> get serializer => _$widgetSerializer;
@@ -479,11 +479,11 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs> get serializer =>
@@ -509,11 +509,11 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetsResponseApplicationJson> get serializer =>
@@ -538,11 +538,11 @@ abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, Wid
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WidgetItem.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItem.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<WidgetItem> get serializer => _$widgetItemSerializer;
@@ -569,11 +569,11 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs> get serializer =>
@@ -600,11 +600,11 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetItemsResponseApplicationJson> get serializer =>
@@ -626,11 +626,11 @@ abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WidgetItems.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItems.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<WidgetItems> get serializer => _$widgetItemsSerializer;
@@ -657,11 +657,11 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs> get serializer =>
@@ -688,11 +688,11 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 
   // coverage:ignore-start
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson> get serializer =>
@@ -700,7 +700,8 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DashboardApiGetWidgetsResponseApplicationJson),
         DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
@@ -773,7 +774,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

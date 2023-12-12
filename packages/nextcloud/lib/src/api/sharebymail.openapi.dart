@@ -11,6 +11,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:meta/meta.dart';
 
 part 'sharebymail.openapi.g.dart';
 
@@ -54,11 +55,11 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
 
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
@@ -85,11 +86,11 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
 
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
@@ -117,11 +118,11 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
 
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
@@ -154,11 +155,11 @@ abstract class Capabilities0_FilesSharing_Sharebymail
 
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
@@ -183,11 +184,11 @@ abstract class Capabilities0_FilesSharing
 
   // coverage:ignore-start
   factory Capabilities0_FilesSharing.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
@@ -207,12 +208,11 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities0.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
@@ -227,8 +227,8 @@ extension $BuiltListCapabilities0Extension on $BuiltListCapabilities0 {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListCapabilities0> get serializer => const _$BuiltListCapabilities0Serializer();
-  static $BuiltListCapabilities0 fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BuiltListCapabilities0 fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltListCapabilities0> {
@@ -279,7 +279,8 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities0), Capabilities0Builder.new)
       ..add(Capabilities0.serializer)
       ..addBuilderFactory(const FullType(Capabilities0_FilesSharing), Capabilities0_FilesSharingBuilder.new)
@@ -308,7 +309,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add($BuiltListCapabilities0Extension.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

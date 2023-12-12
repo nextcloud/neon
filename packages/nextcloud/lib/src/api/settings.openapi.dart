@@ -117,7 +117,7 @@ class LogSettingsClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: const FullType(LogSettingsLogSettingsDownloadHeaders),
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -142,11 +142,11 @@ abstract class LogSettingsLogSettingsDownloadHeaders
 
   // coverage:ignore-start
   factory LogSettingsLogSettingsDownloadHeaders.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
@@ -154,7 +154,8 @@ abstract class LogSettingsLogSettingsDownloadHeaders
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(LogSettingsLogSettingsDownloadHeaders),
         LogSettingsLogSettingsDownloadHeadersBuilder.new,
@@ -162,7 +163,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

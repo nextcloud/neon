@@ -103,7 +103,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(SupportedAPIVersions),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -172,7 +172,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -250,7 +250,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFolders),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -334,7 +334,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -404,7 +404,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -488,7 +488,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -557,7 +557,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -647,7 +647,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListFeeds),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -717,7 +717,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -803,7 +803,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -887,7 +887,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -971,7 +971,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1095,7 +1095,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1195,7 +1195,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(ListArticles),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1265,7 +1265,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1335,7 +1335,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1405,7 +1405,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1475,7 +1475,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -1495,11 +1495,11 @@ abstract class SupportedAPIVersions
 
   // coverage:ignore-start
   factory SupportedAPIVersions.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<SupportedAPIVersions> get serializer => _$supportedAPIVersionsSerializer;
@@ -1537,11 +1537,11 @@ abstract class Article implements $ArticleInterface, Built<Article, ArticleBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Article.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Article.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Article> get serializer => _$articleSerializer;
@@ -1572,11 +1572,11 @@ abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Feed.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Feed.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Feed> get serializer => _$feedSerializer;
@@ -1600,11 +1600,11 @@ abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Folder.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Folder.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Folder> get serializer => _$folderSerializer;
@@ -1623,11 +1623,11 @@ abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListFolders.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFolders.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ListFolders> get serializer => _$listFoldersSerializer;
@@ -1648,11 +1648,11 @@ abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFe
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListFeeds.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFeeds.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ListFeeds> get serializer => _$listFeedsSerializer;
@@ -1671,11 +1671,11 @@ abstract class ListArticles implements $ListArticlesInterface, Built<ListArticle
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListArticles.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListArticles.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<ListArticles> get serializer => _$listArticlesSerializer;
@@ -1698,11 +1698,11 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -1722,11 +1722,11 @@ abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Oc
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<EmptyOCS_Ocs> get serializer => _$emptyOCSOcsSerializer;
@@ -1745,18 +1745,19 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<EmptyOCS> get serializer => _$emptyOCSSerializer;
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
       ..add(SupportedAPIVersions.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
@@ -1784,7 +1785,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

@@ -93,7 +93,7 @@ sealed class TypeResult {
   /// The serialized result is an [Object]?
   @mustCallSuper
   String serialize(final String object, [final String? serializerName]) =>
-      '${serializerName ?? '_jsonSerializers'}.serialize($object, specifiedType: const $fullType)';
+      '${serializerName ?? 'jsonSerializers'}.serialize($object, specifiedType: const $fullType)';
 
   /// Deserializes the variable named [object].
   ///
@@ -101,7 +101,7 @@ sealed class TypeResult {
   @mustCallSuper
   String deserialize(final String object, [final String? serializerName]) {
     final buffer = StringBuffer()
-      ..write(serializerName ?? '_jsonSerializers')
+      ..write(serializerName ?? 'jsonSerializers')
       ..write('.deserialize(')
       ..write(object)
       ..write(', specifiedType: const $fullType)');
