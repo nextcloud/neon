@@ -51,6 +51,24 @@
                         }
                     }
                 }
+            },
+            "Object": {
+                "type": "object"
+            },
+            "String": {
+                "type": "object"
+            },
+            "Uri": {
+                "type": "object"
+            },
+            "Uint8List": {
+                "type": "object"
+            },
+            "List": {
+                "type": "object"
+            },
+            "Map": {
+                "type": "object"
             }
         }
     },

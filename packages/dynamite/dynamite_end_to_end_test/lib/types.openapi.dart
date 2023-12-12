@@ -36,6 +36,18 @@ class Client extends DynamiteClient {
         );
 }
 
+typedef $Object = dynamic;
+
+typedef $String = dynamic;
+
+typedef $Uri = dynamic;
+
+typedef $Uint8List = dynamic;
+
+typedef $List = dynamic;
+
+typedef $Map = dynamic;
+
 @BuiltValue(instantiable: false)
 abstract interface class $BaseInterface {
   @BuiltValueField(wireName: 'bool')

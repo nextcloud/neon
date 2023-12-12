@@ -31,6 +31,57 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "name": "array",
+                        "in": "query",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "bool",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "string",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "string_binary",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    },
+                    {
+                        "name": "int",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "double",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
                     }
                 ],
                 "responses": {

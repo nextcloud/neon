@@ -50,12 +50,12 @@ abstract class TypeResultSomeOf extends TypeResult {
   late final String typeName = _typeName;
 
   String get _typeName {
-    final buffer = StringBuffer(r'$');
+    final buffer = StringBuffer();
     for (final type in optimizedSubTypes) {
-      buffer.write(toDartName(type.className, uppercaseFirstCharacter: true));
+      buffer.write(type.className.capitalize());
     }
 
-    return buffer.toString();
+    return '\$${toDartName(buffer.toString(), uppercaseFirstCharacter: true)}';
   }
 
   BuiltList<TypeResult> get _optimizedSubTypes {

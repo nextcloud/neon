@@ -15,18 +15,43 @@ String toDartName(
     }
   }
 
-  if (_dartKeywords.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
+  if (_reservedNames.contains(result) || RegExp(r'^[0-9]+$', multiLine: true).hasMatch(result)) {
     return '\$$result';
   }
 
   return result;
 }
 
-final _dartKeywords = [
+/// Helper methods to work with strings.
+extension StringUtils on String {
+  /// Capitalizes this string.
+  ///
+  /// ```dart
+  /// ''.capitalize(); // ''
+  /// '   '.capitalize(); // ''
+  /// 'testValue'.capitalize(); // 'TestValue'
+  /// 'TestValue'.capitalize(); // 'TestValue'
+  ///
+  /// ```
+  String capitalize() {
+    final trimmed = trimLeft();
+
+    if (trimmed.isEmpty) {
+      return this;
+    }
+
+    final capitalChar = trimmed[0].toUpperCase();
+    return trimmed.replaceRange(0, 1, capitalChar);
+  }
+}
+
+/// A list of dart keywords and type names that need to be escaped.
+const _reservedNames = [
   'abstract',
   'as',
   'assert',
   'async',
+  'bool',
   'break',
   'case',
   'catch',
@@ -37,6 +62,7 @@ final _dartKeywords = [
   'default',
   'deferred',
   'do',
+  'double',
   'dynamic',
   'else',
   'enum',
@@ -56,12 +82,17 @@ final _dartKeywords = [
   'implements',
   'import',
   'in',
+  'int',
   'interface',
   'is',
   'library',
+  'List',
+  'Map',
   'mixin',
   'new',
   'null',
+  'num',
+  'Object',
   'on',
   'operator',
   'part',
@@ -70,6 +101,7 @@ final _dartKeywords = [
   'set',
   'show',
   'static',
+  'String',
   'super',
   'switch',
   'sync',
@@ -78,6 +110,8 @@ final _dartKeywords = [
   'true',
   'try',
   'typedef',
+  'Uint8List',
+  'Uri',
   'var',
   'void',
   'while',
