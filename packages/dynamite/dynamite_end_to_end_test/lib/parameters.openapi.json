@@ -9,7 +9,7 @@
             "get": {
                 "parameters": [
                     {
-                        "name": "content-string",
+                        "name": "content_string",
                         "in": "query",
                         "schema": {
                             "type": "string",
@@ -21,7 +21,7 @@
                         }
                     },
                     {
-                        "name": "content-parameter",
+                        "name": "content_parameter",
                         "in": "query",
                         "content": {
                             "application/json": {
