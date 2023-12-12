@@ -1,0 +1,20 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Enum tests",
+        "version": "0.0.1"
+    },
+    "components": {
+        "schemas": {
+            "enum-string": {
+                "type": "string",
+                "enum": [
+                    "test",
+                    "default"
+                ]
+            }
+        }
+    },
+    "paths": {},
+    "tags": []
+}
