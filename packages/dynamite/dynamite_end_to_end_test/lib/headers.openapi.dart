@@ -80,7 +80,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: const FullType(GetHeaders),
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -130,7 +130,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: const FullType(WithContentOperationIdHeaders),
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -182,7 +182,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: const FullType(GetWithContentHeaders),
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -198,9 +198,9 @@ abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, Get
 
   const GetHeaders._();
 
-  factory GetHeaders.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory GetHeaders.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<GetHeaders> get serializer => _$getHeadersSerializer;
 }
@@ -221,9 +221,9 @@ abstract class WithContentOperationIdHeaders
   const WithContentOperationIdHeaders._();
 
   factory WithContentOperationIdHeaders.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<WithContentOperationIdHeaders> get serializer => _$withContentOperationIdHeadersSerializer;
 }
@@ -241,15 +241,16 @@ abstract class GetWithContentHeaders
   const GetWithContentHeaders._();
 
   factory GetWithContentHeaders.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<GetWithContentHeaders> get serializer => _$getWithContentHeadersSerializer;
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
       ..add(GetHeaders.serializer)
       ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
@@ -258,7 +259,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(GetWithContentHeaders.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

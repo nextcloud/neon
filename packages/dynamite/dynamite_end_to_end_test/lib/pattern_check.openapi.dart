@@ -10,6 +10,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:meta/meta.dart';
 
 part 'pattern_check.openapi.g.dart';
 
@@ -49,9 +50,9 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 
   const TestObject._();
 
-  factory TestObject.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory TestObject.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<TestObject> get serializer => _$testObjectSerializer;
 
@@ -67,12 +68,14 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
       ..add(TestObject.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

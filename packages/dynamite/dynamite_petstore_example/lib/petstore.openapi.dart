@@ -120,7 +120,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: FullType(BuiltList, [FullType(Pet)]),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -166,7 +166,7 @@ class Client extends DynamiteClient {
     Uint8List? _body;
 
     _headers['Content-Type'] = 'application/json';
-    _body = utf8.encode(json.encode(_jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
+    _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
     var _uri = Uri.parse(UriTemplate('/pets').expand(_pathParameters));
     if (_queryParameters.isNotEmpty) {
       _uri = _uri.replace(queryParameters: _queryParameters);
@@ -182,7 +182,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: FullType(Pet),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -249,7 +249,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: FullType(Pet),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -314,7 +314,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: null,
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -333,11 +333,11 @@ abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> 
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NewPet.fromJson(Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory NewPet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<NewPet> get serializer => _$newPetSerializer;
@@ -359,11 +359,11 @@ abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Pet.fromJson(Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Pet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Pet> get serializer => _$petSerializer;
@@ -383,18 +383,19 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Error.fromJson(Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Error.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Error> get serializer => _$errorSerializer;
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..addBuilderFactory(FullType(Pet), PetBuilder.new)
       ..add(Pet.serializer)
@@ -405,7 +406,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(Error.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

@@ -3,7 +3,8 @@ import 'package:dynamite/src/builder/state.dart';
 
 List<Spec> buildSerializer(final State state) => [
       const Code('// coverage:ignore-start'),
-      const Code('final Serializers _serializers = (Serializers().toBuilder()'),
+      const Code('@visibleForTesting'),
+      const Code('final Serializers serializers = (Serializers().toBuilder()'),
       ...state.resolvedTypes
           .map((final type) => type.serializers)
           .expand((final element) => element)
@@ -11,8 +12,9 @@ List<Spec> buildSerializer(final State state) => [
           .map(Code.new),
       const Code(').build();'),
       const Code(''),
+      const Code('@visibleForTesting'),
       const Code(
-        'final Serializers _jsonSerializers = (_serializers.toBuilder()..add(DynamiteDoubleSerializer())..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
+        'final Serializers jsonSerializers = (serializers.toBuilder()..add(DynamiteDoubleSerializer())..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
       ),
       const Code('// coverage:ignore-end'),
     ];

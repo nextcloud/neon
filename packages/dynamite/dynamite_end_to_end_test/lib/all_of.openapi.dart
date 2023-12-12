@@ -9,6 +9,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:meta/meta.dart';
 
 part 'all_of.openapi.g.dart';
 
@@ -51,9 +52,9 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
 
   const ObjectAllOf._();
 
-  factory ObjectAllOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
 }
@@ -73,9 +74,9 @@ abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObje
   const OneObjectAllOf._();
 
   factory OneObjectAllOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
 }
@@ -94,9 +95,9 @@ abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<Primiti
   const PrimitiveAllOf._();
 
   factory PrimitiveAllOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
 }
@@ -118,9 +119,9 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
 
   const MixedAllOf._();
 
-  factory MixedAllOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
 }
@@ -136,16 +137,16 @@ abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueA
 
   const OneValueAllOf._();
 
-  factory OneValueAllOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneValueAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<OneValueAllOf> get serializer => _$oneValueAllOfSerializer;
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ObjectAllOf), ObjectAllOfBuilder.new)
       ..add(ObjectAllOf.serializer)
       ..addBuilderFactory(const FullType(OneObjectAllOf), OneObjectAllOfBuilder.new)
@@ -158,7 +159,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(OneValueAllOf.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

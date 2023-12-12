@@ -10,6 +10,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:meta/meta.dart';
 
 part 'nested_ofs.openapi.g.dart';
 
@@ -49,9 +50,9 @@ abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAl
 
   const BaseAllOf._();
 
-  factory BaseAllOf.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseAllOf> get serializer => _$baseAllOfSerializer;
 }
@@ -67,9 +68,9 @@ abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, Bas
 
   const BaseOneOf1._();
 
-  factory BaseOneOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseOneOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
 }
@@ -85,9 +86,9 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
 
   const BaseAnyOf1._();
 
-  factory BaseAnyOf1.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
 }
@@ -112,9 +113,9 @@ abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseN
   const BaseNestedAllOf._();
 
   factory BaseNestedAllOf.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseNestedAllOf> get serializer => _$baseNestedAllOfSerializer;
 }
@@ -132,9 +133,9 @@ abstract class BaseNestedOneOf3
   const BaseNestedOneOf3._();
 
   factory BaseNestedOneOf3.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
 }
@@ -152,9 +153,9 @@ abstract class BaseNestedAnyOf3
   const BaseNestedAnyOf3._();
 
   factory BaseNestedAnyOf3.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
 }
@@ -188,8 +189,8 @@ extension $BaseOneOf1DoubleExtension on $BaseOneOf1Double {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseOneOf1Double> get serializer => const _$BaseOneOf1DoubleSerializer();
-  static $BaseOneOf1Double fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BaseOneOf1Double fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Double> {
@@ -245,8 +246,8 @@ extension $BaseAnyOf1IntExtension on $BaseAnyOf1Int {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseAnyOf1Int> get serializer => const _$BaseAnyOf1IntSerializer();
-  static $BaseAnyOf1Int fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BaseAnyOf1Int fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
@@ -311,8 +312,8 @@ extension $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension
   static Serializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> get serializer =>
       const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
   static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double fromJson(final Object? json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
@@ -410,8 +411,8 @@ extension $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension
   static Serializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> get serializer =>
       const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
   static $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt fromJson(final Object? json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+      jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
@@ -500,8 +501,8 @@ extension $BaseOneOf1NumExtension on $BaseOneOf1Num {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseOneOf1Num> get serializer => const _$BaseOneOf1NumSerializer();
-  static $BaseOneOf1Num fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BaseOneOf1Num fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
@@ -551,7 +552,8 @@ class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
       ..add(BaseAllOf.serializer)
       ..addBuilderFactory(const FullType(BaseOneOf1), BaseOneOf1Builder.new)
@@ -571,7 +573,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add($BaseOneOf1NumExtension.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

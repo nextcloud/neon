@@ -79,7 +79,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -133,7 +133,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -189,7 +189,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -243,15 +243,17 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(String),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
 
 // coverage:ignore-start
-final Serializers _serializers = Serializers().toBuilder().build();
+@visibleForTesting
+final Serializers serializers = Serializers().toBuilder().build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

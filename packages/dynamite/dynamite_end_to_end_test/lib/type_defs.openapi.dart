@@ -11,6 +11,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
+import 'package:meta/meta.dart';
 
 part 'type_defs.openapi.g.dart';
 
@@ -53,9 +54,9 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 
   const Base._();
 
-  factory Base.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<Base> get serializer => _$baseSerializer;
 }
@@ -73,9 +74,9 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
   const NestedRedirect._();
 
   factory NestedRedirect.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
 
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
 }
@@ -89,8 +90,8 @@ extension $BaseIntJsonObjectExtension on $BaseIntJsonObject {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseIntJsonObject> get serializer => const _$BaseIntJsonObjectSerializer();
-  static $BaseIntJsonObject fromJson(final Object? json) => _jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => _jsonSerializers.serializeWith(serializer, this);
+  static $BaseIntJsonObject fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
 class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonObject> {
@@ -148,7 +149,8 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
       ..add(Base.serializer)
       ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
@@ -156,7 +158,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add($BaseIntJsonObjectExtension.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

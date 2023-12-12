@@ -361,7 +361,7 @@ if (_queryParameters.isNotEmpty) {
     ),
     bodyType: ${dataType?.fullType},
     headersType: ${headersType?.fullType},
-    serializers: _jsonSerializers,
+    serializers: jsonSerializers,
   );
 ''');
       }

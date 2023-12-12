@@ -85,7 +85,7 @@ class Client extends DynamiteClient {
     Uint8List? body;
 
     if (contentString != null) {
-      queryParameters['content-string'] = _jsonSerializers.serialize(
+      queryParameters['content-string'] = jsonSerializers.serialize(
         contentString,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -93,7 +93,7 @@ class Client extends DynamiteClient {
       );
     }
     if (contentParameter != null) {
-      queryParameters['content-parameter'] = _jsonSerializers.serialize(
+      queryParameters['content-parameter'] = jsonSerializers.serialize(
         contentParameter,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -115,7 +115,7 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -170,13 +170,14 @@ class Client extends DynamiteClient {
       ),
       bodyType: const FullType(JsonObject),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         MapBuilder<String, JsonObject>.new,
@@ -190,7 +191,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(ContentString.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))

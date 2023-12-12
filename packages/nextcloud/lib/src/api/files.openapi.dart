@@ -154,7 +154,7 @@ class ApiClient {
       ),
       bodyType: const FullType(Uint8List),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -244,7 +244,7 @@ class DirectEditingClient {
       ),
       bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -347,7 +347,7 @@ class DirectEditingClient {
       ),
       bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -459,7 +459,7 @@ class DirectEditingClient {
       ),
       bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -575,7 +575,7 @@ class DirectEditingClient {
       ),
       bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -675,7 +675,7 @@ class OpenLocalEditorClient {
       ),
       bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -775,7 +775,7 @@ class OpenLocalEditorClient {
       ),
       bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -863,7 +863,7 @@ class TemplateClient {
       ),
       bodyType: const FullType(TemplateListResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -973,7 +973,7 @@ class TemplateClient {
       ),
       bodyType: const FullType(TemplateCreateResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1077,7 +1077,7 @@ class TemplateClient {
       ),
       bodyType: const FullType(TemplatePathResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -1185,7 +1185,7 @@ class TransferOwnershipClient {
       ),
       bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1281,7 +1281,7 @@ class TransferOwnershipClient {
       ),
       bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 
@@ -1377,7 +1377,7 @@ class TransferOwnershipClient {
       ),
       bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),
       headersType: null,
-      serializers: _jsonSerializers,
+      serializers: jsonSerializers,
     );
   }
 }
@@ -1399,11 +1399,11 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
@@ -1433,11 +1433,11 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
 
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors> get serializer =>
@@ -1470,11 +1470,11 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
 
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> get serializer =>
@@ -1502,11 +1502,11 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data> get serializer =>
@@ -1533,11 +1533,11 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingInfoResponseApplicationJson_Ocs> get serializer =>
@@ -1563,11 +1563,11 @@ abstract class DirectEditingInfoResponseApplicationJson
 
   // coverage:ignore-start
   factory DirectEditingInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingInfoResponseApplicationJson> get serializer =>
@@ -1599,11 +1599,11 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
 
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get serializer =>
@@ -1630,11 +1630,11 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data> get serializer =>
@@ -1662,11 +1662,11 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs> get serializer =>
@@ -1692,11 +1692,11 @@ abstract class DirectEditingTemplatesResponseApplicationJson
 
   // coverage:ignore-start
   factory DirectEditingTemplatesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingTemplatesResponseApplicationJson> get serializer =>
@@ -1723,11 +1723,11 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingOpenResponseApplicationJson_Ocs_Data> get serializer =>
@@ -1754,11 +1754,11 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingOpenResponseApplicationJson_Ocs> get serializer =>
@@ -1784,11 +1784,11 @@ abstract class DirectEditingOpenResponseApplicationJson
 
   // coverage:ignore-start
   factory DirectEditingOpenResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingOpenResponseApplicationJson> get serializer =>
@@ -1815,11 +1815,11 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingCreateResponseApplicationJson_Ocs_Data> get serializer =>
@@ -1846,11 +1846,11 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingCreateResponseApplicationJson_Ocs> get serializer =>
@@ -1876,11 +1876,11 @@ abstract class DirectEditingCreateResponseApplicationJson
 
   // coverage:ignore-start
   factory DirectEditingCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<DirectEditingCreateResponseApplicationJson> get serializer =>
@@ -1910,11 +1910,11 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data> get serializer =>
@@ -1942,11 +1942,11 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs> get serializer =>
@@ -1972,11 +1972,11 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
 
   // coverage:ignore-start
   factory OpenLocalEditorCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorCreateResponseApplicationJson> get serializer =>
@@ -2006,11 +2006,11 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data> get serializer =>
@@ -2038,11 +2038,11 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs> get serializer =>
@@ -2068,11 +2068,11 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
 
   // coverage:ignore-start
   factory OpenLocalEditorValidateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<OpenLocalEditorValidateResponseApplicationJson> get serializer =>
@@ -2101,11 +2101,11 @@ abstract class TemplateFileCreator
 
   // coverage:ignore-start
   factory TemplateFileCreator.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateFileCreator> get serializer => _$templateFileCreatorSerializer;
@@ -2131,11 +2131,11 @@ abstract class TemplateListResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TemplateListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateListResponseApplicationJson_Ocs> get serializer =>
@@ -2160,11 +2160,11 @@ abstract class TemplateListResponseApplicationJson
 
   // coverage:ignore-start
   factory TemplateListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateListResponseApplicationJson> get serializer =>
@@ -2192,11 +2192,11 @@ abstract class TemplateFile implements $TemplateFileInterface, Built<TemplateFil
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateFile.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory TemplateFile.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateFile> get serializer => _$templateFileSerializer;
@@ -2222,11 +2222,11 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TemplateCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateCreateResponseApplicationJson_Ocs> get serializer =>
@@ -2252,11 +2252,11 @@ abstract class TemplateCreateResponseApplicationJson
 
   // coverage:ignore-start
   factory TemplateCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplateCreateResponseApplicationJson> get serializer =>
@@ -2284,11 +2284,11 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
 
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplatePathResponseApplicationJson_Ocs_Data> get serializer =>
@@ -2315,11 +2315,11 @@ abstract class TemplatePathResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplatePathResponseApplicationJson_Ocs> get serializer =>
@@ -2344,11 +2344,11 @@ abstract class TemplatePathResponseApplicationJson
 
   // coverage:ignore-start
   factory TemplatePathResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TemplatePathResponseApplicationJson> get serializer =>
@@ -2376,11 +2376,11 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TransferOwnershipTransferResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipTransferResponseApplicationJson_Ocs> get serializer =>
@@ -2407,11 +2407,11 @@ abstract class TransferOwnershipTransferResponseApplicationJson
 
   // coverage:ignore-start
   factory TransferOwnershipTransferResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipTransferResponseApplicationJson> get serializer =>
@@ -2439,11 +2439,11 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipAcceptResponseApplicationJson_Ocs> get serializer =>
@@ -2469,11 +2469,11 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
 
   // coverage:ignore-start
   factory TransferOwnershipAcceptResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipAcceptResponseApplicationJson> get serializer =>
@@ -2501,11 +2501,11 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
 
   // coverage:ignore-start
   factory TransferOwnershipRejectResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipRejectResponseApplicationJson_Ocs> get serializer =>
@@ -2531,11 +2531,11 @@ abstract class TransferOwnershipRejectResponseApplicationJson
 
   // coverage:ignore-start
   factory TransferOwnershipRejectResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<TransferOwnershipRejectResponseApplicationJson> get serializer =>
@@ -2562,11 +2562,11 @@ abstract class Capabilities_Files_DirectEditing
 
   // coverage:ignore-start
   factory Capabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities_Files_DirectEditing> get serializer => _$capabilitiesFilesDirectEditingSerializer;
@@ -2590,11 +2590,11 @@ abstract class Capabilities_Files
 
   // coverage:ignore-start
   factory Capabilities_Files.fromJson(final Map<String, dynamic> json) =>
-      _jsonSerializers.deserializeWith(serializer, json)!;
+      jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities_Files> get serializer => _$capabilitiesFilesSerializer;
@@ -2613,11 +2613,11 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
@@ -2647,18 +2647,19 @@ abstract class Template implements $TemplateInterface, Built<Template, TemplateB
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Template.fromJson(final Map<String, dynamic> json) => _jsonSerializers.deserializeWith(serializer, json)!;
+  factory Template.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
-  Map<String, dynamic> toJson() => _jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
   static Serializer<Template> get serializer => _$templateSerializer;
 }
 
 // coverage:ignore-start
-final Serializers _serializers = (Serializers().toBuilder()
+@visibleForTesting
+final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
         const FullType(DirectEditingInfoResponseApplicationJson),
         DirectEditingInfoResponseApplicationJsonBuilder.new,
@@ -2872,7 +2873,8 @@ final Serializers _serializers = (Serializers().toBuilder()
       ..add(Template.serializer))
     .build();
 
-final Serializers _jsonSerializers = (_serializers.toBuilder()
+@visibleForTesting
+final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
       ..addPlugin(const ContentStringPlugin()))
