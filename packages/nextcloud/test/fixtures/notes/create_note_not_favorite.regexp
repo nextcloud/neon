@@ -1,0 +1,6 @@
+POST http://localhost/index\.php/apps/notes/api/v1/notes\?category=c&title=a&content=b
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Basic mock

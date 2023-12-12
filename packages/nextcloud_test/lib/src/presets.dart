@@ -1,4 +1,5 @@
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud_test/nextcloud_test.dart';
 import 'package:nextcloud_test/src/extended_version.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
@@ -40,7 +41,15 @@ void presets(
 
   void innerBody() {
     for (final presetVersion in _presets[presetGroup]!) {
-      group(presetVersion, () => body((name: presetGroup, version: presetVersion)));
+      group(presetVersion, () {
+        final preset = (name: presetGroup, version: presetVersion);
+
+        tearDown(() {
+          validateFixture(preset);
+        });
+
+        return body(preset);
+      });
     }
   }
 

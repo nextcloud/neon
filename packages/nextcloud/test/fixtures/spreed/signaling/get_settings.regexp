@@ -1,0 +1,14 @@
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&roomName=Test
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+ocs-apirequest: true
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v3/signaling/settings\?token=[a-z0-9]{8}
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock
+ocs-apirequest: true

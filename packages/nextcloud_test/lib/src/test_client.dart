@@ -3,6 +3,8 @@ import 'dart:convert';
 
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/docker_container.dart';
+import 'package:nextcloud_test/src/fixtures.dart';
+import 'package:nextcloud_test/src/proxy_http_client.dart';
 import 'package:process_run/process_run.dart';
 
 /// An extension for creating [NextcloudClient]s based on [DockerContainer]s.
@@ -52,6 +54,9 @@ extension TestNextcloudClient on NextcloudClient {
       password: username,
       appPassword: appPassword,
       cookieJar: CookieJar(),
+      httpClient: getProxyHttpClient(
+        onRequest: appendFixture,
+      ),
     );
   }
 }

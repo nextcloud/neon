@@ -1,0 +1,21 @@
+PUT http://localhost/remote\.php/webdav/test\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 4
+authorization: Bearer mock
+test
+PROPPATCH http://localhost/remote\.php/webdav/test\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+<d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>1</oc:favorite></d:prop></d:set></d:propertyupdate>
+REPORT http://localhost/remote\.php/webdav
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+<oc:filter-files xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><oc:filter-rules><oc:favorite>1</oc:favorite></oc:filter-rules><d:prop><oc:id/><oc:favorite/></d:prop></oc:filter-files>

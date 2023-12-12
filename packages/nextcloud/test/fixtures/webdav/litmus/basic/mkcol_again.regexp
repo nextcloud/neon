@@ -1,0 +1,12 @@
+MKCOL http://localhost/remote\.php/webdav/test
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+MKCOL http://localhost/remote\.php/webdav/test
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock

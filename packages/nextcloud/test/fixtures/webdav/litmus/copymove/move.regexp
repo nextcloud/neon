@@ -1,0 +1,42 @@
+PUT http://localhost/remote\.php/webdav/src1\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock
+PUT http://localhost/remote\.php/webdav/src2\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+accept-encoding: gzip
+content-length: 0
+authorization: Bearer mock
+MKCOL http://localhost/remote\.php/webdav/coll
+user-agent: Dart/3\.2 \(dart:io\)
+content-type: application/xml
+transfer-encoding: chunked
+accept-encoding: gzip
+authorization: Bearer mock
+MOVE http://localhost/remote\.php/webdav/src1\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+destination: http://localhost/remote\.php/webdav/dst\.txt
+accept-encoding: gzip
+authorization: Bearer mock
+content-type: application/xml
+overwrite: F
+MOVE http://localhost/remote\.php/webdav/src2\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+destination: http://localhost/remote\.php/webdav/dst\.txt
+accept-encoding: gzip
+authorization: Bearer mock
+content-type: application/xml
+overwrite: F
+MOVE http://localhost/remote\.php/webdav/src2\.txt
+user-agent: Dart/3\.2 \(dart:io\)
+transfer-encoding: chunked
+destination: http://localhost/remote\.php/webdav/dst\.txt
+accept-encoding: gzip
+authorization: Bearer mock
+content-type: application/xml
+overwrite: T
