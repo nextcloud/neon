@@ -12,6 +12,7 @@ import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/imports.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
+import 'package:dynamite/src/helpers/version_checker.dart';
 import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:version/version.dart';
@@ -38,6 +39,17 @@ class OpenAPIBuilder implements Builder {
 
   @override
   Future<void> build(final BuildStep buildStep) async {
+    final result = await helperVersionCheck(buildStep);
+
+    if (result.messages.isNotEmpty) {
+      if (result.hasFatal) {
+        log.severe(result.messages);
+        return;
+      } else {
+        log.info(result.messages);
+      }
+    }
+
     try {
       final inputId = buildStep.inputId;
       final outputId = inputId.changeExtension('.dart');
