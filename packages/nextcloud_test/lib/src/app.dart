@@ -27,6 +27,9 @@ extension AppFindLatestRelease on App {
         )
         .toList()
       ..sort((final a, final b) => b.version.compareTo(a.version));
+    if (compatibleReleases.isEmpty) {
+      throw Exception('App $id has no compatible release with server $serverVersion.');
+    }
     return compatibleReleases.first;
   }
 }
