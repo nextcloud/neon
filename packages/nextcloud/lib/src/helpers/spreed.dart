@@ -7,7 +7,7 @@ import 'package:version/version.dart';
 final minVersion = Version(16, 0, 0);
 
 /// Maximum major of spreed supported
-const maxMajor = 17;
+const maxMajor = 18;
 
 /// Extension for checking whether spreed is supported.
 extension SpreedVersionCheck on spreed.Client {
