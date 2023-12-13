@@ -333,4 +333,18 @@ void main() {
       );
     });
   });
+
+  group('Serialize null value', () {
+    const data = null;
+    const serialized = null;
+    const specifiedType = FullType(ContentString, [FullType(bool)]);
+
+    test('can be serialized', () {
+      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+    });
+
+    test('can be deserialized', () {
+      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+    });
+  });
 }
