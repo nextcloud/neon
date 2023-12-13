@@ -23,5 +23,12 @@ void main() {
         expect(toDartName(value.$1, uppercaseFirstCharacter: true), value.$3);
       }
     });
+
+    test('capitalize', () {
+      expect(''.capitalize(), '');
+      expect('   '.capitalize(), '   ');
+      expect('testValue'.capitalize(), 'TestValue');
+      expect('TestValue'.capitalize(), 'TestValue');
+    });
   });
 }

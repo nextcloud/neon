@@ -40,6 +40,13 @@ class Client extends DynamiteClient {
   /// Parameters:
   ///   * [contentString]
   ///   * [contentParameter]
+  ///   * [array]
+  ///   * [$bool]
+  ///   * [string]
+  ///   * [stringBinary]
+  ///   * [$int]
+  ///   * [$double]
+  ///   * [$num]
   ///
   /// Status codes:
   ///   * 200
@@ -49,10 +56,24 @@ class Client extends DynamiteClient {
   Future<DynamiteResponse<JsonObject, void>> $get({
     final ContentString<BuiltMap<String, JsonObject>>? contentString,
     final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    final List<JsonObject>? array,
+    final bool? $bool,
+    final String? string,
+    final Uint8List? stringBinary,
+    final int? $int,
+    final double? $double,
+    final num? $num,
   }) async {
     final rawResponse = $getRaw(
       contentString: contentString,
       contentParameter: contentParameter,
+      array: array,
+      $bool: $bool,
+      string: string,
+      stringBinary: stringBinary,
+      $int: $int,
+      $double: $double,
+      $num: $num,
     );
 
     return rawResponse.future;
@@ -66,6 +87,13 @@ class Client extends DynamiteClient {
   /// Parameters:
   ///   * [contentString]
   ///   * [contentParameter]
+  ///   * [array]
+  ///   * [$bool]
+  ///   * [string]
+  ///   * [stringBinary]
+  ///   * [$int]
+  ///   * [$double]
+  ///   * [$num]
   ///
   /// Status codes:
   ///   * 200
@@ -76,6 +104,13 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<JsonObject, void> $getRaw({
     final ContentString<BuiltMap<String, JsonObject>>? contentString,
     final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    final List<JsonObject>? array,
+    final bool? $bool,
+    final String? string,
+    final Uint8List? stringBinary,
+    final int? $int,
+    final double? $double,
+    final num? $num,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -99,6 +134,27 @@ class Client extends DynamiteClient {
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
         ]),
       );
+    }
+    if (array != null) {
+      queryParameters['array'] = array.map((final e) => e.toString());
+    }
+    if ($bool != null) {
+      queryParameters['bool'] = $bool.toString();
+    }
+    if (string != null) {
+      queryParameters['string'] = string;
+    }
+    if (stringBinary != null) {
+      queryParameters['string_binary'] = stringBinary.toString();
+    }
+    if ($int != null) {
+      queryParameters['int'] = $int.toString();
+    }
+    if ($double != null) {
+      queryParameters['double'] = $double.toString();
+    }
+    if ($num != null) {
+      queryParameters['num'] = $num.toString();
     }
     var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
@@ -188,7 +244,8 @@ final Serializers serializers = (Serializers().toBuilder()
         ]),
         ContentStringBuilder<BuiltMap<String, JsonObject>>.new,
       )
-      ..add(ContentString.serializer))
+      ..add(ContentString.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
     .build();
 
 @visibleForTesting
