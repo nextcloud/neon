@@ -85,7 +85,7 @@ class Client extends DynamiteClient {
     Uint8List? body;
 
     if (contentString != null) {
-      queryParameters['content-string'] = jsonSerializers.serialize(
+      queryParameters['content_string'] = jsonSerializers.serialize(
         contentString,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
@@ -93,7 +93,7 @@ class Client extends DynamiteClient {
       );
     }
     if (contentParameter != null) {
-      queryParameters['content-parameter'] = jsonSerializers.serialize(
+      queryParameters['content_parameter'] = jsonSerializers.serialize(
         contentParameter,
         specifiedType: const FullType(ContentString, [
           FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),

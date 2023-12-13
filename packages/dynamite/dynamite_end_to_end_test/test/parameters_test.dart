@@ -66,7 +66,7 @@ void main() {
         captured,
         equals([
           'get',
-          Uri.parse('example.com/?content-string=$queryComponent'),
+          Uri.parse('example.com/?content_string=$queryComponent'),
         ]),
       );
     });
@@ -84,7 +84,7 @@ void main() {
         captured,
         equals([
           'get',
-          Uri.parse('example.com/?content-parameter=$queryComponent'),
+          Uri.parse('example.com/?content_parameter=$queryComponent'),
         ]),
       );
     });
@@ -102,7 +102,7 @@ void main() {
         captured,
         equals([
           'get',
-          Uri.parse('example.com/?content-string=$queryComponent&content-parameter=$queryComponent'),
+          Uri.parse('example.com/?content_string=$queryComponent&content_parameter=$queryComponent'),
         ]),
       );
     });
