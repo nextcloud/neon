@@ -145,7 +145,7 @@ void main() {
       group('App password', () {
         test('Delete', () async {
           await client.core.appPassword.deleteAppPassword();
-          expect(
+          await expectLater(
             () => client.core.appPassword.deleteAppPassword(),
             throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 401)),
           );
@@ -193,7 +193,7 @@ void main() {
           expect(response.body.poll.endpoint, startsWith('http://localhost'));
           expect(response.body.poll.token, isNotEmpty);
 
-          expect(
+          await expectLater(
             () => client.core.clientFlowLoginV2.poll(token: response.body.poll.token),
             throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 404)),
           );

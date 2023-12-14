@@ -120,7 +120,7 @@ void main() {
           title: 'b',
           ifMatch: '"${response.body.etag}"',
         );
-        expect(
+        await expectLater(
           () => client.notes.updateNote(
             id: response.body.id,
             title: 'c',
