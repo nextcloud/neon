@@ -28,6 +28,13 @@
         "minor",
         "patch"
       ],
+      "excludeDepNames": [
+        "app",
+        "dynamite_end_to_end_test",
+        "dynamite_petstore_example",
+        "neon_lints",
+        "nextcloud_test"
+      ],
       "enabled": false
     },
     {
