@@ -25,7 +25,7 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite
-  mockito: ^5.4.3
+  mockito: ^5.4.4
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon
