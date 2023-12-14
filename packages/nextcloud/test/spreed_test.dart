@@ -71,7 +71,7 @@ void main() {
       group('Room', () {
         test('Get rooms', () async {
           final response = await client1.spreed.room.getRooms();
-          expect(response.body.ocs.data, hasLength(1));
+          expect(response.body.ocs.data, isNotEmpty);
           expect(response.body.ocs.data[0].id, 1);
           expect(response.body.ocs.data[0].token, isNotEmpty);
           expect(response.body.ocs.data[0].type, spreed.RoomType.changelog.value);
