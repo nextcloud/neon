@@ -1,32 +1,32 @@
-PUT http://localhost/remote\.php/webdav/test\.txt
+PUT http://localhost/remote\.php/webdav/remove-props\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip
 content-length: 4
 authorization: Bearer mock
 test
-PROPPATCH http://localhost/remote\.php/webdav/test\.txt
+PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
 <d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:set><d:prop><oc:favorite>1</oc:favorite></d:prop></d:set></d:propertyupdate>
-PROPFIND http://localhost/remote\.php/webdav/test\.txt
+PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
 <d:propfind xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:prop><oc:favorite/><nc:upload_time/><nc:creation_time/></d:prop></d:propfind>
-PROPPATCH http://localhost/remote\.php/webdav/test\.txt
+PROPPATCH http://localhost/remote\.php/webdav/remove-props\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
 <d:propertyupdate xmlns:d="DAV:" xmlns:oc="http://owncloud\.org/ns" xmlns:nc="http://nextcloud\.org/ns" xmlns:ocs="http://open-collaboration-services\.org/ns" xmlns:ocm="http://open-cloud-mesh\.org/ns"><d:remove><d:prop><oc:favorite/></d:prop></d:remove></d:propertyupdate>
-PROPFIND http://localhost/remote\.php/webdav/test\.txt
+PROPFIND http://localhost/remote\.php/webdav/remove-props\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked

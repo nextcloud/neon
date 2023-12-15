@@ -11,16 +11,21 @@ void main() {
     (preset) {
       late DockerContainer container;
       late NextcloudClient client;
-      setUp(() async {
+      setUpAll(() async {
         container = await DockerContainer.create(preset);
         client = await TestNextcloudClient.create(container);
       });
-      tearDown(() async {
+      tearDownAll(() async {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
         container.destroy();
       });
+
+      Future<void> resetStatus() async {
+        await client.userStatus.userStatus.setStatus(statusType: 'online');
+        await client.userStatus.userStatus.clearMessage();
+      }
 
       group('Predefined status', () {
         test('Find all', () async {
@@ -60,6 +65,8 @@ void main() {
 
       group('User status', () {
         test('Set', () async {
+          await resetStatus();
+
           final response = await client.userStatus.userStatus.setStatus(statusType: 'online');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -75,9 +82,7 @@ void main() {
         });
 
         test('Get', () async {
-          // There seems to be a bug in Nextcloud which makes getting the status fail before it has been set once.
-          // The error message from Nextcloud is "Could not create folder"
-          await client.userStatus.userStatus.setStatus(statusType: 'online');
+          await resetStatus();
 
           final response = await client.userStatus.userStatus.getStatus();
           expect(response.statusCode, 200);
@@ -94,8 +99,7 @@ void main() {
         });
 
         test('Find', () async {
-          // Same as getting status
-          await client.userStatus.userStatus.setStatus(statusType: 'online');
+          await resetStatus();
 
           final response = await client.userStatus.statuses.find(userId: 'user1');
           expect(response.statusCode, 200);
@@ -109,6 +113,8 @@ void main() {
         });
 
         test('Set predefined message', () async {
+          await resetStatus();
+
           final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
           final response = await client.userStatus.userStatus.setPredefinedMessage(
             messageId: 'meeting',
@@ -123,11 +129,13 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, true);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, clearAt);
-          expect(response.body.ocs.data.status, 'offline');
-          expect(response.body.ocs.data.statusIsUserDefined, false);
+          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
         test('Set custom message', () async {
+          await resetStatus();
+
           final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
           final response = await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
@@ -143,11 +151,13 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, '😀');
           expect(response.body.ocs.data.clearAt, clearAt);
-          expect(response.body.ocs.data.status, 'offline');
-          expect(response.body.ocs.data.statusIsUserDefined, false);
+          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.statusIsUserDefined, true);
         });
 
         test('Clear message', () async {
+          await resetStatus();
+
           final clearAt = DateTime.now().millisecondsSinceEpoch ~/ 1000 + 60;
           await client.userStatus.userStatus.setCustomMessage(
             statusIcon: '😀',
@@ -166,21 +176,16 @@ void main() {
           expect(response.body.ocs.data.messageIsPredefined, false);
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
-          expect(response.body.ocs.data.status, 'offline');
-          expect(response.body.ocs.data.statusIsUserDefined, false);
+          expect(response.body.ocs.data.status, 'online');
+          expect(response.body.ocs.data.statusIsUserDefined, true);
         });
       });
 
       group('Statuses', () {
         test('Find all', () async {
-          var response = await client.userStatus.statuses.findAll();
-          expect(response.statusCode, 200);
-          expect(() => response.headers, isA<void>());
-          expect(response.body.ocs.data, hasLength(0));
+          await resetStatus();
 
-          await client.userStatus.userStatus.setStatus(statusType: 'online');
-
-          response = await client.userStatus.statuses.findAll();
+          final response = await client.userStatus.statuses.findAll();
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
           expect(response.body.ocs.data, hasLength(1));
@@ -194,6 +199,8 @@ void main() {
 
       group('Heartbeat', () {
         test('Heartbeat', () async {
+          await resetStatus();
+
           final response = await client.userStatus.heartbeat.heartbeat(status: 'online');
           expect(response.statusCode, 200);
           expect(() => response.headers, isA<void>());
@@ -205,7 +212,7 @@ void main() {
           expect(response.body.ocs.data.icon, null);
           expect(response.body.ocs.data.clearAt, null);
           expect(response.body.ocs.data.status, 'online');
-          expect(response.body.ocs.data.statusIsUserDefined, false);
+          expect(response.body.ocs.data.statusIsUserDefined, true);
         });
       });
     },

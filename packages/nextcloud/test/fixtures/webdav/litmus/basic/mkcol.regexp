@@ -1,4 +1,4 @@
-MKCOL http://localhost/remote\.php/webdav/test
+MKCOL http://localhost/remote\.php/webdav/mkcol
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked

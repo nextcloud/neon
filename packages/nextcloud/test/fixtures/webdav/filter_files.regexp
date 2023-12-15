@@ -1,11 +1,11 @@
-PUT http://localhost/remote\.php/webdav/test\.txt
+PUT http://localhost/remote\.php/webdav/filter\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip
 content-length: 4
 authorization: Bearer mock
 test
-PROPPATCH http://localhost/remote\.php/webdav/test\.txt
+PROPPATCH http://localhost/remote\.php/webdav/filter\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked

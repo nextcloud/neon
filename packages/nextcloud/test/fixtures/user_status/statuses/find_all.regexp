@@ -1,11 +1,11 @@
-GET http://localhost/ocs/v2\.php/apps/user_status/api/v1/statuses
+PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/status\?statusType=online
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
+transfer-encoding: chunked
 accept-encoding: gzip
-content-length: 0
 authorization: Bearer mock
 ocs-apirequest: true
-PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/status\?statusType=online
+DELETE http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/message
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 transfer-encoding: chunked

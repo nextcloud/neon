@@ -1,11 +1,11 @@
-PUT http://localhost/remote\.php/webdav/test\.txt
+PUT http://localhost/remote\.php/webdav/largefile\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip
 content-length: 1000000000
 authorization: Bearer mock
 .*
-GET http://localhost/remote\.php/webdav/test\.txt
+GET http://localhost/remote\.php/webdav/largefile\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip

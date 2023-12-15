@@ -12,7 +12,7 @@ transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
 ocs-apirequest: true
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}\?lookIntoFuture=1&limit=100&lastKnownMessageId=2&lastCommonReadId=0&timeout=3&setReadMarker=1&includeLastKnown=0&noStatusUpdate=0&markNotificationsAsRead=1
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v1/chat/[a-z0-9]{8}\?lookIntoFuture=1&limit=100&lastKnownMessageId=[0-9]+&lastCommonReadId=0&timeout=3&setReadMarker=1&includeLastKnown=0&noStatusUpdate=0&markNotificationsAsRead=1
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip
