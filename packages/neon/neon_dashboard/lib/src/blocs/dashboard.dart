@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:built_collection/built_collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -47,8 +48,8 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
 
     try {
       final widgets = <String, dashboard.WidgetItems?>{};
-      final v1WidgetIDs = <String>[];
-      final v2WidgetIDs = <String>[];
+      final v1WidgetIDs = ListBuilder<String>();
+      final v2WidgetIDs = ListBuilder<String>();
 
       final response = await _account.client.dashboard.dashboardApi.getWidgets();
 
@@ -65,11 +66,11 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
       }
 
       if (v1WidgetIDs.isNotEmpty) {
-        debugPrint('Loading v1 widgets: ${v1WidgetIDs.join(', ')}');
+        final widgetsIDs = v1WidgetIDs.build();
+        debugPrint('Loading v1 widgets: ${widgetsIDs.join(', ')}');
 
         final response = await _account.client.dashboard.dashboardApi.getWidgetItems(
-          widgets: v1WidgetIDs,
-          // ignore: avoid_redundant_argument_values
+          widgets: widgetsIDs,
           limit: _maxItems,
         );
         for (final entry in response.body.ocs.data.entries) {
@@ -83,11 +84,11 @@ class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, Dash
       }
 
       if (v2WidgetIDs.isNotEmpty) {
-        debugPrint('Loading v2 widgets: ${v2WidgetIDs.join(', ')}');
+        final widgetsIDs = v2WidgetIDs.build();
+        debugPrint('Loading v2 widgets: ${widgetsIDs.join(', ')}');
 
         final response = await _account.client.dashboard.dashboardApi.getWidgetItemsV2(
-          widgets: v2WidgetIDs,
-          // ignore: avoid_redundant_argument_values
+          widgets: widgetsIDs,
           limit: _maxItems,
         );
         widgets.addEntries(

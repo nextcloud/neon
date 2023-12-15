@@ -56,7 +56,7 @@ class Client extends DynamiteClient {
   Future<DynamiteResponse<JsonObject, void>> $get({
     final ContentString<BuiltMap<String, JsonObject>>? contentString,
     final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    final List<JsonObject>? array,
+    final BuiltList<JsonObject>? array,
     final bool? $bool,
     final String? string,
     final Uint8List? stringBinary,
@@ -104,7 +104,7 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<JsonObject, void> $getRaw({
     final ContentString<BuiltMap<String, JsonObject>>? contentString,
     final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    final List<JsonObject>? array,
+    final BuiltList<JsonObject>? array,
     final bool? $bool,
     final String? string,
     final Uint8List? stringBinary,

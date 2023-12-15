@@ -1,4 +1,4 @@
-GET http://localhost/ocs/v2\.php/core/navigation/apps
+GET http://localhost/ocs/v2\.php/core/navigation/apps\?absolute=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip

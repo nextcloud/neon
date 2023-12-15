@@ -1,10 +1,10 @@
-POST http://localhost/index\.php/apps/notes/api/v1/notes\?title=a
+POST http://localhost/index\.php/apps/notes/api/v1/notes\?category&title=a&content&modified=0&favorite=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Basic mock
-GET http://localhost/index\.php/apps/notes/api/v1/notes
+GET http://localhost/index\.php/apps/notes/api/v1/notes\?exclude&pruneBefore=0&chunkSize=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip
@@ -16,7 +16,7 @@ accept: application/json
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Basic mock
-GET http://localhost/index\.php/apps/notes/api/v1/notes
+GET http://localhost/index\.php/apps/notes/api/v1/notes\?exclude&pruneBefore=0&chunkSize=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip

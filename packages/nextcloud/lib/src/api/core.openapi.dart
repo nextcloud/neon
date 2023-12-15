@@ -153,7 +153,7 @@ class AppPasswordClient {
   /// See:
   ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -180,7 +180,7 @@ class AppPasswordClient {
   ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -206,7 +206,7 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/getapppassword').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -241,7 +241,7 @@ class AppPasswordClient {
   /// See:
   ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = rotateAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -268,7 +268,7 @@ class AppPasswordClient {
   ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -294,7 +294,7 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/apppassword/rotate').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -329,7 +329,7 @@ class AppPasswordClient {
   /// See:
   ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -356,7 +356,7 @@ class AppPasswordClient {
   ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -382,7 +382,7 @@ class AppPasswordClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/apppassword').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -432,9 +432,9 @@ class AutoCompleteClient {
     final String? itemType,
     final String? itemId,
     final String? sorter,
-    final List<int>? shareTypes,
-    final int limit = 10,
-    final bool oCSAPIRequest = true,
+    final BuiltList<int>? shareTypes,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       search: search,
@@ -476,9 +476,9 @@ class AutoCompleteClient {
     final String? itemType,
     final String? itemId,
     final String? sorter,
-    final List<int>? shareTypes,
-    final int limit = 10,
-    final bool oCSAPIRequest = true,
+    final BuiltList<int>? shareTypes,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -517,10 +517,8 @@ class AutoCompleteClient {
     if (shareTypes != null) {
       queryParameters['shareTypes[]'] = shareTypes.map((final e) => e.toString());
     }
-    if (limit != 10) {
-      queryParameters['limit'] = limit.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['limit'] = (limit ?? 10).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/autocomplete/get').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -913,7 +911,7 @@ class CollaborationResourcesClient {
   ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
     required final String filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchCollectionsRaw(
       filter: filter,
@@ -943,7 +941,7 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
     required final String filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -970,7 +968,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-end
     pathParameters['filter'] = filter;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(pathParameters),
     );
@@ -1010,7 +1008,7 @@ class CollaborationResourcesClient {
   ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listCollectionRaw(
       collectionId: collectionId,
@@ -1041,7 +1039,7 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1068,7 +1066,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-end
     pathParameters['collectionId'] = collectionId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(pathParameters),
     );
@@ -1110,7 +1108,7 @@ class CollaborationResourcesClient {
   Future<DynamiteResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
     required final String collectionName,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = renameCollectionRaw(
       collectionName: collectionName,
@@ -1144,7 +1142,7 @@ class CollaborationResourcesClient {
   DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
     required final String collectionName,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1172,7 +1170,7 @@ class CollaborationResourcesClient {
 // coverage:ignore-end
     queryParameters['collectionName'] = collectionName;
     pathParameters['collectionId'] = collectionId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(pathParameters),
     );
@@ -1216,7 +1214,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addResourceRaw(
       resourceType: resourceType,
@@ -1253,7 +1251,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1282,7 +1280,7 @@ class CollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     pathParameters['collectionId'] = collectionId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(pathParameters),
     );
@@ -1326,7 +1324,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeResourceRaw(
       resourceType: resourceType,
@@ -1363,7 +1361,7 @@ class CollaborationResourcesClient {
     required final String resourceType,
     required final String resourceId,
     required final int collectionId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1392,7 +1390,7 @@ class CollaborationResourcesClient {
     queryParameters['resourceType'] = resourceType;
     queryParameters['resourceId'] = resourceId;
     pathParameters['collectionId'] = collectionId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(pathParameters),
     );
@@ -1434,7 +1432,7 @@ class CollaborationResourcesClient {
       getCollectionsByResource({
     required final String resourceType,
     required final String resourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCollectionsByResourceRaw(
       resourceType: resourceType,
@@ -1468,7 +1466,7 @@ class CollaborationResourcesClient {
       getCollectionsByResourceRaw({
     required final String resourceType,
     required final String resourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1496,7 +1494,7 @@ class CollaborationResourcesClient {
 // coverage:ignore-end
     pathParameters['resourceType'] = resourceType;
     pathParameters['resourceId'] = resourceId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(pathParameters),
     );
@@ -1542,7 +1540,7 @@ class CollaborationResourcesClient {
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createCollectionOnResourceRaw(
       name: name,
@@ -1581,7 +1579,7 @@ class CollaborationResourcesClient {
     required final String name,
     required final String baseResourceType,
     required final String baseResourceId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1610,7 +1608,7 @@ class CollaborationResourcesClient {
     queryParameters['name'] = name;
     pathParameters['baseResourceType'] = baseResourceType;
     pathParameters['baseResourceId'] = baseResourceId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}').expand(pathParameters),
     );
@@ -1753,7 +1751,7 @@ class GuestAvatarClient {
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String guestName,
     required final String size,
-    final int? darkTheme = 0,
+    final int? darkTheme,
   }) async {
     final rawResponse = getAvatarRaw(
       guestName: guestName,
@@ -1787,7 +1785,7 @@ class GuestAvatarClient {
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required final String guestName,
     required final String size,
-    final int? darkTheme = 0,
+    final int? darkTheme,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1813,9 +1811,7 @@ class GuestAvatarClient {
 // coverage:ignore-end
     pathParameters['guestName'] = guestName;
     pathParameters['size'] = size;
-    if (darkTheme != null && darkTheme != 0) {
-      queryParameters['darkTheme'] = darkTheme.toString();
-    }
+    queryParameters['darkTheme'] = (darkTheme ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/avatar/guest/{guestName}/{size}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1858,7 +1854,7 @@ class HoverCardClient {
   ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HoverCardGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserRaw(
       userId: userId,
@@ -1888,7 +1884,7 @@ class HoverCardClient {
   @experimental
   DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1915,7 +1911,7 @@ class HoverCardClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1957,8 +1953,8 @@ class NavigationClient {
   /// See:
   ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppsNavigationRaw(
       absolute: absolute,
@@ -1987,8 +1983,8 @@ class NavigationClient {
   ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2014,10 +2010,8 @@ class NavigationClient {
     }
 
 // coverage:ignore-end
-    if (absolute != 0) {
-      queryParameters['absolute'] = absolute.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['absolute'] = (absolute ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/navigation/apps').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2053,8 +2047,8 @@ class NavigationClient {
   /// See:
   ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsNavigationRaw(
       absolute: absolute,
@@ -2083,8 +2077,8 @@ class NavigationClient {
   ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
-    final int absolute = 0,
-    final bool oCSAPIRequest = true,
+    final int? absolute,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2110,10 +2104,8 @@ class NavigationClient {
     }
 
 // coverage:ignore-end
-    if (absolute != 0) {
-      queryParameters['absolute'] = absolute.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['absolute'] = (absolute ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/navigation/settings').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2233,7 +2225,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCapabilitiesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -2258,9 +2250,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2283,7 +2273,7 @@ class OcsClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/capabilities').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2333,13 +2323,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) async {
     final rawResponse = getPreviewByFileIdRaw(
       fileId: fileId,
@@ -2381,13 +2371,13 @@ class PreviewClient {
   ///  * [getPreviewByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2413,27 +2403,13 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (fileId != -1) {
-      queryParameters['fileId'] = fileId.toString();
-    }
-    if (x != 32) {
-      queryParameters['x'] = x.toString();
-    }
-    if (y != 32) {
-      queryParameters['y'] = y.toString();
-    }
-    if (a != 0) {
-      queryParameters['a'] = a.toString();
-    }
-    if (forceIcon != 1) {
-      queryParameters['forceIcon'] = forceIcon.toString();
-    }
-    if (mode != 'fill') {
-      queryParameters['mode'] = mode;
-    }
-    if (mimeFallback != 0) {
-      queryParameters['mimeFallback'] = mimeFallback.toString();
-    }
+    queryParameters['fileId'] = (fileId ?? -1).toString();
+    queryParameters['x'] = (x ?? 32).toString();
+    queryParameters['y'] = (y ?? 32).toString();
+    queryParameters['a'] = (a ?? 0).toString();
+    queryParameters['forceIcon'] = (forceIcon ?? 1).toString();
+    queryParameters['mode'] = mode ?? 'fill';
+    queryParameters['mimeFallback'] = (mimeFallback ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/core/preview').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2477,13 +2453,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -2525,13 +2501,13 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String file = '',
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
-    final int forceIcon = 1,
-    final String mode = 'fill',
-    final int mimeFallback = 0,
+    final String? file,
+    final int? x,
+    final int? y,
+    final int? a,
+    final int? forceIcon,
+    final String? mode,
+    final int? mimeFallback,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2557,27 +2533,13 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (file != '') {
-      queryParameters['file'] = file;
-    }
-    if (x != 32) {
-      queryParameters['x'] = x.toString();
-    }
-    if (y != 32) {
-      queryParameters['y'] = y.toString();
-    }
-    if (a != 0) {
-      queryParameters['a'] = a.toString();
-    }
-    if (forceIcon != 1) {
-      queryParameters['forceIcon'] = forceIcon.toString();
-    }
-    if (mode != 'fill') {
-      queryParameters['mode'] = mode;
-    }
-    if (mimeFallback != 0) {
-      queryParameters['mimeFallback'] = mimeFallback.toString();
-    }
+    queryParameters['file'] = file ?? '';
+    queryParameters['x'] = (x ?? 32).toString();
+    queryParameters['y'] = (y ?? 32).toString();
+    queryParameters['a'] = (a ?? 0).toString();
+    queryParameters['forceIcon'] = (forceIcon ?? 1).toString();
+    queryParameters['mode'] = mode ?? 'fill';
+    queryParameters['mimeFallback'] = (mimeFallback ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/core/preview.png').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2626,7 +2588,7 @@ class ProfileApiClient {
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setVisibilityRaw(
       paramId: paramId,
@@ -2664,7 +2626,7 @@ class ProfileApiClient {
     required final String paramId,
     required final String visibility,
     required final String targetUserId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2693,7 +2655,7 @@ class ProfileApiClient {
     queryParameters['paramId'] = paramId;
     queryParameters['visibility'] = visibility;
     pathParameters['targetUserId'] = targetUserId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/profile/{targetUserId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2823,7 +2785,7 @@ class ReferenceApiClient {
   ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
     required final String reference,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveOneRaw(
       reference: reference,
@@ -2852,7 +2814,7 @@ class ReferenceApiClient {
   @experimental
   DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
     required final String reference,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2879,7 +2841,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['reference'] = reference;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/references/resolve').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2915,9 +2877,9 @@ class ReferenceApiClient {
   /// See:
   ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveResponseApplicationJson, void>> resolve({
-    required final List<String> references,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    required final BuiltList<String> references,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveRaw(
       references: references,
@@ -2947,9 +2909,9 @@ class ReferenceApiClient {
   ///  * [resolve] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void> resolveRaw({
-    required final List<String> references,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    required final BuiltList<String> references,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2976,10 +2938,8 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['references[]'] = references.map((final e) => e);
-    if (limit != 1) {
-      queryParameters['limit'] = limit.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['limit'] = (limit ?? 1).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/references/resolve').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3017,9 +2977,9 @@ class ReferenceApiClient {
   ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
     required final String text,
-    final int resolve = 0,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? resolve,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = extractRaw(
       text: text,
@@ -3052,9 +3012,9 @@ class ReferenceApiClient {
   @experimental
   DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
     required final String text,
-    final int resolve = 0,
-    final int limit = 1,
-    final bool oCSAPIRequest = true,
+    final int? resolve,
+    final int? limit,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3081,13 +3041,9 @@ class ReferenceApiClient {
 
 // coverage:ignore-end
     queryParameters['text'] = text;
-    if (resolve != 0) {
-      queryParameters['resolve'] = resolve.toString();
-    }
-    if (limit != 1) {
-      queryParameters['limit'] = limit.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['resolve'] = (resolve ?? 0).toString();
+    queryParameters['limit'] = (limit ?? 1).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/references/extract').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3121,7 +3077,7 @@ class ReferenceApiClient {
   /// See:
   ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersInfoRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3147,7 +3103,7 @@ class ReferenceApiClient {
   ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3173,7 +3129,7 @@ class ReferenceApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/references/providers').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3211,7 +3167,7 @@ class ReferenceApiClient {
   Future<DynamiteResponse<ReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
     required final String providerId,
     final int? timestamp,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = touchProviderRaw(
       providerId: providerId,
@@ -3243,7 +3199,7 @@ class ReferenceApiClient {
   DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
     required final String providerId,
     final int? timestamp,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3273,7 +3229,7 @@ class ReferenceApiClient {
     if (timestamp != null) {
       queryParameters['timestamp'] = timestamp.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/references/provider/{providerId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3313,7 +3269,7 @@ class TextProcessingApiClient {
   /// See:
   ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = taskTypesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3339,7 +3295,7 @@ class TextProcessingApiClient {
   ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3363,7 +3319,7 @@ class TextProcessingApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/tasktypes').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3406,8 +3362,8 @@ class TextProcessingApiClient {
     required final String input,
     required final String type,
     required final String appId,
-    final String identifier = '',
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = scheduleRaw(
       input: input,
@@ -3446,8 +3402,8 @@ class TextProcessingApiClient {
     required final String input,
     required final String type,
     required final String appId,
-    final String identifier = '',
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3474,10 +3430,8 @@ class TextProcessingApiClient {
     queryParameters['input'] = input;
     queryParameters['type'] = type;
     queryParameters['appId'] = appId;
-    if (identifier != '') {
-      queryParameters['identifier'] = identifier;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['identifier'] = identifier ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/schedule').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3515,7 +3469,7 @@ class TextProcessingApiClient {
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getTaskRaw(
       id: id,
@@ -3546,7 +3500,7 @@ class TextProcessingApiClient {
   @experimental
   DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3571,7 +3525,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3609,7 +3563,7 @@ class TextProcessingApiClient {
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteTaskRaw(
       id: id,
@@ -3640,7 +3594,7 @@ class TextProcessingApiClient {
   @experimental
   DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3667,7 +3621,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3706,7 +3660,7 @@ class TextProcessingApiClient {
   Future<DynamiteResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listTasksByAppRaw(
       appId: appId,
@@ -3739,7 +3693,7 @@ class TextProcessingApiClient {
   DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3769,7 +3723,7 @@ class TextProcessingApiClient {
     if (identifier != null) {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3809,7 +3763,7 @@ class TextToImageApiClient {
   /// See:
   ///  * [isAvailableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiIsAvailableResponseApplicationJson, void>> isAvailable({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = isAvailableRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3835,7 +3789,7 @@ class TextToImageApiClient {
   ///  * [isAvailable] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3859,7 +3813,7 @@ class TextToImageApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/is_available').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3901,9 +3855,9 @@ class TextToImageApiClient {
   Future<DynamiteResponse<TextToImageApiScheduleResponseApplicationJson, void>> schedule({
     required final String input,
     required final String appId,
-    final String identifier = '',
-    final int numberOfImages = 8,
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final int? numberOfImages,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = scheduleRaw(
       input: input,
@@ -3941,9 +3895,9 @@ class TextToImageApiClient {
   DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void> scheduleRaw({
     required final String input,
     required final String appId,
-    final String identifier = '',
-    final int numberOfImages = 8,
-    final bool oCSAPIRequest = true,
+    final String? identifier,
+    final int? numberOfImages,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3969,13 +3923,9 @@ class TextToImageApiClient {
 // coverage:ignore-end
     queryParameters['input'] = input;
     queryParameters['appId'] = appId;
-    if (identifier != '') {
-      queryParameters['identifier'] = identifier;
-    }
-    if (numberOfImages != 8) {
-      queryParameters['numberOfImages'] = numberOfImages.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['identifier'] = identifier ?? '';
+    queryParameters['numberOfImages'] = (numberOfImages ?? 8).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/schedule').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4013,7 +3963,7 @@ class TextToImageApiClient {
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiGetTaskResponseApplicationJson, void>> getTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getTaskRaw(
       id: id,
@@ -4044,7 +3994,7 @@ class TextToImageApiClient {
   @experimental
   DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void> getTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4069,7 +4019,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4107,7 +4057,7 @@ class TextToImageApiClient {
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>> deleteTask({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteTaskRaw(
       id: id,
@@ -4138,7 +4088,7 @@ class TextToImageApiClient {
   @experimental
   DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
     required final int id,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4165,7 +4115,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4205,7 +4155,7 @@ class TextToImageApiClient {
   Future<DynamiteResponse<Uint8List, void>> getImage({
     required final int id,
     required final int index,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getImageRaw(
       id: id,
@@ -4239,7 +4189,7 @@ class TextToImageApiClient {
   DynamiteRawResponse<Uint8List, void> getImageRaw({
     required final int id,
     required final int index,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4265,7 +4215,7 @@ class TextToImageApiClient {
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
     pathParameters['index'] = index.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4304,7 +4254,7 @@ class TextToImageApiClient {
   Future<DynamiteResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listTasksByAppRaw(
       appId: appId,
@@ -4337,7 +4287,7 @@ class TextToImageApiClient {
   DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
     required final String appId,
     final String? identifier,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4367,7 +4317,7 @@ class TextToImageApiClient {
     if (identifier != null) {
       queryParameters['identifier'] = identifier;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4407,7 +4357,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TranslationApiLanguagesResponseApplicationJson, void>> languages({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = languagesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -4432,9 +4382,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4457,7 +4405,7 @@ class TranslationApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/translation/languages').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4500,7 +4448,7 @@ class TranslationApiClient {
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = translateRaw(
       text: text,
@@ -4538,7 +4486,7 @@ class TranslationApiClient {
     required final String text,
     required final String toLanguage,
     final String? fromLanguage,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4567,7 +4515,7 @@ class TranslationApiClient {
     if (fromLanguage != null) {
       queryParameters['fromLanguage'] = fromLanguage;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/translation/translate').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4608,8 +4556,8 @@ class UnifiedSearchClient {
   /// See:
   ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersRaw(
       from: from,
@@ -4637,8 +4585,8 @@ class UnifiedSearchClient {
   ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4664,10 +4612,8 @@ class UnifiedSearchClient {
     }
 
 // coverage:ignore-end
-    if (from != '') {
-      queryParameters['from'] = from;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['from'] = from ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/search/providers').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4709,12 +4655,12 @@ class UnifiedSearchClient {
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchSearchResponseApplicationJson, void>> search({
     required final String providerId,
-    final String term = '',
+    final String? term,
     final int? sortOrder,
     final int? limit,
     final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
       providerId: providerId,
@@ -4754,12 +4700,12 @@ class UnifiedSearchClient {
   @experimental
   DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void> searchRaw({
     required final String providerId,
-    final String term = '',
+    final String? term,
     final int? sortOrder,
     final int? limit,
     final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String from = '',
-    final bool oCSAPIRequest = true,
+    final String? from,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4786,9 +4732,7 @@ class UnifiedSearchClient {
 
 // coverage:ignore-end
     pathParameters['providerId'] = providerId;
-    if (term != '') {
-      queryParameters['term'] = term;
-    }
+    queryParameters['term'] = term ?? '';
     if (sortOrder != null) {
       queryParameters['sortOrder'] = sortOrder.toString();
     }
@@ -4801,10 +4745,8 @@ class UnifiedSearchClient {
         specifiedType: const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
       );
     }
-    if (from != '') {
-      queryParameters['from'] = from;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['from'] = from ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/search/providers/{providerId}/search').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4844,7 +4786,7 @@ class WhatsNewClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool oCSAPIRequest = true}) async {
+  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool? oCSAPIRequest}) async {
     final rawResponse = $getRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -4869,7 +4811,7 @@ class WhatsNewClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4894,7 +4836,7 @@ class WhatsNewClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/whatsnew').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4931,7 +4873,7 @@ class WhatsNewClient {
   ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WhatsNewDismissResponseApplicationJson, void>> dismiss({
     required final String version,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = dismissRaw(
       version: version,
@@ -4961,7 +4903,7 @@ class WhatsNewClient {
   @experimental
   DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void> dismissRaw({
     required final String version,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4988,7 +4930,7 @@ class WhatsNewClient {
 
 // coverage:ignore-end
     queryParameters['version'] = version;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/core/whatsnew').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

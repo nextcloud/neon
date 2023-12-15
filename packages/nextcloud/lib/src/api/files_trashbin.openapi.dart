@@ -63,10 +63,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) async {
     final rawResponse = getPreviewRaw(
       fileId: fileId,
@@ -100,10 +100,10 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -129,18 +129,10 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (fileId != -1) {
-      queryParameters['fileId'] = fileId.toString();
-    }
-    if (x != 32) {
-      queryParameters['x'] = x.toString();
-    }
-    if (y != 32) {
-      queryParameters['y'] = y.toString();
-    }
-    if (a != 0) {
-      queryParameters['a'] = a.toString();
-    }
+    queryParameters['fileId'] = (fileId ?? -1).toString();
+    queryParameters['x'] = (x ?? 32).toString();
+    queryParameters['y'] = (y ?? 32).toString();
+    queryParameters['a'] = (a ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/apps/files_trashbin/preview').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

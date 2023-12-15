@@ -55,7 +55,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [findPetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Pet>, void>> findPets({
-    List<String>? tags,
+    BuiltList<String>? tags,
     int? limit,
   }) async {
     final rawResponse = findPetsRaw(
@@ -89,7 +89,7 @@ class Client extends DynamiteClient {
   ///  * [findPets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BuiltList<Pet>, void> findPetsRaw({
-    List<String>? tags,
+    BuiltList<String>? tags,
     int? limit,
   }) {
     final _pathParameters = <String, dynamic>{};

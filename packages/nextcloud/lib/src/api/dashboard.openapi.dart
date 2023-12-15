@@ -60,7 +60,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -85,9 +85,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -112,7 +110,7 @@ class DashboardApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -150,9 +148,9 @@ class DashboardApiClient {
   ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final BuiltList<String>? widgets,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsRaw(
       sinceIds: sinceIds,
@@ -185,9 +183,9 @@ class DashboardApiClient {
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final BuiltList<String>? widgets,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -221,13 +219,9 @@ class DashboardApiClient {
         ]),
       );
     }
-    if (limit != 7) {
-      queryParameters['limit'] = limit.toString();
-    }
-    if (widgets != const <String>[]) {
-      queryParameters['widgets[]'] = widgets.map((final e) => e);
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['limit'] = (limit ?? 7).toString();
+    queryParameters['widgets[]'] = (widgets ?? const <String>[]).map((final e) => e);
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -267,9 +261,9 @@ class DashboardApiClient {
   ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final BuiltList<String>? widgets,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsV2Raw(
       sinceIds: sinceIds,
@@ -304,9 +298,9 @@ class DashboardApiClient {
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
     final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int limit = 7,
-    final List<String> widgets = const <String>[],
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final BuiltList<String>? widgets,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -340,13 +334,9 @@ class DashboardApiClient {
         ]),
       );
     }
-    if (limit != 7) {
-      queryParameters['limit'] = limit.toString();
-    }
-    if (widgets != const <String>[]) {
-      queryParameters['widgets[]'] = widgets.map((final e) => e);
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['limit'] = (limit ?? 7).toString();
+    queryParameters['widgets[]'] = (widgets ?? const <String>[]).map((final e) => e);
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

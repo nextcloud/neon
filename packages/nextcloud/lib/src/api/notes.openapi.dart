@@ -57,9 +57,9 @@ class Client extends DynamiteClient {
   ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Note>, void>> getNotes({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) async {
@@ -96,9 +96,9 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) {
@@ -129,15 +129,9 @@ class Client extends DynamiteClient {
     if (category != null) {
       queryParameters['category'] = category;
     }
-    if (exclude != '') {
-      queryParameters['exclude'] = exclude;
-    }
-    if (pruneBefore != 0) {
-      queryParameters['pruneBefore'] = pruneBefore.toString();
-    }
-    if (chunkSize != 0) {
-      queryParameters['chunkSize'] = chunkSize.toString();
-    }
+    queryParameters['exclude'] = exclude ?? '';
+    queryParameters['pruneBefore'] = (pruneBefore ?? 0).toString();
+    queryParameters['chunkSize'] = (chunkSize ?? 0).toString();
     if (chunkCursor != null) {
       queryParameters['chunkCursor'] = chunkCursor;
     }
@@ -179,11 +173,11 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> createNote({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) async {
     final rawResponse = createNoteRaw(
       category: category,
@@ -215,11 +209,11 @@ class Client extends DynamiteClient {
   ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> createNoteRaw({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -245,21 +239,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (category != '') {
-      queryParameters['category'] = category;
-    }
-    if (title != '') {
-      queryParameters['title'] = title;
-    }
-    if (content != '') {
-      queryParameters['content'] = content;
-    }
-    if (modified != 0) {
-      queryParameters['modified'] = modified.toString();
-    }
-    if (favorite != 0) {
-      queryParameters['favorite'] = favorite.toString();
-    }
+    queryParameters['category'] = category ?? '';
+    queryParameters['title'] = title ?? '';
+    queryParameters['content'] = content ?? '';
+    queryParameters['modified'] = (modified ?? 0).toString();
+    queryParameters['favorite'] = (favorite ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -293,7 +277,7 @@ class Client extends DynamiteClient {
   ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> getNote({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) async {
     final rawResponse = getNoteRaw(
@@ -322,7 +306,7 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<Note, void> getNoteRaw({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) {
     final pathParameters = <String, dynamic>{};
@@ -350,9 +334,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     pathParameters['id'] = id.toString();
-    if (exclude != '') {
-      queryParameters['exclude'] = exclude;
-    }
+    queryParameters['exclude'] = exclude ?? '';
     if (ifNoneMatch != null) {
       headers['If-None-Match'] = ifNoneMatch;
     }

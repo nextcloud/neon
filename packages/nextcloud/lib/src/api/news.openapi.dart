@@ -992,12 +992,12 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listArticles({
-    final int type = 3,
-    final int id = 0,
-    final int getRead = 1,
-    final int batchSize = -1,
-    final int offset = 0,
-    final int oldestFirst = 0,
+    final int? type,
+    final int? id,
+    final int? getRead,
+    final int? batchSize,
+    final int? offset,
+    final int? oldestFirst,
   }) async {
     final rawResponse = listArticlesRaw(
       type: type,
@@ -1031,12 +1031,12 @@ class Client extends DynamiteClient {
   ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listArticlesRaw({
-    final int type = 3,
-    final int id = 0,
-    final int getRead = 1,
-    final int batchSize = -1,
-    final int offset = 0,
-    final int oldestFirst = 0,
+    final int? type,
+    final int? id,
+    final int? getRead,
+    final int? batchSize,
+    final int? offset,
+    final int? oldestFirst,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1062,24 +1062,12 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (type != 3) {
-      queryParameters['type'] = type.toString();
-    }
-    if (id != 0) {
-      queryParameters['id'] = id.toString();
-    }
-    if (getRead != 1) {
-      queryParameters['getRead'] = getRead.toString();
-    }
-    if (batchSize != -1) {
-      queryParameters['batchSize'] = batchSize.toString();
-    }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    if (oldestFirst != 0) {
-      queryParameters['oldestFirst'] = oldestFirst.toString();
-    }
+    queryParameters['type'] = (type ?? 3).toString();
+    queryParameters['id'] = (id ?? 0).toString();
+    queryParameters['getRead'] = (getRead ?? 1).toString();
+    queryParameters['batchSize'] = (batchSize ?? -1).toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    queryParameters['oldestFirst'] = (oldestFirst ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1113,9 +1101,9 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listUpdatedArticles({
-    final int type = 3,
-    final int id = 0,
-    final int lastModified = 0,
+    final int? type,
+    final int? id,
+    final int? lastModified,
   }) async {
     final rawResponse = listUpdatedArticlesRaw(
       type: type,
@@ -1143,9 +1131,9 @@ class Client extends DynamiteClient {
   ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
-    final int type = 3,
-    final int id = 0,
-    final int lastModified = 0,
+    final int? type,
+    final int? id,
+    final int? lastModified,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1171,15 +1159,9 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (type != 3) {
-      queryParameters['type'] = type.toString();
-    }
-    if (id != 0) {
-      queryParameters['id'] = id.toString();
-    }
-    if (lastModified != 0) {
-      queryParameters['lastModified'] = lastModified.toString();
-    }
+    queryParameters['type'] = (type ?? 3).toString();
+    queryParameters['id'] = (id ?? 0).toString();
+    queryParameters['lastModified'] = (lastModified ?? 0).toString();
     var uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/updated').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

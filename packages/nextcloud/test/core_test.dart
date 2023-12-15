@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
@@ -103,7 +104,7 @@ void main() {
             search: '',
             itemType: 'call',
             itemId: 'new',
-            shareTypes: [core.ShareType.group.index],
+            shareTypes: BuiltList([core.ShareType.group.index]),
           );
           expect(response.body.ocs.data, hasLength(1));
 
