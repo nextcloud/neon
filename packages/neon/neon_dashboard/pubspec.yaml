@@ -7,6 +7,7 @@ environment:
   flutter: '>=3.13.0'
 
 dependencies:
+  built_collection: ^5.0.0
   collection: ^1.0.0
   flutter:
     sdk: flutter
@@ -25,7 +26,6 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.4.7
-  built_collection: ^5.1.1
   flutter_cache_manager: ^3.3.1
   flutter_test:
     sdk: flutter

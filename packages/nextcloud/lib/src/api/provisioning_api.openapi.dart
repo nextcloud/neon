@@ -71,9 +71,7 @@ class AppConfigClient {
   ///
   /// See:
   ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<AppConfigGetAppsResponseApplicationJson, void>> getApps({
-    final bool oCSAPIRequest = true,
-  }) async {
+  Future<DynamiteResponse<AppConfigGetAppsResponseApplicationJson, void>> getApps({final bool? oCSAPIRequest}) async {
     final rawResponse = getAppsRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -99,7 +97,7 @@ class AppConfigClient {
   /// See:
   ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({final bool oCSAPIRequest = true}) {
+  DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -124,7 +122,7 @@ class AppConfigClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -163,7 +161,7 @@ class AppConfigClient {
   ///  * [getKeysRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppConfigGetKeysResponseApplicationJson, void>> getKeys({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getKeysRaw(
       app: app,
@@ -195,7 +193,7 @@ class AppConfigClient {
   @experimental
   DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -222,7 +220,7 @@ class AppConfigClient {
 
 // coverage:ignore-end
     pathParameters['app'] = app;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri =
         Uri.parse(UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
@@ -265,8 +263,8 @@ class AppConfigClient {
   Future<DynamiteResponse<AppConfigGetValueResponseApplicationJson, void>> getValue({
     required final String app,
     required final String key,
-    final String defaultValue = '',
-    final bool oCSAPIRequest = true,
+    final String? defaultValue,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getValueRaw(
       app: app,
@@ -303,8 +301,8 @@ class AppConfigClient {
   DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void> getValueRaw({
     required final String app,
     required final String key,
-    final String defaultValue = '',
-    final bool oCSAPIRequest = true,
+    final String? defaultValue,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -332,10 +330,8 @@ class AppConfigClient {
 // coverage:ignore-end
     pathParameters['app'] = app;
     pathParameters['key'] = key;
-    if (defaultValue != '') {
-      queryParameters['defaultValue'] = defaultValue;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['defaultValue'] = defaultValue ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(pathParameters),
     );
@@ -378,7 +374,7 @@ class AppConfigClient {
     required final String value,
     required final String app,
     required final String key,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setValueRaw(
       value: value,
@@ -414,7 +410,7 @@ class AppConfigClient {
     required final String value,
     required final String app,
     required final String key,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -443,7 +439,7 @@ class AppConfigClient {
     queryParameters['value'] = value;
     pathParameters['app'] = app;
     pathParameters['key'] = key;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(pathParameters),
     );
@@ -486,7 +482,7 @@ class AppConfigClient {
   Future<DynamiteResponse<AppConfigDeleteKeyResponseApplicationJson, void>> deleteKey({
     required final String app,
     required final String key,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteKeyRaw(
       app: app,
@@ -521,7 +517,7 @@ class AppConfigClient {
   DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
     required final String app,
     required final String key,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -549,7 +545,7 @@ class AppConfigClient {
 // coverage:ignore-end
     pathParameters['app'] = app;
     pathParameters['key'] = key;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(pathParameters),
     );
@@ -595,7 +591,7 @@ class AppsClient {
   ///  * [getAppsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppsGetAppsResponseApplicationJson, void>> getApps({
     final String? filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppsRaw(
       filter: filter,
@@ -626,7 +622,7 @@ class AppsClient {
   @experimental
   DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void> getAppsRaw({
     final String? filter,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -655,7 +651,7 @@ class AppsClient {
     if (filter != null) {
       queryParameters['filter'] = filter;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/apps').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -693,7 +689,7 @@ class AppsClient {
   ///  * [getAppInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppsGetAppInfoResponseApplicationJson, void>> getAppInfo({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppInfoRaw(
       app: app,
@@ -724,7 +720,7 @@ class AppsClient {
   @experimental
   DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -751,7 +747,7 @@ class AppsClient {
 
 // coverage:ignore-end
     pathParameters['app'] = app;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -789,7 +785,7 @@ class AppsClient {
   ///  * [enableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppsEnableResponseApplicationJson, void>> enable({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = enableRaw(
       app: app,
@@ -820,7 +816,7 @@ class AppsClient {
   @experimental
   DynamiteRawResponse<AppsEnableResponseApplicationJson, void> enableRaw({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -847,7 +843,7 @@ class AppsClient {
 
 // coverage:ignore-end
     pathParameters['app'] = app;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -885,7 +881,7 @@ class AppsClient {
   ///  * [disableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppsDisableResponseApplicationJson, void>> disable({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = disableRaw(
       app: app,
@@ -916,7 +912,7 @@ class AppsClient {
   @experimental
   DynamiteRawResponse<AppsDisableResponseApplicationJson, void> disableRaw({
     required final String app,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -943,7 +939,7 @@ class AppsClient {
 
 // coverage:ignore-end
     pathParameters['app'] = app;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -986,10 +982,10 @@ class GroupsClient {
   /// See:
   ///  * [getGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsGetGroupsResponseApplicationJson, void>> getGroups({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getGroupsRaw(
       search: search,
@@ -1021,10 +1017,10 @@ class GroupsClient {
   ///  * [getGroups] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1050,16 +1046,12 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    if (search != '') {
-      queryParameters['search'] = search;
-    }
+    queryParameters['search'] = search ?? '';
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1098,8 +1090,8 @@ class GroupsClient {
   ///  * [addGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsAddGroupResponseApplicationJson, void>> addGroup({
     required final String groupid,
-    final String displayname = '',
-    final bool oCSAPIRequest = true,
+    final String? displayname,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addGroupRaw(
       groupid: groupid,
@@ -1132,8 +1124,8 @@ class GroupsClient {
   @experimental
   DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void> addGroupRaw({
     required final String groupid,
-    final String displayname = '',
-    final bool oCSAPIRequest = true,
+    final String? displayname,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1160,10 +1152,8 @@ class GroupsClient {
 
 // coverage:ignore-end
     queryParameters['groupid'] = groupid;
-    if (displayname != '') {
-      queryParameters['displayname'] = displayname;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['displayname'] = displayname ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1200,10 +1190,10 @@ class GroupsClient {
   /// See:
   ///  * [getGroupsDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>> getGroupsDetails({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getGroupsDetailsRaw(
       search: search,
@@ -1235,10 +1225,10 @@ class GroupsClient {
   ///  * [getGroupsDetails] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1264,16 +1254,12 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    if (search != '') {
-      queryParameters['search'] = search;
-    }
+    queryParameters['search'] = search ?? '';
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/details').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1311,7 +1297,7 @@ class GroupsClient {
   ///  * [getGroupUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsGetGroupUsersResponseApplicationJson, void>> getGroupUsers({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getGroupUsersRaw(
       groupId: groupId,
@@ -1342,7 +1328,7 @@ class GroupsClient {
   @experimental
   DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1370,7 +1356,7 @@ class GroupsClient {
 // coverage:ignore-end
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1409,10 +1395,10 @@ class GroupsClient {
   ///  * [getGroupUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>> getGroupUsersDetails({
     required final String groupId,
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getGroupUsersDetailsRaw(
       groupId: groupId,
@@ -1447,10 +1433,10 @@ class GroupsClient {
   @experimental
   DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
     required final String groupId,
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1478,16 +1464,12 @@ class GroupsClient {
 // coverage:ignore-end
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    if (search != '') {
-      queryParameters['search'] = search;
-    }
+    queryParameters['search'] = search ?? '';
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1525,7 +1507,7 @@ class GroupsClient {
   ///  * [getSubAdminsOfGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>> getSubAdminsOfGroup({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSubAdminsOfGroupRaw(
       groupId: groupId,
@@ -1556,7 +1538,7 @@ class GroupsClient {
   @experimental
   DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1584,7 +1566,7 @@ class GroupsClient {
 // coverage:ignore-end
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1621,7 +1603,7 @@ class GroupsClient {
   @Deprecated('')
   Future<DynamiteResponse<GroupsGetGroupResponseApplicationJson, void>> getGroup({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getGroupRaw(
       groupId: groupId,
@@ -1651,7 +1633,7 @@ class GroupsClient {
   @Deprecated('')
   DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1679,7 +1661,7 @@ class GroupsClient {
 // coverage:ignore-end
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1721,7 +1703,7 @@ class GroupsClient {
     required final String key,
     required final String value,
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = updateGroupRaw(
       key: key,
@@ -1758,7 +1740,7 @@ class GroupsClient {
     required final String key,
     required final String value,
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1788,7 +1770,7 @@ class GroupsClient {
     queryParameters['value'] = value;
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1826,7 +1808,7 @@ class GroupsClient {
   ///  * [deleteGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GroupsDeleteGroupResponseApplicationJson, void>> deleteGroup({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteGroupRaw(
       groupId: groupId,
@@ -1857,7 +1839,7 @@ class GroupsClient {
   @experimental
   DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
     required final String groupId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1885,7 +1867,7 @@ class GroupsClient {
 // coverage:ignore-end
     dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     pathParameters['groupId'] = groupId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -1932,7 +1914,7 @@ class PreferencesClient {
     required final String configValue,
     required final String appId,
     required final String configKey,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPreferenceRaw(
       configValue: configValue,
@@ -1968,7 +1950,7 @@ class PreferencesClient {
     required final String configValue,
     required final String appId,
     required final String configKey,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -1997,7 +1979,7 @@ class PreferencesClient {
     queryParameters['configValue'] = configValue;
     pathParameters['appId'] = appId;
     pathParameters['configKey'] = configKey;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}').expand(pathParameters),
     );
@@ -2038,7 +2020,7 @@ class PreferencesClient {
   Future<DynamiteResponse<PreferencesDeletePreferenceResponseApplicationJson, void>> deletePreference({
     required final String appId,
     required final String configKey,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deletePreferenceRaw(
       appId: appId,
@@ -2071,7 +2053,7 @@ class PreferencesClient {
   DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
     required final String appId,
     required final String configKey,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2099,7 +2081,7 @@ class PreferencesClient {
 // coverage:ignore-end
     pathParameters['appId'] = appId;
     pathParameters['configKey'] = configKey;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}').expand(pathParameters),
     );
@@ -2140,7 +2122,7 @@ class PreferencesClient {
   Future<DynamiteResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>> setMultiplePreferences({
     required final ContentString<BuiltMap<String, String>> configs,
     required final String appId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setMultiplePreferencesRaw(
       configs: configs,
@@ -2173,7 +2155,7 @@ class PreferencesClient {
   DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void> setMultiplePreferencesRaw({
     required final ContentString<BuiltMap<String, String>> configs,
     required final String appId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2206,7 +2188,7 @@ class PreferencesClient {
       ]),
     );
     pathParameters['appId'] = appId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri =
         Uri.parse(UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
@@ -2244,9 +2226,9 @@ class PreferencesClient {
   /// See:
   ///  * [deleteMultiplePreferenceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>> deleteMultiplePreference({
-    required final List<String> configKeys,
+    required final BuiltList<String> configKeys,
     required final String appId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteMultiplePreferenceRaw(
       configKeys: configKeys,
@@ -2277,9 +2259,9 @@ class PreferencesClient {
   ///  * [deleteMultiplePreference] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void> deleteMultiplePreferenceRaw({
-    required final List<String> configKeys,
+    required final BuiltList<String> configKeys,
     required final String appId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2307,7 +2289,7 @@ class PreferencesClient {
 // coverage:ignore-end
     queryParameters['configKeys[]'] = configKeys.map((final e) => e);
     pathParameters['appId'] = appId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri =
         Uri.parse(UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
@@ -2351,10 +2333,10 @@ class UsersClient {
   /// See:
   ///  * [getUsersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetUsersResponseApplicationJson, void>> getUsers({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUsersRaw(
       search: search,
@@ -2386,10 +2368,10 @@ class UsersClient {
   ///  * [getUsers] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void> getUsersRaw({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2415,16 +2397,12 @@ class UsersClient {
     }
 
 // coverage:ignore-end
-    if (search != '') {
-      queryParameters['search'] = search;
-    }
+    queryParameters['search'] = search ?? '';
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2469,15 +2447,15 @@ class UsersClient {
   ///  * [addUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersAddUserResponseApplicationJson, void>> addUser({
     required final String userid,
-    final String password = '',
-    final String displayName = '',
-    final String email = '',
-    final List<String> groups = const <String>[],
-    final List<String> subadmin = const <String>[],
-    final String quota = '',
-    final String language = '',
+    final String? password,
+    final String? displayName,
+    final String? email,
+    final BuiltList<String>? groups,
+    final BuiltList<String>? subadmin,
+    final String? quota,
+    final String? language,
     final String? manager,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addUserRaw(
       userid: userid,
@@ -2523,15 +2501,15 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersAddUserResponseApplicationJson, void> addUserRaw({
     required final String userid,
-    final String password = '',
-    final String displayName = '',
-    final String email = '',
-    final List<String> groups = const <String>[],
-    final List<String> subadmin = const <String>[],
-    final String quota = '',
-    final String language = '',
+    final String? password,
+    final String? displayName,
+    final String? email,
+    final BuiltList<String>? groups,
+    final BuiltList<String>? subadmin,
+    final String? quota,
+    final String? language,
     final String? manager,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2558,31 +2536,17 @@ class UsersClient {
 
 // coverage:ignore-end
     queryParameters['userid'] = userid;
-    if (password != '') {
-      queryParameters['password'] = password;
-    }
-    if (displayName != '') {
-      queryParameters['displayName'] = displayName;
-    }
-    if (email != '') {
-      queryParameters['email'] = email;
-    }
-    if (groups != const <String>[]) {
-      queryParameters['groups[]'] = groups.map((final e) => e);
-    }
-    if (subadmin != const <String>[]) {
-      queryParameters['subadmin[]'] = subadmin.map((final e) => e);
-    }
-    if (quota != '') {
-      queryParameters['quota'] = quota;
-    }
-    if (language != '') {
-      queryParameters['language'] = language;
-    }
+    queryParameters['password'] = password ?? '';
+    queryParameters['displayName'] = displayName ?? '';
+    queryParameters['email'] = email ?? '';
+    queryParameters['groups[]'] = (groups ?? const <String>[]).map((final e) => e);
+    queryParameters['subadmin[]'] = (subadmin ?? const <String>[]).map((final e) => e);
+    queryParameters['quota'] = quota ?? '';
+    queryParameters['language'] = language ?? '';
     if (manager != null) {
       queryParameters['manager'] = manager;
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2619,10 +2583,10 @@ class UsersClient {
   /// See:
   ///  * [getUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetUsersDetailsResponseApplicationJson, void>> getUsersDetails({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUsersDetailsRaw(
       search: search,
@@ -2654,10 +2618,10 @@ class UsersClient {
   ///  * [getUsersDetails] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
-    final String search = '',
+    final String? search,
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2683,16 +2647,12 @@ class UsersClient {
     }
 
 // coverage:ignore-end
-    if (search != '') {
-      queryParameters['search'] = search;
-    }
+    queryParameters['search'] = search ?? '';
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/details').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2729,8 +2689,8 @@ class UsersClient {
   ///  * [getDisabledUsersDetailsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>> getDisabledUsersDetails({
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getDisabledUsersDetailsRaw(
       limit: limit,
@@ -2761,8 +2721,8 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void> getDisabledUsersDetailsRaw({
     final int? limit,
-    final int offset = 0,
-    final bool oCSAPIRequest = true,
+    final int? offset,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2791,10 +2751,8 @@ class UsersClient {
     if (limit != null) {
       queryParameters['limit'] = limit.toString();
     }
-    if (offset != 0) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['offset'] = (offset ?? 0).toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/disabled').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2833,7 +2791,7 @@ class UsersClient {
   Future<DynamiteResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>> searchByPhoneNumbers({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchByPhoneNumbersRaw(
       location: location,
@@ -2866,7 +2824,7 @@ class UsersClient {
   DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
     required final String location,
     required final ContentString<BuiltMap<String, BuiltList<String>>> search,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2902,7 +2860,7 @@ class UsersClient {
         ]),
       ]),
     );
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/search/by-phone').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -2938,7 +2896,7 @@ class UsersClient {
   ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetUserResponseApplicationJson, void>> getUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserRaw(
       userId: userId,
@@ -2967,7 +2925,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersGetUserResponseApplicationJson, void> getUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -2994,7 +2952,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3034,7 +2992,7 @@ class UsersClient {
     required final String key,
     required final String value,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = editUserRaw(
       key: key,
@@ -3069,7 +3027,7 @@ class UsersClient {
     required final String key,
     required final String value,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3098,7 +3056,7 @@ class UsersClient {
     queryParameters['key'] = key;
     queryParameters['value'] = value;
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3134,7 +3092,7 @@ class UsersClient {
   ///  * [deleteUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersDeleteUserResponseApplicationJson, void>> deleteUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteUserRaw(
       userId: userId,
@@ -3163,7 +3121,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3190,7 +3148,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3224,7 +3182,7 @@ class UsersClient {
   /// See:
   ///  * [getCurrentUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetCurrentUserResponseApplicationJson, void>> getCurrentUser({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCurrentUserRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3249,9 +3207,7 @@ class UsersClient {
   /// See:
   ///  * [getCurrentUser] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3276,7 +3232,7 @@ class UsersClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/user').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3310,7 +3266,7 @@ class UsersClient {
   /// See:
   ///  * [getEditableFieldsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetEditableFieldsResponseApplicationJson, void>> getEditableFields({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getEditableFieldsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3336,7 +3292,7 @@ class UsersClient {
   ///  * [getEditableFields] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3362,7 +3318,7 @@ class UsersClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/user/fields').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3398,7 +3354,7 @@ class UsersClient {
   ///  * [getEditableFieldsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>> getEditableFieldsForUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getEditableFieldsForUserRaw(
       userId: userId,
@@ -3427,7 +3383,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void> getEditableFieldsForUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3454,7 +3410,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3496,7 +3452,7 @@ class UsersClient {
     required final String value,
     required final String userId,
     required final String collectionName,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = editUserMultiValueRaw(
       key: key,
@@ -3534,7 +3490,7 @@ class UsersClient {
     required final String value,
     required final String userId,
     required final String collectionName,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3565,7 +3521,7 @@ class UsersClient {
     pathParameters['userId'] = userId;
     dynamite_utils.checkPattern(collectionName, RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'), 'collectionName');
     pathParameters['collectionName'] = collectionName;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3601,7 +3557,7 @@ class UsersClient {
   ///  * [wipeUserDevicesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersWipeUserDevicesResponseApplicationJson, void>> wipeUserDevices({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = wipeUserDevicesRaw(
       userId: userId,
@@ -3630,7 +3586,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3657,7 +3613,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3693,7 +3649,7 @@ class UsersClient {
   ///  * [enableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersEnableUserResponseApplicationJson, void>> enableUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = enableUserRaw(
       userId: userId,
@@ -3722,7 +3678,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void> enableUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3749,7 +3705,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3785,7 +3741,7 @@ class UsersClient {
   ///  * [disableUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersDisableUserResponseApplicationJson, void>> disableUser({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = disableUserRaw(
       userId: userId,
@@ -3814,7 +3770,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void> disableUserRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3841,7 +3797,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3877,7 +3833,7 @@ class UsersClient {
   ///  * [getUsersGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetUsersGroupsResponseApplicationJson, void>> getUsersGroups({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUsersGroupsRaw(
       userId: userId,
@@ -3906,7 +3862,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -3933,7 +3889,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -3970,8 +3926,8 @@ class UsersClient {
   ///  * [addToGroupRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersAddToGroupResponseApplicationJson, void>> addToGroup({
     required final String userId,
-    final String groupid = '',
-    final bool oCSAPIRequest = true,
+    final String? groupid,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addToGroupRaw(
       userId: userId,
@@ -4002,8 +3958,8 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
     required final String userId,
-    final String groupid = '',
-    final bool oCSAPIRequest = true,
+    final String? groupid,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4030,10 +3986,8 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    if (groupid != '') {
-      queryParameters['groupid'] = groupid;
-    }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    queryParameters['groupid'] = groupid ?? '';
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4071,7 +4025,7 @@ class UsersClient {
   Future<DynamiteResponse<UsersRemoveFromGroupResponseApplicationJson, void>> removeFromGroup({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeFromGroupRaw(
       groupid: groupid,
@@ -4103,7 +4057,7 @@ class UsersClient {
   DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4131,7 +4085,7 @@ class UsersClient {
 // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4169,7 +4123,7 @@ class UsersClient {
   ///  * [getUserSubAdminGroupsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>> getUserSubAdminGroups({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserSubAdminGroupsRaw(
       userId: userId,
@@ -4200,7 +4154,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4227,7 +4181,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4267,7 +4221,7 @@ class UsersClient {
   Future<DynamiteResponse<UsersAddSubAdminResponseApplicationJson, void>> addSubAdmin({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addSubAdminRaw(
       groupid: groupid,
@@ -4301,7 +4255,7 @@ class UsersClient {
   DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4329,7 +4283,7 @@ class UsersClient {
 // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4369,7 +4323,7 @@ class UsersClient {
   Future<DynamiteResponse<UsersRemoveSubAdminResponseApplicationJson, void>> removeSubAdmin({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeSubAdminRaw(
       groupid: groupid,
@@ -4403,7 +4357,7 @@ class UsersClient {
   DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
     required final String groupid,
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4431,7 +4385,7 @@ class UsersClient {
 // coverage:ignore-end
     queryParameters['groupid'] = groupid;
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);
@@ -4467,7 +4421,7 @@ class UsersClient {
   ///  * [resendWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UsersResendWelcomeMessageResponseApplicationJson, void>> resendWelcomeMessage({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resendWelcomeMessageRaw(
       userId: userId,
@@ -4496,7 +4450,7 @@ class UsersClient {
   @experimental
   DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
     required final String userId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -4523,7 +4477,7 @@ class UsersClient {
 
 // coverage:ignore-end
     pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

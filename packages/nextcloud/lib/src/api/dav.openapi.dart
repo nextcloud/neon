@@ -65,7 +65,7 @@ class DirectClient {
   Future<DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
     required final int fileId,
     final int? expirationTime,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUrlRaw(
       fileId: fileId,
@@ -100,7 +100,7 @@ class DirectClient {
   DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
     required final int fileId,
     final int? expirationTime,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -130,7 +130,7 @@ class DirectClient {
     if (expirationTime != null) {
       queryParameters['expirationTime'] = expirationTime.toString();
     }
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

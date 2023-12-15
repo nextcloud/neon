@@ -65,8 +65,8 @@ class ApiClient {
   ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppListRaw(
       newVersion: newVersion,
@@ -100,8 +100,8 @@ class ApiClient {
   @experimental
   DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -128,8 +128,8 @@ class ApiClient {
 
 // coverage:ignore-end
     pathParameters['newVersion'] = newVersion;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    pathParameters['apiVersion'] = (apiVersion ?? ApiGetAppListApiVersion.v1).name;
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(
       UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(pathParameters),
     );

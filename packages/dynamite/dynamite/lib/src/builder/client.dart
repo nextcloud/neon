@@ -235,10 +235,6 @@ Iterable<Method> buildTags(
       var returnHeadersType = 'void';
 
       for (final parameter in parameters) {
-        final dartParameterNullable = isDartParameterNullable(
-          parameter.required,
-          parameter.schema,
-        );
         final parameterRequired = isRequired(
           parameter.required,
           parameter.schema,
@@ -252,8 +248,8 @@ Iterable<Method> buildTags(
             uppercaseFirstCharacter: true,
           ),
           parameter.schema!,
-          nullable: dartParameterNullable,
-        ).dartType;
+          nullable: !parameterRequired,
+        );
 
         operationParameters.add(
           Parameter(
@@ -263,16 +259,12 @@ Iterable<Method> buildTags(
                 ..name = toDartName(parameter.name)
                 ..required = parameterRequired
                 ..type = refer(result.nullableName);
-
-              if (parameter.schema!.$default != null) {
-                b.defaultTo = Code(valueToEscapedValue(result, parameter.schema!.$default!.toString()));
-              }
             },
           ),
         );
 
         buildParameterPatternCheck(parameter).forEach(code.writeln);
-        buildParameterSerialization(result, parameter).forEach(code.writeln);
+        code.writeln(buildParameterSerialization(result, parameter));
       }
       resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
 
@@ -412,17 +404,17 @@ return rawResponse.future;
   }
 }
 
-Iterable<String> buildParameterSerialization(
+String buildParameterSerialization(
   final TypeResult result,
   final openapi.Parameter parameter,
-) sync* {
+) {
   final $default = parameter.schema?.$default;
   final hasDefault = $default != null;
   final defaultValueCode = valueToEscapedValue(result, $default.toString());
   final dartName = toDartName(parameter.name);
 
   final value = result.encode(
-    dartName,
+    hasDefault ? '($dartName ?? $defaultValueCode)' : dartName,
     onlyChildren: parameter.$in == openapi.ParameterType.query,
   );
 
@@ -432,25 +424,20 @@ Iterable<String> buildParameterSerialization(
     openapi.ParameterType.header => '_headers',
     _ => throw UnsupportedError('Can not work with parameter "${parameter.name}" in "${parameter.$in}"'),
   };
+
   final assignment = "$mapName['${parameter.name}'] = $value;";
 
-  if (!parameter.required && (result.nullable || hasDefault)) {
-    yield 'if( ';
-    if (result.nullable) {
-      yield '$dartName != null ';
-    }
-    if (result.nullable && hasDefault) {
-      yield '&&';
-    }
-    if (hasDefault) {
-      yield '$dartName != $defaultValueCode';
-    }
-    yield ') {';
-    yield assignment;
-    yield '}';
+  final buffer = StringBuffer();
+  if (!parameter.required && result.nullable && !hasDefault) {
+    buffer
+      ..write('if ($dartName != null) {')
+      ..write(assignment)
+      ..write('}');
   } else {
-    yield assignment;
+    buffer.write(assignment);
   }
+
+  return buffer.toString();
 }
 
 Iterable<String> buildParameterPatternCheck(

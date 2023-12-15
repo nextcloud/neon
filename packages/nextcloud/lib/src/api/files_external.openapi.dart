@@ -60,7 +60,7 @@ class ApiClient {
   /// See:
   ///  * [getUserMountsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserMountsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -85,9 +85,7 @@ class ApiClient {
   /// See:
   ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({
-    final bool oCSAPIRequest = true,
-  }) {
+  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({final bool? oCSAPIRequest}) {
     final pathParameters = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -112,7 +110,7 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
+    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
     var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(pathParameters));
     if (queryParameters.isNotEmpty) {
       uri = uri.replace(queryParameters: queryParameters);

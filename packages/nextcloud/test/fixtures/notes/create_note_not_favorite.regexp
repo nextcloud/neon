@@ -1,4 +1,4 @@
-POST http://localhost/index\.php/apps/notes/api/v1/notes\?category=c&title=a&content=b
+POST http://localhost/index\.php/apps/notes/api/v1/notes\?category=c&title=a&content=b&modified=0&favorite=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 transfer-encoding: chunked
