@@ -32,10 +32,14 @@ Future<void> main() async {
       final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
 
       for (final a in apps) {
+        buffer
+          ..write(a.id.toUpperCase())
+          ..write('_URL=');
         if (a == app) {
-          buffer.writeln('${a.id.toUpperCase()}_URL=${release.url}');
+          buffer.writeln(release.url);
         } else {
-          buffer.writeln('${a.id.toUpperCase()}_URL=${a.findLatestRelease(serverVersion).url}');
+          final release = a.findLatestCompatibleRelease(serverVersion) ?? a.findLatestRelease();
+          buffer.writeln(release.url);
         }
       }
 
@@ -53,7 +57,8 @@ Future<void> main() async {
     final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
 
     for (final app in apps) {
-      buffer.writeln('${app.id.toUpperCase()}_URL=${app.findLatestRelease(serverVersion).url}');
+      final release = app.findLatestCompatibleRelease(serverVersion) ?? app.findLatestRelease();
+      buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
     }
 
     File('${serverPresetsDir.path}/${serverVersion.withoutPatch()}').writeAsStringSync(buffer.toString());

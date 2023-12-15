@@ -45,7 +45,7 @@ RUN curl -L "$SPREED_URL" | tar -xz -C /
 FROM nextcloud
 
 COPY --from=news /news /usr/src/nextcloud/apps/news
-RUN ./occ app:enable news
+RUN ./occ app:enable news --force # TODO remove once news supports server 28
 
 COPY --from=notes /notes /usr/src/nextcloud/apps/notes
 RUN ./occ app:enable notes
