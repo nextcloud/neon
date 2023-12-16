@@ -382,7 +382,11 @@ class DynamiteClient {
     this.cookieJar,
     this.authentications = const [],
   })  : httpClient = (httpClient ?? HttpClient())..userAgent = userAgent,
-        baseURL = baseURL.normalizeEmptyPath();
+        baseURL = baseURL.normalizeEmptyPath() {
+    if (baseURL.queryParametersAll.isNotEmpty) {
+      throw UnsupportedError('Dynamite can not work with a baseURL containing query parameters.');
+    }
+  }
 
   /// The base server url used to build the request uri.
   ///
@@ -416,14 +420,8 @@ class DynamiteClient {
     final Uint8List? body,
     final Set<int>? validStatuses,
   ) {
-    final queryParameters = {
-      ...baseURL.queryParametersAll,
-      ...path.queryParametersAll,
-    };
-    final uri = baseURL.replace(
-      path: '${baseURL.path}${path.path}',
-      queryParameters: queryParameters.isNotEmpty ? queryParameters : null,
-    );
+    final uri = Uri.parse('$baseURL$path');
+
     return executeRawRequest(
       method,
       uri,
