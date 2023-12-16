@@ -86,8 +86,7 @@ class ApiClient {
   ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -110,12 +109,11 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(parameters));
     return DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

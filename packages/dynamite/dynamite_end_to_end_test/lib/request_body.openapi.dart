@@ -60,8 +60,7 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> $getRaw({final Uint8List? uint8List}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
@@ -69,11 +68,7 @@ class Client extends DynamiteClient {
     if (uint8List != null) {
       body = uint8List;
     }
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'get',
@@ -116,8 +111,7 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> postRaw({final String? string}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
@@ -125,11 +119,7 @@ class Client extends DynamiteClient {
     if (string != null) {
       body = utf8.encode(string);
     }
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',

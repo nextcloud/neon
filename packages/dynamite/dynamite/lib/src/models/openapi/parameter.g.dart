@@ -33,8 +33,48 @@ final BuiltSet<ParameterType> _$parameterTypeValues = BuiltSet<ParameterType>(co
   _$parameterTypeCookie,
 ]);
 
+const ParameterStyle _$parameterStyleMatrix = ParameterStyle._('matrix');
+const ParameterStyle _$parameterStyleLabel = ParameterStyle._('label');
+const ParameterStyle _$parameterStyleForm = ParameterStyle._('form');
+const ParameterStyle _$parameterStyleSimple = ParameterStyle._('simple');
+const ParameterStyle _$parameterStyleSpaceDelimited = ParameterStyle._('spaceDelimited');
+const ParameterStyle _$parameterStylePipeDelimited = ParameterStyle._('pipeDelimited');
+const ParameterStyle _$parameterStyleDeepObject = ParameterStyle._('deepObject');
+
+ParameterStyle _$parameterStyle(String name) {
+  switch (name) {
+    case 'matrix':
+      return _$parameterStyleMatrix;
+    case 'label':
+      return _$parameterStyleLabel;
+    case 'form':
+      return _$parameterStyleForm;
+    case 'simple':
+      return _$parameterStyleSimple;
+    case 'spaceDelimited':
+      return _$parameterStyleSpaceDelimited;
+    case 'pipeDelimited':
+      return _$parameterStylePipeDelimited;
+    case 'deepObject':
+      return _$parameterStyleDeepObject;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ParameterStyle> _$parameterStyleValues = BuiltSet<ParameterStyle>(const <ParameterStyle>[
+  _$parameterStyleMatrix,
+  _$parameterStyleLabel,
+  _$parameterStyleForm,
+  _$parameterStyleSimple,
+  _$parameterStyleSpaceDelimited,
+  _$parameterStylePipeDelimited,
+  _$parameterStyleDeepObject,
+]);
+
 Serializer<Parameter> _$parameterSerializer = _$ParameterSerializer();
 Serializer<ParameterType> _$parameterTypeSerializer = _$ParameterTypeSerializer();
+Serializer<ParameterStyle> _$parameterStyleSerializer = _$ParameterStyleSerializer();
 
 class _$ParameterSerializer implements StructuredSerializer<Parameter> {
   @override
@@ -52,6 +92,12 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
       serializers.serialize(object.$in, specifiedType: const FullType(ParameterType)),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(bool)),
+      'explode',
+      serializers.serialize(object.explode, specifiedType: const FullType(bool)),
+      'allowReserved',
+      serializers.serialize(object.allowReserved, specifiedType: const FullType(bool)),
+      'style',
+      serializers.serialize(object.style, specifiedType: const FullType(ParameterStyle)),
     ];
     Object? value;
     value = object.description;
@@ -106,6 +152,16 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.content.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
           break;
+        case 'explode':
+          result.explode = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'allowReserved':
+          result.allowReserved = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
+        case 'style':
+          result.style =
+              serializers.deserialize(value, specifiedType: const FullType(ParameterStyle))! as ParameterStyle;
+          break;
       }
     }
 
@@ -129,6 +185,22 @@ class _$ParameterTypeSerializer implements PrimitiveSerializer<ParameterType> {
       ParameterType.valueOf(serialized as String);
 }
 
+class _$ParameterStyleSerializer implements PrimitiveSerializer<ParameterStyle> {
+  @override
+  final Iterable<Type> types = const <Type>[ParameterStyle];
+  @override
+  final String wireName = 'ParameterStyle';
+
+  @override
+  Object serialize(Serializers serializers, ParameterStyle object, {FullType specifiedType = FullType.unspecified}) =>
+      object.name;
+
+  @override
+  ParameterStyle deserialize(Serializers serializers, Object serialized,
+          {FullType specifiedType = FullType.unspecified}) =>
+      ParameterStyle.valueOf(serialized as String);
+}
+
 class _$Parameter extends Parameter {
   @override
   final String name;
@@ -142,15 +214,32 @@ class _$Parameter extends Parameter {
   final Schema? $schema;
   @override
   final BuiltMap<String, MediaType>? content;
+  @override
+  final bool explode;
+  @override
+  final bool allowReserved;
+  @override
+  final ParameterStyle style;
 
   factory _$Parameter([void Function(ParameterBuilder)? updates]) => (ParameterBuilder()..update(updates))._build();
 
   _$Parameter._(
-      {required this.name, required this.$in, this.description, required this.required, this.$schema, this.content})
+      {required this.name,
+      required this.$in,
+      this.description,
+      required this.required,
+      this.$schema,
+      this.content,
+      required this.explode,
+      required this.allowReserved,
+      required this.style})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name');
     BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in');
     BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required');
+    BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode');
+    BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved');
+    BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style');
   }
 
   @override
@@ -167,7 +256,10 @@ class _$Parameter extends Parameter {
         $in == other.$in &&
         required == other.required &&
         $schema == other.$schema &&
-        content == other.content;
+        content == other.content &&
+        explode == other.explode &&
+        allowReserved == other.allowReserved &&
+        style == other.style;
   }
 
   @override
@@ -178,6 +270,9 @@ class _$Parameter extends Parameter {
     _$hash = $jc(_$hash, required.hashCode);
     _$hash = $jc(_$hash, $schema.hashCode);
     _$hash = $jc(_$hash, content.hashCode);
+    _$hash = $jc(_$hash, explode.hashCode);
+    _$hash = $jc(_$hash, allowReserved.hashCode);
+    _$hash = $jc(_$hash, style.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -190,7 +285,10 @@ class _$Parameter extends Parameter {
           ..add('description', description)
           ..add('required', required)
           ..add('\$schema', $schema)
-          ..add('content', content))
+          ..add('content', content)
+          ..add('explode', explode)
+          ..add('allowReserved', allowReserved)
+          ..add('style', style))
         .toString();
   }
 }
@@ -222,6 +320,18 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
   MapBuilder<String, MediaType> get content => _$this._content ??= MapBuilder<String, MediaType>();
   set content(MapBuilder<String, MediaType>? content) => _$this._content = content;
 
+  bool? _explode;
+  bool? get explode => _$this._explode;
+  set explode(bool? explode) => _$this._explode = explode;
+
+  bool? _allowReserved;
+  bool? get allowReserved => _$this._allowReserved;
+  set allowReserved(bool? allowReserved) => _$this._allowReserved = allowReserved;
+
+  ParameterStyle? _style;
+  ParameterStyle? get style => _$this._style;
+  set style(ParameterStyle? style) => _$this._style = style;
+
   ParameterBuilder();
 
   ParameterBuilder get _$this {
@@ -233,6 +343,9 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
       _required = $v.required;
       _$schema = $v.$schema?.toBuilder();
       _content = $v.content?.toBuilder();
+      _explode = $v.explode;
+      _allowReserved = $v.allowReserved;
+      _style = $v.style;
       _$v = null;
     }
     return this;
@@ -263,7 +376,10 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
               description: description,
               required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
               $schema: _$schema?.build(),
-              content: _content?.build());
+              content: _content?.build(),
+              explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
+              allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
+              style: BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style'));
     } catch (_) {
       late String _$failedField;
       try {

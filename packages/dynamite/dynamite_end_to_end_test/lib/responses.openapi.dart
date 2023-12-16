@@ -57,18 +57,13 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> $getRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'get',
@@ -111,18 +106,13 @@ class Client extends DynamiteClient {
   ///  * [put] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> putRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'put',
@@ -167,18 +157,13 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> postRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'post',
@@ -221,18 +206,13 @@ class Client extends DynamiteClient {
   ///  * [patch] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> patchRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'patch',

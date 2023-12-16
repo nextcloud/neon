@@ -8,10 +8,10 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/helpers/pattern_check.dart';
-import 'package:dynamite/src/helpers/type_result.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:intersperse/intersperse.dart';
+import 'package:uri/uri.dart';
 
 Iterable<Class> generateClients(
   final openapi.OpenAPI spec,
@@ -216,8 +216,7 @@ Iterable<Method> buildTags(
           .join(',');
 
       code.writeln('''
-  final _pathParameters = <String, dynamic>{};
-  final _queryParameters = <String, dynamic>{};
+  final _parameters = <String, dynamic>{};
   final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
   ''');
@@ -317,12 +316,35 @@ Iterable<Method> buildTags(
           toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
         );
 
-        code.writeln('''
-var _uri = Uri.parse(UriTemplate('${pathEntry.key}').expand(_pathParameters));
-if (_queryParameters.isNotEmpty) {
-  _uri = _uri.replace(queryParameters: _queryParameters);
-}
-''');
+        final queryParams = <String>[];
+        for (final parameter in parameters) {
+          if (parameter.$in != openapi.ParameterType.query) {
+            continue;
+          }
+
+          // Default to a plain parameter without exploding.
+          queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
+        }
+
+        final pathBuilder = StringBuffer()..write(pathEntry.key);
+
+        if (queryParams.isNotEmpty) {
+          pathBuilder
+            ..write('{?')
+            ..writeAll(queryParams, ',')
+            ..write('}');
+        }
+
+        final path = pathBuilder.toString();
+
+        // Sanity check the uri at build time.
+        try {
+          UriTemplate(path);
+        } on ParseException catch (e) {
+          throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
+        }
+
+        code.writeln("final _uri = Uri.parse(UriTemplate('$path').expand(_parameters));");
 
         if (dataType != null) {
           returnDataType = dataType.name;
@@ -409,32 +431,33 @@ String buildParameterSerialization(
   final openapi.Parameter parameter,
 ) {
   final $default = parameter.schema?.$default;
-  final hasDefault = $default != null;
-  final defaultValueCode = valueToEscapedValue(result, $default.toString());
+  var defaultValueCode = $default?.value;
+  if ($default != null && $default.isString) {
+    defaultValueCode = "'${$default.asString}'";
+  }
   final dartName = toDartName(parameter.name);
+  final serializedName = '\$$dartName';
 
-  final value = result.encode(
-    hasDefault ? '($dartName ?? $defaultValueCode)' : dartName,
-    onlyChildren: parameter.$in == openapi.ParameterType.query,
-  );
+  final buffer = StringBuffer()..write('var $serializedName = ${result.serialize(dartName)};');
 
-  final mapName = switch (parameter.$in) {
-    openapi.ParameterType.path => '_pathParameters',
-    openapi.ParameterType.query => '_queryParameters',
-    openapi.ParameterType.header => '_headers',
-    _ => throw UnsupportedError('Can not work with parameter "${parameter.name}" in "${parameter.$in}"'),
-  };
+  if ($default != null) {
+    buffer.writeln('$serializedName ??= $defaultValueCode;');
+  }
 
-  final assignment = "$mapName['${parameter.name}'] = $value;";
+  if (parameter.$in == openapi.ParameterType.header) {
+    final assignment =
+        "_headers['${parameter.pctEncodedName}'] = ${result.encode(serializedName, onlyChildren: true)};";
 
-  final buffer = StringBuffer();
-  if (!parameter.required && result.nullable && !hasDefault) {
-    buffer
-      ..write('if ($dartName != null) {')
-      ..write(assignment)
-      ..write('}');
+    if ($default == null) {
+      buffer
+        ..writeln('if ($serializedName != null) {')
+        ..writeln(assignment)
+        ..writeln('}');
+    } else {
+      buffer.writeln(assignment);
+    }
   } else {
-    buffer.write(assignment);
+    buffer.writeln("_parameters['${parameter.pctEncodedName}'] = $serializedName;");
   }
 
   return buffer.toString();

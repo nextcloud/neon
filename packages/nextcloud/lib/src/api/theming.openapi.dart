@@ -93,8 +93,7 @@ class IconClient {
   ///  * [getFavicon] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getFaviconRaw({final String? app}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'image/x-icon',
     };
@@ -115,12 +114,11 @@ class IconClient {
     }
 
 // coverage:ignore-end
-    pathParameters['app'] = app ?? 'core';
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/favicon/{app}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
+    parameters['app'] = $app;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/favicon/{app}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -177,8 +175,7 @@ class IconClient {
   ///  * [getTouchIcon] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getTouchIconRaw({final String? app}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'image/png',
     };
@@ -199,12 +196,11 @@ class IconClient {
     }
 
 // coverage:ignore-end
-    pathParameters['app'] = app ?? 'core';
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/icon/{app}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
+    parameters['app'] = $app;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/icon/{app}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -270,8 +266,7 @@ class IconClient {
     required final String app,
     required final String image,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'image/svg+xml',
     };
@@ -292,14 +287,14 @@ class IconClient {
     }
 
 // coverage:ignore-end
-    pathParameters['app'] = app;
-    dynamite_utils.checkPattern(image, RegExp(r'^.+$'), 'image');
-    pathParameters['image'] = image;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    parameters['app'] = $app;
 
+    dynamite_utils.checkPattern(image, RegExp(r'^.+$'), 'image');
+    final $image = jsonSerializers.serialize(image, specifiedType: const FullType(String));
+    parameters['image'] = $image;
+
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -376,8 +371,7 @@ class ThemingClient {
     final int? plain,
     final int? withCustomCss,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'text/css',
     };
@@ -398,14 +392,20 @@ class ThemingClient {
     }
 
 // coverage:ignore-end
-    pathParameters['themeId'] = themeId;
-    queryParameters['plain'] = (plain ?? 0).toString();
-    queryParameters['withCustomCss'] = (withCustomCss ?? 0).toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/theme/{themeId}.css').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    parameters['themeId'] = $themeId;
 
+    var $plain = jsonSerializers.serialize(plain, specifiedType: const FullType(int));
+    $plain ??= 0;
+    parameters['plain'] = $plain;
+
+    var $withCustomCss = jsonSerializers.serialize(withCustomCss, specifiedType: const FullType(int));
+    $withCustomCss ??= 0;
+    parameters['withCustomCss'] = $withCustomCss;
+
+    final uri = Uri.parse(
+      UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(parameters),
+    );
     return DynamiteRawResponse<String, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -471,8 +471,7 @@ class ThemingClient {
     required final String key,
     final int? useSvg,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -493,13 +492,14 @@ class ThemingClient {
     }
 
 // coverage:ignore-end
-    pathParameters['key'] = key;
-    queryParameters['useSvg'] = (useSvg ?? 1).toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/image/{key}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    parameters['key'] = $key;
 
+    var $useSvg = jsonSerializers.serialize(useSvg, specifiedType: const FullType(int));
+    $useSvg ??= 1;
+    parameters['useSvg'] = $useSvg;
+
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -554,8 +554,7 @@ class ThemingClient {
   ///  * [getManifest] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({required final String app}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -576,12 +575,10 @@ class ThemingClient {
     }
 
 // coverage:ignore-end
-    pathParameters['app'] = app;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/manifest/{app}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    parameters['app'] = $app;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/manifest/{app}').expand(parameters));
     return DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -642,8 +639,7 @@ class UserThemeClient {
   ///  * [getBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getBackgroundRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -666,12 +662,11 @@ class UserThemeClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/background').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -747,8 +742,7 @@ class UserThemeClient {
     final String? color,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -771,17 +765,21 @@ class UserThemeClient {
     }
 
 // coverage:ignore-end
-    pathParameters['type'] = type;
-    queryParameters['value'] = value ?? '';
-    if (color != null) {
-      queryParameters['color'] = color;
-    }
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/{type}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $type = jsonSerializers.serialize(type, specifiedType: const FullType(String));
+    parameters['type'] = $type;
 
+    var $value = jsonSerializers.serialize(value, specifiedType: const FullType(String));
+    $value ??= '';
+    parameters['value'] = $value;
+
+    final $color = jsonSerializers.serialize(color, specifiedType: const FullType(String));
+    parameters['color'] = $color;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(parameters));
     return DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -834,8 +832,7 @@ class UserThemeClient {
   ///  * [deleteBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Background, void> deleteBackgroundRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -858,12 +855,11 @@ class UserThemeClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/custom').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/custom').expand(parameters));
     return DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -929,8 +925,7 @@ class UserThemeClient {
     required final String themeId,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -953,13 +948,14 @@ class UserThemeClient {
     }
 
 // coverage:ignore-end
-    pathParameters['themeId'] = themeId;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    parameters['themeId'] = $themeId;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(parameters));
     return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -1025,8 +1021,7 @@ class UserThemeClient {
     required final String themeId,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1049,13 +1044,14 @@ class UserThemeClient {
     }
 
 // coverage:ignore-end
-    pathParameters['themeId'] = themeId;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $themeId = jsonSerializers.serialize(themeId, specifiedType: const FullType(String));
+    parameters['themeId'] = $themeId;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(parameters));
     return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
