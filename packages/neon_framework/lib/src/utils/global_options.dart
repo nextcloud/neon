@@ -101,10 +101,6 @@ class GlobalOptions extends OptionsCollection {
         (final account) => MapEntry(account.id, (final context) => account.humanReadableID),
       ),
     );
-
-    if (!initialAccount.values.containsKey(initialAccount.value)) {
-      initialAccount.reset();
-    }
   }
 
   /// Updates the values of [pushNotificationsDistributor].
@@ -118,12 +114,7 @@ class GlobalOptions extends OptionsCollection {
       ),
     );
 
-    final enabled = pushNotificationsDistributor.values.isNotEmpty;
-    pushNotificationsEnabled.enabled = enabled;
-    if (!enabled) {
-      pushNotificationsDistributor.reset();
-      pushNotificationsEnabled.reset();
-    }
+    pushNotificationsEnabled.enabled = pushNotificationsDistributor.values.isNotEmpty;
   }
 
   /// The theme mode of the app implementing the Neon framework.

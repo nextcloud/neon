@@ -147,6 +147,21 @@ void main() {
       expect(option.values, newValues, reason: 'Should keep the values.');
     });
 
+    test('Invalid values', () {
+      expect(option.values, equals(valuesLabel));
+
+      option
+        ..value = SelectValues.second
+        ..values = {
+          SelectValues.first: (final _) => 'first',
+          SelectValues.third: (final _) => 'third',
+        };
+      expect(option.value, SelectValues.first, reason: 'Invalid value.');
+
+      option.value = SelectValues.second;
+      expect(option.value, SelectValues.first, reason: 'Invalid value.');
+    });
+
     test('Reset', () {
       final callback = MockCallbackFunction();
       option

@@ -71,6 +71,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   /// listeners.
   @override
   T get value => _value;
+
   @mustCallSuper
   set value(final T newValue) {
     if (_value == newValue) {
@@ -88,6 +89,7 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
   /// value as evaluated by the equality operator ==, this class notifies its
   /// listeners.
   bool get enabled => _enabled;
+
   @mustCallSuper
   set enabled(final bool newValue) {
     if (_enabled == newValue) {
@@ -108,7 +110,9 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     final value = deserialize(data);
 
     if (value != null) {
-      this.value = value;
+      // Do not trigger the validation to avoid resetting when the values haven't been loaded yet.
+      _value = value;
+      notifyListeners();
     }
   }
 
@@ -203,10 +207,14 @@ class SelectOption<T> extends Option<T> {
 
   @override
   set value(final T value) {
-    super.value = value;
+    if (_values.keys.contains(value)) {
+      super.value = value;
 
-    if (value != null) {
-      unawaited(storage.setString(key.value, serialize()!));
+      if (value != null) {
+        unawaited(storage.setString(key.value, serialize()!));
+      }
+    } else {
+      debugPrint('"$value" is not in "${_values.keys.join('", "')}", ignoring');
     }
   }
 
@@ -218,12 +226,16 @@ class SelectOption<T> extends Option<T> {
 
   /// Updates the collection of possible values.
   ///
-  /// It is up to the caller to also change the [value] if it is no longer supported.
+  /// If the current [value] is no longer supported the option will reset to the [defaultValue].
   set values(final Map<T, LabelBuilder> newValues) {
     if (_values == newValues) {
       return;
     }
     _values = newValues;
+    if (!_values.keys.contains(_value)) {
+      debugPrint('"$value" is not in "${_values.keys.join('", "')}", resetting "${key.value}"');
+      reset();
+    }
     notifyListeners();
   }
 
