@@ -105,8 +105,7 @@ class PreviewClient {
     final int? y,
     final String? version,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -129,15 +128,24 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    queryParameters['file'] = file ?? '';
-    queryParameters['x'] = (x ?? 44).toString();
-    queryParameters['y'] = (y ?? 44).toString();
-    queryParameters['version'] = version ?? '';
-    var uri = Uri.parse(UriTemplate('/index.php/apps/files_versions/preview').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    $file ??= '';
+    parameters['file'] = $file;
 
+    var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    $x ??= 44;
+    parameters['x'] = $x;
+
+    var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    $y ??= 44;
+    parameters['y'] = $y;
+
+    var $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    $version ??= '';
+    parameters['version'] = $version;
+
+    final uri =
+        Uri.parse(UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',

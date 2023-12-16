@@ -60,16 +60,11 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, GetHeaders> $getRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/').expand(parameters));
     return DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
@@ -110,16 +105,11 @@ class Client extends DynamiteClient {
   ///  * [withContentOperationId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/with_content/operation_id').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/with_content/operation_id').expand(parameters));
     return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
@@ -160,18 +150,13 @@ class Client extends DynamiteClient {
   ///  * [getWithContent] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
     Uint8List? body;
 
-    var uri = Uri.parse(UriTemplate('/with_content').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/with_content').expand(parameters));
     return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',

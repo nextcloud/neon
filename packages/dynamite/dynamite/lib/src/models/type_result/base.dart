@@ -25,7 +25,7 @@ class TypeResultBase extends TypeResult {
       case 'application/json':
       case 'application/x-www-form-urlencoded':
         if (className == 'String') {
-          return object;
+          return '$object as String';
         } else {
           return '$object.toString()';
         }

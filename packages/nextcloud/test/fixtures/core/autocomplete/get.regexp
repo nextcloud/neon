@@ -1,4 +1,4 @@
-GET http://localhost/ocs/v2\.php/core/autocomplete/get\?search&itemType=call&itemId=new&shareTypes%5B%5D=1&limit=10
+GET http://localhost/ocs/v2\.php/core/autocomplete/get\?search=&itemType=call&itemId=new&shareTypes%5B%5D=1&limit=10
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip

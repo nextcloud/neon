@@ -67,8 +67,7 @@ class Client extends DynamiteClient {
   ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -91,11 +90,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush').expand(parameters));
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -154,8 +149,7 @@ class Client extends DynamiteClient {
   ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required final int keepalive}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -178,12 +172,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    queryParameters['keepalive'] = keepalive.toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/keepalive').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $keepalive = jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
+    parameters['keepalive'] = $keepalive;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(parameters));
     return DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -238,8 +230,7 @@ class Client extends DynamiteClient {
   ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required final String deviceName}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -262,12 +253,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    queryParameters['deviceName'] = deviceName;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $deviceName = jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
+    parameters['deviceName'] = $deviceName;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(parameters));
     return DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -318,8 +307,7 @@ class Client extends DynamiteClient {
   ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required final String deviceId}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -342,12 +330,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['deviceId'] = deviceId;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    parameters['deviceId'] = $deviceId;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters));
     return DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -396,8 +382,7 @@ class Client extends DynamiteClient {
   ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required final String deviceId}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -420,12 +405,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['deviceId'] = deviceId;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    parameters['deviceId'] = $deviceId;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters));
     return DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
@@ -487,8 +470,7 @@ class Client extends DynamiteClient {
     required final String deviceId,
     required final String appName,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -511,13 +493,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    queryParameters['deviceId'] = deviceId;
-    queryParameters['appName'] = appName;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
+    parameters['deviceId'] = $deviceId;
 
+    final $appName = jsonSerializers.serialize(appName, specifiedType: const FullType(String));
+    parameters['appName'] = $appName;
+
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(parameters));
     return DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
       response: executeRequest(
         'put',
@@ -564,8 +546,7 @@ class Client extends DynamiteClient {
   ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required final String token}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -588,12 +569,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['token'] = token;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app/{token}').expand(parameters));
     return DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
@@ -644,8 +623,7 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
     required final String token,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -668,12 +646,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['token'] = token;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters));
     return DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -720,8 +696,7 @@ class Client extends DynamiteClient {
   ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required final String token}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -744,12 +719,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['token'] = token;
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters));
     return DynamiteRawResponse<PushResponseApplicationJson, void>(
       response: executeRequest(
         'post',
@@ -794,8 +767,7 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -818,11 +790,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters));
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -867,8 +835,7 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -891,11 +858,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters));
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',

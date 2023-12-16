@@ -86,8 +86,7 @@ class DashboardApiClient {
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -110,12 +109,11 @@ class DashboardApiClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(parameters));
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -187,8 +185,7 @@ class DashboardApiClient {
     final BuiltList<String>? widgets,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -211,22 +208,30 @@ class DashboardApiClient {
     }
 
 // coverage:ignore-end
-    if (sinceIds != null) {
-      queryParameters['sinceIds'] = jsonSerializers.serialize(
-        sinceIds,
-        specifiedType: const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(String)]),
-        ]),
-      );
-    }
-    queryParameters['limit'] = (limit ?? 7).toString();
-    queryParameters['widgets[]'] = (widgets ?? const <String>[]).map((final e) => e);
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $sinceIds = jsonSerializers.serialize(
+      sinceIds,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltMap, [FullType(String), FullType(String)]),
+      ]),
+    );
+    parameters['sinceIds'] = $sinceIds;
 
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 7;
+    parameters['limit'] = $limit;
+
+    var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    $widgets ??= [];
+    parameters['widgets%5B%5D'] = $widgets;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -302,8 +307,7 @@ class DashboardApiClient {
     final BuiltList<String>? widgets,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -326,22 +330,30 @@ class DashboardApiClient {
     }
 
 // coverage:ignore-end
-    if (sinceIds != null) {
-      queryParameters['sinceIds'] = jsonSerializers.serialize(
-        sinceIds,
-        specifiedType: const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(String)]),
-        ]),
-      );
-    }
-    queryParameters['limit'] = (limit ?? 7).toString();
-    queryParameters['widgets[]'] = (widgets ?? const <String>[]).map((final e) => e);
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $sinceIds = jsonSerializers.serialize(
+      sinceIds,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltMap, [FullType(String), FullType(String)]),
+      ]),
+    );
+    parameters['sinceIds'] = $sinceIds;
 
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 7;
+    parameters['limit'] = $limit;
+
+    var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    $widgets ??= [];
+    parameters['widgets%5B%5D'] = $widgets;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

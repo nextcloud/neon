@@ -102,8 +102,7 @@ class DirectClient {
     final int? expirationTime,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -126,16 +125,18 @@ class DirectClient {
     }
 
 // coverage:ignore-end
-    queryParameters['fileId'] = fileId.toString();
-    if (expirationTime != null) {
-      queryParameters['expirationTime'] = expirationTime.toString();
-    }
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    parameters['fileId'] = $fileId;
 
+    final $expirationTime = jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
+    parameters['expirationTime'] = $expirationTime;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(parameters));
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',

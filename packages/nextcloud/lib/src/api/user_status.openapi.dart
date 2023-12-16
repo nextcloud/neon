@@ -106,8 +106,7 @@ class HeartbeatClient {
     required final String status,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -130,13 +129,14 @@ class HeartbeatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['status'] = status;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $status = jsonSerializers.serialize(status, specifiedType: const FullType(String));
+    parameters['status'] = $status;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(parameters));
     return DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -197,8 +197,7 @@ class PredefinedStatusClient {
   ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -221,12 +220,11 @@ class PredefinedStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/predefined_statuses').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/predefined_statuses').expand(parameters));
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -299,8 +297,7 @@ class StatusesClient {
     final int? offset,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -323,18 +320,18 @@ class StatusesClient {
     }
 
 // coverage:ignore-end
-    if (limit != null) {
-      queryParameters['limit'] = limit.toString();
-    }
-    if (offset != null) {
-      queryParameters['offset'] = offset.toString();
-    }
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    parameters['limit'] = $limit;
 
+    final $offset = jsonSerializers.serialize(offset, specifiedType: const FullType(int));
+    parameters['offset'] = $offset;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(parameters));
     return DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -398,8 +395,7 @@ class StatusesClient {
     required final String userId,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -422,13 +418,14 @@ class StatusesClient {
     }
 
 // coverage:ignore-end
-    pathParameters['userId'] = userId;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $userId = jsonSerializers.serialize(userId, specifiedType: const FullType(String));
+    parameters['userId'] = $userId;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(parameters));
     return DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -491,8 +488,7 @@ class UserStatusClient {
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({final bool? oCSAPIRequest}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -515,12 +511,11 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status').expand(parameters));
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -584,8 +579,7 @@ class UserStatusClient {
     required final String statusType,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -608,13 +602,16 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    queryParameters['statusType'] = statusType;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $statusType = jsonSerializers.serialize(statusType, specifiedType: const FullType(String));
+    parameters['statusType'] = $statusType;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(parameters),
+    );
     return DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -683,8 +680,7 @@ class UserStatusClient {
     final int? clearAt,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -707,18 +703,20 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    queryParameters['messageId'] = messageId;
-    if (clearAt != null) {
-      queryParameters['clearAt'] = clearAt.toString();
-    }
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
+    parameters['messageId'] = $messageId;
 
+    final $clearAt = jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
+    parameters['clearAt'] = $clearAt;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -792,8 +790,7 @@ class UserStatusClient {
     final int? clearAt,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -816,23 +813,23 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    if (statusIcon != null) {
-      queryParameters['statusIcon'] = statusIcon;
-    }
-    if (message != null) {
-      queryParameters['message'] = message;
-    }
-    if (clearAt != null) {
-      queryParameters['clearAt'] = clearAt.toString();
-    }
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $statusIcon = jsonSerializers.serialize(statusIcon, specifiedType: const FullType(String));
+    parameters['statusIcon'] = $statusIcon;
 
+    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    parameters['message'] = $message;
+
+    final $clearAt = jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
+    parameters['clearAt'] = $clearAt;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -889,8 +886,7 @@ class UserStatusClient {
   DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -913,12 +909,11 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message').expand(parameters));
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -980,8 +975,7 @@ class UserStatusClient {
     required final String messageId,
     final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1004,15 +998,16 @@ class UserStatusClient {
     }
 
 // coverage:ignore-end
-    pathParameters['messageId'] = messageId;
-    headers['OCS-APIRequest'] = (oCSAPIRequest ?? true).toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
+    parameters['messageId'] = $messageId;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(parameters),
+    );
     return DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
