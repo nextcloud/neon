@@ -1,4 +1,4 @@
-GET http://localhost/index\.php/apps/news/api/v1-3/items
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip
@@ -10,7 +10,7 @@ accept: application/json
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Basic mock
-GET http://localhost/index\.php/apps/news/api/v1-3/items
+GET http://localhost/index\.php/apps/news/api/v1-3/items\?type=3&id=0&getRead=1&batchSize=-1&offset=0&oldestFirst=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip

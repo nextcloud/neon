@@ -36,7 +36,10 @@
                         "name": "array",
                         "in": "query",
                         "schema": {
-                            "type": "array"
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
                         }
                     },
                     {
@@ -79,6 +82,75 @@
                     {
                         "name": "num",
                         "in": "query",
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "object",
+                        "in": "query",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/headers": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "array",
+                        "in": "header",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "name": "bool",
+                        "in": "header",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "string",
+                        "in": "header",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "int",
+                        "in": "header",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "double",
+                        "in": "header",
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "num",
+                        "in": "header",
                         "schema": {
                             "type": "number"
                         }

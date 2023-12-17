@@ -63,10 +63,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String file = '',
-    final int x = 44,
-    final int y = 44,
-    final String version = '',
+    final String? file,
+    final int? x,
+    final int? y,
+    final String? version,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -100,13 +100,12 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String file = '',
-    final int x = 44,
-    final int y = 44,
-    final String version = '',
+    final String? file,
+    final int? x,
+    final int? y,
+    final String? version,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -129,23 +128,24 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (file != '') {
-      queryParameters['file'] = file;
-    }
-    if (x != 44) {
-      queryParameters['x'] = x.toString();
-    }
-    if (y != 44) {
-      queryParameters['y'] = y.toString();
-    }
-    if (version != '') {
-      queryParameters['version'] = version;
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/files_versions/preview').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    $file ??= '';
+    parameters['file'] = $file;
 
+    var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    $x ??= 44;
+    parameters['x'] = $x;
+
+    var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    $y ??= 44;
+    parameters['y'] = $y;
+
+    var $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    $version ??= '';
+    parameters['version'] = $version;
+
+    final uri =
+        Uri.parse(UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',

@@ -63,10 +63,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) async {
     final rawResponse = getPreviewRaw(
       fileId: fileId,
@@ -100,13 +100,12 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final int fileId = -1,
-    final int x = 32,
-    final int y = 32,
-    final int a = 0,
+    final int? fileId,
+    final int? x,
+    final int? y,
+    final int? a,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -129,23 +128,23 @@ class PreviewClient {
     }
 
 // coverage:ignore-end
-    if (fileId != -1) {
-      queryParameters['fileId'] = fileId.toString();
-    }
-    if (x != 32) {
-      queryParameters['x'] = x.toString();
-    }
-    if (y != 32) {
-      queryParameters['y'] = y.toString();
-    }
-    if (a != 0) {
-      queryParameters['a'] = a.toString();
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/files_trashbin/preview').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    $fileId ??= -1;
+    parameters['fileId'] = $fileId;
 
+    var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
+    $x ??= 32;
+    parameters['x'] = $x;
+
+    var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
+    $y ??= 32;
+    parameters['y'] = $y;
+
+    var $a = jsonSerializers.serialize(a, specifiedType: const FullType(int));
+    $a ??= 0;
+    parameters['a'] = $a;
+
+    final uri = Uri.parse(UriTemplate('/index.php/apps/files_trashbin/preview{?fileId*,x*,y*,a*}').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',

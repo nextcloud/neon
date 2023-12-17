@@ -89,6 +89,18 @@ void main() {
       );
     });
 
+    test('with empty string', () async {
+      await client.$get(string: '');
+      final captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?string='),
+        ]),
+      );
+    });
+
     test('with multiple query parameters', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
         (final b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),

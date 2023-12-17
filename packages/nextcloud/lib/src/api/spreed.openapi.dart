@@ -104,9 +104,9 @@ class AvatarClient {
   ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
     required final String token,
-    final int darkTheme = 0,
-    final AvatarGetAvatarApiVersion apiVersion = AvatarGetAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? darkTheme,
+    final AvatarGetAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAvatarRaw(
       token: token,
@@ -139,12 +139,11 @@ class AvatarClient {
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
     required final String token,
-    final int darkTheme = 0,
-    final AvatarGetAvatarApiVersion apiVersion = AvatarGetAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? darkTheme,
+    final AvatarGetAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -166,18 +165,24 @@ class AvatarClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (darkTheme != 0) {
-      queryParameters['darkTheme'] = darkTheme.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $darkTheme = jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
+    $darkTheme ??= 0;
+    parameters['darkTheme'] = $darkTheme;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}').expand(parameters),
+    );
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -210,8 +215,8 @@ class AvatarClient {
   ///  * [uploadAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AvatarUploadAvatarResponseApplicationJson, void>> uploadAvatar({
     required final String token,
-    final AvatarUploadAvatarApiVersion apiVersion = AvatarUploadAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarUploadAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = uploadAvatarRaw(
       token: token,
@@ -243,11 +248,10 @@ class AvatarClient {
   @experimental
   DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
     required final String token,
-    final AvatarUploadAvatarApiVersion apiVersion = AvatarUploadAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarUploadAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -269,15 +273,20 @@ class AvatarClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarUploadAvatarApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters));
     return DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -309,8 +318,8 @@ class AvatarClient {
   ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
     required final String token,
-    final AvatarDeleteAvatarApiVersion apiVersion = AvatarDeleteAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarDeleteAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAvatarRaw(
       token: token,
@@ -341,11 +350,10 @@ class AvatarClient {
   @experimental
   DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
     required final String token,
-    final AvatarDeleteAvatarApiVersion apiVersion = AvatarDeleteAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarDeleteAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -367,15 +375,20 @@ class AvatarClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarDeleteAvatarApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters));
     return DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -412,8 +425,8 @@ class AvatarClient {
     required final String emoji,
     required final String token,
     final String? color,
-    final AvatarEmojiAvatarApiVersion apiVersion = AvatarEmojiAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarEmojiAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = emojiAvatarRaw(
       emoji: emoji,
@@ -451,11 +464,10 @@ class AvatarClient {
     required final String emoji,
     required final String token,
     final String? color,
-    final AvatarEmojiAvatarApiVersion apiVersion = AvatarEmojiAvatarApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarEmojiAvatarApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -476,21 +488,28 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    queryParameters['emoji'] = emoji;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (color != null) {
-      queryParameters['color'] = color;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $emoji = jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
+    parameters['emoji'] = $emoji;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $color = jsonSerializers.serialize(color, specifiedType: const FullType(String));
+    parameters['color'] = $color;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarEmojiAvatarApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -522,8 +541,8 @@ class AvatarClient {
   ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
     required final String token,
-    final AvatarGetAvatarDarkApiVersion apiVersion = AvatarGetAvatarDarkApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarGetAvatarDarkApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAvatarDarkRaw(
       token: token,
@@ -554,11 +573,10 @@ class AvatarClient {
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
     required final String token,
-    final AvatarGetAvatarDarkApiVersion apiVersion = AvatarGetAvatarDarkApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final AvatarGetAvatarDarkApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
     };
@@ -580,16 +598,20 @@ class AvatarClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(AvatarGetAvatarDarkApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(parameters));
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -637,11 +659,11 @@ class BotClient {
   Future<DynamiteResponse<BotSendMessageResponseApplicationJson, void>> sendMessage({
     required final String message,
     required final String token,
-    final String referenceId = '',
-    final int replyTo = 0,
-    final int silent = 0,
-    final BotSendMessageApiVersion apiVersion = BotSendMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? referenceId,
+    final int? replyTo,
+    final int? silent,
+    final BotSendMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessageRaw(
       message: message,
@@ -686,14 +708,13 @@ class BotClient {
   DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
     required final String message,
     required final String token,
-    final String referenceId = '',
-    final int replyTo = 0,
-    final int silent = 0,
-    final BotSendMessageApiVersion apiVersion = BotSendMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? referenceId,
+    final int? replyTo,
+    final int? silent,
+    final BotSendMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -714,26 +735,38 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    queryParameters['message'] = message;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (referenceId != '') {
-      queryParameters['referenceId'] = referenceId;
-    }
-    if (replyTo != 0) {
-      queryParameters['replyTo'] = replyTo.toString();
-    }
-    if (silent != 0) {
-      queryParameters['silent'] = silent.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    parameters['message'] = $message;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    $referenceId ??= '';
+    parameters['referenceId'] = $referenceId;
+
+    var $replyTo = jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    $replyTo ??= 0;
+    parameters['replyTo'] = $replyTo;
+
+    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    $silent ??= 0;
+    parameters['silent'] = $silent;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotSendMessageApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -773,8 +806,8 @@ class BotClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final BotReactApiVersion apiVersion = BotReactApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotReactApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = reactRaw(
       reaction: reaction,
@@ -815,11 +848,10 @@ class BotClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final BotReactApiVersion apiVersion = BotReactApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotReactApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -840,19 +872,28 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    queryParameters['reaction'] = reaction;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    parameters['reaction'] = $reaction;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotReactApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BotReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -891,8 +932,8 @@ class BotClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final BotDeleteReactionApiVersion apiVersion = BotDeleteReactionApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotDeleteReactionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteReactionRaw(
       reaction: reaction,
@@ -932,11 +973,10 @@ class BotClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final BotDeleteReactionApiVersion apiVersion = BotDeleteReactionApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotDeleteReactionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -957,19 +997,28 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    queryParameters['reaction'] = reaction;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    parameters['reaction'] = $reaction;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDeleteReactionApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1001,8 +1050,8 @@ class BotClient {
   /// See:
   ///  * [adminListBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
-    final BotAdminListBotsApiVersion apiVersion = BotAdminListBotsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotAdminListBotsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = adminListBotsRaw(
       apiVersion: apiVersion,
@@ -1032,11 +1081,10 @@ class BotClient {
   ///  * [adminListBots] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
-    final BotAdminListBotsApiVersion apiVersion = BotAdminListBotsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotAdminListBotsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1059,13 +1107,15 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotAdminListBotsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(parameters));
     return DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1097,8 +1147,8 @@ class BotClient {
   ///  * [listBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
     required final String token,
-    final BotListBotsApiVersion apiVersion = BotListBotsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotListBotsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = listBotsRaw(
       token: token,
@@ -1129,11 +1179,10 @@ class BotClient {
   @experimental
   DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
     required final String token,
-    final BotListBotsApiVersion apiVersion = BotListBotsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotListBotsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1157,14 +1206,18 @@ class BotClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(parameters));
     return DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1200,8 +1253,8 @@ class BotClient {
   Future<DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
     required final String token,
     required final int botId,
-    final BotEnableBotApiVersion apiVersion = BotEnableBotApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotEnableBotApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = enableBotRaw(
       token: token,
@@ -1237,11 +1290,10 @@ class BotClient {
   DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
     required final String token,
     required final int botId,
-    final BotEnableBotApiVersion apiVersion = BotEnableBotApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotEnableBotApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1265,16 +1317,22 @@ class BotClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['botId'] = botId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    parameters['botId'] = $botId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotEnableBotApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters));
     return DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1309,8 +1367,8 @@ class BotClient {
   Future<DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
     required final String token,
     required final int botId,
-    final BotDisableBotApiVersion apiVersion = BotDisableBotApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotDisableBotApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = disableBotRaw(
       token: token,
@@ -1345,11 +1403,10 @@ class BotClient {
   DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
     required final String token,
     required final int botId,
-    final BotDisableBotApiVersion apiVersion = BotDisableBotApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BotDisableBotApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1373,16 +1430,22 @@ class BotClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['botId'] = botId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
+    parameters['botId'] = $botId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotDisableBotApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters));
     return DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1426,9 +1489,9 @@ class BreakoutRoomClient {
     required final int mode,
     required final int amount,
     required final String token,
-    final String attendeeMap = '[]',
-    final BreakoutRoomConfigureBreakoutRoomsApiVersion apiVersion = BreakoutRoomConfigureBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? attendeeMap,
+    final BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = configureBreakoutRoomsRaw(
       mode: mode,
@@ -1468,12 +1531,11 @@ class BreakoutRoomClient {
     required final int mode,
     required final int amount,
     required final String token,
-    final String attendeeMap = '[]',
-    final BreakoutRoomConfigureBreakoutRoomsApiVersion apiVersion = BreakoutRoomConfigureBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? attendeeMap,
+    final BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1496,22 +1558,35 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['mode'] = mode.toString();
-    queryParameters['amount'] = amount.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (attendeeMap != '[]') {
-      queryParameters['attendeeMap'] = attendeeMap;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(int));
+    parameters['mode'] = $mode;
 
+    final $amount = jsonSerializers.serialize(amount, specifiedType: const FullType(int));
+    parameters['amount'] = $amount;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    $attendeeMap ??= '[]';
+    parameters['attendeeMap'] = $attendeeMap;
+
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1543,8 +1618,8 @@ class BreakoutRoomClient {
   ///  * [removeBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>> removeBreakoutRooms({
     required final String token,
-    final BreakoutRoomRemoveBreakoutRoomsApiVersion apiVersion = BreakoutRoomRemoveBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeBreakoutRoomsRaw(
       token: token,
@@ -1575,11 +1650,10 @@ class BreakoutRoomClient {
   @experimental
   DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
     required final String token,
-    final BreakoutRoomRemoveBreakoutRoomsApiVersion apiVersion = BreakoutRoomRemoveBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1603,16 +1677,20 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRemoveBreakoutRoomsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(parameters));
     return DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1648,8 +1726,8 @@ class BreakoutRoomClient {
   Future<DynamiteResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>> broadcastChatMessage({
     required final String message,
     required final String token,
-    final BreakoutRoomBroadcastChatMessageApiVersion apiVersion = BreakoutRoomBroadcastChatMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = broadcastChatMessageRaw(
       message: message,
@@ -1685,11 +1763,10 @@ class BreakoutRoomClient {
   DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
     required final String message,
     required final String token,
-    final BreakoutRoomBroadcastChatMessageApiVersion apiVersion = BreakoutRoomBroadcastChatMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1712,18 +1789,28 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['message'] = message;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    parameters['message'] = $message;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomBroadcastChatMessageApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1758,8 +1845,8 @@ class BreakoutRoomClient {
   Future<DynamiteResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>> applyAttendeeMap({
     required final String attendeeMap,
     required final String token,
-    final BreakoutRoomApplyAttendeeMapApiVersion apiVersion = BreakoutRoomApplyAttendeeMapApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = applyAttendeeMapRaw(
       attendeeMap: attendeeMap,
@@ -1794,11 +1881,10 @@ class BreakoutRoomClient {
   DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
     required final String attendeeMap,
     required final String token,
-    final BreakoutRoomApplyAttendeeMapApiVersion apiVersion = BreakoutRoomApplyAttendeeMapApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1821,18 +1907,26 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['attendeeMap'] = attendeeMap;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
+    parameters['attendeeMap'] = $attendeeMap;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomApplyAttendeeMapApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1865,8 +1959,8 @@ class BreakoutRoomClient {
   ///  * [requestAssistanceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>> requestAssistance({
     required final String token,
-    final BreakoutRoomRequestAssistanceApiVersion apiVersion = BreakoutRoomRequestAssistanceApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomRequestAssistanceApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = requestAssistanceRaw(
       token: token,
@@ -1898,11 +1992,10 @@ class BreakoutRoomClient {
   @experimental
   DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
     required final String token,
-    final BreakoutRoomRequestAssistanceApiVersion apiVersion = BreakoutRoomRequestAssistanceApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomRequestAssistanceApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1926,17 +2019,22 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-          .expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomRequestAssistanceApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1970,9 +2068,8 @@ class BreakoutRoomClient {
   Future<DynamiteResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
       resetRequestForAssistance({
     required final String token,
-    final BreakoutRoomResetRequestForAssistanceApiVersion apiVersion =
-        BreakoutRoomResetRequestForAssistanceApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resetRequestForAssistanceRaw(
       token: token,
@@ -2004,12 +2101,10 @@ class BreakoutRoomClient {
   @experimental
   DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void> resetRequestForAssistanceRaw({
     required final String token,
-    final BreakoutRoomResetRequestForAssistanceApiVersion apiVersion =
-        BreakoutRoomResetRequestForAssistanceApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2033,17 +2128,24 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-          .expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(BreakoutRoomResetRequestForAssistanceApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -2076,8 +2178,8 @@ class BreakoutRoomClient {
   ///  * [startBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>> startBreakoutRooms({
     required final String token,
-    final BreakoutRoomStartBreakoutRoomsApiVersion apiVersion = BreakoutRoomStartBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = startBreakoutRoomsRaw(
       token: token,
@@ -2109,11 +2211,10 @@ class BreakoutRoomClient {
   @experimental
   DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
     required final String token,
-    final BreakoutRoomStartBreakoutRoomsApiVersion apiVersion = BreakoutRoomStartBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2137,16 +2238,21 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStartBreakoutRoomsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2179,8 +2285,8 @@ class BreakoutRoomClient {
   ///  * [stopBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>> stopBreakoutRooms({
     required final String token,
-    final BreakoutRoomStopBreakoutRoomsApiVersion apiVersion = BreakoutRoomStopBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopBreakoutRoomsRaw(
       token: token,
@@ -2212,11 +2318,10 @@ class BreakoutRoomClient {
   @experimental
   DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
     required final String token,
-    final BreakoutRoomStopBreakoutRoomsApiVersion apiVersion = BreakoutRoomStopBreakoutRoomsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2240,16 +2345,21 @@ class BreakoutRoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomStopBreakoutRoomsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -2284,8 +2394,8 @@ class BreakoutRoomClient {
   Future<DynamiteResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>> switchBreakoutRoom({
     required final String target,
     required final String token,
-    final BreakoutRoomSwitchBreakoutRoomApiVersion apiVersion = BreakoutRoomSwitchBreakoutRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = switchBreakoutRoomRaw(
       target: target,
@@ -2320,11 +2430,10 @@ class BreakoutRoomClient {
   DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
     required final String target,
     required final String token,
-    final BreakoutRoomSwitchBreakoutRoomApiVersion apiVersion = BreakoutRoomSwitchBreakoutRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2347,18 +2456,26 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['target'] = target;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $target = jsonSerializers.serialize(target, specifiedType: const FullType(String));
+    parameters['target'] = $target;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BreakoutRoomSwitchBreakoutRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2396,8 +2513,8 @@ class CallClient {
   ///  * [getPeersForCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallGetPeersForCallResponseApplicationJson, void>> getPeersForCall({
     required final String token,
-    final CallGetPeersForCallApiVersion apiVersion = CallGetPeersForCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallGetPeersForCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getPeersForCallRaw(
       token: token,
@@ -2428,11 +2545,10 @@ class CallClient {
   @experimental
   DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
     required final String token,
-    final CallGetPeersForCallApiVersion apiVersion = CallGetPeersForCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallGetPeersForCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2454,14 +2570,19 @@ class CallClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallGetPeersForCallApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(parameters));
     return DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2497,8 +2618,8 @@ class CallClient {
   Future<DynamiteResponse<CallUpdateCallFlagsResponseApplicationJson, void>> updateCallFlags({
     required final int flags,
     required final String token,
-    final CallUpdateCallFlagsApiVersion apiVersion = CallUpdateCallFlagsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallUpdateCallFlagsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = updateCallFlagsRaw(
       flags: flags,
@@ -2534,11 +2655,10 @@ class CallClient {
   DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
     required final int flags,
     required final String token,
-    final CallUpdateCallFlagsApiVersion apiVersion = CallUpdateCallFlagsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallUpdateCallFlagsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2559,16 +2679,24 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    queryParameters['flags'] = flags.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    parameters['flags'] = $flags;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallUpdateCallFlagsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(parameters));
     return DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -2608,10 +2736,10 @@ class CallClient {
     required final String token,
     final int? flags,
     final int? forcePermissions,
-    final int silent = 0,
-    final int recordingConsent = 0,
-    final CallJoinCallApiVersion apiVersion = CallJoinCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? silent,
+    final int? recordingConsent,
+    final CallJoinCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = joinCallRaw(
       token: token,
@@ -2654,13 +2782,12 @@ class CallClient {
     required final String token,
     final int? flags,
     final int? forcePermissions,
-    final int silent = 0,
-    final int recordingConsent = 0,
-    final CallJoinCallApiVersion apiVersion = CallJoinCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? silent,
+    final int? recordingConsent,
+    final CallJoinCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2682,26 +2809,36 @@ class CallClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (flags != null) {
-      queryParameters['flags'] = flags.toString();
-    }
-    if (forcePermissions != null) {
-      queryParameters['forcePermissions'] = forcePermissions.toString();
-    }
-    if (silent != 0) {
-      queryParameters['silent'] = silent.toString();
-    }
-    if (recordingConsent != 0) {
-      queryParameters['recordingConsent'] = recordingConsent.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    parameters['flags'] = $flags;
+
+    final $forcePermissions = jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(int));
+    parameters['forcePermissions'] = $forcePermissions;
+
+    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    $silent ??= 0;
+    parameters['silent'] = $silent;
+
+    var $recordingConsent = jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    $recordingConsent ??= 0;
+    parameters['recordingConsent'] = $recordingConsent;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallJoinCallApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2735,9 +2872,9 @@ class CallClient {
   ///  * [leaveCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
     required final String token,
-    final int all = 0,
-    final CallLeaveCallApiVersion apiVersion = CallLeaveCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? all,
+    final CallLeaveCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = leaveCallRaw(
       token: token,
@@ -2771,12 +2908,11 @@ class CallClient {
   @experimental
   DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
     required final String token,
-    final int all = 0,
-    final CallLeaveCallApiVersion apiVersion = CallLeaveCallApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? all,
+    final CallLeaveCallApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2798,17 +2934,23 @@ class CallClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (all != 0) {
-      queryParameters['all'] = all.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $all = jsonSerializers.serialize(all, specifiedType: const FullType(int));
+    $all ??= 0;
+    parameters['all'] = $all;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallLeaveCallApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(parameters));
     return DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -2843,8 +2985,8 @@ class CallClient {
   Future<DynamiteResponse<CallRingAttendeeResponseApplicationJson, void>> ringAttendee({
     required final String token,
     required final int attendeeId,
-    final CallRingAttendeeApiVersion apiVersion = CallRingAttendeeApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallRingAttendeeApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = ringAttendeeRaw(
       token: token,
@@ -2879,11 +3021,10 @@ class CallClient {
   DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
     required final String token,
     required final int attendeeId,
-    final CallRingAttendeeApiVersion apiVersion = CallRingAttendeeApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallRingAttendeeApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2905,17 +3046,23 @@ class CallClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['attendeeId'] = attendeeId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallRingAttendeeApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(parameters),
+    );
     return DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2952,8 +3099,8 @@ class CallClient {
   Future<DynamiteResponse<CallSipDialOutResponseApplicationJson, void>> sipDialOut({
     required final String token,
     required final int attendeeId,
-    final CallSipDialOutApiVersion apiVersion = CallSipDialOutApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallSipDialOutApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = sipDialOutRaw(
       token: token,
@@ -2990,11 +3137,10 @@ class CallClient {
   DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
     required final String token,
     required final int attendeeId,
-    final CallSipDialOutApiVersion apiVersion = CallSipDialOutApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final CallSipDialOutApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3016,17 +3162,23 @@ class CallClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['attendeeId'] = attendeeId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(CallSipDialOutApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}').expand(parameters),
+    );
     return DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3067,8 +3219,8 @@ class CertificateClient {
   ///  * [getCertificateExpirationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>> getCertificateExpiration({
     required final String host,
-    final CertificateGetCertificateExpirationApiVersion apiVersion = CertificateGetCertificateExpirationApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final CertificateGetCertificateExpirationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCertificateExpirationRaw(
       host: host,
@@ -3102,11 +3254,10 @@ class CertificateClient {
   @experimental
   DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void> getCertificateExpirationRaw({
     required final String host,
-    final CertificateGetCertificateExpirationApiVersion apiVersion = CertificateGetCertificateExpirationApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final CertificateGetCertificateExpirationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3129,16 +3280,23 @@ class CertificateClient {
     }
 
 // coverage:ignore-end
-    queryParameters['host'] = host;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $host = jsonSerializers.serialize(host, specifiedType: const FullType(String));
+    parameters['host'] = $host;
 
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(CertificateGetCertificateExpirationApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(parameters),
+    );
     return DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3191,16 +3349,16 @@ class ChatClient {
   Future<DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>> receiveMessages({
     required final int lookIntoFuture,
     required final String token,
-    final int limit = 100,
-    final int lastKnownMessageId = 0,
-    final int lastCommonReadId = 0,
-    final int timeout = 30,
-    final int setReadMarker = 1,
-    final int includeLastKnown = 0,
-    final int noStatusUpdate = 0,
-    final int markNotificationsAsRead = 1,
-    final ChatReceiveMessagesApiVersion apiVersion = ChatReceiveMessagesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final int? lastKnownMessageId,
+    final int? lastCommonReadId,
+    final int? timeout,
+    final int? setReadMarker,
+    final int? includeLastKnown,
+    final int? noStatusUpdate,
+    final int? markNotificationsAsRead,
+    final ChatReceiveMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = receiveMessagesRaw(
       lookIntoFuture: lookIntoFuture,
@@ -3255,19 +3413,18 @@ class ChatClient {
   DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders> receiveMessagesRaw({
     required final int lookIntoFuture,
     required final String token,
-    final int limit = 100,
-    final int lastKnownMessageId = 0,
-    final int lastCommonReadId = 0,
-    final int timeout = 30,
-    final int setReadMarker = 1,
-    final int includeLastKnown = 0,
-    final int noStatusUpdate = 0,
-    final int markNotificationsAsRead = 1,
-    final ChatReceiveMessagesApiVersion apiVersion = ChatReceiveMessagesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final int? lastKnownMessageId,
+    final int? lastCommonReadId,
+    final int? timeout,
+    final int? setReadMarker,
+    final int? includeLastKnown,
+    final int? noStatusUpdate,
+    final int? markNotificationsAsRead,
+    final ChatReceiveMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3288,40 +3445,60 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['lookIntoFuture'] = lookIntoFuture.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (limit != 100) {
-      queryParameters['limit'] = limit.toString();
-    }
-    if (lastKnownMessageId != 0) {
-      queryParameters['lastKnownMessageId'] = lastKnownMessageId.toString();
-    }
-    if (lastCommonReadId != 0) {
-      queryParameters['lastCommonReadId'] = lastCommonReadId.toString();
-    }
-    if (timeout != 30) {
-      queryParameters['timeout'] = timeout.toString();
-    }
-    if (setReadMarker != 1) {
-      queryParameters['setReadMarker'] = setReadMarker.toString();
-    }
-    if (includeLastKnown != 0) {
-      queryParameters['includeLastKnown'] = includeLastKnown.toString();
-    }
-    if (noStatusUpdate != 0) {
-      queryParameters['noStatusUpdate'] = noStatusUpdate.toString();
-    }
-    if (markNotificationsAsRead != 1) {
-      queryParameters['markNotificationsAsRead'] = markNotificationsAsRead.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $lookIntoFuture = jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(int));
+    parameters['lookIntoFuture'] = $lookIntoFuture;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 100;
+    parameters['limit'] = $limit;
+
+    var $lastKnownMessageId = jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    $lastKnownMessageId ??= 0;
+    parameters['lastKnownMessageId'] = $lastKnownMessageId;
+
+    var $lastCommonReadId = jsonSerializers.serialize(lastCommonReadId, specifiedType: const FullType(int));
+    $lastCommonReadId ??= 0;
+    parameters['lastCommonReadId'] = $lastCommonReadId;
+
+    var $timeout = jsonSerializers.serialize(timeout, specifiedType: const FullType(int));
+    $timeout ??= 30;
+    parameters['timeout'] = $timeout;
+
+    var $setReadMarker = jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(int));
+    $setReadMarker ??= 1;
+    parameters['setReadMarker'] = $setReadMarker;
+
+    var $includeLastKnown = jsonSerializers.serialize(includeLastKnown, specifiedType: const FullType(int));
+    $includeLastKnown ??= 0;
+    parameters['includeLastKnown'] = $includeLastKnown;
+
+    var $noStatusUpdate = jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(int));
+    $noStatusUpdate ??= 0;
+    parameters['noStatusUpdate'] = $noStatusUpdate;
+
+    var $markNotificationsAsRead =
+        jsonSerializers.serialize(markNotificationsAsRead, specifiedType: const FullType(int));
+    $markNotificationsAsRead ??= 1;
+    parameters['markNotificationsAsRead'] = $markNotificationsAsRead;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatReceiveMessagesApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -3364,12 +3541,12 @@ class ChatClient {
   Future<DynamiteResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>> sendMessage({
     required final String message,
     required final String token,
-    final String actorDisplayName = '',
-    final String referenceId = '',
-    final int replyTo = 0,
-    final int silent = 0,
-    final ChatSendMessageApiVersion apiVersion = ChatSendMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? actorDisplayName,
+    final String? referenceId,
+    final int? replyTo,
+    final int? silent,
+    final ChatSendMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessageRaw(
       message: message,
@@ -3416,15 +3593,14 @@ class ChatClient {
   DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
     required final String message,
     required final String token,
-    final String actorDisplayName = '',
-    final String referenceId = '',
-    final int replyTo = 0,
-    final int silent = 0,
-    final ChatSendMessageApiVersion apiVersion = ChatSendMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? actorDisplayName,
+    final String? referenceId,
+    final int? replyTo,
+    final int? silent,
+    final ChatSendMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3445,28 +3621,42 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['message'] = message;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (actorDisplayName != '') {
-      queryParameters['actorDisplayName'] = actorDisplayName;
-    }
-    if (referenceId != '') {
-      queryParameters['referenceId'] = referenceId;
-    }
-    if (replyTo != 0) {
-      queryParameters['replyTo'] = replyTo.toString();
-    }
-    if (silent != 0) {
-      queryParameters['silent'] = silent.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
+    parameters['message'] = $message;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $actorDisplayName = jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    $actorDisplayName ??= '';
+    parameters['actorDisplayName'] = $actorDisplayName;
+
+    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    $referenceId ??= '';
+    parameters['referenceId'] = $referenceId;
+
+    var $replyTo = jsonSerializers.serialize(replyTo, specifiedType: const FullType(int));
+    $replyTo ??= 0;
+    parameters['replyTo'] = $replyTo;
+
+    var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
+    $silent ??= 0;
+    parameters['silent'] = $silent;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSendMessageApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
       response: _rootClient.executeRequest(
         'post',
@@ -3500,8 +3690,8 @@ class ChatClient {
   ///  * [clearHistoryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>> clearHistory({
     required final String token,
-    final ChatClearHistoryApiVersion apiVersion = ChatClearHistoryApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatClearHistoryApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = clearHistoryRaw(
       token: token,
@@ -3534,11 +3724,10 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
     required final String token,
-    final ChatClearHistoryApiVersion apiVersion = ChatClearHistoryApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatClearHistoryApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3562,14 +3751,18 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(parameters));
     return DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3608,8 +3801,8 @@ class ChatClient {
   Future<DynamiteResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>> deleteMessage({
     required final String token,
     required final int messageId,
-    final ChatDeleteMessageApiVersion apiVersion = ChatDeleteMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatDeleteMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteMessageRaw(
       token: token,
@@ -3648,11 +3841,10 @@ class ChatClient {
   DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
     required final String token,
     required final int messageId,
-    final ChatDeleteMessageApiVersion apiVersion = ChatDeleteMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatDeleteMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3676,17 +3868,22 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteMessageApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(parameters));
     return DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3723,9 +3920,9 @@ class ChatClient {
       getMessageContext({
     required final String token,
     required final int messageId,
-    final int limit = 50,
-    final ChatGetMessageContextApiVersion apiVersion = ChatGetMessageContextApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final ChatGetMessageContextApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getMessageContextRaw(
       token: token,
@@ -3763,12 +3960,11 @@ class ChatClient {
       getMessageContextRaw({
     required final String token,
     required final int messageId,
-    final int limit = 50,
-    final ChatGetMessageContextApiVersion apiVersion = ChatGetMessageContextApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final ChatGetMessageContextApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3790,20 +3986,29 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    if (limit != 50) {
-      queryParameters['limit'] = limit.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 50;
+    parameters['limit'] = $limit;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetMessageContextApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -3838,8 +4043,8 @@ class ChatClient {
   Future<DynamiteResponse<ChatGetReminderResponseApplicationJson, void>> getReminder({
     required final String token,
     required final int messageId,
-    final ChatGetReminderApiVersion apiVersion = ChatGetReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatGetReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getReminderRaw(
       token: token,
@@ -3874,11 +4079,10 @@ class ChatClient {
   DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
     required final String token,
     required final int messageId,
-    final ChatGetReminderApiVersion apiVersion = ChatGetReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatGetReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3902,17 +4106,23 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetReminderApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters),
+    );
     return DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3949,8 +4159,8 @@ class ChatClient {
     required final int timestamp,
     required final String token,
     required final int messageId,
-    final ChatSetReminderApiVersion apiVersion = ChatSetReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatSetReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReminderRaw(
       timestamp: timestamp,
@@ -3988,11 +4198,10 @@ class ChatClient {
     required final int timestamp,
     required final String token,
     required final int messageId,
-    final ChatSetReminderApiVersion apiVersion = ChatSetReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatSetReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4015,19 +4224,28 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['timestamp'] = timestamp.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    parameters['timestamp'] = $timestamp;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReminderApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4062,8 +4280,8 @@ class ChatClient {
   Future<DynamiteResponse<ChatDeleteReminderResponseApplicationJson, void>> deleteReminder({
     required final String token,
     required final int messageId,
-    final ChatDeleteReminderApiVersion apiVersion = ChatDeleteReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatDeleteReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteReminderRaw(
       token: token,
@@ -4098,11 +4316,10 @@ class ChatClient {
   DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
     required final String token,
     required final int messageId,
-    final ChatDeleteReminderApiVersion apiVersion = ChatDeleteReminderApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatDeleteReminderApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4126,17 +4343,24 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatDeleteReminderApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters),
+    );
     return DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4170,8 +4394,8 @@ class ChatClient {
   Future<DynamiteResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>> setReadMarker({
     required final int lastReadMessage,
     required final String token,
-    final ChatSetReadMarkerApiVersion apiVersion = ChatSetReadMarkerApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatSetReadMarkerApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReadMarkerRaw(
       lastReadMessage: lastReadMessage,
@@ -4205,11 +4429,10 @@ class ChatClient {
   DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
     required final int lastReadMessage,
     required final String token,
-    final ChatSetReadMarkerApiVersion apiVersion = ChatSetReadMarkerApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatSetReadMarkerApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4232,17 +4455,24 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['lastReadMessage'] = lastReadMessage.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $lastReadMessage = jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
+    parameters['lastReadMessage'] = $lastReadMessage;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}').expand(parameters),
+    );
     return DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
       response: _rootClient.executeRequest(
         'post',
@@ -4274,8 +4504,8 @@ class ChatClient {
   ///  * [markUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>> markUnread({
     required final String token,
-    final ChatMarkUnreadApiVersion apiVersion = ChatMarkUnreadApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatMarkUnreadApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = markUnreadRaw(
       token: token,
@@ -4306,11 +4536,10 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
     required final String token,
-    final ChatMarkUnreadApiVersion apiVersion = ChatMarkUnreadApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ChatMarkUnreadApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4334,15 +4563,18 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(parameters));
     return DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4378,10 +4610,10 @@ class ChatClient {
   Future<DynamiteResponse<ChatMentionsResponseApplicationJson, void>> mentions({
     required final String search,
     required final String token,
-    final int limit = 20,
-    final int includeStatus = 0,
-    final ChatMentionsApiVersion apiVersion = ChatMentionsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final int? includeStatus,
+    final ChatMentionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = mentionsRaw(
       search: search,
@@ -4419,13 +4651,12 @@ class ChatClient {
   DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
     required final String search,
     required final String token,
-    final int limit = 20,
-    final int includeStatus = 0,
-    final ChatMentionsApiVersion apiVersion = ChatMentionsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final int? includeStatus,
+    final ChatMentionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4446,24 +4677,33 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['search'] = search;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (limit != 20) {
-      queryParameters['limit'] = limit.toString();
-    }
-    if (includeStatus != 0) {
-      queryParameters['includeStatus'] = includeStatus.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
+    parameters['search'] = $search;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 20;
+    parameters['limit'] = $limit;
+
+    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    $includeStatus ??= 0;
+    parameters['includeStatus'] = $includeStatus;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMentionsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4500,10 +4740,10 @@ class ChatClient {
       getObjectsSharedInRoom({
     required final String objectType,
     required final String token,
-    final int lastKnownMessageId = 0,
-    final int limit = 100,
-    final ChatGetObjectsSharedInRoomApiVersion apiVersion = ChatGetObjectsSharedInRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? lastKnownMessageId,
+    final int? limit,
+    final ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getObjectsSharedInRoomRaw(
       objectType: objectType,
@@ -4542,13 +4782,12 @@ class ChatClient {
       getObjectsSharedInRoomRaw({
     required final String objectType,
     required final String token,
-    final int lastKnownMessageId = 0,
-    final int limit = 100,
-    final ChatGetObjectsSharedInRoomApiVersion apiVersion = ChatGetObjectsSharedInRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? lastKnownMessageId,
+    final int? limit,
+    final ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4569,23 +4808,35 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['objectType'] = objectType;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (lastKnownMessageId != 0) {
-      queryParameters['lastKnownMessageId'] = lastKnownMessageId.toString();
-    }
-    if (limit != 100) {
-      queryParameters['limit'] = limit.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    parameters['objectType'] = $objectType;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $lastKnownMessageId = jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
+    $lastKnownMessageId ??= 0;
+    parameters['lastKnownMessageId'] = $lastKnownMessageId;
+
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 100;
+    parameters['limit'] = $limit;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatGetObjectsSharedInRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
         ChatChatGetObjectsSharedInRoomHeaders>(
       response: _rootClient.executeRequest(
@@ -4631,11 +4882,11 @@ class ChatClient {
     required final String objectType,
     required final String objectId,
     required final String token,
-    final String metaData = '',
-    final String actorDisplayName = '',
-    final String referenceId = '',
-    final ChatShareObjectToChatApiVersion apiVersion = ChatShareObjectToChatApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? metaData,
+    final String? actorDisplayName,
+    final String? referenceId,
+    final ChatShareObjectToChatApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = shareObjectToChatRaw(
       objectType: objectType,
@@ -4684,14 +4935,13 @@ class ChatClient {
     required final String objectType,
     required final String objectId,
     required final String token,
-    final String metaData = '',
-    final String actorDisplayName = '',
-    final String referenceId = '',
-    final ChatShareObjectToChatApiVersion apiVersion = ChatShareObjectToChatApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final String? metaData,
+    final String? actorDisplayName,
+    final String? referenceId,
+    final ChatShareObjectToChatApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4712,27 +4962,42 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    queryParameters['objectType'] = objectType;
-    queryParameters['objectId'] = objectId;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (metaData != '') {
-      queryParameters['metaData'] = metaData;
-    }
-    if (actorDisplayName != '') {
-      queryParameters['actorDisplayName'] = actorDisplayName;
-    }
-    if (referenceId != '') {
-      queryParameters['referenceId'] = referenceId;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    parameters['objectType'] = $objectType;
 
+    final $objectId = jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    parameters['objectId'] = $objectId;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $metaData = jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
+    $metaData ??= '';
+    parameters['metaData'] = $metaData;
+
+    var $actorDisplayName = jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
+    $actorDisplayName ??= '';
+    parameters['actorDisplayName'] = $actorDisplayName;
+
+    var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
+    $referenceId ??= '';
+    parameters['referenceId'] = $referenceId;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatShareObjectToChatApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
       response: _rootClient.executeRequest(
         'post',
@@ -4766,9 +5031,9 @@ class ChatClient {
   Future<DynamiteResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
       getObjectsSharedInRoomOverview({
     required final String token,
-    final int limit = 7,
-    final ChatGetObjectsSharedInRoomOverviewApiVersion apiVersion = ChatGetObjectsSharedInRoomOverviewApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getObjectsSharedInRoomOverviewRaw(
       token: token,
@@ -4802,12 +5067,11 @@ class ChatClient {
   DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
       getObjectsSharedInRoomOverviewRaw({
     required final String token,
-    final int limit = 7,
-    final ChatGetObjectsSharedInRoomOverviewApiVersion apiVersion = ChatGetObjectsSharedInRoomOverviewApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final int? limit,
+    final ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4829,19 +5093,27 @@ class ChatClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (limit != 7) {
-      queryParameters['limit'] = limit.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    $limit ??= 7;
+    parameters['limit'] = $limit;
+
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}').expand(parameters),
+    );
     return DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4880,8 +5152,8 @@ class FederationClient {
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationAcceptShareResponseApplicationJson, void>> acceptShare({
     required final int id,
-    final FederationAcceptShareApiVersion apiVersion = FederationAcceptShareApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationAcceptShareApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -4913,11 +5185,10 @@ class FederationClient {
   @experimental
   DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void> acceptShareRaw({
     required final int id,
-    final FederationAcceptShareApiVersion apiVersion = FederationAcceptShareApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationAcceptShareApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4940,16 +5211,21 @@ class FederationClient {
     }
 
 // coverage:ignore-end
-    pathParameters['id'] = id.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    parameters['id'] = $id;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationAcceptShareApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters),
+    );
     return DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4982,8 +5258,8 @@ class FederationClient {
   ///  * [rejectShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationRejectShareResponseApplicationJson, void>> rejectShare({
     required final int id,
-    final FederationRejectShareApiVersion apiVersion = FederationRejectShareApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationRejectShareApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = rejectShareRaw(
       id: id,
@@ -5015,11 +5291,10 @@ class FederationClient {
   @experimental
   DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void> rejectShareRaw({
     required final int id,
-    final FederationRejectShareApiVersion apiVersion = FederationRejectShareApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationRejectShareApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5042,16 +5317,21 @@ class FederationClient {
     }
 
 // coverage:ignore-end
-    pathParameters['id'] = id.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    parameters['id'] = $id;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationRejectShareApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters),
+    );
     return DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -5081,8 +5361,8 @@ class FederationClient {
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationGetSharesResponseApplicationJson, void>> getShares({
-    final FederationGetSharesApiVersion apiVersion = FederationGetSharesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationGetSharesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSharesRaw(
       apiVersion: apiVersion,
@@ -5110,11 +5390,10 @@ class FederationClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void> getSharesRaw({
-    final FederationGetSharesApiVersion apiVersion = FederationGetSharesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FederationGetSharesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5137,15 +5416,17 @@ class FederationClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationGetSharesApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(parameters));
     return DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5189,8 +5470,8 @@ class FilesIntegrationClient {
   ///  * [getRoomByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>> getRoomByFileId({
     required final String fileId,
-    final FilesIntegrationGetRoomByFileIdApiVersion apiVersion = FilesIntegrationGetRoomByFileIdApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomByFileIdRaw(
       fileId: fileId,
@@ -5227,11 +5508,10 @@ class FilesIntegrationClient {
   @experimental
   DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
     required final String fileId,
-    final FilesIntegrationGetRoomByFileIdApiVersion apiVersion = FilesIntegrationGetRoomByFileIdApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5255,14 +5535,19 @@ class FilesIntegrationClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(fileId, RegExp(r'^.+$'), 'fileId');
-    pathParameters['fileId'] = fileId;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
+    parameters['fileId'] = $fileId;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FilesIntegrationGetRoomByFileIdApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(parameters));
     return DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5301,8 +5586,8 @@ class FilesIntegrationClient {
   ///  * [getRoomByShareTokenRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>> getRoomByShareToken({
     required final String shareToken,
-    final FilesIntegrationGetRoomByShareTokenApiVersion apiVersion = FilesIntegrationGetRoomByShareTokenApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomByShareTokenRaw(
       shareToken: shareToken,
@@ -5340,11 +5625,10 @@ class FilesIntegrationClient {
   @experimental
   DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
     required final String shareToken,
-    final FilesIntegrationGetRoomByShareTokenApiVersion apiVersion = FilesIntegrationGetRoomByShareTokenApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5366,16 +5650,22 @@ class FilesIntegrationClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(shareToken, RegExp(r'^.+$'), 'shareToken');
-    pathParameters['shareToken'] = shareToken;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $shareToken = jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    parameters['shareToken'] = $shareToken;
 
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(FilesIntegrationGetRoomByShareTokenApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(parameters));
     return DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5417,8 +5707,8 @@ class GuestClient {
   Future<DynamiteResponse<GuestSetDisplayNameResponseApplicationJson, void>> setDisplayName({
     required final String displayName,
     required final String token,
-    final GuestSetDisplayNameApiVersion apiVersion = GuestSetDisplayNameApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final GuestSetDisplayNameApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setDisplayNameRaw(
       displayName: displayName,
@@ -5454,11 +5744,10 @@ class GuestClient {
   DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
     required final String displayName,
     required final String token,
-    final GuestSetDisplayNameApiVersion apiVersion = GuestSetDisplayNameApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final GuestSetDisplayNameApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5479,17 +5768,25 @@ class GuestClient {
     }
 
 // coverage:ignore-end
-    queryParameters['displayName'] = displayName;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $displayName = jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
+    parameters['displayName'] = $displayName;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(GuestSetDisplayNameApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}').expand(parameters),
+    );
     return DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -5539,8 +5836,8 @@ class HostedSignalingServerClient {
     required final String email,
     required final String language,
     required final String country,
-    final HostedSignalingServerRequestTrialApiVersion apiVersion = HostedSignalingServerRequestTrialApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final HostedSignalingServerRequestTrialApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = requestTrialRaw(
       url: url,
@@ -5587,11 +5884,10 @@ class HostedSignalingServerClient {
     required final String email,
     required final String language,
     required final String country,
-    final HostedSignalingServerRequestTrialApiVersion apiVersion = HostedSignalingServerRequestTrialApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final HostedSignalingServerRequestTrialApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5614,20 +5910,37 @@ class HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    queryParameters['url'] = url;
-    queryParameters['name'] = name;
-    queryParameters['email'] = email;
-    queryParameters['language'] = language;
-    queryParameters['country'] = country;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $url = jsonSerializers.serialize(url, specifiedType: const FullType(String));
+    parameters['url'] = $url;
 
+    final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
+    parameters['name'] = $name;
+
+    final $email = jsonSerializers.serialize(email, specifiedType: const FullType(String));
+    parameters['email'] = $email;
+
+    final $language = jsonSerializers.serialize(language, specifiedType: const FullType(String));
+    parameters['language'] = $language;
+
+    final $country = jsonSerializers.serialize(country, specifiedType: const FullType(String));
+    parameters['country'] = $country;
+
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(HostedSignalingServerRequestTrialApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -5661,8 +5974,8 @@ class HostedSignalingServerClient {
   /// See:
   ///  * [deleteAccountRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccount({
-    final HostedSignalingServerDeleteAccountApiVersion apiVersion = HostedSignalingServerDeleteAccountApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final HostedSignalingServerDeleteAccountApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAccountRaw(
       apiVersion: apiVersion,
@@ -5694,11 +6007,10 @@ class HostedSignalingServerClient {
   ///  * [deleteAccount] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
-    final HostedSignalingServerDeleteAccountApiVersion apiVersion = HostedSignalingServerDeleteAccountApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final HostedSignalingServerDeleteAccountApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5721,15 +6033,20 @@ class HostedSignalingServerClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(pathParameters),
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(HostedSignalingServerDeleteAccountApiVersion),
     );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(parameters),
+    );
     return DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -5767,8 +6084,8 @@ class MatterbridgeClient {
   ///  * [getBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>> getBridgeOfRoom({
     required final String token,
-    final MatterbridgeGetBridgeOfRoomApiVersion apiVersion = MatterbridgeGetBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBridgeOfRoomRaw(
       token: token,
@@ -5799,11 +6116,10 @@ class MatterbridgeClient {
   @experimental
   DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
     required final String token,
-    final MatterbridgeGetBridgeOfRoomApiVersion apiVersion = MatterbridgeGetBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5827,14 +6143,19 @@ class MatterbridgeClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeGetBridgeOfRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters));
     return DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -5871,8 +6192,8 @@ class MatterbridgeClient {
     required final int enabled,
     required final String token,
     final ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
-    final MatterbridgeEditBridgeOfRoomApiVersion apiVersion = MatterbridgeEditBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = editBridgeOfRoomRaw(
       enabled: enabled,
@@ -5910,11 +6231,10 @@ class MatterbridgeClient {
     required final int enabled,
     required final String token,
     final ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
-    final MatterbridgeEditBridgeOfRoomApiVersion apiVersion = MatterbridgeEditBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -5937,26 +6257,35 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    queryParameters['enabled'] = enabled.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (parts != null) {
-      queryParameters['parts'] = jsonSerializers.serialize(
-        parts,
-        specifiedType: const FullType(ContentString, [
-          FullType(BuiltList, [
-            FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-          ]),
-        ]),
-      );
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $enabled = jsonSerializers.serialize(enabled, specifiedType: const FullType(int));
+    parameters['enabled'] = $enabled;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $parts = jsonSerializers.serialize(
+      parts,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltList, [
+          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+        ]),
+      ]),
+    );
+    parameters['parts'] = $parts;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeEditBridgeOfRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}').expand(parameters),
+    );
     return DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -5989,8 +6318,8 @@ class MatterbridgeClient {
   ///  * [deleteBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>> deleteBridgeOfRoom({
     required final String token,
-    final MatterbridgeDeleteBridgeOfRoomApiVersion apiVersion = MatterbridgeDeleteBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteBridgeOfRoomRaw(
       token: token,
@@ -6022,11 +6351,10 @@ class MatterbridgeClient {
   @experimental
   DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
     required final String token,
-    final MatterbridgeDeleteBridgeOfRoomApiVersion apiVersion = MatterbridgeDeleteBridgeOfRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6050,14 +6378,19 @@ class MatterbridgeClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(MatterbridgeDeleteBridgeOfRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters));
     return DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -6089,8 +6422,8 @@ class MatterbridgeClient {
   ///  * [getBridgeProcessStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>> getBridgeProcessState({
     required final String token,
-    final MatterbridgeGetBridgeProcessStateApiVersion apiVersion = MatterbridgeGetBridgeProcessStateApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBridgeProcessStateRaw(
       token: token,
@@ -6121,11 +6454,10 @@ class MatterbridgeClient {
   @experimental
   DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
     required final String token,
-    final MatterbridgeGetBridgeProcessStateApiVersion apiVersion = MatterbridgeGetBridgeProcessStateApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6149,16 +6481,22 @@ class MatterbridgeClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeGetBridgeProcessStateApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(parameters));
     return DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6197,8 +6535,8 @@ class MatterbridgeSettingsClient {
   /// See:
   ///  * [stopAllBridgesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridges({
-    final MatterbridgeSettingsStopAllBridgesApiVersion apiVersion = MatterbridgeSettingsStopAllBridgesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopAllBridgesRaw(
       apiVersion: apiVersion,
@@ -6229,11 +6567,10 @@ class MatterbridgeSettingsClient {
   ///  * [stopAllBridges] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
-    final MatterbridgeSettingsStopAllBridgesApiVersion apiVersion = MatterbridgeSettingsStopAllBridgesApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6256,13 +6593,18 @@ class MatterbridgeSettingsClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeSettingsStopAllBridgesApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(parameters));
     return DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -6296,9 +6638,8 @@ class MatterbridgeSettingsClient {
   ///  * [getMatterbridgeVersionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
       getMatterbridgeVersion({
-    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion apiVersion =
-        MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getMatterbridgeVersionRaw(
       apiVersion: apiVersion,
@@ -6330,12 +6671,10 @@ class MatterbridgeSettingsClient {
   @experimental
   DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
       getMatterbridgeVersionRaw({
-    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion apiVersion =
-        MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6358,13 +6697,18 @@ class MatterbridgeSettingsClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $apiVersion = jsonSerializers.serialize(
+      apiVersion,
+      specifiedType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionApiVersion),
+    );
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(parameters));
     return DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6407,12 +6751,12 @@ class PollClient {
   ///  * [createPollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PollCreatePollResponseApplicationJson, void>> createPoll({
     required final String question,
-    required final List<String> options,
+    required final BuiltList<String> options,
     required final int resultMode,
     required final int maxVotes,
     required final String token,
-    final PollCreatePollApiVersion apiVersion = PollCreatePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollCreatePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createPollRaw(
       question: question,
@@ -6452,15 +6796,14 @@ class PollClient {
   @experimental
   DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
     required final String question,
-    required final List<String> options,
+    required final BuiltList<String> options,
     required final int resultMode,
     required final int maxVotes,
     required final String token,
-    final PollCreatePollApiVersion apiVersion = PollCreatePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollCreatePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6481,19 +6824,35 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    queryParameters['question'] = question;
-    queryParameters['options[]'] = options.map((final e) => e);
-    queryParameters['resultMode'] = resultMode.toString();
-    queryParameters['maxVotes'] = maxVotes.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $question = jsonSerializers.serialize(question, specifiedType: const FullType(String));
+    parameters['question'] = $question;
 
+    final $options = jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    parameters['options%5B%5D'] = $options;
+
+    final $resultMode = jsonSerializers.serialize(resultMode, specifiedType: const FullType(int));
+    parameters['resultMode'] = $resultMode;
+
+    final $maxVotes = jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
+    parameters['maxVotes'] = $maxVotes;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -6528,8 +6887,8 @@ class PollClient {
   Future<DynamiteResponse<PollShowPollResponseApplicationJson, void>> showPoll({
     required final String token,
     required final int pollId,
-    final PollShowPollApiVersion apiVersion = PollShowPollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollShowPollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = showPollRaw(
       token: token,
@@ -6564,11 +6923,10 @@ class PollClient {
   DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
     required final String token,
     required final int pollId,
-    final PollShowPollApiVersion apiVersion = PollShowPollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollShowPollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6590,17 +6948,22 @@ class PollClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['pollId'] = pollId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    parameters['pollId'] = $pollId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollShowPollApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters));
     return DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -6637,9 +7000,9 @@ class PollClient {
   Future<DynamiteResponse<PollVotePollResponseApplicationJson, void>> votePoll({
     required final String token,
     required final int pollId,
-    final List<int> optionIds = const <int>[],
-    final PollVotePollApiVersion apiVersion = PollVotePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BuiltList<int>? optionIds,
+    final PollVotePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = votePollRaw(
       token: token,
@@ -6677,12 +7040,11 @@ class PollClient {
   DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
     required final String token,
     required final int pollId,
-    final List<int> optionIds = const <int>[],
-    final PollVotePollApiVersion apiVersion = PollVotePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BuiltList<int>? optionIds,
+    final PollVotePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6704,20 +7066,28 @@ class PollClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['pollId'] = pollId.toString();
-    if (optionIds != const <int>[]) {
-      queryParameters['optionIds[]'] = optionIds.map((final e) => e.toString());
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    parameters['pollId'] = $pollId;
+
+    var $optionIds = jsonSerializers.serialize(optionIds, specifiedType: const FullType(BuiltList, [FullType(int)]));
+    $optionIds ??= [];
+    parameters['optionIds%5B%5D'] = $optionIds;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollVotePollApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -6755,8 +7125,8 @@ class PollClient {
   Future<DynamiteResponse<PollClosePollResponseApplicationJson, void>> closePoll({
     required final String token,
     required final int pollId,
-    final PollClosePollApiVersion apiVersion = PollClosePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollClosePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = closePollRaw(
       token: token,
@@ -6794,11 +7164,10 @@ class PollClient {
   DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
     required final String token,
     required final int pollId,
-    final PollClosePollApiVersion apiVersion = PollClosePollApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PollClosePollApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6820,17 +7189,22 @@ class PollClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['pollId'] = pollId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
+    parameters['pollId'] = $pollId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollClosePollApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters));
     return DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -6872,8 +7246,8 @@ class PublicShareAuthClient {
   ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoom({
     required final String shareToken,
-    final PublicShareAuthCreateRoomApiVersion apiVersion = PublicShareAuthCreateRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PublicShareAuthCreateRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRoomRaw(
       shareToken: shareToken,
@@ -6908,11 +7282,10 @@ class PublicShareAuthClient {
   @experimental
   DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
     required final String shareToken,
-    final PublicShareAuthCreateRoomApiVersion apiVersion = PublicShareAuthCreateRoomApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final PublicShareAuthCreateRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -6933,14 +7306,21 @@ class PublicShareAuthClient {
     }
 
 // coverage:ignore-end
-    queryParameters['shareToken'] = shareToken;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $shareToken = jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    parameters['shareToken'] = $shareToken;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PublicShareAuthCreateRoomApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(parameters),
+    );
     return DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -6983,8 +7363,8 @@ class ReactionClient {
     required final String token,
     required final int messageId,
     final String? reaction,
-    final ReactionGetReactionsApiVersion apiVersion = ReactionGetReactionsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionGetReactionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getReactionsRaw(
       token: token,
@@ -7022,11 +7402,10 @@ class ReactionClient {
     required final String token,
     required final int messageId,
     final String? reaction,
-    final ReactionGetReactionsApiVersion apiVersion = ReactionGetReactionsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionGetReactionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7048,20 +7427,28 @@ class ReactionClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    if (reaction != null) {
-      queryParameters['reaction'] = reaction;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    parameters['reaction'] = $reaction;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionGetReactionsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -7100,8 +7487,8 @@ class ReactionClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final ReactionReactApiVersion apiVersion = ReactionReactApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionReactApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = reactRaw(
       reaction: reaction,
@@ -7141,11 +7528,10 @@ class ReactionClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final ReactionReactApiVersion apiVersion = ReactionReactApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionReactApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7166,19 +7552,28 @@ class ReactionClient {
     }
 
 // coverage:ignore-end
-    queryParameters['reaction'] = reaction;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    parameters['reaction'] = $reaction;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionReactApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7216,8 +7611,8 @@ class ReactionClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final ReactionDeleteApiVersion apiVersion = ReactionDeleteApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionDeleteApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteRaw(
       reaction: reaction,
@@ -7256,11 +7651,10 @@ class ReactionClient {
     required final String reaction,
     required final String token,
     required final int messageId,
-    final ReactionDeleteApiVersion apiVersion = ReactionDeleteApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ReactionDeleteApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7281,19 +7675,28 @@ class ReactionClient {
     }
 
 // coverage:ignore-end
-    queryParameters['reaction'] = reaction;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['messageId'] = messageId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
+    parameters['reaction'] = $reaction;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
+    parameters['messageId'] = $messageId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ReactionDeleteApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -7335,8 +7738,8 @@ class RecordingClient {
   ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
     required final int serverId,
-    final RecordingGetWelcomeMessageApiVersion apiVersion = RecordingGetWelcomeMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingGetWelcomeMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWelcomeMessageRaw(
       serverId: serverId,
@@ -7371,11 +7774,10 @@ class RecordingClient {
   @experimental
   DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required final int serverId,
-    final RecordingGetWelcomeMessageApiVersion apiVersion = RecordingGetWelcomeMessageApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingGetWelcomeMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7398,16 +7800,21 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    pathParameters['serverId'] = serverId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $serverId = jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    parameters['serverId'] = $serverId;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingGetWelcomeMessageApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(parameters),
+    );
     return DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -7442,8 +7849,8 @@ class RecordingClient {
   Future<DynamiteResponse<RecordingStartResponseApplicationJson, void>> start({
     required final int status,
     required final String token,
-    final RecordingStartApiVersion apiVersion = RecordingStartApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStartApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = startRaw(
       status: status,
@@ -7478,11 +7885,10 @@ class RecordingClient {
   DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
     required final int status,
     required final String token,
-    final RecordingStartApiVersion apiVersion = RecordingStartApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStartApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7505,17 +7911,24 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    queryParameters['status'] = status.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $status = jsonSerializers.serialize(status, specifiedType: const FullType(int));
+    parameters['status'] = $status;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(parameters),
+    );
     return DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7548,8 +7961,8 @@ class RecordingClient {
   ///  * [stopRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingStopResponseApplicationJson, void>> stop({
     required final String token,
-    final RecordingStopApiVersion apiVersion = RecordingStopApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStopApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopRaw(
       token: token,
@@ -7581,11 +7994,10 @@ class RecordingClient {
   @experimental
   DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
     required final String token,
-    final RecordingStopApiVersion apiVersion = RecordingStopApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStopApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7609,15 +8021,18 @@ class RecordingClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(parameters));
     return DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -7653,8 +8068,8 @@ class RecordingClient {
   Future<DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
     required final String owner,
     required final String token,
-    final RecordingStoreApiVersion apiVersion = RecordingStoreApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStoreApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = storeRaw(
       owner: owner,
@@ -7690,11 +8105,10 @@ class RecordingClient {
   DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
     required final String owner,
     required final String token,
-    final RecordingStoreApiVersion apiVersion = RecordingStoreApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingStoreApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7715,18 +8129,24 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    queryParameters['owner'] = owner;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $owner = jsonSerializers.serialize(owner, specifiedType: const FullType(String));
+    parameters['owner'] = $owner;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}').expand(parameters),
+    );
     return DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7761,8 +8181,8 @@ class RecordingClient {
   Future<DynamiteResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismiss({
     required final int timestamp,
     required final String token,
-    final RecordingNotificationDismissApiVersion apiVersion = RecordingNotificationDismissApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingNotificationDismissApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = notificationDismissRaw(
       timestamp: timestamp,
@@ -7797,11 +8217,10 @@ class RecordingClient {
   DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
     required final int timestamp,
     required final String token,
-    final RecordingNotificationDismissApiVersion apiVersion = RecordingNotificationDismissApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingNotificationDismissApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7824,18 +8243,26 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    queryParameters['timestamp'] = timestamp.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    parameters['timestamp'] = $timestamp;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingNotificationDismissApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -7872,8 +8299,8 @@ class RecordingClient {
     required final int fileId,
     required final int timestamp,
     required final String token,
-    final RecordingShareToChatApiVersion apiVersion = RecordingShareToChatApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingShareToChatApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = shareToChatRaw(
       fileId: fileId,
@@ -7911,11 +8338,10 @@ class RecordingClient {
     required final int fileId,
     required final int timestamp,
     required final String token,
-    final RecordingShareToChatApiVersion apiVersion = RecordingShareToChatApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final RecordingShareToChatApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -7938,19 +8364,29 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    queryParameters['fileId'] = fileId.toString();
-    queryParameters['timestamp'] = timestamp.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    parameters['fileId'] = $fileId;
 
+    final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
+    parameters['timestamp'] = $timestamp;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingShareToChatApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -7989,11 +8425,11 @@ class RoomClient {
   /// See:
   ///  * [getRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
-    final int noStatusUpdate = 0,
-    final int includeStatus = 0,
-    final int modifiedSince = 0,
-    final RoomGetRoomsApiVersion apiVersion = RoomGetRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? noStatusUpdate,
+    final int? includeStatus,
+    final int? modifiedSince,
+    final RoomGetRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomsRaw(
       noStatusUpdate: noStatusUpdate,
@@ -8027,14 +8463,13 @@ class RoomClient {
   ///  * [getRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
-    final int noStatusUpdate = 0,
-    final int includeStatus = 0,
-    final int modifiedSince = 0,
-    final RoomGetRoomsApiVersion apiVersion = RoomGetRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? noStatusUpdate,
+    final int? includeStatus,
+    final int? modifiedSince,
+    final RoomGetRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8057,22 +8492,30 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    if (noStatusUpdate != 0) {
-      queryParameters['noStatusUpdate'] = noStatusUpdate.toString();
-    }
-    if (includeStatus != 0) {
-      queryParameters['includeStatus'] = includeStatus.toString();
-    }
-    if (modifiedSince != 0) {
-      queryParameters['modifiedSince'] = modifiedSince.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $noStatusUpdate = jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(int));
+    $noStatusUpdate ??= 0;
+    parameters['noStatusUpdate'] = $noStatusUpdate;
 
+    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    $includeStatus ??= 0;
+    parameters['includeStatus'] = $includeStatus;
+
+    var $modifiedSince = jsonSerializers.serialize(modifiedSince, specifiedType: const FullType(int));
+    $modifiedSince ??= 0;
+    parameters['modifiedSince'] = $modifiedSince;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetRoomsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -8113,13 +8556,13 @@ class RoomClient {
   ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomCreateRoomResponseApplicationJson, void>> createRoom({
     required final int roomType,
-    final String invite = '',
-    final String roomName = '',
-    final String source = '',
-    final String objectType = '',
-    final String objectId = '',
-    final RoomCreateRoomApiVersion apiVersion = RoomCreateRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? invite,
+    final String? roomName,
+    final String? source,
+    final String? objectType,
+    final String? objectId,
+    final RoomCreateRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRoomRaw(
       roomType: roomType,
@@ -8164,16 +8607,15 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
     required final int roomType,
-    final String invite = '',
-    final String roomName = '',
-    final String source = '',
-    final String objectType = '',
-    final String objectId = '',
-    final RoomCreateRoomApiVersion apiVersion = RoomCreateRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? invite,
+    final String? roomName,
+    final String? source,
+    final String? objectType,
+    final String? objectId,
+    final RoomCreateRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8196,29 +8638,42 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['roomType'] = roomType.toString();
-    if (invite != '') {
-      queryParameters['invite'] = invite;
-    }
-    if (roomName != '') {
-      queryParameters['roomName'] = roomName;
-    }
-    if (source != '') {
-      queryParameters['source'] = source;
-    }
-    if (objectType != '') {
-      queryParameters['objectType'] = objectType;
-    }
-    if (objectId != '') {
-      queryParameters['objectId'] = objectId;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $roomType = jsonSerializers.serialize(roomType, specifiedType: const FullType(int));
+    parameters['roomType'] = $roomType;
 
+    var $invite = jsonSerializers.serialize(invite, specifiedType: const FullType(String));
+    $invite ??= '';
+    parameters['invite'] = $invite;
+
+    var $roomName = jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
+    $roomName ??= '';
+    parameters['roomName'] = $roomName;
+
+    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(String));
+    $source ??= '';
+    parameters['source'] = $source;
+
+    var $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
+    $objectType ??= '';
+    parameters['objectType'] = $objectType;
+
+    var $objectId = jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
+    $objectId ??= '';
+    parameters['objectId'] = $objectId;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomCreateRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -8249,9 +8704,9 @@ class RoomClient {
   /// See:
   ///  * [getListedRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRooms({
-    final String searchTerm = '',
-    final RoomGetListedRoomsApiVersion apiVersion = RoomGetListedRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? searchTerm,
+    final RoomGetListedRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getListedRoomsRaw(
       searchTerm: searchTerm,
@@ -8281,12 +8736,11 @@ class RoomClient {
   ///  * [getListedRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
-    final String searchTerm = '',
-    final RoomGetListedRoomsApiVersion apiVersion = RoomGetListedRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? searchTerm,
+    final RoomGetListedRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8309,16 +8763,22 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    if (searchTerm != '') {
-      queryParameters['searchTerm'] = searchTerm;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $searchTerm = jsonSerializers.serialize(searchTerm, specifiedType: const FullType(String));
+    $searchTerm ??= '';
+    parameters['searchTerm'] = $searchTerm;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetListedRoomsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -8352,8 +8812,8 @@ class RoomClient {
   Future<
       DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
           RoomRoomGetNoteToSelfConversationHeaders>> getNoteToSelfConversation({
-    final RoomGetNoteToSelfConversationApiVersion apiVersion = RoomGetNoteToSelfConversationApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetNoteToSelfConversationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getNoteToSelfConversationRaw(
       apiVersion: apiVersion,
@@ -8384,11 +8844,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
       getNoteToSelfConversationRaw({
-    final RoomGetNoteToSelfConversationApiVersion apiVersion = RoomGetNoteToSelfConversationApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetNoteToSelfConversationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8411,14 +8870,16 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetNoteToSelfConversationApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
 
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(parameters));
     return DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
         RoomRoomGetNoteToSelfConversationHeaders>(
       response: _rootClient.executeRequest(
@@ -8453,8 +8914,8 @@ class RoomClient {
   ///  * [getSingleRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>> getSingleRoom({
     required final String token,
-    final RoomGetSingleRoomApiVersion apiVersion = RoomGetSingleRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetSingleRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSingleRoomRaw(
       token: token,
@@ -8487,11 +8948,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
     required final String token,
-    final RoomGetSingleRoomApiVersion apiVersion = RoomGetSingleRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetSingleRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8513,14 +8973,18 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters));
     return DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -8555,8 +9019,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
     required final String roomName,
     required final String token,
-    final RoomRenameRoomApiVersion apiVersion = RoomRenameRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRenameRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = renameRoomRaw(
       roomName: roomName,
@@ -8591,11 +9055,10 @@ class RoomClient {
   DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
     required final String roomName,
     required final String token,
-    final RoomRenameRoomApiVersion apiVersion = RoomRenameRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRenameRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8616,16 +9079,23 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['roomName'] = roomName;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $roomName = jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
+    parameters['roomName'] = $roomName;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(parameters));
     return DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -8658,8 +9128,8 @@ class RoomClient {
   ///  * [deleteRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
     required final String token,
-    final RoomDeleteRoomApiVersion apiVersion = RoomDeleteRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomDeleteRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteRoomRaw(
       token: token,
@@ -8691,11 +9161,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
     required final String token,
-    final RoomDeleteRoomApiVersion apiVersion = RoomDeleteRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomDeleteRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8717,14 +9186,18 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters));
     return DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -8757,8 +9230,8 @@ class RoomClient {
   ///  * [getBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>> getBreakoutRooms({
     required final String token,
-    final RoomGetBreakoutRoomsApiVersion apiVersion = RoomGetBreakoutRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBreakoutRoomsRaw(
       token: token,
@@ -8790,11 +9263,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
     required final String token,
-    final RoomGetBreakoutRoomsApiVersion apiVersion = RoomGetBreakoutRoomsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomGetBreakoutRoomsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8818,16 +9290,21 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(parameters),
+    );
     return DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -8860,8 +9337,8 @@ class RoomClient {
   ///  * [makePublicRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomMakePublicResponseApplicationJson, void>> makePublic({
     required final String token,
-    final RoomMakePublicApiVersion apiVersion = RoomMakePublicApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomMakePublicApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = makePublicRaw(
       token: token,
@@ -8893,11 +9370,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
     required final String token,
-    final RoomMakePublicApiVersion apiVersion = RoomMakePublicApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomMakePublicApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -8921,15 +9397,19 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters));
     return DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -8962,8 +9442,8 @@ class RoomClient {
   ///  * [makePrivateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomMakePrivateResponseApplicationJson, void>> makePrivate({
     required final String token,
-    final RoomMakePrivateApiVersion apiVersion = RoomMakePrivateApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomMakePrivateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = makePrivateRaw(
       token: token,
@@ -8995,11 +9475,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
     required final String token,
-    final RoomMakePrivateApiVersion apiVersion = RoomMakePrivateApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomMakePrivateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9023,15 +9502,19 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters));
     return DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -9066,8 +9549,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetDescriptionResponseApplicationJson, void>> setDescription({
     required final String description,
     required final String token,
-    final RoomSetDescriptionApiVersion apiVersion = RoomSetDescriptionApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetDescriptionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setDescriptionRaw(
       description: description,
@@ -9102,11 +9585,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
     required final String description,
     required final String token,
-    final RoomSetDescriptionApiVersion apiVersion = RoomSetDescriptionApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetDescriptionApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9127,18 +9609,26 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['description'] = description;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $description = jsonSerializers.serialize(description, specifiedType: const FullType(String));
+    parameters['description'] = $description;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetDescriptionApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9173,8 +9663,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnly({
     required final int state,
     required final String token,
-    final RoomSetReadOnlyApiVersion apiVersion = RoomSetReadOnlyApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetReadOnlyApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReadOnlyRaw(
       state: state,
@@ -9209,11 +9699,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
     required final int state,
     required final String token,
-    final RoomSetReadOnlyApiVersion apiVersion = RoomSetReadOnlyApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetReadOnlyApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9236,18 +9725,24 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['state'] = state.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    parameters['state'] = $state;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9282,8 +9777,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetListableResponseApplicationJson, void>> setListable({
     required final int scope,
     required final String token,
-    final RoomSetListableApiVersion apiVersion = RoomSetListableApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetListableApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setListableRaw(
       scope: scope,
@@ -9318,11 +9813,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
     required final int scope,
     required final String token,
-    final RoomSetListableApiVersion apiVersion = RoomSetListableApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetListableApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9345,18 +9839,24 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['scope'] = scope.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $scope = jsonSerializers.serialize(scope, specifiedType: const FullType(int));
+    parameters['scope'] = $scope;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9392,8 +9892,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetPasswordResponseApplicationJson, void>> setPassword({
     required final String password,
     required final String token,
-    final RoomSetPasswordApiVersion apiVersion = RoomSetPasswordApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetPasswordApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPasswordRaw(
       password: password,
@@ -9429,11 +9929,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
     required final String password,
     required final String token,
-    final RoomSetPasswordApiVersion apiVersion = RoomSetPasswordApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetPasswordApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9454,18 +9953,24 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['password'] = password;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    parameters['password'] = $password;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9502,8 +10007,8 @@ class RoomClient {
     required final int permissions,
     required final String token,
     required final String mode,
-    final RoomSetPermissionsApiVersion apiVersion = RoomSetPermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetPermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPermissionsRaw(
       permissions: permissions,
@@ -9541,11 +10046,10 @@ class RoomClient {
     required final int permissions,
     required final String token,
     required final String mode,
-    final RoomSetPermissionsApiVersion apiVersion = RoomSetPermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetPermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9566,20 +10070,30 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['permissions'] = permissions.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    dynamite_utils.checkPattern(mode, RegExp(r'^(call|default)$'), 'mode');
-    pathParameters['mode'] = mode;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    parameters['permissions'] = $permissions;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    dynamite_utils.checkPattern(mode, RegExp(r'^(call|default)$'), 'mode');
+    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    parameters['mode'] = $mode;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPermissionsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -9613,9 +10127,9 @@ class RoomClient {
   ///  * [getParticipantsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>> getParticipants({
     required final String token,
-    final int includeStatus = 0,
-    final RoomGetParticipantsApiVersion apiVersion = RoomGetParticipantsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? includeStatus,
+    final RoomGetParticipantsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getParticipantsRaw(
       token: token,
@@ -9649,12 +10163,11 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders> getParticipantsRaw({
     required final String token,
-    final int includeStatus = 0,
-    final RoomGetParticipantsApiVersion apiVersion = RoomGetParticipantsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? includeStatus,
+    final RoomGetParticipantsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9676,19 +10189,26 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (includeStatus != 0) {
-      queryParameters['includeStatus'] = includeStatus.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    $includeStatus ??= 0;
+    parameters['includeStatus'] = $includeStatus;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetParticipantsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -9726,9 +10246,9 @@ class RoomClient {
   Future<DynamiteResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoom({
     required final String newParticipant,
     required final String token,
-    final String source = 'users',
-    final RoomAddParticipantToRoomApiVersion apiVersion = RoomAddParticipantToRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? source,
+    final RoomAddParticipantToRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addParticipantToRoomRaw(
       newParticipant: newParticipant,
@@ -9767,12 +10287,11 @@ class RoomClient {
   DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
     required final String newParticipant,
     required final String token,
-    final String source = 'users',
-    final RoomAddParticipantToRoomApiVersion apiVersion = RoomAddParticipantToRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? source,
+    final RoomAddParticipantToRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9795,21 +10314,30 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['newParticipant'] = newParticipant;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (source != 'users') {
-      queryParameters['source'] = source;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $newParticipant = jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
+    parameters['newParticipant'] = $newParticipant;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(String));
+    $source ??= 'users';
+    parameters['source'] = $source;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddParticipantToRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -9846,9 +10374,9 @@ class RoomClient {
       DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
           RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
     required final String token,
-    final int includeStatus = 0,
-    final RoomGetBreakoutRoomParticipantsApiVersion apiVersion = RoomGetBreakoutRoomParticipantsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? includeStatus,
+    final RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBreakoutRoomParticipantsRaw(
       token: token,
@@ -9884,12 +10412,11 @@ class RoomClient {
   DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
       RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
     required final String token,
-    final int includeStatus = 0,
-    final RoomGetBreakoutRoomParticipantsApiVersion apiVersion = RoomGetBreakoutRoomParticipantsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final int? includeStatus,
+    final RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -9911,20 +10438,27 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (includeStatus != 0) {
-      queryParameters['includeStatus'] = includeStatus.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants')
-          .expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
+    $includeStatus ??= 0;
+    parameters['includeStatus'] = $includeStatus;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetBreakoutRoomParticipantsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
         RoomRoomGetBreakoutRoomParticipantsHeaders>(
       response: _rootClient.executeRequest(
@@ -9959,8 +10493,8 @@ class RoomClient {
   ///  * [removeSelfFromRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>> removeSelfFromRoom({
     required final String token,
-    final RoomRemoveSelfFromRoomApiVersion apiVersion = RoomRemoveSelfFromRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveSelfFromRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeSelfFromRoomRaw(
       token: token,
@@ -9993,11 +10527,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
     required final String token,
-    final RoomRemoveSelfFromRoomApiVersion apiVersion = RoomRemoveSelfFromRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveSelfFromRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10021,16 +10554,21 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveSelfFromRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(parameters),
+    );
     return DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -10067,8 +10605,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoom({
     required final int attendeeId,
     required final String token,
-    final RoomRemoveAttendeeFromRoomApiVersion apiVersion = RoomRemoveAttendeeFromRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeAttendeeFromRoomRaw(
       attendeeId: attendeeId,
@@ -10105,11 +10643,10 @@ class RoomClient {
   DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
     required final int attendeeId,
     required final String token,
-    final RoomRemoveAttendeeFromRoomApiVersion apiVersion = RoomRemoveAttendeeFromRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10130,18 +10667,25 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['attendeeId'] = attendeeId.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveAttendeeFromRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -10182,8 +10726,8 @@ class RoomClient {
     required final String method,
     required final int permissions,
     required final String token,
-    final RoomSetAttendeePermissionsApiVersion apiVersion = RoomSetAttendeePermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetAttendeePermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setAttendeePermissionsRaw(
       attendeeId: attendeeId,
@@ -10226,11 +10770,10 @@ class RoomClient {
     required final String method,
     required final int permissions,
     required final String token,
-    final RoomSetAttendeePermissionsApiVersion apiVersion = RoomSetAttendeePermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetAttendeePermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10251,20 +10794,33 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['attendeeId'] = attendeeId.toString();
-    queryParameters['method'] = method;
-    queryParameters['permissions'] = permissions.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
 
+    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(String));
+    parameters['method'] = $method;
+
+    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    parameters['permissions'] = $permissions;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAttendeePermissionsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -10301,8 +10857,8 @@ class RoomClient {
     required final String method,
     required final int permissions,
     required final String token,
-    final RoomSetAllAttendeesPermissionsApiVersion apiVersion = RoomSetAllAttendeesPermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setAllAttendeesPermissionsRaw(
       method: method,
@@ -10340,11 +10896,10 @@ class RoomClient {
     required final String method,
     required final int permissions,
     required final String token,
-    final RoomSetAllAttendeesPermissionsApiVersion apiVersion = RoomSetAllAttendeesPermissionsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10365,20 +10920,30 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['method'] = method;
-    queryParameters['permissions'] = permissions.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all')
-          .expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(String));
+    parameters['method'] = $method;
 
+    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    parameters['permissions'] = $permissions;
+
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetAllAttendeesPermissionsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -10415,10 +10980,10 @@ class RoomClient {
   ///  * [joinRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
     required final String token,
-    final String password = '',
-    final int force = 1,
-    final RoomJoinRoomApiVersion apiVersion = RoomJoinRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? password,
+    final int? force,
+    final RoomJoinRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = joinRoomRaw(
       token: token,
@@ -10456,13 +11021,12 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
     required final String token,
-    final String password = '',
-    final int force = 1,
-    final RoomJoinRoomApiVersion apiVersion = RoomJoinRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final String? password,
+    final int? force,
+    final RoomJoinRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10484,22 +11048,29 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (password != '') {
-      queryParameters['password'] = password;
-    }
-    if (force != 1) {
-      queryParameters['force'] = force.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
+    $password ??= '';
+    parameters['password'] = $password;
+
+    var $force = jsonSerializers.serialize(force, specifiedType: const FullType(int));
+    $force ??= 1;
+    parameters['force'] = $force;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomJoinRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -10531,8 +11102,8 @@ class RoomClient {
   ///  * [leaveRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomLeaveRoomResponseApplicationJson, void>> leaveRoom({
     required final String token,
-    final RoomLeaveRoomApiVersion apiVersion = RoomLeaveRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomLeaveRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = leaveRoomRaw(
       token: token,
@@ -10563,11 +11134,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
     required final String token,
-    final RoomLeaveRoomApiVersion apiVersion = RoomLeaveRoomApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomLeaveRoomApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10589,16 +11159,20 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(parameters),
+    );
     return DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -10633,8 +11207,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomResendInvitationsResponseApplicationJson, void>> resendInvitations({
     required final String token,
     final int? attendeeId,
-    final RoomResendInvitationsApiVersion apiVersion = RoomResendInvitationsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomResendInvitationsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = resendInvitationsRaw(
       token: token,
@@ -10669,11 +11243,10 @@ class RoomClient {
   DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
     required final String token,
     final int? attendeeId,
-    final RoomResendInvitationsApiVersion apiVersion = RoomResendInvitationsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomResendInvitationsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10697,20 +11270,26 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (attendeeId != null) {
-      queryParameters['attendeeId'] = attendeeId.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations')
-          .expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomResendInvitationsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -10745,8 +11324,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionState({
     required final int state,
     required final String token,
-    final RoomSetSessionStateApiVersion apiVersion = RoomSetSessionStateApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetSessionStateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setSessionStateRaw(
       state: state,
@@ -10781,11 +11360,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
     required final int state,
     required final String token,
-    final RoomSetSessionStateApiVersion apiVersion = RoomSetSessionStateApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetSessionStateApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10806,18 +11384,26 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['state'] = state.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    parameters['state'] = $state;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetSessionStateApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -10854,8 +11440,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomPromoteModeratorResponseApplicationJson, void>> promoteModerator({
     required final int attendeeId,
     required final String token,
-    final RoomPromoteModeratorApiVersion apiVersion = RoomPromoteModeratorApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomPromoteModeratorApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = promoteModeratorRaw(
       attendeeId: attendeeId,
@@ -10892,11 +11478,10 @@ class RoomClient {
   DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
     required final int attendeeId,
     required final String token,
-    final RoomPromoteModeratorApiVersion apiVersion = RoomPromoteModeratorApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomPromoteModeratorApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -10917,18 +11502,25 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['attendeeId'] = attendeeId.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomPromoteModeratorApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -10965,8 +11557,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModerator({
     required final int attendeeId,
     required final String token,
-    final RoomDemoteModeratorApiVersion apiVersion = RoomDemoteModeratorApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomDemoteModeratorApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = demoteModeratorRaw(
       attendeeId: attendeeId,
@@ -11003,11 +11595,10 @@ class RoomClient {
   DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
     required final int attendeeId,
     required final String token,
-    final RoomDemoteModeratorApiVersion apiVersion = RoomDemoteModeratorApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomDemoteModeratorApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11028,18 +11619,25 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['attendeeId'] = attendeeId.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
+    parameters['attendeeId'] = $attendeeId;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDemoteModeratorApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -11071,8 +11669,8 @@ class RoomClient {
   ///  * [addToFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomAddToFavoritesResponseApplicationJson, void>> addToFavorites({
     required final String token,
-    final RoomAddToFavoritesApiVersion apiVersion = RoomAddToFavoritesApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomAddToFavoritesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = addToFavoritesRaw(
       token: token,
@@ -11103,11 +11701,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
     required final String token,
-    final RoomAddToFavoritesApiVersion apiVersion = RoomAddToFavoritesApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomAddToFavoritesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11131,16 +11728,20 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomAddToFavoritesApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters));
     return DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11172,8 +11773,8 @@ class RoomClient {
   ///  * [removeFromFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>> removeFromFavorites({
     required final String token,
-    final RoomRemoveFromFavoritesApiVersion apiVersion = RoomRemoveFromFavoritesApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveFromFavoritesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeFromFavoritesRaw(
       token: token,
@@ -11204,11 +11805,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
     required final String token,
-    final RoomRemoveFromFavoritesApiVersion apiVersion = RoomRemoveFromFavoritesApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomRemoveFromFavoritesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11232,16 +11832,20 @@ class RoomClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRemoveFromFavoritesApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri =
+        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters));
     return DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -11276,8 +11880,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetNotificationLevelResponseApplicationJson, void>> setNotificationLevel({
     required final int level,
     required final String token,
-    final RoomSetNotificationLevelApiVersion apiVersion = RoomSetNotificationLevelApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetNotificationLevelApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setNotificationLevelRaw(
       level: level,
@@ -11312,11 +11916,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
     required final int level,
     required final String token,
-    final RoomSetNotificationLevelApiVersion apiVersion = RoomSetNotificationLevelApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetNotificationLevelApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11339,17 +11942,25 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['level'] = level.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    parameters['level'] = $level;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationLevelApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11384,8 +11995,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetNotificationCallsResponseApplicationJson, void>> setNotificationCalls({
     required final int level,
     required final String token,
-    final RoomSetNotificationCallsApiVersion apiVersion = RoomSetNotificationCallsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetNotificationCallsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setNotificationCallsRaw(
       level: level,
@@ -11420,11 +12031,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
     required final int level,
     required final String token,
-    final RoomSetNotificationCallsApiVersion apiVersion = RoomSetNotificationCallsApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetNotificationCallsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11447,18 +12057,25 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['level'] = level.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
+    parameters['level'] = $level;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetNotificationCallsApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11495,8 +12112,8 @@ class RoomClient {
     required final int state,
     required final String token,
     final int? timer,
-    final RoomSetLobbyApiVersion apiVersion = RoomSetLobbyApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetLobbyApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setLobbyRaw(
       state: state,
@@ -11534,11 +12151,10 @@ class RoomClient {
     required final int state,
     required final String token,
     final int? timer,
-    final RoomSetLobbyApiVersion apiVersion = RoomSetLobbyApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetLobbyApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11561,21 +12177,28 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['state'] = state.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    if (timer != null) {
-      queryParameters['timer'] = timer.toString();
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    parameters['state'] = $state;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    final $timer = jsonSerializers.serialize(timer, specifiedType: const FullType(int));
+    parameters['timer'] = $timer;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetLobbyApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -11613,8 +12236,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabled({
     required final int state,
     required final String token,
-    final RoomSetsipEnabledApiVersion apiVersion = RoomSetsipEnabledApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetsipEnabledApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setsipEnabledRaw(
       state: state,
@@ -11652,11 +12275,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
     required final int state,
     required final String token,
-    final RoomSetsipEnabledApiVersion apiVersion = RoomSetsipEnabledApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetsipEnabledApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11679,18 +12301,24 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['state'] = state.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    parameters['state'] = $state;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}').expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -11726,8 +12354,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetRecordingConsentResponseApplicationJson, void>> setRecordingConsent({
     required final int recordingConsent,
     required final String token,
-    final RoomSetRecordingConsentApiVersion apiVersion = RoomSetRecordingConsentApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetRecordingConsentApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setRecordingConsentRaw(
       recordingConsent: recordingConsent,
@@ -11763,11 +12391,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
     required final int recordingConsent,
     required final String token,
-    final RoomSetRecordingConsentApiVersion apiVersion = RoomSetRecordingConsentApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetRecordingConsentApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11790,18 +12417,26 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['recordingConsent'] = recordingConsent.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $recordingConsent = jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
+    parameters['recordingConsent'] = $recordingConsent;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetRecordingConsentApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -11836,8 +12471,8 @@ class RoomClient {
   Future<DynamiteResponse<RoomSetMessageExpirationResponseApplicationJson, void>> setMessageExpiration({
     required final int seconds,
     required final String token,
-    final RoomSetMessageExpirationApiVersion apiVersion = RoomSetMessageExpirationApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetMessageExpirationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setMessageExpirationRaw(
       seconds: seconds,
@@ -11872,11 +12507,10 @@ class RoomClient {
   DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
     required final int seconds,
     required final String token,
-    final RoomSetMessageExpirationApiVersion apiVersion = RoomSetMessageExpirationApiVersion.v4,
-    final bool oCSAPIRequest = true,
+    final RoomSetMessageExpirationApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -11897,18 +12531,26 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    queryParameters['seconds'] = seconds.toString();
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $seconds = jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
+    parameters['seconds'] = $seconds;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetMessageExpirationApiVersion));
+    $apiVersion ??= 'v4';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -11949,11 +12591,11 @@ class SettingsClient {
   /// See:
   ///  * [setsipSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsSetsipSettingsResponseApplicationJson, void>> setsipSettings({
-    final List<String> sipGroups = const <String>[],
-    final String dialInInfo = '',
-    final String sharedSecret = '',
-    final SettingsSetsipSettingsApiVersion apiVersion = SettingsSetsipSettingsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BuiltList<String>? sipGroups,
+    final String? dialInInfo,
+    final String? sharedSecret,
+    final SettingsSetsipSettingsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setsipSettingsRaw(
       sipGroups: sipGroups,
@@ -11989,14 +12631,13 @@ class SettingsClient {
   ///  * [setsipSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
-    final List<String> sipGroups = const <String>[],
-    final String dialInInfo = '',
-    final String sharedSecret = '',
-    final SettingsSetsipSettingsApiVersion apiVersion = SettingsSetsipSettingsApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final BuiltList<String>? sipGroups,
+    final String? dialInInfo,
+    final String? sharedSecret,
+    final SettingsSetsipSettingsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12019,22 +12660,32 @@ class SettingsClient {
     }
 
 // coverage:ignore-end
-    if (sipGroups != const <String>[]) {
-      queryParameters['sipGroups[]'] = sipGroups.map((final e) => e);
-    }
-    if (dialInInfo != '') {
-      queryParameters['dialInInfo'] = dialInInfo;
-    }
-    if (sharedSecret != '') {
-      queryParameters['sharedSecret'] = sharedSecret;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $sipGroups = jsonSerializers.serialize(sipGroups, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    $sipGroups ??= [];
+    parameters['sipGroups%5B%5D'] = $sipGroups;
 
+    var $dialInInfo = jsonSerializers.serialize(dialInInfo, specifiedType: const FullType(String));
+    $dialInInfo ??= '';
+    parameters['dialInInfo'] = $dialInInfo;
+
+    var $sharedSecret = jsonSerializers.serialize(sharedSecret, specifiedType: const FullType(String));
+    $sharedSecret ??= '';
+    parameters['sharedSecret'] = $sharedSecret;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetsipSettingsApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate(
+        '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
+      ).expand(parameters),
+    );
     return DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12069,8 +12720,8 @@ class SettingsClient {
   Future<DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
     required final String key,
     final ContentString<SettingsSetUserSettingValue>? value,
-    final SettingsSetUserSettingApiVersion apiVersion = SettingsSetUserSettingApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final SettingsSetUserSettingApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = setUserSettingRaw(
       key: key,
@@ -12105,11 +12756,10 @@ class SettingsClient {
   DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
     required final String key,
     final ContentString<SettingsSetUserSettingValue>? value,
-    final SettingsSetUserSettingApiVersion apiVersion = SettingsSetUserSettingApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final SettingsSetUserSettingApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12132,20 +12782,27 @@ class SettingsClient {
     }
 
 // coverage:ignore-end
-    queryParameters['key'] = key;
-    if (value != null) {
-      queryParameters['value'] = jsonSerializers.serialize(
-        value,
-        specifiedType: const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
-      );
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    parameters['key'] = $key;
 
+    final $value = jsonSerializers.serialize(
+      value,
+      specifiedType: const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
+    );
+    parameters['value'] = $value;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsSetUserSettingApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(parameters),
+    );
     return DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12184,9 +12841,9 @@ class SignalingClient {
   /// See:
   ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettings({
-    final String token = '',
-    final SignalingGetSettingsApiVersion apiVersion = SignalingGetSettingsApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final String? token,
+    final SignalingGetSettingsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsRaw(
       token: token,
@@ -12218,12 +12875,11 @@ class SignalingClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
-    final String token = '',
-    final SignalingGetSettingsApiVersion apiVersion = SignalingGetSettingsApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final String? token,
+    final SignalingGetSettingsApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12244,17 +12900,22 @@ class SignalingClient {
     }
 
 // coverage:ignore-end
-    if (token != '') {
-      queryParameters['token'] = token;
-    }
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    $token ??= '';
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetSettingsApiVersion));
+    $apiVersion ??= 'v3';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(parameters),
+    );
     return DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -12291,8 +12952,8 @@ class SignalingClient {
   ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
     required final int serverId,
-    final SignalingGetWelcomeMessageApiVersion apiVersion = SignalingGetWelcomeMessageApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingGetWelcomeMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWelcomeMessageRaw(
       serverId: serverId,
@@ -12328,11 +12989,10 @@ class SignalingClient {
   @experimental
   DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
     required final int serverId,
-    final SignalingGetWelcomeMessageApiVersion apiVersion = SignalingGetWelcomeMessageApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingGetWelcomeMessageApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12355,16 +13015,21 @@ class SignalingClient {
     }
 
 // coverage:ignore-end
-    pathParameters['serverId'] = serverId.toString();
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $serverId = jsonSerializers.serialize(serverId, specifiedType: const FullType(int));
+    parameters['serverId'] = $serverId;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingGetWelcomeMessageApiVersion));
+    $apiVersion ??= 'v3';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(parameters),
+    );
     return DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -12399,8 +13064,8 @@ class SignalingClient {
   ///  * [pullMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessages({
     required final String token,
-    final SignalingPullMessagesApiVersion apiVersion = SignalingPullMessagesApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingPullMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = pullMessagesRaw(
       token: token,
@@ -12434,11 +13099,10 @@ class SignalingClient {
   @experimental
   DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
     required final String token,
-    final SignalingPullMessagesApiVersion apiVersion = SignalingPullMessagesApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingPullMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12460,15 +13124,19 @@ class SignalingClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
 
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingPullMessagesApiVersion));
+    $apiVersion ??= 'v3';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(parameters));
     return DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -12503,8 +13171,8 @@ class SignalingClient {
   Future<DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
     required final String messages,
     required final String token,
-    final SignalingSendMessagesApiVersion apiVersion = SignalingSendMessagesApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingSendMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessagesRaw(
       messages: messages,
@@ -12539,11 +13207,10 @@ class SignalingClient {
   DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
     required final String messages,
     required final String token,
-    final SignalingSendMessagesApiVersion apiVersion = SignalingSendMessagesApiVersion.v3,
-    final bool oCSAPIRequest = true,
+    final SignalingSendMessagesApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12564,17 +13231,25 @@ class SignalingClient {
     }
 
 // coverage:ignore-end
-    queryParameters['messages'] = messages;
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
-    pathParameters['token'] = token;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $messages = jsonSerializers.serialize(messages, specifiedType: const FullType(String));
+    parameters['messages'] = $messages;
 
+    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
+    final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    parameters['token'] = $token;
+
+    var $apiVersion =
+        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SignalingSendMessagesApiVersion));
+    $apiVersion ??= 'v3';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(parameters),
+    );
     return DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12610,7 +13285,7 @@ class TempAvatarClient {
   /// See:
   ///  * [postAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = postAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -12636,11 +13311,8 @@ class TempAvatarClient {
   /// See:
   ///  * [postAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({
-    final bool oCSAPIRequest = true,
-  }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+  DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({final bool? oCSAPIRequest}) {
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12663,12 +13335,11 @@ class TempAvatarClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters));
     return DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -12698,7 +13369,7 @@ class TempAvatarClient {
   /// See:
   ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -12725,10 +13396,9 @@ class TempAvatarClient {
   ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -12751,12 +13421,11 @@ class TempAvatarClient {
     }
 
 // coverage:ignore-end
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters));
     return DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',

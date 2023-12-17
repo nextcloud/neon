@@ -65,8 +65,8 @@ class ApiClient {
   ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppListRaw(
       newVersion: newVersion,
@@ -100,11 +100,10 @@ class ApiClient {
   @experimental
   DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
     required final String newVersion,
-    final ApiGetAppListApiVersion apiVersion = ApiGetAppListApiVersion.v1,
-    final bool oCSAPIRequest = true,
+    final ApiGetAppListApiVersion? apiVersion,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -127,16 +126,20 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    pathParameters['newVersion'] = newVersion;
-    pathParameters['apiVersion'] = apiVersion.name;
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(pathParameters),
-    );
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $newVersion = jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
+    parameters['newVersion'] = $newVersion;
 
+    var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
+    $apiVersion ??= 'v1';
+    parameters['apiVersion'] = $apiVersion;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(parameters),
+    );
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

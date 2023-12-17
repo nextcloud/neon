@@ -65,7 +65,7 @@ class ApiClient {
   Future<DynamiteResponse<ApiGetResponseApplicationJson, void>> $get({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       version: version,
@@ -98,10 +98,9 @@ class ApiClient {
   DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -125,14 +124,17 @@ class ApiClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
-    pathParameters['version'] = version;
-    pathParameters['fileId'] = fileId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    parameters['version'] = $version;
 
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    parameters['fileId'] = $fileId;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters));
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -171,7 +173,7 @@ class ApiClient {
     required final String dueDate,
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = $setRaw(
       dueDate: dueDate,
@@ -210,10 +212,9 @@ class ApiClient {
     required final String dueDate,
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -236,16 +237,23 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    queryParameters['dueDate'] = dueDate;
-    dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
-    pathParameters['version'] = version;
-    pathParameters['fileId'] = fileId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $dueDate = jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
+    parameters['dueDate'] = $dueDate;
 
+    dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
+    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    parameters['version'] = $version;
+
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    parameters['fileId'] = $fileId;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(
+      UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(parameters),
+    );
     return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -280,7 +288,7 @@ class ApiClient {
   Future<DynamiteResponse<ApiRemoveResponseApplicationJson, void>> remove({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeRaw(
       version: version,
@@ -314,10 +322,9 @@ class ApiClient {
   DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
     required final String version,
     required final int fileId,
-    final bool oCSAPIRequest = true,
+    final bool? oCSAPIRequest,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -341,14 +348,17 @@ class ApiClient {
 
 // coverage:ignore-end
     dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
-    pathParameters['version'] = version;
-    pathParameters['fileId'] = fileId.toString();
-    headers['OCS-APIRequest'] = oCSAPIRequest.toString();
-    var uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    parameters['version'] = $version;
 
+    final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
+    parameters['fileId'] = $fileId;
+
+    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
+    $oCSAPIRequest ??= true;
+    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+
+    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters));
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',

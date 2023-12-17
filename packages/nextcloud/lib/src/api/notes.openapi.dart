@@ -57,9 +57,9 @@ class Client extends DynamiteClient {
   ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Note>, void>> getNotes({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) async {
@@ -96,14 +96,13 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     final String? category,
-    final String exclude = '',
-    final int pruneBefore = 0,
-    final int chunkSize = 0,
+    final String? exclude,
+    final int? pruneBefore,
+    final int? chunkSize,
     final String? chunkCursor,
     final String? ifNoneMatch,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -126,29 +125,33 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (category != null) {
-      queryParameters['category'] = category;
-    }
-    if (exclude != '') {
-      queryParameters['exclude'] = exclude;
-    }
-    if (pruneBefore != 0) {
-      queryParameters['pruneBefore'] = pruneBefore.toString();
-    }
-    if (chunkSize != 0) {
-      queryParameters['chunkSize'] = chunkSize.toString();
-    }
-    if (chunkCursor != null) {
-      queryParameters['chunkCursor'] = chunkCursor;
-    }
-    if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch;
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
+    final $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    parameters['category'] = $category;
+
+    var $exclude = jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    $exclude ??= '';
+    parameters['exclude'] = $exclude;
+
+    var $pruneBefore = jsonSerializers.serialize(pruneBefore, specifiedType: const FullType(int));
+    $pruneBefore ??= 0;
+    parameters['pruneBefore'] = $pruneBefore;
+
+    var $chunkSize = jsonSerializers.serialize(chunkSize, specifiedType: const FullType(int));
+    $chunkSize ??= 0;
+    parameters['chunkSize'] = $chunkSize;
+
+    final $chunkCursor = jsonSerializers.serialize(chunkCursor, specifiedType: const FullType(String));
+    parameters['chunkCursor'] = $chunkCursor;
+
+    final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    if ($ifNoneMatch != null) {
+      headers['If-None-Match'] = $ifNoneMatch as String;
     }
 
+    final uri = Uri.parse(
+      UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<BuiltList<Note>, void>(
       response: executeRequest(
         'get',
@@ -179,11 +182,11 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> createNote({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) async {
     final rawResponse = createNoteRaw(
       category: category,
@@ -215,14 +218,13 @@ class Client extends DynamiteClient {
   ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> createNoteRaw({
-    final String category = '',
-    final String title = '',
-    final String content = '',
-    final int modified = 0,
-    final int favorite = 0,
+    final String? category,
+    final String? title,
+    final String? content,
+    final int? modified,
+    final int? favorite,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -245,26 +247,30 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    if (category != '') {
-      queryParameters['category'] = category;
-    }
-    if (title != '') {
-      queryParameters['title'] = title;
-    }
-    if (content != '') {
-      queryParameters['content'] = content;
-    }
-    if (modified != 0) {
-      queryParameters['modified'] = modified.toString();
-    }
-    if (favorite != 0) {
-      queryParameters['favorite'] = favorite.toString();
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    var $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    $category ??= '';
+    parameters['category'] = $category;
 
+    var $title = jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    $title ??= '';
+    parameters['title'] = $title;
+
+    var $content = jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    $content ??= '';
+    parameters['content'] = $content;
+
+    var $modified = jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    $modified ??= 0;
+    parameters['modified'] = $modified;
+
+    var $favorite = jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    $favorite ??= 0;
+    parameters['favorite'] = $favorite;
+
+    final uri = Uri.parse(
+      UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'post',
@@ -293,7 +299,7 @@ class Client extends DynamiteClient {
   ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> getNote({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) async {
     final rawResponse = getNoteRaw(
@@ -322,11 +328,10 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<Note, void> getNoteRaw({
     required final int id,
-    final String exclude = '',
+    final String? exclude,
     final String? ifNoneMatch,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -349,18 +354,19 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['id'] = id.toString();
-    if (exclude != '') {
-      queryParameters['exclude'] = exclude;
-    }
-    if (ifNoneMatch != null) {
-      headers['If-None-Match'] = ifNoneMatch;
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    parameters['id'] = $id;
+
+    var $exclude = jsonSerializers.serialize(exclude, specifiedType: const FullType(String));
+    $exclude ??= '';
+    parameters['exclude'] = $exclude;
+
+    final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
+    if ($ifNoneMatch != null) {
+      headers['If-None-Match'] = $ifNoneMatch as String;
     }
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(parameters));
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'get',
@@ -441,8 +447,7 @@ class Client extends DynamiteClient {
     final int? favorite,
     final String? ifMatch,
   }) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -465,30 +470,33 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['id'] = id.toString();
-    if (content != null) {
-      queryParameters['content'] = content;
-    }
-    if (modified != null) {
-      queryParameters['modified'] = modified.toString();
-    }
-    if (title != null) {
-      queryParameters['title'] = title;
-    }
-    if (category != null) {
-      queryParameters['category'] = category;
-    }
-    if (favorite != null) {
-      queryParameters['favorite'] = favorite.toString();
-    }
-    if (ifMatch != null) {
-      headers['If-Match'] = ifMatch;
-    }
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    parameters['id'] = $id;
+
+    final $content = jsonSerializers.serialize(content, specifiedType: const FullType(String));
+    parameters['content'] = $content;
+
+    final $modified = jsonSerializers.serialize(modified, specifiedType: const FullType(int));
+    parameters['modified'] = $modified;
+
+    final $title = jsonSerializers.serialize(title, specifiedType: const FullType(String));
+    parameters['title'] = $title;
+
+    final $category = jsonSerializers.serialize(category, specifiedType: const FullType(String));
+    parameters['category'] = $category;
+
+    final $favorite = jsonSerializers.serialize(favorite, specifiedType: const FullType(int));
+    parameters['favorite'] = $favorite;
+
+    final $ifMatch = jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
+    if ($ifMatch != null) {
+      headers['If-Match'] = $ifMatch as String;
     }
 
+    final uri = Uri.parse(
+      UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
+          .expand(parameters),
+    );
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'put',
@@ -531,8 +539,7 @@ class Client extends DynamiteClient {
   ///  * [deleteNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -555,12 +562,10 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    pathParameters['id'] = id.toString();
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    parameters['id'] = $id;
 
+    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(parameters));
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'delete',
@@ -601,8 +606,7 @@ class Client extends DynamiteClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> getSettingsRaw() {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -625,11 +629,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters));
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'get',
@@ -672,8 +672,7 @@ class Client extends DynamiteClient {
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> updateSettingsRaw({required final Settings settings}) {
-    final pathParameters = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -698,11 +697,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
     body = utf8.encode(json.encode(jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
-    var uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(pathParameters));
-    if (queryParameters.isNotEmpty) {
-      uri = uri.replace(queryParameters: queryParameters);
-    }
-
+    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters));
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'put',

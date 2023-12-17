@@ -1,4 +1,4 @@
-POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&roomName=Test
+POST http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?roomType=3&invite=&roomName=Test&source=&objectType=&objectId=
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 transfer-encoding: chunked

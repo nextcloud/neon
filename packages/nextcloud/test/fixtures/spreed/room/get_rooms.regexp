@@ -1,4 +1,4 @@
-GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room
+GET http://localhost/ocs/v2\.php/apps/spreed/api/v4/room\?noStatusUpdate=0&includeStatus=0&modifiedSince=0
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json
 accept-encoding: gzip

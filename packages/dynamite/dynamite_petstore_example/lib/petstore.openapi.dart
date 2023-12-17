@@ -55,7 +55,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [findPetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Pet>, void>> findPets({
-    List<String>? tags,
+    BuiltList<String>? tags,
     int? limit,
   }) async {
     final rawResponse = findPetsRaw(
@@ -89,27 +89,22 @@ class Client extends DynamiteClient {
   ///  * [findPets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BuiltList<Pet>, void> findPetsRaw({
-    List<String>? tags,
+    BuiltList<String>? tags,
     int? limit,
   }) {
-    final _pathParameters = <String, dynamic>{};
-    final _queryParameters = <String, dynamic>{};
+    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    if (tags != null) {
-      _queryParameters['tags'] = tags.map((final e) => e);
-    }
-    if (limit != null) {
-      _queryParameters['limit'] = limit.toString();
-    }
-    var _uri = Uri.parse(UriTemplate('/pets').expand(_pathParameters));
-    if (_queryParameters.isNotEmpty) {
-      _uri = _uri.replace(queryParameters: _queryParameters);
-    }
+    var $tags = jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['tags'] = $tags;
 
+    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    _parameters['limit'] = $limit;
+
+    final _uri = Uri.parse(UriTemplate('/pets{?tags*,limit*}').expand(_parameters));
     return DynamiteRawResponse<BuiltList<Pet>, void>(
       response: this.executeRequest(
         'get',
@@ -158,8 +153,7 @@ class Client extends DynamiteClient {
   ///  * [addPet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
-    final _pathParameters = <String, dynamic>{};
-    final _queryParameters = <String, dynamic>{};
+    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -167,11 +161,7 @@ class Client extends DynamiteClient {
 
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
-    var _uri = Uri.parse(UriTemplate('/pets').expand(_pathParameters));
-    if (_queryParameters.isNotEmpty) {
-      _uri = _uri.replace(queryParameters: _queryParameters);
-    }
-
+    final _uri = Uri.parse(UriTemplate('/pets').expand(_parameters));
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
         'post',
@@ -226,19 +216,16 @@ class Client extends DynamiteClient {
   ///  * [findPetById] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
-    final _pathParameters = <String, dynamic>{};
-    final _queryParameters = <String, dynamic>{};
+    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    _pathParameters['id'] = id.toString();
-    var _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_pathParameters));
-    if (_queryParameters.isNotEmpty) {
-      _uri = _uri.replace(queryParameters: _queryParameters);
-    }
+    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
 
+    final _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_parameters));
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
         'get',
@@ -293,17 +280,14 @@ class Client extends DynamiteClient {
   ///  * [deletePet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
-    final _pathParameters = <String, dynamic>{};
-    final _queryParameters = <String, dynamic>{};
+    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
     Uint8List? _body;
 
-    _pathParameters['id'] = id.toString();
-    var _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_pathParameters));
-    if (_queryParameters.isNotEmpty) {
-      _uri = _uri.replace(queryParameters: _queryParameters);
-    }
+    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    _parameters['id'] = $id;
 
+    final _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_parameters));
     return DynamiteRawResponse<void, void>(
       response: this.executeRequest(
         'delete',
