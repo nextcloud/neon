@@ -118,6 +118,62 @@ void main() {
         ]),
       );
     });
+    test('oneOf', () async {
+      await client.$get(oneOf: ($bool: true, string: null));
+      var captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?oneOf=true'),
+        ]),
+      );
+      resetMockitoState();
+
+      await client.$get(oneOf: ($bool: null, string: 'value'));
+      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?oneOf=value'),
+        ]),
+      );
+    });
+
+    test('anyOf', () async {
+      await client.$get(anyOf: ($bool: true, string: null));
+      var captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?anyOf=true'),
+        ]),
+      );
+      resetMockitoState();
+
+      await client.$get(anyOf: ($bool: null, string: 'value'));
+      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?anyOf=value'),
+        ]),
+      );
+      resetMockitoState();
+
+      await client.$get(anyOf: ($bool: true, string: 'value'));
+      captured = verify(mockHttpClient.openUrl(captureAny, captureAny)).captured;
+      expect(
+        captured,
+        equals([
+          'get',
+          Uri.parse('example.com/?anyOf=true'),
+        ]),
+      );
+    });
   });
 
   group('getPathParameter', () {
