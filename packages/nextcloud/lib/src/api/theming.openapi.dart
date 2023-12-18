@@ -515,14 +515,14 @@ class $ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app.
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Manifest returned
   ///
   /// See:
   ///  * [getManifestRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({required String app}) async {
+  Future<DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({String? app}) async {
     final rawResponse = getManifestRaw(
       app: app,
     );
@@ -538,7 +538,7 @@ class $ThemingClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
-  ///   * [app] ID of the app.
+  ///   * [app] ID of the app. Defaults to `core`.
   ///
   /// Status codes:
   ///   * 200: Manifest returned
@@ -546,7 +546,7 @@ class $ThemingClient {
   /// See:
   ///  * [getManifest] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({required String app}) {
+  DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({String? app}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -567,7 +567,8 @@ class $ThemingClient {
     }
 
 // coverage:ignore-end
-    final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    var $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
+    $app ??= 'core';
     _parameters['app'] = $app;
 
     final _path = UriTemplate('/index.php/apps/theming/manifest/{app}').expand(_parameters);

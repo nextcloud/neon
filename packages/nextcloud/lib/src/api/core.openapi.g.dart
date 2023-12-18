@@ -6,6 +6,70 @@ part of 'core.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const TextProcessingTask_Status _$textProcessingTaskStatus$0 = TextProcessingTask_Status._('\$0');
+const TextProcessingTask_Status _$textProcessingTaskStatus$1 = TextProcessingTask_Status._('\$1');
+const TextProcessingTask_Status _$textProcessingTaskStatus$2 = TextProcessingTask_Status._('\$2');
+const TextProcessingTask_Status _$textProcessingTaskStatus$3 = TextProcessingTask_Status._('\$3');
+const TextProcessingTask_Status _$textProcessingTaskStatus$4 = TextProcessingTask_Status._('\$4');
+
+TextProcessingTask_Status _$valueOfTextProcessingTask_Status(String name) {
+  switch (name) {
+    case '\$0':
+      return _$textProcessingTaskStatus$0;
+    case '\$1':
+      return _$textProcessingTaskStatus$1;
+    case '\$2':
+      return _$textProcessingTaskStatus$2;
+    case '\$3':
+      return _$textProcessingTaskStatus$3;
+    case '\$4':
+      return _$textProcessingTaskStatus$4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<TextProcessingTask_Status> _$textProcessingTaskStatusValues =
+    BuiltSet<TextProcessingTask_Status>(const <TextProcessingTask_Status>[
+  _$textProcessingTaskStatus$0,
+  _$textProcessingTaskStatus$1,
+  _$textProcessingTaskStatus$2,
+  _$textProcessingTaskStatus$3,
+  _$textProcessingTaskStatus$4,
+]);
+
+const TextToImageTask_Status _$textToImageTaskStatus$0 = TextToImageTask_Status._('\$0');
+const TextToImageTask_Status _$textToImageTaskStatus$1 = TextToImageTask_Status._('\$1');
+const TextToImageTask_Status _$textToImageTaskStatus$2 = TextToImageTask_Status._('\$2');
+const TextToImageTask_Status _$textToImageTaskStatus$3 = TextToImageTask_Status._('\$3');
+const TextToImageTask_Status _$textToImageTaskStatus$4 = TextToImageTask_Status._('\$4');
+
+TextToImageTask_Status _$valueOfTextToImageTask_Status(String name) {
+  switch (name) {
+    case '\$0':
+      return _$textToImageTaskStatus$0;
+    case '\$1':
+      return _$textToImageTaskStatus$1;
+    case '\$2':
+      return _$textToImageTaskStatus$2;
+    case '\$3':
+      return _$textToImageTaskStatus$3;
+    case '\$4':
+      return _$textToImageTaskStatus$4;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<TextToImageTask_Status> _$textToImageTaskStatusValues =
+    BuiltSet<TextToImageTask_Status>(const <TextToImageTask_Status>[
+  _$textToImageTaskStatus$0,
+  _$textToImageTaskStatus$1,
+  _$textToImageTaskStatus$2,
+  _$textToImageTaskStatus$3,
+  _$textToImageTaskStatus$4,
+]);
+
 Serializer<Status> _$statusSerializer = _$StatusSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data>
@@ -6989,7 +7053,7 @@ class _$TextProcessingTaskSerializer implements StructuredSerializer<TextProcess
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(int)),
+      serializers.serialize(object.status, specifiedType: const FullType(TextProcessingTask_Status)),
       'appId',
       serializers.serialize(object.appId, specifiedType: const FullType(String)),
       'input',
@@ -7016,6 +7080,12 @@ class _$TextProcessingTaskSerializer implements StructuredSerializer<TextProcess
         ..add('output')
         ..add(serializers.serialize(value, specifiedType: const FullType(String)));
     }
+    value = object.completionExpectedAt;
+    if (value != null) {
+      result
+        ..add('completionExpectedAt')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -7037,7 +7107,8 @@ class _$TextProcessingTaskSerializer implements StructuredSerializer<TextProcess
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.status = serializers.deserialize(value, specifiedType: const FullType(TextProcessingTask_Status))!
+              as TextProcessingTask_Status;
           break;
         case 'userId':
           result.userId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -7053,6 +7124,9 @@ class _$TextProcessingTaskSerializer implements StructuredSerializer<TextProcess
           break;
         case 'identifier':
           result.identifier = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'completionExpectedAt':
+          result.completionExpectedAt = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
       }
     }
@@ -7774,7 +7848,7 @@ class _$TextToImageTaskSerializer implements StructuredSerializer<TextToImageTas
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'status',
-      serializers.serialize(object.status, specifiedType: const FullType(int)),
+      serializers.serialize(object.status, specifiedType: const FullType(TextToImageTask_Status)),
       'appId',
       serializers.serialize(object.appId, specifiedType: const FullType(String)),
       'input',
@@ -7825,7 +7899,8 @@ class _$TextToImageTaskSerializer implements StructuredSerializer<TextToImageTas
           result.id = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'status':
-          result.status = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.status = serializers.deserialize(value, specifiedType: const FullType(TextToImageTask_Status))!
+              as TextToImageTask_Status;
           break;
         case 'userId':
           result.userId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -8781,7 +8856,38 @@ class _$UnifiedSearchProviderSerializer implements StructuredSerializer<UnifiedS
       'order',
       serializers.serialize(object.order, specifiedType: const FullType(int)),
     ];
-
+    Object? value;
+    value = object.appId;
+    if (value != null) {
+      result
+        ..add('appId')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.icon;
+    if (value != null) {
+      result
+        ..add('icon')
+        ..add(serializers.serialize(value, specifiedType: const FullType(String)));
+    }
+    value = object.triggers;
+    if (value != null) {
+      result
+        ..add('triggers')
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+    }
+    value = object.filters;
+    if (value != null) {
+      result
+        ..add('filters')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])));
+    }
+    value = object.inAppSearch;
+    if (value != null) {
+      result
+        ..add('inAppSearch')
+        ..add(serializers.serialize(value, specifiedType: const FullType(bool)));
+    }
     return result;
   }
 
@@ -8799,11 +8905,28 @@ class _$UnifiedSearchProviderSerializer implements StructuredSerializer<UnifiedS
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
+        case 'appId':
+          result.appId = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
         case 'name':
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
+        case 'icon':
+          result.icon = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
+          break;
         case 'order':
           result.order = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'triggers':
+          result.triggers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          break;
+        case 'filters':
+          result.filters.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]))!);
+          break;
+        case 'inAppSearch':
+          result.inAppSearch = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
       }
     }
@@ -25419,8 +25542,8 @@ abstract mixin class $TextProcessingTaskInterfaceBuilder {
   String? get type;
   set type(String? type);
 
-  int? get status;
-  set status(int? status);
+  TextProcessingTask_Status? get status;
+  set status(TextProcessingTask_Status? status);
 
   String? get userId;
   set userId(String? userId);
@@ -25436,6 +25559,9 @@ abstract mixin class $TextProcessingTaskInterfaceBuilder {
 
   String? get identifier;
   set identifier(String? identifier);
+
+  int? get completionExpectedAt;
+  set completionExpectedAt(int? completionExpectedAt);
 }
 
 class _$TextProcessingTask extends TextProcessingTask {
@@ -25444,7 +25570,7 @@ class _$TextProcessingTask extends TextProcessingTask {
   @override
   final String type;
   @override
-  final int status;
+  final TextProcessingTask_Status status;
   @override
   final String? userId;
   @override
@@ -25455,6 +25581,8 @@ class _$TextProcessingTask extends TextProcessingTask {
   final String? output;
   @override
   final String identifier;
+  @override
+  final int? completionExpectedAt;
 
   factory _$TextProcessingTask([void Function(TextProcessingTaskBuilder)? updates]) =>
       (TextProcessingTaskBuilder()..update(updates))._build();
@@ -25467,7 +25595,8 @@ class _$TextProcessingTask extends TextProcessingTask {
       required this.appId,
       required this.input,
       this.output,
-      required this.identifier})
+      required this.identifier,
+      this.completionExpectedAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(type, r'TextProcessingTask', 'type');
     BuiltValueNullFieldError.checkNotNull(status, r'TextProcessingTask', 'status');
@@ -25494,7 +25623,8 @@ class _$TextProcessingTask extends TextProcessingTask {
         appId == other.appId &&
         input == other.input &&
         output == other.output &&
-        identifier == other.identifier;
+        identifier == other.identifier &&
+        completionExpectedAt == other.completionExpectedAt;
   }
 
   @override
@@ -25508,6 +25638,7 @@ class _$TextProcessingTask extends TextProcessingTask {
     _$hash = $jc(_$hash, input.hashCode);
     _$hash = $jc(_$hash, output.hashCode);
     _$hash = $jc(_$hash, identifier.hashCode);
+    _$hash = $jc(_$hash, completionExpectedAt.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -25522,7 +25653,8 @@ class _$TextProcessingTask extends TextProcessingTask {
           ..add('appId', appId)
           ..add('input', input)
           ..add('output', output)
-          ..add('identifier', identifier))
+          ..add('identifier', identifier)
+          ..add('completionExpectedAt', completionExpectedAt))
         .toString();
   }
 }
@@ -25539,9 +25671,9 @@ class TextProcessingTaskBuilder
   String? get type => _$this._type;
   set type(covariant String? type) => _$this._type = type;
 
-  int? _status;
-  int? get status => _$this._status;
-  set status(covariant int? status) => _$this._status = status;
+  TextProcessingTask_Status? _status;
+  TextProcessingTask_Status? get status => _$this._status;
+  set status(covariant TextProcessingTask_Status? status) => _$this._status = status;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -25563,6 +25695,10 @@ class TextProcessingTaskBuilder
   String? get identifier => _$this._identifier;
   set identifier(covariant String? identifier) => _$this._identifier = identifier;
 
+  int? _completionExpectedAt;
+  int? get completionExpectedAt => _$this._completionExpectedAt;
+  set completionExpectedAt(covariant int? completionExpectedAt) => _$this._completionExpectedAt = completionExpectedAt;
+
   TextProcessingTaskBuilder();
 
   TextProcessingTaskBuilder get _$this {
@@ -25576,6 +25712,7 @@ class TextProcessingTaskBuilder
       _input = $v.input;
       _output = $v.output;
       _identifier = $v.identifier;
+      _completionExpectedAt = $v.completionExpectedAt;
       _$v = null;
     }
     return this;
@@ -25605,7 +25742,8 @@ class TextProcessingTaskBuilder
             appId: BuiltValueNullFieldError.checkNotNull(appId, r'TextProcessingTask', 'appId'),
             input: BuiltValueNullFieldError.checkNotNull(input, r'TextProcessingTask', 'input'),
             output: output,
-            identifier: BuiltValueNullFieldError.checkNotNull(identifier, r'TextProcessingTask', 'identifier'));
+            identifier: BuiltValueNullFieldError.checkNotNull(identifier, r'TextProcessingTask', 'identifier'),
+            completionExpectedAt: completionExpectedAt);
     replace(_$result);
     return _$result;
   }
@@ -27296,8 +27434,8 @@ abstract mixin class $TextToImageTaskInterfaceBuilder {
   int? get id;
   set id(int? id);
 
-  int? get status;
-  set status(int? status);
+  TextToImageTask_Status? get status;
+  set status(TextToImageTask_Status? status);
 
   String? get userId;
   set userId(String? userId);
@@ -27322,7 +27460,7 @@ class _$TextToImageTask extends TextToImageTask {
   @override
   final int? id;
   @override
-  final int status;
+  final TextToImageTask_Status status;
   @override
   final String? userId;
   @override
@@ -27413,9 +27551,9 @@ class TextToImageTaskBuilder
   int? get id => _$this._id;
   set id(covariant int? id) => _$this._id = id;
 
-  int? _status;
-  int? get status => _$this._status;
-  set status(covariant int? status) => _$this._status = status;
+  TextToImageTask_Status? _status;
+  TextToImageTask_Status? get status => _$this._status;
+  set status(covariant TextToImageTask_Status? status) => _$this._status = status;
 
   String? _userId;
   String? get userId => _$this._userId;
@@ -29678,25 +29816,59 @@ abstract mixin class $UnifiedSearchProviderInterfaceBuilder {
   String? get id;
   set id(String? id);
 
+  String? get appId;
+  set appId(String? appId);
+
   String? get name;
   set name(String? name);
 
+  String? get icon;
+  set icon(String? icon);
+
   int? get order;
   set order(int? order);
+
+  ListBuilder<String> get triggers;
+  set triggers(ListBuilder<String>? triggers);
+
+  MapBuilder<String, String> get filters;
+  set filters(MapBuilder<String, String>? filters);
+
+  bool? get inAppSearch;
+  set inAppSearch(bool? inAppSearch);
 }
 
 class _$UnifiedSearchProvider extends UnifiedSearchProvider {
   @override
   final String id;
   @override
+  final String? appId;
+  @override
   final String name;
   @override
+  final String? icon;
+  @override
   final int order;
+  @override
+  final BuiltList<String>? triggers;
+  @override
+  final BuiltMap<String, String>? filters;
+  @override
+  final bool? inAppSearch;
 
   factory _$UnifiedSearchProvider([void Function(UnifiedSearchProviderBuilder)? updates]) =>
       (UnifiedSearchProviderBuilder()..update(updates))._build();
 
-  _$UnifiedSearchProvider._({required this.id, required this.name, required this.order}) : super._() {
+  _$UnifiedSearchProvider._(
+      {required this.id,
+      this.appId,
+      required this.name,
+      this.icon,
+      required this.order,
+      this.triggers,
+      this.filters,
+      this.inAppSearch})
+      : super._() {
     BuiltValueNullFieldError.checkNotNull(id, r'UnifiedSearchProvider', 'id');
     BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchProvider', 'name');
     BuiltValueNullFieldError.checkNotNull(order, r'UnifiedSearchProvider', 'order');
@@ -29712,15 +29884,28 @@ class _$UnifiedSearchProvider extends UnifiedSearchProvider {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is UnifiedSearchProvider && id == other.id && name == other.name && order == other.order;
+    return other is UnifiedSearchProvider &&
+        id == other.id &&
+        appId == other.appId &&
+        name == other.name &&
+        icon == other.icon &&
+        order == other.order &&
+        triggers == other.triggers &&
+        filters == other.filters &&
+        inAppSearch == other.inAppSearch;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, appId.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, icon.hashCode);
     _$hash = $jc(_$hash, order.hashCode);
+    _$hash = $jc(_$hash, triggers.hashCode);
+    _$hash = $jc(_$hash, filters.hashCode);
+    _$hash = $jc(_$hash, inAppSearch.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -29729,8 +29914,13 @@ class _$UnifiedSearchProvider extends UnifiedSearchProvider {
   String toString() {
     return (newBuiltValueToStringHelper(r'UnifiedSearchProvider')
           ..add('id', id)
+          ..add('appId', appId)
           ..add('name', name)
-          ..add('order', order))
+          ..add('icon', icon)
+          ..add('order', order)
+          ..add('triggers', triggers)
+          ..add('filters', filters)
+          ..add('inAppSearch', inAppSearch))
         .toString();
   }
 }
@@ -29743,13 +29933,33 @@ class UnifiedSearchProviderBuilder
   String? get id => _$this._id;
   set id(covariant String? id) => _$this._id = id;
 
+  String? _appId;
+  String? get appId => _$this._appId;
+  set appId(covariant String? appId) => _$this._appId = appId;
+
   String? _name;
   String? get name => _$this._name;
   set name(covariant String? name) => _$this._name = name;
 
+  String? _icon;
+  String? get icon => _$this._icon;
+  set icon(covariant String? icon) => _$this._icon = icon;
+
   int? _order;
   int? get order => _$this._order;
   set order(covariant int? order) => _$this._order = order;
+
+  ListBuilder<String>? _triggers;
+  ListBuilder<String> get triggers => _$this._triggers ??= ListBuilder<String>();
+  set triggers(covariant ListBuilder<String>? triggers) => _$this._triggers = triggers;
+
+  MapBuilder<String, String>? _filters;
+  MapBuilder<String, String> get filters => _$this._filters ??= MapBuilder<String, String>();
+  set filters(covariant MapBuilder<String, String>? filters) => _$this._filters = filters;
+
+  bool? _inAppSearch;
+  bool? get inAppSearch => _$this._inAppSearch;
+  set inAppSearch(covariant bool? inAppSearch) => _$this._inAppSearch = inAppSearch;
 
   UnifiedSearchProviderBuilder();
 
@@ -29757,8 +29967,13 @@ class UnifiedSearchProviderBuilder
     final $v = _$v;
     if ($v != null) {
       _id = $v.id;
+      _appId = $v.appId;
       _name = $v.name;
+      _icon = $v.icon;
       _order = $v.order;
+      _triggers = $v.triggers?.toBuilder();
+      _filters = $v.filters?.toBuilder();
+      _inAppSearch = $v.inAppSearch;
       _$v = null;
     }
     return this;
@@ -29779,11 +29994,30 @@ class UnifiedSearchProviderBuilder
   UnifiedSearchProvider build() => _build();
 
   _$UnifiedSearchProvider _build() {
-    final _$result = _$v ??
-        _$UnifiedSearchProvider._(
-            id: BuiltValueNullFieldError.checkNotNull(id, r'UnifiedSearchProvider', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchProvider', 'name'),
-            order: BuiltValueNullFieldError.checkNotNull(order, r'UnifiedSearchProvider', 'order'));
+    _$UnifiedSearchProvider _$result;
+    try {
+      _$result = _$v ??
+          _$UnifiedSearchProvider._(
+              id: BuiltValueNullFieldError.checkNotNull(id, r'UnifiedSearchProvider', 'id'),
+              appId: appId,
+              name: BuiltValueNullFieldError.checkNotNull(name, r'UnifiedSearchProvider', 'name'),
+              icon: icon,
+              order: BuiltValueNullFieldError.checkNotNull(order, r'UnifiedSearchProvider', 'order'),
+              triggers: _triggers?.build(),
+              filters: _filters?.build(),
+              inAppSearch: inAppSearch);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'triggers';
+        _triggers?.build();
+        _$failedField = 'filters';
+        _filters?.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(r'UnifiedSearchProvider', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

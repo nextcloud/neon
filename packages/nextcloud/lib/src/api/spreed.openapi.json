@@ -2763,17 +2763,25 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3
+                            ]
                         }
                     },
                     {
                         "name": "amount",
                         "in": "query",
-                        "description": "Number of breakout rooms",
+                        "description": "Number of breakout rooms - Constants {@see BreakoutRoom::MINIMUM_ROOM_AMOUNT} and {@see BreakoutRoom::MAXIMUM_ROOM_AMOUNT}",
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 1,
+                            "maximum": 20
                         }
                     },
                     {
@@ -3992,8 +4000,25 @@
                         "description": "In-Call flags",
                         "schema": {
                             "type": "integer",
-                            "format": "int64",
-                            "nullable": true
+                            "nullable": true,
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15
+                            ]
                         }
                     },
                     {
@@ -4002,8 +4027,265 @@
                         "description": "In-call permissions",
                         "schema": {
                             "type": "integer",
-                            "format": "int64",
-                            "nullable": true
+                            "nullable": true,
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15,
+                                16,
+                                17,
+                                18,
+                                19,
+                                20,
+                                21,
+                                22,
+                                23,
+                                24,
+                                25,
+                                26,
+                                27,
+                                28,
+                                29,
+                                30,
+                                31,
+                                32,
+                                33,
+                                34,
+                                35,
+                                36,
+                                37,
+                                38,
+                                39,
+                                40,
+                                41,
+                                42,
+                                43,
+                                44,
+                                45,
+                                46,
+                                47,
+                                48,
+                                49,
+                                50,
+                                51,
+                                52,
+                                53,
+                                54,
+                                55,
+                                56,
+                                57,
+                                58,
+                                59,
+                                60,
+                                61,
+                                62,
+                                63,
+                                64,
+                                65,
+                                66,
+                                67,
+                                68,
+                                69,
+                                70,
+                                71,
+                                72,
+                                73,
+                                74,
+                                75,
+                                76,
+                                77,
+                                78,
+                                79,
+                                80,
+                                81,
+                                82,
+                                83,
+                                84,
+                                85,
+                                86,
+                                87,
+                                88,
+                                89,
+                                90,
+                                91,
+                                92,
+                                93,
+                                94,
+                                95,
+                                96,
+                                97,
+                                98,
+                                99,
+                                100,
+                                101,
+                                102,
+                                103,
+                                104,
+                                105,
+                                106,
+                                107,
+                                108,
+                                109,
+                                110,
+                                111,
+                                112,
+                                113,
+                                114,
+                                115,
+                                116,
+                                117,
+                                118,
+                                119,
+                                120,
+                                121,
+                                122,
+                                123,
+                                124,
+                                125,
+                                126,
+                                127,
+                                128,
+                                129,
+                                130,
+                                131,
+                                132,
+                                133,
+                                134,
+                                135,
+                                136,
+                                137,
+                                138,
+                                139,
+                                140,
+                                141,
+                                142,
+                                143,
+                                144,
+                                145,
+                                146,
+                                147,
+                                148,
+                                149,
+                                150,
+                                151,
+                                152,
+                                153,
+                                154,
+                                155,
+                                156,
+                                157,
+                                158,
+                                159,
+                                160,
+                                161,
+                                162,
+                                163,
+                                164,
+                                165,
+                                166,
+                                167,
+                                168,
+                                169,
+                                170,
+                                171,
+                                172,
+                                173,
+                                174,
+                                175,
+                                176,
+                                177,
+                                178,
+                                179,
+                                180,
+                                181,
+                                182,
+                                183,
+                                184,
+                                185,
+                                186,
+                                187,
+                                188,
+                                189,
+                                190,
+                                191,
+                                192,
+                                193,
+                                194,
+                                195,
+                                196,
+                                197,
+                                198,
+                                199,
+                                200,
+                                201,
+                                202,
+                                203,
+                                204,
+                                205,
+                                206,
+                                207,
+                                208,
+                                209,
+                                210,
+                                211,
+                                212,
+                                213,
+                                214,
+                                215,
+                                216,
+                                217,
+                                218,
+                                219,
+                                220,
+                                221,
+                                222,
+                                223,
+                                224,
+                                225,
+                                226,
+                                227,
+                                228,
+                                229,
+                                230,
+                                231,
+                                232,
+                                233,
+                                234,
+                                235,
+                                236,
+                                237,
+                                238,
+                                239,
+                                240,
+                                241,
+                                242,
+                                243,
+                                244,
+                                245,
+                                246,
+                                247,
+                                248,
+                                249,
+                                250,
+                                251,
+                                252,
+                                253,
+                                254,
+                                255
+                            ]
                         }
                     },
                     {
@@ -4527,6 +4809,34 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "Attendee could not be found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -4902,7 +5212,11 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4922,7 +5236,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -4932,7 +5247,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -4942,7 +5258,9 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 30
+                            "default": 30,
+                            "minimum": 0,
+                            "maximum": 30
                         }
                     },
                     {
@@ -4952,7 +5270,11 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 1
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4962,7 +5284,11 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4972,7 +5298,11 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -4982,7 +5312,11 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 1
+                            "default": 1,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -5161,7 +5495,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -5527,7 +5862,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -5755,7 +6091,9 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 50
+                            "default": 50,
+                            "minimum": 1,
+                            "maximum": 100
                         }
                     },
                     {
@@ -5786,7 +6124,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -5917,7 +6256,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -5948,7 +6288,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -6066,7 +6407,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -6184,7 +6526,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -6281,7 +6624,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -6806,7 +7150,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -6816,7 +7161,9 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 100
+                            "default": 100,
+                            "minimum": 1,
+                            "maximum": 200
                         }
                     },
                     {
@@ -6919,7 +7266,9 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 7
+                            "default": 7,
+                            "minimum": 1,
+                            "maximum": 20
                         }
                     },
                     {
@@ -6982,262 +7331,6 @@
                                                         "items": {
                                                             "$ref": "#/components/schemas/ChatMessage"
                                                         }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}": {
-            "post": {
-                "operationId": "federation-accept-share",
-                "summary": "Accept a federation invites",
-                "tags": [
-                    "federation"
-                ],
-                "security": [
-                    {
-                        "bearer_auth": []
-                    },
-                    {
-                        "basic_auth": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "apiVersion",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "v1"
-                            ],
-                            "default": "v1"
-                        }
-                    },
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the share",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int64"
-                        }
-                    },
-                    {
-                        "name": "OCS-APIRequest",
-                        "in": "header",
-                        "description": "Required to be true for the API request to pass",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean",
-                            "default": true
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Invite accepted successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "required": [
-                                        "ocs"
-                                    ],
-                                    "properties": {
-                                        "ocs": {
-                                            "type": "object",
-                                            "required": [
-                                                "meta",
-                                                "data"
-                                            ],
-                                            "properties": {
-                                                "meta": {
-                                                    "$ref": "#/components/schemas/OCSMeta"
-                                                },
-                                                "data": {}
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "delete": {
-                "operationId": "federation-reject-share",
-                "summary": "Decline a federation invites",
-                "tags": [
-                    "federation"
-                ],
-                "security": [
-                    {
-                        "bearer_auth": []
-                    },
-                    {
-                        "basic_auth": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "apiVersion",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "v1"
-                            ],
-                            "default": "v1"
-                        }
-                    },
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of the share",
-                        "required": true,
-                        "schema": {
-                            "type": "integer",
-                            "format": "int64"
-                        }
-                    },
-                    {
-                        "name": "OCS-APIRequest",
-                        "in": "header",
-                        "description": "Required to be true for the API request to pass",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean",
-                            "default": true
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Invite declined successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "required": [
-                                        "ocs"
-                                    ],
-                                    "properties": {
-                                        "ocs": {
-                                            "type": "object",
-                                            "required": [
-                                                "meta",
-                                                "data"
-                                            ],
-                                            "properties": {
-                                                "meta": {
-                                                    "$ref": "#/components/schemas/OCSMeta"
-                                                },
-                                                "data": {}
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "500": {
-                        "description": "",
-                        "content": {
-                            "text/plain": {
-                                "schema": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation": {
-            "get": {
-                "operationId": "federation-get-shares",
-                "summary": "Get a list of federation invites",
-                "tags": [
-                    "federation"
-                ],
-                "security": [
-                    {
-                        "bearer_auth": []
-                    },
-                    {
-                        "basic_auth": []
-                    }
-                ],
-                "parameters": [
-                    {
-                        "name": "apiVersion",
-                        "in": "path",
-                        "required": true,
-                        "schema": {
-                            "type": "string",
-                            "enum": [
-                                "v1"
-                            ],
-                            "default": "v1"
-                        }
-                    },
-                    {
-                        "name": "OCS-APIRequest",
-                        "in": "header",
-                        "description": "Required to be true for the API request to pass",
-                        "required": true,
-                        "schema": {
-                            "type": "boolean",
-                            "default": true
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Get list of received federation invites successfully",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "required": [
-                                        "ocs"
-                                    ],
-                                    "properties": {
-                                        "ocs": {
-                                            "type": "object",
-                                            "required": [
-                                                "meta",
-                                                "data"
-                                            ],
-                                            "properties": {
-                                                "meta": {
-                                                    "$ref": "#/components/schemas/OCSMeta"
-                                                },
-                                                "data": {
-                                                    "type": "array",
-                                                    "items": {
-                                                        "$ref": "#/components/schemas/FederationInvite"
                                                     }
                                                 }
                                             }
@@ -7383,7 +7476,7 @@
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}": {
             "get": {
                 "operationId": "files_integration-get-room-by-share-token",
-                "summary": "Returns the token of the room associated to the file id of the given share token",
+                "summary": "Returns the token of the room associated to the file of the given share token",
                 "description": "This is the counterpart of self::getRoomByFileId() for share tokens instead of file ids, although both return the same room token if the given file id and share token refer to the same file.\nIf there is no room associated to the file id of the given share token a new room is created; the new room is a public room associated with a \"file\" object with the file id of the given share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).\nIn any case, to create or even get the token of the room, the file must be publicly shared (like a link share, for example); an error is returned otherwise.\nBesides the token of the room this also returns the current user ID and display name, if any; this is needed by the Talk sidebar to know the actual current user, as the public share page uses the incognito mode and thus logged-in users as seen as guests.",
                 "tags": [
                     "files_integration"
@@ -8729,7 +8822,11 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -8881,7 +8978,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9013,7 +9111,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9160,7 +9259,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9323,7 +9423,7 @@
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth": {
             "post": {
                 "operationId": "public_share_auth-create-room",
-                "summary": "Creates a new room for requesting the password of a share",
+                "summary": "Creates a new room for video verification (requesting the password of a share)",
                 "description": "The new room is a public room associated with a \"share:password\" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.\nThe share must have \"send password by Talk\" enabled; an error is returned otherwise.",
                 "tags": [
                     "public_share_auth"
@@ -9502,7 +9602,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9700,7 +9801,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9862,7 +9964,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -9980,7 +10083,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -10552,7 +10656,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -10680,7 +10785,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -10690,7 +10796,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -10818,7 +10925,11 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -10837,7 +10948,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "default": 0
+                            "default": 0,
+                            "minimum": 0
                         }
                     },
                     {
@@ -11702,7 +11814,8 @@
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms": {
             "get": {
                 "operationId": "room-get-breakout-rooms",
-                "summary": "Get all (for moderators and in case of \"free selection\") or the assigned breakout room",
+                "summary": "Get breakout rooms",
+                "description": "All for moderators and in case of \"free selection\", or the assigned breakout room for other participants",
                 "tags": [
                     "room"
                 ],
@@ -12177,7 +12290,11 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -12295,7 +12412,12 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ]
                         }
                     },
                     {
@@ -12567,7 +12689,265 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15,
+                                16,
+                                17,
+                                18,
+                                19,
+                                20,
+                                21,
+                                22,
+                                23,
+                                24,
+                                25,
+                                26,
+                                27,
+                                28,
+                                29,
+                                30,
+                                31,
+                                32,
+                                33,
+                                34,
+                                35,
+                                36,
+                                37,
+                                38,
+                                39,
+                                40,
+                                41,
+                                42,
+                                43,
+                                44,
+                                45,
+                                46,
+                                47,
+                                48,
+                                49,
+                                50,
+                                51,
+                                52,
+                                53,
+                                54,
+                                55,
+                                56,
+                                57,
+                                58,
+                                59,
+                                60,
+                                61,
+                                62,
+                                63,
+                                64,
+                                65,
+                                66,
+                                67,
+                                68,
+                                69,
+                                70,
+                                71,
+                                72,
+                                73,
+                                74,
+                                75,
+                                76,
+                                77,
+                                78,
+                                79,
+                                80,
+                                81,
+                                82,
+                                83,
+                                84,
+                                85,
+                                86,
+                                87,
+                                88,
+                                89,
+                                90,
+                                91,
+                                92,
+                                93,
+                                94,
+                                95,
+                                96,
+                                97,
+                                98,
+                                99,
+                                100,
+                                101,
+                                102,
+                                103,
+                                104,
+                                105,
+                                106,
+                                107,
+                                108,
+                                109,
+                                110,
+                                111,
+                                112,
+                                113,
+                                114,
+                                115,
+                                116,
+                                117,
+                                118,
+                                119,
+                                120,
+                                121,
+                                122,
+                                123,
+                                124,
+                                125,
+                                126,
+                                127,
+                                128,
+                                129,
+                                130,
+                                131,
+                                132,
+                                133,
+                                134,
+                                135,
+                                136,
+                                137,
+                                138,
+                                139,
+                                140,
+                                141,
+                                142,
+                                143,
+                                144,
+                                145,
+                                146,
+                                147,
+                                148,
+                                149,
+                                150,
+                                151,
+                                152,
+                                153,
+                                154,
+                                155,
+                                156,
+                                157,
+                                158,
+                                159,
+                                160,
+                                161,
+                                162,
+                                163,
+                                164,
+                                165,
+                                166,
+                                167,
+                                168,
+                                169,
+                                170,
+                                171,
+                                172,
+                                173,
+                                174,
+                                175,
+                                176,
+                                177,
+                                178,
+                                179,
+                                180,
+                                181,
+                                182,
+                                183,
+                                184,
+                                185,
+                                186,
+                                187,
+                                188,
+                                189,
+                                190,
+                                191,
+                                192,
+                                193,
+                                194,
+                                195,
+                                196,
+                                197,
+                                198,
+                                199,
+                                200,
+                                201,
+                                202,
+                                203,
+                                204,
+                                205,
+                                206,
+                                207,
+                                208,
+                                209,
+                                210,
+                                211,
+                                212,
+                                213,
+                                214,
+                                215,
+                                216,
+                                217,
+                                218,
+                                219,
+                                220,
+                                221,
+                                222,
+                                223,
+                                224,
+                                225,
+                                226,
+                                227,
+                                228,
+                                229,
+                                230,
+                                231,
+                                232,
+                                233,
+                                234,
+                                235,
+                                236,
+                                237,
+                                238,
+                                239,
+                                240,
+                                241,
+                                242,
+                                243,
+                                244,
+                                245,
+                                246,
+                                247,
+                                248,
+                                249,
+                                250,
+                                251,
+                                252,
+                                253,
+                                254,
+                                255
+                            ]
                         }
                     },
                     {
@@ -12598,6 +12978,10 @@
                         "required": true,
                         "schema": {
                             "type": "string",
+                            "enum": [
+                                "call",
+                                "default"
+                            ],
                             "pattern": "^(call|default)$"
                         }
                     },
@@ -12833,7 +13217,15 @@
                         "description": "Source of the participant",
                         "schema": {
                             "type": "string",
-                            "default": "users"
+                            "default": "users",
+                            "enum": [
+                                "users",
+                                "groups",
+                                "circles",
+                                "emails",
+                                "remotes",
+                                "phones"
+                            ]
                         }
                     },
                     {
@@ -13338,7 +13730,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -13513,7 +13906,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -13522,7 +13916,12 @@
                         "description": "Method of updating permissions ('set', 'remove', 'add')",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                                "set",
+                                "remove",
+                                "add"
+                            ]
                         }
                     },
                     {
@@ -13532,7 +13931,265 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15,
+                                16,
+                                17,
+                                18,
+                                19,
+                                20,
+                                21,
+                                22,
+                                23,
+                                24,
+                                25,
+                                26,
+                                27,
+                                28,
+                                29,
+                                30,
+                                31,
+                                32,
+                                33,
+                                34,
+                                35,
+                                36,
+                                37,
+                                38,
+                                39,
+                                40,
+                                41,
+                                42,
+                                43,
+                                44,
+                                45,
+                                46,
+                                47,
+                                48,
+                                49,
+                                50,
+                                51,
+                                52,
+                                53,
+                                54,
+                                55,
+                                56,
+                                57,
+                                58,
+                                59,
+                                60,
+                                61,
+                                62,
+                                63,
+                                64,
+                                65,
+                                66,
+                                67,
+                                68,
+                                69,
+                                70,
+                                71,
+                                72,
+                                73,
+                                74,
+                                75,
+                                76,
+                                77,
+                                78,
+                                79,
+                                80,
+                                81,
+                                82,
+                                83,
+                                84,
+                                85,
+                                86,
+                                87,
+                                88,
+                                89,
+                                90,
+                                91,
+                                92,
+                                93,
+                                94,
+                                95,
+                                96,
+                                97,
+                                98,
+                                99,
+                                100,
+                                101,
+                                102,
+                                103,
+                                104,
+                                105,
+                                106,
+                                107,
+                                108,
+                                109,
+                                110,
+                                111,
+                                112,
+                                113,
+                                114,
+                                115,
+                                116,
+                                117,
+                                118,
+                                119,
+                                120,
+                                121,
+                                122,
+                                123,
+                                124,
+                                125,
+                                126,
+                                127,
+                                128,
+                                129,
+                                130,
+                                131,
+                                132,
+                                133,
+                                134,
+                                135,
+                                136,
+                                137,
+                                138,
+                                139,
+                                140,
+                                141,
+                                142,
+                                143,
+                                144,
+                                145,
+                                146,
+                                147,
+                                148,
+                                149,
+                                150,
+                                151,
+                                152,
+                                153,
+                                154,
+                                155,
+                                156,
+                                157,
+                                158,
+                                159,
+                                160,
+                                161,
+                                162,
+                                163,
+                                164,
+                                165,
+                                166,
+                                167,
+                                168,
+                                169,
+                                170,
+                                171,
+                                172,
+                                173,
+                                174,
+                                175,
+                                176,
+                                177,
+                                178,
+                                179,
+                                180,
+                                181,
+                                182,
+                                183,
+                                184,
+                                185,
+                                186,
+                                187,
+                                188,
+                                189,
+                                190,
+                                191,
+                                192,
+                                193,
+                                194,
+                                195,
+                                196,
+                                197,
+                                198,
+                                199,
+                                200,
+                                201,
+                                202,
+                                203,
+                                204,
+                                205,
+                                206,
+                                207,
+                                208,
+                                209,
+                                210,
+                                211,
+                                212,
+                                213,
+                                214,
+                                215,
+                                216,
+                                217,
+                                218,
+                                219,
+                                220,
+                                221,
+                                222,
+                                223,
+                                224,
+                                225,
+                                226,
+                                227,
+                                228,
+                                229,
+                                230,
+                                231,
+                                232,
+                                233,
+                                234,
+                                235,
+                                236,
+                                237,
+                                238,
+                                239,
+                                240,
+                                241,
+                                242,
+                                243,
+                                244,
+                                245,
+                                246,
+                                247,
+                                248,
+                                249,
+                                250,
+                                251,
+                                252,
+                                253,
+                                254,
+                                255
+                            ]
                         }
                     },
                     {
@@ -13706,7 +14363,12 @@
                         "description": "Method of updating permissions ('set', 'remove', 'add')",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                                "set",
+                                "remove",
+                                "add"
+                            ]
                         }
                     },
                     {
@@ -13716,7 +14378,265 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4,
+                                5,
+                                6,
+                                7,
+                                8,
+                                9,
+                                10,
+                                11,
+                                12,
+                                13,
+                                14,
+                                15,
+                                16,
+                                17,
+                                18,
+                                19,
+                                20,
+                                21,
+                                22,
+                                23,
+                                24,
+                                25,
+                                26,
+                                27,
+                                28,
+                                29,
+                                30,
+                                31,
+                                32,
+                                33,
+                                34,
+                                35,
+                                36,
+                                37,
+                                38,
+                                39,
+                                40,
+                                41,
+                                42,
+                                43,
+                                44,
+                                45,
+                                46,
+                                47,
+                                48,
+                                49,
+                                50,
+                                51,
+                                52,
+                                53,
+                                54,
+                                55,
+                                56,
+                                57,
+                                58,
+                                59,
+                                60,
+                                61,
+                                62,
+                                63,
+                                64,
+                                65,
+                                66,
+                                67,
+                                68,
+                                69,
+                                70,
+                                71,
+                                72,
+                                73,
+                                74,
+                                75,
+                                76,
+                                77,
+                                78,
+                                79,
+                                80,
+                                81,
+                                82,
+                                83,
+                                84,
+                                85,
+                                86,
+                                87,
+                                88,
+                                89,
+                                90,
+                                91,
+                                92,
+                                93,
+                                94,
+                                95,
+                                96,
+                                97,
+                                98,
+                                99,
+                                100,
+                                101,
+                                102,
+                                103,
+                                104,
+                                105,
+                                106,
+                                107,
+                                108,
+                                109,
+                                110,
+                                111,
+                                112,
+                                113,
+                                114,
+                                115,
+                                116,
+                                117,
+                                118,
+                                119,
+                                120,
+                                121,
+                                122,
+                                123,
+                                124,
+                                125,
+                                126,
+                                127,
+                                128,
+                                129,
+                                130,
+                                131,
+                                132,
+                                133,
+                                134,
+                                135,
+                                136,
+                                137,
+                                138,
+                                139,
+                                140,
+                                141,
+                                142,
+                                143,
+                                144,
+                                145,
+                                146,
+                                147,
+                                148,
+                                149,
+                                150,
+                                151,
+                                152,
+                                153,
+                                154,
+                                155,
+                                156,
+                                157,
+                                158,
+                                159,
+                                160,
+                                161,
+                                162,
+                                163,
+                                164,
+                                165,
+                                166,
+                                167,
+                                168,
+                                169,
+                                170,
+                                171,
+                                172,
+                                173,
+                                174,
+                                175,
+                                176,
+                                177,
+                                178,
+                                179,
+                                180,
+                                181,
+                                182,
+                                183,
+                                184,
+                                185,
+                                186,
+                                187,
+                                188,
+                                189,
+                                190,
+                                191,
+                                192,
+                                193,
+                                194,
+                                195,
+                                196,
+                                197,
+                                198,
+                                199,
+                                200,
+                                201,
+                                202,
+                                203,
+                                204,
+                                205,
+                                206,
+                                207,
+                                208,
+                                209,
+                                210,
+                                211,
+                                212,
+                                213,
+                                214,
+                                215,
+                                216,
+                                217,
+                                218,
+                                219,
+                                220,
+                                221,
+                                222,
+                                223,
+                                224,
+                                225,
+                                226,
+                                227,
+                                228,
+                                229,
+                                230,
+                                231,
+                                232,
+                                233,
+                                234,
+                                235,
+                                236,
+                                237,
+                                238,
+                                239,
+                                240,
+                                241,
+                                242,
+                                243,
+                                244,
+                                245,
+                                246,
+                                247,
+                                248,
+                                249,
+                                250,
+                                251,
+                                252,
+                                253,
+                                254,
+                                255
+                            ]
                         }
                     },
                     {
@@ -14122,7 +15042,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "nullable": true
+                            "nullable": true,
+                            "minimum": 0
                         }
                     },
                     {
@@ -14241,7 +15162,11 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1
+                            ]
                         }
                     },
                     {
@@ -14334,6 +15259,34 @@
                                 }
                             }
                         }
+                    },
+                    "404": {
+                        "description": "The participant did not have a session",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": [
+                                        "ocs"
+                                    ],
+                                    "properties": {
+                                        "ocs": {
+                                            "type": "object",
+                                            "required": [
+                                                "meta",
+                                                "data"
+                                            ],
+                                            "properties": {
+                                                "meta": {
+                                                    "$ref": "#/components/schemas/OCSMeta"
+                                                },
+                                                "data": {}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -14362,7 +15315,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -14535,7 +15489,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -15113,7 +16068,8 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64",
-                            "nullable": true
+                            "nullable": true,
+                            "minimum": 0
                         }
                     },
                     {
@@ -15233,7 +16189,12 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "enum": [
+                                0,
+                                1,
+                                2
+                            ]
                         }
                     },
                     {
@@ -15596,7 +16557,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -15701,7 +16663,7 @@
         "/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip": {
             "post": {
                 "operationId": "settings-setsip-settings",
-                "summary": "Update SIP settings",
+                "summary": "Update SIP bridge settings",
                 "description": "This endpoint requires admin access",
                 "tags": [
                     "settings"
@@ -15822,7 +16784,13 @@
                         "description": "Key to update",
                         "required": true,
                         "schema": {
-                            "type": "string"
+                            "type": "string",
+                            "enum": [
+                                "attachment_folder",
+                                "read_status_privacy",
+                                "typing_privacy",
+                                "play_sounds"
+                            ]
                         }
                     },
                     {
@@ -15830,22 +16798,16 @@
                         "in": "query",
                         "description": "New value for the key",
                         "schema": {
-                            "type": "string",
                             "nullable": true,
-                            "contentMediaType": "application/json",
-                            "contentSchema": {
-                                "nullable": true,
-                                "description": "New value for the key",
-                                "oneOf": [
-                                    {
-                                        "type": "string"
-                                    },
-                                    {
-                                        "type": "integer",
-                                        "format": "int64"
-                                    }
-                                ]
-                            }
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer",
+                                    "format": "int64"
+                                }
+                            ]
                         }
                     },
                     {
@@ -16106,7 +17068,8 @@
                         "required": true,
                         "schema": {
                             "type": "integer",
-                            "format": "int64"
+                            "format": "int64",
+                            "minimum": 0
                         }
                     },
                     {
@@ -16597,7 +17560,7 @@
         "/ocs/v2.php/apps/spreed/temp-user-avatar": {
             "post": {
                 "operationId": "temp_avatar-post-avatar",
-                "summary": "Upload a temporary avatar",
+                "summary": "Upload your avatar as a user",
                 "tags": [
                     "temp_avatar"
                 ],
@@ -16692,7 +17655,7 @@
             },
             "delete": {
                 "operationId": "temp_avatar-delete-avatar",
-                "summary": "Delete a temporary avatar",
+                "summary": "Delete your avatar as a user",
                 "tags": [
                     "temp_avatar"
                 ],

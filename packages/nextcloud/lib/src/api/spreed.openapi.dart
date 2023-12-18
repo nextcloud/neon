@@ -53,8 +53,6 @@ class $Client extends DynamiteClient {
 
   $ChatClient get chat => $ChatClient(this);
 
-  $FederationClient get federation => $FederationClient(this);
-
   $FilesIntegrationClient get filesIntegration => $FilesIntegrationClient(this);
 
   $GuestClient get guest => $GuestClient(this);
@@ -1448,7 +1446,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
-  ///   * [amount] Number of breakout rooms.
+  ///   * [amount] Number of breakout rooms - Constants {@see BreakoutRoom::MINIMUM_ROOM_AMOUNT} and {@see BreakoutRoom::MAXIMUM_ROOM_AMOUNT}.
   ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `[]`.
   ///   * [apiVersion] Defaults to `v1`.
   ///   * [token]
@@ -1461,7 +1459,7 @@ class $BreakoutRoomClient {
   /// See:
   ///  * [configureBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>> configureBreakoutRooms({
-    required int mode,
+    required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
     required String token,
     String? attendeeMap,
@@ -1489,7 +1487,7 @@ class $BreakoutRoomClient {
   ///
   /// Parameters:
   ///   * [mode] Mode of the breakout rooms.
-  ///   * [amount] Number of breakout rooms.
+  ///   * [amount] Number of breakout rooms - Constants {@see BreakoutRoom::MINIMUM_ROOM_AMOUNT} and {@see BreakoutRoom::MAXIMUM_ROOM_AMOUNT}.
   ///   * [attendeeMap] Mapping of the attendees to breakout rooms. Defaults to `[]`.
   ///   * [apiVersion] Defaults to `v1`.
   ///   * [token]
@@ -1503,7 +1501,7 @@ class $BreakoutRoomClient {
   ///  * [configureBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
-    required int mode,
+    required BreakoutRoomConfigureBreakoutRoomsMode mode,
     required int amount,
     required String token,
     String? attendeeMap,
@@ -1532,7 +1530,8 @@ class $BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(int));
+    final $mode =
+        jsonSerializers.serialize(mode, specifiedType: const FullType(BreakoutRoomConfigureBreakoutRoomsMode));
     _parameters['mode'] = $mode;
 
     final $amount = jsonSerializers.serialize(amount, specifiedType: const FullType(int));
@@ -2684,8 +2683,8 @@ class $CallClient {
   ///  * [joinCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallJoinCallResponseApplicationJson, void>> joinCall({
     required String token,
-    int? flags,
-    int? forcePermissions,
+    CallJoinCallFlags? flags,
+    CallJoinCallForcePermissions? forcePermissions,
     int? silent,
     int? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
@@ -2730,8 +2729,8 @@ class $CallClient {
   @experimental
   DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
     required String token,
-    int? flags,
-    int? forcePermissions,
+    CallJoinCallFlags? flags,
+    CallJoinCallForcePermissions? forcePermissions,
     int? silent,
     int? recordingConsent,
     CallJoinCallApiVersion? apiVersion,
@@ -2761,10 +2760,11 @@ class $CallClient {
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
+    final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(CallJoinCallFlags));
     _parameters['flags'] = $flags;
 
-    final $forcePermissions = jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(int));
+    final $forcePermissions =
+        jsonSerializers.serialize(forcePermissions, specifiedType: const FullType(CallJoinCallForcePermissions));
     _parameters['forcePermissions'] = $forcePermissions;
 
     var $silent = jsonSerializers.serialize(silent, specifiedType: const FullType(int));
@@ -2924,6 +2924,7 @@ class $CallClient {
   /// Status codes:
   ///   * 200: Attendee rang successfully
   ///   * 400: Ringing attendee is not possible
+  ///   * 404: Attendee could not be found
   ///
   /// See:
   ///  * [ringAttendeeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
@@ -2959,6 +2960,7 @@ class $CallClient {
   /// Status codes:
   ///   * 200: Attendee rang successfully
   ///   * 400: Ringing attendee is not possible
+  ///   * 404: Attendee could not be found
   ///
   /// See:
   ///  * [ringAttendee] for an operation that returns a [DynamiteResponse] with a stable API.
@@ -3012,7 +3014,7 @@ class $CallClient {
         _path,
         _headers,
         null,
-        const {200, 400},
+        const {200, 400, 404},
       ),
       bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
       headersType: null,
@@ -3286,16 +3288,16 @@ class $ChatClient {
   /// See:
   ///  * [receiveMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>> receiveMessages({
-    required int lookIntoFuture,
+    required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     required String token,
     int? limit,
     int? lastKnownMessageId,
     int? lastCommonReadId,
     int? timeout,
-    int? setReadMarker,
-    int? includeLastKnown,
-    int? noStatusUpdate,
-    int? markNotificationsAsRead,
+    ChatReceiveMessagesSetReadMarker? setReadMarker,
+    ChatReceiveMessagesIncludeLastKnown? includeLastKnown,
+    ChatReceiveMessagesNoStatusUpdate? noStatusUpdate,
+    ChatReceiveMessagesMarkNotificationsAsRead? markNotificationsAsRead,
     ChatReceiveMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -3350,16 +3352,16 @@ class $ChatClient {
   ///  * [receiveMessages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders> receiveMessagesRaw({
-    required int lookIntoFuture,
+    required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     required String token,
     int? limit,
     int? lastKnownMessageId,
     int? lastCommonReadId,
     int? timeout,
-    int? setReadMarker,
-    int? includeLastKnown,
-    int? noStatusUpdate,
-    int? markNotificationsAsRead,
+    ChatReceiveMessagesSetReadMarker? setReadMarker,
+    ChatReceiveMessagesIncludeLastKnown? includeLastKnown,
+    ChatReceiveMessagesNoStatusUpdate? noStatusUpdate,
+    ChatReceiveMessagesMarkNotificationsAsRead? markNotificationsAsRead,
     ChatReceiveMessagesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -3383,7 +3385,8 @@ class $ChatClient {
     }
 
 // coverage:ignore-end
-    final $lookIntoFuture = jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(int));
+    final $lookIntoFuture =
+        jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(ChatReceiveMessagesLookIntoFuture));
     _parameters['lookIntoFuture'] = $lookIntoFuture;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -3406,20 +3409,25 @@ class $ChatClient {
     $timeout ??= 30;
     _parameters['timeout'] = $timeout;
 
-    var $setReadMarker = jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(int));
+    var $setReadMarker =
+        jsonSerializers.serialize(setReadMarker, specifiedType: const FullType(ChatReceiveMessagesSetReadMarker));
     $setReadMarker ??= 1;
     _parameters['setReadMarker'] = $setReadMarker;
 
-    var $includeLastKnown = jsonSerializers.serialize(includeLastKnown, specifiedType: const FullType(int));
+    var $includeLastKnown =
+        jsonSerializers.serialize(includeLastKnown, specifiedType: const FullType(ChatReceiveMessagesIncludeLastKnown));
     $includeLastKnown ??= 0;
     _parameters['includeLastKnown'] = $includeLastKnown;
 
-    var $noStatusUpdate = jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(int));
+    var $noStatusUpdate =
+        jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(ChatReceiveMessagesNoStatusUpdate));
     $noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = $noStatusUpdate;
 
-    var $markNotificationsAsRead =
-        jsonSerializers.serialize(markNotificationsAsRead, specifiedType: const FullType(int));
+    var $markNotificationsAsRead = jsonSerializers.serialize(
+      markNotificationsAsRead,
+      specifiedType: const FullType(ChatReceiveMessagesMarkNotificationsAsRead),
+    );
     $markNotificationsAsRead ??= 1;
     _parameters['markNotificationsAsRead'] = $markNotificationsAsRead;
 
@@ -5036,313 +5044,6 @@ class $ChatClient {
   }
 }
 
-class $FederationClient {
-  $FederationClient(this._rootClient);
-
-  final $Client _rootClient;
-
-  /// Accept a federation invites.
-  ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Invite accepted successfully
-  ///   * 500
-  ///
-  /// See:
-  ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FederationAcceptShareResponseApplicationJson, void>> acceptShare({
-    required int id,
-    FederationAcceptShareApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = acceptShareRaw(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Accept a federation invites.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Invite accepted successfully
-  ///   * 500
-  ///
-  /// See:
-  ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void> acceptShareRaw({
-    required int id,
-    FederationAcceptShareApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationAcceptShareApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
-    return DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'post',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(FederationAcceptShareResponseApplicationJson),
-      headersType: null,
-      serializers: jsonSerializers,
-    );
-  }
-
-  /// Decline a federation invites.
-  ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Invite declined successfully
-  ///   * 500
-  ///
-  /// See:
-  ///  * [rejectShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FederationRejectShareResponseApplicationJson, void>> rejectShare({
-    required int id,
-    FederationRejectShareApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = rejectShareRaw(
-      id: id,
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Decline a federation invites.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [id] ID of the share.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Invite declined successfully
-  ///   * 500
-  ///
-  /// See:
-  ///  * [rejectShare] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void> rejectShareRaw({
-    required int id,
-    FederationRejectShareApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    _parameters['id'] = $id;
-
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationRejectShareApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(_parameters);
-    return DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'delete',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(FederationRejectShareResponseApplicationJson),
-      headersType: null,
-      serializers: jsonSerializers,
-    );
-  }
-
-  /// Get a list of federation invites.
-  ///
-  /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Get list of received federation invites successfully
-  ///
-  /// See:
-  ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<FederationGetSharesResponseApplicationJson, void>> getShares({
-    FederationGetSharesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
-    final rawResponse = getSharesRaw(
-      apiVersion: apiVersion,
-      oCSAPIRequest: oCSAPIRequest,
-    );
-
-    return rawResponse.future;
-  }
-
-  /// Get a list of federation invites.
-  ///
-  /// This method and the response it returns is experimental. The API might change without a major version bump.
-  ///
-  /// Returns a [Future] containing a [DynamiteRawResponse] with the raw [HttpClientResponse] and serialization helpers.
-  /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
-  ///
-  /// Parameters:
-  ///   * [apiVersion] Defaults to `v1`.
-  ///   * [oCSAPIRequest] Required to be true for the API request to pass. Defaults to `true`.
-  ///
-  /// Status codes:
-  ///   * 200: Get list of received federation invites successfully
-  ///
-  /// See:
-  ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
-  @experimental
-  DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void> getSharesRaw({
-    FederationGetSharesApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
-      'Accept': 'application/json',
-    };
-
-// coverage:ignore-start
-    final authentication = _rootClient.authentications.firstWhereOrNull(
-      (auth) => switch (auth) {
-        DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
-        _ => false,
-      },
-    );
-
-    if (authentication != null) {
-      _headers.addAll(
-        authentication.headers,
-      );
-    } else {
-      throw Exception('Missing authentication for bearer_auth or basic_auth');
-    }
-
-// coverage:ignore-end
-    var $apiVersion =
-        jsonSerializers.serialize(apiVersion, specifiedType: const FullType(FederationGetSharesApiVersion));
-    $apiVersion ??= 'v1';
-    _parameters['apiVersion'] = $apiVersion;
-
-    var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
-    $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
-
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(_parameters);
-    return DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void>(
-      response: _rootClient.executeRequest(
-        'get',
-        _path,
-        _headers,
-        null,
-        const {200},
-      ),
-      bodyType: const FullType(FederationGetSharesResponseApplicationJson),
-      headersType: null,
-      serializers: jsonSerializers,
-    );
-  }
-}
-
 class $FilesIntegrationClient {
   $FilesIntegrationClient(this._rootClient);
 
@@ -5462,7 +5163,7 @@ class $FilesIntegrationClient {
     );
   }
 
-  /// Returns the token of the room associated to the file id of the given share token.
+  /// Returns the token of the room associated to the file of the given share token.
   ///
   /// This is the counterpart of self::getRoomByFileId() for share tokens instead of file ids, although both return the same room token if the given file id and share token refer to the same file.
   /// If there is no room associated to the file id of the given share token a new room is created; the new room is a public room associated with a "file" object with the file id of the given share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).
@@ -5498,7 +5199,7 @@ class $FilesIntegrationClient {
     return rawResponse.future;
   }
 
-  /// Returns the token of the room associated to the file id of the given share token.
+  /// Returns the token of the room associated to the file of the given share token.
   ///
   /// This is the counterpart of self::getRoomByFileId() for share tokens instead of file ids, although both return the same room token if the given file id and share token refer to the same file.
   /// If there is no room associated to the file id of the given share token a new room is created; the new room is a public room associated with a "file" object with the file id of the given share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms without owner (although self joined users with direct access to the file become persistent participants automatically when they join until they explicitly leave or no longer have access to the file).
@@ -6635,7 +6336,7 @@ class $PollClient {
   Future<DynamiteResponse<PollCreatePollResponseApplicationJson, void>> createPoll({
     required String question,
     required BuiltList<String> options,
-    required int resultMode,
+    required PollCreatePollResultMode resultMode,
     required int maxVotes,
     required String token,
     PollCreatePollApiVersion? apiVersion,
@@ -6680,7 +6381,7 @@ class $PollClient {
   DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
     required String question,
     required BuiltList<String> options,
-    required int resultMode,
+    required PollCreatePollResultMode resultMode,
     required int maxVotes,
     required String token,
     PollCreatePollApiVersion? apiVersion,
@@ -6712,7 +6413,7 @@ class $PollClient {
     final $options = jsonSerializers.serialize(options, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['options%5B%5D'] = $options;
 
-    final $resultMode = jsonSerializers.serialize(resultMode, specifiedType: const FullType(int));
+    final $resultMode = jsonSerializers.serialize(resultMode, specifiedType: const FullType(PollCreatePollResultMode));
     _parameters['resultMode'] = $resultMode;
 
     final $maxVotes = jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
@@ -7098,7 +6799,7 @@ class $PublicShareAuthClient {
 
   final $Client _rootClient;
 
-  /// Creates a new room for requesting the password of a share.
+  /// Creates a new room for video verification (requesting the password of a share).
   ///
   /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
   /// The share must have "send password by Talk" enabled; an error is returned otherwise.
@@ -7131,7 +6832,7 @@ class $PublicShareAuthClient {
     return rawResponse.future;
   }
 
-  /// Creates a new room for requesting the password of a share.
+  /// Creates a new room for video verification (requesting the password of a share).
   ///
   /// The new room is a public room associated with a "share:password" object with the ID of the share token. Unlike normal rooms in which the owner is the user that created the room these are special rooms always created by a guest or user on behalf of a registered user, the sharer, who will be the owner of the room.
   /// The share must have "send password by Talk" enabled; an error is returned otherwise.
@@ -8275,7 +7976,7 @@ class $RoomClient {
   /// See:
   ///  * [getRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
-    int? noStatusUpdate,
+    RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     int? includeStatus,
     int? modifiedSince,
     RoomGetRoomsApiVersion? apiVersion,
@@ -8313,7 +8014,7 @@ class $RoomClient {
   ///  * [getRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
-    int? noStatusUpdate,
+    RoomGetRoomsNoStatusUpdate? noStatusUpdate,
     int? includeStatus,
     int? modifiedSince,
     RoomGetRoomsApiVersion? apiVersion,
@@ -8341,7 +8042,8 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    var $noStatusUpdate = jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(int));
+    var $noStatusUpdate =
+        jsonSerializers.serialize(noStatusUpdate, specifiedType: const FullType(RoomGetRoomsNoStatusUpdate));
     $noStatusUpdate ??= 0;
     _parameters['noStatusUpdate'] = $noStatusUpdate;
 
@@ -9049,7 +8751,9 @@ class $RoomClient {
     );
   }
 
-  /// Get all (for moderators and in case of "free selection") or the assigned breakout room.
+  /// Get breakout rooms.
+  ///
+  /// All for moderators and in case of "free selection", or the assigned breakout room for other participants.
   ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -9079,7 +8783,9 @@ class $RoomClient {
     return rawResponse.future;
   }
 
-  /// Get all (for moderators and in case of "free selection") or the assigned breakout room.
+  /// Get breakout rooms.
+  ///
+  /// All for moderators and in case of "free selection", or the assigned breakout room for other participants.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -9489,7 +9195,7 @@ class $RoomClient {
   /// See:
   ///  * [setReadOnlyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnly({
-    required int state,
+    required RoomSetReadOnlyState state,
     required String token,
     RoomSetReadOnlyApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9525,7 +9231,7 @@ class $RoomClient {
   ///  * [setReadOnly] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
-    required int state,
+    required RoomSetReadOnlyState state,
     required String token,
     RoomSetReadOnlyApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9552,7 +9258,7 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetReadOnlyState));
     _parameters['state'] = $state;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -9601,7 +9307,7 @@ class $RoomClient {
   /// See:
   ///  * [setListableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetListableResponseApplicationJson, void>> setListable({
-    required int scope,
+    required RoomSetListableScope scope,
     required String token,
     RoomSetListableApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9637,7 +9343,7 @@ class $RoomClient {
   ///  * [setListable] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
-    required int scope,
+    required RoomSetListableScope scope,
     required String token,
     RoomSetListableApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -9664,7 +9370,7 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $scope = jsonSerializers.serialize(scope, specifiedType: const FullType(int));
+    final $scope = jsonSerializers.serialize(scope, specifiedType: const FullType(RoomSetListableScope));
     _parameters['scope'] = $scope;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -9826,9 +9532,9 @@ class $RoomClient {
   /// See:
   ///  * [setPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissions({
-    required int permissions,
+    required RoomSetPermissionsPermissions permissions,
     required String token,
-    required String mode,
+    required RoomSetPermissionsMode mode,
     RoomSetPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -9865,9 +9571,9 @@ class $RoomClient {
   ///  * [setPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
-    required int permissions,
+    required RoomSetPermissionsPermissions permissions,
     required String token,
-    required String mode,
+    required RoomSetPermissionsMode mode,
     RoomSetPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -9891,14 +9597,15 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final $permissions =
+        jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetPermissionsPermissions));
     _parameters['permissions'] = $permissions;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(RoomSetPermissionsMode));
     dynamite_utils.checkPattern($mode as String?, RegExp(r'^(call|default)$'), 'mode');
     _parameters['mode'] = $mode;
 
@@ -10062,7 +9769,7 @@ class $RoomClient {
   Future<DynamiteResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoom({
     required String newParticipant,
     required String token,
-    String? source,
+    RoomAddParticipantToRoomSource? source,
     RoomAddParticipantToRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -10103,7 +9810,7 @@ class $RoomClient {
   DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
     required String newParticipant,
     required String token,
-    String? source,
+    RoomAddParticipantToRoomSource? source,
     RoomAddParticipantToRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -10136,7 +9843,7 @@ class $RoomClient {
     dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     _parameters['token'] = $token;
 
-    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(String));
+    var $source = jsonSerializers.serialize(source, specifiedType: const FullType(RoomAddParticipantToRoomSource));
     $source ??= 'users';
     _parameters['source'] = $source;
 
@@ -10530,8 +10237,8 @@ class $RoomClient {
   ///  * [setAttendeePermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
     required int attendeeId,
-    required String method,
-    required int permissions,
+    required RoomSetAttendeePermissionsMethod method,
+    required RoomSetAttendeePermissionsPermissions permissions,
     required String token,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10574,8 +10281,8 @@ class $RoomClient {
   @experimental
   DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
     required int attendeeId,
-    required String method,
-    required int permissions,
+    required RoomSetAttendeePermissionsMethod method,
+    required RoomSetAttendeePermissionsPermissions permissions,
     required String token,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10603,10 +10310,11 @@ class $RoomClient {
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     _parameters['attendeeId'] = $attendeeId;
 
-    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(String));
+    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAttendeePermissionsMethod));
     _parameters['method'] = $method;
 
-    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final $permissions =
+        jsonSerializers.serialize(permissions, specifiedType: const FullType(RoomSetAttendeePermissionsPermissions));
     _parameters['permissions'] = $permissions;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -10658,8 +10366,8 @@ class $RoomClient {
   /// See:
   ///  * [setAllAttendeesPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>> setAllAttendeesPermissions({
-    required String method,
-    required int permissions,
+    required RoomSetAllAttendeesPermissionsMethod method,
+    required RoomSetAllAttendeesPermissionsPermissions permissions,
     required String token,
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10697,8 +10405,8 @@ class $RoomClient {
   ///  * [setAllAttendeesPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
-    required String method,
-    required int permissions,
+    required RoomSetAllAttendeesPermissionsMethod method,
+    required RoomSetAllAttendeesPermissionsPermissions permissions,
     required String token,
     RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -10723,10 +10431,14 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $method = jsonSerializers.serialize(method, specifiedType: const FullType(String));
+    final $method =
+        jsonSerializers.serialize(method, specifiedType: const FullType(RoomSetAllAttendeesPermissionsMethod));
     _parameters['method'] = $method;
 
-    final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
+    final $permissions = jsonSerializers.serialize(
+      permissions,
+      specifiedType: const FullType(RoomSetAllAttendeesPermissionsPermissions),
+    );
     _parameters['permissions'] = $permissions;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -11112,11 +10824,12 @@ class $RoomClient {
   /// Status codes:
   ///   * 200: Session state set successfully
   ///   * 400: The provided new state was invalid
+  ///   * 404: The participant did not have a session
   ///
   /// See:
   ///  * [setSessionStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionState({
-    required int state,
+    required RoomSetSessionStateState state,
     required String token,
     RoomSetSessionStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11147,12 +10860,13 @@ class $RoomClient {
   /// Status codes:
   ///   * 200: Session state set successfully
   ///   * 400: The provided new state was invalid
+  ///   * 404: The participant did not have a session
   ///
   /// See:
   ///  * [setSessionState] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
-    required int state,
+    required RoomSetSessionStateState state,
     required String token,
     RoomSetSessionStateApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -11177,7 +10891,7 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetSessionStateState));
     _parameters['state'] = $state;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -12010,7 +11724,7 @@ class $RoomClient {
   /// See:
   ///  * [setsipEnabledRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabled({
-    required int state,
+    required RoomSetsipEnabledState state,
     required String token,
     RoomSetsipEnabledApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12049,7 +11763,7 @@ class $RoomClient {
   ///  * [setsipEnabled] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
-    required int state,
+    required RoomSetsipEnabledState state,
     required String token,
     RoomSetsipEnabledApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -12076,7 +11790,7 @@ class $RoomClient {
     }
 
 // coverage:ignore-end
-    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
+    final $state = jsonSerializers.serialize(state, specifiedType: const FullType(RoomSetsipEnabledState));
     _parameters['state'] = $state;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
@@ -12340,7 +12054,7 @@ class $SettingsClient {
 
   final $Client _rootClient;
 
-  /// Update SIP settings.
+  /// Update SIP bridge settings.
   ///
   /// This endpoint requires admin access.
   ///
@@ -12377,7 +12091,7 @@ class $SettingsClient {
     return rawResponse.future;
   }
 
-  /// Update SIP settings.
+  /// Update SIP bridge settings.
   ///
   /// This endpoint requires admin access.
   ///
@@ -12484,8 +12198,8 @@ class $SettingsClient {
   /// See:
   ///  * [setUserSettingRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
-    required String key,
-    ContentString<SettingsSetUserSettingValue>? value,
+    required SettingsSetUserSettingKey key,
+    SettingsSetUserSettingValue? value,
     SettingsSetUserSettingApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -12520,8 +12234,8 @@ class $SettingsClient {
   ///  * [setUserSetting] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
-    required String key,
-    ContentString<SettingsSetUserSettingValue>? value,
+    required SettingsSetUserSettingKey key,
+    SettingsSetUserSettingValue? value,
     SettingsSetUserSettingApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
@@ -12547,13 +12261,10 @@ class $SettingsClient {
     }
 
 // coverage:ignore-end
-    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(String));
+    final $key = jsonSerializers.serialize(key, specifiedType: const FullType(SettingsSetUserSettingKey));
     _parameters['key'] = $key;
 
-    final $value = jsonSerializers.serialize(
-      value,
-      specifiedType: const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
-    );
+    final $value = jsonSerializers.serialize(value, specifiedType: const FullType(SettingsSetUserSettingValue));
     _parameters['value'] = $value;
 
     var $apiVersion =
@@ -13027,7 +12738,7 @@ class $TempAvatarClient {
 
   final $Client _rootClient;
 
-  /// Upload a temporary avatar.
+  /// Upload your avatar as a user.
   ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -13049,7 +12760,7 @@ class $TempAvatarClient {
     return rawResponse.future;
   }
 
-  /// Upload a temporary avatar.
+  /// Upload your avatar as a user.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -13107,7 +12818,7 @@ class $TempAvatarClient {
     );
   }
 
-  /// Delete a temporary avatar.
+  /// Delete your avatar as a user.
   ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -13131,7 +12842,7 @@ class $TempAvatarClient {
     return rawResponse.future;
   }
 
-  /// Delete a temporary avatar.
+  /// Delete your avatar as a user.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -14609,6 +14320,78 @@ abstract class BotDisableBotResponseApplicationJson
       _$botDisableBotResponseApplicationJsonSerializer;
 }
 
+class BreakoutRoomConfigureBreakoutRoomsMode extends EnumClass {
+  const BreakoutRoomConfigureBreakoutRoomsMode._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const BreakoutRoomConfigureBreakoutRoomsMode $0 = _$breakoutRoomConfigureBreakoutRoomsMode$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const BreakoutRoomConfigureBreakoutRoomsMode $1 = _$breakoutRoomConfigureBreakoutRoomsMode$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const BreakoutRoomConfigureBreakoutRoomsMode $2 = _$breakoutRoomConfigureBreakoutRoomsMode$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const BreakoutRoomConfigureBreakoutRoomsMode $3 = _$breakoutRoomConfigureBreakoutRoomsMode$3;
+
+  // coverage:ignore-start
+  static BuiltSet<BreakoutRoomConfigureBreakoutRoomsMode> get values => _$breakoutRoomConfigureBreakoutRoomsModeValues;
+  // coverage:ignore-end
+
+  static BreakoutRoomConfigureBreakoutRoomsMode valueOf(String name) =>
+      _$valueOfBreakoutRoomConfigureBreakoutRoomsMode(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<BreakoutRoomConfigureBreakoutRoomsMode> get serializer =>
+      const _$BreakoutRoomConfigureBreakoutRoomsModeSerializer();
+}
+
+class _$BreakoutRoomConfigureBreakoutRoomsModeSerializer
+    implements PrimitiveSerializer<BreakoutRoomConfigureBreakoutRoomsMode> {
+  const _$BreakoutRoomConfigureBreakoutRoomsModeSerializer();
+
+  static const Map<BreakoutRoomConfigureBreakoutRoomsMode, Object> _toWire =
+      <BreakoutRoomConfigureBreakoutRoomsMode, Object>{
+    BreakoutRoomConfigureBreakoutRoomsMode.$0: 0,
+    BreakoutRoomConfigureBreakoutRoomsMode.$1: 1,
+    BreakoutRoomConfigureBreakoutRoomsMode.$2: 2,
+    BreakoutRoomConfigureBreakoutRoomsMode.$3: 3,
+  };
+
+  static const Map<Object, BreakoutRoomConfigureBreakoutRoomsMode> _fromWire =
+      <Object, BreakoutRoomConfigureBreakoutRoomsMode>{
+    0: BreakoutRoomConfigureBreakoutRoomsMode.$0,
+    1: BreakoutRoomConfigureBreakoutRoomsMode.$1,
+    2: BreakoutRoomConfigureBreakoutRoomsMode.$2,
+    3: BreakoutRoomConfigureBreakoutRoomsMode.$3,
+  };
+
+  @override
+  Iterable<Type> get types => const [BreakoutRoomConfigureBreakoutRoomsMode];
+
+  @override
+  String get wireName => 'BreakoutRoomConfigureBreakoutRoomsMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    BreakoutRoomConfigureBreakoutRoomsMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  BreakoutRoomConfigureBreakoutRoomsMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomConfigureBreakoutRoomsApiVersion._(super.name);
 
@@ -15940,6 +15723,1460 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
       _$callUpdateCallFlagsResponseApplicationJsonSerializer;
 }
 
+class CallJoinCallFlags extends EnumClass {
+  const CallJoinCallFlags._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallJoinCallFlags $0 = _$callJoinCallFlags$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallJoinCallFlags $1 = _$callJoinCallFlags$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const CallJoinCallFlags $2 = _$callJoinCallFlags$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const CallJoinCallFlags $3 = _$callJoinCallFlags$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const CallJoinCallFlags $4 = _$callJoinCallFlags$4;
+
+  @BuiltValueEnumConst(wireName: '5')
+  static const CallJoinCallFlags $5 = _$callJoinCallFlags$5;
+
+  @BuiltValueEnumConst(wireName: '6')
+  static const CallJoinCallFlags $6 = _$callJoinCallFlags$6;
+
+  @BuiltValueEnumConst(wireName: '7')
+  static const CallJoinCallFlags $7 = _$callJoinCallFlags$7;
+
+  @BuiltValueEnumConst(wireName: '8')
+  static const CallJoinCallFlags $8 = _$callJoinCallFlags$8;
+
+  @BuiltValueEnumConst(wireName: '9')
+  static const CallJoinCallFlags $9 = _$callJoinCallFlags$9;
+
+  @BuiltValueEnumConst(wireName: '10')
+  static const CallJoinCallFlags $10 = _$callJoinCallFlags$10;
+
+  @BuiltValueEnumConst(wireName: '11')
+  static const CallJoinCallFlags $11 = _$callJoinCallFlags$11;
+
+  @BuiltValueEnumConst(wireName: '12')
+  static const CallJoinCallFlags $12 = _$callJoinCallFlags$12;
+
+  @BuiltValueEnumConst(wireName: '13')
+  static const CallJoinCallFlags $13 = _$callJoinCallFlags$13;
+
+  @BuiltValueEnumConst(wireName: '14')
+  static const CallJoinCallFlags $14 = _$callJoinCallFlags$14;
+
+  @BuiltValueEnumConst(wireName: '15')
+  static const CallJoinCallFlags $15 = _$callJoinCallFlags$15;
+
+  // coverage:ignore-start
+  static BuiltSet<CallJoinCallFlags> get values => _$callJoinCallFlagsValues;
+  // coverage:ignore-end
+
+  static CallJoinCallFlags valueOf(String name) => _$valueOfCallJoinCallFlags(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallJoinCallFlags> get serializer => const _$CallJoinCallFlagsSerializer();
+}
+
+class _$CallJoinCallFlagsSerializer implements PrimitiveSerializer<CallJoinCallFlags> {
+  const _$CallJoinCallFlagsSerializer();
+
+  static const Map<CallJoinCallFlags, Object> _toWire = <CallJoinCallFlags, Object>{
+    CallJoinCallFlags.$0: 0,
+    CallJoinCallFlags.$1: 1,
+    CallJoinCallFlags.$2: 2,
+    CallJoinCallFlags.$3: 3,
+    CallJoinCallFlags.$4: 4,
+    CallJoinCallFlags.$5: 5,
+    CallJoinCallFlags.$6: 6,
+    CallJoinCallFlags.$7: 7,
+    CallJoinCallFlags.$8: 8,
+    CallJoinCallFlags.$9: 9,
+    CallJoinCallFlags.$10: 10,
+    CallJoinCallFlags.$11: 11,
+    CallJoinCallFlags.$12: 12,
+    CallJoinCallFlags.$13: 13,
+    CallJoinCallFlags.$14: 14,
+    CallJoinCallFlags.$15: 15,
+  };
+
+  static const Map<Object, CallJoinCallFlags> _fromWire = <Object, CallJoinCallFlags>{
+    0: CallJoinCallFlags.$0,
+    1: CallJoinCallFlags.$1,
+    2: CallJoinCallFlags.$2,
+    3: CallJoinCallFlags.$3,
+    4: CallJoinCallFlags.$4,
+    5: CallJoinCallFlags.$5,
+    6: CallJoinCallFlags.$6,
+    7: CallJoinCallFlags.$7,
+    8: CallJoinCallFlags.$8,
+    9: CallJoinCallFlags.$9,
+    10: CallJoinCallFlags.$10,
+    11: CallJoinCallFlags.$11,
+    12: CallJoinCallFlags.$12,
+    13: CallJoinCallFlags.$13,
+    14: CallJoinCallFlags.$14,
+    15: CallJoinCallFlags.$15,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallFlags];
+
+  @override
+  String get wireName => 'CallJoinCallFlags';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallJoinCallFlags object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallJoinCallFlags deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class CallJoinCallForcePermissions extends EnumClass {
+  const CallJoinCallForcePermissions._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const CallJoinCallForcePermissions $0 = _$callJoinCallForcePermissions$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const CallJoinCallForcePermissions $1 = _$callJoinCallForcePermissions$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const CallJoinCallForcePermissions $2 = _$callJoinCallForcePermissions$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const CallJoinCallForcePermissions $3 = _$callJoinCallForcePermissions$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const CallJoinCallForcePermissions $4 = _$callJoinCallForcePermissions$4;
+
+  @BuiltValueEnumConst(wireName: '5')
+  static const CallJoinCallForcePermissions $5 = _$callJoinCallForcePermissions$5;
+
+  @BuiltValueEnumConst(wireName: '6')
+  static const CallJoinCallForcePermissions $6 = _$callJoinCallForcePermissions$6;
+
+  @BuiltValueEnumConst(wireName: '7')
+  static const CallJoinCallForcePermissions $7 = _$callJoinCallForcePermissions$7;
+
+  @BuiltValueEnumConst(wireName: '8')
+  static const CallJoinCallForcePermissions $8 = _$callJoinCallForcePermissions$8;
+
+  @BuiltValueEnumConst(wireName: '9')
+  static const CallJoinCallForcePermissions $9 = _$callJoinCallForcePermissions$9;
+
+  @BuiltValueEnumConst(wireName: '10')
+  static const CallJoinCallForcePermissions $10 = _$callJoinCallForcePermissions$10;
+
+  @BuiltValueEnumConst(wireName: '11')
+  static const CallJoinCallForcePermissions $11 = _$callJoinCallForcePermissions$11;
+
+  @BuiltValueEnumConst(wireName: '12')
+  static const CallJoinCallForcePermissions $12 = _$callJoinCallForcePermissions$12;
+
+  @BuiltValueEnumConst(wireName: '13')
+  static const CallJoinCallForcePermissions $13 = _$callJoinCallForcePermissions$13;
+
+  @BuiltValueEnumConst(wireName: '14')
+  static const CallJoinCallForcePermissions $14 = _$callJoinCallForcePermissions$14;
+
+  @BuiltValueEnumConst(wireName: '15')
+  static const CallJoinCallForcePermissions $15 = _$callJoinCallForcePermissions$15;
+
+  @BuiltValueEnumConst(wireName: '16')
+  static const CallJoinCallForcePermissions $16 = _$callJoinCallForcePermissions$16;
+
+  @BuiltValueEnumConst(wireName: '17')
+  static const CallJoinCallForcePermissions $17 = _$callJoinCallForcePermissions$17;
+
+  @BuiltValueEnumConst(wireName: '18')
+  static const CallJoinCallForcePermissions $18 = _$callJoinCallForcePermissions$18;
+
+  @BuiltValueEnumConst(wireName: '19')
+  static const CallJoinCallForcePermissions $19 = _$callJoinCallForcePermissions$19;
+
+  @BuiltValueEnumConst(wireName: '20')
+  static const CallJoinCallForcePermissions $20 = _$callJoinCallForcePermissions$20;
+
+  @BuiltValueEnumConst(wireName: '21')
+  static const CallJoinCallForcePermissions $21 = _$callJoinCallForcePermissions$21;
+
+  @BuiltValueEnumConst(wireName: '22')
+  static const CallJoinCallForcePermissions $22 = _$callJoinCallForcePermissions$22;
+
+  @BuiltValueEnumConst(wireName: '23')
+  static const CallJoinCallForcePermissions $23 = _$callJoinCallForcePermissions$23;
+
+  @BuiltValueEnumConst(wireName: '24')
+  static const CallJoinCallForcePermissions $24 = _$callJoinCallForcePermissions$24;
+
+  @BuiltValueEnumConst(wireName: '25')
+  static const CallJoinCallForcePermissions $25 = _$callJoinCallForcePermissions$25;
+
+  @BuiltValueEnumConst(wireName: '26')
+  static const CallJoinCallForcePermissions $26 = _$callJoinCallForcePermissions$26;
+
+  @BuiltValueEnumConst(wireName: '27')
+  static const CallJoinCallForcePermissions $27 = _$callJoinCallForcePermissions$27;
+
+  @BuiltValueEnumConst(wireName: '28')
+  static const CallJoinCallForcePermissions $28 = _$callJoinCallForcePermissions$28;
+
+  @BuiltValueEnumConst(wireName: '29')
+  static const CallJoinCallForcePermissions $29 = _$callJoinCallForcePermissions$29;
+
+  @BuiltValueEnumConst(wireName: '30')
+  static const CallJoinCallForcePermissions $30 = _$callJoinCallForcePermissions$30;
+
+  @BuiltValueEnumConst(wireName: '31')
+  static const CallJoinCallForcePermissions $31 = _$callJoinCallForcePermissions$31;
+
+  @BuiltValueEnumConst(wireName: '32')
+  static const CallJoinCallForcePermissions $32 = _$callJoinCallForcePermissions$32;
+
+  @BuiltValueEnumConst(wireName: '33')
+  static const CallJoinCallForcePermissions $33 = _$callJoinCallForcePermissions$33;
+
+  @BuiltValueEnumConst(wireName: '34')
+  static const CallJoinCallForcePermissions $34 = _$callJoinCallForcePermissions$34;
+
+  @BuiltValueEnumConst(wireName: '35')
+  static const CallJoinCallForcePermissions $35 = _$callJoinCallForcePermissions$35;
+
+  @BuiltValueEnumConst(wireName: '36')
+  static const CallJoinCallForcePermissions $36 = _$callJoinCallForcePermissions$36;
+
+  @BuiltValueEnumConst(wireName: '37')
+  static const CallJoinCallForcePermissions $37 = _$callJoinCallForcePermissions$37;
+
+  @BuiltValueEnumConst(wireName: '38')
+  static const CallJoinCallForcePermissions $38 = _$callJoinCallForcePermissions$38;
+
+  @BuiltValueEnumConst(wireName: '39')
+  static const CallJoinCallForcePermissions $39 = _$callJoinCallForcePermissions$39;
+
+  @BuiltValueEnumConst(wireName: '40')
+  static const CallJoinCallForcePermissions $40 = _$callJoinCallForcePermissions$40;
+
+  @BuiltValueEnumConst(wireName: '41')
+  static const CallJoinCallForcePermissions $41 = _$callJoinCallForcePermissions$41;
+
+  @BuiltValueEnumConst(wireName: '42')
+  static const CallJoinCallForcePermissions $42 = _$callJoinCallForcePermissions$42;
+
+  @BuiltValueEnumConst(wireName: '43')
+  static const CallJoinCallForcePermissions $43 = _$callJoinCallForcePermissions$43;
+
+  @BuiltValueEnumConst(wireName: '44')
+  static const CallJoinCallForcePermissions $44 = _$callJoinCallForcePermissions$44;
+
+  @BuiltValueEnumConst(wireName: '45')
+  static const CallJoinCallForcePermissions $45 = _$callJoinCallForcePermissions$45;
+
+  @BuiltValueEnumConst(wireName: '46')
+  static const CallJoinCallForcePermissions $46 = _$callJoinCallForcePermissions$46;
+
+  @BuiltValueEnumConst(wireName: '47')
+  static const CallJoinCallForcePermissions $47 = _$callJoinCallForcePermissions$47;
+
+  @BuiltValueEnumConst(wireName: '48')
+  static const CallJoinCallForcePermissions $48 = _$callJoinCallForcePermissions$48;
+
+  @BuiltValueEnumConst(wireName: '49')
+  static const CallJoinCallForcePermissions $49 = _$callJoinCallForcePermissions$49;
+
+  @BuiltValueEnumConst(wireName: '50')
+  static const CallJoinCallForcePermissions $50 = _$callJoinCallForcePermissions$50;
+
+  @BuiltValueEnumConst(wireName: '51')
+  static const CallJoinCallForcePermissions $51 = _$callJoinCallForcePermissions$51;
+
+  @BuiltValueEnumConst(wireName: '52')
+  static const CallJoinCallForcePermissions $52 = _$callJoinCallForcePermissions$52;
+
+  @BuiltValueEnumConst(wireName: '53')
+  static const CallJoinCallForcePermissions $53 = _$callJoinCallForcePermissions$53;
+
+  @BuiltValueEnumConst(wireName: '54')
+  static const CallJoinCallForcePermissions $54 = _$callJoinCallForcePermissions$54;
+
+  @BuiltValueEnumConst(wireName: '55')
+  static const CallJoinCallForcePermissions $55 = _$callJoinCallForcePermissions$55;
+
+  @BuiltValueEnumConst(wireName: '56')
+  static const CallJoinCallForcePermissions $56 = _$callJoinCallForcePermissions$56;
+
+  @BuiltValueEnumConst(wireName: '57')
+  static const CallJoinCallForcePermissions $57 = _$callJoinCallForcePermissions$57;
+
+  @BuiltValueEnumConst(wireName: '58')
+  static const CallJoinCallForcePermissions $58 = _$callJoinCallForcePermissions$58;
+
+  @BuiltValueEnumConst(wireName: '59')
+  static const CallJoinCallForcePermissions $59 = _$callJoinCallForcePermissions$59;
+
+  @BuiltValueEnumConst(wireName: '60')
+  static const CallJoinCallForcePermissions $60 = _$callJoinCallForcePermissions$60;
+
+  @BuiltValueEnumConst(wireName: '61')
+  static const CallJoinCallForcePermissions $61 = _$callJoinCallForcePermissions$61;
+
+  @BuiltValueEnumConst(wireName: '62')
+  static const CallJoinCallForcePermissions $62 = _$callJoinCallForcePermissions$62;
+
+  @BuiltValueEnumConst(wireName: '63')
+  static const CallJoinCallForcePermissions $63 = _$callJoinCallForcePermissions$63;
+
+  @BuiltValueEnumConst(wireName: '64')
+  static const CallJoinCallForcePermissions $64 = _$callJoinCallForcePermissions$64;
+
+  @BuiltValueEnumConst(wireName: '65')
+  static const CallJoinCallForcePermissions $65 = _$callJoinCallForcePermissions$65;
+
+  @BuiltValueEnumConst(wireName: '66')
+  static const CallJoinCallForcePermissions $66 = _$callJoinCallForcePermissions$66;
+
+  @BuiltValueEnumConst(wireName: '67')
+  static const CallJoinCallForcePermissions $67 = _$callJoinCallForcePermissions$67;
+
+  @BuiltValueEnumConst(wireName: '68')
+  static const CallJoinCallForcePermissions $68 = _$callJoinCallForcePermissions$68;
+
+  @BuiltValueEnumConst(wireName: '69')
+  static const CallJoinCallForcePermissions $69 = _$callJoinCallForcePermissions$69;
+
+  @BuiltValueEnumConst(wireName: '70')
+  static const CallJoinCallForcePermissions $70 = _$callJoinCallForcePermissions$70;
+
+  @BuiltValueEnumConst(wireName: '71')
+  static const CallJoinCallForcePermissions $71 = _$callJoinCallForcePermissions$71;
+
+  @BuiltValueEnumConst(wireName: '72')
+  static const CallJoinCallForcePermissions $72 = _$callJoinCallForcePermissions$72;
+
+  @BuiltValueEnumConst(wireName: '73')
+  static const CallJoinCallForcePermissions $73 = _$callJoinCallForcePermissions$73;
+
+  @BuiltValueEnumConst(wireName: '74')
+  static const CallJoinCallForcePermissions $74 = _$callJoinCallForcePermissions$74;
+
+  @BuiltValueEnumConst(wireName: '75')
+  static const CallJoinCallForcePermissions $75 = _$callJoinCallForcePermissions$75;
+
+  @BuiltValueEnumConst(wireName: '76')
+  static const CallJoinCallForcePermissions $76 = _$callJoinCallForcePermissions$76;
+
+  @BuiltValueEnumConst(wireName: '77')
+  static const CallJoinCallForcePermissions $77 = _$callJoinCallForcePermissions$77;
+
+  @BuiltValueEnumConst(wireName: '78')
+  static const CallJoinCallForcePermissions $78 = _$callJoinCallForcePermissions$78;
+
+  @BuiltValueEnumConst(wireName: '79')
+  static const CallJoinCallForcePermissions $79 = _$callJoinCallForcePermissions$79;
+
+  @BuiltValueEnumConst(wireName: '80')
+  static const CallJoinCallForcePermissions $80 = _$callJoinCallForcePermissions$80;
+
+  @BuiltValueEnumConst(wireName: '81')
+  static const CallJoinCallForcePermissions $81 = _$callJoinCallForcePermissions$81;
+
+  @BuiltValueEnumConst(wireName: '82')
+  static const CallJoinCallForcePermissions $82 = _$callJoinCallForcePermissions$82;
+
+  @BuiltValueEnumConst(wireName: '83')
+  static const CallJoinCallForcePermissions $83 = _$callJoinCallForcePermissions$83;
+
+  @BuiltValueEnumConst(wireName: '84')
+  static const CallJoinCallForcePermissions $84 = _$callJoinCallForcePermissions$84;
+
+  @BuiltValueEnumConst(wireName: '85')
+  static const CallJoinCallForcePermissions $85 = _$callJoinCallForcePermissions$85;
+
+  @BuiltValueEnumConst(wireName: '86')
+  static const CallJoinCallForcePermissions $86 = _$callJoinCallForcePermissions$86;
+
+  @BuiltValueEnumConst(wireName: '87')
+  static const CallJoinCallForcePermissions $87 = _$callJoinCallForcePermissions$87;
+
+  @BuiltValueEnumConst(wireName: '88')
+  static const CallJoinCallForcePermissions $88 = _$callJoinCallForcePermissions$88;
+
+  @BuiltValueEnumConst(wireName: '89')
+  static const CallJoinCallForcePermissions $89 = _$callJoinCallForcePermissions$89;
+
+  @BuiltValueEnumConst(wireName: '90')
+  static const CallJoinCallForcePermissions $90 = _$callJoinCallForcePermissions$90;
+
+  @BuiltValueEnumConst(wireName: '91')
+  static const CallJoinCallForcePermissions $91 = _$callJoinCallForcePermissions$91;
+
+  @BuiltValueEnumConst(wireName: '92')
+  static const CallJoinCallForcePermissions $92 = _$callJoinCallForcePermissions$92;
+
+  @BuiltValueEnumConst(wireName: '93')
+  static const CallJoinCallForcePermissions $93 = _$callJoinCallForcePermissions$93;
+
+  @BuiltValueEnumConst(wireName: '94')
+  static const CallJoinCallForcePermissions $94 = _$callJoinCallForcePermissions$94;
+
+  @BuiltValueEnumConst(wireName: '95')
+  static const CallJoinCallForcePermissions $95 = _$callJoinCallForcePermissions$95;
+
+  @BuiltValueEnumConst(wireName: '96')
+  static const CallJoinCallForcePermissions $96 = _$callJoinCallForcePermissions$96;
+
+  @BuiltValueEnumConst(wireName: '97')
+  static const CallJoinCallForcePermissions $97 = _$callJoinCallForcePermissions$97;
+
+  @BuiltValueEnumConst(wireName: '98')
+  static const CallJoinCallForcePermissions $98 = _$callJoinCallForcePermissions$98;
+
+  @BuiltValueEnumConst(wireName: '99')
+  static const CallJoinCallForcePermissions $99 = _$callJoinCallForcePermissions$99;
+
+  @BuiltValueEnumConst(wireName: '100')
+  static const CallJoinCallForcePermissions $100 = _$callJoinCallForcePermissions$100;
+
+  @BuiltValueEnumConst(wireName: '101')
+  static const CallJoinCallForcePermissions $101 = _$callJoinCallForcePermissions$101;
+
+  @BuiltValueEnumConst(wireName: '102')
+  static const CallJoinCallForcePermissions $102 = _$callJoinCallForcePermissions$102;
+
+  @BuiltValueEnumConst(wireName: '103')
+  static const CallJoinCallForcePermissions $103 = _$callJoinCallForcePermissions$103;
+
+  @BuiltValueEnumConst(wireName: '104')
+  static const CallJoinCallForcePermissions $104 = _$callJoinCallForcePermissions$104;
+
+  @BuiltValueEnumConst(wireName: '105')
+  static const CallJoinCallForcePermissions $105 = _$callJoinCallForcePermissions$105;
+
+  @BuiltValueEnumConst(wireName: '106')
+  static const CallJoinCallForcePermissions $106 = _$callJoinCallForcePermissions$106;
+
+  @BuiltValueEnumConst(wireName: '107')
+  static const CallJoinCallForcePermissions $107 = _$callJoinCallForcePermissions$107;
+
+  @BuiltValueEnumConst(wireName: '108')
+  static const CallJoinCallForcePermissions $108 = _$callJoinCallForcePermissions$108;
+
+  @BuiltValueEnumConst(wireName: '109')
+  static const CallJoinCallForcePermissions $109 = _$callJoinCallForcePermissions$109;
+
+  @BuiltValueEnumConst(wireName: '110')
+  static const CallJoinCallForcePermissions $110 = _$callJoinCallForcePermissions$110;
+
+  @BuiltValueEnumConst(wireName: '111')
+  static const CallJoinCallForcePermissions $111 = _$callJoinCallForcePermissions$111;
+
+  @BuiltValueEnumConst(wireName: '112')
+  static const CallJoinCallForcePermissions $112 = _$callJoinCallForcePermissions$112;
+
+  @BuiltValueEnumConst(wireName: '113')
+  static const CallJoinCallForcePermissions $113 = _$callJoinCallForcePermissions$113;
+
+  @BuiltValueEnumConst(wireName: '114')
+  static const CallJoinCallForcePermissions $114 = _$callJoinCallForcePermissions$114;
+
+  @BuiltValueEnumConst(wireName: '115')
+  static const CallJoinCallForcePermissions $115 = _$callJoinCallForcePermissions$115;
+
+  @BuiltValueEnumConst(wireName: '116')
+  static const CallJoinCallForcePermissions $116 = _$callJoinCallForcePermissions$116;
+
+  @BuiltValueEnumConst(wireName: '117')
+  static const CallJoinCallForcePermissions $117 = _$callJoinCallForcePermissions$117;
+
+  @BuiltValueEnumConst(wireName: '118')
+  static const CallJoinCallForcePermissions $118 = _$callJoinCallForcePermissions$118;
+
+  @BuiltValueEnumConst(wireName: '119')
+  static const CallJoinCallForcePermissions $119 = _$callJoinCallForcePermissions$119;
+
+  @BuiltValueEnumConst(wireName: '120')
+  static const CallJoinCallForcePermissions $120 = _$callJoinCallForcePermissions$120;
+
+  @BuiltValueEnumConst(wireName: '121')
+  static const CallJoinCallForcePermissions $121 = _$callJoinCallForcePermissions$121;
+
+  @BuiltValueEnumConst(wireName: '122')
+  static const CallJoinCallForcePermissions $122 = _$callJoinCallForcePermissions$122;
+
+  @BuiltValueEnumConst(wireName: '123')
+  static const CallJoinCallForcePermissions $123 = _$callJoinCallForcePermissions$123;
+
+  @BuiltValueEnumConst(wireName: '124')
+  static const CallJoinCallForcePermissions $124 = _$callJoinCallForcePermissions$124;
+
+  @BuiltValueEnumConst(wireName: '125')
+  static const CallJoinCallForcePermissions $125 = _$callJoinCallForcePermissions$125;
+
+  @BuiltValueEnumConst(wireName: '126')
+  static const CallJoinCallForcePermissions $126 = _$callJoinCallForcePermissions$126;
+
+  @BuiltValueEnumConst(wireName: '127')
+  static const CallJoinCallForcePermissions $127 = _$callJoinCallForcePermissions$127;
+
+  @BuiltValueEnumConst(wireName: '128')
+  static const CallJoinCallForcePermissions $128 = _$callJoinCallForcePermissions$128;
+
+  @BuiltValueEnumConst(wireName: '129')
+  static const CallJoinCallForcePermissions $129 = _$callJoinCallForcePermissions$129;
+
+  @BuiltValueEnumConst(wireName: '130')
+  static const CallJoinCallForcePermissions $130 = _$callJoinCallForcePermissions$130;
+
+  @BuiltValueEnumConst(wireName: '131')
+  static const CallJoinCallForcePermissions $131 = _$callJoinCallForcePermissions$131;
+
+  @BuiltValueEnumConst(wireName: '132')
+  static const CallJoinCallForcePermissions $132 = _$callJoinCallForcePermissions$132;
+
+  @BuiltValueEnumConst(wireName: '133')
+  static const CallJoinCallForcePermissions $133 = _$callJoinCallForcePermissions$133;
+
+  @BuiltValueEnumConst(wireName: '134')
+  static const CallJoinCallForcePermissions $134 = _$callJoinCallForcePermissions$134;
+
+  @BuiltValueEnumConst(wireName: '135')
+  static const CallJoinCallForcePermissions $135 = _$callJoinCallForcePermissions$135;
+
+  @BuiltValueEnumConst(wireName: '136')
+  static const CallJoinCallForcePermissions $136 = _$callJoinCallForcePermissions$136;
+
+  @BuiltValueEnumConst(wireName: '137')
+  static const CallJoinCallForcePermissions $137 = _$callJoinCallForcePermissions$137;
+
+  @BuiltValueEnumConst(wireName: '138')
+  static const CallJoinCallForcePermissions $138 = _$callJoinCallForcePermissions$138;
+
+  @BuiltValueEnumConst(wireName: '139')
+  static const CallJoinCallForcePermissions $139 = _$callJoinCallForcePermissions$139;
+
+  @BuiltValueEnumConst(wireName: '140')
+  static const CallJoinCallForcePermissions $140 = _$callJoinCallForcePermissions$140;
+
+  @BuiltValueEnumConst(wireName: '141')
+  static const CallJoinCallForcePermissions $141 = _$callJoinCallForcePermissions$141;
+
+  @BuiltValueEnumConst(wireName: '142')
+  static const CallJoinCallForcePermissions $142 = _$callJoinCallForcePermissions$142;
+
+  @BuiltValueEnumConst(wireName: '143')
+  static const CallJoinCallForcePermissions $143 = _$callJoinCallForcePermissions$143;
+
+  @BuiltValueEnumConst(wireName: '144')
+  static const CallJoinCallForcePermissions $144 = _$callJoinCallForcePermissions$144;
+
+  @BuiltValueEnumConst(wireName: '145')
+  static const CallJoinCallForcePermissions $145 = _$callJoinCallForcePermissions$145;
+
+  @BuiltValueEnumConst(wireName: '146')
+  static const CallJoinCallForcePermissions $146 = _$callJoinCallForcePermissions$146;
+
+  @BuiltValueEnumConst(wireName: '147')
+  static const CallJoinCallForcePermissions $147 = _$callJoinCallForcePermissions$147;
+
+  @BuiltValueEnumConst(wireName: '148')
+  static const CallJoinCallForcePermissions $148 = _$callJoinCallForcePermissions$148;
+
+  @BuiltValueEnumConst(wireName: '149')
+  static const CallJoinCallForcePermissions $149 = _$callJoinCallForcePermissions$149;
+
+  @BuiltValueEnumConst(wireName: '150')
+  static const CallJoinCallForcePermissions $150 = _$callJoinCallForcePermissions$150;
+
+  @BuiltValueEnumConst(wireName: '151')
+  static const CallJoinCallForcePermissions $151 = _$callJoinCallForcePermissions$151;
+
+  @BuiltValueEnumConst(wireName: '152')
+  static const CallJoinCallForcePermissions $152 = _$callJoinCallForcePermissions$152;
+
+  @BuiltValueEnumConst(wireName: '153')
+  static const CallJoinCallForcePermissions $153 = _$callJoinCallForcePermissions$153;
+
+  @BuiltValueEnumConst(wireName: '154')
+  static const CallJoinCallForcePermissions $154 = _$callJoinCallForcePermissions$154;
+
+  @BuiltValueEnumConst(wireName: '155')
+  static const CallJoinCallForcePermissions $155 = _$callJoinCallForcePermissions$155;
+
+  @BuiltValueEnumConst(wireName: '156')
+  static const CallJoinCallForcePermissions $156 = _$callJoinCallForcePermissions$156;
+
+  @BuiltValueEnumConst(wireName: '157')
+  static const CallJoinCallForcePermissions $157 = _$callJoinCallForcePermissions$157;
+
+  @BuiltValueEnumConst(wireName: '158')
+  static const CallJoinCallForcePermissions $158 = _$callJoinCallForcePermissions$158;
+
+  @BuiltValueEnumConst(wireName: '159')
+  static const CallJoinCallForcePermissions $159 = _$callJoinCallForcePermissions$159;
+
+  @BuiltValueEnumConst(wireName: '160')
+  static const CallJoinCallForcePermissions $160 = _$callJoinCallForcePermissions$160;
+
+  @BuiltValueEnumConst(wireName: '161')
+  static const CallJoinCallForcePermissions $161 = _$callJoinCallForcePermissions$161;
+
+  @BuiltValueEnumConst(wireName: '162')
+  static const CallJoinCallForcePermissions $162 = _$callJoinCallForcePermissions$162;
+
+  @BuiltValueEnumConst(wireName: '163')
+  static const CallJoinCallForcePermissions $163 = _$callJoinCallForcePermissions$163;
+
+  @BuiltValueEnumConst(wireName: '164')
+  static const CallJoinCallForcePermissions $164 = _$callJoinCallForcePermissions$164;
+
+  @BuiltValueEnumConst(wireName: '165')
+  static const CallJoinCallForcePermissions $165 = _$callJoinCallForcePermissions$165;
+
+  @BuiltValueEnumConst(wireName: '166')
+  static const CallJoinCallForcePermissions $166 = _$callJoinCallForcePermissions$166;
+
+  @BuiltValueEnumConst(wireName: '167')
+  static const CallJoinCallForcePermissions $167 = _$callJoinCallForcePermissions$167;
+
+  @BuiltValueEnumConst(wireName: '168')
+  static const CallJoinCallForcePermissions $168 = _$callJoinCallForcePermissions$168;
+
+  @BuiltValueEnumConst(wireName: '169')
+  static const CallJoinCallForcePermissions $169 = _$callJoinCallForcePermissions$169;
+
+  @BuiltValueEnumConst(wireName: '170')
+  static const CallJoinCallForcePermissions $170 = _$callJoinCallForcePermissions$170;
+
+  @BuiltValueEnumConst(wireName: '171')
+  static const CallJoinCallForcePermissions $171 = _$callJoinCallForcePermissions$171;
+
+  @BuiltValueEnumConst(wireName: '172')
+  static const CallJoinCallForcePermissions $172 = _$callJoinCallForcePermissions$172;
+
+  @BuiltValueEnumConst(wireName: '173')
+  static const CallJoinCallForcePermissions $173 = _$callJoinCallForcePermissions$173;
+
+  @BuiltValueEnumConst(wireName: '174')
+  static const CallJoinCallForcePermissions $174 = _$callJoinCallForcePermissions$174;
+
+  @BuiltValueEnumConst(wireName: '175')
+  static const CallJoinCallForcePermissions $175 = _$callJoinCallForcePermissions$175;
+
+  @BuiltValueEnumConst(wireName: '176')
+  static const CallJoinCallForcePermissions $176 = _$callJoinCallForcePermissions$176;
+
+  @BuiltValueEnumConst(wireName: '177')
+  static const CallJoinCallForcePermissions $177 = _$callJoinCallForcePermissions$177;
+
+  @BuiltValueEnumConst(wireName: '178')
+  static const CallJoinCallForcePermissions $178 = _$callJoinCallForcePermissions$178;
+
+  @BuiltValueEnumConst(wireName: '179')
+  static const CallJoinCallForcePermissions $179 = _$callJoinCallForcePermissions$179;
+
+  @BuiltValueEnumConst(wireName: '180')
+  static const CallJoinCallForcePermissions $180 = _$callJoinCallForcePermissions$180;
+
+  @BuiltValueEnumConst(wireName: '181')
+  static const CallJoinCallForcePermissions $181 = _$callJoinCallForcePermissions$181;
+
+  @BuiltValueEnumConst(wireName: '182')
+  static const CallJoinCallForcePermissions $182 = _$callJoinCallForcePermissions$182;
+
+  @BuiltValueEnumConst(wireName: '183')
+  static const CallJoinCallForcePermissions $183 = _$callJoinCallForcePermissions$183;
+
+  @BuiltValueEnumConst(wireName: '184')
+  static const CallJoinCallForcePermissions $184 = _$callJoinCallForcePermissions$184;
+
+  @BuiltValueEnumConst(wireName: '185')
+  static const CallJoinCallForcePermissions $185 = _$callJoinCallForcePermissions$185;
+
+  @BuiltValueEnumConst(wireName: '186')
+  static const CallJoinCallForcePermissions $186 = _$callJoinCallForcePermissions$186;
+
+  @BuiltValueEnumConst(wireName: '187')
+  static const CallJoinCallForcePermissions $187 = _$callJoinCallForcePermissions$187;
+
+  @BuiltValueEnumConst(wireName: '188')
+  static const CallJoinCallForcePermissions $188 = _$callJoinCallForcePermissions$188;
+
+  @BuiltValueEnumConst(wireName: '189')
+  static const CallJoinCallForcePermissions $189 = _$callJoinCallForcePermissions$189;
+
+  @BuiltValueEnumConst(wireName: '190')
+  static const CallJoinCallForcePermissions $190 = _$callJoinCallForcePermissions$190;
+
+  @BuiltValueEnumConst(wireName: '191')
+  static const CallJoinCallForcePermissions $191 = _$callJoinCallForcePermissions$191;
+
+  @BuiltValueEnumConst(wireName: '192')
+  static const CallJoinCallForcePermissions $192 = _$callJoinCallForcePermissions$192;
+
+  @BuiltValueEnumConst(wireName: '193')
+  static const CallJoinCallForcePermissions $193 = _$callJoinCallForcePermissions$193;
+
+  @BuiltValueEnumConst(wireName: '194')
+  static const CallJoinCallForcePermissions $194 = _$callJoinCallForcePermissions$194;
+
+  @BuiltValueEnumConst(wireName: '195')
+  static const CallJoinCallForcePermissions $195 = _$callJoinCallForcePermissions$195;
+
+  @BuiltValueEnumConst(wireName: '196')
+  static const CallJoinCallForcePermissions $196 = _$callJoinCallForcePermissions$196;
+
+  @BuiltValueEnumConst(wireName: '197')
+  static const CallJoinCallForcePermissions $197 = _$callJoinCallForcePermissions$197;
+
+  @BuiltValueEnumConst(wireName: '198')
+  static const CallJoinCallForcePermissions $198 = _$callJoinCallForcePermissions$198;
+
+  @BuiltValueEnumConst(wireName: '199')
+  static const CallJoinCallForcePermissions $199 = _$callJoinCallForcePermissions$199;
+
+  @BuiltValueEnumConst(wireName: '200')
+  static const CallJoinCallForcePermissions $200 = _$callJoinCallForcePermissions$200;
+
+  @BuiltValueEnumConst(wireName: '201')
+  static const CallJoinCallForcePermissions $201 = _$callJoinCallForcePermissions$201;
+
+  @BuiltValueEnumConst(wireName: '202')
+  static const CallJoinCallForcePermissions $202 = _$callJoinCallForcePermissions$202;
+
+  @BuiltValueEnumConst(wireName: '203')
+  static const CallJoinCallForcePermissions $203 = _$callJoinCallForcePermissions$203;
+
+  @BuiltValueEnumConst(wireName: '204')
+  static const CallJoinCallForcePermissions $204 = _$callJoinCallForcePermissions$204;
+
+  @BuiltValueEnumConst(wireName: '205')
+  static const CallJoinCallForcePermissions $205 = _$callJoinCallForcePermissions$205;
+
+  @BuiltValueEnumConst(wireName: '206')
+  static const CallJoinCallForcePermissions $206 = _$callJoinCallForcePermissions$206;
+
+  @BuiltValueEnumConst(wireName: '207')
+  static const CallJoinCallForcePermissions $207 = _$callJoinCallForcePermissions$207;
+
+  @BuiltValueEnumConst(wireName: '208')
+  static const CallJoinCallForcePermissions $208 = _$callJoinCallForcePermissions$208;
+
+  @BuiltValueEnumConst(wireName: '209')
+  static const CallJoinCallForcePermissions $209 = _$callJoinCallForcePermissions$209;
+
+  @BuiltValueEnumConst(wireName: '210')
+  static const CallJoinCallForcePermissions $210 = _$callJoinCallForcePermissions$210;
+
+  @BuiltValueEnumConst(wireName: '211')
+  static const CallJoinCallForcePermissions $211 = _$callJoinCallForcePermissions$211;
+
+  @BuiltValueEnumConst(wireName: '212')
+  static const CallJoinCallForcePermissions $212 = _$callJoinCallForcePermissions$212;
+
+  @BuiltValueEnumConst(wireName: '213')
+  static const CallJoinCallForcePermissions $213 = _$callJoinCallForcePermissions$213;
+
+  @BuiltValueEnumConst(wireName: '214')
+  static const CallJoinCallForcePermissions $214 = _$callJoinCallForcePermissions$214;
+
+  @BuiltValueEnumConst(wireName: '215')
+  static const CallJoinCallForcePermissions $215 = _$callJoinCallForcePermissions$215;
+
+  @BuiltValueEnumConst(wireName: '216')
+  static const CallJoinCallForcePermissions $216 = _$callJoinCallForcePermissions$216;
+
+  @BuiltValueEnumConst(wireName: '217')
+  static const CallJoinCallForcePermissions $217 = _$callJoinCallForcePermissions$217;
+
+  @BuiltValueEnumConst(wireName: '218')
+  static const CallJoinCallForcePermissions $218 = _$callJoinCallForcePermissions$218;
+
+  @BuiltValueEnumConst(wireName: '219')
+  static const CallJoinCallForcePermissions $219 = _$callJoinCallForcePermissions$219;
+
+  @BuiltValueEnumConst(wireName: '220')
+  static const CallJoinCallForcePermissions $220 = _$callJoinCallForcePermissions$220;
+
+  @BuiltValueEnumConst(wireName: '221')
+  static const CallJoinCallForcePermissions $221 = _$callJoinCallForcePermissions$221;
+
+  @BuiltValueEnumConst(wireName: '222')
+  static const CallJoinCallForcePermissions $222 = _$callJoinCallForcePermissions$222;
+
+  @BuiltValueEnumConst(wireName: '223')
+  static const CallJoinCallForcePermissions $223 = _$callJoinCallForcePermissions$223;
+
+  @BuiltValueEnumConst(wireName: '224')
+  static const CallJoinCallForcePermissions $224 = _$callJoinCallForcePermissions$224;
+
+  @BuiltValueEnumConst(wireName: '225')
+  static const CallJoinCallForcePermissions $225 = _$callJoinCallForcePermissions$225;
+
+  @BuiltValueEnumConst(wireName: '226')
+  static const CallJoinCallForcePermissions $226 = _$callJoinCallForcePermissions$226;
+
+  @BuiltValueEnumConst(wireName: '227')
+  static const CallJoinCallForcePermissions $227 = _$callJoinCallForcePermissions$227;
+
+  @BuiltValueEnumConst(wireName: '228')
+  static const CallJoinCallForcePermissions $228 = _$callJoinCallForcePermissions$228;
+
+  @BuiltValueEnumConst(wireName: '229')
+  static const CallJoinCallForcePermissions $229 = _$callJoinCallForcePermissions$229;
+
+  @BuiltValueEnumConst(wireName: '230')
+  static const CallJoinCallForcePermissions $230 = _$callJoinCallForcePermissions$230;
+
+  @BuiltValueEnumConst(wireName: '231')
+  static const CallJoinCallForcePermissions $231 = _$callJoinCallForcePermissions$231;
+
+  @BuiltValueEnumConst(wireName: '232')
+  static const CallJoinCallForcePermissions $232 = _$callJoinCallForcePermissions$232;
+
+  @BuiltValueEnumConst(wireName: '233')
+  static const CallJoinCallForcePermissions $233 = _$callJoinCallForcePermissions$233;
+
+  @BuiltValueEnumConst(wireName: '234')
+  static const CallJoinCallForcePermissions $234 = _$callJoinCallForcePermissions$234;
+
+  @BuiltValueEnumConst(wireName: '235')
+  static const CallJoinCallForcePermissions $235 = _$callJoinCallForcePermissions$235;
+
+  @BuiltValueEnumConst(wireName: '236')
+  static const CallJoinCallForcePermissions $236 = _$callJoinCallForcePermissions$236;
+
+  @BuiltValueEnumConst(wireName: '237')
+  static const CallJoinCallForcePermissions $237 = _$callJoinCallForcePermissions$237;
+
+  @BuiltValueEnumConst(wireName: '238')
+  static const CallJoinCallForcePermissions $238 = _$callJoinCallForcePermissions$238;
+
+  @BuiltValueEnumConst(wireName: '239')
+  static const CallJoinCallForcePermissions $239 = _$callJoinCallForcePermissions$239;
+
+  @BuiltValueEnumConst(wireName: '240')
+  static const CallJoinCallForcePermissions $240 = _$callJoinCallForcePermissions$240;
+
+  @BuiltValueEnumConst(wireName: '241')
+  static const CallJoinCallForcePermissions $241 = _$callJoinCallForcePermissions$241;
+
+  @BuiltValueEnumConst(wireName: '242')
+  static const CallJoinCallForcePermissions $242 = _$callJoinCallForcePermissions$242;
+
+  @BuiltValueEnumConst(wireName: '243')
+  static const CallJoinCallForcePermissions $243 = _$callJoinCallForcePermissions$243;
+
+  @BuiltValueEnumConst(wireName: '244')
+  static const CallJoinCallForcePermissions $244 = _$callJoinCallForcePermissions$244;
+
+  @BuiltValueEnumConst(wireName: '245')
+  static const CallJoinCallForcePermissions $245 = _$callJoinCallForcePermissions$245;
+
+  @BuiltValueEnumConst(wireName: '246')
+  static const CallJoinCallForcePermissions $246 = _$callJoinCallForcePermissions$246;
+
+  @BuiltValueEnumConst(wireName: '247')
+  static const CallJoinCallForcePermissions $247 = _$callJoinCallForcePermissions$247;
+
+  @BuiltValueEnumConst(wireName: '248')
+  static const CallJoinCallForcePermissions $248 = _$callJoinCallForcePermissions$248;
+
+  @BuiltValueEnumConst(wireName: '249')
+  static const CallJoinCallForcePermissions $249 = _$callJoinCallForcePermissions$249;
+
+  @BuiltValueEnumConst(wireName: '250')
+  static const CallJoinCallForcePermissions $250 = _$callJoinCallForcePermissions$250;
+
+  @BuiltValueEnumConst(wireName: '251')
+  static const CallJoinCallForcePermissions $251 = _$callJoinCallForcePermissions$251;
+
+  @BuiltValueEnumConst(wireName: '252')
+  static const CallJoinCallForcePermissions $252 = _$callJoinCallForcePermissions$252;
+
+  @BuiltValueEnumConst(wireName: '253')
+  static const CallJoinCallForcePermissions $253 = _$callJoinCallForcePermissions$253;
+
+  @BuiltValueEnumConst(wireName: '254')
+  static const CallJoinCallForcePermissions $254 = _$callJoinCallForcePermissions$254;
+
+  @BuiltValueEnumConst(wireName: '255')
+  static const CallJoinCallForcePermissions $255 = _$callJoinCallForcePermissions$255;
+
+  // coverage:ignore-start
+  static BuiltSet<CallJoinCallForcePermissions> get values => _$callJoinCallForcePermissionsValues;
+  // coverage:ignore-end
+
+  static CallJoinCallForcePermissions valueOf(String name) => _$valueOfCallJoinCallForcePermissions(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<CallJoinCallForcePermissions> get serializer => const _$CallJoinCallForcePermissionsSerializer();
+}
+
+class _$CallJoinCallForcePermissionsSerializer implements PrimitiveSerializer<CallJoinCallForcePermissions> {
+  const _$CallJoinCallForcePermissionsSerializer();
+
+  static const Map<CallJoinCallForcePermissions, Object> _toWire = <CallJoinCallForcePermissions, Object>{
+    CallJoinCallForcePermissions.$0: 0,
+    CallJoinCallForcePermissions.$1: 1,
+    CallJoinCallForcePermissions.$2: 2,
+    CallJoinCallForcePermissions.$3: 3,
+    CallJoinCallForcePermissions.$4: 4,
+    CallJoinCallForcePermissions.$5: 5,
+    CallJoinCallForcePermissions.$6: 6,
+    CallJoinCallForcePermissions.$7: 7,
+    CallJoinCallForcePermissions.$8: 8,
+    CallJoinCallForcePermissions.$9: 9,
+    CallJoinCallForcePermissions.$10: 10,
+    CallJoinCallForcePermissions.$11: 11,
+    CallJoinCallForcePermissions.$12: 12,
+    CallJoinCallForcePermissions.$13: 13,
+    CallJoinCallForcePermissions.$14: 14,
+    CallJoinCallForcePermissions.$15: 15,
+    CallJoinCallForcePermissions.$16: 16,
+    CallJoinCallForcePermissions.$17: 17,
+    CallJoinCallForcePermissions.$18: 18,
+    CallJoinCallForcePermissions.$19: 19,
+    CallJoinCallForcePermissions.$20: 20,
+    CallJoinCallForcePermissions.$21: 21,
+    CallJoinCallForcePermissions.$22: 22,
+    CallJoinCallForcePermissions.$23: 23,
+    CallJoinCallForcePermissions.$24: 24,
+    CallJoinCallForcePermissions.$25: 25,
+    CallJoinCallForcePermissions.$26: 26,
+    CallJoinCallForcePermissions.$27: 27,
+    CallJoinCallForcePermissions.$28: 28,
+    CallJoinCallForcePermissions.$29: 29,
+    CallJoinCallForcePermissions.$30: 30,
+    CallJoinCallForcePermissions.$31: 31,
+    CallJoinCallForcePermissions.$32: 32,
+    CallJoinCallForcePermissions.$33: 33,
+    CallJoinCallForcePermissions.$34: 34,
+    CallJoinCallForcePermissions.$35: 35,
+    CallJoinCallForcePermissions.$36: 36,
+    CallJoinCallForcePermissions.$37: 37,
+    CallJoinCallForcePermissions.$38: 38,
+    CallJoinCallForcePermissions.$39: 39,
+    CallJoinCallForcePermissions.$40: 40,
+    CallJoinCallForcePermissions.$41: 41,
+    CallJoinCallForcePermissions.$42: 42,
+    CallJoinCallForcePermissions.$43: 43,
+    CallJoinCallForcePermissions.$44: 44,
+    CallJoinCallForcePermissions.$45: 45,
+    CallJoinCallForcePermissions.$46: 46,
+    CallJoinCallForcePermissions.$47: 47,
+    CallJoinCallForcePermissions.$48: 48,
+    CallJoinCallForcePermissions.$49: 49,
+    CallJoinCallForcePermissions.$50: 50,
+    CallJoinCallForcePermissions.$51: 51,
+    CallJoinCallForcePermissions.$52: 52,
+    CallJoinCallForcePermissions.$53: 53,
+    CallJoinCallForcePermissions.$54: 54,
+    CallJoinCallForcePermissions.$55: 55,
+    CallJoinCallForcePermissions.$56: 56,
+    CallJoinCallForcePermissions.$57: 57,
+    CallJoinCallForcePermissions.$58: 58,
+    CallJoinCallForcePermissions.$59: 59,
+    CallJoinCallForcePermissions.$60: 60,
+    CallJoinCallForcePermissions.$61: 61,
+    CallJoinCallForcePermissions.$62: 62,
+    CallJoinCallForcePermissions.$63: 63,
+    CallJoinCallForcePermissions.$64: 64,
+    CallJoinCallForcePermissions.$65: 65,
+    CallJoinCallForcePermissions.$66: 66,
+    CallJoinCallForcePermissions.$67: 67,
+    CallJoinCallForcePermissions.$68: 68,
+    CallJoinCallForcePermissions.$69: 69,
+    CallJoinCallForcePermissions.$70: 70,
+    CallJoinCallForcePermissions.$71: 71,
+    CallJoinCallForcePermissions.$72: 72,
+    CallJoinCallForcePermissions.$73: 73,
+    CallJoinCallForcePermissions.$74: 74,
+    CallJoinCallForcePermissions.$75: 75,
+    CallJoinCallForcePermissions.$76: 76,
+    CallJoinCallForcePermissions.$77: 77,
+    CallJoinCallForcePermissions.$78: 78,
+    CallJoinCallForcePermissions.$79: 79,
+    CallJoinCallForcePermissions.$80: 80,
+    CallJoinCallForcePermissions.$81: 81,
+    CallJoinCallForcePermissions.$82: 82,
+    CallJoinCallForcePermissions.$83: 83,
+    CallJoinCallForcePermissions.$84: 84,
+    CallJoinCallForcePermissions.$85: 85,
+    CallJoinCallForcePermissions.$86: 86,
+    CallJoinCallForcePermissions.$87: 87,
+    CallJoinCallForcePermissions.$88: 88,
+    CallJoinCallForcePermissions.$89: 89,
+    CallJoinCallForcePermissions.$90: 90,
+    CallJoinCallForcePermissions.$91: 91,
+    CallJoinCallForcePermissions.$92: 92,
+    CallJoinCallForcePermissions.$93: 93,
+    CallJoinCallForcePermissions.$94: 94,
+    CallJoinCallForcePermissions.$95: 95,
+    CallJoinCallForcePermissions.$96: 96,
+    CallJoinCallForcePermissions.$97: 97,
+    CallJoinCallForcePermissions.$98: 98,
+    CallJoinCallForcePermissions.$99: 99,
+    CallJoinCallForcePermissions.$100: 100,
+    CallJoinCallForcePermissions.$101: 101,
+    CallJoinCallForcePermissions.$102: 102,
+    CallJoinCallForcePermissions.$103: 103,
+    CallJoinCallForcePermissions.$104: 104,
+    CallJoinCallForcePermissions.$105: 105,
+    CallJoinCallForcePermissions.$106: 106,
+    CallJoinCallForcePermissions.$107: 107,
+    CallJoinCallForcePermissions.$108: 108,
+    CallJoinCallForcePermissions.$109: 109,
+    CallJoinCallForcePermissions.$110: 110,
+    CallJoinCallForcePermissions.$111: 111,
+    CallJoinCallForcePermissions.$112: 112,
+    CallJoinCallForcePermissions.$113: 113,
+    CallJoinCallForcePermissions.$114: 114,
+    CallJoinCallForcePermissions.$115: 115,
+    CallJoinCallForcePermissions.$116: 116,
+    CallJoinCallForcePermissions.$117: 117,
+    CallJoinCallForcePermissions.$118: 118,
+    CallJoinCallForcePermissions.$119: 119,
+    CallJoinCallForcePermissions.$120: 120,
+    CallJoinCallForcePermissions.$121: 121,
+    CallJoinCallForcePermissions.$122: 122,
+    CallJoinCallForcePermissions.$123: 123,
+    CallJoinCallForcePermissions.$124: 124,
+    CallJoinCallForcePermissions.$125: 125,
+    CallJoinCallForcePermissions.$126: 126,
+    CallJoinCallForcePermissions.$127: 127,
+    CallJoinCallForcePermissions.$128: 128,
+    CallJoinCallForcePermissions.$129: 129,
+    CallJoinCallForcePermissions.$130: 130,
+    CallJoinCallForcePermissions.$131: 131,
+    CallJoinCallForcePermissions.$132: 132,
+    CallJoinCallForcePermissions.$133: 133,
+    CallJoinCallForcePermissions.$134: 134,
+    CallJoinCallForcePermissions.$135: 135,
+    CallJoinCallForcePermissions.$136: 136,
+    CallJoinCallForcePermissions.$137: 137,
+    CallJoinCallForcePermissions.$138: 138,
+    CallJoinCallForcePermissions.$139: 139,
+    CallJoinCallForcePermissions.$140: 140,
+    CallJoinCallForcePermissions.$141: 141,
+    CallJoinCallForcePermissions.$142: 142,
+    CallJoinCallForcePermissions.$143: 143,
+    CallJoinCallForcePermissions.$144: 144,
+    CallJoinCallForcePermissions.$145: 145,
+    CallJoinCallForcePermissions.$146: 146,
+    CallJoinCallForcePermissions.$147: 147,
+    CallJoinCallForcePermissions.$148: 148,
+    CallJoinCallForcePermissions.$149: 149,
+    CallJoinCallForcePermissions.$150: 150,
+    CallJoinCallForcePermissions.$151: 151,
+    CallJoinCallForcePermissions.$152: 152,
+    CallJoinCallForcePermissions.$153: 153,
+    CallJoinCallForcePermissions.$154: 154,
+    CallJoinCallForcePermissions.$155: 155,
+    CallJoinCallForcePermissions.$156: 156,
+    CallJoinCallForcePermissions.$157: 157,
+    CallJoinCallForcePermissions.$158: 158,
+    CallJoinCallForcePermissions.$159: 159,
+    CallJoinCallForcePermissions.$160: 160,
+    CallJoinCallForcePermissions.$161: 161,
+    CallJoinCallForcePermissions.$162: 162,
+    CallJoinCallForcePermissions.$163: 163,
+    CallJoinCallForcePermissions.$164: 164,
+    CallJoinCallForcePermissions.$165: 165,
+    CallJoinCallForcePermissions.$166: 166,
+    CallJoinCallForcePermissions.$167: 167,
+    CallJoinCallForcePermissions.$168: 168,
+    CallJoinCallForcePermissions.$169: 169,
+    CallJoinCallForcePermissions.$170: 170,
+    CallJoinCallForcePermissions.$171: 171,
+    CallJoinCallForcePermissions.$172: 172,
+    CallJoinCallForcePermissions.$173: 173,
+    CallJoinCallForcePermissions.$174: 174,
+    CallJoinCallForcePermissions.$175: 175,
+    CallJoinCallForcePermissions.$176: 176,
+    CallJoinCallForcePermissions.$177: 177,
+    CallJoinCallForcePermissions.$178: 178,
+    CallJoinCallForcePermissions.$179: 179,
+    CallJoinCallForcePermissions.$180: 180,
+    CallJoinCallForcePermissions.$181: 181,
+    CallJoinCallForcePermissions.$182: 182,
+    CallJoinCallForcePermissions.$183: 183,
+    CallJoinCallForcePermissions.$184: 184,
+    CallJoinCallForcePermissions.$185: 185,
+    CallJoinCallForcePermissions.$186: 186,
+    CallJoinCallForcePermissions.$187: 187,
+    CallJoinCallForcePermissions.$188: 188,
+    CallJoinCallForcePermissions.$189: 189,
+    CallJoinCallForcePermissions.$190: 190,
+    CallJoinCallForcePermissions.$191: 191,
+    CallJoinCallForcePermissions.$192: 192,
+    CallJoinCallForcePermissions.$193: 193,
+    CallJoinCallForcePermissions.$194: 194,
+    CallJoinCallForcePermissions.$195: 195,
+    CallJoinCallForcePermissions.$196: 196,
+    CallJoinCallForcePermissions.$197: 197,
+    CallJoinCallForcePermissions.$198: 198,
+    CallJoinCallForcePermissions.$199: 199,
+    CallJoinCallForcePermissions.$200: 200,
+    CallJoinCallForcePermissions.$201: 201,
+    CallJoinCallForcePermissions.$202: 202,
+    CallJoinCallForcePermissions.$203: 203,
+    CallJoinCallForcePermissions.$204: 204,
+    CallJoinCallForcePermissions.$205: 205,
+    CallJoinCallForcePermissions.$206: 206,
+    CallJoinCallForcePermissions.$207: 207,
+    CallJoinCallForcePermissions.$208: 208,
+    CallJoinCallForcePermissions.$209: 209,
+    CallJoinCallForcePermissions.$210: 210,
+    CallJoinCallForcePermissions.$211: 211,
+    CallJoinCallForcePermissions.$212: 212,
+    CallJoinCallForcePermissions.$213: 213,
+    CallJoinCallForcePermissions.$214: 214,
+    CallJoinCallForcePermissions.$215: 215,
+    CallJoinCallForcePermissions.$216: 216,
+    CallJoinCallForcePermissions.$217: 217,
+    CallJoinCallForcePermissions.$218: 218,
+    CallJoinCallForcePermissions.$219: 219,
+    CallJoinCallForcePermissions.$220: 220,
+    CallJoinCallForcePermissions.$221: 221,
+    CallJoinCallForcePermissions.$222: 222,
+    CallJoinCallForcePermissions.$223: 223,
+    CallJoinCallForcePermissions.$224: 224,
+    CallJoinCallForcePermissions.$225: 225,
+    CallJoinCallForcePermissions.$226: 226,
+    CallJoinCallForcePermissions.$227: 227,
+    CallJoinCallForcePermissions.$228: 228,
+    CallJoinCallForcePermissions.$229: 229,
+    CallJoinCallForcePermissions.$230: 230,
+    CallJoinCallForcePermissions.$231: 231,
+    CallJoinCallForcePermissions.$232: 232,
+    CallJoinCallForcePermissions.$233: 233,
+    CallJoinCallForcePermissions.$234: 234,
+    CallJoinCallForcePermissions.$235: 235,
+    CallJoinCallForcePermissions.$236: 236,
+    CallJoinCallForcePermissions.$237: 237,
+    CallJoinCallForcePermissions.$238: 238,
+    CallJoinCallForcePermissions.$239: 239,
+    CallJoinCallForcePermissions.$240: 240,
+    CallJoinCallForcePermissions.$241: 241,
+    CallJoinCallForcePermissions.$242: 242,
+    CallJoinCallForcePermissions.$243: 243,
+    CallJoinCallForcePermissions.$244: 244,
+    CallJoinCallForcePermissions.$245: 245,
+    CallJoinCallForcePermissions.$246: 246,
+    CallJoinCallForcePermissions.$247: 247,
+    CallJoinCallForcePermissions.$248: 248,
+    CallJoinCallForcePermissions.$249: 249,
+    CallJoinCallForcePermissions.$250: 250,
+    CallJoinCallForcePermissions.$251: 251,
+    CallJoinCallForcePermissions.$252: 252,
+    CallJoinCallForcePermissions.$253: 253,
+    CallJoinCallForcePermissions.$254: 254,
+    CallJoinCallForcePermissions.$255: 255,
+  };
+
+  static const Map<Object, CallJoinCallForcePermissions> _fromWire = <Object, CallJoinCallForcePermissions>{
+    0: CallJoinCallForcePermissions.$0,
+    1: CallJoinCallForcePermissions.$1,
+    2: CallJoinCallForcePermissions.$2,
+    3: CallJoinCallForcePermissions.$3,
+    4: CallJoinCallForcePermissions.$4,
+    5: CallJoinCallForcePermissions.$5,
+    6: CallJoinCallForcePermissions.$6,
+    7: CallJoinCallForcePermissions.$7,
+    8: CallJoinCallForcePermissions.$8,
+    9: CallJoinCallForcePermissions.$9,
+    10: CallJoinCallForcePermissions.$10,
+    11: CallJoinCallForcePermissions.$11,
+    12: CallJoinCallForcePermissions.$12,
+    13: CallJoinCallForcePermissions.$13,
+    14: CallJoinCallForcePermissions.$14,
+    15: CallJoinCallForcePermissions.$15,
+    16: CallJoinCallForcePermissions.$16,
+    17: CallJoinCallForcePermissions.$17,
+    18: CallJoinCallForcePermissions.$18,
+    19: CallJoinCallForcePermissions.$19,
+    20: CallJoinCallForcePermissions.$20,
+    21: CallJoinCallForcePermissions.$21,
+    22: CallJoinCallForcePermissions.$22,
+    23: CallJoinCallForcePermissions.$23,
+    24: CallJoinCallForcePermissions.$24,
+    25: CallJoinCallForcePermissions.$25,
+    26: CallJoinCallForcePermissions.$26,
+    27: CallJoinCallForcePermissions.$27,
+    28: CallJoinCallForcePermissions.$28,
+    29: CallJoinCallForcePermissions.$29,
+    30: CallJoinCallForcePermissions.$30,
+    31: CallJoinCallForcePermissions.$31,
+    32: CallJoinCallForcePermissions.$32,
+    33: CallJoinCallForcePermissions.$33,
+    34: CallJoinCallForcePermissions.$34,
+    35: CallJoinCallForcePermissions.$35,
+    36: CallJoinCallForcePermissions.$36,
+    37: CallJoinCallForcePermissions.$37,
+    38: CallJoinCallForcePermissions.$38,
+    39: CallJoinCallForcePermissions.$39,
+    40: CallJoinCallForcePermissions.$40,
+    41: CallJoinCallForcePermissions.$41,
+    42: CallJoinCallForcePermissions.$42,
+    43: CallJoinCallForcePermissions.$43,
+    44: CallJoinCallForcePermissions.$44,
+    45: CallJoinCallForcePermissions.$45,
+    46: CallJoinCallForcePermissions.$46,
+    47: CallJoinCallForcePermissions.$47,
+    48: CallJoinCallForcePermissions.$48,
+    49: CallJoinCallForcePermissions.$49,
+    50: CallJoinCallForcePermissions.$50,
+    51: CallJoinCallForcePermissions.$51,
+    52: CallJoinCallForcePermissions.$52,
+    53: CallJoinCallForcePermissions.$53,
+    54: CallJoinCallForcePermissions.$54,
+    55: CallJoinCallForcePermissions.$55,
+    56: CallJoinCallForcePermissions.$56,
+    57: CallJoinCallForcePermissions.$57,
+    58: CallJoinCallForcePermissions.$58,
+    59: CallJoinCallForcePermissions.$59,
+    60: CallJoinCallForcePermissions.$60,
+    61: CallJoinCallForcePermissions.$61,
+    62: CallJoinCallForcePermissions.$62,
+    63: CallJoinCallForcePermissions.$63,
+    64: CallJoinCallForcePermissions.$64,
+    65: CallJoinCallForcePermissions.$65,
+    66: CallJoinCallForcePermissions.$66,
+    67: CallJoinCallForcePermissions.$67,
+    68: CallJoinCallForcePermissions.$68,
+    69: CallJoinCallForcePermissions.$69,
+    70: CallJoinCallForcePermissions.$70,
+    71: CallJoinCallForcePermissions.$71,
+    72: CallJoinCallForcePermissions.$72,
+    73: CallJoinCallForcePermissions.$73,
+    74: CallJoinCallForcePermissions.$74,
+    75: CallJoinCallForcePermissions.$75,
+    76: CallJoinCallForcePermissions.$76,
+    77: CallJoinCallForcePermissions.$77,
+    78: CallJoinCallForcePermissions.$78,
+    79: CallJoinCallForcePermissions.$79,
+    80: CallJoinCallForcePermissions.$80,
+    81: CallJoinCallForcePermissions.$81,
+    82: CallJoinCallForcePermissions.$82,
+    83: CallJoinCallForcePermissions.$83,
+    84: CallJoinCallForcePermissions.$84,
+    85: CallJoinCallForcePermissions.$85,
+    86: CallJoinCallForcePermissions.$86,
+    87: CallJoinCallForcePermissions.$87,
+    88: CallJoinCallForcePermissions.$88,
+    89: CallJoinCallForcePermissions.$89,
+    90: CallJoinCallForcePermissions.$90,
+    91: CallJoinCallForcePermissions.$91,
+    92: CallJoinCallForcePermissions.$92,
+    93: CallJoinCallForcePermissions.$93,
+    94: CallJoinCallForcePermissions.$94,
+    95: CallJoinCallForcePermissions.$95,
+    96: CallJoinCallForcePermissions.$96,
+    97: CallJoinCallForcePermissions.$97,
+    98: CallJoinCallForcePermissions.$98,
+    99: CallJoinCallForcePermissions.$99,
+    100: CallJoinCallForcePermissions.$100,
+    101: CallJoinCallForcePermissions.$101,
+    102: CallJoinCallForcePermissions.$102,
+    103: CallJoinCallForcePermissions.$103,
+    104: CallJoinCallForcePermissions.$104,
+    105: CallJoinCallForcePermissions.$105,
+    106: CallJoinCallForcePermissions.$106,
+    107: CallJoinCallForcePermissions.$107,
+    108: CallJoinCallForcePermissions.$108,
+    109: CallJoinCallForcePermissions.$109,
+    110: CallJoinCallForcePermissions.$110,
+    111: CallJoinCallForcePermissions.$111,
+    112: CallJoinCallForcePermissions.$112,
+    113: CallJoinCallForcePermissions.$113,
+    114: CallJoinCallForcePermissions.$114,
+    115: CallJoinCallForcePermissions.$115,
+    116: CallJoinCallForcePermissions.$116,
+    117: CallJoinCallForcePermissions.$117,
+    118: CallJoinCallForcePermissions.$118,
+    119: CallJoinCallForcePermissions.$119,
+    120: CallJoinCallForcePermissions.$120,
+    121: CallJoinCallForcePermissions.$121,
+    122: CallJoinCallForcePermissions.$122,
+    123: CallJoinCallForcePermissions.$123,
+    124: CallJoinCallForcePermissions.$124,
+    125: CallJoinCallForcePermissions.$125,
+    126: CallJoinCallForcePermissions.$126,
+    127: CallJoinCallForcePermissions.$127,
+    128: CallJoinCallForcePermissions.$128,
+    129: CallJoinCallForcePermissions.$129,
+    130: CallJoinCallForcePermissions.$130,
+    131: CallJoinCallForcePermissions.$131,
+    132: CallJoinCallForcePermissions.$132,
+    133: CallJoinCallForcePermissions.$133,
+    134: CallJoinCallForcePermissions.$134,
+    135: CallJoinCallForcePermissions.$135,
+    136: CallJoinCallForcePermissions.$136,
+    137: CallJoinCallForcePermissions.$137,
+    138: CallJoinCallForcePermissions.$138,
+    139: CallJoinCallForcePermissions.$139,
+    140: CallJoinCallForcePermissions.$140,
+    141: CallJoinCallForcePermissions.$141,
+    142: CallJoinCallForcePermissions.$142,
+    143: CallJoinCallForcePermissions.$143,
+    144: CallJoinCallForcePermissions.$144,
+    145: CallJoinCallForcePermissions.$145,
+    146: CallJoinCallForcePermissions.$146,
+    147: CallJoinCallForcePermissions.$147,
+    148: CallJoinCallForcePermissions.$148,
+    149: CallJoinCallForcePermissions.$149,
+    150: CallJoinCallForcePermissions.$150,
+    151: CallJoinCallForcePermissions.$151,
+    152: CallJoinCallForcePermissions.$152,
+    153: CallJoinCallForcePermissions.$153,
+    154: CallJoinCallForcePermissions.$154,
+    155: CallJoinCallForcePermissions.$155,
+    156: CallJoinCallForcePermissions.$156,
+    157: CallJoinCallForcePermissions.$157,
+    158: CallJoinCallForcePermissions.$158,
+    159: CallJoinCallForcePermissions.$159,
+    160: CallJoinCallForcePermissions.$160,
+    161: CallJoinCallForcePermissions.$161,
+    162: CallJoinCallForcePermissions.$162,
+    163: CallJoinCallForcePermissions.$163,
+    164: CallJoinCallForcePermissions.$164,
+    165: CallJoinCallForcePermissions.$165,
+    166: CallJoinCallForcePermissions.$166,
+    167: CallJoinCallForcePermissions.$167,
+    168: CallJoinCallForcePermissions.$168,
+    169: CallJoinCallForcePermissions.$169,
+    170: CallJoinCallForcePermissions.$170,
+    171: CallJoinCallForcePermissions.$171,
+    172: CallJoinCallForcePermissions.$172,
+    173: CallJoinCallForcePermissions.$173,
+    174: CallJoinCallForcePermissions.$174,
+    175: CallJoinCallForcePermissions.$175,
+    176: CallJoinCallForcePermissions.$176,
+    177: CallJoinCallForcePermissions.$177,
+    178: CallJoinCallForcePermissions.$178,
+    179: CallJoinCallForcePermissions.$179,
+    180: CallJoinCallForcePermissions.$180,
+    181: CallJoinCallForcePermissions.$181,
+    182: CallJoinCallForcePermissions.$182,
+    183: CallJoinCallForcePermissions.$183,
+    184: CallJoinCallForcePermissions.$184,
+    185: CallJoinCallForcePermissions.$185,
+    186: CallJoinCallForcePermissions.$186,
+    187: CallJoinCallForcePermissions.$187,
+    188: CallJoinCallForcePermissions.$188,
+    189: CallJoinCallForcePermissions.$189,
+    190: CallJoinCallForcePermissions.$190,
+    191: CallJoinCallForcePermissions.$191,
+    192: CallJoinCallForcePermissions.$192,
+    193: CallJoinCallForcePermissions.$193,
+    194: CallJoinCallForcePermissions.$194,
+    195: CallJoinCallForcePermissions.$195,
+    196: CallJoinCallForcePermissions.$196,
+    197: CallJoinCallForcePermissions.$197,
+    198: CallJoinCallForcePermissions.$198,
+    199: CallJoinCallForcePermissions.$199,
+    200: CallJoinCallForcePermissions.$200,
+    201: CallJoinCallForcePermissions.$201,
+    202: CallJoinCallForcePermissions.$202,
+    203: CallJoinCallForcePermissions.$203,
+    204: CallJoinCallForcePermissions.$204,
+    205: CallJoinCallForcePermissions.$205,
+    206: CallJoinCallForcePermissions.$206,
+    207: CallJoinCallForcePermissions.$207,
+    208: CallJoinCallForcePermissions.$208,
+    209: CallJoinCallForcePermissions.$209,
+    210: CallJoinCallForcePermissions.$210,
+    211: CallJoinCallForcePermissions.$211,
+    212: CallJoinCallForcePermissions.$212,
+    213: CallJoinCallForcePermissions.$213,
+    214: CallJoinCallForcePermissions.$214,
+    215: CallJoinCallForcePermissions.$215,
+    216: CallJoinCallForcePermissions.$216,
+    217: CallJoinCallForcePermissions.$217,
+    218: CallJoinCallForcePermissions.$218,
+    219: CallJoinCallForcePermissions.$219,
+    220: CallJoinCallForcePermissions.$220,
+    221: CallJoinCallForcePermissions.$221,
+    222: CallJoinCallForcePermissions.$222,
+    223: CallJoinCallForcePermissions.$223,
+    224: CallJoinCallForcePermissions.$224,
+    225: CallJoinCallForcePermissions.$225,
+    226: CallJoinCallForcePermissions.$226,
+    227: CallJoinCallForcePermissions.$227,
+    228: CallJoinCallForcePermissions.$228,
+    229: CallJoinCallForcePermissions.$229,
+    230: CallJoinCallForcePermissions.$230,
+    231: CallJoinCallForcePermissions.$231,
+    232: CallJoinCallForcePermissions.$232,
+    233: CallJoinCallForcePermissions.$233,
+    234: CallJoinCallForcePermissions.$234,
+    235: CallJoinCallForcePermissions.$235,
+    236: CallJoinCallForcePermissions.$236,
+    237: CallJoinCallForcePermissions.$237,
+    238: CallJoinCallForcePermissions.$238,
+    239: CallJoinCallForcePermissions.$239,
+    240: CallJoinCallForcePermissions.$240,
+    241: CallJoinCallForcePermissions.$241,
+    242: CallJoinCallForcePermissions.$242,
+    243: CallJoinCallForcePermissions.$243,
+    244: CallJoinCallForcePermissions.$244,
+    245: CallJoinCallForcePermissions.$245,
+    246: CallJoinCallForcePermissions.$246,
+    247: CallJoinCallForcePermissions.$247,
+    248: CallJoinCallForcePermissions.$248,
+    249: CallJoinCallForcePermissions.$249,
+    250: CallJoinCallForcePermissions.$250,
+    251: CallJoinCallForcePermissions.$251,
+    252: CallJoinCallForcePermissions.$252,
+    253: CallJoinCallForcePermissions.$253,
+    254: CallJoinCallForcePermissions.$254,
+    255: CallJoinCallForcePermissions.$255,
+  };
+
+  @override
+  Iterable<Type> get types => const [CallJoinCallForcePermissions];
+
+  @override
+  String get wireName => 'CallJoinCallForcePermissions';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    CallJoinCallForcePermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  CallJoinCallForcePermissions deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class CallJoinCallApiVersion extends EnumClass {
   const CallJoinCallApiVersion._(super.name);
 
@@ -16564,6 +17801,303 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
 
   static Serializer<CertificateGetCertificateExpirationResponseApplicationJson> get serializer =>
       _$certificateGetCertificateExpirationResponseApplicationJsonSerializer;
+}
+
+class ChatReceiveMessagesLookIntoFuture extends EnumClass {
+  const ChatReceiveMessagesLookIntoFuture._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesLookIntoFuture $0 = _$chatReceiveMessagesLookIntoFuture$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesLookIntoFuture $1 = _$chatReceiveMessagesLookIntoFuture$1;
+
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesLookIntoFuture> get values => _$chatReceiveMessagesLookIntoFutureValues;
+  // coverage:ignore-end
+
+  static ChatReceiveMessagesLookIntoFuture valueOf(String name) => _$valueOfChatReceiveMessagesLookIntoFuture(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesLookIntoFuture> get serializer =>
+      const _$ChatReceiveMessagesLookIntoFutureSerializer();
+}
+
+class _$ChatReceiveMessagesLookIntoFutureSerializer implements PrimitiveSerializer<ChatReceiveMessagesLookIntoFuture> {
+  const _$ChatReceiveMessagesLookIntoFutureSerializer();
+
+  static const Map<ChatReceiveMessagesLookIntoFuture, Object> _toWire = <ChatReceiveMessagesLookIntoFuture, Object>{
+    ChatReceiveMessagesLookIntoFuture.$0: 0,
+    ChatReceiveMessagesLookIntoFuture.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesLookIntoFuture> _fromWire = <Object, ChatReceiveMessagesLookIntoFuture>{
+    0: ChatReceiveMessagesLookIntoFuture.$0,
+    1: ChatReceiveMessagesLookIntoFuture.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesLookIntoFuture];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesLookIntoFuture';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesLookIntoFuture object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesLookIntoFuture deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ChatReceiveMessagesSetReadMarker extends EnumClass {
+  const ChatReceiveMessagesSetReadMarker._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesSetReadMarker $0 = _$chatReceiveMessagesSetReadMarker$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesSetReadMarker $1 = _$chatReceiveMessagesSetReadMarker$1;
+
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesSetReadMarker> get values => _$chatReceiveMessagesSetReadMarkerValues;
+  // coverage:ignore-end
+
+  static ChatReceiveMessagesSetReadMarker valueOf(String name) => _$valueOfChatReceiveMessagesSetReadMarker(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesSetReadMarker> get serializer =>
+      const _$ChatReceiveMessagesSetReadMarkerSerializer();
+}
+
+class _$ChatReceiveMessagesSetReadMarkerSerializer implements PrimitiveSerializer<ChatReceiveMessagesSetReadMarker> {
+  const _$ChatReceiveMessagesSetReadMarkerSerializer();
+
+  static const Map<ChatReceiveMessagesSetReadMarker, Object> _toWire = <ChatReceiveMessagesSetReadMarker, Object>{
+    ChatReceiveMessagesSetReadMarker.$0: 0,
+    ChatReceiveMessagesSetReadMarker.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesSetReadMarker> _fromWire = <Object, ChatReceiveMessagesSetReadMarker>{
+    0: ChatReceiveMessagesSetReadMarker.$0,
+    1: ChatReceiveMessagesSetReadMarker.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesSetReadMarker];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesSetReadMarker';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesSetReadMarker object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesSetReadMarker deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
+  const ChatReceiveMessagesIncludeLastKnown._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesIncludeLastKnown $0 = _$chatReceiveMessagesIncludeLastKnown$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesIncludeLastKnown $1 = _$chatReceiveMessagesIncludeLastKnown$1;
+
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesIncludeLastKnown> get values => _$chatReceiveMessagesIncludeLastKnownValues;
+  // coverage:ignore-end
+
+  static ChatReceiveMessagesIncludeLastKnown valueOf(String name) => _$valueOfChatReceiveMessagesIncludeLastKnown(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesIncludeLastKnown> get serializer =>
+      const _$ChatReceiveMessagesIncludeLastKnownSerializer();
+}
+
+class _$ChatReceiveMessagesIncludeLastKnownSerializer
+    implements PrimitiveSerializer<ChatReceiveMessagesIncludeLastKnown> {
+  const _$ChatReceiveMessagesIncludeLastKnownSerializer();
+
+  static const Map<ChatReceiveMessagesIncludeLastKnown, Object> _toWire = <ChatReceiveMessagesIncludeLastKnown, Object>{
+    ChatReceiveMessagesIncludeLastKnown.$0: 0,
+    ChatReceiveMessagesIncludeLastKnown.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesIncludeLastKnown> _fromWire =
+      <Object, ChatReceiveMessagesIncludeLastKnown>{
+    0: ChatReceiveMessagesIncludeLastKnown.$0,
+    1: ChatReceiveMessagesIncludeLastKnown.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesIncludeLastKnown];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesIncludeLastKnown';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesIncludeLastKnown object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesIncludeLastKnown deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
+  const ChatReceiveMessagesNoStatusUpdate._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesNoStatusUpdate $0 = _$chatReceiveMessagesNoStatusUpdate$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesNoStatusUpdate $1 = _$chatReceiveMessagesNoStatusUpdate$1;
+
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesNoStatusUpdate> get values => _$chatReceiveMessagesNoStatusUpdateValues;
+  // coverage:ignore-end
+
+  static ChatReceiveMessagesNoStatusUpdate valueOf(String name) => _$valueOfChatReceiveMessagesNoStatusUpdate(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesNoStatusUpdate> get serializer =>
+      const _$ChatReceiveMessagesNoStatusUpdateSerializer();
+}
+
+class _$ChatReceiveMessagesNoStatusUpdateSerializer implements PrimitiveSerializer<ChatReceiveMessagesNoStatusUpdate> {
+  const _$ChatReceiveMessagesNoStatusUpdateSerializer();
+
+  static const Map<ChatReceiveMessagesNoStatusUpdate, Object> _toWire = <ChatReceiveMessagesNoStatusUpdate, Object>{
+    ChatReceiveMessagesNoStatusUpdate.$0: 0,
+    ChatReceiveMessagesNoStatusUpdate.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesNoStatusUpdate> _fromWire = <Object, ChatReceiveMessagesNoStatusUpdate>{
+    0: ChatReceiveMessagesNoStatusUpdate.$0,
+    1: ChatReceiveMessagesNoStatusUpdate.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesNoStatusUpdate];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesNoStatusUpdate';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesNoStatusUpdate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesNoStatusUpdate deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
+  const ChatReceiveMessagesMarkNotificationsAsRead._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const ChatReceiveMessagesMarkNotificationsAsRead $0 = _$chatReceiveMessagesMarkNotificationsAsRead$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const ChatReceiveMessagesMarkNotificationsAsRead $1 = _$chatReceiveMessagesMarkNotificationsAsRead$1;
+
+  // coverage:ignore-start
+  static BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> get values =>
+      _$chatReceiveMessagesMarkNotificationsAsReadValues;
+  // coverage:ignore-end
+
+  static ChatReceiveMessagesMarkNotificationsAsRead valueOf(String name) =>
+      _$valueOfChatReceiveMessagesMarkNotificationsAsRead(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<ChatReceiveMessagesMarkNotificationsAsRead> get serializer =>
+      const _$ChatReceiveMessagesMarkNotificationsAsReadSerializer();
+}
+
+class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
+    implements PrimitiveSerializer<ChatReceiveMessagesMarkNotificationsAsRead> {
+  const _$ChatReceiveMessagesMarkNotificationsAsReadSerializer();
+
+  static const Map<ChatReceiveMessagesMarkNotificationsAsRead, Object> _toWire =
+      <ChatReceiveMessagesMarkNotificationsAsRead, Object>{
+    ChatReceiveMessagesMarkNotificationsAsRead.$0: 0,
+    ChatReceiveMessagesMarkNotificationsAsRead.$1: 1,
+  };
+
+  static const Map<Object, ChatReceiveMessagesMarkNotificationsAsRead> _fromWire =
+      <Object, ChatReceiveMessagesMarkNotificationsAsRead>{
+    0: ChatReceiveMessagesMarkNotificationsAsRead.$0,
+    1: ChatReceiveMessagesMarkNotificationsAsRead.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [ChatReceiveMessagesMarkNotificationsAsRead];
+
+  @override
+  String get wireName => 'ChatReceiveMessagesMarkNotificationsAsRead';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    ChatReceiveMessagesMarkNotificationsAsRead object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  ChatReceiveMessagesMarkNotificationsAsRead deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesApiVersion extends EnumClass {
@@ -18495,382 +20029,6 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
       _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer;
 }
 
-class FederationAcceptShareApiVersion extends EnumClass {
-  const FederationAcceptShareApiVersion._(super.name);
-
-  static const FederationAcceptShareApiVersion v1 = _$federationAcceptShareApiVersionV1;
-
-  // coverage:ignore-start
-  static BuiltSet<FederationAcceptShareApiVersion> get values => _$federationAcceptShareApiVersionValues;
-  // coverage:ignore-end
-
-  static FederationAcceptShareApiVersion valueOf(String name) => _$valueOfFederationAcceptShareApiVersion(name);
-
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FederationAcceptShareApiVersion> get serializer =>
-      const _$FederationAcceptShareApiVersionSerializer();
-}
-
-class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer<FederationAcceptShareApiVersion> {
-  const _$FederationAcceptShareApiVersionSerializer();
-
-  static const Map<FederationAcceptShareApiVersion, Object> _toWire = <FederationAcceptShareApiVersion, Object>{
-    FederationAcceptShareApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, FederationAcceptShareApiVersion> _fromWire = <Object, FederationAcceptShareApiVersion>{
-    'v1': FederationAcceptShareApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [FederationAcceptShareApiVersion];
-
-  @override
-  String get wireName => 'FederationAcceptShareApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    FederationAcceptShareApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  FederationAcceptShareApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationAcceptShareResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class FederationAcceptShareResponseApplicationJson_Ocs
-    implements
-        $FederationAcceptShareResponseApplicationJson_OcsInterface,
-        Built<FederationAcceptShareResponseApplicationJson_Ocs,
-            FederationAcceptShareResponseApplicationJson_OcsBuilder> {
-  factory FederationAcceptShareResponseApplicationJson_Ocs([
-    void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FederationAcceptShareResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const FederationAcceptShareResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationAcceptShareResponseApplicationJson_Ocs> get serializer =>
-      _$federationAcceptShareResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationAcceptShareResponseApplicationJsonInterface {
-  FederationAcceptShareResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class FederationAcceptShareResponseApplicationJson
-    implements
-        $FederationAcceptShareResponseApplicationJsonInterface,
-        Built<FederationAcceptShareResponseApplicationJson, FederationAcceptShareResponseApplicationJsonBuilder> {
-  factory FederationAcceptShareResponseApplicationJson([
-    void Function(FederationAcceptShareResponseApplicationJsonBuilder)? b,
-  ]) = _$FederationAcceptShareResponseApplicationJson;
-
-  // coverage:ignore-start
-  const FederationAcceptShareResponseApplicationJson._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationAcceptShareResponseApplicationJson> get serializer =>
-      _$federationAcceptShareResponseApplicationJsonSerializer;
-}
-
-class FederationRejectShareApiVersion extends EnumClass {
-  const FederationRejectShareApiVersion._(super.name);
-
-  static const FederationRejectShareApiVersion v1 = _$federationRejectShareApiVersionV1;
-
-  // coverage:ignore-start
-  static BuiltSet<FederationRejectShareApiVersion> get values => _$federationRejectShareApiVersionValues;
-  // coverage:ignore-end
-
-  static FederationRejectShareApiVersion valueOf(String name) => _$valueOfFederationRejectShareApiVersion(name);
-
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FederationRejectShareApiVersion> get serializer =>
-      const _$FederationRejectShareApiVersionSerializer();
-}
-
-class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer<FederationRejectShareApiVersion> {
-  const _$FederationRejectShareApiVersionSerializer();
-
-  static const Map<FederationRejectShareApiVersion, Object> _toWire = <FederationRejectShareApiVersion, Object>{
-    FederationRejectShareApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, FederationRejectShareApiVersion> _fromWire = <Object, FederationRejectShareApiVersion>{
-    'v1': FederationRejectShareApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [FederationRejectShareApiVersion];
-
-  @override
-  String get wireName => 'FederationRejectShareApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    FederationRejectShareApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  FederationRejectShareApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationRejectShareResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  JsonObject get data;
-}
-
-abstract class FederationRejectShareResponseApplicationJson_Ocs
-    implements
-        $FederationRejectShareResponseApplicationJson_OcsInterface,
-        Built<FederationRejectShareResponseApplicationJson_Ocs,
-            FederationRejectShareResponseApplicationJson_OcsBuilder> {
-  factory FederationRejectShareResponseApplicationJson_Ocs([
-    void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FederationRejectShareResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const FederationRejectShareResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationRejectShareResponseApplicationJson_Ocs> get serializer =>
-      _$federationRejectShareResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationRejectShareResponseApplicationJsonInterface {
-  FederationRejectShareResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class FederationRejectShareResponseApplicationJson
-    implements
-        $FederationRejectShareResponseApplicationJsonInterface,
-        Built<FederationRejectShareResponseApplicationJson, FederationRejectShareResponseApplicationJsonBuilder> {
-  factory FederationRejectShareResponseApplicationJson([
-    void Function(FederationRejectShareResponseApplicationJsonBuilder)? b,
-  ]) = _$FederationRejectShareResponseApplicationJson;
-
-  // coverage:ignore-start
-  const FederationRejectShareResponseApplicationJson._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationRejectShareResponseApplicationJson> get serializer =>
-      _$federationRejectShareResponseApplicationJsonSerializer;
-}
-
-class FederationGetSharesApiVersion extends EnumClass {
-  const FederationGetSharesApiVersion._(super.name);
-
-  static const FederationGetSharesApiVersion v1 = _$federationGetSharesApiVersionV1;
-
-  // coverage:ignore-start
-  static BuiltSet<FederationGetSharesApiVersion> get values => _$federationGetSharesApiVersionValues;
-  // coverage:ignore-end
-
-  static FederationGetSharesApiVersion valueOf(String name) => _$valueOfFederationGetSharesApiVersion(name);
-
-  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
-
-  @BuiltValueSerializer(custom: true)
-  static Serializer<FederationGetSharesApiVersion> get serializer => const _$FederationGetSharesApiVersionSerializer();
-}
-
-class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<FederationGetSharesApiVersion> {
-  const _$FederationGetSharesApiVersionSerializer();
-
-  static const Map<FederationGetSharesApiVersion, Object> _toWire = <FederationGetSharesApiVersion, Object>{
-    FederationGetSharesApiVersion.v1: 'v1',
-  };
-
-  static const Map<Object, FederationGetSharesApiVersion> _fromWire = <Object, FederationGetSharesApiVersion>{
-    'v1': FederationGetSharesApiVersion.v1,
-  };
-
-  @override
-  Iterable<Type> get types => const [FederationGetSharesApiVersion];
-
-  @override
-  String get wireName => 'FederationGetSharesApiVersion';
-
-  @override
-  Object serialize(
-    Serializers serializers,
-    FederationGetSharesApiVersion object, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
-
-  @override
-  FederationGetSharesApiVersion deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationInviteInterface {
-  @BuiltValueField(wireName: 'access_token')
-  String get accessToken;
-  int get id;
-  @BuiltValueField(wireName: 'local_room_id')
-  int get localRoomId;
-  @BuiltValueField(wireName: 'remote_attendee_id')
-  String get remoteAttendeeId;
-  @BuiltValueField(wireName: 'remote_server_url')
-  String get remoteServerUrl;
-  @BuiltValueField(wireName: 'remote_token')
-  String get remoteToken;
-  @BuiltValueField(wireName: 'user_id')
-  String get userId;
-}
-
-abstract class FederationInvite
-    implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
-  factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
-
-  // coverage:ignore-start
-  const FederationInvite._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationInvite.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationGetSharesResponseApplicationJson_OcsInterface {
-  OCSMeta get meta;
-  BuiltList<FederationInvite> get data;
-}
-
-abstract class FederationGetSharesResponseApplicationJson_Ocs
-    implements
-        $FederationGetSharesResponseApplicationJson_OcsInterface,
-        Built<FederationGetSharesResponseApplicationJson_Ocs, FederationGetSharesResponseApplicationJson_OcsBuilder> {
-  factory FederationGetSharesResponseApplicationJson_Ocs([
-    void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$FederationGetSharesResponseApplicationJson_Ocs;
-
-  // coverage:ignore-start
-  const FederationGetSharesResponseApplicationJson_Ocs._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationGetSharesResponseApplicationJson_Ocs> get serializer =>
-      _$federationGetSharesResponseApplicationJsonOcsSerializer;
-}
-
-@BuiltValue(instantiable: false)
-abstract interface class $FederationGetSharesResponseApplicationJsonInterface {
-  FederationGetSharesResponseApplicationJson_Ocs get ocs;
-}
-
-abstract class FederationGetSharesResponseApplicationJson
-    implements
-        $FederationGetSharesResponseApplicationJsonInterface,
-        Built<FederationGetSharesResponseApplicationJson, FederationGetSharesResponseApplicationJsonBuilder> {
-  factory FederationGetSharesResponseApplicationJson([
-    void Function(FederationGetSharesResponseApplicationJsonBuilder)? b,
-  ]) = _$FederationGetSharesResponseApplicationJson;
-
-  // coverage:ignore-start
-  const FederationGetSharesResponseApplicationJson._();
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  // coverage:ignore-end
-
-  // coverage:ignore-start
-  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
-  // coverage:ignore-end
-
-  static Serializer<FederationGetSharesResponseApplicationJson> get serializer =>
-      _$federationGetSharesResponseApplicationJsonSerializer;
-}
-
 class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByFileIdApiVersion._(super.name);
 
@@ -20355,6 +21513,63 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson> get serializer =>
       _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer;
+}
+
+class PollCreatePollResultMode extends EnumClass {
+  const PollCreatePollResultMode._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const PollCreatePollResultMode $0 = _$pollCreatePollResultMode$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const PollCreatePollResultMode $1 = _$pollCreatePollResultMode$1;
+
+  // coverage:ignore-start
+  static BuiltSet<PollCreatePollResultMode> get values => _$pollCreatePollResultModeValues;
+  // coverage:ignore-end
+
+  static PollCreatePollResultMode valueOf(String name) => _$valueOfPollCreatePollResultMode(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<PollCreatePollResultMode> get serializer => const _$PollCreatePollResultModeSerializer();
+}
+
+class _$PollCreatePollResultModeSerializer implements PrimitiveSerializer<PollCreatePollResultMode> {
+  const _$PollCreatePollResultModeSerializer();
+
+  static const Map<PollCreatePollResultMode, Object> _toWire = <PollCreatePollResultMode, Object>{
+    PollCreatePollResultMode.$0: 0,
+    PollCreatePollResultMode.$1: 1,
+  };
+
+  static const Map<Object, PollCreatePollResultMode> _fromWire = <Object, PollCreatePollResultMode>{
+    0: PollCreatePollResultMode.$0,
+    1: PollCreatePollResultMode.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [PollCreatePollResultMode];
+
+  @override
+  String get wireName => 'PollCreatePollResultMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    PollCreatePollResultMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  PollCreatePollResultMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class PollCreatePollApiVersion extends EnumClass {
@@ -22086,6 +23301,63 @@ abstract class RecordingShareToChatResponseApplicationJson
       _$recordingShareToChatResponseApplicationJsonSerializer;
 }
 
+class RoomGetRoomsNoStatusUpdate extends EnumClass {
+  const RoomGetRoomsNoStatusUpdate._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomGetRoomsNoStatusUpdate $0 = _$roomGetRoomsNoStatusUpdate$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomGetRoomsNoStatusUpdate $1 = _$roomGetRoomsNoStatusUpdate$1;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomGetRoomsNoStatusUpdate> get values => _$roomGetRoomsNoStatusUpdateValues;
+  // coverage:ignore-end
+
+  static RoomGetRoomsNoStatusUpdate valueOf(String name) => _$valueOfRoomGetRoomsNoStatusUpdate(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomGetRoomsNoStatusUpdate> get serializer => const _$RoomGetRoomsNoStatusUpdateSerializer();
+}
+
+class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<RoomGetRoomsNoStatusUpdate> {
+  const _$RoomGetRoomsNoStatusUpdateSerializer();
+
+  static const Map<RoomGetRoomsNoStatusUpdate, Object> _toWire = <RoomGetRoomsNoStatusUpdate, Object>{
+    RoomGetRoomsNoStatusUpdate.$0: 0,
+    RoomGetRoomsNoStatusUpdate.$1: 1,
+  };
+
+  static const Map<Object, RoomGetRoomsNoStatusUpdate> _fromWire = <Object, RoomGetRoomsNoStatusUpdate>{
+    0: RoomGetRoomsNoStatusUpdate.$0,
+    1: RoomGetRoomsNoStatusUpdate.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomGetRoomsNoStatusUpdate];
+
+  @override
+  String get wireName => 'RoomGetRoomsNoStatusUpdate';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomGetRoomsNoStatusUpdate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomGetRoomsNoStatusUpdate deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class RoomGetRoomsApiVersion extends EnumClass {
   const RoomGetRoomsApiVersion._(super.name);
 
@@ -23408,6 +24680,63 @@ abstract class RoomSetDescriptionResponseApplicationJson
       _$roomSetDescriptionResponseApplicationJsonSerializer;
 }
 
+class RoomSetReadOnlyState extends EnumClass {
+  const RoomSetReadOnlyState._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetReadOnlyState $0 = _$roomSetReadOnlyState$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetReadOnlyState $1 = _$roomSetReadOnlyState$1;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetReadOnlyState> get values => _$roomSetReadOnlyStateValues;
+  // coverage:ignore-end
+
+  static RoomSetReadOnlyState valueOf(String name) => _$valueOfRoomSetReadOnlyState(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetReadOnlyState> get serializer => const _$RoomSetReadOnlyStateSerializer();
+}
+
+class _$RoomSetReadOnlyStateSerializer implements PrimitiveSerializer<RoomSetReadOnlyState> {
+  const _$RoomSetReadOnlyStateSerializer();
+
+  static const Map<RoomSetReadOnlyState, Object> _toWire = <RoomSetReadOnlyState, Object>{
+    RoomSetReadOnlyState.$0: 0,
+    RoomSetReadOnlyState.$1: 1,
+  };
+
+  static const Map<Object, RoomSetReadOnlyState> _fromWire = <Object, RoomSetReadOnlyState>{
+    0: RoomSetReadOnlyState.$0,
+    1: RoomSetReadOnlyState.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetReadOnlyState];
+
+  @override
+  String get wireName => 'RoomSetReadOnlyState';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetReadOnlyState object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetReadOnlyState deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class RoomSetReadOnlyApiVersion extends EnumClass {
   const RoomSetReadOnlyApiVersion._(super.name);
 
@@ -23517,6 +24846,68 @@ abstract class RoomSetReadOnlyResponseApplicationJson
 
   static Serializer<RoomSetReadOnlyResponseApplicationJson> get serializer =>
       _$roomSetReadOnlyResponseApplicationJsonSerializer;
+}
+
+class RoomSetListableScope extends EnumClass {
+  const RoomSetListableScope._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetListableScope $0 = _$roomSetListableScope$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetListableScope $1 = _$roomSetListableScope$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const RoomSetListableScope $2 = _$roomSetListableScope$2;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetListableScope> get values => _$roomSetListableScopeValues;
+  // coverage:ignore-end
+
+  static RoomSetListableScope valueOf(String name) => _$valueOfRoomSetListableScope(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetListableScope> get serializer => const _$RoomSetListableScopeSerializer();
+}
+
+class _$RoomSetListableScopeSerializer implements PrimitiveSerializer<RoomSetListableScope> {
+  const _$RoomSetListableScopeSerializer();
+
+  static const Map<RoomSetListableScope, Object> _toWire = <RoomSetListableScope, Object>{
+    RoomSetListableScope.$0: 0,
+    RoomSetListableScope.$1: 1,
+    RoomSetListableScope.$2: 2,
+  };
+
+  static const Map<Object, RoomSetListableScope> _fromWire = <Object, RoomSetListableScope>{
+    0: RoomSetListableScope.$0,
+    1: RoomSetListableScope.$1,
+    2: RoomSetListableScope.$2,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetListableScope];
+
+  @override
+  String get wireName => 'RoomSetListableScope';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetListableScope object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetListableScope deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomSetListableApiVersion extends EnumClass {
@@ -23739,6 +25130,1389 @@ abstract class RoomSetPasswordResponseApplicationJson
 
   static Serializer<RoomSetPasswordResponseApplicationJson> get serializer =>
       _$roomSetPasswordResponseApplicationJsonSerializer;
+}
+
+class RoomSetPermissionsPermissions extends EnumClass {
+  const RoomSetPermissionsPermissions._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetPermissionsPermissions $0 = _$roomSetPermissionsPermissions$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetPermissionsPermissions $1 = _$roomSetPermissionsPermissions$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const RoomSetPermissionsPermissions $2 = _$roomSetPermissionsPermissions$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const RoomSetPermissionsPermissions $3 = _$roomSetPermissionsPermissions$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const RoomSetPermissionsPermissions $4 = _$roomSetPermissionsPermissions$4;
+
+  @BuiltValueEnumConst(wireName: '5')
+  static const RoomSetPermissionsPermissions $5 = _$roomSetPermissionsPermissions$5;
+
+  @BuiltValueEnumConst(wireName: '6')
+  static const RoomSetPermissionsPermissions $6 = _$roomSetPermissionsPermissions$6;
+
+  @BuiltValueEnumConst(wireName: '7')
+  static const RoomSetPermissionsPermissions $7 = _$roomSetPermissionsPermissions$7;
+
+  @BuiltValueEnumConst(wireName: '8')
+  static const RoomSetPermissionsPermissions $8 = _$roomSetPermissionsPermissions$8;
+
+  @BuiltValueEnumConst(wireName: '9')
+  static const RoomSetPermissionsPermissions $9 = _$roomSetPermissionsPermissions$9;
+
+  @BuiltValueEnumConst(wireName: '10')
+  static const RoomSetPermissionsPermissions $10 = _$roomSetPermissionsPermissions$10;
+
+  @BuiltValueEnumConst(wireName: '11')
+  static const RoomSetPermissionsPermissions $11 = _$roomSetPermissionsPermissions$11;
+
+  @BuiltValueEnumConst(wireName: '12')
+  static const RoomSetPermissionsPermissions $12 = _$roomSetPermissionsPermissions$12;
+
+  @BuiltValueEnumConst(wireName: '13')
+  static const RoomSetPermissionsPermissions $13 = _$roomSetPermissionsPermissions$13;
+
+  @BuiltValueEnumConst(wireName: '14')
+  static const RoomSetPermissionsPermissions $14 = _$roomSetPermissionsPermissions$14;
+
+  @BuiltValueEnumConst(wireName: '15')
+  static const RoomSetPermissionsPermissions $15 = _$roomSetPermissionsPermissions$15;
+
+  @BuiltValueEnumConst(wireName: '16')
+  static const RoomSetPermissionsPermissions $16 = _$roomSetPermissionsPermissions$16;
+
+  @BuiltValueEnumConst(wireName: '17')
+  static const RoomSetPermissionsPermissions $17 = _$roomSetPermissionsPermissions$17;
+
+  @BuiltValueEnumConst(wireName: '18')
+  static const RoomSetPermissionsPermissions $18 = _$roomSetPermissionsPermissions$18;
+
+  @BuiltValueEnumConst(wireName: '19')
+  static const RoomSetPermissionsPermissions $19 = _$roomSetPermissionsPermissions$19;
+
+  @BuiltValueEnumConst(wireName: '20')
+  static const RoomSetPermissionsPermissions $20 = _$roomSetPermissionsPermissions$20;
+
+  @BuiltValueEnumConst(wireName: '21')
+  static const RoomSetPermissionsPermissions $21 = _$roomSetPermissionsPermissions$21;
+
+  @BuiltValueEnumConst(wireName: '22')
+  static const RoomSetPermissionsPermissions $22 = _$roomSetPermissionsPermissions$22;
+
+  @BuiltValueEnumConst(wireName: '23')
+  static const RoomSetPermissionsPermissions $23 = _$roomSetPermissionsPermissions$23;
+
+  @BuiltValueEnumConst(wireName: '24')
+  static const RoomSetPermissionsPermissions $24 = _$roomSetPermissionsPermissions$24;
+
+  @BuiltValueEnumConst(wireName: '25')
+  static const RoomSetPermissionsPermissions $25 = _$roomSetPermissionsPermissions$25;
+
+  @BuiltValueEnumConst(wireName: '26')
+  static const RoomSetPermissionsPermissions $26 = _$roomSetPermissionsPermissions$26;
+
+  @BuiltValueEnumConst(wireName: '27')
+  static const RoomSetPermissionsPermissions $27 = _$roomSetPermissionsPermissions$27;
+
+  @BuiltValueEnumConst(wireName: '28')
+  static const RoomSetPermissionsPermissions $28 = _$roomSetPermissionsPermissions$28;
+
+  @BuiltValueEnumConst(wireName: '29')
+  static const RoomSetPermissionsPermissions $29 = _$roomSetPermissionsPermissions$29;
+
+  @BuiltValueEnumConst(wireName: '30')
+  static const RoomSetPermissionsPermissions $30 = _$roomSetPermissionsPermissions$30;
+
+  @BuiltValueEnumConst(wireName: '31')
+  static const RoomSetPermissionsPermissions $31 = _$roomSetPermissionsPermissions$31;
+
+  @BuiltValueEnumConst(wireName: '32')
+  static const RoomSetPermissionsPermissions $32 = _$roomSetPermissionsPermissions$32;
+
+  @BuiltValueEnumConst(wireName: '33')
+  static const RoomSetPermissionsPermissions $33 = _$roomSetPermissionsPermissions$33;
+
+  @BuiltValueEnumConst(wireName: '34')
+  static const RoomSetPermissionsPermissions $34 = _$roomSetPermissionsPermissions$34;
+
+  @BuiltValueEnumConst(wireName: '35')
+  static const RoomSetPermissionsPermissions $35 = _$roomSetPermissionsPermissions$35;
+
+  @BuiltValueEnumConst(wireName: '36')
+  static const RoomSetPermissionsPermissions $36 = _$roomSetPermissionsPermissions$36;
+
+  @BuiltValueEnumConst(wireName: '37')
+  static const RoomSetPermissionsPermissions $37 = _$roomSetPermissionsPermissions$37;
+
+  @BuiltValueEnumConst(wireName: '38')
+  static const RoomSetPermissionsPermissions $38 = _$roomSetPermissionsPermissions$38;
+
+  @BuiltValueEnumConst(wireName: '39')
+  static const RoomSetPermissionsPermissions $39 = _$roomSetPermissionsPermissions$39;
+
+  @BuiltValueEnumConst(wireName: '40')
+  static const RoomSetPermissionsPermissions $40 = _$roomSetPermissionsPermissions$40;
+
+  @BuiltValueEnumConst(wireName: '41')
+  static const RoomSetPermissionsPermissions $41 = _$roomSetPermissionsPermissions$41;
+
+  @BuiltValueEnumConst(wireName: '42')
+  static const RoomSetPermissionsPermissions $42 = _$roomSetPermissionsPermissions$42;
+
+  @BuiltValueEnumConst(wireName: '43')
+  static const RoomSetPermissionsPermissions $43 = _$roomSetPermissionsPermissions$43;
+
+  @BuiltValueEnumConst(wireName: '44')
+  static const RoomSetPermissionsPermissions $44 = _$roomSetPermissionsPermissions$44;
+
+  @BuiltValueEnumConst(wireName: '45')
+  static const RoomSetPermissionsPermissions $45 = _$roomSetPermissionsPermissions$45;
+
+  @BuiltValueEnumConst(wireName: '46')
+  static const RoomSetPermissionsPermissions $46 = _$roomSetPermissionsPermissions$46;
+
+  @BuiltValueEnumConst(wireName: '47')
+  static const RoomSetPermissionsPermissions $47 = _$roomSetPermissionsPermissions$47;
+
+  @BuiltValueEnumConst(wireName: '48')
+  static const RoomSetPermissionsPermissions $48 = _$roomSetPermissionsPermissions$48;
+
+  @BuiltValueEnumConst(wireName: '49')
+  static const RoomSetPermissionsPermissions $49 = _$roomSetPermissionsPermissions$49;
+
+  @BuiltValueEnumConst(wireName: '50')
+  static const RoomSetPermissionsPermissions $50 = _$roomSetPermissionsPermissions$50;
+
+  @BuiltValueEnumConst(wireName: '51')
+  static const RoomSetPermissionsPermissions $51 = _$roomSetPermissionsPermissions$51;
+
+  @BuiltValueEnumConst(wireName: '52')
+  static const RoomSetPermissionsPermissions $52 = _$roomSetPermissionsPermissions$52;
+
+  @BuiltValueEnumConst(wireName: '53')
+  static const RoomSetPermissionsPermissions $53 = _$roomSetPermissionsPermissions$53;
+
+  @BuiltValueEnumConst(wireName: '54')
+  static const RoomSetPermissionsPermissions $54 = _$roomSetPermissionsPermissions$54;
+
+  @BuiltValueEnumConst(wireName: '55')
+  static const RoomSetPermissionsPermissions $55 = _$roomSetPermissionsPermissions$55;
+
+  @BuiltValueEnumConst(wireName: '56')
+  static const RoomSetPermissionsPermissions $56 = _$roomSetPermissionsPermissions$56;
+
+  @BuiltValueEnumConst(wireName: '57')
+  static const RoomSetPermissionsPermissions $57 = _$roomSetPermissionsPermissions$57;
+
+  @BuiltValueEnumConst(wireName: '58')
+  static const RoomSetPermissionsPermissions $58 = _$roomSetPermissionsPermissions$58;
+
+  @BuiltValueEnumConst(wireName: '59')
+  static const RoomSetPermissionsPermissions $59 = _$roomSetPermissionsPermissions$59;
+
+  @BuiltValueEnumConst(wireName: '60')
+  static const RoomSetPermissionsPermissions $60 = _$roomSetPermissionsPermissions$60;
+
+  @BuiltValueEnumConst(wireName: '61')
+  static const RoomSetPermissionsPermissions $61 = _$roomSetPermissionsPermissions$61;
+
+  @BuiltValueEnumConst(wireName: '62')
+  static const RoomSetPermissionsPermissions $62 = _$roomSetPermissionsPermissions$62;
+
+  @BuiltValueEnumConst(wireName: '63')
+  static const RoomSetPermissionsPermissions $63 = _$roomSetPermissionsPermissions$63;
+
+  @BuiltValueEnumConst(wireName: '64')
+  static const RoomSetPermissionsPermissions $64 = _$roomSetPermissionsPermissions$64;
+
+  @BuiltValueEnumConst(wireName: '65')
+  static const RoomSetPermissionsPermissions $65 = _$roomSetPermissionsPermissions$65;
+
+  @BuiltValueEnumConst(wireName: '66')
+  static const RoomSetPermissionsPermissions $66 = _$roomSetPermissionsPermissions$66;
+
+  @BuiltValueEnumConst(wireName: '67')
+  static const RoomSetPermissionsPermissions $67 = _$roomSetPermissionsPermissions$67;
+
+  @BuiltValueEnumConst(wireName: '68')
+  static const RoomSetPermissionsPermissions $68 = _$roomSetPermissionsPermissions$68;
+
+  @BuiltValueEnumConst(wireName: '69')
+  static const RoomSetPermissionsPermissions $69 = _$roomSetPermissionsPermissions$69;
+
+  @BuiltValueEnumConst(wireName: '70')
+  static const RoomSetPermissionsPermissions $70 = _$roomSetPermissionsPermissions$70;
+
+  @BuiltValueEnumConst(wireName: '71')
+  static const RoomSetPermissionsPermissions $71 = _$roomSetPermissionsPermissions$71;
+
+  @BuiltValueEnumConst(wireName: '72')
+  static const RoomSetPermissionsPermissions $72 = _$roomSetPermissionsPermissions$72;
+
+  @BuiltValueEnumConst(wireName: '73')
+  static const RoomSetPermissionsPermissions $73 = _$roomSetPermissionsPermissions$73;
+
+  @BuiltValueEnumConst(wireName: '74')
+  static const RoomSetPermissionsPermissions $74 = _$roomSetPermissionsPermissions$74;
+
+  @BuiltValueEnumConst(wireName: '75')
+  static const RoomSetPermissionsPermissions $75 = _$roomSetPermissionsPermissions$75;
+
+  @BuiltValueEnumConst(wireName: '76')
+  static const RoomSetPermissionsPermissions $76 = _$roomSetPermissionsPermissions$76;
+
+  @BuiltValueEnumConst(wireName: '77')
+  static const RoomSetPermissionsPermissions $77 = _$roomSetPermissionsPermissions$77;
+
+  @BuiltValueEnumConst(wireName: '78')
+  static const RoomSetPermissionsPermissions $78 = _$roomSetPermissionsPermissions$78;
+
+  @BuiltValueEnumConst(wireName: '79')
+  static const RoomSetPermissionsPermissions $79 = _$roomSetPermissionsPermissions$79;
+
+  @BuiltValueEnumConst(wireName: '80')
+  static const RoomSetPermissionsPermissions $80 = _$roomSetPermissionsPermissions$80;
+
+  @BuiltValueEnumConst(wireName: '81')
+  static const RoomSetPermissionsPermissions $81 = _$roomSetPermissionsPermissions$81;
+
+  @BuiltValueEnumConst(wireName: '82')
+  static const RoomSetPermissionsPermissions $82 = _$roomSetPermissionsPermissions$82;
+
+  @BuiltValueEnumConst(wireName: '83')
+  static const RoomSetPermissionsPermissions $83 = _$roomSetPermissionsPermissions$83;
+
+  @BuiltValueEnumConst(wireName: '84')
+  static const RoomSetPermissionsPermissions $84 = _$roomSetPermissionsPermissions$84;
+
+  @BuiltValueEnumConst(wireName: '85')
+  static const RoomSetPermissionsPermissions $85 = _$roomSetPermissionsPermissions$85;
+
+  @BuiltValueEnumConst(wireName: '86')
+  static const RoomSetPermissionsPermissions $86 = _$roomSetPermissionsPermissions$86;
+
+  @BuiltValueEnumConst(wireName: '87')
+  static const RoomSetPermissionsPermissions $87 = _$roomSetPermissionsPermissions$87;
+
+  @BuiltValueEnumConst(wireName: '88')
+  static const RoomSetPermissionsPermissions $88 = _$roomSetPermissionsPermissions$88;
+
+  @BuiltValueEnumConst(wireName: '89')
+  static const RoomSetPermissionsPermissions $89 = _$roomSetPermissionsPermissions$89;
+
+  @BuiltValueEnumConst(wireName: '90')
+  static const RoomSetPermissionsPermissions $90 = _$roomSetPermissionsPermissions$90;
+
+  @BuiltValueEnumConst(wireName: '91')
+  static const RoomSetPermissionsPermissions $91 = _$roomSetPermissionsPermissions$91;
+
+  @BuiltValueEnumConst(wireName: '92')
+  static const RoomSetPermissionsPermissions $92 = _$roomSetPermissionsPermissions$92;
+
+  @BuiltValueEnumConst(wireName: '93')
+  static const RoomSetPermissionsPermissions $93 = _$roomSetPermissionsPermissions$93;
+
+  @BuiltValueEnumConst(wireName: '94')
+  static const RoomSetPermissionsPermissions $94 = _$roomSetPermissionsPermissions$94;
+
+  @BuiltValueEnumConst(wireName: '95')
+  static const RoomSetPermissionsPermissions $95 = _$roomSetPermissionsPermissions$95;
+
+  @BuiltValueEnumConst(wireName: '96')
+  static const RoomSetPermissionsPermissions $96 = _$roomSetPermissionsPermissions$96;
+
+  @BuiltValueEnumConst(wireName: '97')
+  static const RoomSetPermissionsPermissions $97 = _$roomSetPermissionsPermissions$97;
+
+  @BuiltValueEnumConst(wireName: '98')
+  static const RoomSetPermissionsPermissions $98 = _$roomSetPermissionsPermissions$98;
+
+  @BuiltValueEnumConst(wireName: '99')
+  static const RoomSetPermissionsPermissions $99 = _$roomSetPermissionsPermissions$99;
+
+  @BuiltValueEnumConst(wireName: '100')
+  static const RoomSetPermissionsPermissions $100 = _$roomSetPermissionsPermissions$100;
+
+  @BuiltValueEnumConst(wireName: '101')
+  static const RoomSetPermissionsPermissions $101 = _$roomSetPermissionsPermissions$101;
+
+  @BuiltValueEnumConst(wireName: '102')
+  static const RoomSetPermissionsPermissions $102 = _$roomSetPermissionsPermissions$102;
+
+  @BuiltValueEnumConst(wireName: '103')
+  static const RoomSetPermissionsPermissions $103 = _$roomSetPermissionsPermissions$103;
+
+  @BuiltValueEnumConst(wireName: '104')
+  static const RoomSetPermissionsPermissions $104 = _$roomSetPermissionsPermissions$104;
+
+  @BuiltValueEnumConst(wireName: '105')
+  static const RoomSetPermissionsPermissions $105 = _$roomSetPermissionsPermissions$105;
+
+  @BuiltValueEnumConst(wireName: '106')
+  static const RoomSetPermissionsPermissions $106 = _$roomSetPermissionsPermissions$106;
+
+  @BuiltValueEnumConst(wireName: '107')
+  static const RoomSetPermissionsPermissions $107 = _$roomSetPermissionsPermissions$107;
+
+  @BuiltValueEnumConst(wireName: '108')
+  static const RoomSetPermissionsPermissions $108 = _$roomSetPermissionsPermissions$108;
+
+  @BuiltValueEnumConst(wireName: '109')
+  static const RoomSetPermissionsPermissions $109 = _$roomSetPermissionsPermissions$109;
+
+  @BuiltValueEnumConst(wireName: '110')
+  static const RoomSetPermissionsPermissions $110 = _$roomSetPermissionsPermissions$110;
+
+  @BuiltValueEnumConst(wireName: '111')
+  static const RoomSetPermissionsPermissions $111 = _$roomSetPermissionsPermissions$111;
+
+  @BuiltValueEnumConst(wireName: '112')
+  static const RoomSetPermissionsPermissions $112 = _$roomSetPermissionsPermissions$112;
+
+  @BuiltValueEnumConst(wireName: '113')
+  static const RoomSetPermissionsPermissions $113 = _$roomSetPermissionsPermissions$113;
+
+  @BuiltValueEnumConst(wireName: '114')
+  static const RoomSetPermissionsPermissions $114 = _$roomSetPermissionsPermissions$114;
+
+  @BuiltValueEnumConst(wireName: '115')
+  static const RoomSetPermissionsPermissions $115 = _$roomSetPermissionsPermissions$115;
+
+  @BuiltValueEnumConst(wireName: '116')
+  static const RoomSetPermissionsPermissions $116 = _$roomSetPermissionsPermissions$116;
+
+  @BuiltValueEnumConst(wireName: '117')
+  static const RoomSetPermissionsPermissions $117 = _$roomSetPermissionsPermissions$117;
+
+  @BuiltValueEnumConst(wireName: '118')
+  static const RoomSetPermissionsPermissions $118 = _$roomSetPermissionsPermissions$118;
+
+  @BuiltValueEnumConst(wireName: '119')
+  static const RoomSetPermissionsPermissions $119 = _$roomSetPermissionsPermissions$119;
+
+  @BuiltValueEnumConst(wireName: '120')
+  static const RoomSetPermissionsPermissions $120 = _$roomSetPermissionsPermissions$120;
+
+  @BuiltValueEnumConst(wireName: '121')
+  static const RoomSetPermissionsPermissions $121 = _$roomSetPermissionsPermissions$121;
+
+  @BuiltValueEnumConst(wireName: '122')
+  static const RoomSetPermissionsPermissions $122 = _$roomSetPermissionsPermissions$122;
+
+  @BuiltValueEnumConst(wireName: '123')
+  static const RoomSetPermissionsPermissions $123 = _$roomSetPermissionsPermissions$123;
+
+  @BuiltValueEnumConst(wireName: '124')
+  static const RoomSetPermissionsPermissions $124 = _$roomSetPermissionsPermissions$124;
+
+  @BuiltValueEnumConst(wireName: '125')
+  static const RoomSetPermissionsPermissions $125 = _$roomSetPermissionsPermissions$125;
+
+  @BuiltValueEnumConst(wireName: '126')
+  static const RoomSetPermissionsPermissions $126 = _$roomSetPermissionsPermissions$126;
+
+  @BuiltValueEnumConst(wireName: '127')
+  static const RoomSetPermissionsPermissions $127 = _$roomSetPermissionsPermissions$127;
+
+  @BuiltValueEnumConst(wireName: '128')
+  static const RoomSetPermissionsPermissions $128 = _$roomSetPermissionsPermissions$128;
+
+  @BuiltValueEnumConst(wireName: '129')
+  static const RoomSetPermissionsPermissions $129 = _$roomSetPermissionsPermissions$129;
+
+  @BuiltValueEnumConst(wireName: '130')
+  static const RoomSetPermissionsPermissions $130 = _$roomSetPermissionsPermissions$130;
+
+  @BuiltValueEnumConst(wireName: '131')
+  static const RoomSetPermissionsPermissions $131 = _$roomSetPermissionsPermissions$131;
+
+  @BuiltValueEnumConst(wireName: '132')
+  static const RoomSetPermissionsPermissions $132 = _$roomSetPermissionsPermissions$132;
+
+  @BuiltValueEnumConst(wireName: '133')
+  static const RoomSetPermissionsPermissions $133 = _$roomSetPermissionsPermissions$133;
+
+  @BuiltValueEnumConst(wireName: '134')
+  static const RoomSetPermissionsPermissions $134 = _$roomSetPermissionsPermissions$134;
+
+  @BuiltValueEnumConst(wireName: '135')
+  static const RoomSetPermissionsPermissions $135 = _$roomSetPermissionsPermissions$135;
+
+  @BuiltValueEnumConst(wireName: '136')
+  static const RoomSetPermissionsPermissions $136 = _$roomSetPermissionsPermissions$136;
+
+  @BuiltValueEnumConst(wireName: '137')
+  static const RoomSetPermissionsPermissions $137 = _$roomSetPermissionsPermissions$137;
+
+  @BuiltValueEnumConst(wireName: '138')
+  static const RoomSetPermissionsPermissions $138 = _$roomSetPermissionsPermissions$138;
+
+  @BuiltValueEnumConst(wireName: '139')
+  static const RoomSetPermissionsPermissions $139 = _$roomSetPermissionsPermissions$139;
+
+  @BuiltValueEnumConst(wireName: '140')
+  static const RoomSetPermissionsPermissions $140 = _$roomSetPermissionsPermissions$140;
+
+  @BuiltValueEnumConst(wireName: '141')
+  static const RoomSetPermissionsPermissions $141 = _$roomSetPermissionsPermissions$141;
+
+  @BuiltValueEnumConst(wireName: '142')
+  static const RoomSetPermissionsPermissions $142 = _$roomSetPermissionsPermissions$142;
+
+  @BuiltValueEnumConst(wireName: '143')
+  static const RoomSetPermissionsPermissions $143 = _$roomSetPermissionsPermissions$143;
+
+  @BuiltValueEnumConst(wireName: '144')
+  static const RoomSetPermissionsPermissions $144 = _$roomSetPermissionsPermissions$144;
+
+  @BuiltValueEnumConst(wireName: '145')
+  static const RoomSetPermissionsPermissions $145 = _$roomSetPermissionsPermissions$145;
+
+  @BuiltValueEnumConst(wireName: '146')
+  static const RoomSetPermissionsPermissions $146 = _$roomSetPermissionsPermissions$146;
+
+  @BuiltValueEnumConst(wireName: '147')
+  static const RoomSetPermissionsPermissions $147 = _$roomSetPermissionsPermissions$147;
+
+  @BuiltValueEnumConst(wireName: '148')
+  static const RoomSetPermissionsPermissions $148 = _$roomSetPermissionsPermissions$148;
+
+  @BuiltValueEnumConst(wireName: '149')
+  static const RoomSetPermissionsPermissions $149 = _$roomSetPermissionsPermissions$149;
+
+  @BuiltValueEnumConst(wireName: '150')
+  static const RoomSetPermissionsPermissions $150 = _$roomSetPermissionsPermissions$150;
+
+  @BuiltValueEnumConst(wireName: '151')
+  static const RoomSetPermissionsPermissions $151 = _$roomSetPermissionsPermissions$151;
+
+  @BuiltValueEnumConst(wireName: '152')
+  static const RoomSetPermissionsPermissions $152 = _$roomSetPermissionsPermissions$152;
+
+  @BuiltValueEnumConst(wireName: '153')
+  static const RoomSetPermissionsPermissions $153 = _$roomSetPermissionsPermissions$153;
+
+  @BuiltValueEnumConst(wireName: '154')
+  static const RoomSetPermissionsPermissions $154 = _$roomSetPermissionsPermissions$154;
+
+  @BuiltValueEnumConst(wireName: '155')
+  static const RoomSetPermissionsPermissions $155 = _$roomSetPermissionsPermissions$155;
+
+  @BuiltValueEnumConst(wireName: '156')
+  static const RoomSetPermissionsPermissions $156 = _$roomSetPermissionsPermissions$156;
+
+  @BuiltValueEnumConst(wireName: '157')
+  static const RoomSetPermissionsPermissions $157 = _$roomSetPermissionsPermissions$157;
+
+  @BuiltValueEnumConst(wireName: '158')
+  static const RoomSetPermissionsPermissions $158 = _$roomSetPermissionsPermissions$158;
+
+  @BuiltValueEnumConst(wireName: '159')
+  static const RoomSetPermissionsPermissions $159 = _$roomSetPermissionsPermissions$159;
+
+  @BuiltValueEnumConst(wireName: '160')
+  static const RoomSetPermissionsPermissions $160 = _$roomSetPermissionsPermissions$160;
+
+  @BuiltValueEnumConst(wireName: '161')
+  static const RoomSetPermissionsPermissions $161 = _$roomSetPermissionsPermissions$161;
+
+  @BuiltValueEnumConst(wireName: '162')
+  static const RoomSetPermissionsPermissions $162 = _$roomSetPermissionsPermissions$162;
+
+  @BuiltValueEnumConst(wireName: '163')
+  static const RoomSetPermissionsPermissions $163 = _$roomSetPermissionsPermissions$163;
+
+  @BuiltValueEnumConst(wireName: '164')
+  static const RoomSetPermissionsPermissions $164 = _$roomSetPermissionsPermissions$164;
+
+  @BuiltValueEnumConst(wireName: '165')
+  static const RoomSetPermissionsPermissions $165 = _$roomSetPermissionsPermissions$165;
+
+  @BuiltValueEnumConst(wireName: '166')
+  static const RoomSetPermissionsPermissions $166 = _$roomSetPermissionsPermissions$166;
+
+  @BuiltValueEnumConst(wireName: '167')
+  static const RoomSetPermissionsPermissions $167 = _$roomSetPermissionsPermissions$167;
+
+  @BuiltValueEnumConst(wireName: '168')
+  static const RoomSetPermissionsPermissions $168 = _$roomSetPermissionsPermissions$168;
+
+  @BuiltValueEnumConst(wireName: '169')
+  static const RoomSetPermissionsPermissions $169 = _$roomSetPermissionsPermissions$169;
+
+  @BuiltValueEnumConst(wireName: '170')
+  static const RoomSetPermissionsPermissions $170 = _$roomSetPermissionsPermissions$170;
+
+  @BuiltValueEnumConst(wireName: '171')
+  static const RoomSetPermissionsPermissions $171 = _$roomSetPermissionsPermissions$171;
+
+  @BuiltValueEnumConst(wireName: '172')
+  static const RoomSetPermissionsPermissions $172 = _$roomSetPermissionsPermissions$172;
+
+  @BuiltValueEnumConst(wireName: '173')
+  static const RoomSetPermissionsPermissions $173 = _$roomSetPermissionsPermissions$173;
+
+  @BuiltValueEnumConst(wireName: '174')
+  static const RoomSetPermissionsPermissions $174 = _$roomSetPermissionsPermissions$174;
+
+  @BuiltValueEnumConst(wireName: '175')
+  static const RoomSetPermissionsPermissions $175 = _$roomSetPermissionsPermissions$175;
+
+  @BuiltValueEnumConst(wireName: '176')
+  static const RoomSetPermissionsPermissions $176 = _$roomSetPermissionsPermissions$176;
+
+  @BuiltValueEnumConst(wireName: '177')
+  static const RoomSetPermissionsPermissions $177 = _$roomSetPermissionsPermissions$177;
+
+  @BuiltValueEnumConst(wireName: '178')
+  static const RoomSetPermissionsPermissions $178 = _$roomSetPermissionsPermissions$178;
+
+  @BuiltValueEnumConst(wireName: '179')
+  static const RoomSetPermissionsPermissions $179 = _$roomSetPermissionsPermissions$179;
+
+  @BuiltValueEnumConst(wireName: '180')
+  static const RoomSetPermissionsPermissions $180 = _$roomSetPermissionsPermissions$180;
+
+  @BuiltValueEnumConst(wireName: '181')
+  static const RoomSetPermissionsPermissions $181 = _$roomSetPermissionsPermissions$181;
+
+  @BuiltValueEnumConst(wireName: '182')
+  static const RoomSetPermissionsPermissions $182 = _$roomSetPermissionsPermissions$182;
+
+  @BuiltValueEnumConst(wireName: '183')
+  static const RoomSetPermissionsPermissions $183 = _$roomSetPermissionsPermissions$183;
+
+  @BuiltValueEnumConst(wireName: '184')
+  static const RoomSetPermissionsPermissions $184 = _$roomSetPermissionsPermissions$184;
+
+  @BuiltValueEnumConst(wireName: '185')
+  static const RoomSetPermissionsPermissions $185 = _$roomSetPermissionsPermissions$185;
+
+  @BuiltValueEnumConst(wireName: '186')
+  static const RoomSetPermissionsPermissions $186 = _$roomSetPermissionsPermissions$186;
+
+  @BuiltValueEnumConst(wireName: '187')
+  static const RoomSetPermissionsPermissions $187 = _$roomSetPermissionsPermissions$187;
+
+  @BuiltValueEnumConst(wireName: '188')
+  static const RoomSetPermissionsPermissions $188 = _$roomSetPermissionsPermissions$188;
+
+  @BuiltValueEnumConst(wireName: '189')
+  static const RoomSetPermissionsPermissions $189 = _$roomSetPermissionsPermissions$189;
+
+  @BuiltValueEnumConst(wireName: '190')
+  static const RoomSetPermissionsPermissions $190 = _$roomSetPermissionsPermissions$190;
+
+  @BuiltValueEnumConst(wireName: '191')
+  static const RoomSetPermissionsPermissions $191 = _$roomSetPermissionsPermissions$191;
+
+  @BuiltValueEnumConst(wireName: '192')
+  static const RoomSetPermissionsPermissions $192 = _$roomSetPermissionsPermissions$192;
+
+  @BuiltValueEnumConst(wireName: '193')
+  static const RoomSetPermissionsPermissions $193 = _$roomSetPermissionsPermissions$193;
+
+  @BuiltValueEnumConst(wireName: '194')
+  static const RoomSetPermissionsPermissions $194 = _$roomSetPermissionsPermissions$194;
+
+  @BuiltValueEnumConst(wireName: '195')
+  static const RoomSetPermissionsPermissions $195 = _$roomSetPermissionsPermissions$195;
+
+  @BuiltValueEnumConst(wireName: '196')
+  static const RoomSetPermissionsPermissions $196 = _$roomSetPermissionsPermissions$196;
+
+  @BuiltValueEnumConst(wireName: '197')
+  static const RoomSetPermissionsPermissions $197 = _$roomSetPermissionsPermissions$197;
+
+  @BuiltValueEnumConst(wireName: '198')
+  static const RoomSetPermissionsPermissions $198 = _$roomSetPermissionsPermissions$198;
+
+  @BuiltValueEnumConst(wireName: '199')
+  static const RoomSetPermissionsPermissions $199 = _$roomSetPermissionsPermissions$199;
+
+  @BuiltValueEnumConst(wireName: '200')
+  static const RoomSetPermissionsPermissions $200 = _$roomSetPermissionsPermissions$200;
+
+  @BuiltValueEnumConst(wireName: '201')
+  static const RoomSetPermissionsPermissions $201 = _$roomSetPermissionsPermissions$201;
+
+  @BuiltValueEnumConst(wireName: '202')
+  static const RoomSetPermissionsPermissions $202 = _$roomSetPermissionsPermissions$202;
+
+  @BuiltValueEnumConst(wireName: '203')
+  static const RoomSetPermissionsPermissions $203 = _$roomSetPermissionsPermissions$203;
+
+  @BuiltValueEnumConst(wireName: '204')
+  static const RoomSetPermissionsPermissions $204 = _$roomSetPermissionsPermissions$204;
+
+  @BuiltValueEnumConst(wireName: '205')
+  static const RoomSetPermissionsPermissions $205 = _$roomSetPermissionsPermissions$205;
+
+  @BuiltValueEnumConst(wireName: '206')
+  static const RoomSetPermissionsPermissions $206 = _$roomSetPermissionsPermissions$206;
+
+  @BuiltValueEnumConst(wireName: '207')
+  static const RoomSetPermissionsPermissions $207 = _$roomSetPermissionsPermissions$207;
+
+  @BuiltValueEnumConst(wireName: '208')
+  static const RoomSetPermissionsPermissions $208 = _$roomSetPermissionsPermissions$208;
+
+  @BuiltValueEnumConst(wireName: '209')
+  static const RoomSetPermissionsPermissions $209 = _$roomSetPermissionsPermissions$209;
+
+  @BuiltValueEnumConst(wireName: '210')
+  static const RoomSetPermissionsPermissions $210 = _$roomSetPermissionsPermissions$210;
+
+  @BuiltValueEnumConst(wireName: '211')
+  static const RoomSetPermissionsPermissions $211 = _$roomSetPermissionsPermissions$211;
+
+  @BuiltValueEnumConst(wireName: '212')
+  static const RoomSetPermissionsPermissions $212 = _$roomSetPermissionsPermissions$212;
+
+  @BuiltValueEnumConst(wireName: '213')
+  static const RoomSetPermissionsPermissions $213 = _$roomSetPermissionsPermissions$213;
+
+  @BuiltValueEnumConst(wireName: '214')
+  static const RoomSetPermissionsPermissions $214 = _$roomSetPermissionsPermissions$214;
+
+  @BuiltValueEnumConst(wireName: '215')
+  static const RoomSetPermissionsPermissions $215 = _$roomSetPermissionsPermissions$215;
+
+  @BuiltValueEnumConst(wireName: '216')
+  static const RoomSetPermissionsPermissions $216 = _$roomSetPermissionsPermissions$216;
+
+  @BuiltValueEnumConst(wireName: '217')
+  static const RoomSetPermissionsPermissions $217 = _$roomSetPermissionsPermissions$217;
+
+  @BuiltValueEnumConst(wireName: '218')
+  static const RoomSetPermissionsPermissions $218 = _$roomSetPermissionsPermissions$218;
+
+  @BuiltValueEnumConst(wireName: '219')
+  static const RoomSetPermissionsPermissions $219 = _$roomSetPermissionsPermissions$219;
+
+  @BuiltValueEnumConst(wireName: '220')
+  static const RoomSetPermissionsPermissions $220 = _$roomSetPermissionsPermissions$220;
+
+  @BuiltValueEnumConst(wireName: '221')
+  static const RoomSetPermissionsPermissions $221 = _$roomSetPermissionsPermissions$221;
+
+  @BuiltValueEnumConst(wireName: '222')
+  static const RoomSetPermissionsPermissions $222 = _$roomSetPermissionsPermissions$222;
+
+  @BuiltValueEnumConst(wireName: '223')
+  static const RoomSetPermissionsPermissions $223 = _$roomSetPermissionsPermissions$223;
+
+  @BuiltValueEnumConst(wireName: '224')
+  static const RoomSetPermissionsPermissions $224 = _$roomSetPermissionsPermissions$224;
+
+  @BuiltValueEnumConst(wireName: '225')
+  static const RoomSetPermissionsPermissions $225 = _$roomSetPermissionsPermissions$225;
+
+  @BuiltValueEnumConst(wireName: '226')
+  static const RoomSetPermissionsPermissions $226 = _$roomSetPermissionsPermissions$226;
+
+  @BuiltValueEnumConst(wireName: '227')
+  static const RoomSetPermissionsPermissions $227 = _$roomSetPermissionsPermissions$227;
+
+  @BuiltValueEnumConst(wireName: '228')
+  static const RoomSetPermissionsPermissions $228 = _$roomSetPermissionsPermissions$228;
+
+  @BuiltValueEnumConst(wireName: '229')
+  static const RoomSetPermissionsPermissions $229 = _$roomSetPermissionsPermissions$229;
+
+  @BuiltValueEnumConst(wireName: '230')
+  static const RoomSetPermissionsPermissions $230 = _$roomSetPermissionsPermissions$230;
+
+  @BuiltValueEnumConst(wireName: '231')
+  static const RoomSetPermissionsPermissions $231 = _$roomSetPermissionsPermissions$231;
+
+  @BuiltValueEnumConst(wireName: '232')
+  static const RoomSetPermissionsPermissions $232 = _$roomSetPermissionsPermissions$232;
+
+  @BuiltValueEnumConst(wireName: '233')
+  static const RoomSetPermissionsPermissions $233 = _$roomSetPermissionsPermissions$233;
+
+  @BuiltValueEnumConst(wireName: '234')
+  static const RoomSetPermissionsPermissions $234 = _$roomSetPermissionsPermissions$234;
+
+  @BuiltValueEnumConst(wireName: '235')
+  static const RoomSetPermissionsPermissions $235 = _$roomSetPermissionsPermissions$235;
+
+  @BuiltValueEnumConst(wireName: '236')
+  static const RoomSetPermissionsPermissions $236 = _$roomSetPermissionsPermissions$236;
+
+  @BuiltValueEnumConst(wireName: '237')
+  static const RoomSetPermissionsPermissions $237 = _$roomSetPermissionsPermissions$237;
+
+  @BuiltValueEnumConst(wireName: '238')
+  static const RoomSetPermissionsPermissions $238 = _$roomSetPermissionsPermissions$238;
+
+  @BuiltValueEnumConst(wireName: '239')
+  static const RoomSetPermissionsPermissions $239 = _$roomSetPermissionsPermissions$239;
+
+  @BuiltValueEnumConst(wireName: '240')
+  static const RoomSetPermissionsPermissions $240 = _$roomSetPermissionsPermissions$240;
+
+  @BuiltValueEnumConst(wireName: '241')
+  static const RoomSetPermissionsPermissions $241 = _$roomSetPermissionsPermissions$241;
+
+  @BuiltValueEnumConst(wireName: '242')
+  static const RoomSetPermissionsPermissions $242 = _$roomSetPermissionsPermissions$242;
+
+  @BuiltValueEnumConst(wireName: '243')
+  static const RoomSetPermissionsPermissions $243 = _$roomSetPermissionsPermissions$243;
+
+  @BuiltValueEnumConst(wireName: '244')
+  static const RoomSetPermissionsPermissions $244 = _$roomSetPermissionsPermissions$244;
+
+  @BuiltValueEnumConst(wireName: '245')
+  static const RoomSetPermissionsPermissions $245 = _$roomSetPermissionsPermissions$245;
+
+  @BuiltValueEnumConst(wireName: '246')
+  static const RoomSetPermissionsPermissions $246 = _$roomSetPermissionsPermissions$246;
+
+  @BuiltValueEnumConst(wireName: '247')
+  static const RoomSetPermissionsPermissions $247 = _$roomSetPermissionsPermissions$247;
+
+  @BuiltValueEnumConst(wireName: '248')
+  static const RoomSetPermissionsPermissions $248 = _$roomSetPermissionsPermissions$248;
+
+  @BuiltValueEnumConst(wireName: '249')
+  static const RoomSetPermissionsPermissions $249 = _$roomSetPermissionsPermissions$249;
+
+  @BuiltValueEnumConst(wireName: '250')
+  static const RoomSetPermissionsPermissions $250 = _$roomSetPermissionsPermissions$250;
+
+  @BuiltValueEnumConst(wireName: '251')
+  static const RoomSetPermissionsPermissions $251 = _$roomSetPermissionsPermissions$251;
+
+  @BuiltValueEnumConst(wireName: '252')
+  static const RoomSetPermissionsPermissions $252 = _$roomSetPermissionsPermissions$252;
+
+  @BuiltValueEnumConst(wireName: '253')
+  static const RoomSetPermissionsPermissions $253 = _$roomSetPermissionsPermissions$253;
+
+  @BuiltValueEnumConst(wireName: '254')
+  static const RoomSetPermissionsPermissions $254 = _$roomSetPermissionsPermissions$254;
+
+  @BuiltValueEnumConst(wireName: '255')
+  static const RoomSetPermissionsPermissions $255 = _$roomSetPermissionsPermissions$255;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetPermissionsPermissions> get values => _$roomSetPermissionsPermissionsValues;
+  // coverage:ignore-end
+
+  static RoomSetPermissionsPermissions valueOf(String name) => _$valueOfRoomSetPermissionsPermissions(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetPermissionsPermissions> get serializer => const _$RoomSetPermissionsPermissionsSerializer();
+}
+
+class _$RoomSetPermissionsPermissionsSerializer implements PrimitiveSerializer<RoomSetPermissionsPermissions> {
+  const _$RoomSetPermissionsPermissionsSerializer();
+
+  static const Map<RoomSetPermissionsPermissions, Object> _toWire = <RoomSetPermissionsPermissions, Object>{
+    RoomSetPermissionsPermissions.$0: 0,
+    RoomSetPermissionsPermissions.$1: 1,
+    RoomSetPermissionsPermissions.$2: 2,
+    RoomSetPermissionsPermissions.$3: 3,
+    RoomSetPermissionsPermissions.$4: 4,
+    RoomSetPermissionsPermissions.$5: 5,
+    RoomSetPermissionsPermissions.$6: 6,
+    RoomSetPermissionsPermissions.$7: 7,
+    RoomSetPermissionsPermissions.$8: 8,
+    RoomSetPermissionsPermissions.$9: 9,
+    RoomSetPermissionsPermissions.$10: 10,
+    RoomSetPermissionsPermissions.$11: 11,
+    RoomSetPermissionsPermissions.$12: 12,
+    RoomSetPermissionsPermissions.$13: 13,
+    RoomSetPermissionsPermissions.$14: 14,
+    RoomSetPermissionsPermissions.$15: 15,
+    RoomSetPermissionsPermissions.$16: 16,
+    RoomSetPermissionsPermissions.$17: 17,
+    RoomSetPermissionsPermissions.$18: 18,
+    RoomSetPermissionsPermissions.$19: 19,
+    RoomSetPermissionsPermissions.$20: 20,
+    RoomSetPermissionsPermissions.$21: 21,
+    RoomSetPermissionsPermissions.$22: 22,
+    RoomSetPermissionsPermissions.$23: 23,
+    RoomSetPermissionsPermissions.$24: 24,
+    RoomSetPermissionsPermissions.$25: 25,
+    RoomSetPermissionsPermissions.$26: 26,
+    RoomSetPermissionsPermissions.$27: 27,
+    RoomSetPermissionsPermissions.$28: 28,
+    RoomSetPermissionsPermissions.$29: 29,
+    RoomSetPermissionsPermissions.$30: 30,
+    RoomSetPermissionsPermissions.$31: 31,
+    RoomSetPermissionsPermissions.$32: 32,
+    RoomSetPermissionsPermissions.$33: 33,
+    RoomSetPermissionsPermissions.$34: 34,
+    RoomSetPermissionsPermissions.$35: 35,
+    RoomSetPermissionsPermissions.$36: 36,
+    RoomSetPermissionsPermissions.$37: 37,
+    RoomSetPermissionsPermissions.$38: 38,
+    RoomSetPermissionsPermissions.$39: 39,
+    RoomSetPermissionsPermissions.$40: 40,
+    RoomSetPermissionsPermissions.$41: 41,
+    RoomSetPermissionsPermissions.$42: 42,
+    RoomSetPermissionsPermissions.$43: 43,
+    RoomSetPermissionsPermissions.$44: 44,
+    RoomSetPermissionsPermissions.$45: 45,
+    RoomSetPermissionsPermissions.$46: 46,
+    RoomSetPermissionsPermissions.$47: 47,
+    RoomSetPermissionsPermissions.$48: 48,
+    RoomSetPermissionsPermissions.$49: 49,
+    RoomSetPermissionsPermissions.$50: 50,
+    RoomSetPermissionsPermissions.$51: 51,
+    RoomSetPermissionsPermissions.$52: 52,
+    RoomSetPermissionsPermissions.$53: 53,
+    RoomSetPermissionsPermissions.$54: 54,
+    RoomSetPermissionsPermissions.$55: 55,
+    RoomSetPermissionsPermissions.$56: 56,
+    RoomSetPermissionsPermissions.$57: 57,
+    RoomSetPermissionsPermissions.$58: 58,
+    RoomSetPermissionsPermissions.$59: 59,
+    RoomSetPermissionsPermissions.$60: 60,
+    RoomSetPermissionsPermissions.$61: 61,
+    RoomSetPermissionsPermissions.$62: 62,
+    RoomSetPermissionsPermissions.$63: 63,
+    RoomSetPermissionsPermissions.$64: 64,
+    RoomSetPermissionsPermissions.$65: 65,
+    RoomSetPermissionsPermissions.$66: 66,
+    RoomSetPermissionsPermissions.$67: 67,
+    RoomSetPermissionsPermissions.$68: 68,
+    RoomSetPermissionsPermissions.$69: 69,
+    RoomSetPermissionsPermissions.$70: 70,
+    RoomSetPermissionsPermissions.$71: 71,
+    RoomSetPermissionsPermissions.$72: 72,
+    RoomSetPermissionsPermissions.$73: 73,
+    RoomSetPermissionsPermissions.$74: 74,
+    RoomSetPermissionsPermissions.$75: 75,
+    RoomSetPermissionsPermissions.$76: 76,
+    RoomSetPermissionsPermissions.$77: 77,
+    RoomSetPermissionsPermissions.$78: 78,
+    RoomSetPermissionsPermissions.$79: 79,
+    RoomSetPermissionsPermissions.$80: 80,
+    RoomSetPermissionsPermissions.$81: 81,
+    RoomSetPermissionsPermissions.$82: 82,
+    RoomSetPermissionsPermissions.$83: 83,
+    RoomSetPermissionsPermissions.$84: 84,
+    RoomSetPermissionsPermissions.$85: 85,
+    RoomSetPermissionsPermissions.$86: 86,
+    RoomSetPermissionsPermissions.$87: 87,
+    RoomSetPermissionsPermissions.$88: 88,
+    RoomSetPermissionsPermissions.$89: 89,
+    RoomSetPermissionsPermissions.$90: 90,
+    RoomSetPermissionsPermissions.$91: 91,
+    RoomSetPermissionsPermissions.$92: 92,
+    RoomSetPermissionsPermissions.$93: 93,
+    RoomSetPermissionsPermissions.$94: 94,
+    RoomSetPermissionsPermissions.$95: 95,
+    RoomSetPermissionsPermissions.$96: 96,
+    RoomSetPermissionsPermissions.$97: 97,
+    RoomSetPermissionsPermissions.$98: 98,
+    RoomSetPermissionsPermissions.$99: 99,
+    RoomSetPermissionsPermissions.$100: 100,
+    RoomSetPermissionsPermissions.$101: 101,
+    RoomSetPermissionsPermissions.$102: 102,
+    RoomSetPermissionsPermissions.$103: 103,
+    RoomSetPermissionsPermissions.$104: 104,
+    RoomSetPermissionsPermissions.$105: 105,
+    RoomSetPermissionsPermissions.$106: 106,
+    RoomSetPermissionsPermissions.$107: 107,
+    RoomSetPermissionsPermissions.$108: 108,
+    RoomSetPermissionsPermissions.$109: 109,
+    RoomSetPermissionsPermissions.$110: 110,
+    RoomSetPermissionsPermissions.$111: 111,
+    RoomSetPermissionsPermissions.$112: 112,
+    RoomSetPermissionsPermissions.$113: 113,
+    RoomSetPermissionsPermissions.$114: 114,
+    RoomSetPermissionsPermissions.$115: 115,
+    RoomSetPermissionsPermissions.$116: 116,
+    RoomSetPermissionsPermissions.$117: 117,
+    RoomSetPermissionsPermissions.$118: 118,
+    RoomSetPermissionsPermissions.$119: 119,
+    RoomSetPermissionsPermissions.$120: 120,
+    RoomSetPermissionsPermissions.$121: 121,
+    RoomSetPermissionsPermissions.$122: 122,
+    RoomSetPermissionsPermissions.$123: 123,
+    RoomSetPermissionsPermissions.$124: 124,
+    RoomSetPermissionsPermissions.$125: 125,
+    RoomSetPermissionsPermissions.$126: 126,
+    RoomSetPermissionsPermissions.$127: 127,
+    RoomSetPermissionsPermissions.$128: 128,
+    RoomSetPermissionsPermissions.$129: 129,
+    RoomSetPermissionsPermissions.$130: 130,
+    RoomSetPermissionsPermissions.$131: 131,
+    RoomSetPermissionsPermissions.$132: 132,
+    RoomSetPermissionsPermissions.$133: 133,
+    RoomSetPermissionsPermissions.$134: 134,
+    RoomSetPermissionsPermissions.$135: 135,
+    RoomSetPermissionsPermissions.$136: 136,
+    RoomSetPermissionsPermissions.$137: 137,
+    RoomSetPermissionsPermissions.$138: 138,
+    RoomSetPermissionsPermissions.$139: 139,
+    RoomSetPermissionsPermissions.$140: 140,
+    RoomSetPermissionsPermissions.$141: 141,
+    RoomSetPermissionsPermissions.$142: 142,
+    RoomSetPermissionsPermissions.$143: 143,
+    RoomSetPermissionsPermissions.$144: 144,
+    RoomSetPermissionsPermissions.$145: 145,
+    RoomSetPermissionsPermissions.$146: 146,
+    RoomSetPermissionsPermissions.$147: 147,
+    RoomSetPermissionsPermissions.$148: 148,
+    RoomSetPermissionsPermissions.$149: 149,
+    RoomSetPermissionsPermissions.$150: 150,
+    RoomSetPermissionsPermissions.$151: 151,
+    RoomSetPermissionsPermissions.$152: 152,
+    RoomSetPermissionsPermissions.$153: 153,
+    RoomSetPermissionsPermissions.$154: 154,
+    RoomSetPermissionsPermissions.$155: 155,
+    RoomSetPermissionsPermissions.$156: 156,
+    RoomSetPermissionsPermissions.$157: 157,
+    RoomSetPermissionsPermissions.$158: 158,
+    RoomSetPermissionsPermissions.$159: 159,
+    RoomSetPermissionsPermissions.$160: 160,
+    RoomSetPermissionsPermissions.$161: 161,
+    RoomSetPermissionsPermissions.$162: 162,
+    RoomSetPermissionsPermissions.$163: 163,
+    RoomSetPermissionsPermissions.$164: 164,
+    RoomSetPermissionsPermissions.$165: 165,
+    RoomSetPermissionsPermissions.$166: 166,
+    RoomSetPermissionsPermissions.$167: 167,
+    RoomSetPermissionsPermissions.$168: 168,
+    RoomSetPermissionsPermissions.$169: 169,
+    RoomSetPermissionsPermissions.$170: 170,
+    RoomSetPermissionsPermissions.$171: 171,
+    RoomSetPermissionsPermissions.$172: 172,
+    RoomSetPermissionsPermissions.$173: 173,
+    RoomSetPermissionsPermissions.$174: 174,
+    RoomSetPermissionsPermissions.$175: 175,
+    RoomSetPermissionsPermissions.$176: 176,
+    RoomSetPermissionsPermissions.$177: 177,
+    RoomSetPermissionsPermissions.$178: 178,
+    RoomSetPermissionsPermissions.$179: 179,
+    RoomSetPermissionsPermissions.$180: 180,
+    RoomSetPermissionsPermissions.$181: 181,
+    RoomSetPermissionsPermissions.$182: 182,
+    RoomSetPermissionsPermissions.$183: 183,
+    RoomSetPermissionsPermissions.$184: 184,
+    RoomSetPermissionsPermissions.$185: 185,
+    RoomSetPermissionsPermissions.$186: 186,
+    RoomSetPermissionsPermissions.$187: 187,
+    RoomSetPermissionsPermissions.$188: 188,
+    RoomSetPermissionsPermissions.$189: 189,
+    RoomSetPermissionsPermissions.$190: 190,
+    RoomSetPermissionsPermissions.$191: 191,
+    RoomSetPermissionsPermissions.$192: 192,
+    RoomSetPermissionsPermissions.$193: 193,
+    RoomSetPermissionsPermissions.$194: 194,
+    RoomSetPermissionsPermissions.$195: 195,
+    RoomSetPermissionsPermissions.$196: 196,
+    RoomSetPermissionsPermissions.$197: 197,
+    RoomSetPermissionsPermissions.$198: 198,
+    RoomSetPermissionsPermissions.$199: 199,
+    RoomSetPermissionsPermissions.$200: 200,
+    RoomSetPermissionsPermissions.$201: 201,
+    RoomSetPermissionsPermissions.$202: 202,
+    RoomSetPermissionsPermissions.$203: 203,
+    RoomSetPermissionsPermissions.$204: 204,
+    RoomSetPermissionsPermissions.$205: 205,
+    RoomSetPermissionsPermissions.$206: 206,
+    RoomSetPermissionsPermissions.$207: 207,
+    RoomSetPermissionsPermissions.$208: 208,
+    RoomSetPermissionsPermissions.$209: 209,
+    RoomSetPermissionsPermissions.$210: 210,
+    RoomSetPermissionsPermissions.$211: 211,
+    RoomSetPermissionsPermissions.$212: 212,
+    RoomSetPermissionsPermissions.$213: 213,
+    RoomSetPermissionsPermissions.$214: 214,
+    RoomSetPermissionsPermissions.$215: 215,
+    RoomSetPermissionsPermissions.$216: 216,
+    RoomSetPermissionsPermissions.$217: 217,
+    RoomSetPermissionsPermissions.$218: 218,
+    RoomSetPermissionsPermissions.$219: 219,
+    RoomSetPermissionsPermissions.$220: 220,
+    RoomSetPermissionsPermissions.$221: 221,
+    RoomSetPermissionsPermissions.$222: 222,
+    RoomSetPermissionsPermissions.$223: 223,
+    RoomSetPermissionsPermissions.$224: 224,
+    RoomSetPermissionsPermissions.$225: 225,
+    RoomSetPermissionsPermissions.$226: 226,
+    RoomSetPermissionsPermissions.$227: 227,
+    RoomSetPermissionsPermissions.$228: 228,
+    RoomSetPermissionsPermissions.$229: 229,
+    RoomSetPermissionsPermissions.$230: 230,
+    RoomSetPermissionsPermissions.$231: 231,
+    RoomSetPermissionsPermissions.$232: 232,
+    RoomSetPermissionsPermissions.$233: 233,
+    RoomSetPermissionsPermissions.$234: 234,
+    RoomSetPermissionsPermissions.$235: 235,
+    RoomSetPermissionsPermissions.$236: 236,
+    RoomSetPermissionsPermissions.$237: 237,
+    RoomSetPermissionsPermissions.$238: 238,
+    RoomSetPermissionsPermissions.$239: 239,
+    RoomSetPermissionsPermissions.$240: 240,
+    RoomSetPermissionsPermissions.$241: 241,
+    RoomSetPermissionsPermissions.$242: 242,
+    RoomSetPermissionsPermissions.$243: 243,
+    RoomSetPermissionsPermissions.$244: 244,
+    RoomSetPermissionsPermissions.$245: 245,
+    RoomSetPermissionsPermissions.$246: 246,
+    RoomSetPermissionsPermissions.$247: 247,
+    RoomSetPermissionsPermissions.$248: 248,
+    RoomSetPermissionsPermissions.$249: 249,
+    RoomSetPermissionsPermissions.$250: 250,
+    RoomSetPermissionsPermissions.$251: 251,
+    RoomSetPermissionsPermissions.$252: 252,
+    RoomSetPermissionsPermissions.$253: 253,
+    RoomSetPermissionsPermissions.$254: 254,
+    RoomSetPermissionsPermissions.$255: 255,
+  };
+
+  static const Map<Object, RoomSetPermissionsPermissions> _fromWire = <Object, RoomSetPermissionsPermissions>{
+    0: RoomSetPermissionsPermissions.$0,
+    1: RoomSetPermissionsPermissions.$1,
+    2: RoomSetPermissionsPermissions.$2,
+    3: RoomSetPermissionsPermissions.$3,
+    4: RoomSetPermissionsPermissions.$4,
+    5: RoomSetPermissionsPermissions.$5,
+    6: RoomSetPermissionsPermissions.$6,
+    7: RoomSetPermissionsPermissions.$7,
+    8: RoomSetPermissionsPermissions.$8,
+    9: RoomSetPermissionsPermissions.$9,
+    10: RoomSetPermissionsPermissions.$10,
+    11: RoomSetPermissionsPermissions.$11,
+    12: RoomSetPermissionsPermissions.$12,
+    13: RoomSetPermissionsPermissions.$13,
+    14: RoomSetPermissionsPermissions.$14,
+    15: RoomSetPermissionsPermissions.$15,
+    16: RoomSetPermissionsPermissions.$16,
+    17: RoomSetPermissionsPermissions.$17,
+    18: RoomSetPermissionsPermissions.$18,
+    19: RoomSetPermissionsPermissions.$19,
+    20: RoomSetPermissionsPermissions.$20,
+    21: RoomSetPermissionsPermissions.$21,
+    22: RoomSetPermissionsPermissions.$22,
+    23: RoomSetPermissionsPermissions.$23,
+    24: RoomSetPermissionsPermissions.$24,
+    25: RoomSetPermissionsPermissions.$25,
+    26: RoomSetPermissionsPermissions.$26,
+    27: RoomSetPermissionsPermissions.$27,
+    28: RoomSetPermissionsPermissions.$28,
+    29: RoomSetPermissionsPermissions.$29,
+    30: RoomSetPermissionsPermissions.$30,
+    31: RoomSetPermissionsPermissions.$31,
+    32: RoomSetPermissionsPermissions.$32,
+    33: RoomSetPermissionsPermissions.$33,
+    34: RoomSetPermissionsPermissions.$34,
+    35: RoomSetPermissionsPermissions.$35,
+    36: RoomSetPermissionsPermissions.$36,
+    37: RoomSetPermissionsPermissions.$37,
+    38: RoomSetPermissionsPermissions.$38,
+    39: RoomSetPermissionsPermissions.$39,
+    40: RoomSetPermissionsPermissions.$40,
+    41: RoomSetPermissionsPermissions.$41,
+    42: RoomSetPermissionsPermissions.$42,
+    43: RoomSetPermissionsPermissions.$43,
+    44: RoomSetPermissionsPermissions.$44,
+    45: RoomSetPermissionsPermissions.$45,
+    46: RoomSetPermissionsPermissions.$46,
+    47: RoomSetPermissionsPermissions.$47,
+    48: RoomSetPermissionsPermissions.$48,
+    49: RoomSetPermissionsPermissions.$49,
+    50: RoomSetPermissionsPermissions.$50,
+    51: RoomSetPermissionsPermissions.$51,
+    52: RoomSetPermissionsPermissions.$52,
+    53: RoomSetPermissionsPermissions.$53,
+    54: RoomSetPermissionsPermissions.$54,
+    55: RoomSetPermissionsPermissions.$55,
+    56: RoomSetPermissionsPermissions.$56,
+    57: RoomSetPermissionsPermissions.$57,
+    58: RoomSetPermissionsPermissions.$58,
+    59: RoomSetPermissionsPermissions.$59,
+    60: RoomSetPermissionsPermissions.$60,
+    61: RoomSetPermissionsPermissions.$61,
+    62: RoomSetPermissionsPermissions.$62,
+    63: RoomSetPermissionsPermissions.$63,
+    64: RoomSetPermissionsPermissions.$64,
+    65: RoomSetPermissionsPermissions.$65,
+    66: RoomSetPermissionsPermissions.$66,
+    67: RoomSetPermissionsPermissions.$67,
+    68: RoomSetPermissionsPermissions.$68,
+    69: RoomSetPermissionsPermissions.$69,
+    70: RoomSetPermissionsPermissions.$70,
+    71: RoomSetPermissionsPermissions.$71,
+    72: RoomSetPermissionsPermissions.$72,
+    73: RoomSetPermissionsPermissions.$73,
+    74: RoomSetPermissionsPermissions.$74,
+    75: RoomSetPermissionsPermissions.$75,
+    76: RoomSetPermissionsPermissions.$76,
+    77: RoomSetPermissionsPermissions.$77,
+    78: RoomSetPermissionsPermissions.$78,
+    79: RoomSetPermissionsPermissions.$79,
+    80: RoomSetPermissionsPermissions.$80,
+    81: RoomSetPermissionsPermissions.$81,
+    82: RoomSetPermissionsPermissions.$82,
+    83: RoomSetPermissionsPermissions.$83,
+    84: RoomSetPermissionsPermissions.$84,
+    85: RoomSetPermissionsPermissions.$85,
+    86: RoomSetPermissionsPermissions.$86,
+    87: RoomSetPermissionsPermissions.$87,
+    88: RoomSetPermissionsPermissions.$88,
+    89: RoomSetPermissionsPermissions.$89,
+    90: RoomSetPermissionsPermissions.$90,
+    91: RoomSetPermissionsPermissions.$91,
+    92: RoomSetPermissionsPermissions.$92,
+    93: RoomSetPermissionsPermissions.$93,
+    94: RoomSetPermissionsPermissions.$94,
+    95: RoomSetPermissionsPermissions.$95,
+    96: RoomSetPermissionsPermissions.$96,
+    97: RoomSetPermissionsPermissions.$97,
+    98: RoomSetPermissionsPermissions.$98,
+    99: RoomSetPermissionsPermissions.$99,
+    100: RoomSetPermissionsPermissions.$100,
+    101: RoomSetPermissionsPermissions.$101,
+    102: RoomSetPermissionsPermissions.$102,
+    103: RoomSetPermissionsPermissions.$103,
+    104: RoomSetPermissionsPermissions.$104,
+    105: RoomSetPermissionsPermissions.$105,
+    106: RoomSetPermissionsPermissions.$106,
+    107: RoomSetPermissionsPermissions.$107,
+    108: RoomSetPermissionsPermissions.$108,
+    109: RoomSetPermissionsPermissions.$109,
+    110: RoomSetPermissionsPermissions.$110,
+    111: RoomSetPermissionsPermissions.$111,
+    112: RoomSetPermissionsPermissions.$112,
+    113: RoomSetPermissionsPermissions.$113,
+    114: RoomSetPermissionsPermissions.$114,
+    115: RoomSetPermissionsPermissions.$115,
+    116: RoomSetPermissionsPermissions.$116,
+    117: RoomSetPermissionsPermissions.$117,
+    118: RoomSetPermissionsPermissions.$118,
+    119: RoomSetPermissionsPermissions.$119,
+    120: RoomSetPermissionsPermissions.$120,
+    121: RoomSetPermissionsPermissions.$121,
+    122: RoomSetPermissionsPermissions.$122,
+    123: RoomSetPermissionsPermissions.$123,
+    124: RoomSetPermissionsPermissions.$124,
+    125: RoomSetPermissionsPermissions.$125,
+    126: RoomSetPermissionsPermissions.$126,
+    127: RoomSetPermissionsPermissions.$127,
+    128: RoomSetPermissionsPermissions.$128,
+    129: RoomSetPermissionsPermissions.$129,
+    130: RoomSetPermissionsPermissions.$130,
+    131: RoomSetPermissionsPermissions.$131,
+    132: RoomSetPermissionsPermissions.$132,
+    133: RoomSetPermissionsPermissions.$133,
+    134: RoomSetPermissionsPermissions.$134,
+    135: RoomSetPermissionsPermissions.$135,
+    136: RoomSetPermissionsPermissions.$136,
+    137: RoomSetPermissionsPermissions.$137,
+    138: RoomSetPermissionsPermissions.$138,
+    139: RoomSetPermissionsPermissions.$139,
+    140: RoomSetPermissionsPermissions.$140,
+    141: RoomSetPermissionsPermissions.$141,
+    142: RoomSetPermissionsPermissions.$142,
+    143: RoomSetPermissionsPermissions.$143,
+    144: RoomSetPermissionsPermissions.$144,
+    145: RoomSetPermissionsPermissions.$145,
+    146: RoomSetPermissionsPermissions.$146,
+    147: RoomSetPermissionsPermissions.$147,
+    148: RoomSetPermissionsPermissions.$148,
+    149: RoomSetPermissionsPermissions.$149,
+    150: RoomSetPermissionsPermissions.$150,
+    151: RoomSetPermissionsPermissions.$151,
+    152: RoomSetPermissionsPermissions.$152,
+    153: RoomSetPermissionsPermissions.$153,
+    154: RoomSetPermissionsPermissions.$154,
+    155: RoomSetPermissionsPermissions.$155,
+    156: RoomSetPermissionsPermissions.$156,
+    157: RoomSetPermissionsPermissions.$157,
+    158: RoomSetPermissionsPermissions.$158,
+    159: RoomSetPermissionsPermissions.$159,
+    160: RoomSetPermissionsPermissions.$160,
+    161: RoomSetPermissionsPermissions.$161,
+    162: RoomSetPermissionsPermissions.$162,
+    163: RoomSetPermissionsPermissions.$163,
+    164: RoomSetPermissionsPermissions.$164,
+    165: RoomSetPermissionsPermissions.$165,
+    166: RoomSetPermissionsPermissions.$166,
+    167: RoomSetPermissionsPermissions.$167,
+    168: RoomSetPermissionsPermissions.$168,
+    169: RoomSetPermissionsPermissions.$169,
+    170: RoomSetPermissionsPermissions.$170,
+    171: RoomSetPermissionsPermissions.$171,
+    172: RoomSetPermissionsPermissions.$172,
+    173: RoomSetPermissionsPermissions.$173,
+    174: RoomSetPermissionsPermissions.$174,
+    175: RoomSetPermissionsPermissions.$175,
+    176: RoomSetPermissionsPermissions.$176,
+    177: RoomSetPermissionsPermissions.$177,
+    178: RoomSetPermissionsPermissions.$178,
+    179: RoomSetPermissionsPermissions.$179,
+    180: RoomSetPermissionsPermissions.$180,
+    181: RoomSetPermissionsPermissions.$181,
+    182: RoomSetPermissionsPermissions.$182,
+    183: RoomSetPermissionsPermissions.$183,
+    184: RoomSetPermissionsPermissions.$184,
+    185: RoomSetPermissionsPermissions.$185,
+    186: RoomSetPermissionsPermissions.$186,
+    187: RoomSetPermissionsPermissions.$187,
+    188: RoomSetPermissionsPermissions.$188,
+    189: RoomSetPermissionsPermissions.$189,
+    190: RoomSetPermissionsPermissions.$190,
+    191: RoomSetPermissionsPermissions.$191,
+    192: RoomSetPermissionsPermissions.$192,
+    193: RoomSetPermissionsPermissions.$193,
+    194: RoomSetPermissionsPermissions.$194,
+    195: RoomSetPermissionsPermissions.$195,
+    196: RoomSetPermissionsPermissions.$196,
+    197: RoomSetPermissionsPermissions.$197,
+    198: RoomSetPermissionsPermissions.$198,
+    199: RoomSetPermissionsPermissions.$199,
+    200: RoomSetPermissionsPermissions.$200,
+    201: RoomSetPermissionsPermissions.$201,
+    202: RoomSetPermissionsPermissions.$202,
+    203: RoomSetPermissionsPermissions.$203,
+    204: RoomSetPermissionsPermissions.$204,
+    205: RoomSetPermissionsPermissions.$205,
+    206: RoomSetPermissionsPermissions.$206,
+    207: RoomSetPermissionsPermissions.$207,
+    208: RoomSetPermissionsPermissions.$208,
+    209: RoomSetPermissionsPermissions.$209,
+    210: RoomSetPermissionsPermissions.$210,
+    211: RoomSetPermissionsPermissions.$211,
+    212: RoomSetPermissionsPermissions.$212,
+    213: RoomSetPermissionsPermissions.$213,
+    214: RoomSetPermissionsPermissions.$214,
+    215: RoomSetPermissionsPermissions.$215,
+    216: RoomSetPermissionsPermissions.$216,
+    217: RoomSetPermissionsPermissions.$217,
+    218: RoomSetPermissionsPermissions.$218,
+    219: RoomSetPermissionsPermissions.$219,
+    220: RoomSetPermissionsPermissions.$220,
+    221: RoomSetPermissionsPermissions.$221,
+    222: RoomSetPermissionsPermissions.$222,
+    223: RoomSetPermissionsPermissions.$223,
+    224: RoomSetPermissionsPermissions.$224,
+    225: RoomSetPermissionsPermissions.$225,
+    226: RoomSetPermissionsPermissions.$226,
+    227: RoomSetPermissionsPermissions.$227,
+    228: RoomSetPermissionsPermissions.$228,
+    229: RoomSetPermissionsPermissions.$229,
+    230: RoomSetPermissionsPermissions.$230,
+    231: RoomSetPermissionsPermissions.$231,
+    232: RoomSetPermissionsPermissions.$232,
+    233: RoomSetPermissionsPermissions.$233,
+    234: RoomSetPermissionsPermissions.$234,
+    235: RoomSetPermissionsPermissions.$235,
+    236: RoomSetPermissionsPermissions.$236,
+    237: RoomSetPermissionsPermissions.$237,
+    238: RoomSetPermissionsPermissions.$238,
+    239: RoomSetPermissionsPermissions.$239,
+    240: RoomSetPermissionsPermissions.$240,
+    241: RoomSetPermissionsPermissions.$241,
+    242: RoomSetPermissionsPermissions.$242,
+    243: RoomSetPermissionsPermissions.$243,
+    244: RoomSetPermissionsPermissions.$244,
+    245: RoomSetPermissionsPermissions.$245,
+    246: RoomSetPermissionsPermissions.$246,
+    247: RoomSetPermissionsPermissions.$247,
+    248: RoomSetPermissionsPermissions.$248,
+    249: RoomSetPermissionsPermissions.$249,
+    250: RoomSetPermissionsPermissions.$250,
+    251: RoomSetPermissionsPermissions.$251,
+    252: RoomSetPermissionsPermissions.$252,
+    253: RoomSetPermissionsPermissions.$253,
+    254: RoomSetPermissionsPermissions.$254,
+    255: RoomSetPermissionsPermissions.$255,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetPermissionsPermissions];
+
+  @override
+  String get wireName => 'RoomSetPermissionsPermissions';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetPermissionsPermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetPermissionsPermissions deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RoomSetPermissionsMode extends EnumClass {
+  const RoomSetPermissionsMode._(super.name);
+
+  static const RoomSetPermissionsMode call = _$roomSetPermissionsModeCall;
+
+  @BuiltValueEnumConst(wireName: 'default')
+  static const RoomSetPermissionsMode $default = _$roomSetPermissionsMode$default;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetPermissionsMode> get values => _$roomSetPermissionsModeValues;
+  // coverage:ignore-end
+
+  static RoomSetPermissionsMode valueOf(String name) => _$valueOfRoomSetPermissionsMode(name);
+
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetPermissionsMode> get serializer => const _$RoomSetPermissionsModeSerializer();
+}
+
+class _$RoomSetPermissionsModeSerializer implements PrimitiveSerializer<RoomSetPermissionsMode> {
+  const _$RoomSetPermissionsModeSerializer();
+
+  static const Map<RoomSetPermissionsMode, Object> _toWire = <RoomSetPermissionsMode, Object>{
+    RoomSetPermissionsMode.call: 'call',
+    RoomSetPermissionsMode.$default: 'default',
+  };
+
+  static const Map<Object, RoomSetPermissionsMode> _fromWire = <Object, RoomSetPermissionsMode>{
+    'call': RoomSetPermissionsMode.call,
+    'default': RoomSetPermissionsMode.$default,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetPermissionsMode];
+
+  @override
+  String get wireName => 'RoomSetPermissionsMode';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetPermissionsMode object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetPermissionsMode deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomSetPermissionsApiVersion extends EnumClass {
@@ -24032,6 +26806,78 @@ abstract class RoomGetParticipantsResponseApplicationJson
 
   static Serializer<RoomGetParticipantsResponseApplicationJson> get serializer =>
       _$roomGetParticipantsResponseApplicationJsonSerializer;
+}
+
+class RoomAddParticipantToRoomSource extends EnumClass {
+  const RoomAddParticipantToRoomSource._(super.name);
+
+  static const RoomAddParticipantToRoomSource users = _$roomAddParticipantToRoomSourceUsers;
+
+  static const RoomAddParticipantToRoomSource groups = _$roomAddParticipantToRoomSourceGroups;
+
+  static const RoomAddParticipantToRoomSource circles = _$roomAddParticipantToRoomSourceCircles;
+
+  static const RoomAddParticipantToRoomSource emails = _$roomAddParticipantToRoomSourceEmails;
+
+  static const RoomAddParticipantToRoomSource remotes = _$roomAddParticipantToRoomSourceRemotes;
+
+  static const RoomAddParticipantToRoomSource phones = _$roomAddParticipantToRoomSourcePhones;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomAddParticipantToRoomSource> get values => _$roomAddParticipantToRoomSourceValues;
+  // coverage:ignore-end
+
+  static RoomAddParticipantToRoomSource valueOf(String name) => _$valueOfRoomAddParticipantToRoomSource(name);
+
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomAddParticipantToRoomSource> get serializer =>
+      const _$RoomAddParticipantToRoomSourceSerializer();
+}
+
+class _$RoomAddParticipantToRoomSourceSerializer implements PrimitiveSerializer<RoomAddParticipantToRoomSource> {
+  const _$RoomAddParticipantToRoomSourceSerializer();
+
+  static const Map<RoomAddParticipantToRoomSource, Object> _toWire = <RoomAddParticipantToRoomSource, Object>{
+    RoomAddParticipantToRoomSource.users: 'users',
+    RoomAddParticipantToRoomSource.groups: 'groups',
+    RoomAddParticipantToRoomSource.circles: 'circles',
+    RoomAddParticipantToRoomSource.emails: 'emails',
+    RoomAddParticipantToRoomSource.remotes: 'remotes',
+    RoomAddParticipantToRoomSource.phones: 'phones',
+  };
+
+  static const Map<Object, RoomAddParticipantToRoomSource> _fromWire = <Object, RoomAddParticipantToRoomSource>{
+    'users': RoomAddParticipantToRoomSource.users,
+    'groups': RoomAddParticipantToRoomSource.groups,
+    'circles': RoomAddParticipantToRoomSource.circles,
+    'emails': RoomAddParticipantToRoomSource.emails,
+    'remotes': RoomAddParticipantToRoomSource.remotes,
+    'phones': RoomAddParticipantToRoomSource.phones,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomAddParticipantToRoomSource];
+
+  @override
+  String get wireName => 'RoomAddParticipantToRoomSource';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomAddParticipantToRoomSource object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomAddParticipantToRoomSource deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomAddParticipantToRoomApiVersion extends EnumClass {
@@ -24569,6 +27415,1399 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
       _$roomRemoveAttendeeFromRoomResponseApplicationJsonSerializer;
 }
 
+class RoomSetAttendeePermissionsMethod extends EnumClass {
+  const RoomSetAttendeePermissionsMethod._(super.name);
+
+  @BuiltValueEnumConst(wireName: 'set')
+  static const RoomSetAttendeePermissionsMethod $set = _$roomSetAttendeePermissionsMethod$set;
+
+  static const RoomSetAttendeePermissionsMethod remove = _$roomSetAttendeePermissionsMethodRemove;
+
+  static const RoomSetAttendeePermissionsMethod add = _$roomSetAttendeePermissionsMethodAdd;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetAttendeePermissionsMethod> get values => _$roomSetAttendeePermissionsMethodValues;
+  // coverage:ignore-end
+
+  static RoomSetAttendeePermissionsMethod valueOf(String name) => _$valueOfRoomSetAttendeePermissionsMethod(name);
+
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetAttendeePermissionsMethod> get serializer =>
+      const _$RoomSetAttendeePermissionsMethodSerializer();
+}
+
+class _$RoomSetAttendeePermissionsMethodSerializer implements PrimitiveSerializer<RoomSetAttendeePermissionsMethod> {
+  const _$RoomSetAttendeePermissionsMethodSerializer();
+
+  static const Map<RoomSetAttendeePermissionsMethod, Object> _toWire = <RoomSetAttendeePermissionsMethod, Object>{
+    RoomSetAttendeePermissionsMethod.$set: 'set',
+    RoomSetAttendeePermissionsMethod.remove: 'remove',
+    RoomSetAttendeePermissionsMethod.add: 'add',
+  };
+
+  static const Map<Object, RoomSetAttendeePermissionsMethod> _fromWire = <Object, RoomSetAttendeePermissionsMethod>{
+    'set': RoomSetAttendeePermissionsMethod.$set,
+    'remove': RoomSetAttendeePermissionsMethod.remove,
+    'add': RoomSetAttendeePermissionsMethod.add,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAttendeePermissionsMethod];
+
+  @override
+  String get wireName => 'RoomSetAttendeePermissionsMethod';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAttendeePermissionsMethod object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAttendeePermissionsMethod deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RoomSetAttendeePermissionsPermissions extends EnumClass {
+  const RoomSetAttendeePermissionsPermissions._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetAttendeePermissionsPermissions $0 = _$roomSetAttendeePermissionsPermissions$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetAttendeePermissionsPermissions $1 = _$roomSetAttendeePermissionsPermissions$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const RoomSetAttendeePermissionsPermissions $2 = _$roomSetAttendeePermissionsPermissions$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const RoomSetAttendeePermissionsPermissions $3 = _$roomSetAttendeePermissionsPermissions$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const RoomSetAttendeePermissionsPermissions $4 = _$roomSetAttendeePermissionsPermissions$4;
+
+  @BuiltValueEnumConst(wireName: '5')
+  static const RoomSetAttendeePermissionsPermissions $5 = _$roomSetAttendeePermissionsPermissions$5;
+
+  @BuiltValueEnumConst(wireName: '6')
+  static const RoomSetAttendeePermissionsPermissions $6 = _$roomSetAttendeePermissionsPermissions$6;
+
+  @BuiltValueEnumConst(wireName: '7')
+  static const RoomSetAttendeePermissionsPermissions $7 = _$roomSetAttendeePermissionsPermissions$7;
+
+  @BuiltValueEnumConst(wireName: '8')
+  static const RoomSetAttendeePermissionsPermissions $8 = _$roomSetAttendeePermissionsPermissions$8;
+
+  @BuiltValueEnumConst(wireName: '9')
+  static const RoomSetAttendeePermissionsPermissions $9 = _$roomSetAttendeePermissionsPermissions$9;
+
+  @BuiltValueEnumConst(wireName: '10')
+  static const RoomSetAttendeePermissionsPermissions $10 = _$roomSetAttendeePermissionsPermissions$10;
+
+  @BuiltValueEnumConst(wireName: '11')
+  static const RoomSetAttendeePermissionsPermissions $11 = _$roomSetAttendeePermissionsPermissions$11;
+
+  @BuiltValueEnumConst(wireName: '12')
+  static const RoomSetAttendeePermissionsPermissions $12 = _$roomSetAttendeePermissionsPermissions$12;
+
+  @BuiltValueEnumConst(wireName: '13')
+  static const RoomSetAttendeePermissionsPermissions $13 = _$roomSetAttendeePermissionsPermissions$13;
+
+  @BuiltValueEnumConst(wireName: '14')
+  static const RoomSetAttendeePermissionsPermissions $14 = _$roomSetAttendeePermissionsPermissions$14;
+
+  @BuiltValueEnumConst(wireName: '15')
+  static const RoomSetAttendeePermissionsPermissions $15 = _$roomSetAttendeePermissionsPermissions$15;
+
+  @BuiltValueEnumConst(wireName: '16')
+  static const RoomSetAttendeePermissionsPermissions $16 = _$roomSetAttendeePermissionsPermissions$16;
+
+  @BuiltValueEnumConst(wireName: '17')
+  static const RoomSetAttendeePermissionsPermissions $17 = _$roomSetAttendeePermissionsPermissions$17;
+
+  @BuiltValueEnumConst(wireName: '18')
+  static const RoomSetAttendeePermissionsPermissions $18 = _$roomSetAttendeePermissionsPermissions$18;
+
+  @BuiltValueEnumConst(wireName: '19')
+  static const RoomSetAttendeePermissionsPermissions $19 = _$roomSetAttendeePermissionsPermissions$19;
+
+  @BuiltValueEnumConst(wireName: '20')
+  static const RoomSetAttendeePermissionsPermissions $20 = _$roomSetAttendeePermissionsPermissions$20;
+
+  @BuiltValueEnumConst(wireName: '21')
+  static const RoomSetAttendeePermissionsPermissions $21 = _$roomSetAttendeePermissionsPermissions$21;
+
+  @BuiltValueEnumConst(wireName: '22')
+  static const RoomSetAttendeePermissionsPermissions $22 = _$roomSetAttendeePermissionsPermissions$22;
+
+  @BuiltValueEnumConst(wireName: '23')
+  static const RoomSetAttendeePermissionsPermissions $23 = _$roomSetAttendeePermissionsPermissions$23;
+
+  @BuiltValueEnumConst(wireName: '24')
+  static const RoomSetAttendeePermissionsPermissions $24 = _$roomSetAttendeePermissionsPermissions$24;
+
+  @BuiltValueEnumConst(wireName: '25')
+  static const RoomSetAttendeePermissionsPermissions $25 = _$roomSetAttendeePermissionsPermissions$25;
+
+  @BuiltValueEnumConst(wireName: '26')
+  static const RoomSetAttendeePermissionsPermissions $26 = _$roomSetAttendeePermissionsPermissions$26;
+
+  @BuiltValueEnumConst(wireName: '27')
+  static const RoomSetAttendeePermissionsPermissions $27 = _$roomSetAttendeePermissionsPermissions$27;
+
+  @BuiltValueEnumConst(wireName: '28')
+  static const RoomSetAttendeePermissionsPermissions $28 = _$roomSetAttendeePermissionsPermissions$28;
+
+  @BuiltValueEnumConst(wireName: '29')
+  static const RoomSetAttendeePermissionsPermissions $29 = _$roomSetAttendeePermissionsPermissions$29;
+
+  @BuiltValueEnumConst(wireName: '30')
+  static const RoomSetAttendeePermissionsPermissions $30 = _$roomSetAttendeePermissionsPermissions$30;
+
+  @BuiltValueEnumConst(wireName: '31')
+  static const RoomSetAttendeePermissionsPermissions $31 = _$roomSetAttendeePermissionsPermissions$31;
+
+  @BuiltValueEnumConst(wireName: '32')
+  static const RoomSetAttendeePermissionsPermissions $32 = _$roomSetAttendeePermissionsPermissions$32;
+
+  @BuiltValueEnumConst(wireName: '33')
+  static const RoomSetAttendeePermissionsPermissions $33 = _$roomSetAttendeePermissionsPermissions$33;
+
+  @BuiltValueEnumConst(wireName: '34')
+  static const RoomSetAttendeePermissionsPermissions $34 = _$roomSetAttendeePermissionsPermissions$34;
+
+  @BuiltValueEnumConst(wireName: '35')
+  static const RoomSetAttendeePermissionsPermissions $35 = _$roomSetAttendeePermissionsPermissions$35;
+
+  @BuiltValueEnumConst(wireName: '36')
+  static const RoomSetAttendeePermissionsPermissions $36 = _$roomSetAttendeePermissionsPermissions$36;
+
+  @BuiltValueEnumConst(wireName: '37')
+  static const RoomSetAttendeePermissionsPermissions $37 = _$roomSetAttendeePermissionsPermissions$37;
+
+  @BuiltValueEnumConst(wireName: '38')
+  static const RoomSetAttendeePermissionsPermissions $38 = _$roomSetAttendeePermissionsPermissions$38;
+
+  @BuiltValueEnumConst(wireName: '39')
+  static const RoomSetAttendeePermissionsPermissions $39 = _$roomSetAttendeePermissionsPermissions$39;
+
+  @BuiltValueEnumConst(wireName: '40')
+  static const RoomSetAttendeePermissionsPermissions $40 = _$roomSetAttendeePermissionsPermissions$40;
+
+  @BuiltValueEnumConst(wireName: '41')
+  static const RoomSetAttendeePermissionsPermissions $41 = _$roomSetAttendeePermissionsPermissions$41;
+
+  @BuiltValueEnumConst(wireName: '42')
+  static const RoomSetAttendeePermissionsPermissions $42 = _$roomSetAttendeePermissionsPermissions$42;
+
+  @BuiltValueEnumConst(wireName: '43')
+  static const RoomSetAttendeePermissionsPermissions $43 = _$roomSetAttendeePermissionsPermissions$43;
+
+  @BuiltValueEnumConst(wireName: '44')
+  static const RoomSetAttendeePermissionsPermissions $44 = _$roomSetAttendeePermissionsPermissions$44;
+
+  @BuiltValueEnumConst(wireName: '45')
+  static const RoomSetAttendeePermissionsPermissions $45 = _$roomSetAttendeePermissionsPermissions$45;
+
+  @BuiltValueEnumConst(wireName: '46')
+  static const RoomSetAttendeePermissionsPermissions $46 = _$roomSetAttendeePermissionsPermissions$46;
+
+  @BuiltValueEnumConst(wireName: '47')
+  static const RoomSetAttendeePermissionsPermissions $47 = _$roomSetAttendeePermissionsPermissions$47;
+
+  @BuiltValueEnumConst(wireName: '48')
+  static const RoomSetAttendeePermissionsPermissions $48 = _$roomSetAttendeePermissionsPermissions$48;
+
+  @BuiltValueEnumConst(wireName: '49')
+  static const RoomSetAttendeePermissionsPermissions $49 = _$roomSetAttendeePermissionsPermissions$49;
+
+  @BuiltValueEnumConst(wireName: '50')
+  static const RoomSetAttendeePermissionsPermissions $50 = _$roomSetAttendeePermissionsPermissions$50;
+
+  @BuiltValueEnumConst(wireName: '51')
+  static const RoomSetAttendeePermissionsPermissions $51 = _$roomSetAttendeePermissionsPermissions$51;
+
+  @BuiltValueEnumConst(wireName: '52')
+  static const RoomSetAttendeePermissionsPermissions $52 = _$roomSetAttendeePermissionsPermissions$52;
+
+  @BuiltValueEnumConst(wireName: '53')
+  static const RoomSetAttendeePermissionsPermissions $53 = _$roomSetAttendeePermissionsPermissions$53;
+
+  @BuiltValueEnumConst(wireName: '54')
+  static const RoomSetAttendeePermissionsPermissions $54 = _$roomSetAttendeePermissionsPermissions$54;
+
+  @BuiltValueEnumConst(wireName: '55')
+  static const RoomSetAttendeePermissionsPermissions $55 = _$roomSetAttendeePermissionsPermissions$55;
+
+  @BuiltValueEnumConst(wireName: '56')
+  static const RoomSetAttendeePermissionsPermissions $56 = _$roomSetAttendeePermissionsPermissions$56;
+
+  @BuiltValueEnumConst(wireName: '57')
+  static const RoomSetAttendeePermissionsPermissions $57 = _$roomSetAttendeePermissionsPermissions$57;
+
+  @BuiltValueEnumConst(wireName: '58')
+  static const RoomSetAttendeePermissionsPermissions $58 = _$roomSetAttendeePermissionsPermissions$58;
+
+  @BuiltValueEnumConst(wireName: '59')
+  static const RoomSetAttendeePermissionsPermissions $59 = _$roomSetAttendeePermissionsPermissions$59;
+
+  @BuiltValueEnumConst(wireName: '60')
+  static const RoomSetAttendeePermissionsPermissions $60 = _$roomSetAttendeePermissionsPermissions$60;
+
+  @BuiltValueEnumConst(wireName: '61')
+  static const RoomSetAttendeePermissionsPermissions $61 = _$roomSetAttendeePermissionsPermissions$61;
+
+  @BuiltValueEnumConst(wireName: '62')
+  static const RoomSetAttendeePermissionsPermissions $62 = _$roomSetAttendeePermissionsPermissions$62;
+
+  @BuiltValueEnumConst(wireName: '63')
+  static const RoomSetAttendeePermissionsPermissions $63 = _$roomSetAttendeePermissionsPermissions$63;
+
+  @BuiltValueEnumConst(wireName: '64')
+  static const RoomSetAttendeePermissionsPermissions $64 = _$roomSetAttendeePermissionsPermissions$64;
+
+  @BuiltValueEnumConst(wireName: '65')
+  static const RoomSetAttendeePermissionsPermissions $65 = _$roomSetAttendeePermissionsPermissions$65;
+
+  @BuiltValueEnumConst(wireName: '66')
+  static const RoomSetAttendeePermissionsPermissions $66 = _$roomSetAttendeePermissionsPermissions$66;
+
+  @BuiltValueEnumConst(wireName: '67')
+  static const RoomSetAttendeePermissionsPermissions $67 = _$roomSetAttendeePermissionsPermissions$67;
+
+  @BuiltValueEnumConst(wireName: '68')
+  static const RoomSetAttendeePermissionsPermissions $68 = _$roomSetAttendeePermissionsPermissions$68;
+
+  @BuiltValueEnumConst(wireName: '69')
+  static const RoomSetAttendeePermissionsPermissions $69 = _$roomSetAttendeePermissionsPermissions$69;
+
+  @BuiltValueEnumConst(wireName: '70')
+  static const RoomSetAttendeePermissionsPermissions $70 = _$roomSetAttendeePermissionsPermissions$70;
+
+  @BuiltValueEnumConst(wireName: '71')
+  static const RoomSetAttendeePermissionsPermissions $71 = _$roomSetAttendeePermissionsPermissions$71;
+
+  @BuiltValueEnumConst(wireName: '72')
+  static const RoomSetAttendeePermissionsPermissions $72 = _$roomSetAttendeePermissionsPermissions$72;
+
+  @BuiltValueEnumConst(wireName: '73')
+  static const RoomSetAttendeePermissionsPermissions $73 = _$roomSetAttendeePermissionsPermissions$73;
+
+  @BuiltValueEnumConst(wireName: '74')
+  static const RoomSetAttendeePermissionsPermissions $74 = _$roomSetAttendeePermissionsPermissions$74;
+
+  @BuiltValueEnumConst(wireName: '75')
+  static const RoomSetAttendeePermissionsPermissions $75 = _$roomSetAttendeePermissionsPermissions$75;
+
+  @BuiltValueEnumConst(wireName: '76')
+  static const RoomSetAttendeePermissionsPermissions $76 = _$roomSetAttendeePermissionsPermissions$76;
+
+  @BuiltValueEnumConst(wireName: '77')
+  static const RoomSetAttendeePermissionsPermissions $77 = _$roomSetAttendeePermissionsPermissions$77;
+
+  @BuiltValueEnumConst(wireName: '78')
+  static const RoomSetAttendeePermissionsPermissions $78 = _$roomSetAttendeePermissionsPermissions$78;
+
+  @BuiltValueEnumConst(wireName: '79')
+  static const RoomSetAttendeePermissionsPermissions $79 = _$roomSetAttendeePermissionsPermissions$79;
+
+  @BuiltValueEnumConst(wireName: '80')
+  static const RoomSetAttendeePermissionsPermissions $80 = _$roomSetAttendeePermissionsPermissions$80;
+
+  @BuiltValueEnumConst(wireName: '81')
+  static const RoomSetAttendeePermissionsPermissions $81 = _$roomSetAttendeePermissionsPermissions$81;
+
+  @BuiltValueEnumConst(wireName: '82')
+  static const RoomSetAttendeePermissionsPermissions $82 = _$roomSetAttendeePermissionsPermissions$82;
+
+  @BuiltValueEnumConst(wireName: '83')
+  static const RoomSetAttendeePermissionsPermissions $83 = _$roomSetAttendeePermissionsPermissions$83;
+
+  @BuiltValueEnumConst(wireName: '84')
+  static const RoomSetAttendeePermissionsPermissions $84 = _$roomSetAttendeePermissionsPermissions$84;
+
+  @BuiltValueEnumConst(wireName: '85')
+  static const RoomSetAttendeePermissionsPermissions $85 = _$roomSetAttendeePermissionsPermissions$85;
+
+  @BuiltValueEnumConst(wireName: '86')
+  static const RoomSetAttendeePermissionsPermissions $86 = _$roomSetAttendeePermissionsPermissions$86;
+
+  @BuiltValueEnumConst(wireName: '87')
+  static const RoomSetAttendeePermissionsPermissions $87 = _$roomSetAttendeePermissionsPermissions$87;
+
+  @BuiltValueEnumConst(wireName: '88')
+  static const RoomSetAttendeePermissionsPermissions $88 = _$roomSetAttendeePermissionsPermissions$88;
+
+  @BuiltValueEnumConst(wireName: '89')
+  static const RoomSetAttendeePermissionsPermissions $89 = _$roomSetAttendeePermissionsPermissions$89;
+
+  @BuiltValueEnumConst(wireName: '90')
+  static const RoomSetAttendeePermissionsPermissions $90 = _$roomSetAttendeePermissionsPermissions$90;
+
+  @BuiltValueEnumConst(wireName: '91')
+  static const RoomSetAttendeePermissionsPermissions $91 = _$roomSetAttendeePermissionsPermissions$91;
+
+  @BuiltValueEnumConst(wireName: '92')
+  static const RoomSetAttendeePermissionsPermissions $92 = _$roomSetAttendeePermissionsPermissions$92;
+
+  @BuiltValueEnumConst(wireName: '93')
+  static const RoomSetAttendeePermissionsPermissions $93 = _$roomSetAttendeePermissionsPermissions$93;
+
+  @BuiltValueEnumConst(wireName: '94')
+  static const RoomSetAttendeePermissionsPermissions $94 = _$roomSetAttendeePermissionsPermissions$94;
+
+  @BuiltValueEnumConst(wireName: '95')
+  static const RoomSetAttendeePermissionsPermissions $95 = _$roomSetAttendeePermissionsPermissions$95;
+
+  @BuiltValueEnumConst(wireName: '96')
+  static const RoomSetAttendeePermissionsPermissions $96 = _$roomSetAttendeePermissionsPermissions$96;
+
+  @BuiltValueEnumConst(wireName: '97')
+  static const RoomSetAttendeePermissionsPermissions $97 = _$roomSetAttendeePermissionsPermissions$97;
+
+  @BuiltValueEnumConst(wireName: '98')
+  static const RoomSetAttendeePermissionsPermissions $98 = _$roomSetAttendeePermissionsPermissions$98;
+
+  @BuiltValueEnumConst(wireName: '99')
+  static const RoomSetAttendeePermissionsPermissions $99 = _$roomSetAttendeePermissionsPermissions$99;
+
+  @BuiltValueEnumConst(wireName: '100')
+  static const RoomSetAttendeePermissionsPermissions $100 = _$roomSetAttendeePermissionsPermissions$100;
+
+  @BuiltValueEnumConst(wireName: '101')
+  static const RoomSetAttendeePermissionsPermissions $101 = _$roomSetAttendeePermissionsPermissions$101;
+
+  @BuiltValueEnumConst(wireName: '102')
+  static const RoomSetAttendeePermissionsPermissions $102 = _$roomSetAttendeePermissionsPermissions$102;
+
+  @BuiltValueEnumConst(wireName: '103')
+  static const RoomSetAttendeePermissionsPermissions $103 = _$roomSetAttendeePermissionsPermissions$103;
+
+  @BuiltValueEnumConst(wireName: '104')
+  static const RoomSetAttendeePermissionsPermissions $104 = _$roomSetAttendeePermissionsPermissions$104;
+
+  @BuiltValueEnumConst(wireName: '105')
+  static const RoomSetAttendeePermissionsPermissions $105 = _$roomSetAttendeePermissionsPermissions$105;
+
+  @BuiltValueEnumConst(wireName: '106')
+  static const RoomSetAttendeePermissionsPermissions $106 = _$roomSetAttendeePermissionsPermissions$106;
+
+  @BuiltValueEnumConst(wireName: '107')
+  static const RoomSetAttendeePermissionsPermissions $107 = _$roomSetAttendeePermissionsPermissions$107;
+
+  @BuiltValueEnumConst(wireName: '108')
+  static const RoomSetAttendeePermissionsPermissions $108 = _$roomSetAttendeePermissionsPermissions$108;
+
+  @BuiltValueEnumConst(wireName: '109')
+  static const RoomSetAttendeePermissionsPermissions $109 = _$roomSetAttendeePermissionsPermissions$109;
+
+  @BuiltValueEnumConst(wireName: '110')
+  static const RoomSetAttendeePermissionsPermissions $110 = _$roomSetAttendeePermissionsPermissions$110;
+
+  @BuiltValueEnumConst(wireName: '111')
+  static const RoomSetAttendeePermissionsPermissions $111 = _$roomSetAttendeePermissionsPermissions$111;
+
+  @BuiltValueEnumConst(wireName: '112')
+  static const RoomSetAttendeePermissionsPermissions $112 = _$roomSetAttendeePermissionsPermissions$112;
+
+  @BuiltValueEnumConst(wireName: '113')
+  static const RoomSetAttendeePermissionsPermissions $113 = _$roomSetAttendeePermissionsPermissions$113;
+
+  @BuiltValueEnumConst(wireName: '114')
+  static const RoomSetAttendeePermissionsPermissions $114 = _$roomSetAttendeePermissionsPermissions$114;
+
+  @BuiltValueEnumConst(wireName: '115')
+  static const RoomSetAttendeePermissionsPermissions $115 = _$roomSetAttendeePermissionsPermissions$115;
+
+  @BuiltValueEnumConst(wireName: '116')
+  static const RoomSetAttendeePermissionsPermissions $116 = _$roomSetAttendeePermissionsPermissions$116;
+
+  @BuiltValueEnumConst(wireName: '117')
+  static const RoomSetAttendeePermissionsPermissions $117 = _$roomSetAttendeePermissionsPermissions$117;
+
+  @BuiltValueEnumConst(wireName: '118')
+  static const RoomSetAttendeePermissionsPermissions $118 = _$roomSetAttendeePermissionsPermissions$118;
+
+  @BuiltValueEnumConst(wireName: '119')
+  static const RoomSetAttendeePermissionsPermissions $119 = _$roomSetAttendeePermissionsPermissions$119;
+
+  @BuiltValueEnumConst(wireName: '120')
+  static const RoomSetAttendeePermissionsPermissions $120 = _$roomSetAttendeePermissionsPermissions$120;
+
+  @BuiltValueEnumConst(wireName: '121')
+  static const RoomSetAttendeePermissionsPermissions $121 = _$roomSetAttendeePermissionsPermissions$121;
+
+  @BuiltValueEnumConst(wireName: '122')
+  static const RoomSetAttendeePermissionsPermissions $122 = _$roomSetAttendeePermissionsPermissions$122;
+
+  @BuiltValueEnumConst(wireName: '123')
+  static const RoomSetAttendeePermissionsPermissions $123 = _$roomSetAttendeePermissionsPermissions$123;
+
+  @BuiltValueEnumConst(wireName: '124')
+  static const RoomSetAttendeePermissionsPermissions $124 = _$roomSetAttendeePermissionsPermissions$124;
+
+  @BuiltValueEnumConst(wireName: '125')
+  static const RoomSetAttendeePermissionsPermissions $125 = _$roomSetAttendeePermissionsPermissions$125;
+
+  @BuiltValueEnumConst(wireName: '126')
+  static const RoomSetAttendeePermissionsPermissions $126 = _$roomSetAttendeePermissionsPermissions$126;
+
+  @BuiltValueEnumConst(wireName: '127')
+  static const RoomSetAttendeePermissionsPermissions $127 = _$roomSetAttendeePermissionsPermissions$127;
+
+  @BuiltValueEnumConst(wireName: '128')
+  static const RoomSetAttendeePermissionsPermissions $128 = _$roomSetAttendeePermissionsPermissions$128;
+
+  @BuiltValueEnumConst(wireName: '129')
+  static const RoomSetAttendeePermissionsPermissions $129 = _$roomSetAttendeePermissionsPermissions$129;
+
+  @BuiltValueEnumConst(wireName: '130')
+  static const RoomSetAttendeePermissionsPermissions $130 = _$roomSetAttendeePermissionsPermissions$130;
+
+  @BuiltValueEnumConst(wireName: '131')
+  static const RoomSetAttendeePermissionsPermissions $131 = _$roomSetAttendeePermissionsPermissions$131;
+
+  @BuiltValueEnumConst(wireName: '132')
+  static const RoomSetAttendeePermissionsPermissions $132 = _$roomSetAttendeePermissionsPermissions$132;
+
+  @BuiltValueEnumConst(wireName: '133')
+  static const RoomSetAttendeePermissionsPermissions $133 = _$roomSetAttendeePermissionsPermissions$133;
+
+  @BuiltValueEnumConst(wireName: '134')
+  static const RoomSetAttendeePermissionsPermissions $134 = _$roomSetAttendeePermissionsPermissions$134;
+
+  @BuiltValueEnumConst(wireName: '135')
+  static const RoomSetAttendeePermissionsPermissions $135 = _$roomSetAttendeePermissionsPermissions$135;
+
+  @BuiltValueEnumConst(wireName: '136')
+  static const RoomSetAttendeePermissionsPermissions $136 = _$roomSetAttendeePermissionsPermissions$136;
+
+  @BuiltValueEnumConst(wireName: '137')
+  static const RoomSetAttendeePermissionsPermissions $137 = _$roomSetAttendeePermissionsPermissions$137;
+
+  @BuiltValueEnumConst(wireName: '138')
+  static const RoomSetAttendeePermissionsPermissions $138 = _$roomSetAttendeePermissionsPermissions$138;
+
+  @BuiltValueEnumConst(wireName: '139')
+  static const RoomSetAttendeePermissionsPermissions $139 = _$roomSetAttendeePermissionsPermissions$139;
+
+  @BuiltValueEnumConst(wireName: '140')
+  static const RoomSetAttendeePermissionsPermissions $140 = _$roomSetAttendeePermissionsPermissions$140;
+
+  @BuiltValueEnumConst(wireName: '141')
+  static const RoomSetAttendeePermissionsPermissions $141 = _$roomSetAttendeePermissionsPermissions$141;
+
+  @BuiltValueEnumConst(wireName: '142')
+  static const RoomSetAttendeePermissionsPermissions $142 = _$roomSetAttendeePermissionsPermissions$142;
+
+  @BuiltValueEnumConst(wireName: '143')
+  static const RoomSetAttendeePermissionsPermissions $143 = _$roomSetAttendeePermissionsPermissions$143;
+
+  @BuiltValueEnumConst(wireName: '144')
+  static const RoomSetAttendeePermissionsPermissions $144 = _$roomSetAttendeePermissionsPermissions$144;
+
+  @BuiltValueEnumConst(wireName: '145')
+  static const RoomSetAttendeePermissionsPermissions $145 = _$roomSetAttendeePermissionsPermissions$145;
+
+  @BuiltValueEnumConst(wireName: '146')
+  static const RoomSetAttendeePermissionsPermissions $146 = _$roomSetAttendeePermissionsPermissions$146;
+
+  @BuiltValueEnumConst(wireName: '147')
+  static const RoomSetAttendeePermissionsPermissions $147 = _$roomSetAttendeePermissionsPermissions$147;
+
+  @BuiltValueEnumConst(wireName: '148')
+  static const RoomSetAttendeePermissionsPermissions $148 = _$roomSetAttendeePermissionsPermissions$148;
+
+  @BuiltValueEnumConst(wireName: '149')
+  static const RoomSetAttendeePermissionsPermissions $149 = _$roomSetAttendeePermissionsPermissions$149;
+
+  @BuiltValueEnumConst(wireName: '150')
+  static const RoomSetAttendeePermissionsPermissions $150 = _$roomSetAttendeePermissionsPermissions$150;
+
+  @BuiltValueEnumConst(wireName: '151')
+  static const RoomSetAttendeePermissionsPermissions $151 = _$roomSetAttendeePermissionsPermissions$151;
+
+  @BuiltValueEnumConst(wireName: '152')
+  static const RoomSetAttendeePermissionsPermissions $152 = _$roomSetAttendeePermissionsPermissions$152;
+
+  @BuiltValueEnumConst(wireName: '153')
+  static const RoomSetAttendeePermissionsPermissions $153 = _$roomSetAttendeePermissionsPermissions$153;
+
+  @BuiltValueEnumConst(wireName: '154')
+  static const RoomSetAttendeePermissionsPermissions $154 = _$roomSetAttendeePermissionsPermissions$154;
+
+  @BuiltValueEnumConst(wireName: '155')
+  static const RoomSetAttendeePermissionsPermissions $155 = _$roomSetAttendeePermissionsPermissions$155;
+
+  @BuiltValueEnumConst(wireName: '156')
+  static const RoomSetAttendeePermissionsPermissions $156 = _$roomSetAttendeePermissionsPermissions$156;
+
+  @BuiltValueEnumConst(wireName: '157')
+  static const RoomSetAttendeePermissionsPermissions $157 = _$roomSetAttendeePermissionsPermissions$157;
+
+  @BuiltValueEnumConst(wireName: '158')
+  static const RoomSetAttendeePermissionsPermissions $158 = _$roomSetAttendeePermissionsPermissions$158;
+
+  @BuiltValueEnumConst(wireName: '159')
+  static const RoomSetAttendeePermissionsPermissions $159 = _$roomSetAttendeePermissionsPermissions$159;
+
+  @BuiltValueEnumConst(wireName: '160')
+  static const RoomSetAttendeePermissionsPermissions $160 = _$roomSetAttendeePermissionsPermissions$160;
+
+  @BuiltValueEnumConst(wireName: '161')
+  static const RoomSetAttendeePermissionsPermissions $161 = _$roomSetAttendeePermissionsPermissions$161;
+
+  @BuiltValueEnumConst(wireName: '162')
+  static const RoomSetAttendeePermissionsPermissions $162 = _$roomSetAttendeePermissionsPermissions$162;
+
+  @BuiltValueEnumConst(wireName: '163')
+  static const RoomSetAttendeePermissionsPermissions $163 = _$roomSetAttendeePermissionsPermissions$163;
+
+  @BuiltValueEnumConst(wireName: '164')
+  static const RoomSetAttendeePermissionsPermissions $164 = _$roomSetAttendeePermissionsPermissions$164;
+
+  @BuiltValueEnumConst(wireName: '165')
+  static const RoomSetAttendeePermissionsPermissions $165 = _$roomSetAttendeePermissionsPermissions$165;
+
+  @BuiltValueEnumConst(wireName: '166')
+  static const RoomSetAttendeePermissionsPermissions $166 = _$roomSetAttendeePermissionsPermissions$166;
+
+  @BuiltValueEnumConst(wireName: '167')
+  static const RoomSetAttendeePermissionsPermissions $167 = _$roomSetAttendeePermissionsPermissions$167;
+
+  @BuiltValueEnumConst(wireName: '168')
+  static const RoomSetAttendeePermissionsPermissions $168 = _$roomSetAttendeePermissionsPermissions$168;
+
+  @BuiltValueEnumConst(wireName: '169')
+  static const RoomSetAttendeePermissionsPermissions $169 = _$roomSetAttendeePermissionsPermissions$169;
+
+  @BuiltValueEnumConst(wireName: '170')
+  static const RoomSetAttendeePermissionsPermissions $170 = _$roomSetAttendeePermissionsPermissions$170;
+
+  @BuiltValueEnumConst(wireName: '171')
+  static const RoomSetAttendeePermissionsPermissions $171 = _$roomSetAttendeePermissionsPermissions$171;
+
+  @BuiltValueEnumConst(wireName: '172')
+  static const RoomSetAttendeePermissionsPermissions $172 = _$roomSetAttendeePermissionsPermissions$172;
+
+  @BuiltValueEnumConst(wireName: '173')
+  static const RoomSetAttendeePermissionsPermissions $173 = _$roomSetAttendeePermissionsPermissions$173;
+
+  @BuiltValueEnumConst(wireName: '174')
+  static const RoomSetAttendeePermissionsPermissions $174 = _$roomSetAttendeePermissionsPermissions$174;
+
+  @BuiltValueEnumConst(wireName: '175')
+  static const RoomSetAttendeePermissionsPermissions $175 = _$roomSetAttendeePermissionsPermissions$175;
+
+  @BuiltValueEnumConst(wireName: '176')
+  static const RoomSetAttendeePermissionsPermissions $176 = _$roomSetAttendeePermissionsPermissions$176;
+
+  @BuiltValueEnumConst(wireName: '177')
+  static const RoomSetAttendeePermissionsPermissions $177 = _$roomSetAttendeePermissionsPermissions$177;
+
+  @BuiltValueEnumConst(wireName: '178')
+  static const RoomSetAttendeePermissionsPermissions $178 = _$roomSetAttendeePermissionsPermissions$178;
+
+  @BuiltValueEnumConst(wireName: '179')
+  static const RoomSetAttendeePermissionsPermissions $179 = _$roomSetAttendeePermissionsPermissions$179;
+
+  @BuiltValueEnumConst(wireName: '180')
+  static const RoomSetAttendeePermissionsPermissions $180 = _$roomSetAttendeePermissionsPermissions$180;
+
+  @BuiltValueEnumConst(wireName: '181')
+  static const RoomSetAttendeePermissionsPermissions $181 = _$roomSetAttendeePermissionsPermissions$181;
+
+  @BuiltValueEnumConst(wireName: '182')
+  static const RoomSetAttendeePermissionsPermissions $182 = _$roomSetAttendeePermissionsPermissions$182;
+
+  @BuiltValueEnumConst(wireName: '183')
+  static const RoomSetAttendeePermissionsPermissions $183 = _$roomSetAttendeePermissionsPermissions$183;
+
+  @BuiltValueEnumConst(wireName: '184')
+  static const RoomSetAttendeePermissionsPermissions $184 = _$roomSetAttendeePermissionsPermissions$184;
+
+  @BuiltValueEnumConst(wireName: '185')
+  static const RoomSetAttendeePermissionsPermissions $185 = _$roomSetAttendeePermissionsPermissions$185;
+
+  @BuiltValueEnumConst(wireName: '186')
+  static const RoomSetAttendeePermissionsPermissions $186 = _$roomSetAttendeePermissionsPermissions$186;
+
+  @BuiltValueEnumConst(wireName: '187')
+  static const RoomSetAttendeePermissionsPermissions $187 = _$roomSetAttendeePermissionsPermissions$187;
+
+  @BuiltValueEnumConst(wireName: '188')
+  static const RoomSetAttendeePermissionsPermissions $188 = _$roomSetAttendeePermissionsPermissions$188;
+
+  @BuiltValueEnumConst(wireName: '189')
+  static const RoomSetAttendeePermissionsPermissions $189 = _$roomSetAttendeePermissionsPermissions$189;
+
+  @BuiltValueEnumConst(wireName: '190')
+  static const RoomSetAttendeePermissionsPermissions $190 = _$roomSetAttendeePermissionsPermissions$190;
+
+  @BuiltValueEnumConst(wireName: '191')
+  static const RoomSetAttendeePermissionsPermissions $191 = _$roomSetAttendeePermissionsPermissions$191;
+
+  @BuiltValueEnumConst(wireName: '192')
+  static const RoomSetAttendeePermissionsPermissions $192 = _$roomSetAttendeePermissionsPermissions$192;
+
+  @BuiltValueEnumConst(wireName: '193')
+  static const RoomSetAttendeePermissionsPermissions $193 = _$roomSetAttendeePermissionsPermissions$193;
+
+  @BuiltValueEnumConst(wireName: '194')
+  static const RoomSetAttendeePermissionsPermissions $194 = _$roomSetAttendeePermissionsPermissions$194;
+
+  @BuiltValueEnumConst(wireName: '195')
+  static const RoomSetAttendeePermissionsPermissions $195 = _$roomSetAttendeePermissionsPermissions$195;
+
+  @BuiltValueEnumConst(wireName: '196')
+  static const RoomSetAttendeePermissionsPermissions $196 = _$roomSetAttendeePermissionsPermissions$196;
+
+  @BuiltValueEnumConst(wireName: '197')
+  static const RoomSetAttendeePermissionsPermissions $197 = _$roomSetAttendeePermissionsPermissions$197;
+
+  @BuiltValueEnumConst(wireName: '198')
+  static const RoomSetAttendeePermissionsPermissions $198 = _$roomSetAttendeePermissionsPermissions$198;
+
+  @BuiltValueEnumConst(wireName: '199')
+  static const RoomSetAttendeePermissionsPermissions $199 = _$roomSetAttendeePermissionsPermissions$199;
+
+  @BuiltValueEnumConst(wireName: '200')
+  static const RoomSetAttendeePermissionsPermissions $200 = _$roomSetAttendeePermissionsPermissions$200;
+
+  @BuiltValueEnumConst(wireName: '201')
+  static const RoomSetAttendeePermissionsPermissions $201 = _$roomSetAttendeePermissionsPermissions$201;
+
+  @BuiltValueEnumConst(wireName: '202')
+  static const RoomSetAttendeePermissionsPermissions $202 = _$roomSetAttendeePermissionsPermissions$202;
+
+  @BuiltValueEnumConst(wireName: '203')
+  static const RoomSetAttendeePermissionsPermissions $203 = _$roomSetAttendeePermissionsPermissions$203;
+
+  @BuiltValueEnumConst(wireName: '204')
+  static const RoomSetAttendeePermissionsPermissions $204 = _$roomSetAttendeePermissionsPermissions$204;
+
+  @BuiltValueEnumConst(wireName: '205')
+  static const RoomSetAttendeePermissionsPermissions $205 = _$roomSetAttendeePermissionsPermissions$205;
+
+  @BuiltValueEnumConst(wireName: '206')
+  static const RoomSetAttendeePermissionsPermissions $206 = _$roomSetAttendeePermissionsPermissions$206;
+
+  @BuiltValueEnumConst(wireName: '207')
+  static const RoomSetAttendeePermissionsPermissions $207 = _$roomSetAttendeePermissionsPermissions$207;
+
+  @BuiltValueEnumConst(wireName: '208')
+  static const RoomSetAttendeePermissionsPermissions $208 = _$roomSetAttendeePermissionsPermissions$208;
+
+  @BuiltValueEnumConst(wireName: '209')
+  static const RoomSetAttendeePermissionsPermissions $209 = _$roomSetAttendeePermissionsPermissions$209;
+
+  @BuiltValueEnumConst(wireName: '210')
+  static const RoomSetAttendeePermissionsPermissions $210 = _$roomSetAttendeePermissionsPermissions$210;
+
+  @BuiltValueEnumConst(wireName: '211')
+  static const RoomSetAttendeePermissionsPermissions $211 = _$roomSetAttendeePermissionsPermissions$211;
+
+  @BuiltValueEnumConst(wireName: '212')
+  static const RoomSetAttendeePermissionsPermissions $212 = _$roomSetAttendeePermissionsPermissions$212;
+
+  @BuiltValueEnumConst(wireName: '213')
+  static const RoomSetAttendeePermissionsPermissions $213 = _$roomSetAttendeePermissionsPermissions$213;
+
+  @BuiltValueEnumConst(wireName: '214')
+  static const RoomSetAttendeePermissionsPermissions $214 = _$roomSetAttendeePermissionsPermissions$214;
+
+  @BuiltValueEnumConst(wireName: '215')
+  static const RoomSetAttendeePermissionsPermissions $215 = _$roomSetAttendeePermissionsPermissions$215;
+
+  @BuiltValueEnumConst(wireName: '216')
+  static const RoomSetAttendeePermissionsPermissions $216 = _$roomSetAttendeePermissionsPermissions$216;
+
+  @BuiltValueEnumConst(wireName: '217')
+  static const RoomSetAttendeePermissionsPermissions $217 = _$roomSetAttendeePermissionsPermissions$217;
+
+  @BuiltValueEnumConst(wireName: '218')
+  static const RoomSetAttendeePermissionsPermissions $218 = _$roomSetAttendeePermissionsPermissions$218;
+
+  @BuiltValueEnumConst(wireName: '219')
+  static const RoomSetAttendeePermissionsPermissions $219 = _$roomSetAttendeePermissionsPermissions$219;
+
+  @BuiltValueEnumConst(wireName: '220')
+  static const RoomSetAttendeePermissionsPermissions $220 = _$roomSetAttendeePermissionsPermissions$220;
+
+  @BuiltValueEnumConst(wireName: '221')
+  static const RoomSetAttendeePermissionsPermissions $221 = _$roomSetAttendeePermissionsPermissions$221;
+
+  @BuiltValueEnumConst(wireName: '222')
+  static const RoomSetAttendeePermissionsPermissions $222 = _$roomSetAttendeePermissionsPermissions$222;
+
+  @BuiltValueEnumConst(wireName: '223')
+  static const RoomSetAttendeePermissionsPermissions $223 = _$roomSetAttendeePermissionsPermissions$223;
+
+  @BuiltValueEnumConst(wireName: '224')
+  static const RoomSetAttendeePermissionsPermissions $224 = _$roomSetAttendeePermissionsPermissions$224;
+
+  @BuiltValueEnumConst(wireName: '225')
+  static const RoomSetAttendeePermissionsPermissions $225 = _$roomSetAttendeePermissionsPermissions$225;
+
+  @BuiltValueEnumConst(wireName: '226')
+  static const RoomSetAttendeePermissionsPermissions $226 = _$roomSetAttendeePermissionsPermissions$226;
+
+  @BuiltValueEnumConst(wireName: '227')
+  static const RoomSetAttendeePermissionsPermissions $227 = _$roomSetAttendeePermissionsPermissions$227;
+
+  @BuiltValueEnumConst(wireName: '228')
+  static const RoomSetAttendeePermissionsPermissions $228 = _$roomSetAttendeePermissionsPermissions$228;
+
+  @BuiltValueEnumConst(wireName: '229')
+  static const RoomSetAttendeePermissionsPermissions $229 = _$roomSetAttendeePermissionsPermissions$229;
+
+  @BuiltValueEnumConst(wireName: '230')
+  static const RoomSetAttendeePermissionsPermissions $230 = _$roomSetAttendeePermissionsPermissions$230;
+
+  @BuiltValueEnumConst(wireName: '231')
+  static const RoomSetAttendeePermissionsPermissions $231 = _$roomSetAttendeePermissionsPermissions$231;
+
+  @BuiltValueEnumConst(wireName: '232')
+  static const RoomSetAttendeePermissionsPermissions $232 = _$roomSetAttendeePermissionsPermissions$232;
+
+  @BuiltValueEnumConst(wireName: '233')
+  static const RoomSetAttendeePermissionsPermissions $233 = _$roomSetAttendeePermissionsPermissions$233;
+
+  @BuiltValueEnumConst(wireName: '234')
+  static const RoomSetAttendeePermissionsPermissions $234 = _$roomSetAttendeePermissionsPermissions$234;
+
+  @BuiltValueEnumConst(wireName: '235')
+  static const RoomSetAttendeePermissionsPermissions $235 = _$roomSetAttendeePermissionsPermissions$235;
+
+  @BuiltValueEnumConst(wireName: '236')
+  static const RoomSetAttendeePermissionsPermissions $236 = _$roomSetAttendeePermissionsPermissions$236;
+
+  @BuiltValueEnumConst(wireName: '237')
+  static const RoomSetAttendeePermissionsPermissions $237 = _$roomSetAttendeePermissionsPermissions$237;
+
+  @BuiltValueEnumConst(wireName: '238')
+  static const RoomSetAttendeePermissionsPermissions $238 = _$roomSetAttendeePermissionsPermissions$238;
+
+  @BuiltValueEnumConst(wireName: '239')
+  static const RoomSetAttendeePermissionsPermissions $239 = _$roomSetAttendeePermissionsPermissions$239;
+
+  @BuiltValueEnumConst(wireName: '240')
+  static const RoomSetAttendeePermissionsPermissions $240 = _$roomSetAttendeePermissionsPermissions$240;
+
+  @BuiltValueEnumConst(wireName: '241')
+  static const RoomSetAttendeePermissionsPermissions $241 = _$roomSetAttendeePermissionsPermissions$241;
+
+  @BuiltValueEnumConst(wireName: '242')
+  static const RoomSetAttendeePermissionsPermissions $242 = _$roomSetAttendeePermissionsPermissions$242;
+
+  @BuiltValueEnumConst(wireName: '243')
+  static const RoomSetAttendeePermissionsPermissions $243 = _$roomSetAttendeePermissionsPermissions$243;
+
+  @BuiltValueEnumConst(wireName: '244')
+  static const RoomSetAttendeePermissionsPermissions $244 = _$roomSetAttendeePermissionsPermissions$244;
+
+  @BuiltValueEnumConst(wireName: '245')
+  static const RoomSetAttendeePermissionsPermissions $245 = _$roomSetAttendeePermissionsPermissions$245;
+
+  @BuiltValueEnumConst(wireName: '246')
+  static const RoomSetAttendeePermissionsPermissions $246 = _$roomSetAttendeePermissionsPermissions$246;
+
+  @BuiltValueEnumConst(wireName: '247')
+  static const RoomSetAttendeePermissionsPermissions $247 = _$roomSetAttendeePermissionsPermissions$247;
+
+  @BuiltValueEnumConst(wireName: '248')
+  static const RoomSetAttendeePermissionsPermissions $248 = _$roomSetAttendeePermissionsPermissions$248;
+
+  @BuiltValueEnumConst(wireName: '249')
+  static const RoomSetAttendeePermissionsPermissions $249 = _$roomSetAttendeePermissionsPermissions$249;
+
+  @BuiltValueEnumConst(wireName: '250')
+  static const RoomSetAttendeePermissionsPermissions $250 = _$roomSetAttendeePermissionsPermissions$250;
+
+  @BuiltValueEnumConst(wireName: '251')
+  static const RoomSetAttendeePermissionsPermissions $251 = _$roomSetAttendeePermissionsPermissions$251;
+
+  @BuiltValueEnumConst(wireName: '252')
+  static const RoomSetAttendeePermissionsPermissions $252 = _$roomSetAttendeePermissionsPermissions$252;
+
+  @BuiltValueEnumConst(wireName: '253')
+  static const RoomSetAttendeePermissionsPermissions $253 = _$roomSetAttendeePermissionsPermissions$253;
+
+  @BuiltValueEnumConst(wireName: '254')
+  static const RoomSetAttendeePermissionsPermissions $254 = _$roomSetAttendeePermissionsPermissions$254;
+
+  @BuiltValueEnumConst(wireName: '255')
+  static const RoomSetAttendeePermissionsPermissions $255 = _$roomSetAttendeePermissionsPermissions$255;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetAttendeePermissionsPermissions> get values => _$roomSetAttendeePermissionsPermissionsValues;
+  // coverage:ignore-end
+
+  static RoomSetAttendeePermissionsPermissions valueOf(String name) =>
+      _$valueOfRoomSetAttendeePermissionsPermissions(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetAttendeePermissionsPermissions> get serializer =>
+      const _$RoomSetAttendeePermissionsPermissionsSerializer();
+}
+
+class _$RoomSetAttendeePermissionsPermissionsSerializer
+    implements PrimitiveSerializer<RoomSetAttendeePermissionsPermissions> {
+  const _$RoomSetAttendeePermissionsPermissionsSerializer();
+
+  static const Map<RoomSetAttendeePermissionsPermissions, Object> _toWire =
+      <RoomSetAttendeePermissionsPermissions, Object>{
+    RoomSetAttendeePermissionsPermissions.$0: 0,
+    RoomSetAttendeePermissionsPermissions.$1: 1,
+    RoomSetAttendeePermissionsPermissions.$2: 2,
+    RoomSetAttendeePermissionsPermissions.$3: 3,
+    RoomSetAttendeePermissionsPermissions.$4: 4,
+    RoomSetAttendeePermissionsPermissions.$5: 5,
+    RoomSetAttendeePermissionsPermissions.$6: 6,
+    RoomSetAttendeePermissionsPermissions.$7: 7,
+    RoomSetAttendeePermissionsPermissions.$8: 8,
+    RoomSetAttendeePermissionsPermissions.$9: 9,
+    RoomSetAttendeePermissionsPermissions.$10: 10,
+    RoomSetAttendeePermissionsPermissions.$11: 11,
+    RoomSetAttendeePermissionsPermissions.$12: 12,
+    RoomSetAttendeePermissionsPermissions.$13: 13,
+    RoomSetAttendeePermissionsPermissions.$14: 14,
+    RoomSetAttendeePermissionsPermissions.$15: 15,
+    RoomSetAttendeePermissionsPermissions.$16: 16,
+    RoomSetAttendeePermissionsPermissions.$17: 17,
+    RoomSetAttendeePermissionsPermissions.$18: 18,
+    RoomSetAttendeePermissionsPermissions.$19: 19,
+    RoomSetAttendeePermissionsPermissions.$20: 20,
+    RoomSetAttendeePermissionsPermissions.$21: 21,
+    RoomSetAttendeePermissionsPermissions.$22: 22,
+    RoomSetAttendeePermissionsPermissions.$23: 23,
+    RoomSetAttendeePermissionsPermissions.$24: 24,
+    RoomSetAttendeePermissionsPermissions.$25: 25,
+    RoomSetAttendeePermissionsPermissions.$26: 26,
+    RoomSetAttendeePermissionsPermissions.$27: 27,
+    RoomSetAttendeePermissionsPermissions.$28: 28,
+    RoomSetAttendeePermissionsPermissions.$29: 29,
+    RoomSetAttendeePermissionsPermissions.$30: 30,
+    RoomSetAttendeePermissionsPermissions.$31: 31,
+    RoomSetAttendeePermissionsPermissions.$32: 32,
+    RoomSetAttendeePermissionsPermissions.$33: 33,
+    RoomSetAttendeePermissionsPermissions.$34: 34,
+    RoomSetAttendeePermissionsPermissions.$35: 35,
+    RoomSetAttendeePermissionsPermissions.$36: 36,
+    RoomSetAttendeePermissionsPermissions.$37: 37,
+    RoomSetAttendeePermissionsPermissions.$38: 38,
+    RoomSetAttendeePermissionsPermissions.$39: 39,
+    RoomSetAttendeePermissionsPermissions.$40: 40,
+    RoomSetAttendeePermissionsPermissions.$41: 41,
+    RoomSetAttendeePermissionsPermissions.$42: 42,
+    RoomSetAttendeePermissionsPermissions.$43: 43,
+    RoomSetAttendeePermissionsPermissions.$44: 44,
+    RoomSetAttendeePermissionsPermissions.$45: 45,
+    RoomSetAttendeePermissionsPermissions.$46: 46,
+    RoomSetAttendeePermissionsPermissions.$47: 47,
+    RoomSetAttendeePermissionsPermissions.$48: 48,
+    RoomSetAttendeePermissionsPermissions.$49: 49,
+    RoomSetAttendeePermissionsPermissions.$50: 50,
+    RoomSetAttendeePermissionsPermissions.$51: 51,
+    RoomSetAttendeePermissionsPermissions.$52: 52,
+    RoomSetAttendeePermissionsPermissions.$53: 53,
+    RoomSetAttendeePermissionsPermissions.$54: 54,
+    RoomSetAttendeePermissionsPermissions.$55: 55,
+    RoomSetAttendeePermissionsPermissions.$56: 56,
+    RoomSetAttendeePermissionsPermissions.$57: 57,
+    RoomSetAttendeePermissionsPermissions.$58: 58,
+    RoomSetAttendeePermissionsPermissions.$59: 59,
+    RoomSetAttendeePermissionsPermissions.$60: 60,
+    RoomSetAttendeePermissionsPermissions.$61: 61,
+    RoomSetAttendeePermissionsPermissions.$62: 62,
+    RoomSetAttendeePermissionsPermissions.$63: 63,
+    RoomSetAttendeePermissionsPermissions.$64: 64,
+    RoomSetAttendeePermissionsPermissions.$65: 65,
+    RoomSetAttendeePermissionsPermissions.$66: 66,
+    RoomSetAttendeePermissionsPermissions.$67: 67,
+    RoomSetAttendeePermissionsPermissions.$68: 68,
+    RoomSetAttendeePermissionsPermissions.$69: 69,
+    RoomSetAttendeePermissionsPermissions.$70: 70,
+    RoomSetAttendeePermissionsPermissions.$71: 71,
+    RoomSetAttendeePermissionsPermissions.$72: 72,
+    RoomSetAttendeePermissionsPermissions.$73: 73,
+    RoomSetAttendeePermissionsPermissions.$74: 74,
+    RoomSetAttendeePermissionsPermissions.$75: 75,
+    RoomSetAttendeePermissionsPermissions.$76: 76,
+    RoomSetAttendeePermissionsPermissions.$77: 77,
+    RoomSetAttendeePermissionsPermissions.$78: 78,
+    RoomSetAttendeePermissionsPermissions.$79: 79,
+    RoomSetAttendeePermissionsPermissions.$80: 80,
+    RoomSetAttendeePermissionsPermissions.$81: 81,
+    RoomSetAttendeePermissionsPermissions.$82: 82,
+    RoomSetAttendeePermissionsPermissions.$83: 83,
+    RoomSetAttendeePermissionsPermissions.$84: 84,
+    RoomSetAttendeePermissionsPermissions.$85: 85,
+    RoomSetAttendeePermissionsPermissions.$86: 86,
+    RoomSetAttendeePermissionsPermissions.$87: 87,
+    RoomSetAttendeePermissionsPermissions.$88: 88,
+    RoomSetAttendeePermissionsPermissions.$89: 89,
+    RoomSetAttendeePermissionsPermissions.$90: 90,
+    RoomSetAttendeePermissionsPermissions.$91: 91,
+    RoomSetAttendeePermissionsPermissions.$92: 92,
+    RoomSetAttendeePermissionsPermissions.$93: 93,
+    RoomSetAttendeePermissionsPermissions.$94: 94,
+    RoomSetAttendeePermissionsPermissions.$95: 95,
+    RoomSetAttendeePermissionsPermissions.$96: 96,
+    RoomSetAttendeePermissionsPermissions.$97: 97,
+    RoomSetAttendeePermissionsPermissions.$98: 98,
+    RoomSetAttendeePermissionsPermissions.$99: 99,
+    RoomSetAttendeePermissionsPermissions.$100: 100,
+    RoomSetAttendeePermissionsPermissions.$101: 101,
+    RoomSetAttendeePermissionsPermissions.$102: 102,
+    RoomSetAttendeePermissionsPermissions.$103: 103,
+    RoomSetAttendeePermissionsPermissions.$104: 104,
+    RoomSetAttendeePermissionsPermissions.$105: 105,
+    RoomSetAttendeePermissionsPermissions.$106: 106,
+    RoomSetAttendeePermissionsPermissions.$107: 107,
+    RoomSetAttendeePermissionsPermissions.$108: 108,
+    RoomSetAttendeePermissionsPermissions.$109: 109,
+    RoomSetAttendeePermissionsPermissions.$110: 110,
+    RoomSetAttendeePermissionsPermissions.$111: 111,
+    RoomSetAttendeePermissionsPermissions.$112: 112,
+    RoomSetAttendeePermissionsPermissions.$113: 113,
+    RoomSetAttendeePermissionsPermissions.$114: 114,
+    RoomSetAttendeePermissionsPermissions.$115: 115,
+    RoomSetAttendeePermissionsPermissions.$116: 116,
+    RoomSetAttendeePermissionsPermissions.$117: 117,
+    RoomSetAttendeePermissionsPermissions.$118: 118,
+    RoomSetAttendeePermissionsPermissions.$119: 119,
+    RoomSetAttendeePermissionsPermissions.$120: 120,
+    RoomSetAttendeePermissionsPermissions.$121: 121,
+    RoomSetAttendeePermissionsPermissions.$122: 122,
+    RoomSetAttendeePermissionsPermissions.$123: 123,
+    RoomSetAttendeePermissionsPermissions.$124: 124,
+    RoomSetAttendeePermissionsPermissions.$125: 125,
+    RoomSetAttendeePermissionsPermissions.$126: 126,
+    RoomSetAttendeePermissionsPermissions.$127: 127,
+    RoomSetAttendeePermissionsPermissions.$128: 128,
+    RoomSetAttendeePermissionsPermissions.$129: 129,
+    RoomSetAttendeePermissionsPermissions.$130: 130,
+    RoomSetAttendeePermissionsPermissions.$131: 131,
+    RoomSetAttendeePermissionsPermissions.$132: 132,
+    RoomSetAttendeePermissionsPermissions.$133: 133,
+    RoomSetAttendeePermissionsPermissions.$134: 134,
+    RoomSetAttendeePermissionsPermissions.$135: 135,
+    RoomSetAttendeePermissionsPermissions.$136: 136,
+    RoomSetAttendeePermissionsPermissions.$137: 137,
+    RoomSetAttendeePermissionsPermissions.$138: 138,
+    RoomSetAttendeePermissionsPermissions.$139: 139,
+    RoomSetAttendeePermissionsPermissions.$140: 140,
+    RoomSetAttendeePermissionsPermissions.$141: 141,
+    RoomSetAttendeePermissionsPermissions.$142: 142,
+    RoomSetAttendeePermissionsPermissions.$143: 143,
+    RoomSetAttendeePermissionsPermissions.$144: 144,
+    RoomSetAttendeePermissionsPermissions.$145: 145,
+    RoomSetAttendeePermissionsPermissions.$146: 146,
+    RoomSetAttendeePermissionsPermissions.$147: 147,
+    RoomSetAttendeePermissionsPermissions.$148: 148,
+    RoomSetAttendeePermissionsPermissions.$149: 149,
+    RoomSetAttendeePermissionsPermissions.$150: 150,
+    RoomSetAttendeePermissionsPermissions.$151: 151,
+    RoomSetAttendeePermissionsPermissions.$152: 152,
+    RoomSetAttendeePermissionsPermissions.$153: 153,
+    RoomSetAttendeePermissionsPermissions.$154: 154,
+    RoomSetAttendeePermissionsPermissions.$155: 155,
+    RoomSetAttendeePermissionsPermissions.$156: 156,
+    RoomSetAttendeePermissionsPermissions.$157: 157,
+    RoomSetAttendeePermissionsPermissions.$158: 158,
+    RoomSetAttendeePermissionsPermissions.$159: 159,
+    RoomSetAttendeePermissionsPermissions.$160: 160,
+    RoomSetAttendeePermissionsPermissions.$161: 161,
+    RoomSetAttendeePermissionsPermissions.$162: 162,
+    RoomSetAttendeePermissionsPermissions.$163: 163,
+    RoomSetAttendeePermissionsPermissions.$164: 164,
+    RoomSetAttendeePermissionsPermissions.$165: 165,
+    RoomSetAttendeePermissionsPermissions.$166: 166,
+    RoomSetAttendeePermissionsPermissions.$167: 167,
+    RoomSetAttendeePermissionsPermissions.$168: 168,
+    RoomSetAttendeePermissionsPermissions.$169: 169,
+    RoomSetAttendeePermissionsPermissions.$170: 170,
+    RoomSetAttendeePermissionsPermissions.$171: 171,
+    RoomSetAttendeePermissionsPermissions.$172: 172,
+    RoomSetAttendeePermissionsPermissions.$173: 173,
+    RoomSetAttendeePermissionsPermissions.$174: 174,
+    RoomSetAttendeePermissionsPermissions.$175: 175,
+    RoomSetAttendeePermissionsPermissions.$176: 176,
+    RoomSetAttendeePermissionsPermissions.$177: 177,
+    RoomSetAttendeePermissionsPermissions.$178: 178,
+    RoomSetAttendeePermissionsPermissions.$179: 179,
+    RoomSetAttendeePermissionsPermissions.$180: 180,
+    RoomSetAttendeePermissionsPermissions.$181: 181,
+    RoomSetAttendeePermissionsPermissions.$182: 182,
+    RoomSetAttendeePermissionsPermissions.$183: 183,
+    RoomSetAttendeePermissionsPermissions.$184: 184,
+    RoomSetAttendeePermissionsPermissions.$185: 185,
+    RoomSetAttendeePermissionsPermissions.$186: 186,
+    RoomSetAttendeePermissionsPermissions.$187: 187,
+    RoomSetAttendeePermissionsPermissions.$188: 188,
+    RoomSetAttendeePermissionsPermissions.$189: 189,
+    RoomSetAttendeePermissionsPermissions.$190: 190,
+    RoomSetAttendeePermissionsPermissions.$191: 191,
+    RoomSetAttendeePermissionsPermissions.$192: 192,
+    RoomSetAttendeePermissionsPermissions.$193: 193,
+    RoomSetAttendeePermissionsPermissions.$194: 194,
+    RoomSetAttendeePermissionsPermissions.$195: 195,
+    RoomSetAttendeePermissionsPermissions.$196: 196,
+    RoomSetAttendeePermissionsPermissions.$197: 197,
+    RoomSetAttendeePermissionsPermissions.$198: 198,
+    RoomSetAttendeePermissionsPermissions.$199: 199,
+    RoomSetAttendeePermissionsPermissions.$200: 200,
+    RoomSetAttendeePermissionsPermissions.$201: 201,
+    RoomSetAttendeePermissionsPermissions.$202: 202,
+    RoomSetAttendeePermissionsPermissions.$203: 203,
+    RoomSetAttendeePermissionsPermissions.$204: 204,
+    RoomSetAttendeePermissionsPermissions.$205: 205,
+    RoomSetAttendeePermissionsPermissions.$206: 206,
+    RoomSetAttendeePermissionsPermissions.$207: 207,
+    RoomSetAttendeePermissionsPermissions.$208: 208,
+    RoomSetAttendeePermissionsPermissions.$209: 209,
+    RoomSetAttendeePermissionsPermissions.$210: 210,
+    RoomSetAttendeePermissionsPermissions.$211: 211,
+    RoomSetAttendeePermissionsPermissions.$212: 212,
+    RoomSetAttendeePermissionsPermissions.$213: 213,
+    RoomSetAttendeePermissionsPermissions.$214: 214,
+    RoomSetAttendeePermissionsPermissions.$215: 215,
+    RoomSetAttendeePermissionsPermissions.$216: 216,
+    RoomSetAttendeePermissionsPermissions.$217: 217,
+    RoomSetAttendeePermissionsPermissions.$218: 218,
+    RoomSetAttendeePermissionsPermissions.$219: 219,
+    RoomSetAttendeePermissionsPermissions.$220: 220,
+    RoomSetAttendeePermissionsPermissions.$221: 221,
+    RoomSetAttendeePermissionsPermissions.$222: 222,
+    RoomSetAttendeePermissionsPermissions.$223: 223,
+    RoomSetAttendeePermissionsPermissions.$224: 224,
+    RoomSetAttendeePermissionsPermissions.$225: 225,
+    RoomSetAttendeePermissionsPermissions.$226: 226,
+    RoomSetAttendeePermissionsPermissions.$227: 227,
+    RoomSetAttendeePermissionsPermissions.$228: 228,
+    RoomSetAttendeePermissionsPermissions.$229: 229,
+    RoomSetAttendeePermissionsPermissions.$230: 230,
+    RoomSetAttendeePermissionsPermissions.$231: 231,
+    RoomSetAttendeePermissionsPermissions.$232: 232,
+    RoomSetAttendeePermissionsPermissions.$233: 233,
+    RoomSetAttendeePermissionsPermissions.$234: 234,
+    RoomSetAttendeePermissionsPermissions.$235: 235,
+    RoomSetAttendeePermissionsPermissions.$236: 236,
+    RoomSetAttendeePermissionsPermissions.$237: 237,
+    RoomSetAttendeePermissionsPermissions.$238: 238,
+    RoomSetAttendeePermissionsPermissions.$239: 239,
+    RoomSetAttendeePermissionsPermissions.$240: 240,
+    RoomSetAttendeePermissionsPermissions.$241: 241,
+    RoomSetAttendeePermissionsPermissions.$242: 242,
+    RoomSetAttendeePermissionsPermissions.$243: 243,
+    RoomSetAttendeePermissionsPermissions.$244: 244,
+    RoomSetAttendeePermissionsPermissions.$245: 245,
+    RoomSetAttendeePermissionsPermissions.$246: 246,
+    RoomSetAttendeePermissionsPermissions.$247: 247,
+    RoomSetAttendeePermissionsPermissions.$248: 248,
+    RoomSetAttendeePermissionsPermissions.$249: 249,
+    RoomSetAttendeePermissionsPermissions.$250: 250,
+    RoomSetAttendeePermissionsPermissions.$251: 251,
+    RoomSetAttendeePermissionsPermissions.$252: 252,
+    RoomSetAttendeePermissionsPermissions.$253: 253,
+    RoomSetAttendeePermissionsPermissions.$254: 254,
+    RoomSetAttendeePermissionsPermissions.$255: 255,
+  };
+
+  static const Map<Object, RoomSetAttendeePermissionsPermissions> _fromWire =
+      <Object, RoomSetAttendeePermissionsPermissions>{
+    0: RoomSetAttendeePermissionsPermissions.$0,
+    1: RoomSetAttendeePermissionsPermissions.$1,
+    2: RoomSetAttendeePermissionsPermissions.$2,
+    3: RoomSetAttendeePermissionsPermissions.$3,
+    4: RoomSetAttendeePermissionsPermissions.$4,
+    5: RoomSetAttendeePermissionsPermissions.$5,
+    6: RoomSetAttendeePermissionsPermissions.$6,
+    7: RoomSetAttendeePermissionsPermissions.$7,
+    8: RoomSetAttendeePermissionsPermissions.$8,
+    9: RoomSetAttendeePermissionsPermissions.$9,
+    10: RoomSetAttendeePermissionsPermissions.$10,
+    11: RoomSetAttendeePermissionsPermissions.$11,
+    12: RoomSetAttendeePermissionsPermissions.$12,
+    13: RoomSetAttendeePermissionsPermissions.$13,
+    14: RoomSetAttendeePermissionsPermissions.$14,
+    15: RoomSetAttendeePermissionsPermissions.$15,
+    16: RoomSetAttendeePermissionsPermissions.$16,
+    17: RoomSetAttendeePermissionsPermissions.$17,
+    18: RoomSetAttendeePermissionsPermissions.$18,
+    19: RoomSetAttendeePermissionsPermissions.$19,
+    20: RoomSetAttendeePermissionsPermissions.$20,
+    21: RoomSetAttendeePermissionsPermissions.$21,
+    22: RoomSetAttendeePermissionsPermissions.$22,
+    23: RoomSetAttendeePermissionsPermissions.$23,
+    24: RoomSetAttendeePermissionsPermissions.$24,
+    25: RoomSetAttendeePermissionsPermissions.$25,
+    26: RoomSetAttendeePermissionsPermissions.$26,
+    27: RoomSetAttendeePermissionsPermissions.$27,
+    28: RoomSetAttendeePermissionsPermissions.$28,
+    29: RoomSetAttendeePermissionsPermissions.$29,
+    30: RoomSetAttendeePermissionsPermissions.$30,
+    31: RoomSetAttendeePermissionsPermissions.$31,
+    32: RoomSetAttendeePermissionsPermissions.$32,
+    33: RoomSetAttendeePermissionsPermissions.$33,
+    34: RoomSetAttendeePermissionsPermissions.$34,
+    35: RoomSetAttendeePermissionsPermissions.$35,
+    36: RoomSetAttendeePermissionsPermissions.$36,
+    37: RoomSetAttendeePermissionsPermissions.$37,
+    38: RoomSetAttendeePermissionsPermissions.$38,
+    39: RoomSetAttendeePermissionsPermissions.$39,
+    40: RoomSetAttendeePermissionsPermissions.$40,
+    41: RoomSetAttendeePermissionsPermissions.$41,
+    42: RoomSetAttendeePermissionsPermissions.$42,
+    43: RoomSetAttendeePermissionsPermissions.$43,
+    44: RoomSetAttendeePermissionsPermissions.$44,
+    45: RoomSetAttendeePermissionsPermissions.$45,
+    46: RoomSetAttendeePermissionsPermissions.$46,
+    47: RoomSetAttendeePermissionsPermissions.$47,
+    48: RoomSetAttendeePermissionsPermissions.$48,
+    49: RoomSetAttendeePermissionsPermissions.$49,
+    50: RoomSetAttendeePermissionsPermissions.$50,
+    51: RoomSetAttendeePermissionsPermissions.$51,
+    52: RoomSetAttendeePermissionsPermissions.$52,
+    53: RoomSetAttendeePermissionsPermissions.$53,
+    54: RoomSetAttendeePermissionsPermissions.$54,
+    55: RoomSetAttendeePermissionsPermissions.$55,
+    56: RoomSetAttendeePermissionsPermissions.$56,
+    57: RoomSetAttendeePermissionsPermissions.$57,
+    58: RoomSetAttendeePermissionsPermissions.$58,
+    59: RoomSetAttendeePermissionsPermissions.$59,
+    60: RoomSetAttendeePermissionsPermissions.$60,
+    61: RoomSetAttendeePermissionsPermissions.$61,
+    62: RoomSetAttendeePermissionsPermissions.$62,
+    63: RoomSetAttendeePermissionsPermissions.$63,
+    64: RoomSetAttendeePermissionsPermissions.$64,
+    65: RoomSetAttendeePermissionsPermissions.$65,
+    66: RoomSetAttendeePermissionsPermissions.$66,
+    67: RoomSetAttendeePermissionsPermissions.$67,
+    68: RoomSetAttendeePermissionsPermissions.$68,
+    69: RoomSetAttendeePermissionsPermissions.$69,
+    70: RoomSetAttendeePermissionsPermissions.$70,
+    71: RoomSetAttendeePermissionsPermissions.$71,
+    72: RoomSetAttendeePermissionsPermissions.$72,
+    73: RoomSetAttendeePermissionsPermissions.$73,
+    74: RoomSetAttendeePermissionsPermissions.$74,
+    75: RoomSetAttendeePermissionsPermissions.$75,
+    76: RoomSetAttendeePermissionsPermissions.$76,
+    77: RoomSetAttendeePermissionsPermissions.$77,
+    78: RoomSetAttendeePermissionsPermissions.$78,
+    79: RoomSetAttendeePermissionsPermissions.$79,
+    80: RoomSetAttendeePermissionsPermissions.$80,
+    81: RoomSetAttendeePermissionsPermissions.$81,
+    82: RoomSetAttendeePermissionsPermissions.$82,
+    83: RoomSetAttendeePermissionsPermissions.$83,
+    84: RoomSetAttendeePermissionsPermissions.$84,
+    85: RoomSetAttendeePermissionsPermissions.$85,
+    86: RoomSetAttendeePermissionsPermissions.$86,
+    87: RoomSetAttendeePermissionsPermissions.$87,
+    88: RoomSetAttendeePermissionsPermissions.$88,
+    89: RoomSetAttendeePermissionsPermissions.$89,
+    90: RoomSetAttendeePermissionsPermissions.$90,
+    91: RoomSetAttendeePermissionsPermissions.$91,
+    92: RoomSetAttendeePermissionsPermissions.$92,
+    93: RoomSetAttendeePermissionsPermissions.$93,
+    94: RoomSetAttendeePermissionsPermissions.$94,
+    95: RoomSetAttendeePermissionsPermissions.$95,
+    96: RoomSetAttendeePermissionsPermissions.$96,
+    97: RoomSetAttendeePermissionsPermissions.$97,
+    98: RoomSetAttendeePermissionsPermissions.$98,
+    99: RoomSetAttendeePermissionsPermissions.$99,
+    100: RoomSetAttendeePermissionsPermissions.$100,
+    101: RoomSetAttendeePermissionsPermissions.$101,
+    102: RoomSetAttendeePermissionsPermissions.$102,
+    103: RoomSetAttendeePermissionsPermissions.$103,
+    104: RoomSetAttendeePermissionsPermissions.$104,
+    105: RoomSetAttendeePermissionsPermissions.$105,
+    106: RoomSetAttendeePermissionsPermissions.$106,
+    107: RoomSetAttendeePermissionsPermissions.$107,
+    108: RoomSetAttendeePermissionsPermissions.$108,
+    109: RoomSetAttendeePermissionsPermissions.$109,
+    110: RoomSetAttendeePermissionsPermissions.$110,
+    111: RoomSetAttendeePermissionsPermissions.$111,
+    112: RoomSetAttendeePermissionsPermissions.$112,
+    113: RoomSetAttendeePermissionsPermissions.$113,
+    114: RoomSetAttendeePermissionsPermissions.$114,
+    115: RoomSetAttendeePermissionsPermissions.$115,
+    116: RoomSetAttendeePermissionsPermissions.$116,
+    117: RoomSetAttendeePermissionsPermissions.$117,
+    118: RoomSetAttendeePermissionsPermissions.$118,
+    119: RoomSetAttendeePermissionsPermissions.$119,
+    120: RoomSetAttendeePermissionsPermissions.$120,
+    121: RoomSetAttendeePermissionsPermissions.$121,
+    122: RoomSetAttendeePermissionsPermissions.$122,
+    123: RoomSetAttendeePermissionsPermissions.$123,
+    124: RoomSetAttendeePermissionsPermissions.$124,
+    125: RoomSetAttendeePermissionsPermissions.$125,
+    126: RoomSetAttendeePermissionsPermissions.$126,
+    127: RoomSetAttendeePermissionsPermissions.$127,
+    128: RoomSetAttendeePermissionsPermissions.$128,
+    129: RoomSetAttendeePermissionsPermissions.$129,
+    130: RoomSetAttendeePermissionsPermissions.$130,
+    131: RoomSetAttendeePermissionsPermissions.$131,
+    132: RoomSetAttendeePermissionsPermissions.$132,
+    133: RoomSetAttendeePermissionsPermissions.$133,
+    134: RoomSetAttendeePermissionsPermissions.$134,
+    135: RoomSetAttendeePermissionsPermissions.$135,
+    136: RoomSetAttendeePermissionsPermissions.$136,
+    137: RoomSetAttendeePermissionsPermissions.$137,
+    138: RoomSetAttendeePermissionsPermissions.$138,
+    139: RoomSetAttendeePermissionsPermissions.$139,
+    140: RoomSetAttendeePermissionsPermissions.$140,
+    141: RoomSetAttendeePermissionsPermissions.$141,
+    142: RoomSetAttendeePermissionsPermissions.$142,
+    143: RoomSetAttendeePermissionsPermissions.$143,
+    144: RoomSetAttendeePermissionsPermissions.$144,
+    145: RoomSetAttendeePermissionsPermissions.$145,
+    146: RoomSetAttendeePermissionsPermissions.$146,
+    147: RoomSetAttendeePermissionsPermissions.$147,
+    148: RoomSetAttendeePermissionsPermissions.$148,
+    149: RoomSetAttendeePermissionsPermissions.$149,
+    150: RoomSetAttendeePermissionsPermissions.$150,
+    151: RoomSetAttendeePermissionsPermissions.$151,
+    152: RoomSetAttendeePermissionsPermissions.$152,
+    153: RoomSetAttendeePermissionsPermissions.$153,
+    154: RoomSetAttendeePermissionsPermissions.$154,
+    155: RoomSetAttendeePermissionsPermissions.$155,
+    156: RoomSetAttendeePermissionsPermissions.$156,
+    157: RoomSetAttendeePermissionsPermissions.$157,
+    158: RoomSetAttendeePermissionsPermissions.$158,
+    159: RoomSetAttendeePermissionsPermissions.$159,
+    160: RoomSetAttendeePermissionsPermissions.$160,
+    161: RoomSetAttendeePermissionsPermissions.$161,
+    162: RoomSetAttendeePermissionsPermissions.$162,
+    163: RoomSetAttendeePermissionsPermissions.$163,
+    164: RoomSetAttendeePermissionsPermissions.$164,
+    165: RoomSetAttendeePermissionsPermissions.$165,
+    166: RoomSetAttendeePermissionsPermissions.$166,
+    167: RoomSetAttendeePermissionsPermissions.$167,
+    168: RoomSetAttendeePermissionsPermissions.$168,
+    169: RoomSetAttendeePermissionsPermissions.$169,
+    170: RoomSetAttendeePermissionsPermissions.$170,
+    171: RoomSetAttendeePermissionsPermissions.$171,
+    172: RoomSetAttendeePermissionsPermissions.$172,
+    173: RoomSetAttendeePermissionsPermissions.$173,
+    174: RoomSetAttendeePermissionsPermissions.$174,
+    175: RoomSetAttendeePermissionsPermissions.$175,
+    176: RoomSetAttendeePermissionsPermissions.$176,
+    177: RoomSetAttendeePermissionsPermissions.$177,
+    178: RoomSetAttendeePermissionsPermissions.$178,
+    179: RoomSetAttendeePermissionsPermissions.$179,
+    180: RoomSetAttendeePermissionsPermissions.$180,
+    181: RoomSetAttendeePermissionsPermissions.$181,
+    182: RoomSetAttendeePermissionsPermissions.$182,
+    183: RoomSetAttendeePermissionsPermissions.$183,
+    184: RoomSetAttendeePermissionsPermissions.$184,
+    185: RoomSetAttendeePermissionsPermissions.$185,
+    186: RoomSetAttendeePermissionsPermissions.$186,
+    187: RoomSetAttendeePermissionsPermissions.$187,
+    188: RoomSetAttendeePermissionsPermissions.$188,
+    189: RoomSetAttendeePermissionsPermissions.$189,
+    190: RoomSetAttendeePermissionsPermissions.$190,
+    191: RoomSetAttendeePermissionsPermissions.$191,
+    192: RoomSetAttendeePermissionsPermissions.$192,
+    193: RoomSetAttendeePermissionsPermissions.$193,
+    194: RoomSetAttendeePermissionsPermissions.$194,
+    195: RoomSetAttendeePermissionsPermissions.$195,
+    196: RoomSetAttendeePermissionsPermissions.$196,
+    197: RoomSetAttendeePermissionsPermissions.$197,
+    198: RoomSetAttendeePermissionsPermissions.$198,
+    199: RoomSetAttendeePermissionsPermissions.$199,
+    200: RoomSetAttendeePermissionsPermissions.$200,
+    201: RoomSetAttendeePermissionsPermissions.$201,
+    202: RoomSetAttendeePermissionsPermissions.$202,
+    203: RoomSetAttendeePermissionsPermissions.$203,
+    204: RoomSetAttendeePermissionsPermissions.$204,
+    205: RoomSetAttendeePermissionsPermissions.$205,
+    206: RoomSetAttendeePermissionsPermissions.$206,
+    207: RoomSetAttendeePermissionsPermissions.$207,
+    208: RoomSetAttendeePermissionsPermissions.$208,
+    209: RoomSetAttendeePermissionsPermissions.$209,
+    210: RoomSetAttendeePermissionsPermissions.$210,
+    211: RoomSetAttendeePermissionsPermissions.$211,
+    212: RoomSetAttendeePermissionsPermissions.$212,
+    213: RoomSetAttendeePermissionsPermissions.$213,
+    214: RoomSetAttendeePermissionsPermissions.$214,
+    215: RoomSetAttendeePermissionsPermissions.$215,
+    216: RoomSetAttendeePermissionsPermissions.$216,
+    217: RoomSetAttendeePermissionsPermissions.$217,
+    218: RoomSetAttendeePermissionsPermissions.$218,
+    219: RoomSetAttendeePermissionsPermissions.$219,
+    220: RoomSetAttendeePermissionsPermissions.$220,
+    221: RoomSetAttendeePermissionsPermissions.$221,
+    222: RoomSetAttendeePermissionsPermissions.$222,
+    223: RoomSetAttendeePermissionsPermissions.$223,
+    224: RoomSetAttendeePermissionsPermissions.$224,
+    225: RoomSetAttendeePermissionsPermissions.$225,
+    226: RoomSetAttendeePermissionsPermissions.$226,
+    227: RoomSetAttendeePermissionsPermissions.$227,
+    228: RoomSetAttendeePermissionsPermissions.$228,
+    229: RoomSetAttendeePermissionsPermissions.$229,
+    230: RoomSetAttendeePermissionsPermissions.$230,
+    231: RoomSetAttendeePermissionsPermissions.$231,
+    232: RoomSetAttendeePermissionsPermissions.$232,
+    233: RoomSetAttendeePermissionsPermissions.$233,
+    234: RoomSetAttendeePermissionsPermissions.$234,
+    235: RoomSetAttendeePermissionsPermissions.$235,
+    236: RoomSetAttendeePermissionsPermissions.$236,
+    237: RoomSetAttendeePermissionsPermissions.$237,
+    238: RoomSetAttendeePermissionsPermissions.$238,
+    239: RoomSetAttendeePermissionsPermissions.$239,
+    240: RoomSetAttendeePermissionsPermissions.$240,
+    241: RoomSetAttendeePermissionsPermissions.$241,
+    242: RoomSetAttendeePermissionsPermissions.$242,
+    243: RoomSetAttendeePermissionsPermissions.$243,
+    244: RoomSetAttendeePermissionsPermissions.$244,
+    245: RoomSetAttendeePermissionsPermissions.$245,
+    246: RoomSetAttendeePermissionsPermissions.$246,
+    247: RoomSetAttendeePermissionsPermissions.$247,
+    248: RoomSetAttendeePermissionsPermissions.$248,
+    249: RoomSetAttendeePermissionsPermissions.$249,
+    250: RoomSetAttendeePermissionsPermissions.$250,
+    251: RoomSetAttendeePermissionsPermissions.$251,
+    252: RoomSetAttendeePermissionsPermissions.$252,
+    253: RoomSetAttendeePermissionsPermissions.$253,
+    254: RoomSetAttendeePermissionsPermissions.$254,
+    255: RoomSetAttendeePermissionsPermissions.$255,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAttendeePermissionsPermissions];
+
+  @override
+  String get wireName => 'RoomSetAttendeePermissionsPermissions';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAttendeePermissionsPermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAttendeePermissionsPermissions deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   const RoomSetAttendeePermissionsApiVersion._(super.name);
 
@@ -24686,6 +28925,1404 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
 
   static Serializer<RoomSetAttendeePermissionsResponseApplicationJson> get serializer =>
       _$roomSetAttendeePermissionsResponseApplicationJsonSerializer;
+}
+
+class RoomSetAllAttendeesPermissionsMethod extends EnumClass {
+  const RoomSetAllAttendeesPermissionsMethod._(super.name);
+
+  @BuiltValueEnumConst(wireName: 'set')
+  static const RoomSetAllAttendeesPermissionsMethod $set = _$roomSetAllAttendeesPermissionsMethod$set;
+
+  static const RoomSetAllAttendeesPermissionsMethod remove = _$roomSetAllAttendeesPermissionsMethodRemove;
+
+  static const RoomSetAllAttendeesPermissionsMethod add = _$roomSetAllAttendeesPermissionsMethodAdd;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetAllAttendeesPermissionsMethod> get values => _$roomSetAllAttendeesPermissionsMethodValues;
+  // coverage:ignore-end
+
+  static RoomSetAllAttendeesPermissionsMethod valueOf(String name) =>
+      _$valueOfRoomSetAllAttendeesPermissionsMethod(name);
+
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetAllAttendeesPermissionsMethod> get serializer =>
+      const _$RoomSetAllAttendeesPermissionsMethodSerializer();
+}
+
+class _$RoomSetAllAttendeesPermissionsMethodSerializer
+    implements PrimitiveSerializer<RoomSetAllAttendeesPermissionsMethod> {
+  const _$RoomSetAllAttendeesPermissionsMethodSerializer();
+
+  static const Map<RoomSetAllAttendeesPermissionsMethod, Object> _toWire =
+      <RoomSetAllAttendeesPermissionsMethod, Object>{
+    RoomSetAllAttendeesPermissionsMethod.$set: 'set',
+    RoomSetAllAttendeesPermissionsMethod.remove: 'remove',
+    RoomSetAllAttendeesPermissionsMethod.add: 'add',
+  };
+
+  static const Map<Object, RoomSetAllAttendeesPermissionsMethod> _fromWire =
+      <Object, RoomSetAllAttendeesPermissionsMethod>{
+    'set': RoomSetAllAttendeesPermissionsMethod.$set,
+    'remove': RoomSetAllAttendeesPermissionsMethod.remove,
+    'add': RoomSetAllAttendeesPermissionsMethod.add,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsMethod];
+
+  @override
+  String get wireName => 'RoomSetAllAttendeesPermissionsMethod';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAllAttendeesPermissionsMethod object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAllAttendeesPermissionsMethod deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
+class RoomSetAllAttendeesPermissionsPermissions extends EnumClass {
+  const RoomSetAllAttendeesPermissionsPermissions._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetAllAttendeesPermissionsPermissions $0 = _$roomSetAllAttendeesPermissionsPermissions$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetAllAttendeesPermissionsPermissions $1 = _$roomSetAllAttendeesPermissionsPermissions$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const RoomSetAllAttendeesPermissionsPermissions $2 = _$roomSetAllAttendeesPermissionsPermissions$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const RoomSetAllAttendeesPermissionsPermissions $3 = _$roomSetAllAttendeesPermissionsPermissions$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const RoomSetAllAttendeesPermissionsPermissions $4 = _$roomSetAllAttendeesPermissionsPermissions$4;
+
+  @BuiltValueEnumConst(wireName: '5')
+  static const RoomSetAllAttendeesPermissionsPermissions $5 = _$roomSetAllAttendeesPermissionsPermissions$5;
+
+  @BuiltValueEnumConst(wireName: '6')
+  static const RoomSetAllAttendeesPermissionsPermissions $6 = _$roomSetAllAttendeesPermissionsPermissions$6;
+
+  @BuiltValueEnumConst(wireName: '7')
+  static const RoomSetAllAttendeesPermissionsPermissions $7 = _$roomSetAllAttendeesPermissionsPermissions$7;
+
+  @BuiltValueEnumConst(wireName: '8')
+  static const RoomSetAllAttendeesPermissionsPermissions $8 = _$roomSetAllAttendeesPermissionsPermissions$8;
+
+  @BuiltValueEnumConst(wireName: '9')
+  static const RoomSetAllAttendeesPermissionsPermissions $9 = _$roomSetAllAttendeesPermissionsPermissions$9;
+
+  @BuiltValueEnumConst(wireName: '10')
+  static const RoomSetAllAttendeesPermissionsPermissions $10 = _$roomSetAllAttendeesPermissionsPermissions$10;
+
+  @BuiltValueEnumConst(wireName: '11')
+  static const RoomSetAllAttendeesPermissionsPermissions $11 = _$roomSetAllAttendeesPermissionsPermissions$11;
+
+  @BuiltValueEnumConst(wireName: '12')
+  static const RoomSetAllAttendeesPermissionsPermissions $12 = _$roomSetAllAttendeesPermissionsPermissions$12;
+
+  @BuiltValueEnumConst(wireName: '13')
+  static const RoomSetAllAttendeesPermissionsPermissions $13 = _$roomSetAllAttendeesPermissionsPermissions$13;
+
+  @BuiltValueEnumConst(wireName: '14')
+  static const RoomSetAllAttendeesPermissionsPermissions $14 = _$roomSetAllAttendeesPermissionsPermissions$14;
+
+  @BuiltValueEnumConst(wireName: '15')
+  static const RoomSetAllAttendeesPermissionsPermissions $15 = _$roomSetAllAttendeesPermissionsPermissions$15;
+
+  @BuiltValueEnumConst(wireName: '16')
+  static const RoomSetAllAttendeesPermissionsPermissions $16 = _$roomSetAllAttendeesPermissionsPermissions$16;
+
+  @BuiltValueEnumConst(wireName: '17')
+  static const RoomSetAllAttendeesPermissionsPermissions $17 = _$roomSetAllAttendeesPermissionsPermissions$17;
+
+  @BuiltValueEnumConst(wireName: '18')
+  static const RoomSetAllAttendeesPermissionsPermissions $18 = _$roomSetAllAttendeesPermissionsPermissions$18;
+
+  @BuiltValueEnumConst(wireName: '19')
+  static const RoomSetAllAttendeesPermissionsPermissions $19 = _$roomSetAllAttendeesPermissionsPermissions$19;
+
+  @BuiltValueEnumConst(wireName: '20')
+  static const RoomSetAllAttendeesPermissionsPermissions $20 = _$roomSetAllAttendeesPermissionsPermissions$20;
+
+  @BuiltValueEnumConst(wireName: '21')
+  static const RoomSetAllAttendeesPermissionsPermissions $21 = _$roomSetAllAttendeesPermissionsPermissions$21;
+
+  @BuiltValueEnumConst(wireName: '22')
+  static const RoomSetAllAttendeesPermissionsPermissions $22 = _$roomSetAllAttendeesPermissionsPermissions$22;
+
+  @BuiltValueEnumConst(wireName: '23')
+  static const RoomSetAllAttendeesPermissionsPermissions $23 = _$roomSetAllAttendeesPermissionsPermissions$23;
+
+  @BuiltValueEnumConst(wireName: '24')
+  static const RoomSetAllAttendeesPermissionsPermissions $24 = _$roomSetAllAttendeesPermissionsPermissions$24;
+
+  @BuiltValueEnumConst(wireName: '25')
+  static const RoomSetAllAttendeesPermissionsPermissions $25 = _$roomSetAllAttendeesPermissionsPermissions$25;
+
+  @BuiltValueEnumConst(wireName: '26')
+  static const RoomSetAllAttendeesPermissionsPermissions $26 = _$roomSetAllAttendeesPermissionsPermissions$26;
+
+  @BuiltValueEnumConst(wireName: '27')
+  static const RoomSetAllAttendeesPermissionsPermissions $27 = _$roomSetAllAttendeesPermissionsPermissions$27;
+
+  @BuiltValueEnumConst(wireName: '28')
+  static const RoomSetAllAttendeesPermissionsPermissions $28 = _$roomSetAllAttendeesPermissionsPermissions$28;
+
+  @BuiltValueEnumConst(wireName: '29')
+  static const RoomSetAllAttendeesPermissionsPermissions $29 = _$roomSetAllAttendeesPermissionsPermissions$29;
+
+  @BuiltValueEnumConst(wireName: '30')
+  static const RoomSetAllAttendeesPermissionsPermissions $30 = _$roomSetAllAttendeesPermissionsPermissions$30;
+
+  @BuiltValueEnumConst(wireName: '31')
+  static const RoomSetAllAttendeesPermissionsPermissions $31 = _$roomSetAllAttendeesPermissionsPermissions$31;
+
+  @BuiltValueEnumConst(wireName: '32')
+  static const RoomSetAllAttendeesPermissionsPermissions $32 = _$roomSetAllAttendeesPermissionsPermissions$32;
+
+  @BuiltValueEnumConst(wireName: '33')
+  static const RoomSetAllAttendeesPermissionsPermissions $33 = _$roomSetAllAttendeesPermissionsPermissions$33;
+
+  @BuiltValueEnumConst(wireName: '34')
+  static const RoomSetAllAttendeesPermissionsPermissions $34 = _$roomSetAllAttendeesPermissionsPermissions$34;
+
+  @BuiltValueEnumConst(wireName: '35')
+  static const RoomSetAllAttendeesPermissionsPermissions $35 = _$roomSetAllAttendeesPermissionsPermissions$35;
+
+  @BuiltValueEnumConst(wireName: '36')
+  static const RoomSetAllAttendeesPermissionsPermissions $36 = _$roomSetAllAttendeesPermissionsPermissions$36;
+
+  @BuiltValueEnumConst(wireName: '37')
+  static const RoomSetAllAttendeesPermissionsPermissions $37 = _$roomSetAllAttendeesPermissionsPermissions$37;
+
+  @BuiltValueEnumConst(wireName: '38')
+  static const RoomSetAllAttendeesPermissionsPermissions $38 = _$roomSetAllAttendeesPermissionsPermissions$38;
+
+  @BuiltValueEnumConst(wireName: '39')
+  static const RoomSetAllAttendeesPermissionsPermissions $39 = _$roomSetAllAttendeesPermissionsPermissions$39;
+
+  @BuiltValueEnumConst(wireName: '40')
+  static const RoomSetAllAttendeesPermissionsPermissions $40 = _$roomSetAllAttendeesPermissionsPermissions$40;
+
+  @BuiltValueEnumConst(wireName: '41')
+  static const RoomSetAllAttendeesPermissionsPermissions $41 = _$roomSetAllAttendeesPermissionsPermissions$41;
+
+  @BuiltValueEnumConst(wireName: '42')
+  static const RoomSetAllAttendeesPermissionsPermissions $42 = _$roomSetAllAttendeesPermissionsPermissions$42;
+
+  @BuiltValueEnumConst(wireName: '43')
+  static const RoomSetAllAttendeesPermissionsPermissions $43 = _$roomSetAllAttendeesPermissionsPermissions$43;
+
+  @BuiltValueEnumConst(wireName: '44')
+  static const RoomSetAllAttendeesPermissionsPermissions $44 = _$roomSetAllAttendeesPermissionsPermissions$44;
+
+  @BuiltValueEnumConst(wireName: '45')
+  static const RoomSetAllAttendeesPermissionsPermissions $45 = _$roomSetAllAttendeesPermissionsPermissions$45;
+
+  @BuiltValueEnumConst(wireName: '46')
+  static const RoomSetAllAttendeesPermissionsPermissions $46 = _$roomSetAllAttendeesPermissionsPermissions$46;
+
+  @BuiltValueEnumConst(wireName: '47')
+  static const RoomSetAllAttendeesPermissionsPermissions $47 = _$roomSetAllAttendeesPermissionsPermissions$47;
+
+  @BuiltValueEnumConst(wireName: '48')
+  static const RoomSetAllAttendeesPermissionsPermissions $48 = _$roomSetAllAttendeesPermissionsPermissions$48;
+
+  @BuiltValueEnumConst(wireName: '49')
+  static const RoomSetAllAttendeesPermissionsPermissions $49 = _$roomSetAllAttendeesPermissionsPermissions$49;
+
+  @BuiltValueEnumConst(wireName: '50')
+  static const RoomSetAllAttendeesPermissionsPermissions $50 = _$roomSetAllAttendeesPermissionsPermissions$50;
+
+  @BuiltValueEnumConst(wireName: '51')
+  static const RoomSetAllAttendeesPermissionsPermissions $51 = _$roomSetAllAttendeesPermissionsPermissions$51;
+
+  @BuiltValueEnumConst(wireName: '52')
+  static const RoomSetAllAttendeesPermissionsPermissions $52 = _$roomSetAllAttendeesPermissionsPermissions$52;
+
+  @BuiltValueEnumConst(wireName: '53')
+  static const RoomSetAllAttendeesPermissionsPermissions $53 = _$roomSetAllAttendeesPermissionsPermissions$53;
+
+  @BuiltValueEnumConst(wireName: '54')
+  static const RoomSetAllAttendeesPermissionsPermissions $54 = _$roomSetAllAttendeesPermissionsPermissions$54;
+
+  @BuiltValueEnumConst(wireName: '55')
+  static const RoomSetAllAttendeesPermissionsPermissions $55 = _$roomSetAllAttendeesPermissionsPermissions$55;
+
+  @BuiltValueEnumConst(wireName: '56')
+  static const RoomSetAllAttendeesPermissionsPermissions $56 = _$roomSetAllAttendeesPermissionsPermissions$56;
+
+  @BuiltValueEnumConst(wireName: '57')
+  static const RoomSetAllAttendeesPermissionsPermissions $57 = _$roomSetAllAttendeesPermissionsPermissions$57;
+
+  @BuiltValueEnumConst(wireName: '58')
+  static const RoomSetAllAttendeesPermissionsPermissions $58 = _$roomSetAllAttendeesPermissionsPermissions$58;
+
+  @BuiltValueEnumConst(wireName: '59')
+  static const RoomSetAllAttendeesPermissionsPermissions $59 = _$roomSetAllAttendeesPermissionsPermissions$59;
+
+  @BuiltValueEnumConst(wireName: '60')
+  static const RoomSetAllAttendeesPermissionsPermissions $60 = _$roomSetAllAttendeesPermissionsPermissions$60;
+
+  @BuiltValueEnumConst(wireName: '61')
+  static const RoomSetAllAttendeesPermissionsPermissions $61 = _$roomSetAllAttendeesPermissionsPermissions$61;
+
+  @BuiltValueEnumConst(wireName: '62')
+  static const RoomSetAllAttendeesPermissionsPermissions $62 = _$roomSetAllAttendeesPermissionsPermissions$62;
+
+  @BuiltValueEnumConst(wireName: '63')
+  static const RoomSetAllAttendeesPermissionsPermissions $63 = _$roomSetAllAttendeesPermissionsPermissions$63;
+
+  @BuiltValueEnumConst(wireName: '64')
+  static const RoomSetAllAttendeesPermissionsPermissions $64 = _$roomSetAllAttendeesPermissionsPermissions$64;
+
+  @BuiltValueEnumConst(wireName: '65')
+  static const RoomSetAllAttendeesPermissionsPermissions $65 = _$roomSetAllAttendeesPermissionsPermissions$65;
+
+  @BuiltValueEnumConst(wireName: '66')
+  static const RoomSetAllAttendeesPermissionsPermissions $66 = _$roomSetAllAttendeesPermissionsPermissions$66;
+
+  @BuiltValueEnumConst(wireName: '67')
+  static const RoomSetAllAttendeesPermissionsPermissions $67 = _$roomSetAllAttendeesPermissionsPermissions$67;
+
+  @BuiltValueEnumConst(wireName: '68')
+  static const RoomSetAllAttendeesPermissionsPermissions $68 = _$roomSetAllAttendeesPermissionsPermissions$68;
+
+  @BuiltValueEnumConst(wireName: '69')
+  static const RoomSetAllAttendeesPermissionsPermissions $69 = _$roomSetAllAttendeesPermissionsPermissions$69;
+
+  @BuiltValueEnumConst(wireName: '70')
+  static const RoomSetAllAttendeesPermissionsPermissions $70 = _$roomSetAllAttendeesPermissionsPermissions$70;
+
+  @BuiltValueEnumConst(wireName: '71')
+  static const RoomSetAllAttendeesPermissionsPermissions $71 = _$roomSetAllAttendeesPermissionsPermissions$71;
+
+  @BuiltValueEnumConst(wireName: '72')
+  static const RoomSetAllAttendeesPermissionsPermissions $72 = _$roomSetAllAttendeesPermissionsPermissions$72;
+
+  @BuiltValueEnumConst(wireName: '73')
+  static const RoomSetAllAttendeesPermissionsPermissions $73 = _$roomSetAllAttendeesPermissionsPermissions$73;
+
+  @BuiltValueEnumConst(wireName: '74')
+  static const RoomSetAllAttendeesPermissionsPermissions $74 = _$roomSetAllAttendeesPermissionsPermissions$74;
+
+  @BuiltValueEnumConst(wireName: '75')
+  static const RoomSetAllAttendeesPermissionsPermissions $75 = _$roomSetAllAttendeesPermissionsPermissions$75;
+
+  @BuiltValueEnumConst(wireName: '76')
+  static const RoomSetAllAttendeesPermissionsPermissions $76 = _$roomSetAllAttendeesPermissionsPermissions$76;
+
+  @BuiltValueEnumConst(wireName: '77')
+  static const RoomSetAllAttendeesPermissionsPermissions $77 = _$roomSetAllAttendeesPermissionsPermissions$77;
+
+  @BuiltValueEnumConst(wireName: '78')
+  static const RoomSetAllAttendeesPermissionsPermissions $78 = _$roomSetAllAttendeesPermissionsPermissions$78;
+
+  @BuiltValueEnumConst(wireName: '79')
+  static const RoomSetAllAttendeesPermissionsPermissions $79 = _$roomSetAllAttendeesPermissionsPermissions$79;
+
+  @BuiltValueEnumConst(wireName: '80')
+  static const RoomSetAllAttendeesPermissionsPermissions $80 = _$roomSetAllAttendeesPermissionsPermissions$80;
+
+  @BuiltValueEnumConst(wireName: '81')
+  static const RoomSetAllAttendeesPermissionsPermissions $81 = _$roomSetAllAttendeesPermissionsPermissions$81;
+
+  @BuiltValueEnumConst(wireName: '82')
+  static const RoomSetAllAttendeesPermissionsPermissions $82 = _$roomSetAllAttendeesPermissionsPermissions$82;
+
+  @BuiltValueEnumConst(wireName: '83')
+  static const RoomSetAllAttendeesPermissionsPermissions $83 = _$roomSetAllAttendeesPermissionsPermissions$83;
+
+  @BuiltValueEnumConst(wireName: '84')
+  static const RoomSetAllAttendeesPermissionsPermissions $84 = _$roomSetAllAttendeesPermissionsPermissions$84;
+
+  @BuiltValueEnumConst(wireName: '85')
+  static const RoomSetAllAttendeesPermissionsPermissions $85 = _$roomSetAllAttendeesPermissionsPermissions$85;
+
+  @BuiltValueEnumConst(wireName: '86')
+  static const RoomSetAllAttendeesPermissionsPermissions $86 = _$roomSetAllAttendeesPermissionsPermissions$86;
+
+  @BuiltValueEnumConst(wireName: '87')
+  static const RoomSetAllAttendeesPermissionsPermissions $87 = _$roomSetAllAttendeesPermissionsPermissions$87;
+
+  @BuiltValueEnumConst(wireName: '88')
+  static const RoomSetAllAttendeesPermissionsPermissions $88 = _$roomSetAllAttendeesPermissionsPermissions$88;
+
+  @BuiltValueEnumConst(wireName: '89')
+  static const RoomSetAllAttendeesPermissionsPermissions $89 = _$roomSetAllAttendeesPermissionsPermissions$89;
+
+  @BuiltValueEnumConst(wireName: '90')
+  static const RoomSetAllAttendeesPermissionsPermissions $90 = _$roomSetAllAttendeesPermissionsPermissions$90;
+
+  @BuiltValueEnumConst(wireName: '91')
+  static const RoomSetAllAttendeesPermissionsPermissions $91 = _$roomSetAllAttendeesPermissionsPermissions$91;
+
+  @BuiltValueEnumConst(wireName: '92')
+  static const RoomSetAllAttendeesPermissionsPermissions $92 = _$roomSetAllAttendeesPermissionsPermissions$92;
+
+  @BuiltValueEnumConst(wireName: '93')
+  static const RoomSetAllAttendeesPermissionsPermissions $93 = _$roomSetAllAttendeesPermissionsPermissions$93;
+
+  @BuiltValueEnumConst(wireName: '94')
+  static const RoomSetAllAttendeesPermissionsPermissions $94 = _$roomSetAllAttendeesPermissionsPermissions$94;
+
+  @BuiltValueEnumConst(wireName: '95')
+  static const RoomSetAllAttendeesPermissionsPermissions $95 = _$roomSetAllAttendeesPermissionsPermissions$95;
+
+  @BuiltValueEnumConst(wireName: '96')
+  static const RoomSetAllAttendeesPermissionsPermissions $96 = _$roomSetAllAttendeesPermissionsPermissions$96;
+
+  @BuiltValueEnumConst(wireName: '97')
+  static const RoomSetAllAttendeesPermissionsPermissions $97 = _$roomSetAllAttendeesPermissionsPermissions$97;
+
+  @BuiltValueEnumConst(wireName: '98')
+  static const RoomSetAllAttendeesPermissionsPermissions $98 = _$roomSetAllAttendeesPermissionsPermissions$98;
+
+  @BuiltValueEnumConst(wireName: '99')
+  static const RoomSetAllAttendeesPermissionsPermissions $99 = _$roomSetAllAttendeesPermissionsPermissions$99;
+
+  @BuiltValueEnumConst(wireName: '100')
+  static const RoomSetAllAttendeesPermissionsPermissions $100 = _$roomSetAllAttendeesPermissionsPermissions$100;
+
+  @BuiltValueEnumConst(wireName: '101')
+  static const RoomSetAllAttendeesPermissionsPermissions $101 = _$roomSetAllAttendeesPermissionsPermissions$101;
+
+  @BuiltValueEnumConst(wireName: '102')
+  static const RoomSetAllAttendeesPermissionsPermissions $102 = _$roomSetAllAttendeesPermissionsPermissions$102;
+
+  @BuiltValueEnumConst(wireName: '103')
+  static const RoomSetAllAttendeesPermissionsPermissions $103 = _$roomSetAllAttendeesPermissionsPermissions$103;
+
+  @BuiltValueEnumConst(wireName: '104')
+  static const RoomSetAllAttendeesPermissionsPermissions $104 = _$roomSetAllAttendeesPermissionsPermissions$104;
+
+  @BuiltValueEnumConst(wireName: '105')
+  static const RoomSetAllAttendeesPermissionsPermissions $105 = _$roomSetAllAttendeesPermissionsPermissions$105;
+
+  @BuiltValueEnumConst(wireName: '106')
+  static const RoomSetAllAttendeesPermissionsPermissions $106 = _$roomSetAllAttendeesPermissionsPermissions$106;
+
+  @BuiltValueEnumConst(wireName: '107')
+  static const RoomSetAllAttendeesPermissionsPermissions $107 = _$roomSetAllAttendeesPermissionsPermissions$107;
+
+  @BuiltValueEnumConst(wireName: '108')
+  static const RoomSetAllAttendeesPermissionsPermissions $108 = _$roomSetAllAttendeesPermissionsPermissions$108;
+
+  @BuiltValueEnumConst(wireName: '109')
+  static const RoomSetAllAttendeesPermissionsPermissions $109 = _$roomSetAllAttendeesPermissionsPermissions$109;
+
+  @BuiltValueEnumConst(wireName: '110')
+  static const RoomSetAllAttendeesPermissionsPermissions $110 = _$roomSetAllAttendeesPermissionsPermissions$110;
+
+  @BuiltValueEnumConst(wireName: '111')
+  static const RoomSetAllAttendeesPermissionsPermissions $111 = _$roomSetAllAttendeesPermissionsPermissions$111;
+
+  @BuiltValueEnumConst(wireName: '112')
+  static const RoomSetAllAttendeesPermissionsPermissions $112 = _$roomSetAllAttendeesPermissionsPermissions$112;
+
+  @BuiltValueEnumConst(wireName: '113')
+  static const RoomSetAllAttendeesPermissionsPermissions $113 = _$roomSetAllAttendeesPermissionsPermissions$113;
+
+  @BuiltValueEnumConst(wireName: '114')
+  static const RoomSetAllAttendeesPermissionsPermissions $114 = _$roomSetAllAttendeesPermissionsPermissions$114;
+
+  @BuiltValueEnumConst(wireName: '115')
+  static const RoomSetAllAttendeesPermissionsPermissions $115 = _$roomSetAllAttendeesPermissionsPermissions$115;
+
+  @BuiltValueEnumConst(wireName: '116')
+  static const RoomSetAllAttendeesPermissionsPermissions $116 = _$roomSetAllAttendeesPermissionsPermissions$116;
+
+  @BuiltValueEnumConst(wireName: '117')
+  static const RoomSetAllAttendeesPermissionsPermissions $117 = _$roomSetAllAttendeesPermissionsPermissions$117;
+
+  @BuiltValueEnumConst(wireName: '118')
+  static const RoomSetAllAttendeesPermissionsPermissions $118 = _$roomSetAllAttendeesPermissionsPermissions$118;
+
+  @BuiltValueEnumConst(wireName: '119')
+  static const RoomSetAllAttendeesPermissionsPermissions $119 = _$roomSetAllAttendeesPermissionsPermissions$119;
+
+  @BuiltValueEnumConst(wireName: '120')
+  static const RoomSetAllAttendeesPermissionsPermissions $120 = _$roomSetAllAttendeesPermissionsPermissions$120;
+
+  @BuiltValueEnumConst(wireName: '121')
+  static const RoomSetAllAttendeesPermissionsPermissions $121 = _$roomSetAllAttendeesPermissionsPermissions$121;
+
+  @BuiltValueEnumConst(wireName: '122')
+  static const RoomSetAllAttendeesPermissionsPermissions $122 = _$roomSetAllAttendeesPermissionsPermissions$122;
+
+  @BuiltValueEnumConst(wireName: '123')
+  static const RoomSetAllAttendeesPermissionsPermissions $123 = _$roomSetAllAttendeesPermissionsPermissions$123;
+
+  @BuiltValueEnumConst(wireName: '124')
+  static const RoomSetAllAttendeesPermissionsPermissions $124 = _$roomSetAllAttendeesPermissionsPermissions$124;
+
+  @BuiltValueEnumConst(wireName: '125')
+  static const RoomSetAllAttendeesPermissionsPermissions $125 = _$roomSetAllAttendeesPermissionsPermissions$125;
+
+  @BuiltValueEnumConst(wireName: '126')
+  static const RoomSetAllAttendeesPermissionsPermissions $126 = _$roomSetAllAttendeesPermissionsPermissions$126;
+
+  @BuiltValueEnumConst(wireName: '127')
+  static const RoomSetAllAttendeesPermissionsPermissions $127 = _$roomSetAllAttendeesPermissionsPermissions$127;
+
+  @BuiltValueEnumConst(wireName: '128')
+  static const RoomSetAllAttendeesPermissionsPermissions $128 = _$roomSetAllAttendeesPermissionsPermissions$128;
+
+  @BuiltValueEnumConst(wireName: '129')
+  static const RoomSetAllAttendeesPermissionsPermissions $129 = _$roomSetAllAttendeesPermissionsPermissions$129;
+
+  @BuiltValueEnumConst(wireName: '130')
+  static const RoomSetAllAttendeesPermissionsPermissions $130 = _$roomSetAllAttendeesPermissionsPermissions$130;
+
+  @BuiltValueEnumConst(wireName: '131')
+  static const RoomSetAllAttendeesPermissionsPermissions $131 = _$roomSetAllAttendeesPermissionsPermissions$131;
+
+  @BuiltValueEnumConst(wireName: '132')
+  static const RoomSetAllAttendeesPermissionsPermissions $132 = _$roomSetAllAttendeesPermissionsPermissions$132;
+
+  @BuiltValueEnumConst(wireName: '133')
+  static const RoomSetAllAttendeesPermissionsPermissions $133 = _$roomSetAllAttendeesPermissionsPermissions$133;
+
+  @BuiltValueEnumConst(wireName: '134')
+  static const RoomSetAllAttendeesPermissionsPermissions $134 = _$roomSetAllAttendeesPermissionsPermissions$134;
+
+  @BuiltValueEnumConst(wireName: '135')
+  static const RoomSetAllAttendeesPermissionsPermissions $135 = _$roomSetAllAttendeesPermissionsPermissions$135;
+
+  @BuiltValueEnumConst(wireName: '136')
+  static const RoomSetAllAttendeesPermissionsPermissions $136 = _$roomSetAllAttendeesPermissionsPermissions$136;
+
+  @BuiltValueEnumConst(wireName: '137')
+  static const RoomSetAllAttendeesPermissionsPermissions $137 = _$roomSetAllAttendeesPermissionsPermissions$137;
+
+  @BuiltValueEnumConst(wireName: '138')
+  static const RoomSetAllAttendeesPermissionsPermissions $138 = _$roomSetAllAttendeesPermissionsPermissions$138;
+
+  @BuiltValueEnumConst(wireName: '139')
+  static const RoomSetAllAttendeesPermissionsPermissions $139 = _$roomSetAllAttendeesPermissionsPermissions$139;
+
+  @BuiltValueEnumConst(wireName: '140')
+  static const RoomSetAllAttendeesPermissionsPermissions $140 = _$roomSetAllAttendeesPermissionsPermissions$140;
+
+  @BuiltValueEnumConst(wireName: '141')
+  static const RoomSetAllAttendeesPermissionsPermissions $141 = _$roomSetAllAttendeesPermissionsPermissions$141;
+
+  @BuiltValueEnumConst(wireName: '142')
+  static const RoomSetAllAttendeesPermissionsPermissions $142 = _$roomSetAllAttendeesPermissionsPermissions$142;
+
+  @BuiltValueEnumConst(wireName: '143')
+  static const RoomSetAllAttendeesPermissionsPermissions $143 = _$roomSetAllAttendeesPermissionsPermissions$143;
+
+  @BuiltValueEnumConst(wireName: '144')
+  static const RoomSetAllAttendeesPermissionsPermissions $144 = _$roomSetAllAttendeesPermissionsPermissions$144;
+
+  @BuiltValueEnumConst(wireName: '145')
+  static const RoomSetAllAttendeesPermissionsPermissions $145 = _$roomSetAllAttendeesPermissionsPermissions$145;
+
+  @BuiltValueEnumConst(wireName: '146')
+  static const RoomSetAllAttendeesPermissionsPermissions $146 = _$roomSetAllAttendeesPermissionsPermissions$146;
+
+  @BuiltValueEnumConst(wireName: '147')
+  static const RoomSetAllAttendeesPermissionsPermissions $147 = _$roomSetAllAttendeesPermissionsPermissions$147;
+
+  @BuiltValueEnumConst(wireName: '148')
+  static const RoomSetAllAttendeesPermissionsPermissions $148 = _$roomSetAllAttendeesPermissionsPermissions$148;
+
+  @BuiltValueEnumConst(wireName: '149')
+  static const RoomSetAllAttendeesPermissionsPermissions $149 = _$roomSetAllAttendeesPermissionsPermissions$149;
+
+  @BuiltValueEnumConst(wireName: '150')
+  static const RoomSetAllAttendeesPermissionsPermissions $150 = _$roomSetAllAttendeesPermissionsPermissions$150;
+
+  @BuiltValueEnumConst(wireName: '151')
+  static const RoomSetAllAttendeesPermissionsPermissions $151 = _$roomSetAllAttendeesPermissionsPermissions$151;
+
+  @BuiltValueEnumConst(wireName: '152')
+  static const RoomSetAllAttendeesPermissionsPermissions $152 = _$roomSetAllAttendeesPermissionsPermissions$152;
+
+  @BuiltValueEnumConst(wireName: '153')
+  static const RoomSetAllAttendeesPermissionsPermissions $153 = _$roomSetAllAttendeesPermissionsPermissions$153;
+
+  @BuiltValueEnumConst(wireName: '154')
+  static const RoomSetAllAttendeesPermissionsPermissions $154 = _$roomSetAllAttendeesPermissionsPermissions$154;
+
+  @BuiltValueEnumConst(wireName: '155')
+  static const RoomSetAllAttendeesPermissionsPermissions $155 = _$roomSetAllAttendeesPermissionsPermissions$155;
+
+  @BuiltValueEnumConst(wireName: '156')
+  static const RoomSetAllAttendeesPermissionsPermissions $156 = _$roomSetAllAttendeesPermissionsPermissions$156;
+
+  @BuiltValueEnumConst(wireName: '157')
+  static const RoomSetAllAttendeesPermissionsPermissions $157 = _$roomSetAllAttendeesPermissionsPermissions$157;
+
+  @BuiltValueEnumConst(wireName: '158')
+  static const RoomSetAllAttendeesPermissionsPermissions $158 = _$roomSetAllAttendeesPermissionsPermissions$158;
+
+  @BuiltValueEnumConst(wireName: '159')
+  static const RoomSetAllAttendeesPermissionsPermissions $159 = _$roomSetAllAttendeesPermissionsPermissions$159;
+
+  @BuiltValueEnumConst(wireName: '160')
+  static const RoomSetAllAttendeesPermissionsPermissions $160 = _$roomSetAllAttendeesPermissionsPermissions$160;
+
+  @BuiltValueEnumConst(wireName: '161')
+  static const RoomSetAllAttendeesPermissionsPermissions $161 = _$roomSetAllAttendeesPermissionsPermissions$161;
+
+  @BuiltValueEnumConst(wireName: '162')
+  static const RoomSetAllAttendeesPermissionsPermissions $162 = _$roomSetAllAttendeesPermissionsPermissions$162;
+
+  @BuiltValueEnumConst(wireName: '163')
+  static const RoomSetAllAttendeesPermissionsPermissions $163 = _$roomSetAllAttendeesPermissionsPermissions$163;
+
+  @BuiltValueEnumConst(wireName: '164')
+  static const RoomSetAllAttendeesPermissionsPermissions $164 = _$roomSetAllAttendeesPermissionsPermissions$164;
+
+  @BuiltValueEnumConst(wireName: '165')
+  static const RoomSetAllAttendeesPermissionsPermissions $165 = _$roomSetAllAttendeesPermissionsPermissions$165;
+
+  @BuiltValueEnumConst(wireName: '166')
+  static const RoomSetAllAttendeesPermissionsPermissions $166 = _$roomSetAllAttendeesPermissionsPermissions$166;
+
+  @BuiltValueEnumConst(wireName: '167')
+  static const RoomSetAllAttendeesPermissionsPermissions $167 = _$roomSetAllAttendeesPermissionsPermissions$167;
+
+  @BuiltValueEnumConst(wireName: '168')
+  static const RoomSetAllAttendeesPermissionsPermissions $168 = _$roomSetAllAttendeesPermissionsPermissions$168;
+
+  @BuiltValueEnumConst(wireName: '169')
+  static const RoomSetAllAttendeesPermissionsPermissions $169 = _$roomSetAllAttendeesPermissionsPermissions$169;
+
+  @BuiltValueEnumConst(wireName: '170')
+  static const RoomSetAllAttendeesPermissionsPermissions $170 = _$roomSetAllAttendeesPermissionsPermissions$170;
+
+  @BuiltValueEnumConst(wireName: '171')
+  static const RoomSetAllAttendeesPermissionsPermissions $171 = _$roomSetAllAttendeesPermissionsPermissions$171;
+
+  @BuiltValueEnumConst(wireName: '172')
+  static const RoomSetAllAttendeesPermissionsPermissions $172 = _$roomSetAllAttendeesPermissionsPermissions$172;
+
+  @BuiltValueEnumConst(wireName: '173')
+  static const RoomSetAllAttendeesPermissionsPermissions $173 = _$roomSetAllAttendeesPermissionsPermissions$173;
+
+  @BuiltValueEnumConst(wireName: '174')
+  static const RoomSetAllAttendeesPermissionsPermissions $174 = _$roomSetAllAttendeesPermissionsPermissions$174;
+
+  @BuiltValueEnumConst(wireName: '175')
+  static const RoomSetAllAttendeesPermissionsPermissions $175 = _$roomSetAllAttendeesPermissionsPermissions$175;
+
+  @BuiltValueEnumConst(wireName: '176')
+  static const RoomSetAllAttendeesPermissionsPermissions $176 = _$roomSetAllAttendeesPermissionsPermissions$176;
+
+  @BuiltValueEnumConst(wireName: '177')
+  static const RoomSetAllAttendeesPermissionsPermissions $177 = _$roomSetAllAttendeesPermissionsPermissions$177;
+
+  @BuiltValueEnumConst(wireName: '178')
+  static const RoomSetAllAttendeesPermissionsPermissions $178 = _$roomSetAllAttendeesPermissionsPermissions$178;
+
+  @BuiltValueEnumConst(wireName: '179')
+  static const RoomSetAllAttendeesPermissionsPermissions $179 = _$roomSetAllAttendeesPermissionsPermissions$179;
+
+  @BuiltValueEnumConst(wireName: '180')
+  static const RoomSetAllAttendeesPermissionsPermissions $180 = _$roomSetAllAttendeesPermissionsPermissions$180;
+
+  @BuiltValueEnumConst(wireName: '181')
+  static const RoomSetAllAttendeesPermissionsPermissions $181 = _$roomSetAllAttendeesPermissionsPermissions$181;
+
+  @BuiltValueEnumConst(wireName: '182')
+  static const RoomSetAllAttendeesPermissionsPermissions $182 = _$roomSetAllAttendeesPermissionsPermissions$182;
+
+  @BuiltValueEnumConst(wireName: '183')
+  static const RoomSetAllAttendeesPermissionsPermissions $183 = _$roomSetAllAttendeesPermissionsPermissions$183;
+
+  @BuiltValueEnumConst(wireName: '184')
+  static const RoomSetAllAttendeesPermissionsPermissions $184 = _$roomSetAllAttendeesPermissionsPermissions$184;
+
+  @BuiltValueEnumConst(wireName: '185')
+  static const RoomSetAllAttendeesPermissionsPermissions $185 = _$roomSetAllAttendeesPermissionsPermissions$185;
+
+  @BuiltValueEnumConst(wireName: '186')
+  static const RoomSetAllAttendeesPermissionsPermissions $186 = _$roomSetAllAttendeesPermissionsPermissions$186;
+
+  @BuiltValueEnumConst(wireName: '187')
+  static const RoomSetAllAttendeesPermissionsPermissions $187 = _$roomSetAllAttendeesPermissionsPermissions$187;
+
+  @BuiltValueEnumConst(wireName: '188')
+  static const RoomSetAllAttendeesPermissionsPermissions $188 = _$roomSetAllAttendeesPermissionsPermissions$188;
+
+  @BuiltValueEnumConst(wireName: '189')
+  static const RoomSetAllAttendeesPermissionsPermissions $189 = _$roomSetAllAttendeesPermissionsPermissions$189;
+
+  @BuiltValueEnumConst(wireName: '190')
+  static const RoomSetAllAttendeesPermissionsPermissions $190 = _$roomSetAllAttendeesPermissionsPermissions$190;
+
+  @BuiltValueEnumConst(wireName: '191')
+  static const RoomSetAllAttendeesPermissionsPermissions $191 = _$roomSetAllAttendeesPermissionsPermissions$191;
+
+  @BuiltValueEnumConst(wireName: '192')
+  static const RoomSetAllAttendeesPermissionsPermissions $192 = _$roomSetAllAttendeesPermissionsPermissions$192;
+
+  @BuiltValueEnumConst(wireName: '193')
+  static const RoomSetAllAttendeesPermissionsPermissions $193 = _$roomSetAllAttendeesPermissionsPermissions$193;
+
+  @BuiltValueEnumConst(wireName: '194')
+  static const RoomSetAllAttendeesPermissionsPermissions $194 = _$roomSetAllAttendeesPermissionsPermissions$194;
+
+  @BuiltValueEnumConst(wireName: '195')
+  static const RoomSetAllAttendeesPermissionsPermissions $195 = _$roomSetAllAttendeesPermissionsPermissions$195;
+
+  @BuiltValueEnumConst(wireName: '196')
+  static const RoomSetAllAttendeesPermissionsPermissions $196 = _$roomSetAllAttendeesPermissionsPermissions$196;
+
+  @BuiltValueEnumConst(wireName: '197')
+  static const RoomSetAllAttendeesPermissionsPermissions $197 = _$roomSetAllAttendeesPermissionsPermissions$197;
+
+  @BuiltValueEnumConst(wireName: '198')
+  static const RoomSetAllAttendeesPermissionsPermissions $198 = _$roomSetAllAttendeesPermissionsPermissions$198;
+
+  @BuiltValueEnumConst(wireName: '199')
+  static const RoomSetAllAttendeesPermissionsPermissions $199 = _$roomSetAllAttendeesPermissionsPermissions$199;
+
+  @BuiltValueEnumConst(wireName: '200')
+  static const RoomSetAllAttendeesPermissionsPermissions $200 = _$roomSetAllAttendeesPermissionsPermissions$200;
+
+  @BuiltValueEnumConst(wireName: '201')
+  static const RoomSetAllAttendeesPermissionsPermissions $201 = _$roomSetAllAttendeesPermissionsPermissions$201;
+
+  @BuiltValueEnumConst(wireName: '202')
+  static const RoomSetAllAttendeesPermissionsPermissions $202 = _$roomSetAllAttendeesPermissionsPermissions$202;
+
+  @BuiltValueEnumConst(wireName: '203')
+  static const RoomSetAllAttendeesPermissionsPermissions $203 = _$roomSetAllAttendeesPermissionsPermissions$203;
+
+  @BuiltValueEnumConst(wireName: '204')
+  static const RoomSetAllAttendeesPermissionsPermissions $204 = _$roomSetAllAttendeesPermissionsPermissions$204;
+
+  @BuiltValueEnumConst(wireName: '205')
+  static const RoomSetAllAttendeesPermissionsPermissions $205 = _$roomSetAllAttendeesPermissionsPermissions$205;
+
+  @BuiltValueEnumConst(wireName: '206')
+  static const RoomSetAllAttendeesPermissionsPermissions $206 = _$roomSetAllAttendeesPermissionsPermissions$206;
+
+  @BuiltValueEnumConst(wireName: '207')
+  static const RoomSetAllAttendeesPermissionsPermissions $207 = _$roomSetAllAttendeesPermissionsPermissions$207;
+
+  @BuiltValueEnumConst(wireName: '208')
+  static const RoomSetAllAttendeesPermissionsPermissions $208 = _$roomSetAllAttendeesPermissionsPermissions$208;
+
+  @BuiltValueEnumConst(wireName: '209')
+  static const RoomSetAllAttendeesPermissionsPermissions $209 = _$roomSetAllAttendeesPermissionsPermissions$209;
+
+  @BuiltValueEnumConst(wireName: '210')
+  static const RoomSetAllAttendeesPermissionsPermissions $210 = _$roomSetAllAttendeesPermissionsPermissions$210;
+
+  @BuiltValueEnumConst(wireName: '211')
+  static const RoomSetAllAttendeesPermissionsPermissions $211 = _$roomSetAllAttendeesPermissionsPermissions$211;
+
+  @BuiltValueEnumConst(wireName: '212')
+  static const RoomSetAllAttendeesPermissionsPermissions $212 = _$roomSetAllAttendeesPermissionsPermissions$212;
+
+  @BuiltValueEnumConst(wireName: '213')
+  static const RoomSetAllAttendeesPermissionsPermissions $213 = _$roomSetAllAttendeesPermissionsPermissions$213;
+
+  @BuiltValueEnumConst(wireName: '214')
+  static const RoomSetAllAttendeesPermissionsPermissions $214 = _$roomSetAllAttendeesPermissionsPermissions$214;
+
+  @BuiltValueEnumConst(wireName: '215')
+  static const RoomSetAllAttendeesPermissionsPermissions $215 = _$roomSetAllAttendeesPermissionsPermissions$215;
+
+  @BuiltValueEnumConst(wireName: '216')
+  static const RoomSetAllAttendeesPermissionsPermissions $216 = _$roomSetAllAttendeesPermissionsPermissions$216;
+
+  @BuiltValueEnumConst(wireName: '217')
+  static const RoomSetAllAttendeesPermissionsPermissions $217 = _$roomSetAllAttendeesPermissionsPermissions$217;
+
+  @BuiltValueEnumConst(wireName: '218')
+  static const RoomSetAllAttendeesPermissionsPermissions $218 = _$roomSetAllAttendeesPermissionsPermissions$218;
+
+  @BuiltValueEnumConst(wireName: '219')
+  static const RoomSetAllAttendeesPermissionsPermissions $219 = _$roomSetAllAttendeesPermissionsPermissions$219;
+
+  @BuiltValueEnumConst(wireName: '220')
+  static const RoomSetAllAttendeesPermissionsPermissions $220 = _$roomSetAllAttendeesPermissionsPermissions$220;
+
+  @BuiltValueEnumConst(wireName: '221')
+  static const RoomSetAllAttendeesPermissionsPermissions $221 = _$roomSetAllAttendeesPermissionsPermissions$221;
+
+  @BuiltValueEnumConst(wireName: '222')
+  static const RoomSetAllAttendeesPermissionsPermissions $222 = _$roomSetAllAttendeesPermissionsPermissions$222;
+
+  @BuiltValueEnumConst(wireName: '223')
+  static const RoomSetAllAttendeesPermissionsPermissions $223 = _$roomSetAllAttendeesPermissionsPermissions$223;
+
+  @BuiltValueEnumConst(wireName: '224')
+  static const RoomSetAllAttendeesPermissionsPermissions $224 = _$roomSetAllAttendeesPermissionsPermissions$224;
+
+  @BuiltValueEnumConst(wireName: '225')
+  static const RoomSetAllAttendeesPermissionsPermissions $225 = _$roomSetAllAttendeesPermissionsPermissions$225;
+
+  @BuiltValueEnumConst(wireName: '226')
+  static const RoomSetAllAttendeesPermissionsPermissions $226 = _$roomSetAllAttendeesPermissionsPermissions$226;
+
+  @BuiltValueEnumConst(wireName: '227')
+  static const RoomSetAllAttendeesPermissionsPermissions $227 = _$roomSetAllAttendeesPermissionsPermissions$227;
+
+  @BuiltValueEnumConst(wireName: '228')
+  static const RoomSetAllAttendeesPermissionsPermissions $228 = _$roomSetAllAttendeesPermissionsPermissions$228;
+
+  @BuiltValueEnumConst(wireName: '229')
+  static const RoomSetAllAttendeesPermissionsPermissions $229 = _$roomSetAllAttendeesPermissionsPermissions$229;
+
+  @BuiltValueEnumConst(wireName: '230')
+  static const RoomSetAllAttendeesPermissionsPermissions $230 = _$roomSetAllAttendeesPermissionsPermissions$230;
+
+  @BuiltValueEnumConst(wireName: '231')
+  static const RoomSetAllAttendeesPermissionsPermissions $231 = _$roomSetAllAttendeesPermissionsPermissions$231;
+
+  @BuiltValueEnumConst(wireName: '232')
+  static const RoomSetAllAttendeesPermissionsPermissions $232 = _$roomSetAllAttendeesPermissionsPermissions$232;
+
+  @BuiltValueEnumConst(wireName: '233')
+  static const RoomSetAllAttendeesPermissionsPermissions $233 = _$roomSetAllAttendeesPermissionsPermissions$233;
+
+  @BuiltValueEnumConst(wireName: '234')
+  static const RoomSetAllAttendeesPermissionsPermissions $234 = _$roomSetAllAttendeesPermissionsPermissions$234;
+
+  @BuiltValueEnumConst(wireName: '235')
+  static const RoomSetAllAttendeesPermissionsPermissions $235 = _$roomSetAllAttendeesPermissionsPermissions$235;
+
+  @BuiltValueEnumConst(wireName: '236')
+  static const RoomSetAllAttendeesPermissionsPermissions $236 = _$roomSetAllAttendeesPermissionsPermissions$236;
+
+  @BuiltValueEnumConst(wireName: '237')
+  static const RoomSetAllAttendeesPermissionsPermissions $237 = _$roomSetAllAttendeesPermissionsPermissions$237;
+
+  @BuiltValueEnumConst(wireName: '238')
+  static const RoomSetAllAttendeesPermissionsPermissions $238 = _$roomSetAllAttendeesPermissionsPermissions$238;
+
+  @BuiltValueEnumConst(wireName: '239')
+  static const RoomSetAllAttendeesPermissionsPermissions $239 = _$roomSetAllAttendeesPermissionsPermissions$239;
+
+  @BuiltValueEnumConst(wireName: '240')
+  static const RoomSetAllAttendeesPermissionsPermissions $240 = _$roomSetAllAttendeesPermissionsPermissions$240;
+
+  @BuiltValueEnumConst(wireName: '241')
+  static const RoomSetAllAttendeesPermissionsPermissions $241 = _$roomSetAllAttendeesPermissionsPermissions$241;
+
+  @BuiltValueEnumConst(wireName: '242')
+  static const RoomSetAllAttendeesPermissionsPermissions $242 = _$roomSetAllAttendeesPermissionsPermissions$242;
+
+  @BuiltValueEnumConst(wireName: '243')
+  static const RoomSetAllAttendeesPermissionsPermissions $243 = _$roomSetAllAttendeesPermissionsPermissions$243;
+
+  @BuiltValueEnumConst(wireName: '244')
+  static const RoomSetAllAttendeesPermissionsPermissions $244 = _$roomSetAllAttendeesPermissionsPermissions$244;
+
+  @BuiltValueEnumConst(wireName: '245')
+  static const RoomSetAllAttendeesPermissionsPermissions $245 = _$roomSetAllAttendeesPermissionsPermissions$245;
+
+  @BuiltValueEnumConst(wireName: '246')
+  static const RoomSetAllAttendeesPermissionsPermissions $246 = _$roomSetAllAttendeesPermissionsPermissions$246;
+
+  @BuiltValueEnumConst(wireName: '247')
+  static const RoomSetAllAttendeesPermissionsPermissions $247 = _$roomSetAllAttendeesPermissionsPermissions$247;
+
+  @BuiltValueEnumConst(wireName: '248')
+  static const RoomSetAllAttendeesPermissionsPermissions $248 = _$roomSetAllAttendeesPermissionsPermissions$248;
+
+  @BuiltValueEnumConst(wireName: '249')
+  static const RoomSetAllAttendeesPermissionsPermissions $249 = _$roomSetAllAttendeesPermissionsPermissions$249;
+
+  @BuiltValueEnumConst(wireName: '250')
+  static const RoomSetAllAttendeesPermissionsPermissions $250 = _$roomSetAllAttendeesPermissionsPermissions$250;
+
+  @BuiltValueEnumConst(wireName: '251')
+  static const RoomSetAllAttendeesPermissionsPermissions $251 = _$roomSetAllAttendeesPermissionsPermissions$251;
+
+  @BuiltValueEnumConst(wireName: '252')
+  static const RoomSetAllAttendeesPermissionsPermissions $252 = _$roomSetAllAttendeesPermissionsPermissions$252;
+
+  @BuiltValueEnumConst(wireName: '253')
+  static const RoomSetAllAttendeesPermissionsPermissions $253 = _$roomSetAllAttendeesPermissionsPermissions$253;
+
+  @BuiltValueEnumConst(wireName: '254')
+  static const RoomSetAllAttendeesPermissionsPermissions $254 = _$roomSetAllAttendeesPermissionsPermissions$254;
+
+  @BuiltValueEnumConst(wireName: '255')
+  static const RoomSetAllAttendeesPermissionsPermissions $255 = _$roomSetAllAttendeesPermissionsPermissions$255;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetAllAttendeesPermissionsPermissions> get values =>
+      _$roomSetAllAttendeesPermissionsPermissionsValues;
+  // coverage:ignore-end
+
+  static RoomSetAllAttendeesPermissionsPermissions valueOf(String name) =>
+      _$valueOfRoomSetAllAttendeesPermissionsPermissions(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetAllAttendeesPermissionsPermissions> get serializer =>
+      const _$RoomSetAllAttendeesPermissionsPermissionsSerializer();
+}
+
+class _$RoomSetAllAttendeesPermissionsPermissionsSerializer
+    implements PrimitiveSerializer<RoomSetAllAttendeesPermissionsPermissions> {
+  const _$RoomSetAllAttendeesPermissionsPermissionsSerializer();
+
+  static const Map<RoomSetAllAttendeesPermissionsPermissions, Object> _toWire =
+      <RoomSetAllAttendeesPermissionsPermissions, Object>{
+    RoomSetAllAttendeesPermissionsPermissions.$0: 0,
+    RoomSetAllAttendeesPermissionsPermissions.$1: 1,
+    RoomSetAllAttendeesPermissionsPermissions.$2: 2,
+    RoomSetAllAttendeesPermissionsPermissions.$3: 3,
+    RoomSetAllAttendeesPermissionsPermissions.$4: 4,
+    RoomSetAllAttendeesPermissionsPermissions.$5: 5,
+    RoomSetAllAttendeesPermissionsPermissions.$6: 6,
+    RoomSetAllAttendeesPermissionsPermissions.$7: 7,
+    RoomSetAllAttendeesPermissionsPermissions.$8: 8,
+    RoomSetAllAttendeesPermissionsPermissions.$9: 9,
+    RoomSetAllAttendeesPermissionsPermissions.$10: 10,
+    RoomSetAllAttendeesPermissionsPermissions.$11: 11,
+    RoomSetAllAttendeesPermissionsPermissions.$12: 12,
+    RoomSetAllAttendeesPermissionsPermissions.$13: 13,
+    RoomSetAllAttendeesPermissionsPermissions.$14: 14,
+    RoomSetAllAttendeesPermissionsPermissions.$15: 15,
+    RoomSetAllAttendeesPermissionsPermissions.$16: 16,
+    RoomSetAllAttendeesPermissionsPermissions.$17: 17,
+    RoomSetAllAttendeesPermissionsPermissions.$18: 18,
+    RoomSetAllAttendeesPermissionsPermissions.$19: 19,
+    RoomSetAllAttendeesPermissionsPermissions.$20: 20,
+    RoomSetAllAttendeesPermissionsPermissions.$21: 21,
+    RoomSetAllAttendeesPermissionsPermissions.$22: 22,
+    RoomSetAllAttendeesPermissionsPermissions.$23: 23,
+    RoomSetAllAttendeesPermissionsPermissions.$24: 24,
+    RoomSetAllAttendeesPermissionsPermissions.$25: 25,
+    RoomSetAllAttendeesPermissionsPermissions.$26: 26,
+    RoomSetAllAttendeesPermissionsPermissions.$27: 27,
+    RoomSetAllAttendeesPermissionsPermissions.$28: 28,
+    RoomSetAllAttendeesPermissionsPermissions.$29: 29,
+    RoomSetAllAttendeesPermissionsPermissions.$30: 30,
+    RoomSetAllAttendeesPermissionsPermissions.$31: 31,
+    RoomSetAllAttendeesPermissionsPermissions.$32: 32,
+    RoomSetAllAttendeesPermissionsPermissions.$33: 33,
+    RoomSetAllAttendeesPermissionsPermissions.$34: 34,
+    RoomSetAllAttendeesPermissionsPermissions.$35: 35,
+    RoomSetAllAttendeesPermissionsPermissions.$36: 36,
+    RoomSetAllAttendeesPermissionsPermissions.$37: 37,
+    RoomSetAllAttendeesPermissionsPermissions.$38: 38,
+    RoomSetAllAttendeesPermissionsPermissions.$39: 39,
+    RoomSetAllAttendeesPermissionsPermissions.$40: 40,
+    RoomSetAllAttendeesPermissionsPermissions.$41: 41,
+    RoomSetAllAttendeesPermissionsPermissions.$42: 42,
+    RoomSetAllAttendeesPermissionsPermissions.$43: 43,
+    RoomSetAllAttendeesPermissionsPermissions.$44: 44,
+    RoomSetAllAttendeesPermissionsPermissions.$45: 45,
+    RoomSetAllAttendeesPermissionsPermissions.$46: 46,
+    RoomSetAllAttendeesPermissionsPermissions.$47: 47,
+    RoomSetAllAttendeesPermissionsPermissions.$48: 48,
+    RoomSetAllAttendeesPermissionsPermissions.$49: 49,
+    RoomSetAllAttendeesPermissionsPermissions.$50: 50,
+    RoomSetAllAttendeesPermissionsPermissions.$51: 51,
+    RoomSetAllAttendeesPermissionsPermissions.$52: 52,
+    RoomSetAllAttendeesPermissionsPermissions.$53: 53,
+    RoomSetAllAttendeesPermissionsPermissions.$54: 54,
+    RoomSetAllAttendeesPermissionsPermissions.$55: 55,
+    RoomSetAllAttendeesPermissionsPermissions.$56: 56,
+    RoomSetAllAttendeesPermissionsPermissions.$57: 57,
+    RoomSetAllAttendeesPermissionsPermissions.$58: 58,
+    RoomSetAllAttendeesPermissionsPermissions.$59: 59,
+    RoomSetAllAttendeesPermissionsPermissions.$60: 60,
+    RoomSetAllAttendeesPermissionsPermissions.$61: 61,
+    RoomSetAllAttendeesPermissionsPermissions.$62: 62,
+    RoomSetAllAttendeesPermissionsPermissions.$63: 63,
+    RoomSetAllAttendeesPermissionsPermissions.$64: 64,
+    RoomSetAllAttendeesPermissionsPermissions.$65: 65,
+    RoomSetAllAttendeesPermissionsPermissions.$66: 66,
+    RoomSetAllAttendeesPermissionsPermissions.$67: 67,
+    RoomSetAllAttendeesPermissionsPermissions.$68: 68,
+    RoomSetAllAttendeesPermissionsPermissions.$69: 69,
+    RoomSetAllAttendeesPermissionsPermissions.$70: 70,
+    RoomSetAllAttendeesPermissionsPermissions.$71: 71,
+    RoomSetAllAttendeesPermissionsPermissions.$72: 72,
+    RoomSetAllAttendeesPermissionsPermissions.$73: 73,
+    RoomSetAllAttendeesPermissionsPermissions.$74: 74,
+    RoomSetAllAttendeesPermissionsPermissions.$75: 75,
+    RoomSetAllAttendeesPermissionsPermissions.$76: 76,
+    RoomSetAllAttendeesPermissionsPermissions.$77: 77,
+    RoomSetAllAttendeesPermissionsPermissions.$78: 78,
+    RoomSetAllAttendeesPermissionsPermissions.$79: 79,
+    RoomSetAllAttendeesPermissionsPermissions.$80: 80,
+    RoomSetAllAttendeesPermissionsPermissions.$81: 81,
+    RoomSetAllAttendeesPermissionsPermissions.$82: 82,
+    RoomSetAllAttendeesPermissionsPermissions.$83: 83,
+    RoomSetAllAttendeesPermissionsPermissions.$84: 84,
+    RoomSetAllAttendeesPermissionsPermissions.$85: 85,
+    RoomSetAllAttendeesPermissionsPermissions.$86: 86,
+    RoomSetAllAttendeesPermissionsPermissions.$87: 87,
+    RoomSetAllAttendeesPermissionsPermissions.$88: 88,
+    RoomSetAllAttendeesPermissionsPermissions.$89: 89,
+    RoomSetAllAttendeesPermissionsPermissions.$90: 90,
+    RoomSetAllAttendeesPermissionsPermissions.$91: 91,
+    RoomSetAllAttendeesPermissionsPermissions.$92: 92,
+    RoomSetAllAttendeesPermissionsPermissions.$93: 93,
+    RoomSetAllAttendeesPermissionsPermissions.$94: 94,
+    RoomSetAllAttendeesPermissionsPermissions.$95: 95,
+    RoomSetAllAttendeesPermissionsPermissions.$96: 96,
+    RoomSetAllAttendeesPermissionsPermissions.$97: 97,
+    RoomSetAllAttendeesPermissionsPermissions.$98: 98,
+    RoomSetAllAttendeesPermissionsPermissions.$99: 99,
+    RoomSetAllAttendeesPermissionsPermissions.$100: 100,
+    RoomSetAllAttendeesPermissionsPermissions.$101: 101,
+    RoomSetAllAttendeesPermissionsPermissions.$102: 102,
+    RoomSetAllAttendeesPermissionsPermissions.$103: 103,
+    RoomSetAllAttendeesPermissionsPermissions.$104: 104,
+    RoomSetAllAttendeesPermissionsPermissions.$105: 105,
+    RoomSetAllAttendeesPermissionsPermissions.$106: 106,
+    RoomSetAllAttendeesPermissionsPermissions.$107: 107,
+    RoomSetAllAttendeesPermissionsPermissions.$108: 108,
+    RoomSetAllAttendeesPermissionsPermissions.$109: 109,
+    RoomSetAllAttendeesPermissionsPermissions.$110: 110,
+    RoomSetAllAttendeesPermissionsPermissions.$111: 111,
+    RoomSetAllAttendeesPermissionsPermissions.$112: 112,
+    RoomSetAllAttendeesPermissionsPermissions.$113: 113,
+    RoomSetAllAttendeesPermissionsPermissions.$114: 114,
+    RoomSetAllAttendeesPermissionsPermissions.$115: 115,
+    RoomSetAllAttendeesPermissionsPermissions.$116: 116,
+    RoomSetAllAttendeesPermissionsPermissions.$117: 117,
+    RoomSetAllAttendeesPermissionsPermissions.$118: 118,
+    RoomSetAllAttendeesPermissionsPermissions.$119: 119,
+    RoomSetAllAttendeesPermissionsPermissions.$120: 120,
+    RoomSetAllAttendeesPermissionsPermissions.$121: 121,
+    RoomSetAllAttendeesPermissionsPermissions.$122: 122,
+    RoomSetAllAttendeesPermissionsPermissions.$123: 123,
+    RoomSetAllAttendeesPermissionsPermissions.$124: 124,
+    RoomSetAllAttendeesPermissionsPermissions.$125: 125,
+    RoomSetAllAttendeesPermissionsPermissions.$126: 126,
+    RoomSetAllAttendeesPermissionsPermissions.$127: 127,
+    RoomSetAllAttendeesPermissionsPermissions.$128: 128,
+    RoomSetAllAttendeesPermissionsPermissions.$129: 129,
+    RoomSetAllAttendeesPermissionsPermissions.$130: 130,
+    RoomSetAllAttendeesPermissionsPermissions.$131: 131,
+    RoomSetAllAttendeesPermissionsPermissions.$132: 132,
+    RoomSetAllAttendeesPermissionsPermissions.$133: 133,
+    RoomSetAllAttendeesPermissionsPermissions.$134: 134,
+    RoomSetAllAttendeesPermissionsPermissions.$135: 135,
+    RoomSetAllAttendeesPermissionsPermissions.$136: 136,
+    RoomSetAllAttendeesPermissionsPermissions.$137: 137,
+    RoomSetAllAttendeesPermissionsPermissions.$138: 138,
+    RoomSetAllAttendeesPermissionsPermissions.$139: 139,
+    RoomSetAllAttendeesPermissionsPermissions.$140: 140,
+    RoomSetAllAttendeesPermissionsPermissions.$141: 141,
+    RoomSetAllAttendeesPermissionsPermissions.$142: 142,
+    RoomSetAllAttendeesPermissionsPermissions.$143: 143,
+    RoomSetAllAttendeesPermissionsPermissions.$144: 144,
+    RoomSetAllAttendeesPermissionsPermissions.$145: 145,
+    RoomSetAllAttendeesPermissionsPermissions.$146: 146,
+    RoomSetAllAttendeesPermissionsPermissions.$147: 147,
+    RoomSetAllAttendeesPermissionsPermissions.$148: 148,
+    RoomSetAllAttendeesPermissionsPermissions.$149: 149,
+    RoomSetAllAttendeesPermissionsPermissions.$150: 150,
+    RoomSetAllAttendeesPermissionsPermissions.$151: 151,
+    RoomSetAllAttendeesPermissionsPermissions.$152: 152,
+    RoomSetAllAttendeesPermissionsPermissions.$153: 153,
+    RoomSetAllAttendeesPermissionsPermissions.$154: 154,
+    RoomSetAllAttendeesPermissionsPermissions.$155: 155,
+    RoomSetAllAttendeesPermissionsPermissions.$156: 156,
+    RoomSetAllAttendeesPermissionsPermissions.$157: 157,
+    RoomSetAllAttendeesPermissionsPermissions.$158: 158,
+    RoomSetAllAttendeesPermissionsPermissions.$159: 159,
+    RoomSetAllAttendeesPermissionsPermissions.$160: 160,
+    RoomSetAllAttendeesPermissionsPermissions.$161: 161,
+    RoomSetAllAttendeesPermissionsPermissions.$162: 162,
+    RoomSetAllAttendeesPermissionsPermissions.$163: 163,
+    RoomSetAllAttendeesPermissionsPermissions.$164: 164,
+    RoomSetAllAttendeesPermissionsPermissions.$165: 165,
+    RoomSetAllAttendeesPermissionsPermissions.$166: 166,
+    RoomSetAllAttendeesPermissionsPermissions.$167: 167,
+    RoomSetAllAttendeesPermissionsPermissions.$168: 168,
+    RoomSetAllAttendeesPermissionsPermissions.$169: 169,
+    RoomSetAllAttendeesPermissionsPermissions.$170: 170,
+    RoomSetAllAttendeesPermissionsPermissions.$171: 171,
+    RoomSetAllAttendeesPermissionsPermissions.$172: 172,
+    RoomSetAllAttendeesPermissionsPermissions.$173: 173,
+    RoomSetAllAttendeesPermissionsPermissions.$174: 174,
+    RoomSetAllAttendeesPermissionsPermissions.$175: 175,
+    RoomSetAllAttendeesPermissionsPermissions.$176: 176,
+    RoomSetAllAttendeesPermissionsPermissions.$177: 177,
+    RoomSetAllAttendeesPermissionsPermissions.$178: 178,
+    RoomSetAllAttendeesPermissionsPermissions.$179: 179,
+    RoomSetAllAttendeesPermissionsPermissions.$180: 180,
+    RoomSetAllAttendeesPermissionsPermissions.$181: 181,
+    RoomSetAllAttendeesPermissionsPermissions.$182: 182,
+    RoomSetAllAttendeesPermissionsPermissions.$183: 183,
+    RoomSetAllAttendeesPermissionsPermissions.$184: 184,
+    RoomSetAllAttendeesPermissionsPermissions.$185: 185,
+    RoomSetAllAttendeesPermissionsPermissions.$186: 186,
+    RoomSetAllAttendeesPermissionsPermissions.$187: 187,
+    RoomSetAllAttendeesPermissionsPermissions.$188: 188,
+    RoomSetAllAttendeesPermissionsPermissions.$189: 189,
+    RoomSetAllAttendeesPermissionsPermissions.$190: 190,
+    RoomSetAllAttendeesPermissionsPermissions.$191: 191,
+    RoomSetAllAttendeesPermissionsPermissions.$192: 192,
+    RoomSetAllAttendeesPermissionsPermissions.$193: 193,
+    RoomSetAllAttendeesPermissionsPermissions.$194: 194,
+    RoomSetAllAttendeesPermissionsPermissions.$195: 195,
+    RoomSetAllAttendeesPermissionsPermissions.$196: 196,
+    RoomSetAllAttendeesPermissionsPermissions.$197: 197,
+    RoomSetAllAttendeesPermissionsPermissions.$198: 198,
+    RoomSetAllAttendeesPermissionsPermissions.$199: 199,
+    RoomSetAllAttendeesPermissionsPermissions.$200: 200,
+    RoomSetAllAttendeesPermissionsPermissions.$201: 201,
+    RoomSetAllAttendeesPermissionsPermissions.$202: 202,
+    RoomSetAllAttendeesPermissionsPermissions.$203: 203,
+    RoomSetAllAttendeesPermissionsPermissions.$204: 204,
+    RoomSetAllAttendeesPermissionsPermissions.$205: 205,
+    RoomSetAllAttendeesPermissionsPermissions.$206: 206,
+    RoomSetAllAttendeesPermissionsPermissions.$207: 207,
+    RoomSetAllAttendeesPermissionsPermissions.$208: 208,
+    RoomSetAllAttendeesPermissionsPermissions.$209: 209,
+    RoomSetAllAttendeesPermissionsPermissions.$210: 210,
+    RoomSetAllAttendeesPermissionsPermissions.$211: 211,
+    RoomSetAllAttendeesPermissionsPermissions.$212: 212,
+    RoomSetAllAttendeesPermissionsPermissions.$213: 213,
+    RoomSetAllAttendeesPermissionsPermissions.$214: 214,
+    RoomSetAllAttendeesPermissionsPermissions.$215: 215,
+    RoomSetAllAttendeesPermissionsPermissions.$216: 216,
+    RoomSetAllAttendeesPermissionsPermissions.$217: 217,
+    RoomSetAllAttendeesPermissionsPermissions.$218: 218,
+    RoomSetAllAttendeesPermissionsPermissions.$219: 219,
+    RoomSetAllAttendeesPermissionsPermissions.$220: 220,
+    RoomSetAllAttendeesPermissionsPermissions.$221: 221,
+    RoomSetAllAttendeesPermissionsPermissions.$222: 222,
+    RoomSetAllAttendeesPermissionsPermissions.$223: 223,
+    RoomSetAllAttendeesPermissionsPermissions.$224: 224,
+    RoomSetAllAttendeesPermissionsPermissions.$225: 225,
+    RoomSetAllAttendeesPermissionsPermissions.$226: 226,
+    RoomSetAllAttendeesPermissionsPermissions.$227: 227,
+    RoomSetAllAttendeesPermissionsPermissions.$228: 228,
+    RoomSetAllAttendeesPermissionsPermissions.$229: 229,
+    RoomSetAllAttendeesPermissionsPermissions.$230: 230,
+    RoomSetAllAttendeesPermissionsPermissions.$231: 231,
+    RoomSetAllAttendeesPermissionsPermissions.$232: 232,
+    RoomSetAllAttendeesPermissionsPermissions.$233: 233,
+    RoomSetAllAttendeesPermissionsPermissions.$234: 234,
+    RoomSetAllAttendeesPermissionsPermissions.$235: 235,
+    RoomSetAllAttendeesPermissionsPermissions.$236: 236,
+    RoomSetAllAttendeesPermissionsPermissions.$237: 237,
+    RoomSetAllAttendeesPermissionsPermissions.$238: 238,
+    RoomSetAllAttendeesPermissionsPermissions.$239: 239,
+    RoomSetAllAttendeesPermissionsPermissions.$240: 240,
+    RoomSetAllAttendeesPermissionsPermissions.$241: 241,
+    RoomSetAllAttendeesPermissionsPermissions.$242: 242,
+    RoomSetAllAttendeesPermissionsPermissions.$243: 243,
+    RoomSetAllAttendeesPermissionsPermissions.$244: 244,
+    RoomSetAllAttendeesPermissionsPermissions.$245: 245,
+    RoomSetAllAttendeesPermissionsPermissions.$246: 246,
+    RoomSetAllAttendeesPermissionsPermissions.$247: 247,
+    RoomSetAllAttendeesPermissionsPermissions.$248: 248,
+    RoomSetAllAttendeesPermissionsPermissions.$249: 249,
+    RoomSetAllAttendeesPermissionsPermissions.$250: 250,
+    RoomSetAllAttendeesPermissionsPermissions.$251: 251,
+    RoomSetAllAttendeesPermissionsPermissions.$252: 252,
+    RoomSetAllAttendeesPermissionsPermissions.$253: 253,
+    RoomSetAllAttendeesPermissionsPermissions.$254: 254,
+    RoomSetAllAttendeesPermissionsPermissions.$255: 255,
+  };
+
+  static const Map<Object, RoomSetAllAttendeesPermissionsPermissions> _fromWire =
+      <Object, RoomSetAllAttendeesPermissionsPermissions>{
+    0: RoomSetAllAttendeesPermissionsPermissions.$0,
+    1: RoomSetAllAttendeesPermissionsPermissions.$1,
+    2: RoomSetAllAttendeesPermissionsPermissions.$2,
+    3: RoomSetAllAttendeesPermissionsPermissions.$3,
+    4: RoomSetAllAttendeesPermissionsPermissions.$4,
+    5: RoomSetAllAttendeesPermissionsPermissions.$5,
+    6: RoomSetAllAttendeesPermissionsPermissions.$6,
+    7: RoomSetAllAttendeesPermissionsPermissions.$7,
+    8: RoomSetAllAttendeesPermissionsPermissions.$8,
+    9: RoomSetAllAttendeesPermissionsPermissions.$9,
+    10: RoomSetAllAttendeesPermissionsPermissions.$10,
+    11: RoomSetAllAttendeesPermissionsPermissions.$11,
+    12: RoomSetAllAttendeesPermissionsPermissions.$12,
+    13: RoomSetAllAttendeesPermissionsPermissions.$13,
+    14: RoomSetAllAttendeesPermissionsPermissions.$14,
+    15: RoomSetAllAttendeesPermissionsPermissions.$15,
+    16: RoomSetAllAttendeesPermissionsPermissions.$16,
+    17: RoomSetAllAttendeesPermissionsPermissions.$17,
+    18: RoomSetAllAttendeesPermissionsPermissions.$18,
+    19: RoomSetAllAttendeesPermissionsPermissions.$19,
+    20: RoomSetAllAttendeesPermissionsPermissions.$20,
+    21: RoomSetAllAttendeesPermissionsPermissions.$21,
+    22: RoomSetAllAttendeesPermissionsPermissions.$22,
+    23: RoomSetAllAttendeesPermissionsPermissions.$23,
+    24: RoomSetAllAttendeesPermissionsPermissions.$24,
+    25: RoomSetAllAttendeesPermissionsPermissions.$25,
+    26: RoomSetAllAttendeesPermissionsPermissions.$26,
+    27: RoomSetAllAttendeesPermissionsPermissions.$27,
+    28: RoomSetAllAttendeesPermissionsPermissions.$28,
+    29: RoomSetAllAttendeesPermissionsPermissions.$29,
+    30: RoomSetAllAttendeesPermissionsPermissions.$30,
+    31: RoomSetAllAttendeesPermissionsPermissions.$31,
+    32: RoomSetAllAttendeesPermissionsPermissions.$32,
+    33: RoomSetAllAttendeesPermissionsPermissions.$33,
+    34: RoomSetAllAttendeesPermissionsPermissions.$34,
+    35: RoomSetAllAttendeesPermissionsPermissions.$35,
+    36: RoomSetAllAttendeesPermissionsPermissions.$36,
+    37: RoomSetAllAttendeesPermissionsPermissions.$37,
+    38: RoomSetAllAttendeesPermissionsPermissions.$38,
+    39: RoomSetAllAttendeesPermissionsPermissions.$39,
+    40: RoomSetAllAttendeesPermissionsPermissions.$40,
+    41: RoomSetAllAttendeesPermissionsPermissions.$41,
+    42: RoomSetAllAttendeesPermissionsPermissions.$42,
+    43: RoomSetAllAttendeesPermissionsPermissions.$43,
+    44: RoomSetAllAttendeesPermissionsPermissions.$44,
+    45: RoomSetAllAttendeesPermissionsPermissions.$45,
+    46: RoomSetAllAttendeesPermissionsPermissions.$46,
+    47: RoomSetAllAttendeesPermissionsPermissions.$47,
+    48: RoomSetAllAttendeesPermissionsPermissions.$48,
+    49: RoomSetAllAttendeesPermissionsPermissions.$49,
+    50: RoomSetAllAttendeesPermissionsPermissions.$50,
+    51: RoomSetAllAttendeesPermissionsPermissions.$51,
+    52: RoomSetAllAttendeesPermissionsPermissions.$52,
+    53: RoomSetAllAttendeesPermissionsPermissions.$53,
+    54: RoomSetAllAttendeesPermissionsPermissions.$54,
+    55: RoomSetAllAttendeesPermissionsPermissions.$55,
+    56: RoomSetAllAttendeesPermissionsPermissions.$56,
+    57: RoomSetAllAttendeesPermissionsPermissions.$57,
+    58: RoomSetAllAttendeesPermissionsPermissions.$58,
+    59: RoomSetAllAttendeesPermissionsPermissions.$59,
+    60: RoomSetAllAttendeesPermissionsPermissions.$60,
+    61: RoomSetAllAttendeesPermissionsPermissions.$61,
+    62: RoomSetAllAttendeesPermissionsPermissions.$62,
+    63: RoomSetAllAttendeesPermissionsPermissions.$63,
+    64: RoomSetAllAttendeesPermissionsPermissions.$64,
+    65: RoomSetAllAttendeesPermissionsPermissions.$65,
+    66: RoomSetAllAttendeesPermissionsPermissions.$66,
+    67: RoomSetAllAttendeesPermissionsPermissions.$67,
+    68: RoomSetAllAttendeesPermissionsPermissions.$68,
+    69: RoomSetAllAttendeesPermissionsPermissions.$69,
+    70: RoomSetAllAttendeesPermissionsPermissions.$70,
+    71: RoomSetAllAttendeesPermissionsPermissions.$71,
+    72: RoomSetAllAttendeesPermissionsPermissions.$72,
+    73: RoomSetAllAttendeesPermissionsPermissions.$73,
+    74: RoomSetAllAttendeesPermissionsPermissions.$74,
+    75: RoomSetAllAttendeesPermissionsPermissions.$75,
+    76: RoomSetAllAttendeesPermissionsPermissions.$76,
+    77: RoomSetAllAttendeesPermissionsPermissions.$77,
+    78: RoomSetAllAttendeesPermissionsPermissions.$78,
+    79: RoomSetAllAttendeesPermissionsPermissions.$79,
+    80: RoomSetAllAttendeesPermissionsPermissions.$80,
+    81: RoomSetAllAttendeesPermissionsPermissions.$81,
+    82: RoomSetAllAttendeesPermissionsPermissions.$82,
+    83: RoomSetAllAttendeesPermissionsPermissions.$83,
+    84: RoomSetAllAttendeesPermissionsPermissions.$84,
+    85: RoomSetAllAttendeesPermissionsPermissions.$85,
+    86: RoomSetAllAttendeesPermissionsPermissions.$86,
+    87: RoomSetAllAttendeesPermissionsPermissions.$87,
+    88: RoomSetAllAttendeesPermissionsPermissions.$88,
+    89: RoomSetAllAttendeesPermissionsPermissions.$89,
+    90: RoomSetAllAttendeesPermissionsPermissions.$90,
+    91: RoomSetAllAttendeesPermissionsPermissions.$91,
+    92: RoomSetAllAttendeesPermissionsPermissions.$92,
+    93: RoomSetAllAttendeesPermissionsPermissions.$93,
+    94: RoomSetAllAttendeesPermissionsPermissions.$94,
+    95: RoomSetAllAttendeesPermissionsPermissions.$95,
+    96: RoomSetAllAttendeesPermissionsPermissions.$96,
+    97: RoomSetAllAttendeesPermissionsPermissions.$97,
+    98: RoomSetAllAttendeesPermissionsPermissions.$98,
+    99: RoomSetAllAttendeesPermissionsPermissions.$99,
+    100: RoomSetAllAttendeesPermissionsPermissions.$100,
+    101: RoomSetAllAttendeesPermissionsPermissions.$101,
+    102: RoomSetAllAttendeesPermissionsPermissions.$102,
+    103: RoomSetAllAttendeesPermissionsPermissions.$103,
+    104: RoomSetAllAttendeesPermissionsPermissions.$104,
+    105: RoomSetAllAttendeesPermissionsPermissions.$105,
+    106: RoomSetAllAttendeesPermissionsPermissions.$106,
+    107: RoomSetAllAttendeesPermissionsPermissions.$107,
+    108: RoomSetAllAttendeesPermissionsPermissions.$108,
+    109: RoomSetAllAttendeesPermissionsPermissions.$109,
+    110: RoomSetAllAttendeesPermissionsPermissions.$110,
+    111: RoomSetAllAttendeesPermissionsPermissions.$111,
+    112: RoomSetAllAttendeesPermissionsPermissions.$112,
+    113: RoomSetAllAttendeesPermissionsPermissions.$113,
+    114: RoomSetAllAttendeesPermissionsPermissions.$114,
+    115: RoomSetAllAttendeesPermissionsPermissions.$115,
+    116: RoomSetAllAttendeesPermissionsPermissions.$116,
+    117: RoomSetAllAttendeesPermissionsPermissions.$117,
+    118: RoomSetAllAttendeesPermissionsPermissions.$118,
+    119: RoomSetAllAttendeesPermissionsPermissions.$119,
+    120: RoomSetAllAttendeesPermissionsPermissions.$120,
+    121: RoomSetAllAttendeesPermissionsPermissions.$121,
+    122: RoomSetAllAttendeesPermissionsPermissions.$122,
+    123: RoomSetAllAttendeesPermissionsPermissions.$123,
+    124: RoomSetAllAttendeesPermissionsPermissions.$124,
+    125: RoomSetAllAttendeesPermissionsPermissions.$125,
+    126: RoomSetAllAttendeesPermissionsPermissions.$126,
+    127: RoomSetAllAttendeesPermissionsPermissions.$127,
+    128: RoomSetAllAttendeesPermissionsPermissions.$128,
+    129: RoomSetAllAttendeesPermissionsPermissions.$129,
+    130: RoomSetAllAttendeesPermissionsPermissions.$130,
+    131: RoomSetAllAttendeesPermissionsPermissions.$131,
+    132: RoomSetAllAttendeesPermissionsPermissions.$132,
+    133: RoomSetAllAttendeesPermissionsPermissions.$133,
+    134: RoomSetAllAttendeesPermissionsPermissions.$134,
+    135: RoomSetAllAttendeesPermissionsPermissions.$135,
+    136: RoomSetAllAttendeesPermissionsPermissions.$136,
+    137: RoomSetAllAttendeesPermissionsPermissions.$137,
+    138: RoomSetAllAttendeesPermissionsPermissions.$138,
+    139: RoomSetAllAttendeesPermissionsPermissions.$139,
+    140: RoomSetAllAttendeesPermissionsPermissions.$140,
+    141: RoomSetAllAttendeesPermissionsPermissions.$141,
+    142: RoomSetAllAttendeesPermissionsPermissions.$142,
+    143: RoomSetAllAttendeesPermissionsPermissions.$143,
+    144: RoomSetAllAttendeesPermissionsPermissions.$144,
+    145: RoomSetAllAttendeesPermissionsPermissions.$145,
+    146: RoomSetAllAttendeesPermissionsPermissions.$146,
+    147: RoomSetAllAttendeesPermissionsPermissions.$147,
+    148: RoomSetAllAttendeesPermissionsPermissions.$148,
+    149: RoomSetAllAttendeesPermissionsPermissions.$149,
+    150: RoomSetAllAttendeesPermissionsPermissions.$150,
+    151: RoomSetAllAttendeesPermissionsPermissions.$151,
+    152: RoomSetAllAttendeesPermissionsPermissions.$152,
+    153: RoomSetAllAttendeesPermissionsPermissions.$153,
+    154: RoomSetAllAttendeesPermissionsPermissions.$154,
+    155: RoomSetAllAttendeesPermissionsPermissions.$155,
+    156: RoomSetAllAttendeesPermissionsPermissions.$156,
+    157: RoomSetAllAttendeesPermissionsPermissions.$157,
+    158: RoomSetAllAttendeesPermissionsPermissions.$158,
+    159: RoomSetAllAttendeesPermissionsPermissions.$159,
+    160: RoomSetAllAttendeesPermissionsPermissions.$160,
+    161: RoomSetAllAttendeesPermissionsPermissions.$161,
+    162: RoomSetAllAttendeesPermissionsPermissions.$162,
+    163: RoomSetAllAttendeesPermissionsPermissions.$163,
+    164: RoomSetAllAttendeesPermissionsPermissions.$164,
+    165: RoomSetAllAttendeesPermissionsPermissions.$165,
+    166: RoomSetAllAttendeesPermissionsPermissions.$166,
+    167: RoomSetAllAttendeesPermissionsPermissions.$167,
+    168: RoomSetAllAttendeesPermissionsPermissions.$168,
+    169: RoomSetAllAttendeesPermissionsPermissions.$169,
+    170: RoomSetAllAttendeesPermissionsPermissions.$170,
+    171: RoomSetAllAttendeesPermissionsPermissions.$171,
+    172: RoomSetAllAttendeesPermissionsPermissions.$172,
+    173: RoomSetAllAttendeesPermissionsPermissions.$173,
+    174: RoomSetAllAttendeesPermissionsPermissions.$174,
+    175: RoomSetAllAttendeesPermissionsPermissions.$175,
+    176: RoomSetAllAttendeesPermissionsPermissions.$176,
+    177: RoomSetAllAttendeesPermissionsPermissions.$177,
+    178: RoomSetAllAttendeesPermissionsPermissions.$178,
+    179: RoomSetAllAttendeesPermissionsPermissions.$179,
+    180: RoomSetAllAttendeesPermissionsPermissions.$180,
+    181: RoomSetAllAttendeesPermissionsPermissions.$181,
+    182: RoomSetAllAttendeesPermissionsPermissions.$182,
+    183: RoomSetAllAttendeesPermissionsPermissions.$183,
+    184: RoomSetAllAttendeesPermissionsPermissions.$184,
+    185: RoomSetAllAttendeesPermissionsPermissions.$185,
+    186: RoomSetAllAttendeesPermissionsPermissions.$186,
+    187: RoomSetAllAttendeesPermissionsPermissions.$187,
+    188: RoomSetAllAttendeesPermissionsPermissions.$188,
+    189: RoomSetAllAttendeesPermissionsPermissions.$189,
+    190: RoomSetAllAttendeesPermissionsPermissions.$190,
+    191: RoomSetAllAttendeesPermissionsPermissions.$191,
+    192: RoomSetAllAttendeesPermissionsPermissions.$192,
+    193: RoomSetAllAttendeesPermissionsPermissions.$193,
+    194: RoomSetAllAttendeesPermissionsPermissions.$194,
+    195: RoomSetAllAttendeesPermissionsPermissions.$195,
+    196: RoomSetAllAttendeesPermissionsPermissions.$196,
+    197: RoomSetAllAttendeesPermissionsPermissions.$197,
+    198: RoomSetAllAttendeesPermissionsPermissions.$198,
+    199: RoomSetAllAttendeesPermissionsPermissions.$199,
+    200: RoomSetAllAttendeesPermissionsPermissions.$200,
+    201: RoomSetAllAttendeesPermissionsPermissions.$201,
+    202: RoomSetAllAttendeesPermissionsPermissions.$202,
+    203: RoomSetAllAttendeesPermissionsPermissions.$203,
+    204: RoomSetAllAttendeesPermissionsPermissions.$204,
+    205: RoomSetAllAttendeesPermissionsPermissions.$205,
+    206: RoomSetAllAttendeesPermissionsPermissions.$206,
+    207: RoomSetAllAttendeesPermissionsPermissions.$207,
+    208: RoomSetAllAttendeesPermissionsPermissions.$208,
+    209: RoomSetAllAttendeesPermissionsPermissions.$209,
+    210: RoomSetAllAttendeesPermissionsPermissions.$210,
+    211: RoomSetAllAttendeesPermissionsPermissions.$211,
+    212: RoomSetAllAttendeesPermissionsPermissions.$212,
+    213: RoomSetAllAttendeesPermissionsPermissions.$213,
+    214: RoomSetAllAttendeesPermissionsPermissions.$214,
+    215: RoomSetAllAttendeesPermissionsPermissions.$215,
+    216: RoomSetAllAttendeesPermissionsPermissions.$216,
+    217: RoomSetAllAttendeesPermissionsPermissions.$217,
+    218: RoomSetAllAttendeesPermissionsPermissions.$218,
+    219: RoomSetAllAttendeesPermissionsPermissions.$219,
+    220: RoomSetAllAttendeesPermissionsPermissions.$220,
+    221: RoomSetAllAttendeesPermissionsPermissions.$221,
+    222: RoomSetAllAttendeesPermissionsPermissions.$222,
+    223: RoomSetAllAttendeesPermissionsPermissions.$223,
+    224: RoomSetAllAttendeesPermissionsPermissions.$224,
+    225: RoomSetAllAttendeesPermissionsPermissions.$225,
+    226: RoomSetAllAttendeesPermissionsPermissions.$226,
+    227: RoomSetAllAttendeesPermissionsPermissions.$227,
+    228: RoomSetAllAttendeesPermissionsPermissions.$228,
+    229: RoomSetAllAttendeesPermissionsPermissions.$229,
+    230: RoomSetAllAttendeesPermissionsPermissions.$230,
+    231: RoomSetAllAttendeesPermissionsPermissions.$231,
+    232: RoomSetAllAttendeesPermissionsPermissions.$232,
+    233: RoomSetAllAttendeesPermissionsPermissions.$233,
+    234: RoomSetAllAttendeesPermissionsPermissions.$234,
+    235: RoomSetAllAttendeesPermissionsPermissions.$235,
+    236: RoomSetAllAttendeesPermissionsPermissions.$236,
+    237: RoomSetAllAttendeesPermissionsPermissions.$237,
+    238: RoomSetAllAttendeesPermissionsPermissions.$238,
+    239: RoomSetAllAttendeesPermissionsPermissions.$239,
+    240: RoomSetAllAttendeesPermissionsPermissions.$240,
+    241: RoomSetAllAttendeesPermissionsPermissions.$241,
+    242: RoomSetAllAttendeesPermissionsPermissions.$242,
+    243: RoomSetAllAttendeesPermissionsPermissions.$243,
+    244: RoomSetAllAttendeesPermissionsPermissions.$244,
+    245: RoomSetAllAttendeesPermissionsPermissions.$245,
+    246: RoomSetAllAttendeesPermissionsPermissions.$246,
+    247: RoomSetAllAttendeesPermissionsPermissions.$247,
+    248: RoomSetAllAttendeesPermissionsPermissions.$248,
+    249: RoomSetAllAttendeesPermissionsPermissions.$249,
+    250: RoomSetAllAttendeesPermissionsPermissions.$250,
+    251: RoomSetAllAttendeesPermissionsPermissions.$251,
+    252: RoomSetAllAttendeesPermissionsPermissions.$252,
+    253: RoomSetAllAttendeesPermissionsPermissions.$253,
+    254: RoomSetAllAttendeesPermissionsPermissions.$254,
+    255: RoomSetAllAttendeesPermissionsPermissions.$255,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsPermissions];
+
+  @override
+  String get wireName => 'RoomSetAllAttendeesPermissionsPermissions';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetAllAttendeesPermissionsPermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetAllAttendeesPermissionsPermissions deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
@@ -25141,6 +30778,63 @@ abstract class RoomResendInvitationsResponseApplicationJson
 
   static Serializer<RoomResendInvitationsResponseApplicationJson> get serializer =>
       _$roomResendInvitationsResponseApplicationJsonSerializer;
+}
+
+class RoomSetSessionStateState extends EnumClass {
+  const RoomSetSessionStateState._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetSessionStateState $0 = _$roomSetSessionStateState$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetSessionStateState $1 = _$roomSetSessionStateState$1;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetSessionStateState> get values => _$roomSetSessionStateStateValues;
+  // coverage:ignore-end
+
+  static RoomSetSessionStateState valueOf(String name) => _$valueOfRoomSetSessionStateState(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetSessionStateState> get serializer => const _$RoomSetSessionStateStateSerializer();
+}
+
+class _$RoomSetSessionStateStateSerializer implements PrimitiveSerializer<RoomSetSessionStateState> {
+  const _$RoomSetSessionStateStateSerializer();
+
+  static const Map<RoomSetSessionStateState, Object> _toWire = <RoomSetSessionStateState, Object>{
+    RoomSetSessionStateState.$0: 0,
+    RoomSetSessionStateState.$1: 1,
+  };
+
+  static const Map<Object, RoomSetSessionStateState> _fromWire = <Object, RoomSetSessionStateState>{
+    0: RoomSetSessionStateState.$0,
+    1: RoomSetSessionStateState.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetSessionStateState];
+
+  @override
+  String get wireName => 'RoomSetSessionStateState';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetSessionStateState object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetSessionStateState deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class RoomSetSessionStateApiVersion extends EnumClass {
@@ -26046,6 +31740,68 @@ abstract class RoomSetLobbyResponseApplicationJson
       _$roomSetLobbyResponseApplicationJsonSerializer;
 }
 
+class RoomSetsipEnabledState extends EnumClass {
+  const RoomSetsipEnabledState._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const RoomSetsipEnabledState $0 = _$roomSetsipEnabledState$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const RoomSetsipEnabledState $1 = _$roomSetsipEnabledState$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const RoomSetsipEnabledState $2 = _$roomSetsipEnabledState$2;
+
+  // coverage:ignore-start
+  static BuiltSet<RoomSetsipEnabledState> get values => _$roomSetsipEnabledStateValues;
+  // coverage:ignore-end
+
+  static RoomSetsipEnabledState valueOf(String name) => _$valueOfRoomSetsipEnabledState(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<RoomSetsipEnabledState> get serializer => const _$RoomSetsipEnabledStateSerializer();
+}
+
+class _$RoomSetsipEnabledStateSerializer implements PrimitiveSerializer<RoomSetsipEnabledState> {
+  const _$RoomSetsipEnabledStateSerializer();
+
+  static const Map<RoomSetsipEnabledState, Object> _toWire = <RoomSetsipEnabledState, Object>{
+    RoomSetsipEnabledState.$0: 0,
+    RoomSetsipEnabledState.$1: 1,
+    RoomSetsipEnabledState.$2: 2,
+  };
+
+  static const Map<Object, RoomSetsipEnabledState> _fromWire = <Object, RoomSetsipEnabledState>{
+    0: RoomSetsipEnabledState.$0,
+    1: RoomSetsipEnabledState.$1,
+    2: RoomSetsipEnabledState.$2,
+  };
+
+  @override
+  Iterable<Type> get types => const [RoomSetsipEnabledState];
+
+  @override
+  String get wireName => 'RoomSetsipEnabledState';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    RoomSetsipEnabledState object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  RoomSetsipEnabledState deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class RoomSetsipEnabledApiVersion extends EnumClass {
   const RoomSetsipEnabledApiVersion._(super.name);
 
@@ -26499,6 +32255,73 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
 
   static Serializer<SettingsSetsipSettingsResponseApplicationJson> get serializer =>
       _$settingsSetsipSettingsResponseApplicationJsonSerializer;
+}
+
+class SettingsSetUserSettingKey extends EnumClass {
+  const SettingsSetUserSettingKey._(super.name);
+
+  @BuiltValueEnumConst(wireName: 'attachment_folder')
+  static const SettingsSetUserSettingKey attachmentFolder = _$settingsSetUserSettingKeyAttachmentFolder;
+
+  @BuiltValueEnumConst(wireName: 'read_status_privacy')
+  static const SettingsSetUserSettingKey readStatusPrivacy = _$settingsSetUserSettingKeyReadStatusPrivacy;
+
+  @BuiltValueEnumConst(wireName: 'typing_privacy')
+  static const SettingsSetUserSettingKey typingPrivacy = _$settingsSetUserSettingKeyTypingPrivacy;
+
+  @BuiltValueEnumConst(wireName: 'play_sounds')
+  static const SettingsSetUserSettingKey playSounds = _$settingsSetUserSettingKeyPlaySounds;
+
+  // coverage:ignore-start
+  static BuiltSet<SettingsSetUserSettingKey> get values => _$settingsSetUserSettingKeyValues;
+  // coverage:ignore-end
+
+  static SettingsSetUserSettingKey valueOf(String name) => _$valueOfSettingsSetUserSettingKey(name);
+
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<SettingsSetUserSettingKey> get serializer => const _$SettingsSetUserSettingKeySerializer();
+}
+
+class _$SettingsSetUserSettingKeySerializer implements PrimitiveSerializer<SettingsSetUserSettingKey> {
+  const _$SettingsSetUserSettingKeySerializer();
+
+  static const Map<SettingsSetUserSettingKey, Object> _toWire = <SettingsSetUserSettingKey, Object>{
+    SettingsSetUserSettingKey.attachmentFolder: 'attachment_folder',
+    SettingsSetUserSettingKey.readStatusPrivacy: 'read_status_privacy',
+    SettingsSetUserSettingKey.typingPrivacy: 'typing_privacy',
+    SettingsSetUserSettingKey.playSounds: 'play_sounds',
+  };
+
+  static const Map<Object, SettingsSetUserSettingKey> _fromWire = <Object, SettingsSetUserSettingKey>{
+    'attachment_folder': SettingsSetUserSettingKey.attachmentFolder,
+    'read_status_privacy': SettingsSetUserSettingKey.readStatusPrivacy,
+    'typing_privacy': SettingsSetUserSettingKey.typingPrivacy,
+    'play_sounds': SettingsSetUserSettingKey.playSounds,
+  };
+
+  @override
+  Iterable<Type> get types => const [SettingsSetUserSettingKey];
+
+  @override
+  String get wireName => 'SettingsSetUserSettingKey';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    SettingsSetUserSettingKey object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  SettingsSetUserSettingKey deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class SettingsSetUserSettingApiVersion extends EnumClass {
@@ -27474,6 +33297,42 @@ abstract class BotWithDetailsAndSecret
 }
 
 @BuiltValue(instantiable: false)
+abstract interface class $FederationInviteInterface {
+  @BuiltValueField(wireName: 'access_token')
+  String get accessToken;
+  int get id;
+  @BuiltValueField(wireName: 'local_room_id')
+  int get localRoomId;
+  @BuiltValueField(wireName: 'remote_attendee_id')
+  String get remoteAttendeeId;
+  @BuiltValueField(wireName: 'remote_server_url')
+  String get remoteServerUrl;
+  @BuiltValueField(wireName: 'remote_token')
+  String get remoteToken;
+  @BuiltValueField(wireName: 'user_id')
+  String get userId;
+}
+
+abstract class FederationInvite
+    implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
+  factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
+
+  // coverage:ignore-start
+  const FederationInvite._();
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  factory FederationInvite.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  // coverage:ignore-end
+
+  // coverage:ignore-start
+  Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
+  // coverage:ignore-end
+
+  static Serializer<FederationInvite> get serializer => _$federationInviteSerializer;
+}
+
+@BuiltValue(instantiable: false)
 abstract interface class $PublicCapabilities0_Spreed_Config_AttachmentsInterface {
   bool get allowed;
   String? get folder;
@@ -28231,6 +34090,7 @@ final Serializers serializers = (Serializers().toBuilder()
         BotDisableBotResponseApplicationJson_OcsBuilder.new,
       )
       ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
+      ..add(BreakoutRoomConfigureBreakoutRoomsMode.serializer)
       ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
@@ -28356,6 +34216,8 @@ final Serializers serializers = (Serializers().toBuilder()
         CallUpdateCallFlagsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
+      ..add(CallJoinCallFlags.serializer)
+      ..add(CallJoinCallForcePermissions.serializer)
       ..add(CallJoinCallApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(CallJoinCallResponseApplicationJson),
@@ -28421,6 +34283,11 @@ final Serializers serializers = (Serializers().toBuilder()
         CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
       )
       ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
+      ..add(ChatReceiveMessagesLookIntoFuture.serializer)
+      ..add(ChatReceiveMessagesSetReadMarker.serializer)
+      ..add(ChatReceiveMessagesIncludeLastKnown.serializer)
+      ..add(ChatReceiveMessagesNoStatusUpdate.serializer)
+      ..add(ChatReceiveMessagesMarkNotificationsAsRead.serializer)
       ..add(ChatReceiveMessagesApiVersion.serializer)
       ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
       ..add(ChatChatReceiveMessagesHeaders.serializer)
@@ -28618,42 +34485,6 @@ final Serializers serializers = (Serializers().toBuilder()
         ]),
         MapBuilder<String, BuiltList<ChatMessage>>.new,
       )
-      ..add(FederationAcceptShareApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationAcceptShareResponseApplicationJson),
-        FederationAcceptShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationAcceptShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
-        FederationAcceptShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationAcceptShareResponseApplicationJson_Ocs.serializer)
-      ..add(FederationRejectShareApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationRejectShareResponseApplicationJson),
-        FederationRejectShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationRejectShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationRejectShareResponseApplicationJson_Ocs),
-        FederationRejectShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationRejectShareResponseApplicationJson_Ocs.serializer)
-      ..add(FederationGetSharesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationGetSharesResponseApplicationJson),
-        FederationGetSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationGetSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationGetSharesResponseApplicationJson_Ocs),
-        FederationGetSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
-      ..add(FederationInvite.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(FederationInvite)]), ListBuilder<FederationInvite>.new)
       ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
@@ -28812,6 +34643,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..add(PollCreatePollResultMode.serializer)
       ..add(PollCreatePollApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(PollCreatePollResponseApplicationJson),
@@ -28992,6 +34824,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
+      ..add(RoomGetRoomsNoStatusUpdate.serializer)
       ..add(RoomGetRoomsApiVersion.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
       ..add(RoomRoomGetRoomsHeaders.serializer)
@@ -29122,6 +34955,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomSetDescriptionResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetDescriptionResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetReadOnlyState.serializer)
       ..add(RoomSetReadOnlyApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetReadOnlyResponseApplicationJson),
@@ -29133,6 +34967,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomSetReadOnlyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetReadOnlyResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetListableScope.serializer)
       ..add(RoomSetListableApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetListableResponseApplicationJson),
@@ -29155,6 +34990,8 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomSetPasswordResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetPasswordResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetPermissionsPermissions.serializer)
+      ..add(RoomSetPermissionsMode.serializer)
       ..add(RoomSetPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetPermissionsResponseApplicationJson),
@@ -29184,6 +35021,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Participant), ParticipantBuilder.new)
       ..add(Participant.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
+      ..add(RoomAddParticipantToRoomSource.serializer)
       ..add(RoomAddParticipantToRoomApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomAddParticipantToRoomResponseApplicationJson),
@@ -29239,6 +35077,8 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetAttendeePermissionsMethod.serializer)
+      ..add(RoomSetAttendeePermissionsPermissions.serializer)
       ..add(RoomSetAttendeePermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
@@ -29250,6 +35090,8 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetAllAttendeesPermissionsMethod.serializer)
+      ..add(RoomSetAllAttendeesPermissionsPermissions.serializer)
       ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
@@ -29294,6 +35136,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomResendInvitationsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomResendInvitationsResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetSessionStateState.serializer)
       ..add(RoomSetSessionStateApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetSessionStateResponseApplicationJson),
@@ -29382,6 +35225,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomSetLobbyResponseApplicationJson_OcsBuilder.new,
       )
       ..add(RoomSetLobbyResponseApplicationJson_Ocs.serializer)
+      ..add(RoomSetsipEnabledState.serializer)
       ..add(RoomSetsipEnabledApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomSetsipEnabledResponseApplicationJson),
@@ -29426,11 +35270,8 @@ final Serializers serializers = (Serializers().toBuilder()
         SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
+      ..add(SettingsSetUserSettingKey.serializer)
       ..add($IntStringExtension.serializer)
-      ..addBuilderFactory(
-        const FullType(ContentString, [FullType(SettingsSetUserSettingValue)]),
-        ContentStringBuilder<SettingsSetUserSettingValue>.new,
-      )
       ..add(SettingsSetUserSettingApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetUserSettingResponseApplicationJson),
@@ -29550,6 +35391,8 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BotWithDetailsAndSecret), BotWithDetailsAndSecretBuilder.new)
       ..add(BotWithDetailsAndSecret.serializer)
+      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
+      ..add(FederationInvite.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities0), PublicCapabilities0Builder.new)
       ..add(PublicCapabilities0.serializer)
       ..addBuilderFactory(const FullType(PublicCapabilities0_Spreed), PublicCapabilities0_SpreedBuilder.new)

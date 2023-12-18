@@ -417,7 +417,8 @@
           "appId",
           "input",
           "output",
-          "identifier"
+          "identifier",
+          "completionExpectedAt"
         ],
         "properties": {
           "id": {
@@ -430,7 +431,14 @@
           },
           "status": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
           },
           "userId": {
             "type": "string",
@@ -448,6 +456,11 @@
           },
           "identifier": {
             "type": "string"
+          },
+          "completionExpectedAt": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
           }
         }
       },
@@ -471,7 +484,14 @@
           },
           "status": {
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "enum": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ]
           },
           "userId": {
             "type": "string",
@@ -509,12 +529,33 @@
           "id": {
             "type": "string"
           },
+          "appId": {
+            "type": "string"
+          },
           "name": {
+            "type": "string"
+          },
+          "icon": {
             "type": "string"
           },
           "order": {
             "type": "integer",
             "format": "int64"
+          },
+          "triggers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "filters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "inAppSearch": {
+            "type": "boolean"
           }
         }
       },
@@ -4868,7 +4909,8 @@
     "/ocs/v2.php/search/providers/{providerId}/search": {
       "get": {
         "operationId": "unified_search-search",
-        "summary": "Search",
+        "summary": "Launch a search for a specific search provider.",
+        "description": "Additional filters are available for each provider. Send a request to /providers endpoint to list providers with their available filters.",
         "tags": [
           "unified_search"
         ],
@@ -4915,22 +4957,16 @@
             "in": "query",
             "description": "Offset for searching",
             "schema": {
-              "type": "string",
               "nullable": true,
-              "contentMediaType": "application/json",
-              "contentSchema": {
-                "nullable": true,
-                "description": "Offset for searching",
-                "oneOf": [
-                  {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  {
-                    "type": "string"
-                  }
-                ]
-              }
+              "oneOf": [
+                {
+                  "type": "integer",
+                  "format": "int64"
+                },
+                {
+                  "type": "string"
+                }
+              ]
             }
           },
           {
@@ -5014,7 +5050,7 @@
                           "$ref": "#/components/schemas/OCSMeta"
                         },
                         "data": {
-                          "nullable": true
+                          "type": "string"
                         }
                       }
                     }
@@ -5533,6 +5569,44 @@
                           "properties": {
                             "task": {
                               "$ref": "#/components/schemas/TextProcessingTask"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ocs"
+                  ],
+                  "properties": {
+                    "ocs": {
+                      "type": "object",
+                      "required": [
+                        "meta",
+                        "data"
+                      ],
+                      "properties": {
+                        "meta": {
+                          "$ref": "#/components/schemas/OCSMeta"
+                        },
+                        "data": {
+                          "type": "object",
+                          "required": [
+                            "message"
+                          ],
+                          "properties": {
+                            "message": {
+                              "type": "string"
                             }
                           }
                         }

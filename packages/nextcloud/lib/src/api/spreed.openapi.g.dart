@@ -197,6 +197,38 @@ final BuiltSet<BotDisableBotApiVersion> _$botDisableBotApiVersionValues =
   _$botDisableBotApiVersionV1,
 ]);
 
+const BreakoutRoomConfigureBreakoutRoomsMode _$breakoutRoomConfigureBreakoutRoomsMode$0 =
+    BreakoutRoomConfigureBreakoutRoomsMode._('\$0');
+const BreakoutRoomConfigureBreakoutRoomsMode _$breakoutRoomConfigureBreakoutRoomsMode$1 =
+    BreakoutRoomConfigureBreakoutRoomsMode._('\$1');
+const BreakoutRoomConfigureBreakoutRoomsMode _$breakoutRoomConfigureBreakoutRoomsMode$2 =
+    BreakoutRoomConfigureBreakoutRoomsMode._('\$2');
+const BreakoutRoomConfigureBreakoutRoomsMode _$breakoutRoomConfigureBreakoutRoomsMode$3 =
+    BreakoutRoomConfigureBreakoutRoomsMode._('\$3');
+
+BreakoutRoomConfigureBreakoutRoomsMode _$valueOfBreakoutRoomConfigureBreakoutRoomsMode(String name) {
+  switch (name) {
+    case '\$0':
+      return _$breakoutRoomConfigureBreakoutRoomsMode$0;
+    case '\$1':
+      return _$breakoutRoomConfigureBreakoutRoomsMode$1;
+    case '\$2':
+      return _$breakoutRoomConfigureBreakoutRoomsMode$2;
+    case '\$3':
+      return _$breakoutRoomConfigureBreakoutRoomsMode$3;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<BreakoutRoomConfigureBreakoutRoomsMode> _$breakoutRoomConfigureBreakoutRoomsModeValues =
+    BuiltSet<BreakoutRoomConfigureBreakoutRoomsMode>(const <BreakoutRoomConfigureBreakoutRoomsMode>[
+  _$breakoutRoomConfigureBreakoutRoomsMode$0,
+  _$breakoutRoomConfigureBreakoutRoomsMode$1,
+  _$breakoutRoomConfigureBreakoutRoomsMode$2,
+  _$breakoutRoomConfigureBreakoutRoomsMode$3,
+]);
+
 const BreakoutRoomConfigureBreakoutRoomsApiVersion _$breakoutRoomConfigureBreakoutRoomsApiVersionV1 =
     BreakoutRoomConfigureBreakoutRoomsApiVersion._('v1');
 
@@ -383,6 +415,1117 @@ final BuiltSet<CallUpdateCallFlagsApiVersion> _$callUpdateCallFlagsApiVersionVal
   _$callUpdateCallFlagsApiVersionV4,
 ]);
 
+const CallJoinCallFlags _$callJoinCallFlags$0 = CallJoinCallFlags._('\$0');
+const CallJoinCallFlags _$callJoinCallFlags$1 = CallJoinCallFlags._('\$1');
+const CallJoinCallFlags _$callJoinCallFlags$2 = CallJoinCallFlags._('\$2');
+const CallJoinCallFlags _$callJoinCallFlags$3 = CallJoinCallFlags._('\$3');
+const CallJoinCallFlags _$callJoinCallFlags$4 = CallJoinCallFlags._('\$4');
+const CallJoinCallFlags _$callJoinCallFlags$5 = CallJoinCallFlags._('\$5');
+const CallJoinCallFlags _$callJoinCallFlags$6 = CallJoinCallFlags._('\$6');
+const CallJoinCallFlags _$callJoinCallFlags$7 = CallJoinCallFlags._('\$7');
+const CallJoinCallFlags _$callJoinCallFlags$8 = CallJoinCallFlags._('\$8');
+const CallJoinCallFlags _$callJoinCallFlags$9 = CallJoinCallFlags._('\$9');
+const CallJoinCallFlags _$callJoinCallFlags$10 = CallJoinCallFlags._('\$10');
+const CallJoinCallFlags _$callJoinCallFlags$11 = CallJoinCallFlags._('\$11');
+const CallJoinCallFlags _$callJoinCallFlags$12 = CallJoinCallFlags._('\$12');
+const CallJoinCallFlags _$callJoinCallFlags$13 = CallJoinCallFlags._('\$13');
+const CallJoinCallFlags _$callJoinCallFlags$14 = CallJoinCallFlags._('\$14');
+const CallJoinCallFlags _$callJoinCallFlags$15 = CallJoinCallFlags._('\$15');
+
+CallJoinCallFlags _$valueOfCallJoinCallFlags(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callJoinCallFlags$0;
+    case '\$1':
+      return _$callJoinCallFlags$1;
+    case '\$2':
+      return _$callJoinCallFlags$2;
+    case '\$3':
+      return _$callJoinCallFlags$3;
+    case '\$4':
+      return _$callJoinCallFlags$4;
+    case '\$5':
+      return _$callJoinCallFlags$5;
+    case '\$6':
+      return _$callJoinCallFlags$6;
+    case '\$7':
+      return _$callJoinCallFlags$7;
+    case '\$8':
+      return _$callJoinCallFlags$8;
+    case '\$9':
+      return _$callJoinCallFlags$9;
+    case '\$10':
+      return _$callJoinCallFlags$10;
+    case '\$11':
+      return _$callJoinCallFlags$11;
+    case '\$12':
+      return _$callJoinCallFlags$12;
+    case '\$13':
+      return _$callJoinCallFlags$13;
+    case '\$14':
+      return _$callJoinCallFlags$14;
+    case '\$15':
+      return _$callJoinCallFlags$15;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallJoinCallFlags> _$callJoinCallFlagsValues = BuiltSet<CallJoinCallFlags>(const <CallJoinCallFlags>[
+  _$callJoinCallFlags$0,
+  _$callJoinCallFlags$1,
+  _$callJoinCallFlags$2,
+  _$callJoinCallFlags$3,
+  _$callJoinCallFlags$4,
+  _$callJoinCallFlags$5,
+  _$callJoinCallFlags$6,
+  _$callJoinCallFlags$7,
+  _$callJoinCallFlags$8,
+  _$callJoinCallFlags$9,
+  _$callJoinCallFlags$10,
+  _$callJoinCallFlags$11,
+  _$callJoinCallFlags$12,
+  _$callJoinCallFlags$13,
+  _$callJoinCallFlags$14,
+  _$callJoinCallFlags$15,
+]);
+
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$0 = CallJoinCallForcePermissions._('\$0');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$1 = CallJoinCallForcePermissions._('\$1');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$2 = CallJoinCallForcePermissions._('\$2');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$3 = CallJoinCallForcePermissions._('\$3');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$4 = CallJoinCallForcePermissions._('\$4');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$5 = CallJoinCallForcePermissions._('\$5');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$6 = CallJoinCallForcePermissions._('\$6');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$7 = CallJoinCallForcePermissions._('\$7');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$8 = CallJoinCallForcePermissions._('\$8');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$9 = CallJoinCallForcePermissions._('\$9');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$10 = CallJoinCallForcePermissions._('\$10');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$11 = CallJoinCallForcePermissions._('\$11');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$12 = CallJoinCallForcePermissions._('\$12');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$13 = CallJoinCallForcePermissions._('\$13');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$14 = CallJoinCallForcePermissions._('\$14');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$15 = CallJoinCallForcePermissions._('\$15');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$16 = CallJoinCallForcePermissions._('\$16');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$17 = CallJoinCallForcePermissions._('\$17');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$18 = CallJoinCallForcePermissions._('\$18');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$19 = CallJoinCallForcePermissions._('\$19');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$20 = CallJoinCallForcePermissions._('\$20');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$21 = CallJoinCallForcePermissions._('\$21');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$22 = CallJoinCallForcePermissions._('\$22');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$23 = CallJoinCallForcePermissions._('\$23');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$24 = CallJoinCallForcePermissions._('\$24');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$25 = CallJoinCallForcePermissions._('\$25');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$26 = CallJoinCallForcePermissions._('\$26');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$27 = CallJoinCallForcePermissions._('\$27');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$28 = CallJoinCallForcePermissions._('\$28');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$29 = CallJoinCallForcePermissions._('\$29');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$30 = CallJoinCallForcePermissions._('\$30');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$31 = CallJoinCallForcePermissions._('\$31');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$32 = CallJoinCallForcePermissions._('\$32');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$33 = CallJoinCallForcePermissions._('\$33');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$34 = CallJoinCallForcePermissions._('\$34');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$35 = CallJoinCallForcePermissions._('\$35');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$36 = CallJoinCallForcePermissions._('\$36');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$37 = CallJoinCallForcePermissions._('\$37');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$38 = CallJoinCallForcePermissions._('\$38');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$39 = CallJoinCallForcePermissions._('\$39');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$40 = CallJoinCallForcePermissions._('\$40');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$41 = CallJoinCallForcePermissions._('\$41');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$42 = CallJoinCallForcePermissions._('\$42');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$43 = CallJoinCallForcePermissions._('\$43');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$44 = CallJoinCallForcePermissions._('\$44');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$45 = CallJoinCallForcePermissions._('\$45');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$46 = CallJoinCallForcePermissions._('\$46');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$47 = CallJoinCallForcePermissions._('\$47');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$48 = CallJoinCallForcePermissions._('\$48');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$49 = CallJoinCallForcePermissions._('\$49');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$50 = CallJoinCallForcePermissions._('\$50');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$51 = CallJoinCallForcePermissions._('\$51');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$52 = CallJoinCallForcePermissions._('\$52');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$53 = CallJoinCallForcePermissions._('\$53');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$54 = CallJoinCallForcePermissions._('\$54');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$55 = CallJoinCallForcePermissions._('\$55');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$56 = CallJoinCallForcePermissions._('\$56');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$57 = CallJoinCallForcePermissions._('\$57');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$58 = CallJoinCallForcePermissions._('\$58');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$59 = CallJoinCallForcePermissions._('\$59');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$60 = CallJoinCallForcePermissions._('\$60');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$61 = CallJoinCallForcePermissions._('\$61');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$62 = CallJoinCallForcePermissions._('\$62');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$63 = CallJoinCallForcePermissions._('\$63');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$64 = CallJoinCallForcePermissions._('\$64');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$65 = CallJoinCallForcePermissions._('\$65');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$66 = CallJoinCallForcePermissions._('\$66');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$67 = CallJoinCallForcePermissions._('\$67');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$68 = CallJoinCallForcePermissions._('\$68');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$69 = CallJoinCallForcePermissions._('\$69');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$70 = CallJoinCallForcePermissions._('\$70');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$71 = CallJoinCallForcePermissions._('\$71');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$72 = CallJoinCallForcePermissions._('\$72');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$73 = CallJoinCallForcePermissions._('\$73');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$74 = CallJoinCallForcePermissions._('\$74');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$75 = CallJoinCallForcePermissions._('\$75');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$76 = CallJoinCallForcePermissions._('\$76');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$77 = CallJoinCallForcePermissions._('\$77');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$78 = CallJoinCallForcePermissions._('\$78');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$79 = CallJoinCallForcePermissions._('\$79');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$80 = CallJoinCallForcePermissions._('\$80');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$81 = CallJoinCallForcePermissions._('\$81');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$82 = CallJoinCallForcePermissions._('\$82');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$83 = CallJoinCallForcePermissions._('\$83');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$84 = CallJoinCallForcePermissions._('\$84');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$85 = CallJoinCallForcePermissions._('\$85');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$86 = CallJoinCallForcePermissions._('\$86');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$87 = CallJoinCallForcePermissions._('\$87');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$88 = CallJoinCallForcePermissions._('\$88');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$89 = CallJoinCallForcePermissions._('\$89');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$90 = CallJoinCallForcePermissions._('\$90');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$91 = CallJoinCallForcePermissions._('\$91');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$92 = CallJoinCallForcePermissions._('\$92');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$93 = CallJoinCallForcePermissions._('\$93');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$94 = CallJoinCallForcePermissions._('\$94');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$95 = CallJoinCallForcePermissions._('\$95');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$96 = CallJoinCallForcePermissions._('\$96');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$97 = CallJoinCallForcePermissions._('\$97');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$98 = CallJoinCallForcePermissions._('\$98');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$99 = CallJoinCallForcePermissions._('\$99');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$100 = CallJoinCallForcePermissions._('\$100');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$101 = CallJoinCallForcePermissions._('\$101');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$102 = CallJoinCallForcePermissions._('\$102');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$103 = CallJoinCallForcePermissions._('\$103');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$104 = CallJoinCallForcePermissions._('\$104');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$105 = CallJoinCallForcePermissions._('\$105');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$106 = CallJoinCallForcePermissions._('\$106');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$107 = CallJoinCallForcePermissions._('\$107');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$108 = CallJoinCallForcePermissions._('\$108');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$109 = CallJoinCallForcePermissions._('\$109');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$110 = CallJoinCallForcePermissions._('\$110');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$111 = CallJoinCallForcePermissions._('\$111');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$112 = CallJoinCallForcePermissions._('\$112');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$113 = CallJoinCallForcePermissions._('\$113');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$114 = CallJoinCallForcePermissions._('\$114');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$115 = CallJoinCallForcePermissions._('\$115');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$116 = CallJoinCallForcePermissions._('\$116');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$117 = CallJoinCallForcePermissions._('\$117');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$118 = CallJoinCallForcePermissions._('\$118');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$119 = CallJoinCallForcePermissions._('\$119');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$120 = CallJoinCallForcePermissions._('\$120');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$121 = CallJoinCallForcePermissions._('\$121');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$122 = CallJoinCallForcePermissions._('\$122');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$123 = CallJoinCallForcePermissions._('\$123');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$124 = CallJoinCallForcePermissions._('\$124');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$125 = CallJoinCallForcePermissions._('\$125');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$126 = CallJoinCallForcePermissions._('\$126');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$127 = CallJoinCallForcePermissions._('\$127');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$128 = CallJoinCallForcePermissions._('\$128');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$129 = CallJoinCallForcePermissions._('\$129');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$130 = CallJoinCallForcePermissions._('\$130');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$131 = CallJoinCallForcePermissions._('\$131');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$132 = CallJoinCallForcePermissions._('\$132');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$133 = CallJoinCallForcePermissions._('\$133');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$134 = CallJoinCallForcePermissions._('\$134');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$135 = CallJoinCallForcePermissions._('\$135');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$136 = CallJoinCallForcePermissions._('\$136');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$137 = CallJoinCallForcePermissions._('\$137');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$138 = CallJoinCallForcePermissions._('\$138');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$139 = CallJoinCallForcePermissions._('\$139');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$140 = CallJoinCallForcePermissions._('\$140');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$141 = CallJoinCallForcePermissions._('\$141');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$142 = CallJoinCallForcePermissions._('\$142');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$143 = CallJoinCallForcePermissions._('\$143');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$144 = CallJoinCallForcePermissions._('\$144');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$145 = CallJoinCallForcePermissions._('\$145');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$146 = CallJoinCallForcePermissions._('\$146');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$147 = CallJoinCallForcePermissions._('\$147');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$148 = CallJoinCallForcePermissions._('\$148');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$149 = CallJoinCallForcePermissions._('\$149');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$150 = CallJoinCallForcePermissions._('\$150');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$151 = CallJoinCallForcePermissions._('\$151');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$152 = CallJoinCallForcePermissions._('\$152');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$153 = CallJoinCallForcePermissions._('\$153');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$154 = CallJoinCallForcePermissions._('\$154');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$155 = CallJoinCallForcePermissions._('\$155');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$156 = CallJoinCallForcePermissions._('\$156');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$157 = CallJoinCallForcePermissions._('\$157');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$158 = CallJoinCallForcePermissions._('\$158');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$159 = CallJoinCallForcePermissions._('\$159');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$160 = CallJoinCallForcePermissions._('\$160');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$161 = CallJoinCallForcePermissions._('\$161');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$162 = CallJoinCallForcePermissions._('\$162');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$163 = CallJoinCallForcePermissions._('\$163');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$164 = CallJoinCallForcePermissions._('\$164');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$165 = CallJoinCallForcePermissions._('\$165');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$166 = CallJoinCallForcePermissions._('\$166');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$167 = CallJoinCallForcePermissions._('\$167');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$168 = CallJoinCallForcePermissions._('\$168');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$169 = CallJoinCallForcePermissions._('\$169');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$170 = CallJoinCallForcePermissions._('\$170');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$171 = CallJoinCallForcePermissions._('\$171');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$172 = CallJoinCallForcePermissions._('\$172');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$173 = CallJoinCallForcePermissions._('\$173');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$174 = CallJoinCallForcePermissions._('\$174');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$175 = CallJoinCallForcePermissions._('\$175');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$176 = CallJoinCallForcePermissions._('\$176');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$177 = CallJoinCallForcePermissions._('\$177');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$178 = CallJoinCallForcePermissions._('\$178');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$179 = CallJoinCallForcePermissions._('\$179');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$180 = CallJoinCallForcePermissions._('\$180');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$181 = CallJoinCallForcePermissions._('\$181');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$182 = CallJoinCallForcePermissions._('\$182');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$183 = CallJoinCallForcePermissions._('\$183');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$184 = CallJoinCallForcePermissions._('\$184');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$185 = CallJoinCallForcePermissions._('\$185');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$186 = CallJoinCallForcePermissions._('\$186');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$187 = CallJoinCallForcePermissions._('\$187');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$188 = CallJoinCallForcePermissions._('\$188');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$189 = CallJoinCallForcePermissions._('\$189');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$190 = CallJoinCallForcePermissions._('\$190');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$191 = CallJoinCallForcePermissions._('\$191');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$192 = CallJoinCallForcePermissions._('\$192');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$193 = CallJoinCallForcePermissions._('\$193');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$194 = CallJoinCallForcePermissions._('\$194');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$195 = CallJoinCallForcePermissions._('\$195');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$196 = CallJoinCallForcePermissions._('\$196');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$197 = CallJoinCallForcePermissions._('\$197');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$198 = CallJoinCallForcePermissions._('\$198');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$199 = CallJoinCallForcePermissions._('\$199');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$200 = CallJoinCallForcePermissions._('\$200');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$201 = CallJoinCallForcePermissions._('\$201');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$202 = CallJoinCallForcePermissions._('\$202');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$203 = CallJoinCallForcePermissions._('\$203');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$204 = CallJoinCallForcePermissions._('\$204');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$205 = CallJoinCallForcePermissions._('\$205');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$206 = CallJoinCallForcePermissions._('\$206');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$207 = CallJoinCallForcePermissions._('\$207');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$208 = CallJoinCallForcePermissions._('\$208');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$209 = CallJoinCallForcePermissions._('\$209');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$210 = CallJoinCallForcePermissions._('\$210');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$211 = CallJoinCallForcePermissions._('\$211');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$212 = CallJoinCallForcePermissions._('\$212');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$213 = CallJoinCallForcePermissions._('\$213');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$214 = CallJoinCallForcePermissions._('\$214');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$215 = CallJoinCallForcePermissions._('\$215');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$216 = CallJoinCallForcePermissions._('\$216');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$217 = CallJoinCallForcePermissions._('\$217');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$218 = CallJoinCallForcePermissions._('\$218');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$219 = CallJoinCallForcePermissions._('\$219');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$220 = CallJoinCallForcePermissions._('\$220');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$221 = CallJoinCallForcePermissions._('\$221');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$222 = CallJoinCallForcePermissions._('\$222');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$223 = CallJoinCallForcePermissions._('\$223');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$224 = CallJoinCallForcePermissions._('\$224');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$225 = CallJoinCallForcePermissions._('\$225');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$226 = CallJoinCallForcePermissions._('\$226');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$227 = CallJoinCallForcePermissions._('\$227');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$228 = CallJoinCallForcePermissions._('\$228');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$229 = CallJoinCallForcePermissions._('\$229');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$230 = CallJoinCallForcePermissions._('\$230');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$231 = CallJoinCallForcePermissions._('\$231');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$232 = CallJoinCallForcePermissions._('\$232');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$233 = CallJoinCallForcePermissions._('\$233');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$234 = CallJoinCallForcePermissions._('\$234');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$235 = CallJoinCallForcePermissions._('\$235');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$236 = CallJoinCallForcePermissions._('\$236');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$237 = CallJoinCallForcePermissions._('\$237');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$238 = CallJoinCallForcePermissions._('\$238');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$239 = CallJoinCallForcePermissions._('\$239');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$240 = CallJoinCallForcePermissions._('\$240');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$241 = CallJoinCallForcePermissions._('\$241');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$242 = CallJoinCallForcePermissions._('\$242');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$243 = CallJoinCallForcePermissions._('\$243');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$244 = CallJoinCallForcePermissions._('\$244');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$245 = CallJoinCallForcePermissions._('\$245');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$246 = CallJoinCallForcePermissions._('\$246');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$247 = CallJoinCallForcePermissions._('\$247');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$248 = CallJoinCallForcePermissions._('\$248');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$249 = CallJoinCallForcePermissions._('\$249');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$250 = CallJoinCallForcePermissions._('\$250');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$251 = CallJoinCallForcePermissions._('\$251');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$252 = CallJoinCallForcePermissions._('\$252');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$253 = CallJoinCallForcePermissions._('\$253');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$254 = CallJoinCallForcePermissions._('\$254');
+const CallJoinCallForcePermissions _$callJoinCallForcePermissions$255 = CallJoinCallForcePermissions._('\$255');
+
+CallJoinCallForcePermissions _$valueOfCallJoinCallForcePermissions(String name) {
+  switch (name) {
+    case '\$0':
+      return _$callJoinCallForcePermissions$0;
+    case '\$1':
+      return _$callJoinCallForcePermissions$1;
+    case '\$2':
+      return _$callJoinCallForcePermissions$2;
+    case '\$3':
+      return _$callJoinCallForcePermissions$3;
+    case '\$4':
+      return _$callJoinCallForcePermissions$4;
+    case '\$5':
+      return _$callJoinCallForcePermissions$5;
+    case '\$6':
+      return _$callJoinCallForcePermissions$6;
+    case '\$7':
+      return _$callJoinCallForcePermissions$7;
+    case '\$8':
+      return _$callJoinCallForcePermissions$8;
+    case '\$9':
+      return _$callJoinCallForcePermissions$9;
+    case '\$10':
+      return _$callJoinCallForcePermissions$10;
+    case '\$11':
+      return _$callJoinCallForcePermissions$11;
+    case '\$12':
+      return _$callJoinCallForcePermissions$12;
+    case '\$13':
+      return _$callJoinCallForcePermissions$13;
+    case '\$14':
+      return _$callJoinCallForcePermissions$14;
+    case '\$15':
+      return _$callJoinCallForcePermissions$15;
+    case '\$16':
+      return _$callJoinCallForcePermissions$16;
+    case '\$17':
+      return _$callJoinCallForcePermissions$17;
+    case '\$18':
+      return _$callJoinCallForcePermissions$18;
+    case '\$19':
+      return _$callJoinCallForcePermissions$19;
+    case '\$20':
+      return _$callJoinCallForcePermissions$20;
+    case '\$21':
+      return _$callJoinCallForcePermissions$21;
+    case '\$22':
+      return _$callJoinCallForcePermissions$22;
+    case '\$23':
+      return _$callJoinCallForcePermissions$23;
+    case '\$24':
+      return _$callJoinCallForcePermissions$24;
+    case '\$25':
+      return _$callJoinCallForcePermissions$25;
+    case '\$26':
+      return _$callJoinCallForcePermissions$26;
+    case '\$27':
+      return _$callJoinCallForcePermissions$27;
+    case '\$28':
+      return _$callJoinCallForcePermissions$28;
+    case '\$29':
+      return _$callJoinCallForcePermissions$29;
+    case '\$30':
+      return _$callJoinCallForcePermissions$30;
+    case '\$31':
+      return _$callJoinCallForcePermissions$31;
+    case '\$32':
+      return _$callJoinCallForcePermissions$32;
+    case '\$33':
+      return _$callJoinCallForcePermissions$33;
+    case '\$34':
+      return _$callJoinCallForcePermissions$34;
+    case '\$35':
+      return _$callJoinCallForcePermissions$35;
+    case '\$36':
+      return _$callJoinCallForcePermissions$36;
+    case '\$37':
+      return _$callJoinCallForcePermissions$37;
+    case '\$38':
+      return _$callJoinCallForcePermissions$38;
+    case '\$39':
+      return _$callJoinCallForcePermissions$39;
+    case '\$40':
+      return _$callJoinCallForcePermissions$40;
+    case '\$41':
+      return _$callJoinCallForcePermissions$41;
+    case '\$42':
+      return _$callJoinCallForcePermissions$42;
+    case '\$43':
+      return _$callJoinCallForcePermissions$43;
+    case '\$44':
+      return _$callJoinCallForcePermissions$44;
+    case '\$45':
+      return _$callJoinCallForcePermissions$45;
+    case '\$46':
+      return _$callJoinCallForcePermissions$46;
+    case '\$47':
+      return _$callJoinCallForcePermissions$47;
+    case '\$48':
+      return _$callJoinCallForcePermissions$48;
+    case '\$49':
+      return _$callJoinCallForcePermissions$49;
+    case '\$50':
+      return _$callJoinCallForcePermissions$50;
+    case '\$51':
+      return _$callJoinCallForcePermissions$51;
+    case '\$52':
+      return _$callJoinCallForcePermissions$52;
+    case '\$53':
+      return _$callJoinCallForcePermissions$53;
+    case '\$54':
+      return _$callJoinCallForcePermissions$54;
+    case '\$55':
+      return _$callJoinCallForcePermissions$55;
+    case '\$56':
+      return _$callJoinCallForcePermissions$56;
+    case '\$57':
+      return _$callJoinCallForcePermissions$57;
+    case '\$58':
+      return _$callJoinCallForcePermissions$58;
+    case '\$59':
+      return _$callJoinCallForcePermissions$59;
+    case '\$60':
+      return _$callJoinCallForcePermissions$60;
+    case '\$61':
+      return _$callJoinCallForcePermissions$61;
+    case '\$62':
+      return _$callJoinCallForcePermissions$62;
+    case '\$63':
+      return _$callJoinCallForcePermissions$63;
+    case '\$64':
+      return _$callJoinCallForcePermissions$64;
+    case '\$65':
+      return _$callJoinCallForcePermissions$65;
+    case '\$66':
+      return _$callJoinCallForcePermissions$66;
+    case '\$67':
+      return _$callJoinCallForcePermissions$67;
+    case '\$68':
+      return _$callJoinCallForcePermissions$68;
+    case '\$69':
+      return _$callJoinCallForcePermissions$69;
+    case '\$70':
+      return _$callJoinCallForcePermissions$70;
+    case '\$71':
+      return _$callJoinCallForcePermissions$71;
+    case '\$72':
+      return _$callJoinCallForcePermissions$72;
+    case '\$73':
+      return _$callJoinCallForcePermissions$73;
+    case '\$74':
+      return _$callJoinCallForcePermissions$74;
+    case '\$75':
+      return _$callJoinCallForcePermissions$75;
+    case '\$76':
+      return _$callJoinCallForcePermissions$76;
+    case '\$77':
+      return _$callJoinCallForcePermissions$77;
+    case '\$78':
+      return _$callJoinCallForcePermissions$78;
+    case '\$79':
+      return _$callJoinCallForcePermissions$79;
+    case '\$80':
+      return _$callJoinCallForcePermissions$80;
+    case '\$81':
+      return _$callJoinCallForcePermissions$81;
+    case '\$82':
+      return _$callJoinCallForcePermissions$82;
+    case '\$83':
+      return _$callJoinCallForcePermissions$83;
+    case '\$84':
+      return _$callJoinCallForcePermissions$84;
+    case '\$85':
+      return _$callJoinCallForcePermissions$85;
+    case '\$86':
+      return _$callJoinCallForcePermissions$86;
+    case '\$87':
+      return _$callJoinCallForcePermissions$87;
+    case '\$88':
+      return _$callJoinCallForcePermissions$88;
+    case '\$89':
+      return _$callJoinCallForcePermissions$89;
+    case '\$90':
+      return _$callJoinCallForcePermissions$90;
+    case '\$91':
+      return _$callJoinCallForcePermissions$91;
+    case '\$92':
+      return _$callJoinCallForcePermissions$92;
+    case '\$93':
+      return _$callJoinCallForcePermissions$93;
+    case '\$94':
+      return _$callJoinCallForcePermissions$94;
+    case '\$95':
+      return _$callJoinCallForcePermissions$95;
+    case '\$96':
+      return _$callJoinCallForcePermissions$96;
+    case '\$97':
+      return _$callJoinCallForcePermissions$97;
+    case '\$98':
+      return _$callJoinCallForcePermissions$98;
+    case '\$99':
+      return _$callJoinCallForcePermissions$99;
+    case '\$100':
+      return _$callJoinCallForcePermissions$100;
+    case '\$101':
+      return _$callJoinCallForcePermissions$101;
+    case '\$102':
+      return _$callJoinCallForcePermissions$102;
+    case '\$103':
+      return _$callJoinCallForcePermissions$103;
+    case '\$104':
+      return _$callJoinCallForcePermissions$104;
+    case '\$105':
+      return _$callJoinCallForcePermissions$105;
+    case '\$106':
+      return _$callJoinCallForcePermissions$106;
+    case '\$107':
+      return _$callJoinCallForcePermissions$107;
+    case '\$108':
+      return _$callJoinCallForcePermissions$108;
+    case '\$109':
+      return _$callJoinCallForcePermissions$109;
+    case '\$110':
+      return _$callJoinCallForcePermissions$110;
+    case '\$111':
+      return _$callJoinCallForcePermissions$111;
+    case '\$112':
+      return _$callJoinCallForcePermissions$112;
+    case '\$113':
+      return _$callJoinCallForcePermissions$113;
+    case '\$114':
+      return _$callJoinCallForcePermissions$114;
+    case '\$115':
+      return _$callJoinCallForcePermissions$115;
+    case '\$116':
+      return _$callJoinCallForcePermissions$116;
+    case '\$117':
+      return _$callJoinCallForcePermissions$117;
+    case '\$118':
+      return _$callJoinCallForcePermissions$118;
+    case '\$119':
+      return _$callJoinCallForcePermissions$119;
+    case '\$120':
+      return _$callJoinCallForcePermissions$120;
+    case '\$121':
+      return _$callJoinCallForcePermissions$121;
+    case '\$122':
+      return _$callJoinCallForcePermissions$122;
+    case '\$123':
+      return _$callJoinCallForcePermissions$123;
+    case '\$124':
+      return _$callJoinCallForcePermissions$124;
+    case '\$125':
+      return _$callJoinCallForcePermissions$125;
+    case '\$126':
+      return _$callJoinCallForcePermissions$126;
+    case '\$127':
+      return _$callJoinCallForcePermissions$127;
+    case '\$128':
+      return _$callJoinCallForcePermissions$128;
+    case '\$129':
+      return _$callJoinCallForcePermissions$129;
+    case '\$130':
+      return _$callJoinCallForcePermissions$130;
+    case '\$131':
+      return _$callJoinCallForcePermissions$131;
+    case '\$132':
+      return _$callJoinCallForcePermissions$132;
+    case '\$133':
+      return _$callJoinCallForcePermissions$133;
+    case '\$134':
+      return _$callJoinCallForcePermissions$134;
+    case '\$135':
+      return _$callJoinCallForcePermissions$135;
+    case '\$136':
+      return _$callJoinCallForcePermissions$136;
+    case '\$137':
+      return _$callJoinCallForcePermissions$137;
+    case '\$138':
+      return _$callJoinCallForcePermissions$138;
+    case '\$139':
+      return _$callJoinCallForcePermissions$139;
+    case '\$140':
+      return _$callJoinCallForcePermissions$140;
+    case '\$141':
+      return _$callJoinCallForcePermissions$141;
+    case '\$142':
+      return _$callJoinCallForcePermissions$142;
+    case '\$143':
+      return _$callJoinCallForcePermissions$143;
+    case '\$144':
+      return _$callJoinCallForcePermissions$144;
+    case '\$145':
+      return _$callJoinCallForcePermissions$145;
+    case '\$146':
+      return _$callJoinCallForcePermissions$146;
+    case '\$147':
+      return _$callJoinCallForcePermissions$147;
+    case '\$148':
+      return _$callJoinCallForcePermissions$148;
+    case '\$149':
+      return _$callJoinCallForcePermissions$149;
+    case '\$150':
+      return _$callJoinCallForcePermissions$150;
+    case '\$151':
+      return _$callJoinCallForcePermissions$151;
+    case '\$152':
+      return _$callJoinCallForcePermissions$152;
+    case '\$153':
+      return _$callJoinCallForcePermissions$153;
+    case '\$154':
+      return _$callJoinCallForcePermissions$154;
+    case '\$155':
+      return _$callJoinCallForcePermissions$155;
+    case '\$156':
+      return _$callJoinCallForcePermissions$156;
+    case '\$157':
+      return _$callJoinCallForcePermissions$157;
+    case '\$158':
+      return _$callJoinCallForcePermissions$158;
+    case '\$159':
+      return _$callJoinCallForcePermissions$159;
+    case '\$160':
+      return _$callJoinCallForcePermissions$160;
+    case '\$161':
+      return _$callJoinCallForcePermissions$161;
+    case '\$162':
+      return _$callJoinCallForcePermissions$162;
+    case '\$163':
+      return _$callJoinCallForcePermissions$163;
+    case '\$164':
+      return _$callJoinCallForcePermissions$164;
+    case '\$165':
+      return _$callJoinCallForcePermissions$165;
+    case '\$166':
+      return _$callJoinCallForcePermissions$166;
+    case '\$167':
+      return _$callJoinCallForcePermissions$167;
+    case '\$168':
+      return _$callJoinCallForcePermissions$168;
+    case '\$169':
+      return _$callJoinCallForcePermissions$169;
+    case '\$170':
+      return _$callJoinCallForcePermissions$170;
+    case '\$171':
+      return _$callJoinCallForcePermissions$171;
+    case '\$172':
+      return _$callJoinCallForcePermissions$172;
+    case '\$173':
+      return _$callJoinCallForcePermissions$173;
+    case '\$174':
+      return _$callJoinCallForcePermissions$174;
+    case '\$175':
+      return _$callJoinCallForcePermissions$175;
+    case '\$176':
+      return _$callJoinCallForcePermissions$176;
+    case '\$177':
+      return _$callJoinCallForcePermissions$177;
+    case '\$178':
+      return _$callJoinCallForcePermissions$178;
+    case '\$179':
+      return _$callJoinCallForcePermissions$179;
+    case '\$180':
+      return _$callJoinCallForcePermissions$180;
+    case '\$181':
+      return _$callJoinCallForcePermissions$181;
+    case '\$182':
+      return _$callJoinCallForcePermissions$182;
+    case '\$183':
+      return _$callJoinCallForcePermissions$183;
+    case '\$184':
+      return _$callJoinCallForcePermissions$184;
+    case '\$185':
+      return _$callJoinCallForcePermissions$185;
+    case '\$186':
+      return _$callJoinCallForcePermissions$186;
+    case '\$187':
+      return _$callJoinCallForcePermissions$187;
+    case '\$188':
+      return _$callJoinCallForcePermissions$188;
+    case '\$189':
+      return _$callJoinCallForcePermissions$189;
+    case '\$190':
+      return _$callJoinCallForcePermissions$190;
+    case '\$191':
+      return _$callJoinCallForcePermissions$191;
+    case '\$192':
+      return _$callJoinCallForcePermissions$192;
+    case '\$193':
+      return _$callJoinCallForcePermissions$193;
+    case '\$194':
+      return _$callJoinCallForcePermissions$194;
+    case '\$195':
+      return _$callJoinCallForcePermissions$195;
+    case '\$196':
+      return _$callJoinCallForcePermissions$196;
+    case '\$197':
+      return _$callJoinCallForcePermissions$197;
+    case '\$198':
+      return _$callJoinCallForcePermissions$198;
+    case '\$199':
+      return _$callJoinCallForcePermissions$199;
+    case '\$200':
+      return _$callJoinCallForcePermissions$200;
+    case '\$201':
+      return _$callJoinCallForcePermissions$201;
+    case '\$202':
+      return _$callJoinCallForcePermissions$202;
+    case '\$203':
+      return _$callJoinCallForcePermissions$203;
+    case '\$204':
+      return _$callJoinCallForcePermissions$204;
+    case '\$205':
+      return _$callJoinCallForcePermissions$205;
+    case '\$206':
+      return _$callJoinCallForcePermissions$206;
+    case '\$207':
+      return _$callJoinCallForcePermissions$207;
+    case '\$208':
+      return _$callJoinCallForcePermissions$208;
+    case '\$209':
+      return _$callJoinCallForcePermissions$209;
+    case '\$210':
+      return _$callJoinCallForcePermissions$210;
+    case '\$211':
+      return _$callJoinCallForcePermissions$211;
+    case '\$212':
+      return _$callJoinCallForcePermissions$212;
+    case '\$213':
+      return _$callJoinCallForcePermissions$213;
+    case '\$214':
+      return _$callJoinCallForcePermissions$214;
+    case '\$215':
+      return _$callJoinCallForcePermissions$215;
+    case '\$216':
+      return _$callJoinCallForcePermissions$216;
+    case '\$217':
+      return _$callJoinCallForcePermissions$217;
+    case '\$218':
+      return _$callJoinCallForcePermissions$218;
+    case '\$219':
+      return _$callJoinCallForcePermissions$219;
+    case '\$220':
+      return _$callJoinCallForcePermissions$220;
+    case '\$221':
+      return _$callJoinCallForcePermissions$221;
+    case '\$222':
+      return _$callJoinCallForcePermissions$222;
+    case '\$223':
+      return _$callJoinCallForcePermissions$223;
+    case '\$224':
+      return _$callJoinCallForcePermissions$224;
+    case '\$225':
+      return _$callJoinCallForcePermissions$225;
+    case '\$226':
+      return _$callJoinCallForcePermissions$226;
+    case '\$227':
+      return _$callJoinCallForcePermissions$227;
+    case '\$228':
+      return _$callJoinCallForcePermissions$228;
+    case '\$229':
+      return _$callJoinCallForcePermissions$229;
+    case '\$230':
+      return _$callJoinCallForcePermissions$230;
+    case '\$231':
+      return _$callJoinCallForcePermissions$231;
+    case '\$232':
+      return _$callJoinCallForcePermissions$232;
+    case '\$233':
+      return _$callJoinCallForcePermissions$233;
+    case '\$234':
+      return _$callJoinCallForcePermissions$234;
+    case '\$235':
+      return _$callJoinCallForcePermissions$235;
+    case '\$236':
+      return _$callJoinCallForcePermissions$236;
+    case '\$237':
+      return _$callJoinCallForcePermissions$237;
+    case '\$238':
+      return _$callJoinCallForcePermissions$238;
+    case '\$239':
+      return _$callJoinCallForcePermissions$239;
+    case '\$240':
+      return _$callJoinCallForcePermissions$240;
+    case '\$241':
+      return _$callJoinCallForcePermissions$241;
+    case '\$242':
+      return _$callJoinCallForcePermissions$242;
+    case '\$243':
+      return _$callJoinCallForcePermissions$243;
+    case '\$244':
+      return _$callJoinCallForcePermissions$244;
+    case '\$245':
+      return _$callJoinCallForcePermissions$245;
+    case '\$246':
+      return _$callJoinCallForcePermissions$246;
+    case '\$247':
+      return _$callJoinCallForcePermissions$247;
+    case '\$248':
+      return _$callJoinCallForcePermissions$248;
+    case '\$249':
+      return _$callJoinCallForcePermissions$249;
+    case '\$250':
+      return _$callJoinCallForcePermissions$250;
+    case '\$251':
+      return _$callJoinCallForcePermissions$251;
+    case '\$252':
+      return _$callJoinCallForcePermissions$252;
+    case '\$253':
+      return _$callJoinCallForcePermissions$253;
+    case '\$254':
+      return _$callJoinCallForcePermissions$254;
+    case '\$255':
+      return _$callJoinCallForcePermissions$255;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<CallJoinCallForcePermissions> _$callJoinCallForcePermissionsValues =
+    BuiltSet<CallJoinCallForcePermissions>(const <CallJoinCallForcePermissions>[
+  _$callJoinCallForcePermissions$0,
+  _$callJoinCallForcePermissions$1,
+  _$callJoinCallForcePermissions$2,
+  _$callJoinCallForcePermissions$3,
+  _$callJoinCallForcePermissions$4,
+  _$callJoinCallForcePermissions$5,
+  _$callJoinCallForcePermissions$6,
+  _$callJoinCallForcePermissions$7,
+  _$callJoinCallForcePermissions$8,
+  _$callJoinCallForcePermissions$9,
+  _$callJoinCallForcePermissions$10,
+  _$callJoinCallForcePermissions$11,
+  _$callJoinCallForcePermissions$12,
+  _$callJoinCallForcePermissions$13,
+  _$callJoinCallForcePermissions$14,
+  _$callJoinCallForcePermissions$15,
+  _$callJoinCallForcePermissions$16,
+  _$callJoinCallForcePermissions$17,
+  _$callJoinCallForcePermissions$18,
+  _$callJoinCallForcePermissions$19,
+  _$callJoinCallForcePermissions$20,
+  _$callJoinCallForcePermissions$21,
+  _$callJoinCallForcePermissions$22,
+  _$callJoinCallForcePermissions$23,
+  _$callJoinCallForcePermissions$24,
+  _$callJoinCallForcePermissions$25,
+  _$callJoinCallForcePermissions$26,
+  _$callJoinCallForcePermissions$27,
+  _$callJoinCallForcePermissions$28,
+  _$callJoinCallForcePermissions$29,
+  _$callJoinCallForcePermissions$30,
+  _$callJoinCallForcePermissions$31,
+  _$callJoinCallForcePermissions$32,
+  _$callJoinCallForcePermissions$33,
+  _$callJoinCallForcePermissions$34,
+  _$callJoinCallForcePermissions$35,
+  _$callJoinCallForcePermissions$36,
+  _$callJoinCallForcePermissions$37,
+  _$callJoinCallForcePermissions$38,
+  _$callJoinCallForcePermissions$39,
+  _$callJoinCallForcePermissions$40,
+  _$callJoinCallForcePermissions$41,
+  _$callJoinCallForcePermissions$42,
+  _$callJoinCallForcePermissions$43,
+  _$callJoinCallForcePermissions$44,
+  _$callJoinCallForcePermissions$45,
+  _$callJoinCallForcePermissions$46,
+  _$callJoinCallForcePermissions$47,
+  _$callJoinCallForcePermissions$48,
+  _$callJoinCallForcePermissions$49,
+  _$callJoinCallForcePermissions$50,
+  _$callJoinCallForcePermissions$51,
+  _$callJoinCallForcePermissions$52,
+  _$callJoinCallForcePermissions$53,
+  _$callJoinCallForcePermissions$54,
+  _$callJoinCallForcePermissions$55,
+  _$callJoinCallForcePermissions$56,
+  _$callJoinCallForcePermissions$57,
+  _$callJoinCallForcePermissions$58,
+  _$callJoinCallForcePermissions$59,
+  _$callJoinCallForcePermissions$60,
+  _$callJoinCallForcePermissions$61,
+  _$callJoinCallForcePermissions$62,
+  _$callJoinCallForcePermissions$63,
+  _$callJoinCallForcePermissions$64,
+  _$callJoinCallForcePermissions$65,
+  _$callJoinCallForcePermissions$66,
+  _$callJoinCallForcePermissions$67,
+  _$callJoinCallForcePermissions$68,
+  _$callJoinCallForcePermissions$69,
+  _$callJoinCallForcePermissions$70,
+  _$callJoinCallForcePermissions$71,
+  _$callJoinCallForcePermissions$72,
+  _$callJoinCallForcePermissions$73,
+  _$callJoinCallForcePermissions$74,
+  _$callJoinCallForcePermissions$75,
+  _$callJoinCallForcePermissions$76,
+  _$callJoinCallForcePermissions$77,
+  _$callJoinCallForcePermissions$78,
+  _$callJoinCallForcePermissions$79,
+  _$callJoinCallForcePermissions$80,
+  _$callJoinCallForcePermissions$81,
+  _$callJoinCallForcePermissions$82,
+  _$callJoinCallForcePermissions$83,
+  _$callJoinCallForcePermissions$84,
+  _$callJoinCallForcePermissions$85,
+  _$callJoinCallForcePermissions$86,
+  _$callJoinCallForcePermissions$87,
+  _$callJoinCallForcePermissions$88,
+  _$callJoinCallForcePermissions$89,
+  _$callJoinCallForcePermissions$90,
+  _$callJoinCallForcePermissions$91,
+  _$callJoinCallForcePermissions$92,
+  _$callJoinCallForcePermissions$93,
+  _$callJoinCallForcePermissions$94,
+  _$callJoinCallForcePermissions$95,
+  _$callJoinCallForcePermissions$96,
+  _$callJoinCallForcePermissions$97,
+  _$callJoinCallForcePermissions$98,
+  _$callJoinCallForcePermissions$99,
+  _$callJoinCallForcePermissions$100,
+  _$callJoinCallForcePermissions$101,
+  _$callJoinCallForcePermissions$102,
+  _$callJoinCallForcePermissions$103,
+  _$callJoinCallForcePermissions$104,
+  _$callJoinCallForcePermissions$105,
+  _$callJoinCallForcePermissions$106,
+  _$callJoinCallForcePermissions$107,
+  _$callJoinCallForcePermissions$108,
+  _$callJoinCallForcePermissions$109,
+  _$callJoinCallForcePermissions$110,
+  _$callJoinCallForcePermissions$111,
+  _$callJoinCallForcePermissions$112,
+  _$callJoinCallForcePermissions$113,
+  _$callJoinCallForcePermissions$114,
+  _$callJoinCallForcePermissions$115,
+  _$callJoinCallForcePermissions$116,
+  _$callJoinCallForcePermissions$117,
+  _$callJoinCallForcePermissions$118,
+  _$callJoinCallForcePermissions$119,
+  _$callJoinCallForcePermissions$120,
+  _$callJoinCallForcePermissions$121,
+  _$callJoinCallForcePermissions$122,
+  _$callJoinCallForcePermissions$123,
+  _$callJoinCallForcePermissions$124,
+  _$callJoinCallForcePermissions$125,
+  _$callJoinCallForcePermissions$126,
+  _$callJoinCallForcePermissions$127,
+  _$callJoinCallForcePermissions$128,
+  _$callJoinCallForcePermissions$129,
+  _$callJoinCallForcePermissions$130,
+  _$callJoinCallForcePermissions$131,
+  _$callJoinCallForcePermissions$132,
+  _$callJoinCallForcePermissions$133,
+  _$callJoinCallForcePermissions$134,
+  _$callJoinCallForcePermissions$135,
+  _$callJoinCallForcePermissions$136,
+  _$callJoinCallForcePermissions$137,
+  _$callJoinCallForcePermissions$138,
+  _$callJoinCallForcePermissions$139,
+  _$callJoinCallForcePermissions$140,
+  _$callJoinCallForcePermissions$141,
+  _$callJoinCallForcePermissions$142,
+  _$callJoinCallForcePermissions$143,
+  _$callJoinCallForcePermissions$144,
+  _$callJoinCallForcePermissions$145,
+  _$callJoinCallForcePermissions$146,
+  _$callJoinCallForcePermissions$147,
+  _$callJoinCallForcePermissions$148,
+  _$callJoinCallForcePermissions$149,
+  _$callJoinCallForcePermissions$150,
+  _$callJoinCallForcePermissions$151,
+  _$callJoinCallForcePermissions$152,
+  _$callJoinCallForcePermissions$153,
+  _$callJoinCallForcePermissions$154,
+  _$callJoinCallForcePermissions$155,
+  _$callJoinCallForcePermissions$156,
+  _$callJoinCallForcePermissions$157,
+  _$callJoinCallForcePermissions$158,
+  _$callJoinCallForcePermissions$159,
+  _$callJoinCallForcePermissions$160,
+  _$callJoinCallForcePermissions$161,
+  _$callJoinCallForcePermissions$162,
+  _$callJoinCallForcePermissions$163,
+  _$callJoinCallForcePermissions$164,
+  _$callJoinCallForcePermissions$165,
+  _$callJoinCallForcePermissions$166,
+  _$callJoinCallForcePermissions$167,
+  _$callJoinCallForcePermissions$168,
+  _$callJoinCallForcePermissions$169,
+  _$callJoinCallForcePermissions$170,
+  _$callJoinCallForcePermissions$171,
+  _$callJoinCallForcePermissions$172,
+  _$callJoinCallForcePermissions$173,
+  _$callJoinCallForcePermissions$174,
+  _$callJoinCallForcePermissions$175,
+  _$callJoinCallForcePermissions$176,
+  _$callJoinCallForcePermissions$177,
+  _$callJoinCallForcePermissions$178,
+  _$callJoinCallForcePermissions$179,
+  _$callJoinCallForcePermissions$180,
+  _$callJoinCallForcePermissions$181,
+  _$callJoinCallForcePermissions$182,
+  _$callJoinCallForcePermissions$183,
+  _$callJoinCallForcePermissions$184,
+  _$callJoinCallForcePermissions$185,
+  _$callJoinCallForcePermissions$186,
+  _$callJoinCallForcePermissions$187,
+  _$callJoinCallForcePermissions$188,
+  _$callJoinCallForcePermissions$189,
+  _$callJoinCallForcePermissions$190,
+  _$callJoinCallForcePermissions$191,
+  _$callJoinCallForcePermissions$192,
+  _$callJoinCallForcePermissions$193,
+  _$callJoinCallForcePermissions$194,
+  _$callJoinCallForcePermissions$195,
+  _$callJoinCallForcePermissions$196,
+  _$callJoinCallForcePermissions$197,
+  _$callJoinCallForcePermissions$198,
+  _$callJoinCallForcePermissions$199,
+  _$callJoinCallForcePermissions$200,
+  _$callJoinCallForcePermissions$201,
+  _$callJoinCallForcePermissions$202,
+  _$callJoinCallForcePermissions$203,
+  _$callJoinCallForcePermissions$204,
+  _$callJoinCallForcePermissions$205,
+  _$callJoinCallForcePermissions$206,
+  _$callJoinCallForcePermissions$207,
+  _$callJoinCallForcePermissions$208,
+  _$callJoinCallForcePermissions$209,
+  _$callJoinCallForcePermissions$210,
+  _$callJoinCallForcePermissions$211,
+  _$callJoinCallForcePermissions$212,
+  _$callJoinCallForcePermissions$213,
+  _$callJoinCallForcePermissions$214,
+  _$callJoinCallForcePermissions$215,
+  _$callJoinCallForcePermissions$216,
+  _$callJoinCallForcePermissions$217,
+  _$callJoinCallForcePermissions$218,
+  _$callJoinCallForcePermissions$219,
+  _$callJoinCallForcePermissions$220,
+  _$callJoinCallForcePermissions$221,
+  _$callJoinCallForcePermissions$222,
+  _$callJoinCallForcePermissions$223,
+  _$callJoinCallForcePermissions$224,
+  _$callJoinCallForcePermissions$225,
+  _$callJoinCallForcePermissions$226,
+  _$callJoinCallForcePermissions$227,
+  _$callJoinCallForcePermissions$228,
+  _$callJoinCallForcePermissions$229,
+  _$callJoinCallForcePermissions$230,
+  _$callJoinCallForcePermissions$231,
+  _$callJoinCallForcePermissions$232,
+  _$callJoinCallForcePermissions$233,
+  _$callJoinCallForcePermissions$234,
+  _$callJoinCallForcePermissions$235,
+  _$callJoinCallForcePermissions$236,
+  _$callJoinCallForcePermissions$237,
+  _$callJoinCallForcePermissions$238,
+  _$callJoinCallForcePermissions$239,
+  _$callJoinCallForcePermissions$240,
+  _$callJoinCallForcePermissions$241,
+  _$callJoinCallForcePermissions$242,
+  _$callJoinCallForcePermissions$243,
+  _$callJoinCallForcePermissions$244,
+  _$callJoinCallForcePermissions$245,
+  _$callJoinCallForcePermissions$246,
+  _$callJoinCallForcePermissions$247,
+  _$callJoinCallForcePermissions$248,
+  _$callJoinCallForcePermissions$249,
+  _$callJoinCallForcePermissions$250,
+  _$callJoinCallForcePermissions$251,
+  _$callJoinCallForcePermissions$252,
+  _$callJoinCallForcePermissions$253,
+  _$callJoinCallForcePermissions$254,
+  _$callJoinCallForcePermissions$255,
+]);
+
 const CallJoinCallApiVersion _$callJoinCallApiVersionV4 = CallJoinCallApiVersion._('v4');
 
 CallJoinCallApiVersion _$valueOfCallJoinCallApiVersion(String name) {
@@ -462,6 +1605,114 @@ CertificateGetCertificateExpirationApiVersion _$valueOfCertificateGetCertificate
 final BuiltSet<CertificateGetCertificateExpirationApiVersion> _$certificateGetCertificateExpirationApiVersionValues =
     BuiltSet<CertificateGetCertificateExpirationApiVersion>(const <CertificateGetCertificateExpirationApiVersion>[
   _$certificateGetCertificateExpirationApiVersionV1,
+]);
+
+const ChatReceiveMessagesLookIntoFuture _$chatReceiveMessagesLookIntoFuture$0 =
+    ChatReceiveMessagesLookIntoFuture._('\$0');
+const ChatReceiveMessagesLookIntoFuture _$chatReceiveMessagesLookIntoFuture$1 =
+    ChatReceiveMessagesLookIntoFuture._('\$1');
+
+ChatReceiveMessagesLookIntoFuture _$valueOfChatReceiveMessagesLookIntoFuture(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesLookIntoFuture$0;
+    case '\$1':
+      return _$chatReceiveMessagesLookIntoFuture$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesLookIntoFuture> _$chatReceiveMessagesLookIntoFutureValues =
+    BuiltSet<ChatReceiveMessagesLookIntoFuture>(const <ChatReceiveMessagesLookIntoFuture>[
+  _$chatReceiveMessagesLookIntoFuture$0,
+  _$chatReceiveMessagesLookIntoFuture$1,
+]);
+
+const ChatReceiveMessagesSetReadMarker _$chatReceiveMessagesSetReadMarker$0 = ChatReceiveMessagesSetReadMarker._('\$0');
+const ChatReceiveMessagesSetReadMarker _$chatReceiveMessagesSetReadMarker$1 = ChatReceiveMessagesSetReadMarker._('\$1');
+
+ChatReceiveMessagesSetReadMarker _$valueOfChatReceiveMessagesSetReadMarker(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesSetReadMarker$0;
+    case '\$1':
+      return _$chatReceiveMessagesSetReadMarker$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesSetReadMarker> _$chatReceiveMessagesSetReadMarkerValues =
+    BuiltSet<ChatReceiveMessagesSetReadMarker>(const <ChatReceiveMessagesSetReadMarker>[
+  _$chatReceiveMessagesSetReadMarker$0,
+  _$chatReceiveMessagesSetReadMarker$1,
+]);
+
+const ChatReceiveMessagesIncludeLastKnown _$chatReceiveMessagesIncludeLastKnown$0 =
+    ChatReceiveMessagesIncludeLastKnown._('\$0');
+const ChatReceiveMessagesIncludeLastKnown _$chatReceiveMessagesIncludeLastKnown$1 =
+    ChatReceiveMessagesIncludeLastKnown._('\$1');
+
+ChatReceiveMessagesIncludeLastKnown _$valueOfChatReceiveMessagesIncludeLastKnown(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesIncludeLastKnown$0;
+    case '\$1':
+      return _$chatReceiveMessagesIncludeLastKnown$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesIncludeLastKnown> _$chatReceiveMessagesIncludeLastKnownValues =
+    BuiltSet<ChatReceiveMessagesIncludeLastKnown>(const <ChatReceiveMessagesIncludeLastKnown>[
+  _$chatReceiveMessagesIncludeLastKnown$0,
+  _$chatReceiveMessagesIncludeLastKnown$1,
+]);
+
+const ChatReceiveMessagesNoStatusUpdate _$chatReceiveMessagesNoStatusUpdate$0 =
+    ChatReceiveMessagesNoStatusUpdate._('\$0');
+const ChatReceiveMessagesNoStatusUpdate _$chatReceiveMessagesNoStatusUpdate$1 =
+    ChatReceiveMessagesNoStatusUpdate._('\$1');
+
+ChatReceiveMessagesNoStatusUpdate _$valueOfChatReceiveMessagesNoStatusUpdate(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesNoStatusUpdate$0;
+    case '\$1':
+      return _$chatReceiveMessagesNoStatusUpdate$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesNoStatusUpdate> _$chatReceiveMessagesNoStatusUpdateValues =
+    BuiltSet<ChatReceiveMessagesNoStatusUpdate>(const <ChatReceiveMessagesNoStatusUpdate>[
+  _$chatReceiveMessagesNoStatusUpdate$0,
+  _$chatReceiveMessagesNoStatusUpdate$1,
+]);
+
+const ChatReceiveMessagesMarkNotificationsAsRead _$chatReceiveMessagesMarkNotificationsAsRead$0 =
+    ChatReceiveMessagesMarkNotificationsAsRead._('\$0');
+const ChatReceiveMessagesMarkNotificationsAsRead _$chatReceiveMessagesMarkNotificationsAsRead$1 =
+    ChatReceiveMessagesMarkNotificationsAsRead._('\$1');
+
+ChatReceiveMessagesMarkNotificationsAsRead _$valueOfChatReceiveMessagesMarkNotificationsAsRead(String name) {
+  switch (name) {
+    case '\$0':
+      return _$chatReceiveMessagesMarkNotificationsAsRead$0;
+    case '\$1':
+      return _$chatReceiveMessagesMarkNotificationsAsRead$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> _$chatReceiveMessagesMarkNotificationsAsReadValues =
+    BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead>(const <ChatReceiveMessagesMarkNotificationsAsRead>[
+  _$chatReceiveMessagesMarkNotificationsAsRead$0,
+  _$chatReceiveMessagesMarkNotificationsAsRead$1,
 ]);
 
 const ChatReceiveMessagesApiVersion _$chatReceiveMessagesApiVersionV1 = ChatReceiveMessagesApiVersion._('v1');
@@ -690,54 +1941,6 @@ final BuiltSet<ChatGetObjectsSharedInRoomOverviewApiVersion> _$chatGetObjectsSha
   _$chatGetObjectsSharedInRoomOverviewApiVersionV1,
 ]);
 
-const FederationAcceptShareApiVersion _$federationAcceptShareApiVersionV1 = FederationAcceptShareApiVersion._('v1');
-
-FederationAcceptShareApiVersion _$valueOfFederationAcceptShareApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$federationAcceptShareApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<FederationAcceptShareApiVersion> _$federationAcceptShareApiVersionValues =
-    BuiltSet<FederationAcceptShareApiVersion>(const <FederationAcceptShareApiVersion>[
-  _$federationAcceptShareApiVersionV1,
-]);
-
-const FederationRejectShareApiVersion _$federationRejectShareApiVersionV1 = FederationRejectShareApiVersion._('v1');
-
-FederationRejectShareApiVersion _$valueOfFederationRejectShareApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$federationRejectShareApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<FederationRejectShareApiVersion> _$federationRejectShareApiVersionValues =
-    BuiltSet<FederationRejectShareApiVersion>(const <FederationRejectShareApiVersion>[
-  _$federationRejectShareApiVersionV1,
-]);
-
-const FederationGetSharesApiVersion _$federationGetSharesApiVersionV1 = FederationGetSharesApiVersion._('v1');
-
-FederationGetSharesApiVersion _$valueOfFederationGetSharesApiVersion(String name) {
-  switch (name) {
-    case 'v1':
-      return _$federationGetSharesApiVersionV1;
-    default:
-      throw ArgumentError(name);
-  }
-}
-
-final BuiltSet<FederationGetSharesApiVersion> _$federationGetSharesApiVersionValues =
-    BuiltSet<FederationGetSharesApiVersion>(const <FederationGetSharesApiVersion>[
-  _$federationGetSharesApiVersionV1,
-]);
-
 const FilesIntegrationGetRoomByFileIdApiVersion _$filesIntegrationGetRoomByFileIdApiVersionV1 =
     FilesIntegrationGetRoomByFileIdApiVersion._('v1');
 
@@ -924,6 +2127,26 @@ final BuiltSet<MatterbridgeSettingsGetMatterbridgeVersionApiVersion>
     _$matterbridgeSettingsGetMatterbridgeVersionApiVersionValues = BuiltSet<
         MatterbridgeSettingsGetMatterbridgeVersionApiVersion>(const <MatterbridgeSettingsGetMatterbridgeVersionApiVersion>[
   _$matterbridgeSettingsGetMatterbridgeVersionApiVersionV1,
+]);
+
+const PollCreatePollResultMode _$pollCreatePollResultMode$0 = PollCreatePollResultMode._('\$0');
+const PollCreatePollResultMode _$pollCreatePollResultMode$1 = PollCreatePollResultMode._('\$1');
+
+PollCreatePollResultMode _$valueOfPollCreatePollResultMode(String name) {
+  switch (name) {
+    case '\$0':
+      return _$pollCreatePollResultMode$0;
+    case '\$1':
+      return _$pollCreatePollResultMode$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<PollCreatePollResultMode> _$pollCreatePollResultModeValues =
+    BuiltSet<PollCreatePollResultMode>(const <PollCreatePollResultMode>[
+  _$pollCreatePollResultMode$0,
+  _$pollCreatePollResultMode$1,
 ]);
 
 const PollCreatePollApiVersion _$pollCreatePollApiVersionV1 = PollCreatePollApiVersion._('v1');
@@ -1153,6 +2376,26 @@ final BuiltSet<RecordingShareToChatApiVersion> _$recordingShareToChatApiVersionV
   _$recordingShareToChatApiVersionV1,
 ]);
 
+const RoomGetRoomsNoStatusUpdate _$roomGetRoomsNoStatusUpdate$0 = RoomGetRoomsNoStatusUpdate._('\$0');
+const RoomGetRoomsNoStatusUpdate _$roomGetRoomsNoStatusUpdate$1 = RoomGetRoomsNoStatusUpdate._('\$1');
+
+RoomGetRoomsNoStatusUpdate _$valueOfRoomGetRoomsNoStatusUpdate(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomGetRoomsNoStatusUpdate$0;
+    case '\$1':
+      return _$roomGetRoomsNoStatusUpdate$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomGetRoomsNoStatusUpdate> _$roomGetRoomsNoStatusUpdateValues =
+    BuiltSet<RoomGetRoomsNoStatusUpdate>(const <RoomGetRoomsNoStatusUpdate>[
+  _$roomGetRoomsNoStatusUpdate$0,
+  _$roomGetRoomsNoStatusUpdate$1,
+]);
+
 const RoomGetRoomsApiVersion _$roomGetRoomsApiVersionV4 = RoomGetRoomsApiVersion._('v4');
 
 RoomGetRoomsApiVersion _$valueOfRoomGetRoomsApiVersion(String name) {
@@ -1330,6 +2573,26 @@ final BuiltSet<RoomSetDescriptionApiVersion> _$roomSetDescriptionApiVersionValue
   _$roomSetDescriptionApiVersionV4,
 ]);
 
+const RoomSetReadOnlyState _$roomSetReadOnlyState$0 = RoomSetReadOnlyState._('\$0');
+const RoomSetReadOnlyState _$roomSetReadOnlyState$1 = RoomSetReadOnlyState._('\$1');
+
+RoomSetReadOnlyState _$valueOfRoomSetReadOnlyState(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetReadOnlyState$0;
+    case '\$1':
+      return _$roomSetReadOnlyState$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetReadOnlyState> _$roomSetReadOnlyStateValues =
+    BuiltSet<RoomSetReadOnlyState>(const <RoomSetReadOnlyState>[
+  _$roomSetReadOnlyState$0,
+  _$roomSetReadOnlyState$1,
+]);
+
 const RoomSetReadOnlyApiVersion _$roomSetReadOnlyApiVersionV4 = RoomSetReadOnlyApiVersion._('v4');
 
 RoomSetReadOnlyApiVersion _$valueOfRoomSetReadOnlyApiVersion(String name) {
@@ -1344,6 +2607,30 @@ RoomSetReadOnlyApiVersion _$valueOfRoomSetReadOnlyApiVersion(String name) {
 final BuiltSet<RoomSetReadOnlyApiVersion> _$roomSetReadOnlyApiVersionValues =
     BuiltSet<RoomSetReadOnlyApiVersion>(const <RoomSetReadOnlyApiVersion>[
   _$roomSetReadOnlyApiVersionV4,
+]);
+
+const RoomSetListableScope _$roomSetListableScope$0 = RoomSetListableScope._('\$0');
+const RoomSetListableScope _$roomSetListableScope$1 = RoomSetListableScope._('\$1');
+const RoomSetListableScope _$roomSetListableScope$2 = RoomSetListableScope._('\$2');
+
+RoomSetListableScope _$valueOfRoomSetListableScope(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetListableScope$0;
+    case '\$1':
+      return _$roomSetListableScope$1;
+    case '\$2':
+      return _$roomSetListableScope$2;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetListableScope> _$roomSetListableScopeValues =
+    BuiltSet<RoomSetListableScope>(const <RoomSetListableScope>[
+  _$roomSetListableScope$0,
+  _$roomSetListableScope$1,
+  _$roomSetListableScope$2,
 ]);
 
 const RoomSetListableApiVersion _$roomSetListableApiVersionV4 = RoomSetListableApiVersion._('v4');
@@ -1378,6 +2665,1062 @@ final BuiltSet<RoomSetPasswordApiVersion> _$roomSetPasswordApiVersionValues =
   _$roomSetPasswordApiVersionV4,
 ]);
 
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$0 = RoomSetPermissionsPermissions._('\$0');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$1 = RoomSetPermissionsPermissions._('\$1');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$2 = RoomSetPermissionsPermissions._('\$2');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$3 = RoomSetPermissionsPermissions._('\$3');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$4 = RoomSetPermissionsPermissions._('\$4');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$5 = RoomSetPermissionsPermissions._('\$5');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$6 = RoomSetPermissionsPermissions._('\$6');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$7 = RoomSetPermissionsPermissions._('\$7');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$8 = RoomSetPermissionsPermissions._('\$8');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$9 = RoomSetPermissionsPermissions._('\$9');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$10 = RoomSetPermissionsPermissions._('\$10');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$11 = RoomSetPermissionsPermissions._('\$11');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$12 = RoomSetPermissionsPermissions._('\$12');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$13 = RoomSetPermissionsPermissions._('\$13');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$14 = RoomSetPermissionsPermissions._('\$14');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$15 = RoomSetPermissionsPermissions._('\$15');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$16 = RoomSetPermissionsPermissions._('\$16');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$17 = RoomSetPermissionsPermissions._('\$17');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$18 = RoomSetPermissionsPermissions._('\$18');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$19 = RoomSetPermissionsPermissions._('\$19');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$20 = RoomSetPermissionsPermissions._('\$20');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$21 = RoomSetPermissionsPermissions._('\$21');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$22 = RoomSetPermissionsPermissions._('\$22');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$23 = RoomSetPermissionsPermissions._('\$23');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$24 = RoomSetPermissionsPermissions._('\$24');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$25 = RoomSetPermissionsPermissions._('\$25');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$26 = RoomSetPermissionsPermissions._('\$26');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$27 = RoomSetPermissionsPermissions._('\$27');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$28 = RoomSetPermissionsPermissions._('\$28');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$29 = RoomSetPermissionsPermissions._('\$29');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$30 = RoomSetPermissionsPermissions._('\$30');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$31 = RoomSetPermissionsPermissions._('\$31');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$32 = RoomSetPermissionsPermissions._('\$32');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$33 = RoomSetPermissionsPermissions._('\$33');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$34 = RoomSetPermissionsPermissions._('\$34');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$35 = RoomSetPermissionsPermissions._('\$35');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$36 = RoomSetPermissionsPermissions._('\$36');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$37 = RoomSetPermissionsPermissions._('\$37');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$38 = RoomSetPermissionsPermissions._('\$38');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$39 = RoomSetPermissionsPermissions._('\$39');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$40 = RoomSetPermissionsPermissions._('\$40');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$41 = RoomSetPermissionsPermissions._('\$41');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$42 = RoomSetPermissionsPermissions._('\$42');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$43 = RoomSetPermissionsPermissions._('\$43');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$44 = RoomSetPermissionsPermissions._('\$44');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$45 = RoomSetPermissionsPermissions._('\$45');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$46 = RoomSetPermissionsPermissions._('\$46');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$47 = RoomSetPermissionsPermissions._('\$47');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$48 = RoomSetPermissionsPermissions._('\$48');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$49 = RoomSetPermissionsPermissions._('\$49');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$50 = RoomSetPermissionsPermissions._('\$50');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$51 = RoomSetPermissionsPermissions._('\$51');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$52 = RoomSetPermissionsPermissions._('\$52');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$53 = RoomSetPermissionsPermissions._('\$53');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$54 = RoomSetPermissionsPermissions._('\$54');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$55 = RoomSetPermissionsPermissions._('\$55');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$56 = RoomSetPermissionsPermissions._('\$56');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$57 = RoomSetPermissionsPermissions._('\$57');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$58 = RoomSetPermissionsPermissions._('\$58');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$59 = RoomSetPermissionsPermissions._('\$59');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$60 = RoomSetPermissionsPermissions._('\$60');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$61 = RoomSetPermissionsPermissions._('\$61');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$62 = RoomSetPermissionsPermissions._('\$62');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$63 = RoomSetPermissionsPermissions._('\$63');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$64 = RoomSetPermissionsPermissions._('\$64');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$65 = RoomSetPermissionsPermissions._('\$65');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$66 = RoomSetPermissionsPermissions._('\$66');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$67 = RoomSetPermissionsPermissions._('\$67');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$68 = RoomSetPermissionsPermissions._('\$68');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$69 = RoomSetPermissionsPermissions._('\$69');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$70 = RoomSetPermissionsPermissions._('\$70');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$71 = RoomSetPermissionsPermissions._('\$71');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$72 = RoomSetPermissionsPermissions._('\$72');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$73 = RoomSetPermissionsPermissions._('\$73');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$74 = RoomSetPermissionsPermissions._('\$74');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$75 = RoomSetPermissionsPermissions._('\$75');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$76 = RoomSetPermissionsPermissions._('\$76');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$77 = RoomSetPermissionsPermissions._('\$77');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$78 = RoomSetPermissionsPermissions._('\$78');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$79 = RoomSetPermissionsPermissions._('\$79');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$80 = RoomSetPermissionsPermissions._('\$80');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$81 = RoomSetPermissionsPermissions._('\$81');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$82 = RoomSetPermissionsPermissions._('\$82');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$83 = RoomSetPermissionsPermissions._('\$83');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$84 = RoomSetPermissionsPermissions._('\$84');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$85 = RoomSetPermissionsPermissions._('\$85');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$86 = RoomSetPermissionsPermissions._('\$86');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$87 = RoomSetPermissionsPermissions._('\$87');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$88 = RoomSetPermissionsPermissions._('\$88');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$89 = RoomSetPermissionsPermissions._('\$89');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$90 = RoomSetPermissionsPermissions._('\$90');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$91 = RoomSetPermissionsPermissions._('\$91');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$92 = RoomSetPermissionsPermissions._('\$92');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$93 = RoomSetPermissionsPermissions._('\$93');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$94 = RoomSetPermissionsPermissions._('\$94');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$95 = RoomSetPermissionsPermissions._('\$95');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$96 = RoomSetPermissionsPermissions._('\$96');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$97 = RoomSetPermissionsPermissions._('\$97');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$98 = RoomSetPermissionsPermissions._('\$98');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$99 = RoomSetPermissionsPermissions._('\$99');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$100 = RoomSetPermissionsPermissions._('\$100');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$101 = RoomSetPermissionsPermissions._('\$101');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$102 = RoomSetPermissionsPermissions._('\$102');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$103 = RoomSetPermissionsPermissions._('\$103');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$104 = RoomSetPermissionsPermissions._('\$104');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$105 = RoomSetPermissionsPermissions._('\$105');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$106 = RoomSetPermissionsPermissions._('\$106');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$107 = RoomSetPermissionsPermissions._('\$107');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$108 = RoomSetPermissionsPermissions._('\$108');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$109 = RoomSetPermissionsPermissions._('\$109');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$110 = RoomSetPermissionsPermissions._('\$110');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$111 = RoomSetPermissionsPermissions._('\$111');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$112 = RoomSetPermissionsPermissions._('\$112');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$113 = RoomSetPermissionsPermissions._('\$113');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$114 = RoomSetPermissionsPermissions._('\$114');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$115 = RoomSetPermissionsPermissions._('\$115');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$116 = RoomSetPermissionsPermissions._('\$116');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$117 = RoomSetPermissionsPermissions._('\$117');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$118 = RoomSetPermissionsPermissions._('\$118');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$119 = RoomSetPermissionsPermissions._('\$119');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$120 = RoomSetPermissionsPermissions._('\$120');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$121 = RoomSetPermissionsPermissions._('\$121');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$122 = RoomSetPermissionsPermissions._('\$122');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$123 = RoomSetPermissionsPermissions._('\$123');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$124 = RoomSetPermissionsPermissions._('\$124');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$125 = RoomSetPermissionsPermissions._('\$125');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$126 = RoomSetPermissionsPermissions._('\$126');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$127 = RoomSetPermissionsPermissions._('\$127');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$128 = RoomSetPermissionsPermissions._('\$128');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$129 = RoomSetPermissionsPermissions._('\$129');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$130 = RoomSetPermissionsPermissions._('\$130');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$131 = RoomSetPermissionsPermissions._('\$131');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$132 = RoomSetPermissionsPermissions._('\$132');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$133 = RoomSetPermissionsPermissions._('\$133');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$134 = RoomSetPermissionsPermissions._('\$134');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$135 = RoomSetPermissionsPermissions._('\$135');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$136 = RoomSetPermissionsPermissions._('\$136');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$137 = RoomSetPermissionsPermissions._('\$137');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$138 = RoomSetPermissionsPermissions._('\$138');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$139 = RoomSetPermissionsPermissions._('\$139');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$140 = RoomSetPermissionsPermissions._('\$140');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$141 = RoomSetPermissionsPermissions._('\$141');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$142 = RoomSetPermissionsPermissions._('\$142');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$143 = RoomSetPermissionsPermissions._('\$143');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$144 = RoomSetPermissionsPermissions._('\$144');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$145 = RoomSetPermissionsPermissions._('\$145');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$146 = RoomSetPermissionsPermissions._('\$146');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$147 = RoomSetPermissionsPermissions._('\$147');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$148 = RoomSetPermissionsPermissions._('\$148');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$149 = RoomSetPermissionsPermissions._('\$149');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$150 = RoomSetPermissionsPermissions._('\$150');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$151 = RoomSetPermissionsPermissions._('\$151');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$152 = RoomSetPermissionsPermissions._('\$152');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$153 = RoomSetPermissionsPermissions._('\$153');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$154 = RoomSetPermissionsPermissions._('\$154');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$155 = RoomSetPermissionsPermissions._('\$155');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$156 = RoomSetPermissionsPermissions._('\$156');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$157 = RoomSetPermissionsPermissions._('\$157');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$158 = RoomSetPermissionsPermissions._('\$158');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$159 = RoomSetPermissionsPermissions._('\$159');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$160 = RoomSetPermissionsPermissions._('\$160');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$161 = RoomSetPermissionsPermissions._('\$161');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$162 = RoomSetPermissionsPermissions._('\$162');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$163 = RoomSetPermissionsPermissions._('\$163');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$164 = RoomSetPermissionsPermissions._('\$164');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$165 = RoomSetPermissionsPermissions._('\$165');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$166 = RoomSetPermissionsPermissions._('\$166');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$167 = RoomSetPermissionsPermissions._('\$167');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$168 = RoomSetPermissionsPermissions._('\$168');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$169 = RoomSetPermissionsPermissions._('\$169');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$170 = RoomSetPermissionsPermissions._('\$170');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$171 = RoomSetPermissionsPermissions._('\$171');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$172 = RoomSetPermissionsPermissions._('\$172');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$173 = RoomSetPermissionsPermissions._('\$173');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$174 = RoomSetPermissionsPermissions._('\$174');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$175 = RoomSetPermissionsPermissions._('\$175');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$176 = RoomSetPermissionsPermissions._('\$176');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$177 = RoomSetPermissionsPermissions._('\$177');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$178 = RoomSetPermissionsPermissions._('\$178');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$179 = RoomSetPermissionsPermissions._('\$179');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$180 = RoomSetPermissionsPermissions._('\$180');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$181 = RoomSetPermissionsPermissions._('\$181');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$182 = RoomSetPermissionsPermissions._('\$182');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$183 = RoomSetPermissionsPermissions._('\$183');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$184 = RoomSetPermissionsPermissions._('\$184');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$185 = RoomSetPermissionsPermissions._('\$185');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$186 = RoomSetPermissionsPermissions._('\$186');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$187 = RoomSetPermissionsPermissions._('\$187');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$188 = RoomSetPermissionsPermissions._('\$188');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$189 = RoomSetPermissionsPermissions._('\$189');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$190 = RoomSetPermissionsPermissions._('\$190');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$191 = RoomSetPermissionsPermissions._('\$191');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$192 = RoomSetPermissionsPermissions._('\$192');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$193 = RoomSetPermissionsPermissions._('\$193');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$194 = RoomSetPermissionsPermissions._('\$194');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$195 = RoomSetPermissionsPermissions._('\$195');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$196 = RoomSetPermissionsPermissions._('\$196');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$197 = RoomSetPermissionsPermissions._('\$197');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$198 = RoomSetPermissionsPermissions._('\$198');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$199 = RoomSetPermissionsPermissions._('\$199');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$200 = RoomSetPermissionsPermissions._('\$200');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$201 = RoomSetPermissionsPermissions._('\$201');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$202 = RoomSetPermissionsPermissions._('\$202');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$203 = RoomSetPermissionsPermissions._('\$203');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$204 = RoomSetPermissionsPermissions._('\$204');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$205 = RoomSetPermissionsPermissions._('\$205');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$206 = RoomSetPermissionsPermissions._('\$206');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$207 = RoomSetPermissionsPermissions._('\$207');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$208 = RoomSetPermissionsPermissions._('\$208');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$209 = RoomSetPermissionsPermissions._('\$209');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$210 = RoomSetPermissionsPermissions._('\$210');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$211 = RoomSetPermissionsPermissions._('\$211');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$212 = RoomSetPermissionsPermissions._('\$212');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$213 = RoomSetPermissionsPermissions._('\$213');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$214 = RoomSetPermissionsPermissions._('\$214');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$215 = RoomSetPermissionsPermissions._('\$215');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$216 = RoomSetPermissionsPermissions._('\$216');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$217 = RoomSetPermissionsPermissions._('\$217');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$218 = RoomSetPermissionsPermissions._('\$218');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$219 = RoomSetPermissionsPermissions._('\$219');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$220 = RoomSetPermissionsPermissions._('\$220');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$221 = RoomSetPermissionsPermissions._('\$221');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$222 = RoomSetPermissionsPermissions._('\$222');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$223 = RoomSetPermissionsPermissions._('\$223');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$224 = RoomSetPermissionsPermissions._('\$224');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$225 = RoomSetPermissionsPermissions._('\$225');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$226 = RoomSetPermissionsPermissions._('\$226');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$227 = RoomSetPermissionsPermissions._('\$227');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$228 = RoomSetPermissionsPermissions._('\$228');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$229 = RoomSetPermissionsPermissions._('\$229');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$230 = RoomSetPermissionsPermissions._('\$230');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$231 = RoomSetPermissionsPermissions._('\$231');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$232 = RoomSetPermissionsPermissions._('\$232');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$233 = RoomSetPermissionsPermissions._('\$233');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$234 = RoomSetPermissionsPermissions._('\$234');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$235 = RoomSetPermissionsPermissions._('\$235');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$236 = RoomSetPermissionsPermissions._('\$236');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$237 = RoomSetPermissionsPermissions._('\$237');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$238 = RoomSetPermissionsPermissions._('\$238');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$239 = RoomSetPermissionsPermissions._('\$239');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$240 = RoomSetPermissionsPermissions._('\$240');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$241 = RoomSetPermissionsPermissions._('\$241');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$242 = RoomSetPermissionsPermissions._('\$242');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$243 = RoomSetPermissionsPermissions._('\$243');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$244 = RoomSetPermissionsPermissions._('\$244');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$245 = RoomSetPermissionsPermissions._('\$245');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$246 = RoomSetPermissionsPermissions._('\$246');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$247 = RoomSetPermissionsPermissions._('\$247');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$248 = RoomSetPermissionsPermissions._('\$248');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$249 = RoomSetPermissionsPermissions._('\$249');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$250 = RoomSetPermissionsPermissions._('\$250');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$251 = RoomSetPermissionsPermissions._('\$251');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$252 = RoomSetPermissionsPermissions._('\$252');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$253 = RoomSetPermissionsPermissions._('\$253');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$254 = RoomSetPermissionsPermissions._('\$254');
+const RoomSetPermissionsPermissions _$roomSetPermissionsPermissions$255 = RoomSetPermissionsPermissions._('\$255');
+
+RoomSetPermissionsPermissions _$valueOfRoomSetPermissionsPermissions(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetPermissionsPermissions$0;
+    case '\$1':
+      return _$roomSetPermissionsPermissions$1;
+    case '\$2':
+      return _$roomSetPermissionsPermissions$2;
+    case '\$3':
+      return _$roomSetPermissionsPermissions$3;
+    case '\$4':
+      return _$roomSetPermissionsPermissions$4;
+    case '\$5':
+      return _$roomSetPermissionsPermissions$5;
+    case '\$6':
+      return _$roomSetPermissionsPermissions$6;
+    case '\$7':
+      return _$roomSetPermissionsPermissions$7;
+    case '\$8':
+      return _$roomSetPermissionsPermissions$8;
+    case '\$9':
+      return _$roomSetPermissionsPermissions$9;
+    case '\$10':
+      return _$roomSetPermissionsPermissions$10;
+    case '\$11':
+      return _$roomSetPermissionsPermissions$11;
+    case '\$12':
+      return _$roomSetPermissionsPermissions$12;
+    case '\$13':
+      return _$roomSetPermissionsPermissions$13;
+    case '\$14':
+      return _$roomSetPermissionsPermissions$14;
+    case '\$15':
+      return _$roomSetPermissionsPermissions$15;
+    case '\$16':
+      return _$roomSetPermissionsPermissions$16;
+    case '\$17':
+      return _$roomSetPermissionsPermissions$17;
+    case '\$18':
+      return _$roomSetPermissionsPermissions$18;
+    case '\$19':
+      return _$roomSetPermissionsPermissions$19;
+    case '\$20':
+      return _$roomSetPermissionsPermissions$20;
+    case '\$21':
+      return _$roomSetPermissionsPermissions$21;
+    case '\$22':
+      return _$roomSetPermissionsPermissions$22;
+    case '\$23':
+      return _$roomSetPermissionsPermissions$23;
+    case '\$24':
+      return _$roomSetPermissionsPermissions$24;
+    case '\$25':
+      return _$roomSetPermissionsPermissions$25;
+    case '\$26':
+      return _$roomSetPermissionsPermissions$26;
+    case '\$27':
+      return _$roomSetPermissionsPermissions$27;
+    case '\$28':
+      return _$roomSetPermissionsPermissions$28;
+    case '\$29':
+      return _$roomSetPermissionsPermissions$29;
+    case '\$30':
+      return _$roomSetPermissionsPermissions$30;
+    case '\$31':
+      return _$roomSetPermissionsPermissions$31;
+    case '\$32':
+      return _$roomSetPermissionsPermissions$32;
+    case '\$33':
+      return _$roomSetPermissionsPermissions$33;
+    case '\$34':
+      return _$roomSetPermissionsPermissions$34;
+    case '\$35':
+      return _$roomSetPermissionsPermissions$35;
+    case '\$36':
+      return _$roomSetPermissionsPermissions$36;
+    case '\$37':
+      return _$roomSetPermissionsPermissions$37;
+    case '\$38':
+      return _$roomSetPermissionsPermissions$38;
+    case '\$39':
+      return _$roomSetPermissionsPermissions$39;
+    case '\$40':
+      return _$roomSetPermissionsPermissions$40;
+    case '\$41':
+      return _$roomSetPermissionsPermissions$41;
+    case '\$42':
+      return _$roomSetPermissionsPermissions$42;
+    case '\$43':
+      return _$roomSetPermissionsPermissions$43;
+    case '\$44':
+      return _$roomSetPermissionsPermissions$44;
+    case '\$45':
+      return _$roomSetPermissionsPermissions$45;
+    case '\$46':
+      return _$roomSetPermissionsPermissions$46;
+    case '\$47':
+      return _$roomSetPermissionsPermissions$47;
+    case '\$48':
+      return _$roomSetPermissionsPermissions$48;
+    case '\$49':
+      return _$roomSetPermissionsPermissions$49;
+    case '\$50':
+      return _$roomSetPermissionsPermissions$50;
+    case '\$51':
+      return _$roomSetPermissionsPermissions$51;
+    case '\$52':
+      return _$roomSetPermissionsPermissions$52;
+    case '\$53':
+      return _$roomSetPermissionsPermissions$53;
+    case '\$54':
+      return _$roomSetPermissionsPermissions$54;
+    case '\$55':
+      return _$roomSetPermissionsPermissions$55;
+    case '\$56':
+      return _$roomSetPermissionsPermissions$56;
+    case '\$57':
+      return _$roomSetPermissionsPermissions$57;
+    case '\$58':
+      return _$roomSetPermissionsPermissions$58;
+    case '\$59':
+      return _$roomSetPermissionsPermissions$59;
+    case '\$60':
+      return _$roomSetPermissionsPermissions$60;
+    case '\$61':
+      return _$roomSetPermissionsPermissions$61;
+    case '\$62':
+      return _$roomSetPermissionsPermissions$62;
+    case '\$63':
+      return _$roomSetPermissionsPermissions$63;
+    case '\$64':
+      return _$roomSetPermissionsPermissions$64;
+    case '\$65':
+      return _$roomSetPermissionsPermissions$65;
+    case '\$66':
+      return _$roomSetPermissionsPermissions$66;
+    case '\$67':
+      return _$roomSetPermissionsPermissions$67;
+    case '\$68':
+      return _$roomSetPermissionsPermissions$68;
+    case '\$69':
+      return _$roomSetPermissionsPermissions$69;
+    case '\$70':
+      return _$roomSetPermissionsPermissions$70;
+    case '\$71':
+      return _$roomSetPermissionsPermissions$71;
+    case '\$72':
+      return _$roomSetPermissionsPermissions$72;
+    case '\$73':
+      return _$roomSetPermissionsPermissions$73;
+    case '\$74':
+      return _$roomSetPermissionsPermissions$74;
+    case '\$75':
+      return _$roomSetPermissionsPermissions$75;
+    case '\$76':
+      return _$roomSetPermissionsPermissions$76;
+    case '\$77':
+      return _$roomSetPermissionsPermissions$77;
+    case '\$78':
+      return _$roomSetPermissionsPermissions$78;
+    case '\$79':
+      return _$roomSetPermissionsPermissions$79;
+    case '\$80':
+      return _$roomSetPermissionsPermissions$80;
+    case '\$81':
+      return _$roomSetPermissionsPermissions$81;
+    case '\$82':
+      return _$roomSetPermissionsPermissions$82;
+    case '\$83':
+      return _$roomSetPermissionsPermissions$83;
+    case '\$84':
+      return _$roomSetPermissionsPermissions$84;
+    case '\$85':
+      return _$roomSetPermissionsPermissions$85;
+    case '\$86':
+      return _$roomSetPermissionsPermissions$86;
+    case '\$87':
+      return _$roomSetPermissionsPermissions$87;
+    case '\$88':
+      return _$roomSetPermissionsPermissions$88;
+    case '\$89':
+      return _$roomSetPermissionsPermissions$89;
+    case '\$90':
+      return _$roomSetPermissionsPermissions$90;
+    case '\$91':
+      return _$roomSetPermissionsPermissions$91;
+    case '\$92':
+      return _$roomSetPermissionsPermissions$92;
+    case '\$93':
+      return _$roomSetPermissionsPermissions$93;
+    case '\$94':
+      return _$roomSetPermissionsPermissions$94;
+    case '\$95':
+      return _$roomSetPermissionsPermissions$95;
+    case '\$96':
+      return _$roomSetPermissionsPermissions$96;
+    case '\$97':
+      return _$roomSetPermissionsPermissions$97;
+    case '\$98':
+      return _$roomSetPermissionsPermissions$98;
+    case '\$99':
+      return _$roomSetPermissionsPermissions$99;
+    case '\$100':
+      return _$roomSetPermissionsPermissions$100;
+    case '\$101':
+      return _$roomSetPermissionsPermissions$101;
+    case '\$102':
+      return _$roomSetPermissionsPermissions$102;
+    case '\$103':
+      return _$roomSetPermissionsPermissions$103;
+    case '\$104':
+      return _$roomSetPermissionsPermissions$104;
+    case '\$105':
+      return _$roomSetPermissionsPermissions$105;
+    case '\$106':
+      return _$roomSetPermissionsPermissions$106;
+    case '\$107':
+      return _$roomSetPermissionsPermissions$107;
+    case '\$108':
+      return _$roomSetPermissionsPermissions$108;
+    case '\$109':
+      return _$roomSetPermissionsPermissions$109;
+    case '\$110':
+      return _$roomSetPermissionsPermissions$110;
+    case '\$111':
+      return _$roomSetPermissionsPermissions$111;
+    case '\$112':
+      return _$roomSetPermissionsPermissions$112;
+    case '\$113':
+      return _$roomSetPermissionsPermissions$113;
+    case '\$114':
+      return _$roomSetPermissionsPermissions$114;
+    case '\$115':
+      return _$roomSetPermissionsPermissions$115;
+    case '\$116':
+      return _$roomSetPermissionsPermissions$116;
+    case '\$117':
+      return _$roomSetPermissionsPermissions$117;
+    case '\$118':
+      return _$roomSetPermissionsPermissions$118;
+    case '\$119':
+      return _$roomSetPermissionsPermissions$119;
+    case '\$120':
+      return _$roomSetPermissionsPermissions$120;
+    case '\$121':
+      return _$roomSetPermissionsPermissions$121;
+    case '\$122':
+      return _$roomSetPermissionsPermissions$122;
+    case '\$123':
+      return _$roomSetPermissionsPermissions$123;
+    case '\$124':
+      return _$roomSetPermissionsPermissions$124;
+    case '\$125':
+      return _$roomSetPermissionsPermissions$125;
+    case '\$126':
+      return _$roomSetPermissionsPermissions$126;
+    case '\$127':
+      return _$roomSetPermissionsPermissions$127;
+    case '\$128':
+      return _$roomSetPermissionsPermissions$128;
+    case '\$129':
+      return _$roomSetPermissionsPermissions$129;
+    case '\$130':
+      return _$roomSetPermissionsPermissions$130;
+    case '\$131':
+      return _$roomSetPermissionsPermissions$131;
+    case '\$132':
+      return _$roomSetPermissionsPermissions$132;
+    case '\$133':
+      return _$roomSetPermissionsPermissions$133;
+    case '\$134':
+      return _$roomSetPermissionsPermissions$134;
+    case '\$135':
+      return _$roomSetPermissionsPermissions$135;
+    case '\$136':
+      return _$roomSetPermissionsPermissions$136;
+    case '\$137':
+      return _$roomSetPermissionsPermissions$137;
+    case '\$138':
+      return _$roomSetPermissionsPermissions$138;
+    case '\$139':
+      return _$roomSetPermissionsPermissions$139;
+    case '\$140':
+      return _$roomSetPermissionsPermissions$140;
+    case '\$141':
+      return _$roomSetPermissionsPermissions$141;
+    case '\$142':
+      return _$roomSetPermissionsPermissions$142;
+    case '\$143':
+      return _$roomSetPermissionsPermissions$143;
+    case '\$144':
+      return _$roomSetPermissionsPermissions$144;
+    case '\$145':
+      return _$roomSetPermissionsPermissions$145;
+    case '\$146':
+      return _$roomSetPermissionsPermissions$146;
+    case '\$147':
+      return _$roomSetPermissionsPermissions$147;
+    case '\$148':
+      return _$roomSetPermissionsPermissions$148;
+    case '\$149':
+      return _$roomSetPermissionsPermissions$149;
+    case '\$150':
+      return _$roomSetPermissionsPermissions$150;
+    case '\$151':
+      return _$roomSetPermissionsPermissions$151;
+    case '\$152':
+      return _$roomSetPermissionsPermissions$152;
+    case '\$153':
+      return _$roomSetPermissionsPermissions$153;
+    case '\$154':
+      return _$roomSetPermissionsPermissions$154;
+    case '\$155':
+      return _$roomSetPermissionsPermissions$155;
+    case '\$156':
+      return _$roomSetPermissionsPermissions$156;
+    case '\$157':
+      return _$roomSetPermissionsPermissions$157;
+    case '\$158':
+      return _$roomSetPermissionsPermissions$158;
+    case '\$159':
+      return _$roomSetPermissionsPermissions$159;
+    case '\$160':
+      return _$roomSetPermissionsPermissions$160;
+    case '\$161':
+      return _$roomSetPermissionsPermissions$161;
+    case '\$162':
+      return _$roomSetPermissionsPermissions$162;
+    case '\$163':
+      return _$roomSetPermissionsPermissions$163;
+    case '\$164':
+      return _$roomSetPermissionsPermissions$164;
+    case '\$165':
+      return _$roomSetPermissionsPermissions$165;
+    case '\$166':
+      return _$roomSetPermissionsPermissions$166;
+    case '\$167':
+      return _$roomSetPermissionsPermissions$167;
+    case '\$168':
+      return _$roomSetPermissionsPermissions$168;
+    case '\$169':
+      return _$roomSetPermissionsPermissions$169;
+    case '\$170':
+      return _$roomSetPermissionsPermissions$170;
+    case '\$171':
+      return _$roomSetPermissionsPermissions$171;
+    case '\$172':
+      return _$roomSetPermissionsPermissions$172;
+    case '\$173':
+      return _$roomSetPermissionsPermissions$173;
+    case '\$174':
+      return _$roomSetPermissionsPermissions$174;
+    case '\$175':
+      return _$roomSetPermissionsPermissions$175;
+    case '\$176':
+      return _$roomSetPermissionsPermissions$176;
+    case '\$177':
+      return _$roomSetPermissionsPermissions$177;
+    case '\$178':
+      return _$roomSetPermissionsPermissions$178;
+    case '\$179':
+      return _$roomSetPermissionsPermissions$179;
+    case '\$180':
+      return _$roomSetPermissionsPermissions$180;
+    case '\$181':
+      return _$roomSetPermissionsPermissions$181;
+    case '\$182':
+      return _$roomSetPermissionsPermissions$182;
+    case '\$183':
+      return _$roomSetPermissionsPermissions$183;
+    case '\$184':
+      return _$roomSetPermissionsPermissions$184;
+    case '\$185':
+      return _$roomSetPermissionsPermissions$185;
+    case '\$186':
+      return _$roomSetPermissionsPermissions$186;
+    case '\$187':
+      return _$roomSetPermissionsPermissions$187;
+    case '\$188':
+      return _$roomSetPermissionsPermissions$188;
+    case '\$189':
+      return _$roomSetPermissionsPermissions$189;
+    case '\$190':
+      return _$roomSetPermissionsPermissions$190;
+    case '\$191':
+      return _$roomSetPermissionsPermissions$191;
+    case '\$192':
+      return _$roomSetPermissionsPermissions$192;
+    case '\$193':
+      return _$roomSetPermissionsPermissions$193;
+    case '\$194':
+      return _$roomSetPermissionsPermissions$194;
+    case '\$195':
+      return _$roomSetPermissionsPermissions$195;
+    case '\$196':
+      return _$roomSetPermissionsPermissions$196;
+    case '\$197':
+      return _$roomSetPermissionsPermissions$197;
+    case '\$198':
+      return _$roomSetPermissionsPermissions$198;
+    case '\$199':
+      return _$roomSetPermissionsPermissions$199;
+    case '\$200':
+      return _$roomSetPermissionsPermissions$200;
+    case '\$201':
+      return _$roomSetPermissionsPermissions$201;
+    case '\$202':
+      return _$roomSetPermissionsPermissions$202;
+    case '\$203':
+      return _$roomSetPermissionsPermissions$203;
+    case '\$204':
+      return _$roomSetPermissionsPermissions$204;
+    case '\$205':
+      return _$roomSetPermissionsPermissions$205;
+    case '\$206':
+      return _$roomSetPermissionsPermissions$206;
+    case '\$207':
+      return _$roomSetPermissionsPermissions$207;
+    case '\$208':
+      return _$roomSetPermissionsPermissions$208;
+    case '\$209':
+      return _$roomSetPermissionsPermissions$209;
+    case '\$210':
+      return _$roomSetPermissionsPermissions$210;
+    case '\$211':
+      return _$roomSetPermissionsPermissions$211;
+    case '\$212':
+      return _$roomSetPermissionsPermissions$212;
+    case '\$213':
+      return _$roomSetPermissionsPermissions$213;
+    case '\$214':
+      return _$roomSetPermissionsPermissions$214;
+    case '\$215':
+      return _$roomSetPermissionsPermissions$215;
+    case '\$216':
+      return _$roomSetPermissionsPermissions$216;
+    case '\$217':
+      return _$roomSetPermissionsPermissions$217;
+    case '\$218':
+      return _$roomSetPermissionsPermissions$218;
+    case '\$219':
+      return _$roomSetPermissionsPermissions$219;
+    case '\$220':
+      return _$roomSetPermissionsPermissions$220;
+    case '\$221':
+      return _$roomSetPermissionsPermissions$221;
+    case '\$222':
+      return _$roomSetPermissionsPermissions$222;
+    case '\$223':
+      return _$roomSetPermissionsPermissions$223;
+    case '\$224':
+      return _$roomSetPermissionsPermissions$224;
+    case '\$225':
+      return _$roomSetPermissionsPermissions$225;
+    case '\$226':
+      return _$roomSetPermissionsPermissions$226;
+    case '\$227':
+      return _$roomSetPermissionsPermissions$227;
+    case '\$228':
+      return _$roomSetPermissionsPermissions$228;
+    case '\$229':
+      return _$roomSetPermissionsPermissions$229;
+    case '\$230':
+      return _$roomSetPermissionsPermissions$230;
+    case '\$231':
+      return _$roomSetPermissionsPermissions$231;
+    case '\$232':
+      return _$roomSetPermissionsPermissions$232;
+    case '\$233':
+      return _$roomSetPermissionsPermissions$233;
+    case '\$234':
+      return _$roomSetPermissionsPermissions$234;
+    case '\$235':
+      return _$roomSetPermissionsPermissions$235;
+    case '\$236':
+      return _$roomSetPermissionsPermissions$236;
+    case '\$237':
+      return _$roomSetPermissionsPermissions$237;
+    case '\$238':
+      return _$roomSetPermissionsPermissions$238;
+    case '\$239':
+      return _$roomSetPermissionsPermissions$239;
+    case '\$240':
+      return _$roomSetPermissionsPermissions$240;
+    case '\$241':
+      return _$roomSetPermissionsPermissions$241;
+    case '\$242':
+      return _$roomSetPermissionsPermissions$242;
+    case '\$243':
+      return _$roomSetPermissionsPermissions$243;
+    case '\$244':
+      return _$roomSetPermissionsPermissions$244;
+    case '\$245':
+      return _$roomSetPermissionsPermissions$245;
+    case '\$246':
+      return _$roomSetPermissionsPermissions$246;
+    case '\$247':
+      return _$roomSetPermissionsPermissions$247;
+    case '\$248':
+      return _$roomSetPermissionsPermissions$248;
+    case '\$249':
+      return _$roomSetPermissionsPermissions$249;
+    case '\$250':
+      return _$roomSetPermissionsPermissions$250;
+    case '\$251':
+      return _$roomSetPermissionsPermissions$251;
+    case '\$252':
+      return _$roomSetPermissionsPermissions$252;
+    case '\$253':
+      return _$roomSetPermissionsPermissions$253;
+    case '\$254':
+      return _$roomSetPermissionsPermissions$254;
+    case '\$255':
+      return _$roomSetPermissionsPermissions$255;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetPermissionsPermissions> _$roomSetPermissionsPermissionsValues =
+    BuiltSet<RoomSetPermissionsPermissions>(const <RoomSetPermissionsPermissions>[
+  _$roomSetPermissionsPermissions$0,
+  _$roomSetPermissionsPermissions$1,
+  _$roomSetPermissionsPermissions$2,
+  _$roomSetPermissionsPermissions$3,
+  _$roomSetPermissionsPermissions$4,
+  _$roomSetPermissionsPermissions$5,
+  _$roomSetPermissionsPermissions$6,
+  _$roomSetPermissionsPermissions$7,
+  _$roomSetPermissionsPermissions$8,
+  _$roomSetPermissionsPermissions$9,
+  _$roomSetPermissionsPermissions$10,
+  _$roomSetPermissionsPermissions$11,
+  _$roomSetPermissionsPermissions$12,
+  _$roomSetPermissionsPermissions$13,
+  _$roomSetPermissionsPermissions$14,
+  _$roomSetPermissionsPermissions$15,
+  _$roomSetPermissionsPermissions$16,
+  _$roomSetPermissionsPermissions$17,
+  _$roomSetPermissionsPermissions$18,
+  _$roomSetPermissionsPermissions$19,
+  _$roomSetPermissionsPermissions$20,
+  _$roomSetPermissionsPermissions$21,
+  _$roomSetPermissionsPermissions$22,
+  _$roomSetPermissionsPermissions$23,
+  _$roomSetPermissionsPermissions$24,
+  _$roomSetPermissionsPermissions$25,
+  _$roomSetPermissionsPermissions$26,
+  _$roomSetPermissionsPermissions$27,
+  _$roomSetPermissionsPermissions$28,
+  _$roomSetPermissionsPermissions$29,
+  _$roomSetPermissionsPermissions$30,
+  _$roomSetPermissionsPermissions$31,
+  _$roomSetPermissionsPermissions$32,
+  _$roomSetPermissionsPermissions$33,
+  _$roomSetPermissionsPermissions$34,
+  _$roomSetPermissionsPermissions$35,
+  _$roomSetPermissionsPermissions$36,
+  _$roomSetPermissionsPermissions$37,
+  _$roomSetPermissionsPermissions$38,
+  _$roomSetPermissionsPermissions$39,
+  _$roomSetPermissionsPermissions$40,
+  _$roomSetPermissionsPermissions$41,
+  _$roomSetPermissionsPermissions$42,
+  _$roomSetPermissionsPermissions$43,
+  _$roomSetPermissionsPermissions$44,
+  _$roomSetPermissionsPermissions$45,
+  _$roomSetPermissionsPermissions$46,
+  _$roomSetPermissionsPermissions$47,
+  _$roomSetPermissionsPermissions$48,
+  _$roomSetPermissionsPermissions$49,
+  _$roomSetPermissionsPermissions$50,
+  _$roomSetPermissionsPermissions$51,
+  _$roomSetPermissionsPermissions$52,
+  _$roomSetPermissionsPermissions$53,
+  _$roomSetPermissionsPermissions$54,
+  _$roomSetPermissionsPermissions$55,
+  _$roomSetPermissionsPermissions$56,
+  _$roomSetPermissionsPermissions$57,
+  _$roomSetPermissionsPermissions$58,
+  _$roomSetPermissionsPermissions$59,
+  _$roomSetPermissionsPermissions$60,
+  _$roomSetPermissionsPermissions$61,
+  _$roomSetPermissionsPermissions$62,
+  _$roomSetPermissionsPermissions$63,
+  _$roomSetPermissionsPermissions$64,
+  _$roomSetPermissionsPermissions$65,
+  _$roomSetPermissionsPermissions$66,
+  _$roomSetPermissionsPermissions$67,
+  _$roomSetPermissionsPermissions$68,
+  _$roomSetPermissionsPermissions$69,
+  _$roomSetPermissionsPermissions$70,
+  _$roomSetPermissionsPermissions$71,
+  _$roomSetPermissionsPermissions$72,
+  _$roomSetPermissionsPermissions$73,
+  _$roomSetPermissionsPermissions$74,
+  _$roomSetPermissionsPermissions$75,
+  _$roomSetPermissionsPermissions$76,
+  _$roomSetPermissionsPermissions$77,
+  _$roomSetPermissionsPermissions$78,
+  _$roomSetPermissionsPermissions$79,
+  _$roomSetPermissionsPermissions$80,
+  _$roomSetPermissionsPermissions$81,
+  _$roomSetPermissionsPermissions$82,
+  _$roomSetPermissionsPermissions$83,
+  _$roomSetPermissionsPermissions$84,
+  _$roomSetPermissionsPermissions$85,
+  _$roomSetPermissionsPermissions$86,
+  _$roomSetPermissionsPermissions$87,
+  _$roomSetPermissionsPermissions$88,
+  _$roomSetPermissionsPermissions$89,
+  _$roomSetPermissionsPermissions$90,
+  _$roomSetPermissionsPermissions$91,
+  _$roomSetPermissionsPermissions$92,
+  _$roomSetPermissionsPermissions$93,
+  _$roomSetPermissionsPermissions$94,
+  _$roomSetPermissionsPermissions$95,
+  _$roomSetPermissionsPermissions$96,
+  _$roomSetPermissionsPermissions$97,
+  _$roomSetPermissionsPermissions$98,
+  _$roomSetPermissionsPermissions$99,
+  _$roomSetPermissionsPermissions$100,
+  _$roomSetPermissionsPermissions$101,
+  _$roomSetPermissionsPermissions$102,
+  _$roomSetPermissionsPermissions$103,
+  _$roomSetPermissionsPermissions$104,
+  _$roomSetPermissionsPermissions$105,
+  _$roomSetPermissionsPermissions$106,
+  _$roomSetPermissionsPermissions$107,
+  _$roomSetPermissionsPermissions$108,
+  _$roomSetPermissionsPermissions$109,
+  _$roomSetPermissionsPermissions$110,
+  _$roomSetPermissionsPermissions$111,
+  _$roomSetPermissionsPermissions$112,
+  _$roomSetPermissionsPermissions$113,
+  _$roomSetPermissionsPermissions$114,
+  _$roomSetPermissionsPermissions$115,
+  _$roomSetPermissionsPermissions$116,
+  _$roomSetPermissionsPermissions$117,
+  _$roomSetPermissionsPermissions$118,
+  _$roomSetPermissionsPermissions$119,
+  _$roomSetPermissionsPermissions$120,
+  _$roomSetPermissionsPermissions$121,
+  _$roomSetPermissionsPermissions$122,
+  _$roomSetPermissionsPermissions$123,
+  _$roomSetPermissionsPermissions$124,
+  _$roomSetPermissionsPermissions$125,
+  _$roomSetPermissionsPermissions$126,
+  _$roomSetPermissionsPermissions$127,
+  _$roomSetPermissionsPermissions$128,
+  _$roomSetPermissionsPermissions$129,
+  _$roomSetPermissionsPermissions$130,
+  _$roomSetPermissionsPermissions$131,
+  _$roomSetPermissionsPermissions$132,
+  _$roomSetPermissionsPermissions$133,
+  _$roomSetPermissionsPermissions$134,
+  _$roomSetPermissionsPermissions$135,
+  _$roomSetPermissionsPermissions$136,
+  _$roomSetPermissionsPermissions$137,
+  _$roomSetPermissionsPermissions$138,
+  _$roomSetPermissionsPermissions$139,
+  _$roomSetPermissionsPermissions$140,
+  _$roomSetPermissionsPermissions$141,
+  _$roomSetPermissionsPermissions$142,
+  _$roomSetPermissionsPermissions$143,
+  _$roomSetPermissionsPermissions$144,
+  _$roomSetPermissionsPermissions$145,
+  _$roomSetPermissionsPermissions$146,
+  _$roomSetPermissionsPermissions$147,
+  _$roomSetPermissionsPermissions$148,
+  _$roomSetPermissionsPermissions$149,
+  _$roomSetPermissionsPermissions$150,
+  _$roomSetPermissionsPermissions$151,
+  _$roomSetPermissionsPermissions$152,
+  _$roomSetPermissionsPermissions$153,
+  _$roomSetPermissionsPermissions$154,
+  _$roomSetPermissionsPermissions$155,
+  _$roomSetPermissionsPermissions$156,
+  _$roomSetPermissionsPermissions$157,
+  _$roomSetPermissionsPermissions$158,
+  _$roomSetPermissionsPermissions$159,
+  _$roomSetPermissionsPermissions$160,
+  _$roomSetPermissionsPermissions$161,
+  _$roomSetPermissionsPermissions$162,
+  _$roomSetPermissionsPermissions$163,
+  _$roomSetPermissionsPermissions$164,
+  _$roomSetPermissionsPermissions$165,
+  _$roomSetPermissionsPermissions$166,
+  _$roomSetPermissionsPermissions$167,
+  _$roomSetPermissionsPermissions$168,
+  _$roomSetPermissionsPermissions$169,
+  _$roomSetPermissionsPermissions$170,
+  _$roomSetPermissionsPermissions$171,
+  _$roomSetPermissionsPermissions$172,
+  _$roomSetPermissionsPermissions$173,
+  _$roomSetPermissionsPermissions$174,
+  _$roomSetPermissionsPermissions$175,
+  _$roomSetPermissionsPermissions$176,
+  _$roomSetPermissionsPermissions$177,
+  _$roomSetPermissionsPermissions$178,
+  _$roomSetPermissionsPermissions$179,
+  _$roomSetPermissionsPermissions$180,
+  _$roomSetPermissionsPermissions$181,
+  _$roomSetPermissionsPermissions$182,
+  _$roomSetPermissionsPermissions$183,
+  _$roomSetPermissionsPermissions$184,
+  _$roomSetPermissionsPermissions$185,
+  _$roomSetPermissionsPermissions$186,
+  _$roomSetPermissionsPermissions$187,
+  _$roomSetPermissionsPermissions$188,
+  _$roomSetPermissionsPermissions$189,
+  _$roomSetPermissionsPermissions$190,
+  _$roomSetPermissionsPermissions$191,
+  _$roomSetPermissionsPermissions$192,
+  _$roomSetPermissionsPermissions$193,
+  _$roomSetPermissionsPermissions$194,
+  _$roomSetPermissionsPermissions$195,
+  _$roomSetPermissionsPermissions$196,
+  _$roomSetPermissionsPermissions$197,
+  _$roomSetPermissionsPermissions$198,
+  _$roomSetPermissionsPermissions$199,
+  _$roomSetPermissionsPermissions$200,
+  _$roomSetPermissionsPermissions$201,
+  _$roomSetPermissionsPermissions$202,
+  _$roomSetPermissionsPermissions$203,
+  _$roomSetPermissionsPermissions$204,
+  _$roomSetPermissionsPermissions$205,
+  _$roomSetPermissionsPermissions$206,
+  _$roomSetPermissionsPermissions$207,
+  _$roomSetPermissionsPermissions$208,
+  _$roomSetPermissionsPermissions$209,
+  _$roomSetPermissionsPermissions$210,
+  _$roomSetPermissionsPermissions$211,
+  _$roomSetPermissionsPermissions$212,
+  _$roomSetPermissionsPermissions$213,
+  _$roomSetPermissionsPermissions$214,
+  _$roomSetPermissionsPermissions$215,
+  _$roomSetPermissionsPermissions$216,
+  _$roomSetPermissionsPermissions$217,
+  _$roomSetPermissionsPermissions$218,
+  _$roomSetPermissionsPermissions$219,
+  _$roomSetPermissionsPermissions$220,
+  _$roomSetPermissionsPermissions$221,
+  _$roomSetPermissionsPermissions$222,
+  _$roomSetPermissionsPermissions$223,
+  _$roomSetPermissionsPermissions$224,
+  _$roomSetPermissionsPermissions$225,
+  _$roomSetPermissionsPermissions$226,
+  _$roomSetPermissionsPermissions$227,
+  _$roomSetPermissionsPermissions$228,
+  _$roomSetPermissionsPermissions$229,
+  _$roomSetPermissionsPermissions$230,
+  _$roomSetPermissionsPermissions$231,
+  _$roomSetPermissionsPermissions$232,
+  _$roomSetPermissionsPermissions$233,
+  _$roomSetPermissionsPermissions$234,
+  _$roomSetPermissionsPermissions$235,
+  _$roomSetPermissionsPermissions$236,
+  _$roomSetPermissionsPermissions$237,
+  _$roomSetPermissionsPermissions$238,
+  _$roomSetPermissionsPermissions$239,
+  _$roomSetPermissionsPermissions$240,
+  _$roomSetPermissionsPermissions$241,
+  _$roomSetPermissionsPermissions$242,
+  _$roomSetPermissionsPermissions$243,
+  _$roomSetPermissionsPermissions$244,
+  _$roomSetPermissionsPermissions$245,
+  _$roomSetPermissionsPermissions$246,
+  _$roomSetPermissionsPermissions$247,
+  _$roomSetPermissionsPermissions$248,
+  _$roomSetPermissionsPermissions$249,
+  _$roomSetPermissionsPermissions$250,
+  _$roomSetPermissionsPermissions$251,
+  _$roomSetPermissionsPermissions$252,
+  _$roomSetPermissionsPermissions$253,
+  _$roomSetPermissionsPermissions$254,
+  _$roomSetPermissionsPermissions$255,
+]);
+
+const RoomSetPermissionsMode _$roomSetPermissionsModeCall = RoomSetPermissionsMode._('call');
+const RoomSetPermissionsMode _$roomSetPermissionsMode$default = RoomSetPermissionsMode._('\$default');
+
+RoomSetPermissionsMode _$valueOfRoomSetPermissionsMode(String name) {
+  switch (name) {
+    case 'call':
+      return _$roomSetPermissionsModeCall;
+    case '\$default':
+      return _$roomSetPermissionsMode$default;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetPermissionsMode> _$roomSetPermissionsModeValues =
+    BuiltSet<RoomSetPermissionsMode>(const <RoomSetPermissionsMode>[
+  _$roomSetPermissionsModeCall,
+  _$roomSetPermissionsMode$default,
+]);
+
 const RoomSetPermissionsApiVersion _$roomSetPermissionsApiVersionV4 = RoomSetPermissionsApiVersion._('v4');
 
 RoomSetPermissionsApiVersion _$valueOfRoomSetPermissionsApiVersion(String name) {
@@ -1408,6 +3751,47 @@ RoomGetParticipantsApiVersion _$valueOfRoomGetParticipantsApiVersion(String name
 final BuiltSet<RoomGetParticipantsApiVersion> _$roomGetParticipantsApiVersionValues =
     BuiltSet<RoomGetParticipantsApiVersion>(const <RoomGetParticipantsApiVersion>[
   _$roomGetParticipantsApiVersionV4,
+]);
+
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourceUsers = RoomAddParticipantToRoomSource._('users');
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourceGroups =
+    RoomAddParticipantToRoomSource._('groups');
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourceCircles =
+    RoomAddParticipantToRoomSource._('circles');
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourceEmails =
+    RoomAddParticipantToRoomSource._('emails');
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourceRemotes =
+    RoomAddParticipantToRoomSource._('remotes');
+const RoomAddParticipantToRoomSource _$roomAddParticipantToRoomSourcePhones =
+    RoomAddParticipantToRoomSource._('phones');
+
+RoomAddParticipantToRoomSource _$valueOfRoomAddParticipantToRoomSource(String name) {
+  switch (name) {
+    case 'users':
+      return _$roomAddParticipantToRoomSourceUsers;
+    case 'groups':
+      return _$roomAddParticipantToRoomSourceGroups;
+    case 'circles':
+      return _$roomAddParticipantToRoomSourceCircles;
+    case 'emails':
+      return _$roomAddParticipantToRoomSourceEmails;
+    case 'remotes':
+      return _$roomAddParticipantToRoomSourceRemotes;
+    case 'phones':
+      return _$roomAddParticipantToRoomSourcePhones;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomAddParticipantToRoomSource> _$roomAddParticipantToRoomSourceValues =
+    BuiltSet<RoomAddParticipantToRoomSource>(const <RoomAddParticipantToRoomSource>[
+  _$roomAddParticipantToRoomSourceUsers,
+  _$roomAddParticipantToRoomSourceGroups,
+  _$roomAddParticipantToRoomSourceCircles,
+  _$roomAddParticipantToRoomSourceEmails,
+  _$roomAddParticipantToRoomSourceRemotes,
+  _$roomAddParticipantToRoomSourcePhones,
 ]);
 
 const RoomAddParticipantToRoomApiVersion _$roomAddParticipantToRoomApiVersionV4 =
@@ -1477,6 +3861,1325 @@ final BuiltSet<RoomRemoveAttendeeFromRoomApiVersion> _$roomRemoveAttendeeFromRoo
   _$roomRemoveAttendeeFromRoomApiVersionV4,
 ]);
 
+const RoomSetAttendeePermissionsMethod _$roomSetAttendeePermissionsMethod$set =
+    RoomSetAttendeePermissionsMethod._('\$set');
+const RoomSetAttendeePermissionsMethod _$roomSetAttendeePermissionsMethodRemove =
+    RoomSetAttendeePermissionsMethod._('remove');
+const RoomSetAttendeePermissionsMethod _$roomSetAttendeePermissionsMethodAdd =
+    RoomSetAttendeePermissionsMethod._('add');
+
+RoomSetAttendeePermissionsMethod _$valueOfRoomSetAttendeePermissionsMethod(String name) {
+  switch (name) {
+    case '\$set':
+      return _$roomSetAttendeePermissionsMethod$set;
+    case 'remove':
+      return _$roomSetAttendeePermissionsMethodRemove;
+    case 'add':
+      return _$roomSetAttendeePermissionsMethodAdd;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetAttendeePermissionsMethod> _$roomSetAttendeePermissionsMethodValues =
+    BuiltSet<RoomSetAttendeePermissionsMethod>(const <RoomSetAttendeePermissionsMethod>[
+  _$roomSetAttendeePermissionsMethod$set,
+  _$roomSetAttendeePermissionsMethodRemove,
+  _$roomSetAttendeePermissionsMethodAdd,
+]);
+
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$0 =
+    RoomSetAttendeePermissionsPermissions._('\$0');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$1 =
+    RoomSetAttendeePermissionsPermissions._('\$1');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$2 =
+    RoomSetAttendeePermissionsPermissions._('\$2');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$3 =
+    RoomSetAttendeePermissionsPermissions._('\$3');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$4 =
+    RoomSetAttendeePermissionsPermissions._('\$4');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$5 =
+    RoomSetAttendeePermissionsPermissions._('\$5');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$6 =
+    RoomSetAttendeePermissionsPermissions._('\$6');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$7 =
+    RoomSetAttendeePermissionsPermissions._('\$7');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$8 =
+    RoomSetAttendeePermissionsPermissions._('\$8');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$9 =
+    RoomSetAttendeePermissionsPermissions._('\$9');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$10 =
+    RoomSetAttendeePermissionsPermissions._('\$10');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$11 =
+    RoomSetAttendeePermissionsPermissions._('\$11');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$12 =
+    RoomSetAttendeePermissionsPermissions._('\$12');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$13 =
+    RoomSetAttendeePermissionsPermissions._('\$13');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$14 =
+    RoomSetAttendeePermissionsPermissions._('\$14');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$15 =
+    RoomSetAttendeePermissionsPermissions._('\$15');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$16 =
+    RoomSetAttendeePermissionsPermissions._('\$16');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$17 =
+    RoomSetAttendeePermissionsPermissions._('\$17');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$18 =
+    RoomSetAttendeePermissionsPermissions._('\$18');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$19 =
+    RoomSetAttendeePermissionsPermissions._('\$19');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$20 =
+    RoomSetAttendeePermissionsPermissions._('\$20');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$21 =
+    RoomSetAttendeePermissionsPermissions._('\$21');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$22 =
+    RoomSetAttendeePermissionsPermissions._('\$22');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$23 =
+    RoomSetAttendeePermissionsPermissions._('\$23');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$24 =
+    RoomSetAttendeePermissionsPermissions._('\$24');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$25 =
+    RoomSetAttendeePermissionsPermissions._('\$25');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$26 =
+    RoomSetAttendeePermissionsPermissions._('\$26');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$27 =
+    RoomSetAttendeePermissionsPermissions._('\$27');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$28 =
+    RoomSetAttendeePermissionsPermissions._('\$28');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$29 =
+    RoomSetAttendeePermissionsPermissions._('\$29');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$30 =
+    RoomSetAttendeePermissionsPermissions._('\$30');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$31 =
+    RoomSetAttendeePermissionsPermissions._('\$31');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$32 =
+    RoomSetAttendeePermissionsPermissions._('\$32');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$33 =
+    RoomSetAttendeePermissionsPermissions._('\$33');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$34 =
+    RoomSetAttendeePermissionsPermissions._('\$34');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$35 =
+    RoomSetAttendeePermissionsPermissions._('\$35');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$36 =
+    RoomSetAttendeePermissionsPermissions._('\$36');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$37 =
+    RoomSetAttendeePermissionsPermissions._('\$37');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$38 =
+    RoomSetAttendeePermissionsPermissions._('\$38');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$39 =
+    RoomSetAttendeePermissionsPermissions._('\$39');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$40 =
+    RoomSetAttendeePermissionsPermissions._('\$40');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$41 =
+    RoomSetAttendeePermissionsPermissions._('\$41');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$42 =
+    RoomSetAttendeePermissionsPermissions._('\$42');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$43 =
+    RoomSetAttendeePermissionsPermissions._('\$43');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$44 =
+    RoomSetAttendeePermissionsPermissions._('\$44');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$45 =
+    RoomSetAttendeePermissionsPermissions._('\$45');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$46 =
+    RoomSetAttendeePermissionsPermissions._('\$46');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$47 =
+    RoomSetAttendeePermissionsPermissions._('\$47');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$48 =
+    RoomSetAttendeePermissionsPermissions._('\$48');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$49 =
+    RoomSetAttendeePermissionsPermissions._('\$49');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$50 =
+    RoomSetAttendeePermissionsPermissions._('\$50');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$51 =
+    RoomSetAttendeePermissionsPermissions._('\$51');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$52 =
+    RoomSetAttendeePermissionsPermissions._('\$52');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$53 =
+    RoomSetAttendeePermissionsPermissions._('\$53');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$54 =
+    RoomSetAttendeePermissionsPermissions._('\$54');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$55 =
+    RoomSetAttendeePermissionsPermissions._('\$55');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$56 =
+    RoomSetAttendeePermissionsPermissions._('\$56');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$57 =
+    RoomSetAttendeePermissionsPermissions._('\$57');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$58 =
+    RoomSetAttendeePermissionsPermissions._('\$58');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$59 =
+    RoomSetAttendeePermissionsPermissions._('\$59');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$60 =
+    RoomSetAttendeePermissionsPermissions._('\$60');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$61 =
+    RoomSetAttendeePermissionsPermissions._('\$61');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$62 =
+    RoomSetAttendeePermissionsPermissions._('\$62');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$63 =
+    RoomSetAttendeePermissionsPermissions._('\$63');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$64 =
+    RoomSetAttendeePermissionsPermissions._('\$64');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$65 =
+    RoomSetAttendeePermissionsPermissions._('\$65');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$66 =
+    RoomSetAttendeePermissionsPermissions._('\$66');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$67 =
+    RoomSetAttendeePermissionsPermissions._('\$67');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$68 =
+    RoomSetAttendeePermissionsPermissions._('\$68');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$69 =
+    RoomSetAttendeePermissionsPermissions._('\$69');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$70 =
+    RoomSetAttendeePermissionsPermissions._('\$70');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$71 =
+    RoomSetAttendeePermissionsPermissions._('\$71');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$72 =
+    RoomSetAttendeePermissionsPermissions._('\$72');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$73 =
+    RoomSetAttendeePermissionsPermissions._('\$73');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$74 =
+    RoomSetAttendeePermissionsPermissions._('\$74');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$75 =
+    RoomSetAttendeePermissionsPermissions._('\$75');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$76 =
+    RoomSetAttendeePermissionsPermissions._('\$76');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$77 =
+    RoomSetAttendeePermissionsPermissions._('\$77');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$78 =
+    RoomSetAttendeePermissionsPermissions._('\$78');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$79 =
+    RoomSetAttendeePermissionsPermissions._('\$79');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$80 =
+    RoomSetAttendeePermissionsPermissions._('\$80');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$81 =
+    RoomSetAttendeePermissionsPermissions._('\$81');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$82 =
+    RoomSetAttendeePermissionsPermissions._('\$82');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$83 =
+    RoomSetAttendeePermissionsPermissions._('\$83');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$84 =
+    RoomSetAttendeePermissionsPermissions._('\$84');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$85 =
+    RoomSetAttendeePermissionsPermissions._('\$85');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$86 =
+    RoomSetAttendeePermissionsPermissions._('\$86');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$87 =
+    RoomSetAttendeePermissionsPermissions._('\$87');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$88 =
+    RoomSetAttendeePermissionsPermissions._('\$88');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$89 =
+    RoomSetAttendeePermissionsPermissions._('\$89');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$90 =
+    RoomSetAttendeePermissionsPermissions._('\$90');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$91 =
+    RoomSetAttendeePermissionsPermissions._('\$91');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$92 =
+    RoomSetAttendeePermissionsPermissions._('\$92');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$93 =
+    RoomSetAttendeePermissionsPermissions._('\$93');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$94 =
+    RoomSetAttendeePermissionsPermissions._('\$94');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$95 =
+    RoomSetAttendeePermissionsPermissions._('\$95');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$96 =
+    RoomSetAttendeePermissionsPermissions._('\$96');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$97 =
+    RoomSetAttendeePermissionsPermissions._('\$97');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$98 =
+    RoomSetAttendeePermissionsPermissions._('\$98');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$99 =
+    RoomSetAttendeePermissionsPermissions._('\$99');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$100 =
+    RoomSetAttendeePermissionsPermissions._('\$100');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$101 =
+    RoomSetAttendeePermissionsPermissions._('\$101');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$102 =
+    RoomSetAttendeePermissionsPermissions._('\$102');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$103 =
+    RoomSetAttendeePermissionsPermissions._('\$103');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$104 =
+    RoomSetAttendeePermissionsPermissions._('\$104');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$105 =
+    RoomSetAttendeePermissionsPermissions._('\$105');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$106 =
+    RoomSetAttendeePermissionsPermissions._('\$106');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$107 =
+    RoomSetAttendeePermissionsPermissions._('\$107');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$108 =
+    RoomSetAttendeePermissionsPermissions._('\$108');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$109 =
+    RoomSetAttendeePermissionsPermissions._('\$109');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$110 =
+    RoomSetAttendeePermissionsPermissions._('\$110');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$111 =
+    RoomSetAttendeePermissionsPermissions._('\$111');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$112 =
+    RoomSetAttendeePermissionsPermissions._('\$112');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$113 =
+    RoomSetAttendeePermissionsPermissions._('\$113');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$114 =
+    RoomSetAttendeePermissionsPermissions._('\$114');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$115 =
+    RoomSetAttendeePermissionsPermissions._('\$115');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$116 =
+    RoomSetAttendeePermissionsPermissions._('\$116');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$117 =
+    RoomSetAttendeePermissionsPermissions._('\$117');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$118 =
+    RoomSetAttendeePermissionsPermissions._('\$118');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$119 =
+    RoomSetAttendeePermissionsPermissions._('\$119');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$120 =
+    RoomSetAttendeePermissionsPermissions._('\$120');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$121 =
+    RoomSetAttendeePermissionsPermissions._('\$121');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$122 =
+    RoomSetAttendeePermissionsPermissions._('\$122');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$123 =
+    RoomSetAttendeePermissionsPermissions._('\$123');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$124 =
+    RoomSetAttendeePermissionsPermissions._('\$124');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$125 =
+    RoomSetAttendeePermissionsPermissions._('\$125');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$126 =
+    RoomSetAttendeePermissionsPermissions._('\$126');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$127 =
+    RoomSetAttendeePermissionsPermissions._('\$127');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$128 =
+    RoomSetAttendeePermissionsPermissions._('\$128');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$129 =
+    RoomSetAttendeePermissionsPermissions._('\$129');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$130 =
+    RoomSetAttendeePermissionsPermissions._('\$130');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$131 =
+    RoomSetAttendeePermissionsPermissions._('\$131');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$132 =
+    RoomSetAttendeePermissionsPermissions._('\$132');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$133 =
+    RoomSetAttendeePermissionsPermissions._('\$133');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$134 =
+    RoomSetAttendeePermissionsPermissions._('\$134');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$135 =
+    RoomSetAttendeePermissionsPermissions._('\$135');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$136 =
+    RoomSetAttendeePermissionsPermissions._('\$136');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$137 =
+    RoomSetAttendeePermissionsPermissions._('\$137');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$138 =
+    RoomSetAttendeePermissionsPermissions._('\$138');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$139 =
+    RoomSetAttendeePermissionsPermissions._('\$139');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$140 =
+    RoomSetAttendeePermissionsPermissions._('\$140');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$141 =
+    RoomSetAttendeePermissionsPermissions._('\$141');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$142 =
+    RoomSetAttendeePermissionsPermissions._('\$142');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$143 =
+    RoomSetAttendeePermissionsPermissions._('\$143');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$144 =
+    RoomSetAttendeePermissionsPermissions._('\$144');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$145 =
+    RoomSetAttendeePermissionsPermissions._('\$145');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$146 =
+    RoomSetAttendeePermissionsPermissions._('\$146');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$147 =
+    RoomSetAttendeePermissionsPermissions._('\$147');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$148 =
+    RoomSetAttendeePermissionsPermissions._('\$148');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$149 =
+    RoomSetAttendeePermissionsPermissions._('\$149');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$150 =
+    RoomSetAttendeePermissionsPermissions._('\$150');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$151 =
+    RoomSetAttendeePermissionsPermissions._('\$151');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$152 =
+    RoomSetAttendeePermissionsPermissions._('\$152');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$153 =
+    RoomSetAttendeePermissionsPermissions._('\$153');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$154 =
+    RoomSetAttendeePermissionsPermissions._('\$154');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$155 =
+    RoomSetAttendeePermissionsPermissions._('\$155');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$156 =
+    RoomSetAttendeePermissionsPermissions._('\$156');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$157 =
+    RoomSetAttendeePermissionsPermissions._('\$157');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$158 =
+    RoomSetAttendeePermissionsPermissions._('\$158');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$159 =
+    RoomSetAttendeePermissionsPermissions._('\$159');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$160 =
+    RoomSetAttendeePermissionsPermissions._('\$160');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$161 =
+    RoomSetAttendeePermissionsPermissions._('\$161');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$162 =
+    RoomSetAttendeePermissionsPermissions._('\$162');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$163 =
+    RoomSetAttendeePermissionsPermissions._('\$163');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$164 =
+    RoomSetAttendeePermissionsPermissions._('\$164');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$165 =
+    RoomSetAttendeePermissionsPermissions._('\$165');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$166 =
+    RoomSetAttendeePermissionsPermissions._('\$166');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$167 =
+    RoomSetAttendeePermissionsPermissions._('\$167');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$168 =
+    RoomSetAttendeePermissionsPermissions._('\$168');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$169 =
+    RoomSetAttendeePermissionsPermissions._('\$169');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$170 =
+    RoomSetAttendeePermissionsPermissions._('\$170');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$171 =
+    RoomSetAttendeePermissionsPermissions._('\$171');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$172 =
+    RoomSetAttendeePermissionsPermissions._('\$172');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$173 =
+    RoomSetAttendeePermissionsPermissions._('\$173');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$174 =
+    RoomSetAttendeePermissionsPermissions._('\$174');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$175 =
+    RoomSetAttendeePermissionsPermissions._('\$175');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$176 =
+    RoomSetAttendeePermissionsPermissions._('\$176');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$177 =
+    RoomSetAttendeePermissionsPermissions._('\$177');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$178 =
+    RoomSetAttendeePermissionsPermissions._('\$178');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$179 =
+    RoomSetAttendeePermissionsPermissions._('\$179');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$180 =
+    RoomSetAttendeePermissionsPermissions._('\$180');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$181 =
+    RoomSetAttendeePermissionsPermissions._('\$181');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$182 =
+    RoomSetAttendeePermissionsPermissions._('\$182');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$183 =
+    RoomSetAttendeePermissionsPermissions._('\$183');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$184 =
+    RoomSetAttendeePermissionsPermissions._('\$184');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$185 =
+    RoomSetAttendeePermissionsPermissions._('\$185');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$186 =
+    RoomSetAttendeePermissionsPermissions._('\$186');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$187 =
+    RoomSetAttendeePermissionsPermissions._('\$187');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$188 =
+    RoomSetAttendeePermissionsPermissions._('\$188');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$189 =
+    RoomSetAttendeePermissionsPermissions._('\$189');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$190 =
+    RoomSetAttendeePermissionsPermissions._('\$190');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$191 =
+    RoomSetAttendeePermissionsPermissions._('\$191');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$192 =
+    RoomSetAttendeePermissionsPermissions._('\$192');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$193 =
+    RoomSetAttendeePermissionsPermissions._('\$193');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$194 =
+    RoomSetAttendeePermissionsPermissions._('\$194');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$195 =
+    RoomSetAttendeePermissionsPermissions._('\$195');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$196 =
+    RoomSetAttendeePermissionsPermissions._('\$196');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$197 =
+    RoomSetAttendeePermissionsPermissions._('\$197');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$198 =
+    RoomSetAttendeePermissionsPermissions._('\$198');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$199 =
+    RoomSetAttendeePermissionsPermissions._('\$199');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$200 =
+    RoomSetAttendeePermissionsPermissions._('\$200');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$201 =
+    RoomSetAttendeePermissionsPermissions._('\$201');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$202 =
+    RoomSetAttendeePermissionsPermissions._('\$202');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$203 =
+    RoomSetAttendeePermissionsPermissions._('\$203');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$204 =
+    RoomSetAttendeePermissionsPermissions._('\$204');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$205 =
+    RoomSetAttendeePermissionsPermissions._('\$205');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$206 =
+    RoomSetAttendeePermissionsPermissions._('\$206');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$207 =
+    RoomSetAttendeePermissionsPermissions._('\$207');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$208 =
+    RoomSetAttendeePermissionsPermissions._('\$208');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$209 =
+    RoomSetAttendeePermissionsPermissions._('\$209');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$210 =
+    RoomSetAttendeePermissionsPermissions._('\$210');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$211 =
+    RoomSetAttendeePermissionsPermissions._('\$211');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$212 =
+    RoomSetAttendeePermissionsPermissions._('\$212');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$213 =
+    RoomSetAttendeePermissionsPermissions._('\$213');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$214 =
+    RoomSetAttendeePermissionsPermissions._('\$214');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$215 =
+    RoomSetAttendeePermissionsPermissions._('\$215');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$216 =
+    RoomSetAttendeePermissionsPermissions._('\$216');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$217 =
+    RoomSetAttendeePermissionsPermissions._('\$217');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$218 =
+    RoomSetAttendeePermissionsPermissions._('\$218');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$219 =
+    RoomSetAttendeePermissionsPermissions._('\$219');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$220 =
+    RoomSetAttendeePermissionsPermissions._('\$220');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$221 =
+    RoomSetAttendeePermissionsPermissions._('\$221');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$222 =
+    RoomSetAttendeePermissionsPermissions._('\$222');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$223 =
+    RoomSetAttendeePermissionsPermissions._('\$223');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$224 =
+    RoomSetAttendeePermissionsPermissions._('\$224');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$225 =
+    RoomSetAttendeePermissionsPermissions._('\$225');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$226 =
+    RoomSetAttendeePermissionsPermissions._('\$226');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$227 =
+    RoomSetAttendeePermissionsPermissions._('\$227');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$228 =
+    RoomSetAttendeePermissionsPermissions._('\$228');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$229 =
+    RoomSetAttendeePermissionsPermissions._('\$229');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$230 =
+    RoomSetAttendeePermissionsPermissions._('\$230');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$231 =
+    RoomSetAttendeePermissionsPermissions._('\$231');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$232 =
+    RoomSetAttendeePermissionsPermissions._('\$232');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$233 =
+    RoomSetAttendeePermissionsPermissions._('\$233');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$234 =
+    RoomSetAttendeePermissionsPermissions._('\$234');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$235 =
+    RoomSetAttendeePermissionsPermissions._('\$235');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$236 =
+    RoomSetAttendeePermissionsPermissions._('\$236');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$237 =
+    RoomSetAttendeePermissionsPermissions._('\$237');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$238 =
+    RoomSetAttendeePermissionsPermissions._('\$238');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$239 =
+    RoomSetAttendeePermissionsPermissions._('\$239');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$240 =
+    RoomSetAttendeePermissionsPermissions._('\$240');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$241 =
+    RoomSetAttendeePermissionsPermissions._('\$241');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$242 =
+    RoomSetAttendeePermissionsPermissions._('\$242');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$243 =
+    RoomSetAttendeePermissionsPermissions._('\$243');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$244 =
+    RoomSetAttendeePermissionsPermissions._('\$244');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$245 =
+    RoomSetAttendeePermissionsPermissions._('\$245');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$246 =
+    RoomSetAttendeePermissionsPermissions._('\$246');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$247 =
+    RoomSetAttendeePermissionsPermissions._('\$247');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$248 =
+    RoomSetAttendeePermissionsPermissions._('\$248');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$249 =
+    RoomSetAttendeePermissionsPermissions._('\$249');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$250 =
+    RoomSetAttendeePermissionsPermissions._('\$250');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$251 =
+    RoomSetAttendeePermissionsPermissions._('\$251');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$252 =
+    RoomSetAttendeePermissionsPermissions._('\$252');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$253 =
+    RoomSetAttendeePermissionsPermissions._('\$253');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$254 =
+    RoomSetAttendeePermissionsPermissions._('\$254');
+const RoomSetAttendeePermissionsPermissions _$roomSetAttendeePermissionsPermissions$255 =
+    RoomSetAttendeePermissionsPermissions._('\$255');
+
+RoomSetAttendeePermissionsPermissions _$valueOfRoomSetAttendeePermissionsPermissions(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetAttendeePermissionsPermissions$0;
+    case '\$1':
+      return _$roomSetAttendeePermissionsPermissions$1;
+    case '\$2':
+      return _$roomSetAttendeePermissionsPermissions$2;
+    case '\$3':
+      return _$roomSetAttendeePermissionsPermissions$3;
+    case '\$4':
+      return _$roomSetAttendeePermissionsPermissions$4;
+    case '\$5':
+      return _$roomSetAttendeePermissionsPermissions$5;
+    case '\$6':
+      return _$roomSetAttendeePermissionsPermissions$6;
+    case '\$7':
+      return _$roomSetAttendeePermissionsPermissions$7;
+    case '\$8':
+      return _$roomSetAttendeePermissionsPermissions$8;
+    case '\$9':
+      return _$roomSetAttendeePermissionsPermissions$9;
+    case '\$10':
+      return _$roomSetAttendeePermissionsPermissions$10;
+    case '\$11':
+      return _$roomSetAttendeePermissionsPermissions$11;
+    case '\$12':
+      return _$roomSetAttendeePermissionsPermissions$12;
+    case '\$13':
+      return _$roomSetAttendeePermissionsPermissions$13;
+    case '\$14':
+      return _$roomSetAttendeePermissionsPermissions$14;
+    case '\$15':
+      return _$roomSetAttendeePermissionsPermissions$15;
+    case '\$16':
+      return _$roomSetAttendeePermissionsPermissions$16;
+    case '\$17':
+      return _$roomSetAttendeePermissionsPermissions$17;
+    case '\$18':
+      return _$roomSetAttendeePermissionsPermissions$18;
+    case '\$19':
+      return _$roomSetAttendeePermissionsPermissions$19;
+    case '\$20':
+      return _$roomSetAttendeePermissionsPermissions$20;
+    case '\$21':
+      return _$roomSetAttendeePermissionsPermissions$21;
+    case '\$22':
+      return _$roomSetAttendeePermissionsPermissions$22;
+    case '\$23':
+      return _$roomSetAttendeePermissionsPermissions$23;
+    case '\$24':
+      return _$roomSetAttendeePermissionsPermissions$24;
+    case '\$25':
+      return _$roomSetAttendeePermissionsPermissions$25;
+    case '\$26':
+      return _$roomSetAttendeePermissionsPermissions$26;
+    case '\$27':
+      return _$roomSetAttendeePermissionsPermissions$27;
+    case '\$28':
+      return _$roomSetAttendeePermissionsPermissions$28;
+    case '\$29':
+      return _$roomSetAttendeePermissionsPermissions$29;
+    case '\$30':
+      return _$roomSetAttendeePermissionsPermissions$30;
+    case '\$31':
+      return _$roomSetAttendeePermissionsPermissions$31;
+    case '\$32':
+      return _$roomSetAttendeePermissionsPermissions$32;
+    case '\$33':
+      return _$roomSetAttendeePermissionsPermissions$33;
+    case '\$34':
+      return _$roomSetAttendeePermissionsPermissions$34;
+    case '\$35':
+      return _$roomSetAttendeePermissionsPermissions$35;
+    case '\$36':
+      return _$roomSetAttendeePermissionsPermissions$36;
+    case '\$37':
+      return _$roomSetAttendeePermissionsPermissions$37;
+    case '\$38':
+      return _$roomSetAttendeePermissionsPermissions$38;
+    case '\$39':
+      return _$roomSetAttendeePermissionsPermissions$39;
+    case '\$40':
+      return _$roomSetAttendeePermissionsPermissions$40;
+    case '\$41':
+      return _$roomSetAttendeePermissionsPermissions$41;
+    case '\$42':
+      return _$roomSetAttendeePermissionsPermissions$42;
+    case '\$43':
+      return _$roomSetAttendeePermissionsPermissions$43;
+    case '\$44':
+      return _$roomSetAttendeePermissionsPermissions$44;
+    case '\$45':
+      return _$roomSetAttendeePermissionsPermissions$45;
+    case '\$46':
+      return _$roomSetAttendeePermissionsPermissions$46;
+    case '\$47':
+      return _$roomSetAttendeePermissionsPermissions$47;
+    case '\$48':
+      return _$roomSetAttendeePermissionsPermissions$48;
+    case '\$49':
+      return _$roomSetAttendeePermissionsPermissions$49;
+    case '\$50':
+      return _$roomSetAttendeePermissionsPermissions$50;
+    case '\$51':
+      return _$roomSetAttendeePermissionsPermissions$51;
+    case '\$52':
+      return _$roomSetAttendeePermissionsPermissions$52;
+    case '\$53':
+      return _$roomSetAttendeePermissionsPermissions$53;
+    case '\$54':
+      return _$roomSetAttendeePermissionsPermissions$54;
+    case '\$55':
+      return _$roomSetAttendeePermissionsPermissions$55;
+    case '\$56':
+      return _$roomSetAttendeePermissionsPermissions$56;
+    case '\$57':
+      return _$roomSetAttendeePermissionsPermissions$57;
+    case '\$58':
+      return _$roomSetAttendeePermissionsPermissions$58;
+    case '\$59':
+      return _$roomSetAttendeePermissionsPermissions$59;
+    case '\$60':
+      return _$roomSetAttendeePermissionsPermissions$60;
+    case '\$61':
+      return _$roomSetAttendeePermissionsPermissions$61;
+    case '\$62':
+      return _$roomSetAttendeePermissionsPermissions$62;
+    case '\$63':
+      return _$roomSetAttendeePermissionsPermissions$63;
+    case '\$64':
+      return _$roomSetAttendeePermissionsPermissions$64;
+    case '\$65':
+      return _$roomSetAttendeePermissionsPermissions$65;
+    case '\$66':
+      return _$roomSetAttendeePermissionsPermissions$66;
+    case '\$67':
+      return _$roomSetAttendeePermissionsPermissions$67;
+    case '\$68':
+      return _$roomSetAttendeePermissionsPermissions$68;
+    case '\$69':
+      return _$roomSetAttendeePermissionsPermissions$69;
+    case '\$70':
+      return _$roomSetAttendeePermissionsPermissions$70;
+    case '\$71':
+      return _$roomSetAttendeePermissionsPermissions$71;
+    case '\$72':
+      return _$roomSetAttendeePermissionsPermissions$72;
+    case '\$73':
+      return _$roomSetAttendeePermissionsPermissions$73;
+    case '\$74':
+      return _$roomSetAttendeePermissionsPermissions$74;
+    case '\$75':
+      return _$roomSetAttendeePermissionsPermissions$75;
+    case '\$76':
+      return _$roomSetAttendeePermissionsPermissions$76;
+    case '\$77':
+      return _$roomSetAttendeePermissionsPermissions$77;
+    case '\$78':
+      return _$roomSetAttendeePermissionsPermissions$78;
+    case '\$79':
+      return _$roomSetAttendeePermissionsPermissions$79;
+    case '\$80':
+      return _$roomSetAttendeePermissionsPermissions$80;
+    case '\$81':
+      return _$roomSetAttendeePermissionsPermissions$81;
+    case '\$82':
+      return _$roomSetAttendeePermissionsPermissions$82;
+    case '\$83':
+      return _$roomSetAttendeePermissionsPermissions$83;
+    case '\$84':
+      return _$roomSetAttendeePermissionsPermissions$84;
+    case '\$85':
+      return _$roomSetAttendeePermissionsPermissions$85;
+    case '\$86':
+      return _$roomSetAttendeePermissionsPermissions$86;
+    case '\$87':
+      return _$roomSetAttendeePermissionsPermissions$87;
+    case '\$88':
+      return _$roomSetAttendeePermissionsPermissions$88;
+    case '\$89':
+      return _$roomSetAttendeePermissionsPermissions$89;
+    case '\$90':
+      return _$roomSetAttendeePermissionsPermissions$90;
+    case '\$91':
+      return _$roomSetAttendeePermissionsPermissions$91;
+    case '\$92':
+      return _$roomSetAttendeePermissionsPermissions$92;
+    case '\$93':
+      return _$roomSetAttendeePermissionsPermissions$93;
+    case '\$94':
+      return _$roomSetAttendeePermissionsPermissions$94;
+    case '\$95':
+      return _$roomSetAttendeePermissionsPermissions$95;
+    case '\$96':
+      return _$roomSetAttendeePermissionsPermissions$96;
+    case '\$97':
+      return _$roomSetAttendeePermissionsPermissions$97;
+    case '\$98':
+      return _$roomSetAttendeePermissionsPermissions$98;
+    case '\$99':
+      return _$roomSetAttendeePermissionsPermissions$99;
+    case '\$100':
+      return _$roomSetAttendeePermissionsPermissions$100;
+    case '\$101':
+      return _$roomSetAttendeePermissionsPermissions$101;
+    case '\$102':
+      return _$roomSetAttendeePermissionsPermissions$102;
+    case '\$103':
+      return _$roomSetAttendeePermissionsPermissions$103;
+    case '\$104':
+      return _$roomSetAttendeePermissionsPermissions$104;
+    case '\$105':
+      return _$roomSetAttendeePermissionsPermissions$105;
+    case '\$106':
+      return _$roomSetAttendeePermissionsPermissions$106;
+    case '\$107':
+      return _$roomSetAttendeePermissionsPermissions$107;
+    case '\$108':
+      return _$roomSetAttendeePermissionsPermissions$108;
+    case '\$109':
+      return _$roomSetAttendeePermissionsPermissions$109;
+    case '\$110':
+      return _$roomSetAttendeePermissionsPermissions$110;
+    case '\$111':
+      return _$roomSetAttendeePermissionsPermissions$111;
+    case '\$112':
+      return _$roomSetAttendeePermissionsPermissions$112;
+    case '\$113':
+      return _$roomSetAttendeePermissionsPermissions$113;
+    case '\$114':
+      return _$roomSetAttendeePermissionsPermissions$114;
+    case '\$115':
+      return _$roomSetAttendeePermissionsPermissions$115;
+    case '\$116':
+      return _$roomSetAttendeePermissionsPermissions$116;
+    case '\$117':
+      return _$roomSetAttendeePermissionsPermissions$117;
+    case '\$118':
+      return _$roomSetAttendeePermissionsPermissions$118;
+    case '\$119':
+      return _$roomSetAttendeePermissionsPermissions$119;
+    case '\$120':
+      return _$roomSetAttendeePermissionsPermissions$120;
+    case '\$121':
+      return _$roomSetAttendeePermissionsPermissions$121;
+    case '\$122':
+      return _$roomSetAttendeePermissionsPermissions$122;
+    case '\$123':
+      return _$roomSetAttendeePermissionsPermissions$123;
+    case '\$124':
+      return _$roomSetAttendeePermissionsPermissions$124;
+    case '\$125':
+      return _$roomSetAttendeePermissionsPermissions$125;
+    case '\$126':
+      return _$roomSetAttendeePermissionsPermissions$126;
+    case '\$127':
+      return _$roomSetAttendeePermissionsPermissions$127;
+    case '\$128':
+      return _$roomSetAttendeePermissionsPermissions$128;
+    case '\$129':
+      return _$roomSetAttendeePermissionsPermissions$129;
+    case '\$130':
+      return _$roomSetAttendeePermissionsPermissions$130;
+    case '\$131':
+      return _$roomSetAttendeePermissionsPermissions$131;
+    case '\$132':
+      return _$roomSetAttendeePermissionsPermissions$132;
+    case '\$133':
+      return _$roomSetAttendeePermissionsPermissions$133;
+    case '\$134':
+      return _$roomSetAttendeePermissionsPermissions$134;
+    case '\$135':
+      return _$roomSetAttendeePermissionsPermissions$135;
+    case '\$136':
+      return _$roomSetAttendeePermissionsPermissions$136;
+    case '\$137':
+      return _$roomSetAttendeePermissionsPermissions$137;
+    case '\$138':
+      return _$roomSetAttendeePermissionsPermissions$138;
+    case '\$139':
+      return _$roomSetAttendeePermissionsPermissions$139;
+    case '\$140':
+      return _$roomSetAttendeePermissionsPermissions$140;
+    case '\$141':
+      return _$roomSetAttendeePermissionsPermissions$141;
+    case '\$142':
+      return _$roomSetAttendeePermissionsPermissions$142;
+    case '\$143':
+      return _$roomSetAttendeePermissionsPermissions$143;
+    case '\$144':
+      return _$roomSetAttendeePermissionsPermissions$144;
+    case '\$145':
+      return _$roomSetAttendeePermissionsPermissions$145;
+    case '\$146':
+      return _$roomSetAttendeePermissionsPermissions$146;
+    case '\$147':
+      return _$roomSetAttendeePermissionsPermissions$147;
+    case '\$148':
+      return _$roomSetAttendeePermissionsPermissions$148;
+    case '\$149':
+      return _$roomSetAttendeePermissionsPermissions$149;
+    case '\$150':
+      return _$roomSetAttendeePermissionsPermissions$150;
+    case '\$151':
+      return _$roomSetAttendeePermissionsPermissions$151;
+    case '\$152':
+      return _$roomSetAttendeePermissionsPermissions$152;
+    case '\$153':
+      return _$roomSetAttendeePermissionsPermissions$153;
+    case '\$154':
+      return _$roomSetAttendeePermissionsPermissions$154;
+    case '\$155':
+      return _$roomSetAttendeePermissionsPermissions$155;
+    case '\$156':
+      return _$roomSetAttendeePermissionsPermissions$156;
+    case '\$157':
+      return _$roomSetAttendeePermissionsPermissions$157;
+    case '\$158':
+      return _$roomSetAttendeePermissionsPermissions$158;
+    case '\$159':
+      return _$roomSetAttendeePermissionsPermissions$159;
+    case '\$160':
+      return _$roomSetAttendeePermissionsPermissions$160;
+    case '\$161':
+      return _$roomSetAttendeePermissionsPermissions$161;
+    case '\$162':
+      return _$roomSetAttendeePermissionsPermissions$162;
+    case '\$163':
+      return _$roomSetAttendeePermissionsPermissions$163;
+    case '\$164':
+      return _$roomSetAttendeePermissionsPermissions$164;
+    case '\$165':
+      return _$roomSetAttendeePermissionsPermissions$165;
+    case '\$166':
+      return _$roomSetAttendeePermissionsPermissions$166;
+    case '\$167':
+      return _$roomSetAttendeePermissionsPermissions$167;
+    case '\$168':
+      return _$roomSetAttendeePermissionsPermissions$168;
+    case '\$169':
+      return _$roomSetAttendeePermissionsPermissions$169;
+    case '\$170':
+      return _$roomSetAttendeePermissionsPermissions$170;
+    case '\$171':
+      return _$roomSetAttendeePermissionsPermissions$171;
+    case '\$172':
+      return _$roomSetAttendeePermissionsPermissions$172;
+    case '\$173':
+      return _$roomSetAttendeePermissionsPermissions$173;
+    case '\$174':
+      return _$roomSetAttendeePermissionsPermissions$174;
+    case '\$175':
+      return _$roomSetAttendeePermissionsPermissions$175;
+    case '\$176':
+      return _$roomSetAttendeePermissionsPermissions$176;
+    case '\$177':
+      return _$roomSetAttendeePermissionsPermissions$177;
+    case '\$178':
+      return _$roomSetAttendeePermissionsPermissions$178;
+    case '\$179':
+      return _$roomSetAttendeePermissionsPermissions$179;
+    case '\$180':
+      return _$roomSetAttendeePermissionsPermissions$180;
+    case '\$181':
+      return _$roomSetAttendeePermissionsPermissions$181;
+    case '\$182':
+      return _$roomSetAttendeePermissionsPermissions$182;
+    case '\$183':
+      return _$roomSetAttendeePermissionsPermissions$183;
+    case '\$184':
+      return _$roomSetAttendeePermissionsPermissions$184;
+    case '\$185':
+      return _$roomSetAttendeePermissionsPermissions$185;
+    case '\$186':
+      return _$roomSetAttendeePermissionsPermissions$186;
+    case '\$187':
+      return _$roomSetAttendeePermissionsPermissions$187;
+    case '\$188':
+      return _$roomSetAttendeePermissionsPermissions$188;
+    case '\$189':
+      return _$roomSetAttendeePermissionsPermissions$189;
+    case '\$190':
+      return _$roomSetAttendeePermissionsPermissions$190;
+    case '\$191':
+      return _$roomSetAttendeePermissionsPermissions$191;
+    case '\$192':
+      return _$roomSetAttendeePermissionsPermissions$192;
+    case '\$193':
+      return _$roomSetAttendeePermissionsPermissions$193;
+    case '\$194':
+      return _$roomSetAttendeePermissionsPermissions$194;
+    case '\$195':
+      return _$roomSetAttendeePermissionsPermissions$195;
+    case '\$196':
+      return _$roomSetAttendeePermissionsPermissions$196;
+    case '\$197':
+      return _$roomSetAttendeePermissionsPermissions$197;
+    case '\$198':
+      return _$roomSetAttendeePermissionsPermissions$198;
+    case '\$199':
+      return _$roomSetAttendeePermissionsPermissions$199;
+    case '\$200':
+      return _$roomSetAttendeePermissionsPermissions$200;
+    case '\$201':
+      return _$roomSetAttendeePermissionsPermissions$201;
+    case '\$202':
+      return _$roomSetAttendeePermissionsPermissions$202;
+    case '\$203':
+      return _$roomSetAttendeePermissionsPermissions$203;
+    case '\$204':
+      return _$roomSetAttendeePermissionsPermissions$204;
+    case '\$205':
+      return _$roomSetAttendeePermissionsPermissions$205;
+    case '\$206':
+      return _$roomSetAttendeePermissionsPermissions$206;
+    case '\$207':
+      return _$roomSetAttendeePermissionsPermissions$207;
+    case '\$208':
+      return _$roomSetAttendeePermissionsPermissions$208;
+    case '\$209':
+      return _$roomSetAttendeePermissionsPermissions$209;
+    case '\$210':
+      return _$roomSetAttendeePermissionsPermissions$210;
+    case '\$211':
+      return _$roomSetAttendeePermissionsPermissions$211;
+    case '\$212':
+      return _$roomSetAttendeePermissionsPermissions$212;
+    case '\$213':
+      return _$roomSetAttendeePermissionsPermissions$213;
+    case '\$214':
+      return _$roomSetAttendeePermissionsPermissions$214;
+    case '\$215':
+      return _$roomSetAttendeePermissionsPermissions$215;
+    case '\$216':
+      return _$roomSetAttendeePermissionsPermissions$216;
+    case '\$217':
+      return _$roomSetAttendeePermissionsPermissions$217;
+    case '\$218':
+      return _$roomSetAttendeePermissionsPermissions$218;
+    case '\$219':
+      return _$roomSetAttendeePermissionsPermissions$219;
+    case '\$220':
+      return _$roomSetAttendeePermissionsPermissions$220;
+    case '\$221':
+      return _$roomSetAttendeePermissionsPermissions$221;
+    case '\$222':
+      return _$roomSetAttendeePermissionsPermissions$222;
+    case '\$223':
+      return _$roomSetAttendeePermissionsPermissions$223;
+    case '\$224':
+      return _$roomSetAttendeePermissionsPermissions$224;
+    case '\$225':
+      return _$roomSetAttendeePermissionsPermissions$225;
+    case '\$226':
+      return _$roomSetAttendeePermissionsPermissions$226;
+    case '\$227':
+      return _$roomSetAttendeePermissionsPermissions$227;
+    case '\$228':
+      return _$roomSetAttendeePermissionsPermissions$228;
+    case '\$229':
+      return _$roomSetAttendeePermissionsPermissions$229;
+    case '\$230':
+      return _$roomSetAttendeePermissionsPermissions$230;
+    case '\$231':
+      return _$roomSetAttendeePermissionsPermissions$231;
+    case '\$232':
+      return _$roomSetAttendeePermissionsPermissions$232;
+    case '\$233':
+      return _$roomSetAttendeePermissionsPermissions$233;
+    case '\$234':
+      return _$roomSetAttendeePermissionsPermissions$234;
+    case '\$235':
+      return _$roomSetAttendeePermissionsPermissions$235;
+    case '\$236':
+      return _$roomSetAttendeePermissionsPermissions$236;
+    case '\$237':
+      return _$roomSetAttendeePermissionsPermissions$237;
+    case '\$238':
+      return _$roomSetAttendeePermissionsPermissions$238;
+    case '\$239':
+      return _$roomSetAttendeePermissionsPermissions$239;
+    case '\$240':
+      return _$roomSetAttendeePermissionsPermissions$240;
+    case '\$241':
+      return _$roomSetAttendeePermissionsPermissions$241;
+    case '\$242':
+      return _$roomSetAttendeePermissionsPermissions$242;
+    case '\$243':
+      return _$roomSetAttendeePermissionsPermissions$243;
+    case '\$244':
+      return _$roomSetAttendeePermissionsPermissions$244;
+    case '\$245':
+      return _$roomSetAttendeePermissionsPermissions$245;
+    case '\$246':
+      return _$roomSetAttendeePermissionsPermissions$246;
+    case '\$247':
+      return _$roomSetAttendeePermissionsPermissions$247;
+    case '\$248':
+      return _$roomSetAttendeePermissionsPermissions$248;
+    case '\$249':
+      return _$roomSetAttendeePermissionsPermissions$249;
+    case '\$250':
+      return _$roomSetAttendeePermissionsPermissions$250;
+    case '\$251':
+      return _$roomSetAttendeePermissionsPermissions$251;
+    case '\$252':
+      return _$roomSetAttendeePermissionsPermissions$252;
+    case '\$253':
+      return _$roomSetAttendeePermissionsPermissions$253;
+    case '\$254':
+      return _$roomSetAttendeePermissionsPermissions$254;
+    case '\$255':
+      return _$roomSetAttendeePermissionsPermissions$255;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetAttendeePermissionsPermissions> _$roomSetAttendeePermissionsPermissionsValues =
+    BuiltSet<RoomSetAttendeePermissionsPermissions>(const <RoomSetAttendeePermissionsPermissions>[
+  _$roomSetAttendeePermissionsPermissions$0,
+  _$roomSetAttendeePermissionsPermissions$1,
+  _$roomSetAttendeePermissionsPermissions$2,
+  _$roomSetAttendeePermissionsPermissions$3,
+  _$roomSetAttendeePermissionsPermissions$4,
+  _$roomSetAttendeePermissionsPermissions$5,
+  _$roomSetAttendeePermissionsPermissions$6,
+  _$roomSetAttendeePermissionsPermissions$7,
+  _$roomSetAttendeePermissionsPermissions$8,
+  _$roomSetAttendeePermissionsPermissions$9,
+  _$roomSetAttendeePermissionsPermissions$10,
+  _$roomSetAttendeePermissionsPermissions$11,
+  _$roomSetAttendeePermissionsPermissions$12,
+  _$roomSetAttendeePermissionsPermissions$13,
+  _$roomSetAttendeePermissionsPermissions$14,
+  _$roomSetAttendeePermissionsPermissions$15,
+  _$roomSetAttendeePermissionsPermissions$16,
+  _$roomSetAttendeePermissionsPermissions$17,
+  _$roomSetAttendeePermissionsPermissions$18,
+  _$roomSetAttendeePermissionsPermissions$19,
+  _$roomSetAttendeePermissionsPermissions$20,
+  _$roomSetAttendeePermissionsPermissions$21,
+  _$roomSetAttendeePermissionsPermissions$22,
+  _$roomSetAttendeePermissionsPermissions$23,
+  _$roomSetAttendeePermissionsPermissions$24,
+  _$roomSetAttendeePermissionsPermissions$25,
+  _$roomSetAttendeePermissionsPermissions$26,
+  _$roomSetAttendeePermissionsPermissions$27,
+  _$roomSetAttendeePermissionsPermissions$28,
+  _$roomSetAttendeePermissionsPermissions$29,
+  _$roomSetAttendeePermissionsPermissions$30,
+  _$roomSetAttendeePermissionsPermissions$31,
+  _$roomSetAttendeePermissionsPermissions$32,
+  _$roomSetAttendeePermissionsPermissions$33,
+  _$roomSetAttendeePermissionsPermissions$34,
+  _$roomSetAttendeePermissionsPermissions$35,
+  _$roomSetAttendeePermissionsPermissions$36,
+  _$roomSetAttendeePermissionsPermissions$37,
+  _$roomSetAttendeePermissionsPermissions$38,
+  _$roomSetAttendeePermissionsPermissions$39,
+  _$roomSetAttendeePermissionsPermissions$40,
+  _$roomSetAttendeePermissionsPermissions$41,
+  _$roomSetAttendeePermissionsPermissions$42,
+  _$roomSetAttendeePermissionsPermissions$43,
+  _$roomSetAttendeePermissionsPermissions$44,
+  _$roomSetAttendeePermissionsPermissions$45,
+  _$roomSetAttendeePermissionsPermissions$46,
+  _$roomSetAttendeePermissionsPermissions$47,
+  _$roomSetAttendeePermissionsPermissions$48,
+  _$roomSetAttendeePermissionsPermissions$49,
+  _$roomSetAttendeePermissionsPermissions$50,
+  _$roomSetAttendeePermissionsPermissions$51,
+  _$roomSetAttendeePermissionsPermissions$52,
+  _$roomSetAttendeePermissionsPermissions$53,
+  _$roomSetAttendeePermissionsPermissions$54,
+  _$roomSetAttendeePermissionsPermissions$55,
+  _$roomSetAttendeePermissionsPermissions$56,
+  _$roomSetAttendeePermissionsPermissions$57,
+  _$roomSetAttendeePermissionsPermissions$58,
+  _$roomSetAttendeePermissionsPermissions$59,
+  _$roomSetAttendeePermissionsPermissions$60,
+  _$roomSetAttendeePermissionsPermissions$61,
+  _$roomSetAttendeePermissionsPermissions$62,
+  _$roomSetAttendeePermissionsPermissions$63,
+  _$roomSetAttendeePermissionsPermissions$64,
+  _$roomSetAttendeePermissionsPermissions$65,
+  _$roomSetAttendeePermissionsPermissions$66,
+  _$roomSetAttendeePermissionsPermissions$67,
+  _$roomSetAttendeePermissionsPermissions$68,
+  _$roomSetAttendeePermissionsPermissions$69,
+  _$roomSetAttendeePermissionsPermissions$70,
+  _$roomSetAttendeePermissionsPermissions$71,
+  _$roomSetAttendeePermissionsPermissions$72,
+  _$roomSetAttendeePermissionsPermissions$73,
+  _$roomSetAttendeePermissionsPermissions$74,
+  _$roomSetAttendeePermissionsPermissions$75,
+  _$roomSetAttendeePermissionsPermissions$76,
+  _$roomSetAttendeePermissionsPermissions$77,
+  _$roomSetAttendeePermissionsPermissions$78,
+  _$roomSetAttendeePermissionsPermissions$79,
+  _$roomSetAttendeePermissionsPermissions$80,
+  _$roomSetAttendeePermissionsPermissions$81,
+  _$roomSetAttendeePermissionsPermissions$82,
+  _$roomSetAttendeePermissionsPermissions$83,
+  _$roomSetAttendeePermissionsPermissions$84,
+  _$roomSetAttendeePermissionsPermissions$85,
+  _$roomSetAttendeePermissionsPermissions$86,
+  _$roomSetAttendeePermissionsPermissions$87,
+  _$roomSetAttendeePermissionsPermissions$88,
+  _$roomSetAttendeePermissionsPermissions$89,
+  _$roomSetAttendeePermissionsPermissions$90,
+  _$roomSetAttendeePermissionsPermissions$91,
+  _$roomSetAttendeePermissionsPermissions$92,
+  _$roomSetAttendeePermissionsPermissions$93,
+  _$roomSetAttendeePermissionsPermissions$94,
+  _$roomSetAttendeePermissionsPermissions$95,
+  _$roomSetAttendeePermissionsPermissions$96,
+  _$roomSetAttendeePermissionsPermissions$97,
+  _$roomSetAttendeePermissionsPermissions$98,
+  _$roomSetAttendeePermissionsPermissions$99,
+  _$roomSetAttendeePermissionsPermissions$100,
+  _$roomSetAttendeePermissionsPermissions$101,
+  _$roomSetAttendeePermissionsPermissions$102,
+  _$roomSetAttendeePermissionsPermissions$103,
+  _$roomSetAttendeePermissionsPermissions$104,
+  _$roomSetAttendeePermissionsPermissions$105,
+  _$roomSetAttendeePermissionsPermissions$106,
+  _$roomSetAttendeePermissionsPermissions$107,
+  _$roomSetAttendeePermissionsPermissions$108,
+  _$roomSetAttendeePermissionsPermissions$109,
+  _$roomSetAttendeePermissionsPermissions$110,
+  _$roomSetAttendeePermissionsPermissions$111,
+  _$roomSetAttendeePermissionsPermissions$112,
+  _$roomSetAttendeePermissionsPermissions$113,
+  _$roomSetAttendeePermissionsPermissions$114,
+  _$roomSetAttendeePermissionsPermissions$115,
+  _$roomSetAttendeePermissionsPermissions$116,
+  _$roomSetAttendeePermissionsPermissions$117,
+  _$roomSetAttendeePermissionsPermissions$118,
+  _$roomSetAttendeePermissionsPermissions$119,
+  _$roomSetAttendeePermissionsPermissions$120,
+  _$roomSetAttendeePermissionsPermissions$121,
+  _$roomSetAttendeePermissionsPermissions$122,
+  _$roomSetAttendeePermissionsPermissions$123,
+  _$roomSetAttendeePermissionsPermissions$124,
+  _$roomSetAttendeePermissionsPermissions$125,
+  _$roomSetAttendeePermissionsPermissions$126,
+  _$roomSetAttendeePermissionsPermissions$127,
+  _$roomSetAttendeePermissionsPermissions$128,
+  _$roomSetAttendeePermissionsPermissions$129,
+  _$roomSetAttendeePermissionsPermissions$130,
+  _$roomSetAttendeePermissionsPermissions$131,
+  _$roomSetAttendeePermissionsPermissions$132,
+  _$roomSetAttendeePermissionsPermissions$133,
+  _$roomSetAttendeePermissionsPermissions$134,
+  _$roomSetAttendeePermissionsPermissions$135,
+  _$roomSetAttendeePermissionsPermissions$136,
+  _$roomSetAttendeePermissionsPermissions$137,
+  _$roomSetAttendeePermissionsPermissions$138,
+  _$roomSetAttendeePermissionsPermissions$139,
+  _$roomSetAttendeePermissionsPermissions$140,
+  _$roomSetAttendeePermissionsPermissions$141,
+  _$roomSetAttendeePermissionsPermissions$142,
+  _$roomSetAttendeePermissionsPermissions$143,
+  _$roomSetAttendeePermissionsPermissions$144,
+  _$roomSetAttendeePermissionsPermissions$145,
+  _$roomSetAttendeePermissionsPermissions$146,
+  _$roomSetAttendeePermissionsPermissions$147,
+  _$roomSetAttendeePermissionsPermissions$148,
+  _$roomSetAttendeePermissionsPermissions$149,
+  _$roomSetAttendeePermissionsPermissions$150,
+  _$roomSetAttendeePermissionsPermissions$151,
+  _$roomSetAttendeePermissionsPermissions$152,
+  _$roomSetAttendeePermissionsPermissions$153,
+  _$roomSetAttendeePermissionsPermissions$154,
+  _$roomSetAttendeePermissionsPermissions$155,
+  _$roomSetAttendeePermissionsPermissions$156,
+  _$roomSetAttendeePermissionsPermissions$157,
+  _$roomSetAttendeePermissionsPermissions$158,
+  _$roomSetAttendeePermissionsPermissions$159,
+  _$roomSetAttendeePermissionsPermissions$160,
+  _$roomSetAttendeePermissionsPermissions$161,
+  _$roomSetAttendeePermissionsPermissions$162,
+  _$roomSetAttendeePermissionsPermissions$163,
+  _$roomSetAttendeePermissionsPermissions$164,
+  _$roomSetAttendeePermissionsPermissions$165,
+  _$roomSetAttendeePermissionsPermissions$166,
+  _$roomSetAttendeePermissionsPermissions$167,
+  _$roomSetAttendeePermissionsPermissions$168,
+  _$roomSetAttendeePermissionsPermissions$169,
+  _$roomSetAttendeePermissionsPermissions$170,
+  _$roomSetAttendeePermissionsPermissions$171,
+  _$roomSetAttendeePermissionsPermissions$172,
+  _$roomSetAttendeePermissionsPermissions$173,
+  _$roomSetAttendeePermissionsPermissions$174,
+  _$roomSetAttendeePermissionsPermissions$175,
+  _$roomSetAttendeePermissionsPermissions$176,
+  _$roomSetAttendeePermissionsPermissions$177,
+  _$roomSetAttendeePermissionsPermissions$178,
+  _$roomSetAttendeePermissionsPermissions$179,
+  _$roomSetAttendeePermissionsPermissions$180,
+  _$roomSetAttendeePermissionsPermissions$181,
+  _$roomSetAttendeePermissionsPermissions$182,
+  _$roomSetAttendeePermissionsPermissions$183,
+  _$roomSetAttendeePermissionsPermissions$184,
+  _$roomSetAttendeePermissionsPermissions$185,
+  _$roomSetAttendeePermissionsPermissions$186,
+  _$roomSetAttendeePermissionsPermissions$187,
+  _$roomSetAttendeePermissionsPermissions$188,
+  _$roomSetAttendeePermissionsPermissions$189,
+  _$roomSetAttendeePermissionsPermissions$190,
+  _$roomSetAttendeePermissionsPermissions$191,
+  _$roomSetAttendeePermissionsPermissions$192,
+  _$roomSetAttendeePermissionsPermissions$193,
+  _$roomSetAttendeePermissionsPermissions$194,
+  _$roomSetAttendeePermissionsPermissions$195,
+  _$roomSetAttendeePermissionsPermissions$196,
+  _$roomSetAttendeePermissionsPermissions$197,
+  _$roomSetAttendeePermissionsPermissions$198,
+  _$roomSetAttendeePermissionsPermissions$199,
+  _$roomSetAttendeePermissionsPermissions$200,
+  _$roomSetAttendeePermissionsPermissions$201,
+  _$roomSetAttendeePermissionsPermissions$202,
+  _$roomSetAttendeePermissionsPermissions$203,
+  _$roomSetAttendeePermissionsPermissions$204,
+  _$roomSetAttendeePermissionsPermissions$205,
+  _$roomSetAttendeePermissionsPermissions$206,
+  _$roomSetAttendeePermissionsPermissions$207,
+  _$roomSetAttendeePermissionsPermissions$208,
+  _$roomSetAttendeePermissionsPermissions$209,
+  _$roomSetAttendeePermissionsPermissions$210,
+  _$roomSetAttendeePermissionsPermissions$211,
+  _$roomSetAttendeePermissionsPermissions$212,
+  _$roomSetAttendeePermissionsPermissions$213,
+  _$roomSetAttendeePermissionsPermissions$214,
+  _$roomSetAttendeePermissionsPermissions$215,
+  _$roomSetAttendeePermissionsPermissions$216,
+  _$roomSetAttendeePermissionsPermissions$217,
+  _$roomSetAttendeePermissionsPermissions$218,
+  _$roomSetAttendeePermissionsPermissions$219,
+  _$roomSetAttendeePermissionsPermissions$220,
+  _$roomSetAttendeePermissionsPermissions$221,
+  _$roomSetAttendeePermissionsPermissions$222,
+  _$roomSetAttendeePermissionsPermissions$223,
+  _$roomSetAttendeePermissionsPermissions$224,
+  _$roomSetAttendeePermissionsPermissions$225,
+  _$roomSetAttendeePermissionsPermissions$226,
+  _$roomSetAttendeePermissionsPermissions$227,
+  _$roomSetAttendeePermissionsPermissions$228,
+  _$roomSetAttendeePermissionsPermissions$229,
+  _$roomSetAttendeePermissionsPermissions$230,
+  _$roomSetAttendeePermissionsPermissions$231,
+  _$roomSetAttendeePermissionsPermissions$232,
+  _$roomSetAttendeePermissionsPermissions$233,
+  _$roomSetAttendeePermissionsPermissions$234,
+  _$roomSetAttendeePermissionsPermissions$235,
+  _$roomSetAttendeePermissionsPermissions$236,
+  _$roomSetAttendeePermissionsPermissions$237,
+  _$roomSetAttendeePermissionsPermissions$238,
+  _$roomSetAttendeePermissionsPermissions$239,
+  _$roomSetAttendeePermissionsPermissions$240,
+  _$roomSetAttendeePermissionsPermissions$241,
+  _$roomSetAttendeePermissionsPermissions$242,
+  _$roomSetAttendeePermissionsPermissions$243,
+  _$roomSetAttendeePermissionsPermissions$244,
+  _$roomSetAttendeePermissionsPermissions$245,
+  _$roomSetAttendeePermissionsPermissions$246,
+  _$roomSetAttendeePermissionsPermissions$247,
+  _$roomSetAttendeePermissionsPermissions$248,
+  _$roomSetAttendeePermissionsPermissions$249,
+  _$roomSetAttendeePermissionsPermissions$250,
+  _$roomSetAttendeePermissionsPermissions$251,
+  _$roomSetAttendeePermissionsPermissions$252,
+  _$roomSetAttendeePermissionsPermissions$253,
+  _$roomSetAttendeePermissionsPermissions$254,
+  _$roomSetAttendeePermissionsPermissions$255,
+]);
+
 const RoomSetAttendeePermissionsApiVersion _$roomSetAttendeePermissionsApiVersionV4 =
     RoomSetAttendeePermissionsApiVersion._('v4');
 
@@ -1492,6 +5195,1325 @@ RoomSetAttendeePermissionsApiVersion _$valueOfRoomSetAttendeePermissionsApiVersi
 final BuiltSet<RoomSetAttendeePermissionsApiVersion> _$roomSetAttendeePermissionsApiVersionValues =
     BuiltSet<RoomSetAttendeePermissionsApiVersion>(const <RoomSetAttendeePermissionsApiVersion>[
   _$roomSetAttendeePermissionsApiVersionV4,
+]);
+
+const RoomSetAllAttendeesPermissionsMethod _$roomSetAllAttendeesPermissionsMethod$set =
+    RoomSetAllAttendeesPermissionsMethod._('\$set');
+const RoomSetAllAttendeesPermissionsMethod _$roomSetAllAttendeesPermissionsMethodRemove =
+    RoomSetAllAttendeesPermissionsMethod._('remove');
+const RoomSetAllAttendeesPermissionsMethod _$roomSetAllAttendeesPermissionsMethodAdd =
+    RoomSetAllAttendeesPermissionsMethod._('add');
+
+RoomSetAllAttendeesPermissionsMethod _$valueOfRoomSetAllAttendeesPermissionsMethod(String name) {
+  switch (name) {
+    case '\$set':
+      return _$roomSetAllAttendeesPermissionsMethod$set;
+    case 'remove':
+      return _$roomSetAllAttendeesPermissionsMethodRemove;
+    case 'add':
+      return _$roomSetAllAttendeesPermissionsMethodAdd;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetAllAttendeesPermissionsMethod> _$roomSetAllAttendeesPermissionsMethodValues =
+    BuiltSet<RoomSetAllAttendeesPermissionsMethod>(const <RoomSetAllAttendeesPermissionsMethod>[
+  _$roomSetAllAttendeesPermissionsMethod$set,
+  _$roomSetAllAttendeesPermissionsMethodRemove,
+  _$roomSetAllAttendeesPermissionsMethodAdd,
+]);
+
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$0 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$0');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$1 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$1');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$2 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$2');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$3 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$3');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$4 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$4');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$5 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$5');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$6 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$6');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$7 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$7');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$8 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$8');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$9 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$9');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$10 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$10');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$11 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$11');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$12 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$12');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$13 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$13');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$14 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$14');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$15 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$15');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$16 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$16');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$17 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$17');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$18 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$18');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$19 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$19');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$20 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$20');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$21 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$21');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$22 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$22');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$23 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$23');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$24 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$24');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$25 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$25');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$26 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$26');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$27 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$27');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$28 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$28');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$29 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$29');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$30 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$30');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$31 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$31');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$32 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$32');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$33 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$33');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$34 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$34');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$35 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$35');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$36 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$36');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$37 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$37');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$38 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$38');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$39 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$39');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$40 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$40');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$41 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$41');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$42 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$42');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$43 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$43');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$44 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$44');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$45 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$45');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$46 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$46');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$47 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$47');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$48 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$48');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$49 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$49');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$50 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$50');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$51 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$51');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$52 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$52');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$53 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$53');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$54 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$54');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$55 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$55');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$56 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$56');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$57 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$57');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$58 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$58');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$59 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$59');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$60 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$60');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$61 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$61');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$62 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$62');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$63 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$63');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$64 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$64');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$65 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$65');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$66 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$66');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$67 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$67');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$68 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$68');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$69 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$69');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$70 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$70');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$71 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$71');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$72 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$72');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$73 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$73');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$74 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$74');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$75 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$75');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$76 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$76');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$77 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$77');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$78 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$78');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$79 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$79');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$80 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$80');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$81 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$81');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$82 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$82');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$83 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$83');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$84 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$84');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$85 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$85');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$86 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$86');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$87 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$87');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$88 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$88');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$89 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$89');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$90 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$90');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$91 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$91');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$92 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$92');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$93 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$93');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$94 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$94');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$95 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$95');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$96 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$96');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$97 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$97');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$98 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$98');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$99 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$99');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$100 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$100');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$101 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$101');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$102 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$102');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$103 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$103');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$104 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$104');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$105 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$105');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$106 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$106');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$107 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$107');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$108 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$108');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$109 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$109');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$110 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$110');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$111 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$111');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$112 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$112');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$113 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$113');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$114 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$114');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$115 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$115');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$116 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$116');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$117 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$117');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$118 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$118');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$119 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$119');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$120 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$120');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$121 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$121');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$122 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$122');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$123 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$123');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$124 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$124');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$125 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$125');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$126 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$126');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$127 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$127');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$128 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$128');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$129 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$129');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$130 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$130');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$131 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$131');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$132 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$132');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$133 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$133');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$134 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$134');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$135 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$135');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$136 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$136');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$137 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$137');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$138 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$138');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$139 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$139');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$140 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$140');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$141 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$141');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$142 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$142');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$143 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$143');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$144 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$144');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$145 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$145');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$146 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$146');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$147 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$147');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$148 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$148');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$149 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$149');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$150 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$150');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$151 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$151');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$152 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$152');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$153 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$153');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$154 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$154');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$155 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$155');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$156 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$156');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$157 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$157');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$158 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$158');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$159 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$159');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$160 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$160');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$161 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$161');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$162 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$162');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$163 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$163');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$164 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$164');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$165 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$165');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$166 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$166');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$167 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$167');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$168 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$168');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$169 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$169');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$170 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$170');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$171 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$171');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$172 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$172');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$173 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$173');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$174 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$174');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$175 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$175');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$176 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$176');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$177 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$177');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$178 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$178');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$179 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$179');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$180 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$180');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$181 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$181');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$182 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$182');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$183 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$183');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$184 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$184');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$185 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$185');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$186 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$186');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$187 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$187');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$188 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$188');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$189 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$189');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$190 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$190');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$191 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$191');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$192 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$192');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$193 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$193');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$194 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$194');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$195 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$195');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$196 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$196');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$197 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$197');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$198 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$198');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$199 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$199');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$200 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$200');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$201 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$201');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$202 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$202');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$203 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$203');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$204 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$204');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$205 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$205');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$206 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$206');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$207 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$207');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$208 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$208');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$209 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$209');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$210 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$210');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$211 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$211');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$212 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$212');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$213 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$213');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$214 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$214');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$215 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$215');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$216 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$216');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$217 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$217');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$218 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$218');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$219 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$219');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$220 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$220');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$221 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$221');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$222 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$222');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$223 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$223');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$224 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$224');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$225 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$225');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$226 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$226');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$227 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$227');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$228 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$228');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$229 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$229');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$230 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$230');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$231 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$231');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$232 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$232');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$233 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$233');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$234 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$234');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$235 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$235');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$236 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$236');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$237 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$237');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$238 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$238');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$239 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$239');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$240 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$240');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$241 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$241');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$242 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$242');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$243 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$243');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$244 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$244');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$245 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$245');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$246 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$246');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$247 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$247');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$248 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$248');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$249 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$249');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$250 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$250');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$251 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$251');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$252 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$252');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$253 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$253');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$254 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$254');
+const RoomSetAllAttendeesPermissionsPermissions _$roomSetAllAttendeesPermissionsPermissions$255 =
+    RoomSetAllAttendeesPermissionsPermissions._('\$255');
+
+RoomSetAllAttendeesPermissionsPermissions _$valueOfRoomSetAllAttendeesPermissionsPermissions(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetAllAttendeesPermissionsPermissions$0;
+    case '\$1':
+      return _$roomSetAllAttendeesPermissionsPermissions$1;
+    case '\$2':
+      return _$roomSetAllAttendeesPermissionsPermissions$2;
+    case '\$3':
+      return _$roomSetAllAttendeesPermissionsPermissions$3;
+    case '\$4':
+      return _$roomSetAllAttendeesPermissionsPermissions$4;
+    case '\$5':
+      return _$roomSetAllAttendeesPermissionsPermissions$5;
+    case '\$6':
+      return _$roomSetAllAttendeesPermissionsPermissions$6;
+    case '\$7':
+      return _$roomSetAllAttendeesPermissionsPermissions$7;
+    case '\$8':
+      return _$roomSetAllAttendeesPermissionsPermissions$8;
+    case '\$9':
+      return _$roomSetAllAttendeesPermissionsPermissions$9;
+    case '\$10':
+      return _$roomSetAllAttendeesPermissionsPermissions$10;
+    case '\$11':
+      return _$roomSetAllAttendeesPermissionsPermissions$11;
+    case '\$12':
+      return _$roomSetAllAttendeesPermissionsPermissions$12;
+    case '\$13':
+      return _$roomSetAllAttendeesPermissionsPermissions$13;
+    case '\$14':
+      return _$roomSetAllAttendeesPermissionsPermissions$14;
+    case '\$15':
+      return _$roomSetAllAttendeesPermissionsPermissions$15;
+    case '\$16':
+      return _$roomSetAllAttendeesPermissionsPermissions$16;
+    case '\$17':
+      return _$roomSetAllAttendeesPermissionsPermissions$17;
+    case '\$18':
+      return _$roomSetAllAttendeesPermissionsPermissions$18;
+    case '\$19':
+      return _$roomSetAllAttendeesPermissionsPermissions$19;
+    case '\$20':
+      return _$roomSetAllAttendeesPermissionsPermissions$20;
+    case '\$21':
+      return _$roomSetAllAttendeesPermissionsPermissions$21;
+    case '\$22':
+      return _$roomSetAllAttendeesPermissionsPermissions$22;
+    case '\$23':
+      return _$roomSetAllAttendeesPermissionsPermissions$23;
+    case '\$24':
+      return _$roomSetAllAttendeesPermissionsPermissions$24;
+    case '\$25':
+      return _$roomSetAllAttendeesPermissionsPermissions$25;
+    case '\$26':
+      return _$roomSetAllAttendeesPermissionsPermissions$26;
+    case '\$27':
+      return _$roomSetAllAttendeesPermissionsPermissions$27;
+    case '\$28':
+      return _$roomSetAllAttendeesPermissionsPermissions$28;
+    case '\$29':
+      return _$roomSetAllAttendeesPermissionsPermissions$29;
+    case '\$30':
+      return _$roomSetAllAttendeesPermissionsPermissions$30;
+    case '\$31':
+      return _$roomSetAllAttendeesPermissionsPermissions$31;
+    case '\$32':
+      return _$roomSetAllAttendeesPermissionsPermissions$32;
+    case '\$33':
+      return _$roomSetAllAttendeesPermissionsPermissions$33;
+    case '\$34':
+      return _$roomSetAllAttendeesPermissionsPermissions$34;
+    case '\$35':
+      return _$roomSetAllAttendeesPermissionsPermissions$35;
+    case '\$36':
+      return _$roomSetAllAttendeesPermissionsPermissions$36;
+    case '\$37':
+      return _$roomSetAllAttendeesPermissionsPermissions$37;
+    case '\$38':
+      return _$roomSetAllAttendeesPermissionsPermissions$38;
+    case '\$39':
+      return _$roomSetAllAttendeesPermissionsPermissions$39;
+    case '\$40':
+      return _$roomSetAllAttendeesPermissionsPermissions$40;
+    case '\$41':
+      return _$roomSetAllAttendeesPermissionsPermissions$41;
+    case '\$42':
+      return _$roomSetAllAttendeesPermissionsPermissions$42;
+    case '\$43':
+      return _$roomSetAllAttendeesPermissionsPermissions$43;
+    case '\$44':
+      return _$roomSetAllAttendeesPermissionsPermissions$44;
+    case '\$45':
+      return _$roomSetAllAttendeesPermissionsPermissions$45;
+    case '\$46':
+      return _$roomSetAllAttendeesPermissionsPermissions$46;
+    case '\$47':
+      return _$roomSetAllAttendeesPermissionsPermissions$47;
+    case '\$48':
+      return _$roomSetAllAttendeesPermissionsPermissions$48;
+    case '\$49':
+      return _$roomSetAllAttendeesPermissionsPermissions$49;
+    case '\$50':
+      return _$roomSetAllAttendeesPermissionsPermissions$50;
+    case '\$51':
+      return _$roomSetAllAttendeesPermissionsPermissions$51;
+    case '\$52':
+      return _$roomSetAllAttendeesPermissionsPermissions$52;
+    case '\$53':
+      return _$roomSetAllAttendeesPermissionsPermissions$53;
+    case '\$54':
+      return _$roomSetAllAttendeesPermissionsPermissions$54;
+    case '\$55':
+      return _$roomSetAllAttendeesPermissionsPermissions$55;
+    case '\$56':
+      return _$roomSetAllAttendeesPermissionsPermissions$56;
+    case '\$57':
+      return _$roomSetAllAttendeesPermissionsPermissions$57;
+    case '\$58':
+      return _$roomSetAllAttendeesPermissionsPermissions$58;
+    case '\$59':
+      return _$roomSetAllAttendeesPermissionsPermissions$59;
+    case '\$60':
+      return _$roomSetAllAttendeesPermissionsPermissions$60;
+    case '\$61':
+      return _$roomSetAllAttendeesPermissionsPermissions$61;
+    case '\$62':
+      return _$roomSetAllAttendeesPermissionsPermissions$62;
+    case '\$63':
+      return _$roomSetAllAttendeesPermissionsPermissions$63;
+    case '\$64':
+      return _$roomSetAllAttendeesPermissionsPermissions$64;
+    case '\$65':
+      return _$roomSetAllAttendeesPermissionsPermissions$65;
+    case '\$66':
+      return _$roomSetAllAttendeesPermissionsPermissions$66;
+    case '\$67':
+      return _$roomSetAllAttendeesPermissionsPermissions$67;
+    case '\$68':
+      return _$roomSetAllAttendeesPermissionsPermissions$68;
+    case '\$69':
+      return _$roomSetAllAttendeesPermissionsPermissions$69;
+    case '\$70':
+      return _$roomSetAllAttendeesPermissionsPermissions$70;
+    case '\$71':
+      return _$roomSetAllAttendeesPermissionsPermissions$71;
+    case '\$72':
+      return _$roomSetAllAttendeesPermissionsPermissions$72;
+    case '\$73':
+      return _$roomSetAllAttendeesPermissionsPermissions$73;
+    case '\$74':
+      return _$roomSetAllAttendeesPermissionsPermissions$74;
+    case '\$75':
+      return _$roomSetAllAttendeesPermissionsPermissions$75;
+    case '\$76':
+      return _$roomSetAllAttendeesPermissionsPermissions$76;
+    case '\$77':
+      return _$roomSetAllAttendeesPermissionsPermissions$77;
+    case '\$78':
+      return _$roomSetAllAttendeesPermissionsPermissions$78;
+    case '\$79':
+      return _$roomSetAllAttendeesPermissionsPermissions$79;
+    case '\$80':
+      return _$roomSetAllAttendeesPermissionsPermissions$80;
+    case '\$81':
+      return _$roomSetAllAttendeesPermissionsPermissions$81;
+    case '\$82':
+      return _$roomSetAllAttendeesPermissionsPermissions$82;
+    case '\$83':
+      return _$roomSetAllAttendeesPermissionsPermissions$83;
+    case '\$84':
+      return _$roomSetAllAttendeesPermissionsPermissions$84;
+    case '\$85':
+      return _$roomSetAllAttendeesPermissionsPermissions$85;
+    case '\$86':
+      return _$roomSetAllAttendeesPermissionsPermissions$86;
+    case '\$87':
+      return _$roomSetAllAttendeesPermissionsPermissions$87;
+    case '\$88':
+      return _$roomSetAllAttendeesPermissionsPermissions$88;
+    case '\$89':
+      return _$roomSetAllAttendeesPermissionsPermissions$89;
+    case '\$90':
+      return _$roomSetAllAttendeesPermissionsPermissions$90;
+    case '\$91':
+      return _$roomSetAllAttendeesPermissionsPermissions$91;
+    case '\$92':
+      return _$roomSetAllAttendeesPermissionsPermissions$92;
+    case '\$93':
+      return _$roomSetAllAttendeesPermissionsPermissions$93;
+    case '\$94':
+      return _$roomSetAllAttendeesPermissionsPermissions$94;
+    case '\$95':
+      return _$roomSetAllAttendeesPermissionsPermissions$95;
+    case '\$96':
+      return _$roomSetAllAttendeesPermissionsPermissions$96;
+    case '\$97':
+      return _$roomSetAllAttendeesPermissionsPermissions$97;
+    case '\$98':
+      return _$roomSetAllAttendeesPermissionsPermissions$98;
+    case '\$99':
+      return _$roomSetAllAttendeesPermissionsPermissions$99;
+    case '\$100':
+      return _$roomSetAllAttendeesPermissionsPermissions$100;
+    case '\$101':
+      return _$roomSetAllAttendeesPermissionsPermissions$101;
+    case '\$102':
+      return _$roomSetAllAttendeesPermissionsPermissions$102;
+    case '\$103':
+      return _$roomSetAllAttendeesPermissionsPermissions$103;
+    case '\$104':
+      return _$roomSetAllAttendeesPermissionsPermissions$104;
+    case '\$105':
+      return _$roomSetAllAttendeesPermissionsPermissions$105;
+    case '\$106':
+      return _$roomSetAllAttendeesPermissionsPermissions$106;
+    case '\$107':
+      return _$roomSetAllAttendeesPermissionsPermissions$107;
+    case '\$108':
+      return _$roomSetAllAttendeesPermissionsPermissions$108;
+    case '\$109':
+      return _$roomSetAllAttendeesPermissionsPermissions$109;
+    case '\$110':
+      return _$roomSetAllAttendeesPermissionsPermissions$110;
+    case '\$111':
+      return _$roomSetAllAttendeesPermissionsPermissions$111;
+    case '\$112':
+      return _$roomSetAllAttendeesPermissionsPermissions$112;
+    case '\$113':
+      return _$roomSetAllAttendeesPermissionsPermissions$113;
+    case '\$114':
+      return _$roomSetAllAttendeesPermissionsPermissions$114;
+    case '\$115':
+      return _$roomSetAllAttendeesPermissionsPermissions$115;
+    case '\$116':
+      return _$roomSetAllAttendeesPermissionsPermissions$116;
+    case '\$117':
+      return _$roomSetAllAttendeesPermissionsPermissions$117;
+    case '\$118':
+      return _$roomSetAllAttendeesPermissionsPermissions$118;
+    case '\$119':
+      return _$roomSetAllAttendeesPermissionsPermissions$119;
+    case '\$120':
+      return _$roomSetAllAttendeesPermissionsPermissions$120;
+    case '\$121':
+      return _$roomSetAllAttendeesPermissionsPermissions$121;
+    case '\$122':
+      return _$roomSetAllAttendeesPermissionsPermissions$122;
+    case '\$123':
+      return _$roomSetAllAttendeesPermissionsPermissions$123;
+    case '\$124':
+      return _$roomSetAllAttendeesPermissionsPermissions$124;
+    case '\$125':
+      return _$roomSetAllAttendeesPermissionsPermissions$125;
+    case '\$126':
+      return _$roomSetAllAttendeesPermissionsPermissions$126;
+    case '\$127':
+      return _$roomSetAllAttendeesPermissionsPermissions$127;
+    case '\$128':
+      return _$roomSetAllAttendeesPermissionsPermissions$128;
+    case '\$129':
+      return _$roomSetAllAttendeesPermissionsPermissions$129;
+    case '\$130':
+      return _$roomSetAllAttendeesPermissionsPermissions$130;
+    case '\$131':
+      return _$roomSetAllAttendeesPermissionsPermissions$131;
+    case '\$132':
+      return _$roomSetAllAttendeesPermissionsPermissions$132;
+    case '\$133':
+      return _$roomSetAllAttendeesPermissionsPermissions$133;
+    case '\$134':
+      return _$roomSetAllAttendeesPermissionsPermissions$134;
+    case '\$135':
+      return _$roomSetAllAttendeesPermissionsPermissions$135;
+    case '\$136':
+      return _$roomSetAllAttendeesPermissionsPermissions$136;
+    case '\$137':
+      return _$roomSetAllAttendeesPermissionsPermissions$137;
+    case '\$138':
+      return _$roomSetAllAttendeesPermissionsPermissions$138;
+    case '\$139':
+      return _$roomSetAllAttendeesPermissionsPermissions$139;
+    case '\$140':
+      return _$roomSetAllAttendeesPermissionsPermissions$140;
+    case '\$141':
+      return _$roomSetAllAttendeesPermissionsPermissions$141;
+    case '\$142':
+      return _$roomSetAllAttendeesPermissionsPermissions$142;
+    case '\$143':
+      return _$roomSetAllAttendeesPermissionsPermissions$143;
+    case '\$144':
+      return _$roomSetAllAttendeesPermissionsPermissions$144;
+    case '\$145':
+      return _$roomSetAllAttendeesPermissionsPermissions$145;
+    case '\$146':
+      return _$roomSetAllAttendeesPermissionsPermissions$146;
+    case '\$147':
+      return _$roomSetAllAttendeesPermissionsPermissions$147;
+    case '\$148':
+      return _$roomSetAllAttendeesPermissionsPermissions$148;
+    case '\$149':
+      return _$roomSetAllAttendeesPermissionsPermissions$149;
+    case '\$150':
+      return _$roomSetAllAttendeesPermissionsPermissions$150;
+    case '\$151':
+      return _$roomSetAllAttendeesPermissionsPermissions$151;
+    case '\$152':
+      return _$roomSetAllAttendeesPermissionsPermissions$152;
+    case '\$153':
+      return _$roomSetAllAttendeesPermissionsPermissions$153;
+    case '\$154':
+      return _$roomSetAllAttendeesPermissionsPermissions$154;
+    case '\$155':
+      return _$roomSetAllAttendeesPermissionsPermissions$155;
+    case '\$156':
+      return _$roomSetAllAttendeesPermissionsPermissions$156;
+    case '\$157':
+      return _$roomSetAllAttendeesPermissionsPermissions$157;
+    case '\$158':
+      return _$roomSetAllAttendeesPermissionsPermissions$158;
+    case '\$159':
+      return _$roomSetAllAttendeesPermissionsPermissions$159;
+    case '\$160':
+      return _$roomSetAllAttendeesPermissionsPermissions$160;
+    case '\$161':
+      return _$roomSetAllAttendeesPermissionsPermissions$161;
+    case '\$162':
+      return _$roomSetAllAttendeesPermissionsPermissions$162;
+    case '\$163':
+      return _$roomSetAllAttendeesPermissionsPermissions$163;
+    case '\$164':
+      return _$roomSetAllAttendeesPermissionsPermissions$164;
+    case '\$165':
+      return _$roomSetAllAttendeesPermissionsPermissions$165;
+    case '\$166':
+      return _$roomSetAllAttendeesPermissionsPermissions$166;
+    case '\$167':
+      return _$roomSetAllAttendeesPermissionsPermissions$167;
+    case '\$168':
+      return _$roomSetAllAttendeesPermissionsPermissions$168;
+    case '\$169':
+      return _$roomSetAllAttendeesPermissionsPermissions$169;
+    case '\$170':
+      return _$roomSetAllAttendeesPermissionsPermissions$170;
+    case '\$171':
+      return _$roomSetAllAttendeesPermissionsPermissions$171;
+    case '\$172':
+      return _$roomSetAllAttendeesPermissionsPermissions$172;
+    case '\$173':
+      return _$roomSetAllAttendeesPermissionsPermissions$173;
+    case '\$174':
+      return _$roomSetAllAttendeesPermissionsPermissions$174;
+    case '\$175':
+      return _$roomSetAllAttendeesPermissionsPermissions$175;
+    case '\$176':
+      return _$roomSetAllAttendeesPermissionsPermissions$176;
+    case '\$177':
+      return _$roomSetAllAttendeesPermissionsPermissions$177;
+    case '\$178':
+      return _$roomSetAllAttendeesPermissionsPermissions$178;
+    case '\$179':
+      return _$roomSetAllAttendeesPermissionsPermissions$179;
+    case '\$180':
+      return _$roomSetAllAttendeesPermissionsPermissions$180;
+    case '\$181':
+      return _$roomSetAllAttendeesPermissionsPermissions$181;
+    case '\$182':
+      return _$roomSetAllAttendeesPermissionsPermissions$182;
+    case '\$183':
+      return _$roomSetAllAttendeesPermissionsPermissions$183;
+    case '\$184':
+      return _$roomSetAllAttendeesPermissionsPermissions$184;
+    case '\$185':
+      return _$roomSetAllAttendeesPermissionsPermissions$185;
+    case '\$186':
+      return _$roomSetAllAttendeesPermissionsPermissions$186;
+    case '\$187':
+      return _$roomSetAllAttendeesPermissionsPermissions$187;
+    case '\$188':
+      return _$roomSetAllAttendeesPermissionsPermissions$188;
+    case '\$189':
+      return _$roomSetAllAttendeesPermissionsPermissions$189;
+    case '\$190':
+      return _$roomSetAllAttendeesPermissionsPermissions$190;
+    case '\$191':
+      return _$roomSetAllAttendeesPermissionsPermissions$191;
+    case '\$192':
+      return _$roomSetAllAttendeesPermissionsPermissions$192;
+    case '\$193':
+      return _$roomSetAllAttendeesPermissionsPermissions$193;
+    case '\$194':
+      return _$roomSetAllAttendeesPermissionsPermissions$194;
+    case '\$195':
+      return _$roomSetAllAttendeesPermissionsPermissions$195;
+    case '\$196':
+      return _$roomSetAllAttendeesPermissionsPermissions$196;
+    case '\$197':
+      return _$roomSetAllAttendeesPermissionsPermissions$197;
+    case '\$198':
+      return _$roomSetAllAttendeesPermissionsPermissions$198;
+    case '\$199':
+      return _$roomSetAllAttendeesPermissionsPermissions$199;
+    case '\$200':
+      return _$roomSetAllAttendeesPermissionsPermissions$200;
+    case '\$201':
+      return _$roomSetAllAttendeesPermissionsPermissions$201;
+    case '\$202':
+      return _$roomSetAllAttendeesPermissionsPermissions$202;
+    case '\$203':
+      return _$roomSetAllAttendeesPermissionsPermissions$203;
+    case '\$204':
+      return _$roomSetAllAttendeesPermissionsPermissions$204;
+    case '\$205':
+      return _$roomSetAllAttendeesPermissionsPermissions$205;
+    case '\$206':
+      return _$roomSetAllAttendeesPermissionsPermissions$206;
+    case '\$207':
+      return _$roomSetAllAttendeesPermissionsPermissions$207;
+    case '\$208':
+      return _$roomSetAllAttendeesPermissionsPermissions$208;
+    case '\$209':
+      return _$roomSetAllAttendeesPermissionsPermissions$209;
+    case '\$210':
+      return _$roomSetAllAttendeesPermissionsPermissions$210;
+    case '\$211':
+      return _$roomSetAllAttendeesPermissionsPermissions$211;
+    case '\$212':
+      return _$roomSetAllAttendeesPermissionsPermissions$212;
+    case '\$213':
+      return _$roomSetAllAttendeesPermissionsPermissions$213;
+    case '\$214':
+      return _$roomSetAllAttendeesPermissionsPermissions$214;
+    case '\$215':
+      return _$roomSetAllAttendeesPermissionsPermissions$215;
+    case '\$216':
+      return _$roomSetAllAttendeesPermissionsPermissions$216;
+    case '\$217':
+      return _$roomSetAllAttendeesPermissionsPermissions$217;
+    case '\$218':
+      return _$roomSetAllAttendeesPermissionsPermissions$218;
+    case '\$219':
+      return _$roomSetAllAttendeesPermissionsPermissions$219;
+    case '\$220':
+      return _$roomSetAllAttendeesPermissionsPermissions$220;
+    case '\$221':
+      return _$roomSetAllAttendeesPermissionsPermissions$221;
+    case '\$222':
+      return _$roomSetAllAttendeesPermissionsPermissions$222;
+    case '\$223':
+      return _$roomSetAllAttendeesPermissionsPermissions$223;
+    case '\$224':
+      return _$roomSetAllAttendeesPermissionsPermissions$224;
+    case '\$225':
+      return _$roomSetAllAttendeesPermissionsPermissions$225;
+    case '\$226':
+      return _$roomSetAllAttendeesPermissionsPermissions$226;
+    case '\$227':
+      return _$roomSetAllAttendeesPermissionsPermissions$227;
+    case '\$228':
+      return _$roomSetAllAttendeesPermissionsPermissions$228;
+    case '\$229':
+      return _$roomSetAllAttendeesPermissionsPermissions$229;
+    case '\$230':
+      return _$roomSetAllAttendeesPermissionsPermissions$230;
+    case '\$231':
+      return _$roomSetAllAttendeesPermissionsPermissions$231;
+    case '\$232':
+      return _$roomSetAllAttendeesPermissionsPermissions$232;
+    case '\$233':
+      return _$roomSetAllAttendeesPermissionsPermissions$233;
+    case '\$234':
+      return _$roomSetAllAttendeesPermissionsPermissions$234;
+    case '\$235':
+      return _$roomSetAllAttendeesPermissionsPermissions$235;
+    case '\$236':
+      return _$roomSetAllAttendeesPermissionsPermissions$236;
+    case '\$237':
+      return _$roomSetAllAttendeesPermissionsPermissions$237;
+    case '\$238':
+      return _$roomSetAllAttendeesPermissionsPermissions$238;
+    case '\$239':
+      return _$roomSetAllAttendeesPermissionsPermissions$239;
+    case '\$240':
+      return _$roomSetAllAttendeesPermissionsPermissions$240;
+    case '\$241':
+      return _$roomSetAllAttendeesPermissionsPermissions$241;
+    case '\$242':
+      return _$roomSetAllAttendeesPermissionsPermissions$242;
+    case '\$243':
+      return _$roomSetAllAttendeesPermissionsPermissions$243;
+    case '\$244':
+      return _$roomSetAllAttendeesPermissionsPermissions$244;
+    case '\$245':
+      return _$roomSetAllAttendeesPermissionsPermissions$245;
+    case '\$246':
+      return _$roomSetAllAttendeesPermissionsPermissions$246;
+    case '\$247':
+      return _$roomSetAllAttendeesPermissionsPermissions$247;
+    case '\$248':
+      return _$roomSetAllAttendeesPermissionsPermissions$248;
+    case '\$249':
+      return _$roomSetAllAttendeesPermissionsPermissions$249;
+    case '\$250':
+      return _$roomSetAllAttendeesPermissionsPermissions$250;
+    case '\$251':
+      return _$roomSetAllAttendeesPermissionsPermissions$251;
+    case '\$252':
+      return _$roomSetAllAttendeesPermissionsPermissions$252;
+    case '\$253':
+      return _$roomSetAllAttendeesPermissionsPermissions$253;
+    case '\$254':
+      return _$roomSetAllAttendeesPermissionsPermissions$254;
+    case '\$255':
+      return _$roomSetAllAttendeesPermissionsPermissions$255;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetAllAttendeesPermissionsPermissions> _$roomSetAllAttendeesPermissionsPermissionsValues =
+    BuiltSet<RoomSetAllAttendeesPermissionsPermissions>(const <RoomSetAllAttendeesPermissionsPermissions>[
+  _$roomSetAllAttendeesPermissionsPermissions$0,
+  _$roomSetAllAttendeesPermissionsPermissions$1,
+  _$roomSetAllAttendeesPermissionsPermissions$2,
+  _$roomSetAllAttendeesPermissionsPermissions$3,
+  _$roomSetAllAttendeesPermissionsPermissions$4,
+  _$roomSetAllAttendeesPermissionsPermissions$5,
+  _$roomSetAllAttendeesPermissionsPermissions$6,
+  _$roomSetAllAttendeesPermissionsPermissions$7,
+  _$roomSetAllAttendeesPermissionsPermissions$8,
+  _$roomSetAllAttendeesPermissionsPermissions$9,
+  _$roomSetAllAttendeesPermissionsPermissions$10,
+  _$roomSetAllAttendeesPermissionsPermissions$11,
+  _$roomSetAllAttendeesPermissionsPermissions$12,
+  _$roomSetAllAttendeesPermissionsPermissions$13,
+  _$roomSetAllAttendeesPermissionsPermissions$14,
+  _$roomSetAllAttendeesPermissionsPermissions$15,
+  _$roomSetAllAttendeesPermissionsPermissions$16,
+  _$roomSetAllAttendeesPermissionsPermissions$17,
+  _$roomSetAllAttendeesPermissionsPermissions$18,
+  _$roomSetAllAttendeesPermissionsPermissions$19,
+  _$roomSetAllAttendeesPermissionsPermissions$20,
+  _$roomSetAllAttendeesPermissionsPermissions$21,
+  _$roomSetAllAttendeesPermissionsPermissions$22,
+  _$roomSetAllAttendeesPermissionsPermissions$23,
+  _$roomSetAllAttendeesPermissionsPermissions$24,
+  _$roomSetAllAttendeesPermissionsPermissions$25,
+  _$roomSetAllAttendeesPermissionsPermissions$26,
+  _$roomSetAllAttendeesPermissionsPermissions$27,
+  _$roomSetAllAttendeesPermissionsPermissions$28,
+  _$roomSetAllAttendeesPermissionsPermissions$29,
+  _$roomSetAllAttendeesPermissionsPermissions$30,
+  _$roomSetAllAttendeesPermissionsPermissions$31,
+  _$roomSetAllAttendeesPermissionsPermissions$32,
+  _$roomSetAllAttendeesPermissionsPermissions$33,
+  _$roomSetAllAttendeesPermissionsPermissions$34,
+  _$roomSetAllAttendeesPermissionsPermissions$35,
+  _$roomSetAllAttendeesPermissionsPermissions$36,
+  _$roomSetAllAttendeesPermissionsPermissions$37,
+  _$roomSetAllAttendeesPermissionsPermissions$38,
+  _$roomSetAllAttendeesPermissionsPermissions$39,
+  _$roomSetAllAttendeesPermissionsPermissions$40,
+  _$roomSetAllAttendeesPermissionsPermissions$41,
+  _$roomSetAllAttendeesPermissionsPermissions$42,
+  _$roomSetAllAttendeesPermissionsPermissions$43,
+  _$roomSetAllAttendeesPermissionsPermissions$44,
+  _$roomSetAllAttendeesPermissionsPermissions$45,
+  _$roomSetAllAttendeesPermissionsPermissions$46,
+  _$roomSetAllAttendeesPermissionsPermissions$47,
+  _$roomSetAllAttendeesPermissionsPermissions$48,
+  _$roomSetAllAttendeesPermissionsPermissions$49,
+  _$roomSetAllAttendeesPermissionsPermissions$50,
+  _$roomSetAllAttendeesPermissionsPermissions$51,
+  _$roomSetAllAttendeesPermissionsPermissions$52,
+  _$roomSetAllAttendeesPermissionsPermissions$53,
+  _$roomSetAllAttendeesPermissionsPermissions$54,
+  _$roomSetAllAttendeesPermissionsPermissions$55,
+  _$roomSetAllAttendeesPermissionsPermissions$56,
+  _$roomSetAllAttendeesPermissionsPermissions$57,
+  _$roomSetAllAttendeesPermissionsPermissions$58,
+  _$roomSetAllAttendeesPermissionsPermissions$59,
+  _$roomSetAllAttendeesPermissionsPermissions$60,
+  _$roomSetAllAttendeesPermissionsPermissions$61,
+  _$roomSetAllAttendeesPermissionsPermissions$62,
+  _$roomSetAllAttendeesPermissionsPermissions$63,
+  _$roomSetAllAttendeesPermissionsPermissions$64,
+  _$roomSetAllAttendeesPermissionsPermissions$65,
+  _$roomSetAllAttendeesPermissionsPermissions$66,
+  _$roomSetAllAttendeesPermissionsPermissions$67,
+  _$roomSetAllAttendeesPermissionsPermissions$68,
+  _$roomSetAllAttendeesPermissionsPermissions$69,
+  _$roomSetAllAttendeesPermissionsPermissions$70,
+  _$roomSetAllAttendeesPermissionsPermissions$71,
+  _$roomSetAllAttendeesPermissionsPermissions$72,
+  _$roomSetAllAttendeesPermissionsPermissions$73,
+  _$roomSetAllAttendeesPermissionsPermissions$74,
+  _$roomSetAllAttendeesPermissionsPermissions$75,
+  _$roomSetAllAttendeesPermissionsPermissions$76,
+  _$roomSetAllAttendeesPermissionsPermissions$77,
+  _$roomSetAllAttendeesPermissionsPermissions$78,
+  _$roomSetAllAttendeesPermissionsPermissions$79,
+  _$roomSetAllAttendeesPermissionsPermissions$80,
+  _$roomSetAllAttendeesPermissionsPermissions$81,
+  _$roomSetAllAttendeesPermissionsPermissions$82,
+  _$roomSetAllAttendeesPermissionsPermissions$83,
+  _$roomSetAllAttendeesPermissionsPermissions$84,
+  _$roomSetAllAttendeesPermissionsPermissions$85,
+  _$roomSetAllAttendeesPermissionsPermissions$86,
+  _$roomSetAllAttendeesPermissionsPermissions$87,
+  _$roomSetAllAttendeesPermissionsPermissions$88,
+  _$roomSetAllAttendeesPermissionsPermissions$89,
+  _$roomSetAllAttendeesPermissionsPermissions$90,
+  _$roomSetAllAttendeesPermissionsPermissions$91,
+  _$roomSetAllAttendeesPermissionsPermissions$92,
+  _$roomSetAllAttendeesPermissionsPermissions$93,
+  _$roomSetAllAttendeesPermissionsPermissions$94,
+  _$roomSetAllAttendeesPermissionsPermissions$95,
+  _$roomSetAllAttendeesPermissionsPermissions$96,
+  _$roomSetAllAttendeesPermissionsPermissions$97,
+  _$roomSetAllAttendeesPermissionsPermissions$98,
+  _$roomSetAllAttendeesPermissionsPermissions$99,
+  _$roomSetAllAttendeesPermissionsPermissions$100,
+  _$roomSetAllAttendeesPermissionsPermissions$101,
+  _$roomSetAllAttendeesPermissionsPermissions$102,
+  _$roomSetAllAttendeesPermissionsPermissions$103,
+  _$roomSetAllAttendeesPermissionsPermissions$104,
+  _$roomSetAllAttendeesPermissionsPermissions$105,
+  _$roomSetAllAttendeesPermissionsPermissions$106,
+  _$roomSetAllAttendeesPermissionsPermissions$107,
+  _$roomSetAllAttendeesPermissionsPermissions$108,
+  _$roomSetAllAttendeesPermissionsPermissions$109,
+  _$roomSetAllAttendeesPermissionsPermissions$110,
+  _$roomSetAllAttendeesPermissionsPermissions$111,
+  _$roomSetAllAttendeesPermissionsPermissions$112,
+  _$roomSetAllAttendeesPermissionsPermissions$113,
+  _$roomSetAllAttendeesPermissionsPermissions$114,
+  _$roomSetAllAttendeesPermissionsPermissions$115,
+  _$roomSetAllAttendeesPermissionsPermissions$116,
+  _$roomSetAllAttendeesPermissionsPermissions$117,
+  _$roomSetAllAttendeesPermissionsPermissions$118,
+  _$roomSetAllAttendeesPermissionsPermissions$119,
+  _$roomSetAllAttendeesPermissionsPermissions$120,
+  _$roomSetAllAttendeesPermissionsPermissions$121,
+  _$roomSetAllAttendeesPermissionsPermissions$122,
+  _$roomSetAllAttendeesPermissionsPermissions$123,
+  _$roomSetAllAttendeesPermissionsPermissions$124,
+  _$roomSetAllAttendeesPermissionsPermissions$125,
+  _$roomSetAllAttendeesPermissionsPermissions$126,
+  _$roomSetAllAttendeesPermissionsPermissions$127,
+  _$roomSetAllAttendeesPermissionsPermissions$128,
+  _$roomSetAllAttendeesPermissionsPermissions$129,
+  _$roomSetAllAttendeesPermissionsPermissions$130,
+  _$roomSetAllAttendeesPermissionsPermissions$131,
+  _$roomSetAllAttendeesPermissionsPermissions$132,
+  _$roomSetAllAttendeesPermissionsPermissions$133,
+  _$roomSetAllAttendeesPermissionsPermissions$134,
+  _$roomSetAllAttendeesPermissionsPermissions$135,
+  _$roomSetAllAttendeesPermissionsPermissions$136,
+  _$roomSetAllAttendeesPermissionsPermissions$137,
+  _$roomSetAllAttendeesPermissionsPermissions$138,
+  _$roomSetAllAttendeesPermissionsPermissions$139,
+  _$roomSetAllAttendeesPermissionsPermissions$140,
+  _$roomSetAllAttendeesPermissionsPermissions$141,
+  _$roomSetAllAttendeesPermissionsPermissions$142,
+  _$roomSetAllAttendeesPermissionsPermissions$143,
+  _$roomSetAllAttendeesPermissionsPermissions$144,
+  _$roomSetAllAttendeesPermissionsPermissions$145,
+  _$roomSetAllAttendeesPermissionsPermissions$146,
+  _$roomSetAllAttendeesPermissionsPermissions$147,
+  _$roomSetAllAttendeesPermissionsPermissions$148,
+  _$roomSetAllAttendeesPermissionsPermissions$149,
+  _$roomSetAllAttendeesPermissionsPermissions$150,
+  _$roomSetAllAttendeesPermissionsPermissions$151,
+  _$roomSetAllAttendeesPermissionsPermissions$152,
+  _$roomSetAllAttendeesPermissionsPermissions$153,
+  _$roomSetAllAttendeesPermissionsPermissions$154,
+  _$roomSetAllAttendeesPermissionsPermissions$155,
+  _$roomSetAllAttendeesPermissionsPermissions$156,
+  _$roomSetAllAttendeesPermissionsPermissions$157,
+  _$roomSetAllAttendeesPermissionsPermissions$158,
+  _$roomSetAllAttendeesPermissionsPermissions$159,
+  _$roomSetAllAttendeesPermissionsPermissions$160,
+  _$roomSetAllAttendeesPermissionsPermissions$161,
+  _$roomSetAllAttendeesPermissionsPermissions$162,
+  _$roomSetAllAttendeesPermissionsPermissions$163,
+  _$roomSetAllAttendeesPermissionsPermissions$164,
+  _$roomSetAllAttendeesPermissionsPermissions$165,
+  _$roomSetAllAttendeesPermissionsPermissions$166,
+  _$roomSetAllAttendeesPermissionsPermissions$167,
+  _$roomSetAllAttendeesPermissionsPermissions$168,
+  _$roomSetAllAttendeesPermissionsPermissions$169,
+  _$roomSetAllAttendeesPermissionsPermissions$170,
+  _$roomSetAllAttendeesPermissionsPermissions$171,
+  _$roomSetAllAttendeesPermissionsPermissions$172,
+  _$roomSetAllAttendeesPermissionsPermissions$173,
+  _$roomSetAllAttendeesPermissionsPermissions$174,
+  _$roomSetAllAttendeesPermissionsPermissions$175,
+  _$roomSetAllAttendeesPermissionsPermissions$176,
+  _$roomSetAllAttendeesPermissionsPermissions$177,
+  _$roomSetAllAttendeesPermissionsPermissions$178,
+  _$roomSetAllAttendeesPermissionsPermissions$179,
+  _$roomSetAllAttendeesPermissionsPermissions$180,
+  _$roomSetAllAttendeesPermissionsPermissions$181,
+  _$roomSetAllAttendeesPermissionsPermissions$182,
+  _$roomSetAllAttendeesPermissionsPermissions$183,
+  _$roomSetAllAttendeesPermissionsPermissions$184,
+  _$roomSetAllAttendeesPermissionsPermissions$185,
+  _$roomSetAllAttendeesPermissionsPermissions$186,
+  _$roomSetAllAttendeesPermissionsPermissions$187,
+  _$roomSetAllAttendeesPermissionsPermissions$188,
+  _$roomSetAllAttendeesPermissionsPermissions$189,
+  _$roomSetAllAttendeesPermissionsPermissions$190,
+  _$roomSetAllAttendeesPermissionsPermissions$191,
+  _$roomSetAllAttendeesPermissionsPermissions$192,
+  _$roomSetAllAttendeesPermissionsPermissions$193,
+  _$roomSetAllAttendeesPermissionsPermissions$194,
+  _$roomSetAllAttendeesPermissionsPermissions$195,
+  _$roomSetAllAttendeesPermissionsPermissions$196,
+  _$roomSetAllAttendeesPermissionsPermissions$197,
+  _$roomSetAllAttendeesPermissionsPermissions$198,
+  _$roomSetAllAttendeesPermissionsPermissions$199,
+  _$roomSetAllAttendeesPermissionsPermissions$200,
+  _$roomSetAllAttendeesPermissionsPermissions$201,
+  _$roomSetAllAttendeesPermissionsPermissions$202,
+  _$roomSetAllAttendeesPermissionsPermissions$203,
+  _$roomSetAllAttendeesPermissionsPermissions$204,
+  _$roomSetAllAttendeesPermissionsPermissions$205,
+  _$roomSetAllAttendeesPermissionsPermissions$206,
+  _$roomSetAllAttendeesPermissionsPermissions$207,
+  _$roomSetAllAttendeesPermissionsPermissions$208,
+  _$roomSetAllAttendeesPermissionsPermissions$209,
+  _$roomSetAllAttendeesPermissionsPermissions$210,
+  _$roomSetAllAttendeesPermissionsPermissions$211,
+  _$roomSetAllAttendeesPermissionsPermissions$212,
+  _$roomSetAllAttendeesPermissionsPermissions$213,
+  _$roomSetAllAttendeesPermissionsPermissions$214,
+  _$roomSetAllAttendeesPermissionsPermissions$215,
+  _$roomSetAllAttendeesPermissionsPermissions$216,
+  _$roomSetAllAttendeesPermissionsPermissions$217,
+  _$roomSetAllAttendeesPermissionsPermissions$218,
+  _$roomSetAllAttendeesPermissionsPermissions$219,
+  _$roomSetAllAttendeesPermissionsPermissions$220,
+  _$roomSetAllAttendeesPermissionsPermissions$221,
+  _$roomSetAllAttendeesPermissionsPermissions$222,
+  _$roomSetAllAttendeesPermissionsPermissions$223,
+  _$roomSetAllAttendeesPermissionsPermissions$224,
+  _$roomSetAllAttendeesPermissionsPermissions$225,
+  _$roomSetAllAttendeesPermissionsPermissions$226,
+  _$roomSetAllAttendeesPermissionsPermissions$227,
+  _$roomSetAllAttendeesPermissionsPermissions$228,
+  _$roomSetAllAttendeesPermissionsPermissions$229,
+  _$roomSetAllAttendeesPermissionsPermissions$230,
+  _$roomSetAllAttendeesPermissionsPermissions$231,
+  _$roomSetAllAttendeesPermissionsPermissions$232,
+  _$roomSetAllAttendeesPermissionsPermissions$233,
+  _$roomSetAllAttendeesPermissionsPermissions$234,
+  _$roomSetAllAttendeesPermissionsPermissions$235,
+  _$roomSetAllAttendeesPermissionsPermissions$236,
+  _$roomSetAllAttendeesPermissionsPermissions$237,
+  _$roomSetAllAttendeesPermissionsPermissions$238,
+  _$roomSetAllAttendeesPermissionsPermissions$239,
+  _$roomSetAllAttendeesPermissionsPermissions$240,
+  _$roomSetAllAttendeesPermissionsPermissions$241,
+  _$roomSetAllAttendeesPermissionsPermissions$242,
+  _$roomSetAllAttendeesPermissionsPermissions$243,
+  _$roomSetAllAttendeesPermissionsPermissions$244,
+  _$roomSetAllAttendeesPermissionsPermissions$245,
+  _$roomSetAllAttendeesPermissionsPermissions$246,
+  _$roomSetAllAttendeesPermissionsPermissions$247,
+  _$roomSetAllAttendeesPermissionsPermissions$248,
+  _$roomSetAllAttendeesPermissionsPermissions$249,
+  _$roomSetAllAttendeesPermissionsPermissions$250,
+  _$roomSetAllAttendeesPermissionsPermissions$251,
+  _$roomSetAllAttendeesPermissionsPermissions$252,
+  _$roomSetAllAttendeesPermissionsPermissions$253,
+  _$roomSetAllAttendeesPermissionsPermissions$254,
+  _$roomSetAllAttendeesPermissionsPermissions$255,
 ]);
 
 const RoomSetAllAttendeesPermissionsApiVersion _$roomSetAllAttendeesPermissionsApiVersionV4 =
@@ -1557,6 +6579,26 @@ RoomResendInvitationsApiVersion _$valueOfRoomResendInvitationsApiVersion(String 
 final BuiltSet<RoomResendInvitationsApiVersion> _$roomResendInvitationsApiVersionValues =
     BuiltSet<RoomResendInvitationsApiVersion>(const <RoomResendInvitationsApiVersion>[
   _$roomResendInvitationsApiVersionV4,
+]);
+
+const RoomSetSessionStateState _$roomSetSessionStateState$0 = RoomSetSessionStateState._('\$0');
+const RoomSetSessionStateState _$roomSetSessionStateState$1 = RoomSetSessionStateState._('\$1');
+
+RoomSetSessionStateState _$valueOfRoomSetSessionStateState(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetSessionStateState$0;
+    case '\$1':
+      return _$roomSetSessionStateState$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetSessionStateState> _$roomSetSessionStateStateValues =
+    BuiltSet<RoomSetSessionStateState>(const <RoomSetSessionStateState>[
+  _$roomSetSessionStateState$0,
+  _$roomSetSessionStateState$1,
 ]);
 
 const RoomSetSessionStateApiVersion _$roomSetSessionStateApiVersionV4 = RoomSetSessionStateApiVersion._('v4');
@@ -1690,6 +6732,30 @@ final BuiltSet<RoomSetLobbyApiVersion> _$roomSetLobbyApiVersionValues =
   _$roomSetLobbyApiVersionV4,
 ]);
 
+const RoomSetsipEnabledState _$roomSetsipEnabledState$0 = RoomSetsipEnabledState._('\$0');
+const RoomSetsipEnabledState _$roomSetsipEnabledState$1 = RoomSetsipEnabledState._('\$1');
+const RoomSetsipEnabledState _$roomSetsipEnabledState$2 = RoomSetsipEnabledState._('\$2');
+
+RoomSetsipEnabledState _$valueOfRoomSetsipEnabledState(String name) {
+  switch (name) {
+    case '\$0':
+      return _$roomSetsipEnabledState$0;
+    case '\$1':
+      return _$roomSetsipEnabledState$1;
+    case '\$2':
+      return _$roomSetsipEnabledState$2;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<RoomSetsipEnabledState> _$roomSetsipEnabledStateValues =
+    BuiltSet<RoomSetsipEnabledState>(const <RoomSetsipEnabledState>[
+  _$roomSetsipEnabledState$0,
+  _$roomSetsipEnabledState$1,
+  _$roomSetsipEnabledState$2,
+]);
+
 const RoomSetsipEnabledApiVersion _$roomSetsipEnabledApiVersionV4 = RoomSetsipEnabledApiVersion._('v4');
 
 RoomSetsipEnabledApiVersion _$valueOfRoomSetsipEnabledApiVersion(String name) {
@@ -1754,6 +6820,36 @@ SettingsSetsipSettingsApiVersion _$valueOfSettingsSetsipSettingsApiVersion(Strin
 final BuiltSet<SettingsSetsipSettingsApiVersion> _$settingsSetsipSettingsApiVersionValues =
     BuiltSet<SettingsSetsipSettingsApiVersion>(const <SettingsSetsipSettingsApiVersion>[
   _$settingsSetsipSettingsApiVersionV1,
+]);
+
+const SettingsSetUserSettingKey _$settingsSetUserSettingKeyAttachmentFolder =
+    SettingsSetUserSettingKey._('attachmentFolder');
+const SettingsSetUserSettingKey _$settingsSetUserSettingKeyReadStatusPrivacy =
+    SettingsSetUserSettingKey._('readStatusPrivacy');
+const SettingsSetUserSettingKey _$settingsSetUserSettingKeyTypingPrivacy = SettingsSetUserSettingKey._('typingPrivacy');
+const SettingsSetUserSettingKey _$settingsSetUserSettingKeyPlaySounds = SettingsSetUserSettingKey._('playSounds');
+
+SettingsSetUserSettingKey _$valueOfSettingsSetUserSettingKey(String name) {
+  switch (name) {
+    case 'attachmentFolder':
+      return _$settingsSetUserSettingKeyAttachmentFolder;
+    case 'readStatusPrivacy':
+      return _$settingsSetUserSettingKeyReadStatusPrivacy;
+    case 'typingPrivacy':
+      return _$settingsSetUserSettingKeyTypingPrivacy;
+    case 'playSounds':
+      return _$settingsSetUserSettingKeyPlaySounds;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<SettingsSetUserSettingKey> _$settingsSetUserSettingKeyValues =
+    BuiltSet<SettingsSetUserSettingKey>(const <SettingsSetUserSettingKey>[
+  _$settingsSetUserSettingKeyAttachmentFolder,
+  _$settingsSetUserSettingKeyReadStatusPrivacy,
+  _$settingsSetUserSettingKeyTypingPrivacy,
+  _$settingsSetUserSettingKeyPlaySounds,
 ]);
 
 const SettingsSetUserSettingApiVersion _$settingsSetUserSettingApiVersionV1 = SettingsSetUserSettingApiVersion._('v1');
@@ -2054,21 +7150,6 @@ Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs>
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer();
-Serializer<FederationAcceptShareResponseApplicationJson_Ocs>
-    _$federationAcceptShareResponseApplicationJsonOcsSerializer =
-    _$FederationAcceptShareResponseApplicationJson_OcsSerializer();
-Serializer<FederationAcceptShareResponseApplicationJson> _$federationAcceptShareResponseApplicationJsonSerializer =
-    _$FederationAcceptShareResponseApplicationJsonSerializer();
-Serializer<FederationRejectShareResponseApplicationJson_Ocs>
-    _$federationRejectShareResponseApplicationJsonOcsSerializer =
-    _$FederationRejectShareResponseApplicationJson_OcsSerializer();
-Serializer<FederationRejectShareResponseApplicationJson> _$federationRejectShareResponseApplicationJsonSerializer =
-    _$FederationRejectShareResponseApplicationJsonSerializer();
-Serializer<FederationInvite> _$federationInviteSerializer = _$FederationInviteSerializer();
-Serializer<FederationGetSharesResponseApplicationJson_Ocs> _$federationGetSharesResponseApplicationJsonOcsSerializer =
-    _$FederationGetSharesResponseApplicationJson_OcsSerializer();
-Serializer<FederationGetSharesResponseApplicationJson> _$federationGetSharesResponseApplicationJsonSerializer =
-    _$FederationGetSharesResponseApplicationJsonSerializer();
 Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data>
     _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsDataSerializer =
     _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer();
@@ -2451,6 +7532,7 @@ Serializer<TempAvatarDeleteAvatarResponseApplicationJson_Ocs>
 Serializer<TempAvatarDeleteAvatarResponseApplicationJson> _$tempAvatarDeleteAvatarResponseApplicationJsonSerializer =
     _$TempAvatarDeleteAvatarResponseApplicationJsonSerializer();
 Serializer<BotWithDetailsAndSecret> _$botWithDetailsAndSecretSerializer = _$BotWithDetailsAndSecretSerializer();
+Serializer<FederationInvite> _$federationInviteSerializer = _$FederationInviteSerializer();
 Serializer<PublicCapabilities0_Spreed_Config_Attachments> _$publicCapabilities0SpreedConfigAttachmentsSerializer =
     _$PublicCapabilities0_Spreed_Config_AttachmentsSerializer();
 Serializer<PublicCapabilities0_Spreed_Config_Call> _$publicCapabilities0SpreedConfigCallSerializer =
@@ -7650,350 +12732,6 @@ class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer
           result.ocs.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs))!
               as ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationAcceptShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FederationAcceptShareResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    FederationAcceptShareResponseApplicationJson_Ocs,
-    _$FederationAcceptShareResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'FederationAcceptShareResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationAcceptShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationAcceptShareResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationAcceptShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FederationAcceptShareResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    FederationAcceptShareResponseApplicationJson,
-    _$FederationAcceptShareResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'FederationAcceptShareResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationAcceptShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FederationAcceptShareResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationAcceptShareResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FederationAcceptShareResponseApplicationJson_Ocs))!
-              as FederationAcceptShareResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationRejectShareResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FederationRejectShareResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    FederationRejectShareResponseApplicationJson_Ocs,
-    _$FederationRejectShareResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'FederationRejectShareResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationRejectShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(JsonObject)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationRejectShareResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject))! as JsonObject;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationRejectShareResponseApplicationJsonSerializer
-    implements StructuredSerializer<FederationRejectShareResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    FederationRejectShareResponseApplicationJson,
-    _$FederationRejectShareResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'FederationRejectShareResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationRejectShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(FederationRejectShareResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationRejectShareResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FederationRejectShareResponseApplicationJson_Ocs))!
-              as FederationRejectShareResponseApplicationJson_Ocs);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationInviteSerializer implements StructuredSerializer<FederationInvite> {
-  @override
-  final Iterable<Type> types = const [FederationInvite, _$FederationInvite];
-  @override
-  final String wireName = 'FederationInvite';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationInvite object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'access_token',
-      serializers.serialize(object.accessToken, specifiedType: const FullType(String)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(int)),
-      'local_room_id',
-      serializers.serialize(object.localRoomId, specifiedType: const FullType(int)),
-      'remote_attendee_id',
-      serializers.serialize(object.remoteAttendeeId, specifiedType: const FullType(String)),
-      'remote_server_url',
-      serializers.serialize(object.remoteServerUrl, specifiedType: const FullType(String)),
-      'remote_token',
-      serializers.serialize(object.remoteToken, specifiedType: const FullType(String)),
-      'user_id',
-      serializers.serialize(object.userId, specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationInvite deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationInviteBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'access_token':
-          result.accessToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'local_room_id':
-          result.localRoomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
-          break;
-        case 'remote_attendee_id':
-          result.remoteAttendeeId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'remote_server_url':
-          result.remoteServerUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'remote_token':
-          result.remoteToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-        case 'user_id':
-          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationGetSharesResponseApplicationJson_OcsSerializer
-    implements StructuredSerializer<FederationGetSharesResponseApplicationJson_Ocs> {
-  @override
-  final Iterable<Type> types = const [
-    FederationGetSharesResponseApplicationJson_Ocs,
-    _$FederationGetSharesResponseApplicationJson_Ocs
-  ];
-  @override
-  final String wireName = 'FederationGetSharesResponseApplicationJson_Ocs';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationGetSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'meta',
-      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
-      'data',
-      serializers.serialize(object.data, specifiedType: const FullType(BuiltList, [FullType(FederationInvite)])),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationGetSharesResponseApplicationJson_OcsBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'meta':
-          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
-          break;
-        case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(FederationInvite)]))! as BuiltList<Object?>);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$FederationGetSharesResponseApplicationJsonSerializer
-    implements StructuredSerializer<FederationGetSharesResponseApplicationJson> {
-  @override
-  final Iterable<Type> types = const [
-    FederationGetSharesResponseApplicationJson,
-    _$FederationGetSharesResponseApplicationJson
-  ];
-  @override
-  final String wireName = 'FederationGetSharesResponseApplicationJson';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers, FederationGetSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'ocs',
-      serializers.serialize(object.ocs, specifiedType: const FullType(FederationGetSharesResponseApplicationJson_Ocs)),
-    ];
-
-    return result;
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = FederationGetSharesResponseApplicationJsonBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(FederationGetSharesResponseApplicationJson_Ocs))!
-              as FederationGetSharesResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -15898,6 +20636,74 @@ class _$BotWithDetailsAndSecretSerializer implements StructuredSerializer<BotWit
           break;
         case 'secret':
           result.secret = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$FederationInviteSerializer implements StructuredSerializer<FederationInvite> {
+  @override
+  final Iterable<Type> types = const [FederationInvite, _$FederationInvite];
+  @override
+  final String wireName = 'FederationInvite';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, FederationInvite object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'access_token',
+      serializers.serialize(object.accessToken, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'local_room_id',
+      serializers.serialize(object.localRoomId, specifiedType: const FullType(int)),
+      'remote_attendee_id',
+      serializers.serialize(object.remoteAttendeeId, specifiedType: const FullType(String)),
+      'remote_server_url',
+      serializers.serialize(object.remoteServerUrl, specifiedType: const FullType(String)),
+      'remote_token',
+      serializers.serialize(object.remoteToken, specifiedType: const FullType(String)),
+      'user_id',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  FederationInvite deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = FederationInviteBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'access_token':
+          result.accessToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'local_room_id':
+          result.localRoomId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'remote_attendee_id':
+          result.remoteAttendeeId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'remote_server_url':
+          result.remoteServerUrl = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'remote_token':
+          result.remoteToken = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'user_id':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -29137,870 +33943,6 @@ class ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder
       } catch (e) {
         throw BuiltValueNestedFieldError(
             r'ChatGetObjectsSharedInRoomOverviewResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($FederationAcceptShareResponseApplicationJson_OcsInterface other);
-  void update(void Function($FederationAcceptShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  JsonObject? get data;
-  set data(JsonObject? data);
-}
-
-class _$FederationAcceptShareResponseApplicationJson_Ocs extends FederationAcceptShareResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final JsonObject data;
-
-  factory _$FederationAcceptShareResponseApplicationJson_Ocs(
-          [void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FederationAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$FederationAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FederationAcceptShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FederationAcceptShareResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson_Ocs rebuild(
-          void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FederationAcceptShareResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationAcceptShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationAcceptShareResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class FederationAcceptShareResponseApplicationJson_OcsBuilder
-    implements
-        Builder<FederationAcceptShareResponseApplicationJson_Ocs,
-            FederationAcceptShareResponseApplicationJson_OcsBuilder>,
-        $FederationAcceptShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FederationAcceptShareResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  FederationAcceptShareResponseApplicationJson_OcsBuilder();
-
-  FederationAcceptShareResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationAcceptShareResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationAcceptShareResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson_Ocs build() => _build();
-
-  _$FederationAcceptShareResponseApplicationJson_Ocs _build() {
-    _$FederationAcceptShareResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ??
-          _$FederationAcceptShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FederationAcceptShareResponseApplicationJson_Ocs', 'data'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FederationAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationAcceptShareResponseApplicationJsonInterfaceBuilder {
-  void replace($FederationAcceptShareResponseApplicationJsonInterface other);
-  void update(void Function($FederationAcceptShareResponseApplicationJsonInterfaceBuilder) updates);
-  FederationAcceptShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FederationAcceptShareResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$FederationAcceptShareResponseApplicationJson extends FederationAcceptShareResponseApplicationJson {
-  @override
-  final FederationAcceptShareResponseApplicationJson_Ocs ocs;
-
-  factory _$FederationAcceptShareResponseApplicationJson(
-          [void Function(FederationAcceptShareResponseApplicationJsonBuilder)? updates]) =>
-      (FederationAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$FederationAcceptShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FederationAcceptShareResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson rebuild(
-          void Function(FederationAcceptShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationAcceptShareResponseApplicationJsonBuilder toBuilder() =>
-      FederationAcceptShareResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationAcceptShareResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationAcceptShareResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class FederationAcceptShareResponseApplicationJsonBuilder
-    implements
-        Builder<FederationAcceptShareResponseApplicationJson, FederationAcceptShareResponseApplicationJsonBuilder>,
-        $FederationAcceptShareResponseApplicationJsonInterfaceBuilder {
-  _$FederationAcceptShareResponseApplicationJson? _$v;
-
-  FederationAcceptShareResponseApplicationJson_OcsBuilder? _ocs;
-  FederationAcceptShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FederationAcceptShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FederationAcceptShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  FederationAcceptShareResponseApplicationJsonBuilder();
-
-  FederationAcceptShareResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationAcceptShareResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationAcceptShareResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(FederationAcceptShareResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationAcceptShareResponseApplicationJson build() => _build();
-
-  _$FederationAcceptShareResponseApplicationJson _build() {
-    _$FederationAcceptShareResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$FederationAcceptShareResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'FederationAcceptShareResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationRejectShareResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($FederationRejectShareResponseApplicationJson_OcsInterface other);
-  void update(void Function($FederationRejectShareResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  JsonObject? get data;
-  set data(JsonObject? data);
-}
-
-class _$FederationRejectShareResponseApplicationJson_Ocs extends FederationRejectShareResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final JsonObject data;
-
-  factory _$FederationRejectShareResponseApplicationJson_Ocs(
-          [void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FederationRejectShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$FederationRejectShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FederationRejectShareResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FederationRejectShareResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson_Ocs rebuild(
-          void Function(FederationRejectShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationRejectShareResponseApplicationJson_OcsBuilder toBuilder() =>
-      FederationRejectShareResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationRejectShareResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationRejectShareResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class FederationRejectShareResponseApplicationJson_OcsBuilder
-    implements
-        Builder<FederationRejectShareResponseApplicationJson_Ocs,
-            FederationRejectShareResponseApplicationJson_OcsBuilder>,
-        $FederationRejectShareResponseApplicationJson_OcsInterfaceBuilder {
-  _$FederationRejectShareResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  JsonObject? _data;
-  JsonObject? get data => _$this._data;
-  set data(covariant JsonObject? data) => _$this._data = data;
-
-  FederationRejectShareResponseApplicationJson_OcsBuilder();
-
-  FederationRejectShareResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationRejectShareResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationRejectShareResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson_Ocs build() => _build();
-
-  _$FederationRejectShareResponseApplicationJson_Ocs _build() {
-    _$FederationRejectShareResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ??
-          _$FederationRejectShareResponseApplicationJson_Ocs._(
-              meta: meta.build(),
-              data: BuiltValueNullFieldError.checkNotNull(
-                  data, r'FederationRejectShareResponseApplicationJson_Ocs', 'data'));
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FederationRejectShareResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationRejectShareResponseApplicationJsonInterfaceBuilder {
-  void replace($FederationRejectShareResponseApplicationJsonInterface other);
-  void update(void Function($FederationRejectShareResponseApplicationJsonInterfaceBuilder) updates);
-  FederationRejectShareResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FederationRejectShareResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$FederationRejectShareResponseApplicationJson extends FederationRejectShareResponseApplicationJson {
-  @override
-  final FederationRejectShareResponseApplicationJson_Ocs ocs;
-
-  factory _$FederationRejectShareResponseApplicationJson(
-          [void Function(FederationRejectShareResponseApplicationJsonBuilder)? updates]) =>
-      (FederationRejectShareResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$FederationRejectShareResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FederationRejectShareResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson rebuild(
-          void Function(FederationRejectShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationRejectShareResponseApplicationJsonBuilder toBuilder() =>
-      FederationRejectShareResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationRejectShareResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationRejectShareResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class FederationRejectShareResponseApplicationJsonBuilder
-    implements
-        Builder<FederationRejectShareResponseApplicationJson, FederationRejectShareResponseApplicationJsonBuilder>,
-        $FederationRejectShareResponseApplicationJsonInterfaceBuilder {
-  _$FederationRejectShareResponseApplicationJson? _$v;
-
-  FederationRejectShareResponseApplicationJson_OcsBuilder? _ocs;
-  FederationRejectShareResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FederationRejectShareResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FederationRejectShareResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  FederationRejectShareResponseApplicationJsonBuilder();
-
-  FederationRejectShareResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationRejectShareResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationRejectShareResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(FederationRejectShareResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationRejectShareResponseApplicationJson build() => _build();
-
-  _$FederationRejectShareResponseApplicationJson _build() {
-    _$FederationRejectShareResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$FederationRejectShareResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'FederationRejectShareResponseApplicationJson', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationInviteInterfaceBuilder {
-  void replace($FederationInviteInterface other);
-  void update(void Function($FederationInviteInterfaceBuilder) updates);
-  String? get accessToken;
-  set accessToken(String? accessToken);
-
-  int? get id;
-  set id(int? id);
-
-  int? get localRoomId;
-  set localRoomId(int? localRoomId);
-
-  String? get remoteAttendeeId;
-  set remoteAttendeeId(String? remoteAttendeeId);
-
-  String? get remoteServerUrl;
-  set remoteServerUrl(String? remoteServerUrl);
-
-  String? get remoteToken;
-  set remoteToken(String? remoteToken);
-
-  String? get userId;
-  set userId(String? userId);
-}
-
-class _$FederationInvite extends FederationInvite {
-  @override
-  final String accessToken;
-  @override
-  final int id;
-  @override
-  final int localRoomId;
-  @override
-  final String remoteAttendeeId;
-  @override
-  final String remoteServerUrl;
-  @override
-  final String remoteToken;
-  @override
-  final String userId;
-
-  factory _$FederationInvite([void Function(FederationInviteBuilder)? updates]) =>
-      (FederationInviteBuilder()..update(updates))._build();
-
-  _$FederationInvite._(
-      {required this.accessToken,
-      required this.id,
-      required this.localRoomId,
-      required this.remoteAttendeeId,
-      required this.remoteServerUrl,
-      required this.remoteToken,
-      required this.userId})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken');
-    BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id');
-    BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId');
-    BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId');
-    BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl');
-    BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken');
-    BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId');
-  }
-
-  @override
-  FederationInvite rebuild(void Function(FederationInviteBuilder) updates) => (toBuilder()..update(updates)).build();
-
-  @override
-  FederationInviteBuilder toBuilder() => FederationInviteBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationInvite &&
-        accessToken == other.accessToken &&
-        id == other.id &&
-        localRoomId == other.localRoomId &&
-        remoteAttendeeId == other.remoteAttendeeId &&
-        remoteServerUrl == other.remoteServerUrl &&
-        remoteToken == other.remoteToken &&
-        userId == other.userId;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, accessToken.hashCode);
-    _$hash = $jc(_$hash, id.hashCode);
-    _$hash = $jc(_$hash, localRoomId.hashCode);
-    _$hash = $jc(_$hash, remoteAttendeeId.hashCode);
-    _$hash = $jc(_$hash, remoteServerUrl.hashCode);
-    _$hash = $jc(_$hash, remoteToken.hashCode);
-    _$hash = $jc(_$hash, userId.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationInvite')
-          ..add('accessToken', accessToken)
-          ..add('id', id)
-          ..add('localRoomId', localRoomId)
-          ..add('remoteAttendeeId', remoteAttendeeId)
-          ..add('remoteServerUrl', remoteServerUrl)
-          ..add('remoteToken', remoteToken)
-          ..add('userId', userId))
-        .toString();
-  }
-}
-
-class FederationInviteBuilder
-    implements Builder<FederationInvite, FederationInviteBuilder>, $FederationInviteInterfaceBuilder {
-  _$FederationInvite? _$v;
-
-  String? _accessToken;
-  String? get accessToken => _$this._accessToken;
-  set accessToken(covariant String? accessToken) => _$this._accessToken = accessToken;
-
-  int? _id;
-  int? get id => _$this._id;
-  set id(covariant int? id) => _$this._id = id;
-
-  int? _localRoomId;
-  int? get localRoomId => _$this._localRoomId;
-  set localRoomId(covariant int? localRoomId) => _$this._localRoomId = localRoomId;
-
-  String? _remoteAttendeeId;
-  String? get remoteAttendeeId => _$this._remoteAttendeeId;
-  set remoteAttendeeId(covariant String? remoteAttendeeId) => _$this._remoteAttendeeId = remoteAttendeeId;
-
-  String? _remoteServerUrl;
-  String? get remoteServerUrl => _$this._remoteServerUrl;
-  set remoteServerUrl(covariant String? remoteServerUrl) => _$this._remoteServerUrl = remoteServerUrl;
-
-  String? _remoteToken;
-  String? get remoteToken => _$this._remoteToken;
-  set remoteToken(covariant String? remoteToken) => _$this._remoteToken = remoteToken;
-
-  String? _userId;
-  String? get userId => _$this._userId;
-  set userId(covariant String? userId) => _$this._userId = userId;
-
-  FederationInviteBuilder();
-
-  FederationInviteBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _accessToken = $v.accessToken;
-      _id = $v.id;
-      _localRoomId = $v.localRoomId;
-      _remoteAttendeeId = $v.remoteAttendeeId;
-      _remoteServerUrl = $v.remoteServerUrl;
-      _remoteToken = $v.remoteToken;
-      _userId = $v.userId;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationInvite other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationInvite;
-  }
-
-  @override
-  void update(void Function(FederationInviteBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationInvite build() => _build();
-
-  _$FederationInvite _build() {
-    final _$result = _$v ??
-        _$FederationInvite._(
-            accessToken: BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken'),
-            id: BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id'),
-            localRoomId: BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId'),
-            remoteAttendeeId:
-                BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId'),
-            remoteServerUrl:
-                BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl'),
-            remoteToken: BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken'),
-            userId: BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId'));
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  void replace($FederationGetSharesResponseApplicationJson_OcsInterface other);
-  void update(void Function($FederationGetSharesResponseApplicationJson_OcsInterfaceBuilder) updates);
-  OCSMetaBuilder get meta;
-  set meta(OCSMetaBuilder? meta);
-
-  ListBuilder<FederationInvite> get data;
-  set data(ListBuilder<FederationInvite>? data);
-}
-
-class _$FederationGetSharesResponseApplicationJson_Ocs extends FederationGetSharesResponseApplicationJson_Ocs {
-  @override
-  final OCSMeta meta;
-  @override
-  final BuiltList<FederationInvite> data;
-
-  factory _$FederationGetSharesResponseApplicationJson_Ocs(
-          [void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (FederationGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
-
-  _$FederationGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(meta, r'FederationGetSharesResponseApplicationJson_Ocs', 'meta');
-    BuiltValueNullFieldError.checkNotNull(data, r'FederationGetSharesResponseApplicationJson_Ocs', 'data');
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson_Ocs rebuild(
-          void Function(FederationGetSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
-      FederationGetSharesResponseApplicationJson_OcsBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationGetSharesResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, meta.hashCode);
-    _$hash = $jc(_$hash, data.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationGetSharesResponseApplicationJson_Ocs')
-          ..add('meta', meta)
-          ..add('data', data))
-        .toString();
-  }
-}
-
-class FederationGetSharesResponseApplicationJson_OcsBuilder
-    implements
-        Builder<FederationGetSharesResponseApplicationJson_Ocs, FederationGetSharesResponseApplicationJson_OcsBuilder>,
-        $FederationGetSharesResponseApplicationJson_OcsInterfaceBuilder {
-  _$FederationGetSharesResponseApplicationJson_Ocs? _$v;
-
-  OCSMetaBuilder? _meta;
-  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
-  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
-
-  ListBuilder<FederationInvite>? _data;
-  ListBuilder<FederationInvite> get data => _$this._data ??= ListBuilder<FederationInvite>();
-  set data(covariant ListBuilder<FederationInvite>? data) => _$this._data = data;
-
-  FederationGetSharesResponseApplicationJson_OcsBuilder();
-
-  FederationGetSharesResponseApplicationJson_OcsBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _meta = $v.meta.toBuilder();
-      _data = $v.data.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationGetSharesResponseApplicationJson_Ocs other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationGetSharesResponseApplicationJson_Ocs;
-  }
-
-  @override
-  void update(void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson_Ocs build() => _build();
-
-  _$FederationGetSharesResponseApplicationJson_Ocs _build() {
-    _$FederationGetSharesResponseApplicationJson_Ocs _$result;
-    try {
-      _$result = _$v ?? _$FederationGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'meta';
-        meta.build();
-        _$failedField = 'data';
-        data.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(
-            r'FederationGetSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
-      }
-      rethrow;
-    }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-abstract mixin class $FederationGetSharesResponseApplicationJsonInterfaceBuilder {
-  void replace($FederationGetSharesResponseApplicationJsonInterface other);
-  void update(void Function($FederationGetSharesResponseApplicationJsonInterfaceBuilder) updates);
-  FederationGetSharesResponseApplicationJson_OcsBuilder get ocs;
-  set ocs(FederationGetSharesResponseApplicationJson_OcsBuilder? ocs);
-}
-
-class _$FederationGetSharesResponseApplicationJson extends FederationGetSharesResponseApplicationJson {
-  @override
-  final FederationGetSharesResponseApplicationJson_Ocs ocs;
-
-  factory _$FederationGetSharesResponseApplicationJson(
-          [void Function(FederationGetSharesResponseApplicationJsonBuilder)? updates]) =>
-      (FederationGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
-
-  _$FederationGetSharesResponseApplicationJson._({required this.ocs}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(ocs, r'FederationGetSharesResponseApplicationJson', 'ocs');
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson rebuild(
-          void Function(FederationGetSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  FederationGetSharesResponseApplicationJsonBuilder toBuilder() =>
-      FederationGetSharesResponseApplicationJsonBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is FederationGetSharesResponseApplicationJson && ocs == other.ocs;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, ocs.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'FederationGetSharesResponseApplicationJson')..add('ocs', ocs)).toString();
-  }
-}
-
-class FederationGetSharesResponseApplicationJsonBuilder
-    implements
-        Builder<FederationGetSharesResponseApplicationJson, FederationGetSharesResponseApplicationJsonBuilder>,
-        $FederationGetSharesResponseApplicationJsonInterfaceBuilder {
-  _$FederationGetSharesResponseApplicationJson? _$v;
-
-  FederationGetSharesResponseApplicationJson_OcsBuilder? _ocs;
-  FederationGetSharesResponseApplicationJson_OcsBuilder get ocs =>
-      _$this._ocs ??= FederationGetSharesResponseApplicationJson_OcsBuilder();
-  set ocs(covariant FederationGetSharesResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
-
-  FederationGetSharesResponseApplicationJsonBuilder();
-
-  FederationGetSharesResponseApplicationJsonBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _ocs = $v.ocs.toBuilder();
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(covariant FederationGetSharesResponseApplicationJson other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$FederationGetSharesResponseApplicationJson;
-  }
-
-  @override
-  void update(void Function(FederationGetSharesResponseApplicationJsonBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  FederationGetSharesResponseApplicationJson build() => _build();
-
-  _$FederationGetSharesResponseApplicationJson _build() {
-    _$FederationGetSharesResponseApplicationJson _$result;
-    try {
-      _$result = _$v ?? _$FederationGetSharesResponseApplicationJson._(ocs: ocs.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'ocs';
-        ocs.build();
-      } catch (e) {
-        throw BuiltValueNestedFieldError(r'FederationGetSharesResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -49444,6 +53386,195 @@ class BotWithDetailsAndSecretBuilder
             url: BuiltValueNullFieldError.checkNotNull(url, r'BotWithDetailsAndSecret', 'url'),
             urlHash: BuiltValueNullFieldError.checkNotNull(urlHash, r'BotWithDetailsAndSecret', 'urlHash'),
             secret: BuiltValueNullFieldError.checkNotNull(secret, r'BotWithDetailsAndSecret', 'secret'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $FederationInviteInterfaceBuilder {
+  void replace($FederationInviteInterface other);
+  void update(void Function($FederationInviteInterfaceBuilder) updates);
+  String? get accessToken;
+  set accessToken(String? accessToken);
+
+  int? get id;
+  set id(int? id);
+
+  int? get localRoomId;
+  set localRoomId(int? localRoomId);
+
+  String? get remoteAttendeeId;
+  set remoteAttendeeId(String? remoteAttendeeId);
+
+  String? get remoteServerUrl;
+  set remoteServerUrl(String? remoteServerUrl);
+
+  String? get remoteToken;
+  set remoteToken(String? remoteToken);
+
+  String? get userId;
+  set userId(String? userId);
+}
+
+class _$FederationInvite extends FederationInvite {
+  @override
+  final String accessToken;
+  @override
+  final int id;
+  @override
+  final int localRoomId;
+  @override
+  final String remoteAttendeeId;
+  @override
+  final String remoteServerUrl;
+  @override
+  final String remoteToken;
+  @override
+  final String userId;
+
+  factory _$FederationInvite([void Function(FederationInviteBuilder)? updates]) =>
+      (FederationInviteBuilder()..update(updates))._build();
+
+  _$FederationInvite._(
+      {required this.accessToken,
+      required this.id,
+      required this.localRoomId,
+      required this.remoteAttendeeId,
+      required this.remoteServerUrl,
+      required this.remoteToken,
+      required this.userId})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken');
+    BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id');
+    BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId');
+    BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId');
+    BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl');
+    BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken');
+    BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId');
+  }
+
+  @override
+  FederationInvite rebuild(void Function(FederationInviteBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  FederationInviteBuilder toBuilder() => FederationInviteBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is FederationInvite &&
+        accessToken == other.accessToken &&
+        id == other.id &&
+        localRoomId == other.localRoomId &&
+        remoteAttendeeId == other.remoteAttendeeId &&
+        remoteServerUrl == other.remoteServerUrl &&
+        remoteToken == other.remoteToken &&
+        userId == other.userId;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, accessToken.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, localRoomId.hashCode);
+    _$hash = $jc(_$hash, remoteAttendeeId.hashCode);
+    _$hash = $jc(_$hash, remoteServerUrl.hashCode);
+    _$hash = $jc(_$hash, remoteToken.hashCode);
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'FederationInvite')
+          ..add('accessToken', accessToken)
+          ..add('id', id)
+          ..add('localRoomId', localRoomId)
+          ..add('remoteAttendeeId', remoteAttendeeId)
+          ..add('remoteServerUrl', remoteServerUrl)
+          ..add('remoteToken', remoteToken)
+          ..add('userId', userId))
+        .toString();
+  }
+}
+
+class FederationInviteBuilder
+    implements Builder<FederationInvite, FederationInviteBuilder>, $FederationInviteInterfaceBuilder {
+  _$FederationInvite? _$v;
+
+  String? _accessToken;
+  String? get accessToken => _$this._accessToken;
+  set accessToken(covariant String? accessToken) => _$this._accessToken = accessToken;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  int? _localRoomId;
+  int? get localRoomId => _$this._localRoomId;
+  set localRoomId(covariant int? localRoomId) => _$this._localRoomId = localRoomId;
+
+  String? _remoteAttendeeId;
+  String? get remoteAttendeeId => _$this._remoteAttendeeId;
+  set remoteAttendeeId(covariant String? remoteAttendeeId) => _$this._remoteAttendeeId = remoteAttendeeId;
+
+  String? _remoteServerUrl;
+  String? get remoteServerUrl => _$this._remoteServerUrl;
+  set remoteServerUrl(covariant String? remoteServerUrl) => _$this._remoteServerUrl = remoteServerUrl;
+
+  String? _remoteToken;
+  String? get remoteToken => _$this._remoteToken;
+  set remoteToken(covariant String? remoteToken) => _$this._remoteToken = remoteToken;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  FederationInviteBuilder();
+
+  FederationInviteBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _accessToken = $v.accessToken;
+      _id = $v.id;
+      _localRoomId = $v.localRoomId;
+      _remoteAttendeeId = $v.remoteAttendeeId;
+      _remoteServerUrl = $v.remoteServerUrl;
+      _remoteToken = $v.remoteToken;
+      _userId = $v.userId;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant FederationInvite other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$FederationInvite;
+  }
+
+  @override
+  void update(void Function(FederationInviteBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  FederationInvite build() => _build();
+
+  _$FederationInvite _build() {
+    final _$result = _$v ??
+        _$FederationInvite._(
+            accessToken: BuiltValueNullFieldError.checkNotNull(accessToken, r'FederationInvite', 'accessToken'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'FederationInvite', 'id'),
+            localRoomId: BuiltValueNullFieldError.checkNotNull(localRoomId, r'FederationInvite', 'localRoomId'),
+            remoteAttendeeId:
+                BuiltValueNullFieldError.checkNotNull(remoteAttendeeId, r'FederationInvite', 'remoteAttendeeId'),
+            remoteServerUrl:
+                BuiltValueNullFieldError.checkNotNull(remoteServerUrl, r'FederationInvite', 'remoteServerUrl'),
+            remoteToken: BuiltValueNullFieldError.checkNotNull(remoteToken, r'FederationInvite', 'remoteToken'),
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'FederationInvite', 'userId'));
     replace(_$result);
     return _$result;
   }

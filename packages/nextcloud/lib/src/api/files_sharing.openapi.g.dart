@@ -6,6 +6,25 @@ part of 'files_sharing.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
+const Share_HideDownload _$shareHideDownload$0 = Share_HideDownload._('\$0');
+const Share_HideDownload _$shareHideDownload$1 = Share_HideDownload._('\$1');
+
+Share_HideDownload _$valueOfShare_HideDownload(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareHideDownload$0;
+    case '\$1':
+      return _$shareHideDownload$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<Share_HideDownload> _$shareHideDownloadValues = BuiltSet<Share_HideDownload>(const <Share_HideDownload>[
+  _$shareHideDownload$0,
+  _$shareHideDownload$1,
+]);
+
 const Share_ItemType _$shareItemTypeFile = Share_ItemType._('file');
 const Share_ItemType _$shareItemTypeFolder = Share_ItemType._('folder');
 
@@ -23,6 +42,25 @@ Share_ItemType _$valueOfShare_ItemType(String name) {
 final BuiltSet<Share_ItemType> _$shareItemTypeValues = BuiltSet<Share_ItemType>(const <Share_ItemType>[
   _$shareItemTypeFile,
   _$shareItemTypeFolder,
+]);
+
+const Share_MailSend _$shareMailSend$0 = Share_MailSend._('\$0');
+const Share_MailSend _$shareMailSend$1 = Share_MailSend._('\$1');
+
+Share_MailSend _$valueOfShare_MailSend(String name) {
+  switch (name) {
+    case '\$0':
+      return _$shareMailSend$0;
+    case '\$1':
+      return _$shareMailSend$1;
+    default:
+      throw ArgumentError(name);
+  }
+}
+
+final BuiltSet<Share_MailSend> _$shareMailSendValues = BuiltSet<Share_MailSend>(const <Share_MailSend>[
+  _$shareMailSend$0,
+  _$shareMailSend$1,
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
@@ -1432,7 +1470,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       'has_preview',
       serializers.serialize(object.hasPreview, specifiedType: const FullType(bool)),
       'hide_download',
-      serializers.serialize(object.hideDownload, specifiedType: const FullType(int)),
+      serializers.serialize(object.hideDownload, specifiedType: const FullType(Share_HideDownload)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
       'item_mtime',
@@ -1446,7 +1484,7 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
       'label',
       serializers.serialize(object.label, specifiedType: const FullType(String)),
       'mail_send',
-      serializers.serialize(object.mailSend, specifiedType: const FullType(int)),
+      serializers.serialize(object.mailSend, specifiedType: const FullType(Share_MailSend)),
       'mimetype',
       serializers.serialize(object.mimetype, specifiedType: const FullType(String)),
       'note',
@@ -1609,7 +1647,8 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.hasPreview = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'hide_download':
-          result.hideDownload = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.hideDownload =
+              serializers.deserialize(value, specifiedType: const FullType(Share_HideDownload))! as Share_HideDownload;
           break;
         case 'id':
           result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1634,7 +1673,8 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mail_send':
-          result.mailSend = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          result.mailSend =
+              serializers.deserialize(value, specifiedType: const FullType(Share_MailSend))! as Share_MailSend;
           break;
         case 'mimetype':
           result.mimetype = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -7778,8 +7818,8 @@ abstract mixin class $ShareInterfaceBuilder {
   bool? get hasPreview;
   set hasPreview(bool? hasPreview);
 
-  int? get hideDownload;
-  set hideDownload(int? hideDownload);
+  Share_HideDownload? get hideDownload;
+  set hideDownload(Share_HideDownload? hideDownload);
 
   String? get id;
   set id(String? id);
@@ -7802,8 +7842,8 @@ abstract mixin class $ShareInterfaceBuilder {
   String? get label;
   set label(String? label);
 
-  int? get mailSend;
-  set mailSend(int? mailSend);
+  Share_MailSend? get mailSend;
+  set mailSend(Share_MailSend? mailSend);
 
   String? get mimetype;
   set mimetype(String? mimetype);
@@ -7894,7 +7934,7 @@ class _$Share extends Share {
   @override
   final bool hasPreview;
   @override
-  final int hideDownload;
+  final Share_HideDownload hideDownload;
   @override
   final String id;
   @override
@@ -7910,7 +7950,7 @@ class _$Share extends Share {
   @override
   final String label;
   @override
-  final int mailSend;
+  final Share_MailSend mailSend;
   @override
   final String mimetype;
   @override
@@ -8221,9 +8261,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   bool? get hasPreview => _$this._hasPreview;
   set hasPreview(covariant bool? hasPreview) => _$this._hasPreview = hasPreview;
 
-  int? _hideDownload;
-  int? get hideDownload => _$this._hideDownload;
-  set hideDownload(covariant int? hideDownload) => _$this._hideDownload = hideDownload;
+  Share_HideDownload? _hideDownload;
+  Share_HideDownload? get hideDownload => _$this._hideDownload;
+  set hideDownload(covariant Share_HideDownload? hideDownload) => _$this._hideDownload = hideDownload;
 
   String? _id;
   String? get id => _$this._id;
@@ -8253,9 +8293,9 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
   String? get label => _$this._label;
   set label(covariant String? label) => _$this._label = label;
 
-  int? _mailSend;
-  int? get mailSend => _$this._mailSend;
-  set mailSend(covariant int? mailSend) => _$this._mailSend = mailSend;
+  Share_MailSend? _mailSend;
+  Share_MailSend? get mailSend => _$this._mailSend;
+  set mailSend(covariant Share_MailSend? mailSend) => _$this._mailSend = mailSend;
 
   String? _mimetype;
   String? get mimetype => _$this._mimetype;
