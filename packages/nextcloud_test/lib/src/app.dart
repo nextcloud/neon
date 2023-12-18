@@ -19,11 +19,13 @@ typedef App = ({
 
 @internal
 extension AppFindLatestRelease on App {
-  AppRelease? findLatestCompatibleRelease(final ExtendedVersion serverVersion) {
+  AppRelease? findLatestCompatibleRelease(final ExtendedVersion serverVersion, {final bool allowUnstable = false}) {
     final compatibleReleases = releases
         .where(
           (final release) =>
-              serverVersion >= release.minimumServerVersion && serverVersion <= release.maximumServerVersion,
+              serverVersion >= release.minimumServerVersion &&
+              serverVersion <= release.maximumServerVersion &&
+              (allowUnstable || !release.version.getRaw().isPreRelease),
         )
         .toList()
       ..sort((final a, final b) => b.version.compareTo(a.version));

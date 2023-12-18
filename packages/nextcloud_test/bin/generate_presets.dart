@@ -4,8 +4,6 @@ import 'package:nextcloud_test/src/app.dart';
 import 'package:nextcloud_test/src/extended_version.dart';
 import 'package:universal_io/io.dart';
 
-final versionPattern = RegExp(r'^[0-9]+\.[0-9]+\.[0-9]+$');
-
 Future<void> main() async {
   const appIDs = [
     'news',
@@ -38,7 +36,9 @@ Future<void> main() async {
         if (a == app) {
           buffer.writeln(release.url);
         } else {
-          final release = a.findLatestCompatibleRelease(serverVersion) ?? a.findLatestRelease();
+          final release = a.findLatestCompatibleRelease(serverVersion) ??
+              a.findLatestCompatibleRelease(serverVersion, allowUnstable: true) ??
+              a.findLatestRelease();
           buffer.writeln(release.url);
         }
       }
@@ -57,7 +57,9 @@ Future<void> main() async {
     final buffer = StringBuffer()..writeln('SERVER_VERSION=$serverVersion');
 
     for (final app in apps) {
-      final release = app.findLatestCompatibleRelease(serverVersion) ?? app.findLatestRelease();
+      final release = app.findLatestCompatibleRelease(serverVersion) ??
+          app.findLatestCompatibleRelease(serverVersion, allowUnstable: true) ??
+          app.findLatestRelease();
       buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
     }
 
@@ -91,24 +93,26 @@ Future<List<ExtendedVersion>> _getServerVersions(final HttpClient httpClient) as
 
     final results = data['results'] as List;
     for (final result in results) {
-      final tag = result as Map<String, dynamic>;
+      try {
+        final tag = result as Map<String, dynamic>;
 
-      final name = tag['name'] as String;
-      if (!versionPattern.hasMatch(name)) {
-        continue;
-      }
-      final version = ExtendedVersion.parse(name);
-      final normalizedVersion = version.withoutPatch();
+        final version = ExtendedVersion.parse(tag['name'] as String);
+        if (version.minor == null || version.patch == null) {
+          continue;
+        }
 
-      if (version < coreMinVersion || version.major > core.maxMajor) {
-        continue;
-      }
+        final normalizedVersion = version.withoutPatch();
 
-      if (!versions.containsKey(normalizedVersion)) {
-        versions[normalizedVersion] = version;
-      } else if (version > versions[normalizedVersion]) {
-        versions[normalizedVersion] = version;
-      }
+        if (version < coreMinVersion || version.major > core.maxMajor) {
+          continue;
+        }
+
+        if (!versions.containsKey(normalizedVersion)) {
+          versions[normalizedVersion] = version;
+        } else if (version > versions[normalizedVersion]) {
+          versions[normalizedVersion] = version;
+        }
+      } catch (_) {}
     }
   }
 
@@ -140,11 +144,7 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
     for (final releaseItem in releasesItems) {
       final release = releaseItem as Map<String, dynamic>;
 
-      final versionString = release['version'] as String;
-      if (!versionPattern.hasMatch(versionString)) {
-        continue;
-      }
-      final version = ExtendedVersion.parse(versionString);
+      final version = ExtendedVersion.parse(release['version'] as String);
       final normalizedVersion = version.withoutPatch();
 
       final rawPlatformVersionSpec = release['rawPlatformVersionSpec'] as String;

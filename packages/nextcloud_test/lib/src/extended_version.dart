@@ -11,16 +11,18 @@ final coreMinVersion = ExtendedVersion.fromVersion(core.minVersion);
 @internal
 class ExtendedVersion implements Comparable<ExtendedVersion> {
   const ExtendedVersion(
+    final Version raw,
     this.major,
     this.minor,
     this.patch,
-  );
+  ) : _raw = raw;
 
   factory ExtendedVersion.parse(final String versionString) {
     final version = Version.parse(versionString);
     final dotCount = versionString.split('').where((final char) => char == '.').length;
 
     return ExtendedVersion(
+      version,
       version.major,
       dotCount >= 1 ? version.minor : null,
       dotCount >= 2 ? version.patch : null,
@@ -28,10 +30,13 @@ class ExtendedVersion implements Comparable<ExtendedVersion> {
   }
 
   factory ExtendedVersion.fromVersion(final Version version) => ExtendedVersion(
+        version,
         version.major,
         version.minor,
         version.patch,
       );
+
+  final Version _raw;
 
   final int major;
 
@@ -39,9 +44,14 @@ class ExtendedVersion implements Comparable<ExtendedVersion> {
 
   final int? patch;
 
-  ExtendedVersion withoutPatch() => ExtendedVersion(major, minor, null);
+  ExtendedVersion withoutPatch() => ExtendedVersion(
+        _raw,
+        major,
+        minor,
+        null,
+      );
 
-  Version toVersion() => Version(major, minor ?? 0, patch ?? 0);
+  Version getRaw() => _raw;
 
   @override
   String toString() {
