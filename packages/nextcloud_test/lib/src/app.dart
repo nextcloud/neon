@@ -1,13 +1,13 @@
 import 'package:meta/meta.dart';
-import 'package:nextcloud_test/src/extended_version.dart';
+import 'package:version/version.dart';
 
 /// Describes a release of an [App] from https://apps.nextcloud.com
 @internal
 typedef AppRelease = ({
-  ExtendedVersion version,
+  Version version,
   String url,
-  ExtendedVersion minimumServerVersion,
-  ExtendedVersion maximumServerVersion,
+  Version minimumServerVersion,
+  Version maximumServerVersion,
 });
 
 /// Describes an app from https://apps.nextcloud.com
@@ -19,13 +19,13 @@ typedef App = ({
 
 @internal
 extension AppFindLatestRelease on App {
-  AppRelease? findLatestCompatibleRelease(final ExtendedVersion serverVersion, {final bool allowUnstable = false}) {
+  AppRelease? findLatestCompatibleRelease(final Version serverVersion, {final bool allowUnstable = false}) {
     final compatibleReleases = releases
         .where(
           (final release) =>
               serverVersion >= release.minimumServerVersion &&
-              serverVersion <= release.maximumServerVersion &&
-              (allowUnstable || !release.version.getRaw().isPreRelease),
+              serverVersion < release.maximumServerVersion.incrementMajor() &&
+              (allowUnstable || !release.version.isPreRelease),
         )
         .toList()
       ..sort((final a, final b) => b.version.compareTo(a.version));
@@ -40,10 +40,11 @@ extension AppFindLatestRelease on App {
 
 @internal
 extension AppReleaseFindLatestServerVersion on AppRelease {
-  ExtendedVersion findLatestServerVersion(final List<ExtendedVersion> serverVersions) {
+  Version findLatestServerVersion(final List<Version> serverVersions) {
     final compatibleReleases = serverVersions
         .where(
-          (final serverVersion) => serverVersion >= minimumServerVersion && serverVersion <= maximumServerVersion,
+          (final serverVersion) =>
+              serverVersion >= minimumServerVersion && serverVersion < maximumServerVersion.incrementMajor(),
         )
         .toList()
       ..sort((final a, final b) => b.compareTo(a));

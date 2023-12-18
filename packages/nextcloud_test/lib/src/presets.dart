@@ -1,14 +1,14 @@
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/nextcloud_test.dart';
-import 'package:nextcloud_test/src/extended_version.dart';
 import 'package:test/test.dart';
 import 'package:universal_io/io.dart';
+import 'package:version/version.dart';
 
 /// Combination of preset `name` and preset `version`.
-typedef Preset = ({String name, ExtendedVersion version});
+typedef Preset = ({String name, Version version});
 
-final Map<String, List<ExtendedVersion>> _presets = () {
-  final presets = <String, List<ExtendedVersion>>{};
+final Map<String, List<Version>> _presets = () {
+  final presets = <String, List<Version>>{};
 
   final presetGroups = Directory('../nextcloud_test/docker/presets')
       .listSync(followLinks: false)
@@ -19,7 +19,7 @@ final Map<String, List<ExtendedVersion>> _presets = () {
     final presetVersions = Directory('../nextcloud_test/docker/presets/$presetGroup')
         .listSync(followLinks: false)
         .whereType<File>()
-        .map((final f) => ExtendedVersion.parse(PathUri.parse(f.path).name));
+        .map((final f) => Version.parse(PathUri.parse(f.path).name));
 
     presets[presetGroup] = presetVersions.toList();
   }
@@ -41,7 +41,7 @@ void presets(
 
   void innerBody() {
     for (final presetVersion in _presets[presetGroup]!) {
-      group(presetVersion, () {
+      group('${presetVersion.major}.${presetVersion.minor}', () {
         final preset = (name: presetGroup, version: presetVersion);
 
         tearDown(() {

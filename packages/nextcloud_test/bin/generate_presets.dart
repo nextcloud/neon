@@ -1,8 +1,8 @@
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud_test/src/app.dart';
-import 'package:nextcloud_test/src/extended_version.dart';
 import 'package:universal_io/io.dart';
+import 'package:version/version.dart';
 
 Future<void> main() async {
   const appIDs = [
@@ -43,7 +43,8 @@ Future<void> main() async {
         }
       }
 
-      File('${appPresetsDir.path}/${release.version.withoutPatch()}').writeAsStringSync(buffer.toString());
+      File('${appPresetsDir.path}/${release.version.major}.${release.version.minor}')
+          .writeAsStringSync(buffer.toString());
     }
   }
 
@@ -63,21 +64,21 @@ Future<void> main() async {
       buffer.writeln('${app.id.toUpperCase()}_URL=${release.url}');
     }
 
-    File('${serverPresetsDir.path}/${serverVersion.withoutPatch()}').writeAsStringSync(buffer.toString());
+    File('${serverPresetsDir.path}/${serverVersion.major}.${serverVersion.minor}').writeAsStringSync(buffer.toString());
   }
 
   final latestPresetLink = Link('docker/presets/latest');
   if (latestPresetLink.existsSync()) {
-    latestPresetLink.updateSync('server/${serverVersions.first.withoutPatch()}');
+    latestPresetLink.updateSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
   } else {
-    latestPresetLink.createSync('server/${serverVersions.first.withoutPatch()}');
+    latestPresetLink.createSync('server/${serverVersions.first.major}.${serverVersions.first.minor}');
   }
 
   httpClient.close(force: true);
 }
 
-Future<List<ExtendedVersion>> _getServerVersions(final HttpClient httpClient) async {
-  final versions = <ExtendedVersion, ExtendedVersion>{};
+Future<List<Version>> _getServerVersions(final HttpClient httpClient) async {
+  final versions = <Version, Version>{};
   String? next = 'https://hub.docker.com/v2/repositories/library/nextcloud/tags?page_size=1000';
 
   while (next != null) {
@@ -96,14 +97,10 @@ Future<List<ExtendedVersion>> _getServerVersions(final HttpClient httpClient) as
       try {
         final tag = result as Map<String, dynamic>;
 
-        final version = ExtendedVersion.parse(tag['name'] as String);
-        if (version.minor == null || version.patch == null) {
-          continue;
-        }
+        final version = Version.parse(tag['name'] as String);
+        final normalizedVersion = Version(version.major, version.minor, 0);
 
-        final normalizedVersion = version.withoutPatch();
-
-        if (version < coreMinVersion || version.major > core.maxMajor) {
+        if (version < core.minVersion || version.major > core.maxMajor) {
           continue;
         }
 
@@ -138,22 +135,22 @@ Future<List<App>> _getApps(final List<String> appIDs, final HttpClient httpClien
       continue;
     }
 
-    final releases = <ExtendedVersion, AppRelease>{};
+    final releases = <Version, AppRelease>{};
 
     final releasesItems = app['releases'] as List;
     for (final releaseItem in releasesItems) {
       final release = releaseItem as Map<String, dynamic>;
 
-      final version = ExtendedVersion.parse(release['version'] as String);
-      final normalizedVersion = version.withoutPatch();
+      final version = Version.parse(release['version'] as String);
+      final normalizedVersion = Version(version.major, version.minor, 0);
 
       final rawPlatformVersionSpec = release['rawPlatformVersionSpec'] as String;
       final minimumServerVersionRequirement =
-          ExtendedVersion.parse(rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''));
+          Version.parse(rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''));
       final maximumServerVersionRequirement =
-          ExtendedVersion.parse(rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''));
+          Version.parse(rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''));
 
-      if (maximumServerVersionRequirement < coreMinVersion) {
+      if (maximumServerVersionRequirement < core.minVersion) {
         continue;
       }
       if (minimumServerVersionRequirement.major > core.maxMajor) {

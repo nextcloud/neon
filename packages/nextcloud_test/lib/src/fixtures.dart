@@ -33,7 +33,7 @@ void validateFixture(final Preset preset) {
 
   // Remove the groups that are the preset name and the preset version and the app is kept.
   for (var i = 0; i <= 2; i++) {
-    if (groups[i] == preset.version.toString()) {
+    if (groups[i] == '${preset.version.major}.${preset.version.minor}') {
       if (i == 1) {
         // Remove preset version
         groups.removeAt(1);
