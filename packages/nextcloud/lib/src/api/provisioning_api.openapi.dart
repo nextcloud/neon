@@ -1370,8 +1370,8 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -1478,8 +1478,8 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
@@ -1588,8 +1588,8 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -1683,8 +1683,8 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -1796,8 +1796,8 @@ class GroupsClient {
     final $value = jsonSerializers.serialize(value, specifiedType: const FullType(String));
     parameters['value'] = $value;
 
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -1893,8 +1893,8 @@ class GroupsClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(groupId, RegExp(r'^.+$'), 'groupId');
     final $groupId = jsonSerializers.serialize(groupId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($groupId as String?, RegExp(r'^.+$'), 'groupId');
     parameters['groupId'] = $groupId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -3605,8 +3605,12 @@ class UsersClient {
     final $userId = jsonSerializers.serialize(userId, specifiedType: const FullType(String));
     parameters['userId'] = $userId;
 
-    dynamite_utils.checkPattern(collectionName, RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'), 'collectionName');
     final $collectionName = jsonSerializers.serialize(collectionName, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern(
+      $collectionName as String?,
+      RegExp(r'^(?!enable$|disable$)[a-zA-Z0-9_]*$'),
+      'collectionName',
+    );
     parameters['collectionName'] = $collectionName;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));

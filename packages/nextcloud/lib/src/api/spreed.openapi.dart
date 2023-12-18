@@ -164,8 +164,8 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $darkTheme = jsonSerializers.serialize(darkTheme, specifiedType: const FullType(int));
@@ -272,8 +272,8 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -374,8 +374,8 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -491,8 +491,8 @@ class AvatarClient {
     final $emoji = jsonSerializers.serialize(emoji, specifiedType: const FullType(String));
     parameters['emoji'] = $emoji;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $color = jsonSerializers.serialize(color, specifiedType: const FullType(String));
@@ -597,8 +597,8 @@ class AvatarClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -738,8 +738,8 @@ class BotClient {
     final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
     parameters['message'] = $message;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
@@ -875,8 +875,8 @@ class BotClient {
     final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     parameters['reaction'] = $reaction;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -1000,8 +1000,8 @@ class BotClient {
     final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     parameters['reaction'] = $reaction;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -1205,8 +1205,8 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(BotListBotsApiVersion));
@@ -1316,8 +1316,8 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1429,8 +1429,8 @@ class BotClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $botId = jsonSerializers.serialize(botId, specifiedType: const FullType(int));
@@ -1564,8 +1564,8 @@ class BreakoutRoomClient {
     final $amount = jsonSerializers.serialize(amount, specifiedType: const FullType(int));
     parameters['amount'] = $amount;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
@@ -1676,8 +1676,8 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -1792,8 +1792,8 @@ class BreakoutRoomClient {
     final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
     parameters['message'] = $message;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(
@@ -1910,8 +1910,8 @@ class BreakoutRoomClient {
     final $attendeeMap = jsonSerializers.serialize(attendeeMap, specifiedType: const FullType(String));
     parameters['attendeeMap'] = $attendeeMap;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2018,8 +2018,8 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2127,8 +2127,8 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(
@@ -2237,8 +2237,8 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2344,8 +2344,8 @@ class BreakoutRoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2459,8 +2459,8 @@ class BreakoutRoomClient {
     final $target = jsonSerializers.serialize(target, specifiedType: const FullType(String));
     parameters['target'] = $target;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2569,8 +2569,8 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2682,8 +2682,8 @@ class CallClient {
     final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
     parameters['flags'] = $flags;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -2808,8 +2808,8 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $flags = jsonSerializers.serialize(flags, specifiedType: const FullType(int));
@@ -2933,8 +2933,8 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $all = jsonSerializers.serialize(all, specifiedType: const FullType(int));
@@ -3045,8 +3045,8 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -3161,8 +3161,8 @@ class CallClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -3448,8 +3448,8 @@ class ChatClient {
     final $lookIntoFuture = jsonSerializers.serialize(lookIntoFuture, specifiedType: const FullType(int));
     parameters['lookIntoFuture'] = $lookIntoFuture;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -3624,8 +3624,8 @@ class ChatClient {
     final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
     parameters['message'] = $message;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $actorDisplayName = jsonSerializers.serialize(actorDisplayName, specifiedType: const FullType(String));
@@ -3750,8 +3750,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatClearHistoryApiVersion));
@@ -3867,8 +3867,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -3985,8 +3985,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4105,8 +4105,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4227,8 +4227,8 @@ class ChatClient {
     final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     parameters['timestamp'] = $timestamp;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4342,8 +4342,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -4458,8 +4458,8 @@ class ChatClient {
     final $lastReadMessage = jsonSerializers.serialize(lastReadMessage, specifiedType: const FullType(int));
     parameters['lastReadMessage'] = $lastReadMessage;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatSetReadMarkerApiVersion));
@@ -4562,8 +4562,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ChatMarkUnreadApiVersion));
@@ -4680,8 +4680,8 @@ class ChatClient {
     final $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
     parameters['search'] = $search;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -4811,8 +4811,8 @@ class ChatClient {
     final $objectType = jsonSerializers.serialize(objectType, specifiedType: const FullType(String));
     parameters['objectType'] = $objectType;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $lastKnownMessageId = jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
@@ -4968,8 +4968,8 @@ class ChatClient {
     final $objectId = jsonSerializers.serialize(objectId, specifiedType: const FullType(String));
     parameters['objectId'] = $objectId;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $metaData = jsonSerializers.serialize(metaData, specifiedType: const FullType(String));
@@ -5092,8 +5092,8 @@ class ChatClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
@@ -5534,8 +5534,8 @@ class FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(fileId, RegExp(r'^.+$'), 'fileId');
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($fileId as String?, RegExp(r'^.+$'), 'fileId');
     parameters['fileId'] = $fileId;
 
     var $apiVersion =
@@ -5649,8 +5649,8 @@ class FilesIntegrationClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(shareToken, RegExp(r'^.+$'), 'shareToken');
     final $shareToken = jsonSerializers.serialize(shareToken, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($shareToken as String?, RegExp(r'^.+$'), 'shareToken');
     parameters['shareToken'] = $shareToken;
 
     var $apiVersion = jsonSerializers.serialize(
@@ -5771,8 +5771,8 @@ class GuestClient {
     final $displayName = jsonSerializers.serialize(displayName, specifiedType: const FullType(String));
     parameters['displayName'] = $displayName;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -6142,8 +6142,8 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -6260,8 +6260,8 @@ class MatterbridgeClient {
     final $enabled = jsonSerializers.serialize(enabled, specifiedType: const FullType(int));
     parameters['enabled'] = $enabled;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $parts = jsonSerializers.serialize(
@@ -6377,8 +6377,8 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -6480,8 +6480,8 @@ class MatterbridgeClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(
@@ -6836,8 +6836,8 @@ class PollClient {
     final $maxVotes = jsonSerializers.serialize(maxVotes, specifiedType: const FullType(int));
     parameters['maxVotes'] = $maxVotes;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PollCreatePollApiVersion));
@@ -6947,8 +6947,8 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -7065,8 +7065,8 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -7188,8 +7188,8 @@ class PollClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $pollId = jsonSerializers.serialize(pollId, specifiedType: const FullType(int));
@@ -7426,8 +7426,8 @@ class ReactionClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7555,8 +7555,8 @@ class ReactionClient {
     final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     parameters['reaction'] = $reaction;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7678,8 +7678,8 @@ class ReactionClient {
     final $reaction = jsonSerializers.serialize(reaction, specifiedType: const FullType(String));
     parameters['reaction'] = $reaction;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(int));
@@ -7914,8 +7914,8 @@ class RecordingClient {
     final $status = jsonSerializers.serialize(status, specifiedType: const FullType(int));
     parameters['status'] = $status;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStartApiVersion));
@@ -8020,8 +8020,8 @@ class RecordingClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStopApiVersion));
@@ -8132,8 +8132,8 @@ class RecordingClient {
     final $owner = jsonSerializers.serialize(owner, specifiedType: const FullType(String));
     parameters['owner'] = $owner;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RecordingStoreApiVersion));
@@ -8246,8 +8246,8 @@ class RecordingClient {
     final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     parameters['timestamp'] = $timestamp;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -8370,8 +8370,8 @@ class RecordingClient {
     final $timestamp = jsonSerializers.serialize(timestamp, specifiedType: const FullType(int));
     parameters['timestamp'] = $timestamp;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -8972,8 +8972,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomGetSingleRoomApiVersion));
@@ -9082,8 +9082,8 @@ class RoomClient {
     final $roomName = jsonSerializers.serialize(roomName, specifiedType: const FullType(String));
     parameters['roomName'] = $roomName;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomRenameRoomApiVersion));
@@ -9185,8 +9185,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomDeleteRoomApiVersion));
@@ -9289,8 +9289,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -9396,8 +9396,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePublicApiVersion));
@@ -9501,8 +9501,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomMakePrivateApiVersion));
@@ -9612,8 +9612,8 @@ class RoomClient {
     final $description = jsonSerializers.serialize(description, specifiedType: const FullType(String));
     parameters['description'] = $description;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -9728,8 +9728,8 @@ class RoomClient {
     final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
     parameters['state'] = $state;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetReadOnlyApiVersion));
@@ -9842,8 +9842,8 @@ class RoomClient {
     final $scope = jsonSerializers.serialize(scope, specifiedType: const FullType(int));
     parameters['scope'] = $scope;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetListableApiVersion));
@@ -9956,8 +9956,8 @@ class RoomClient {
     final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
     parameters['password'] = $password;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetPasswordApiVersion));
@@ -10073,12 +10073,12 @@ class RoomClient {
     final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     parameters['permissions'] = $permissions;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
-    dynamite_utils.checkPattern(mode, RegExp(r'^(call|default)$'), 'mode');
     final $mode = jsonSerializers.serialize(mode, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($mode as String?, RegExp(r'^(call|default)$'), 'mode');
     parameters['mode'] = $mode;
 
     var $apiVersion =
@@ -10188,8 +10188,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
@@ -10317,8 +10317,8 @@ class RoomClient {
     final $newParticipant = jsonSerializers.serialize(newParticipant, specifiedType: const FullType(String));
     parameters['newParticipant'] = $newParticipant;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $source = jsonSerializers.serialize(source, specifiedType: const FullType(String));
@@ -10437,8 +10437,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $includeStatus = jsonSerializers.serialize(includeStatus, specifiedType: const FullType(int));
@@ -10553,8 +10553,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -10670,8 +10670,8 @@ class RoomClient {
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     parameters['attendeeId'] = $attendeeId;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -10803,8 +10803,8 @@ class RoomClient {
     final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     parameters['permissions'] = $permissions;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -10926,8 +10926,8 @@ class RoomClient {
     final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
     parameters['permissions'] = $permissions;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11047,8 +11047,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
@@ -11158,8 +11158,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomLeaveRoomApiVersion));
@@ -11269,8 +11269,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
@@ -11387,8 +11387,8 @@ class RoomClient {
     final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
     parameters['state'] = $state;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11505,8 +11505,8 @@ class RoomClient {
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     parameters['attendeeId'] = $attendeeId;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11622,8 +11622,8 @@ class RoomClient {
     final $attendeeId = jsonSerializers.serialize(attendeeId, specifiedType: const FullType(int));
     parameters['attendeeId'] = $attendeeId;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11727,8 +11727,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11831,8 +11831,8 @@ class RoomClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -11945,8 +11945,8 @@ class RoomClient {
     final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
     parameters['level'] = $level;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -12060,8 +12060,8 @@ class RoomClient {
     final $level = jsonSerializers.serialize(level, specifiedType: const FullType(int));
     parameters['level'] = $level;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -12180,8 +12180,8 @@ class RoomClient {
     final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
     parameters['state'] = $state;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     final $timer = jsonSerializers.serialize(timer, specifiedType: const FullType(int));
@@ -12304,8 +12304,8 @@ class RoomClient {
     final $state = jsonSerializers.serialize(state, specifiedType: const FullType(int));
     parameters['state'] = $state;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(RoomSetsipEnabledApiVersion));
@@ -12420,8 +12420,8 @@ class RoomClient {
     final $recordingConsent = jsonSerializers.serialize(recordingConsent, specifiedType: const FullType(int));
     parameters['recordingConsent'] = $recordingConsent;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -12534,8 +12534,8 @@ class RoomClient {
     final $seconds = jsonSerializers.serialize(seconds, specifiedType: const FullType(int));
     parameters['seconds'] = $seconds;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -13123,8 +13123,8 @@ class SignalingClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =
@@ -13234,8 +13234,8 @@ class SignalingClient {
     final $messages = jsonSerializers.serialize(messages, specifiedType: const FullType(String));
     parameters['messages'] = $messages;
 
-    dynamite_utils.checkPattern(token, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($token as String?, RegExp(r'^[a-z0-9]{4,30}$'), 'token');
     parameters['token'] = $token;
 
     var $apiVersion =

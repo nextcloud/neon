@@ -123,8 +123,8 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -240,8 +240,8 @@ class ApiClient {
     final $dueDate = jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
     parameters['dueDate'] = $dueDate;
 
-    dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
@@ -347,8 +347,8 @@ class ApiClient {
     }
 
 // coverage:ignore-end
-    dynamite_utils.checkPattern(version, RegExp(r'^1$'), 'version');
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
     parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));

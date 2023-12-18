@@ -79,7 +79,7 @@ TypeResultObject resolveObject(
         validators.add('b.$dartName?.validateAnyOf();');
       }
 
-      validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName'));
+      validators.addAll(buildPatternCheck(propertySchema, 'b.$dartName', dartName));
     }
 
     final $interface = buildInterface(

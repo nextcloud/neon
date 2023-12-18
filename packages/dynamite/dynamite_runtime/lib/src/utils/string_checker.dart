@@ -2,7 +2,7 @@
 ///
 /// Throws an `Exception` containing the [parameterName] if the `pattern` does not match.
 void checkPattern(final String? input, final RegExp pattern, final String parameterName) {
-  if (input == null || !pattern.hasMatch(input)) {
+  if (input != null && !pattern.hasMatch(input)) {
     throw FormatException('Invalid value "$input" for parameter "$parameterName" with pattern "${pattern.pattern}"');
   }
 }
@@ -11,7 +11,7 @@ void checkPattern(final String? input, final RegExp pattern, final String parame
 ///
 /// Throws an `Exception` containing the [parameterName] if the `input` is to short.
 void checkMinLength(final String? input, final int minLength, final String parameterName) {
-  if (input == null || input.length < minLength) {
+  if (input != null && input.length < minLength) {
     throw FormatException('Parameter "$input" has to be at least $minLength characters long');
   }
 }
@@ -20,7 +20,7 @@ void checkMinLength(final String? input, final int minLength, final String param
 ///
 /// Throws an `Exception` containing the [parameterName] if the `input` is to long.
 void checkMaxLength(final String? input, final int maxLength, final String parameterName) {
-  if (input == null || input.length > maxLength) {
+  if (input != null && input.length > maxLength) {
     throw FormatException('Parameter "$input" has to be at most $maxLength characters long');
   }
 }

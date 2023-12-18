@@ -262,7 +262,6 @@ Iterable<Method> buildTags(
           ),
         );
 
-        buildParameterPatternCheck(parameter).forEach(code.writeln);
         code.writeln(buildParameterSerialization(result, parameter));
       }
       resolveMimeTypeEncode(operation, spec, state, operationName, operationParameters).forEach(code.writeln);
@@ -444,6 +443,10 @@ String buildParameterSerialization(
     buffer.writeln('$serializedName ??= $defaultValueCode;');
   }
 
+  if (parameter.schema != null) {
+    buildPatternCheck(parameter.schema!, serializedName, dartName).forEach(buffer.writeln);
+  }
+
   if (parameter.$in == openapi.ParameterType.header) {
     final assignment =
         "_headers['${parameter.pctEncodedName}'] = ${result.encode(serializedName, onlyChildren: true)};";
@@ -461,18 +464,6 @@ String buildParameterSerialization(
   }
 
   return buffer.toString();
-}
-
-Iterable<String> buildParameterPatternCheck(
-  final openapi.Parameter parameter,
-) sync* {
-  final schema = parameter.schema;
-  if (schema == null) {
-    return;
-  }
-
-  final value = toDartName(parameter.name);
-  yield* buildPatternCheck(schema, value);
 }
 
 Iterable<String> buildAuthCheck(
