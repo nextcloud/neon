@@ -6,6 +6,7 @@
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -16,6 +17,8 @@ import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
+
+part 'parameters.openapi.g.dart';
 
 class Client extends DynamiteClient {
   Client(
@@ -51,6 +54,7 @@ class Client extends DynamiteClient {
   ///   * [object]
   ///   * [oneOf]
   ///   * [anyOf]
+  ///   * [enumPattern]
   ///
   /// Status codes:
   ///   * 200
@@ -70,6 +74,7 @@ class Client extends DynamiteClient {
     final JsonObject? object,
     final GetOneOf? oneOf,
     final GetAnyOf? anyOf,
+    final GetEnumPattern? enumPattern,
   }) async {
     final rawResponse = $getRaw(
       contentString: contentString,
@@ -84,6 +89,7 @@ class Client extends DynamiteClient {
       object: object,
       oneOf: oneOf,
       anyOf: anyOf,
+      enumPattern: enumPattern,
     );
 
     return rawResponse.future;
@@ -107,6 +113,7 @@ class Client extends DynamiteClient {
   ///   * [object]
   ///   * [oneOf]
   ///   * [anyOf]
+  ///   * [enumPattern]
   ///
   /// Status codes:
   ///   * 200
@@ -127,6 +134,7 @@ class Client extends DynamiteClient {
     final JsonObject? object,
     final GetOneOf? oneOf,
     final GetAnyOf? anyOf,
+    final GetEnumPattern? enumPattern,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -180,9 +188,13 @@ class Client extends DynamiteClient {
     final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
     parameters['anyOf'] = $anyOf;
 
+    final $enumPattern = jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
+    dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
+    parameters['enum_pattern'] = $enumPattern;
+
     final uri = Uri.parse(
       UriTemplate(
-        '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*}',
+        '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
       ).expand(parameters),
     );
     return DynamiteRawResponse<JsonObject, void>(
@@ -366,6 +378,21 @@ class Client extends DynamiteClient {
   }
 }
 
+class GetEnumPattern extends EnumClass {
+  const GetEnumPattern._(super.name);
+
+  static const GetEnumPattern a = _$getEnumPatternA;
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const GetEnumPattern $0 = _$getEnumPattern$0;
+
+  static BuiltSet<GetEnumPattern> get values => _$getEnumPatternValues;
+
+  static GetEnumPattern valueOf(final String name) => _$valueOfGetEnumPattern(name);
+
+  static Serializer<GetEnumPattern> get serializer => _$getEnumPatternSerializer;
+}
+
 typedef GetOneOf = ({bool? $bool, String? string});
 
 typedef GetAnyOf = ({bool? $bool, String? string});
@@ -442,7 +469,8 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..add($BoolStringExtension.serializer))
+      ..add($BoolStringExtension.serializer)
+      ..add(GetEnumPattern.serializer))
     .build();
 
 @visibleForTesting

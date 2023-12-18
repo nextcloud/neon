@@ -58,12 +58,12 @@ abstract class TestObject implements $TestObjectInterface, Built<TestObject, Tes
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final TestObjectBuilder b) {
-    dynamite_utils.checkPattern(b.onlyNumbers, RegExp(r'^[0-9]*$'), 'b.onlyNumbers');
-    dynamite_utils.checkMinLength(b.minLength, 3, 'b.minLength');
-    dynamite_utils.checkMaxLength(b.maxLength, 20, 'b.maxLength');
-    dynamite_utils.checkPattern(b.multipleChecks, RegExp(r'^[0-9]*$'), 'b.multipleChecks');
-    dynamite_utils.checkMinLength(b.multipleChecks, 3, 'b.multipleChecks');
-    dynamite_utils.checkMaxLength(b.multipleChecks, 20, 'b.multipleChecks');
+    dynamite_utils.checkPattern(b.onlyNumbers, RegExp(r'^[0-9]*$'), 'onlyNumbers');
+    dynamite_utils.checkMinLength(b.minLength, 3, 'minLength');
+    dynamite_utils.checkMaxLength(b.maxLength, 20, 'maxLength');
+    dynamite_utils.checkPattern(b.multipleChecks, RegExp(r'^[0-9]*$'), 'multipleChecks');
+    dynamite_utils.checkMinLength(b.multipleChecks, 3, 'multipleChecks');
+    dynamite_utils.checkMaxLength(b.multipleChecks, 20, 'multipleChecks');
   }
 }
 

@@ -290,8 +290,8 @@ class IconClient {
     final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
     parameters['app'] = $app;
 
-    dynamite_utils.checkPattern(image, RegExp(r'^.+$'), 'image');
     final $image = jsonSerializers.serialize(image, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($image as String?, RegExp(r'^.+$'), 'image');
     parameters['image'] = $image;
 
     final uri = Uri.parse(UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(parameters));
@@ -1100,7 +1100,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
 
   @BuiltValueHook(finalizeBuilder: true)
   static void _validate(final ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
-    dynamite_utils.checkMinLength(b.src, 1, 'b.src');
+    dynamite_utils.checkMinLength(b.src, 1, 'src');
   }
 }
 

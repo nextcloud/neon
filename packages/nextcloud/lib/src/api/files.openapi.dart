@@ -140,8 +140,8 @@ class ApiClient {
     final $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
     parameters['y'] = $y;
 
-    dynamite_utils.checkPattern(file, RegExp(r'^.+$'), 'file');
     final $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
+    dynamite_utils.checkPattern($file as String?, RegExp(r'^.+$'), 'file');
     parameters['file'] = $file;
 
     final uri = Uri.parse(UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(parameters));

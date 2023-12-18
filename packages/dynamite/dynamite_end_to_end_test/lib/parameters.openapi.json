@@ -120,6 +120,18 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "name": "enum_pattern",
+                        "in": "query",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[a-z]",
+                            "enum": [
+                                "a",
+                                "0"
+                            ]
+                        }
                     }
                 ],
                 "responses": {

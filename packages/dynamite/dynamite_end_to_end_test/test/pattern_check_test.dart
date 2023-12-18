@@ -13,19 +13,19 @@ void main() {
 
   group('Pattern check', () {
     test('onlyNumbers', () {
-      expect(() => object.rebuild((final b) => b..onlyNumbers = null), throwsA(isA<FormatException>()));
+      object.rebuild((final b) => b..onlyNumbers = null);
       expect(() => object.rebuild((final b) => b..onlyNumbers = 'Text'), throwsA(isA<FormatException>()));
     });
 
     test('minLength', () {
-      expect(() => object.rebuild((final b) => b..minLength = null), throwsA(isA<FormatException>()));
+      object.rebuild((final b) => b..minLength = null);
       expect(() => object.rebuild((final b) => b..minLength = ''), throwsA(isA<FormatException>()));
       expect(() => object.rebuild((final b) => b..minLength = 'Te'), throwsA(isA<FormatException>()));
       expect(() => object.rebuild((final b) => b..minLength = '12'), throwsA(isA<FormatException>()));
     });
 
     test('maxLength', () {
-      expect(() => object.rebuild((final b) => b..maxLength = null), throwsA(isA<FormatException>()));
+      object.rebuild((final b) => b..maxLength = null);
       expect(
         () => object.rebuild((final b) => b..maxLength = 'Super long text should throw'),
         throwsA(isA<FormatException>()),
@@ -37,7 +37,7 @@ void main() {
     });
 
     test('multipleChecks', () {
-      expect(() => object.rebuild((final b) => b..multipleChecks = null), throwsA(isA<FormatException>()));
+      object.rebuild((final b) => b..multipleChecks = null);
       expect(() => object.rebuild((final b) => b..multipleChecks = 'Text'), throwsA(isA<FormatException>()));
       expect(() => object.rebuild((final b) => b..minLength = ''), throwsA(isA<FormatException>()));
       expect(() => object.rebuild((final b) => b..minLength = '12'), throwsA(isA<FormatException>()));
