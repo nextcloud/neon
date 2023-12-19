@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';

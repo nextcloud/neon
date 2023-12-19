@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -136,11 +137,11 @@ class Client extends DynamiteClient {
     GetAnyOf? anyOf,
     GetEnumPattern? enumPattern,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
     final $contentString = jsonSerializers.serialize(
       contentString,
@@ -148,7 +149,7 @@ class Client extends DynamiteClient {
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    parameters['content_string'] = $contentString;
+    _parameters['content_string'] = $contentString;
 
     final $contentParameter = jsonSerializers.serialize(
       contentParameter,
@@ -156,51 +157,51 @@ class Client extends DynamiteClient {
         FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
       ]),
     );
-    parameters['content_parameter'] = $contentParameter;
+    _parameters['content_parameter'] = $contentParameter;
 
     final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
-    parameters['array'] = $array;
+    _parameters['array'] = $array;
 
     final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
-    parameters['bool'] = $$bool;
+    _parameters['bool'] = $$bool;
 
     final $string = jsonSerializers.serialize(string, specifiedType: const FullType(String));
-    parameters['string'] = $string;
+    _parameters['string'] = $string;
 
     final $stringBinary = jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
-    parameters['string_binary'] = $stringBinary;
+    _parameters['string_binary'] = $stringBinary;
 
     final $$int = jsonSerializers.serialize($int, specifiedType: const FullType(int));
-    parameters['int'] = $$int;
+    _parameters['int'] = $$int;
 
     final $$double = jsonSerializers.serialize($double, specifiedType: const FullType(double));
-    parameters['double'] = $$double;
+    _parameters['double'] = $$double;
 
     final $$num = jsonSerializers.serialize($num, specifiedType: const FullType(num));
-    parameters['num'] = $$num;
+    _parameters['num'] = $$num;
 
     final $object = jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
-    parameters['object'] = $object;
+    _parameters['object'] = $object;
 
     final $oneOf = jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetOneOf));
-    parameters['oneOf'] = $oneOf;
+    _parameters['oneOf'] = $oneOf;
 
     final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetAnyOf));
-    parameters['anyOf'] = $anyOf;
+    _parameters['anyOf'] = $anyOf;
 
     final $enumPattern = jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetEnumPattern));
     dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
-    parameters['enum_pattern'] = $enumPattern;
+    _parameters['enum_pattern'] = $enumPattern;
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -272,49 +273,49 @@ class Client extends DynamiteClient {
     double? $double,
     num? $num,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
     final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($array != null) {
-      headers['array'] = ($array as List).map<String>((e) => e as String).join();
+      _headers['array'] = ($array as List).map<String>((e) => e as String).join();
     }
 
     final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     if ($$bool != null) {
-      headers['bool'] = $$bool.toString();
+      _headers['bool'] = $$bool.toString();
     }
 
     final $string = jsonSerializers.serialize(string, specifiedType: const FullType(String));
     if ($string != null) {
-      headers['string'] = $string as String;
+      _headers['string'] = $string as String;
     }
 
     final $$int = jsonSerializers.serialize($int, specifiedType: const FullType(int));
     if ($$int != null) {
-      headers['int'] = $$int.toString();
+      _headers['int'] = $$int.toString();
     }
 
     final $$double = jsonSerializers.serialize($double, specifiedType: const FullType(double));
     if ($$double != null) {
-      headers['double'] = $$double.toString();
+      _headers['double'] = $$double.toString();
     }
 
     final $$num = jsonSerializers.serialize($num, specifiedType: const FullType(num));
     if ($$num != null) {
-      headers['num'] = $$num.toString();
+      _headers['num'] = $$num.toString();
     }
 
-    final path = UriTemplate('/headers').expand(parameters);
+    final _path = UriTemplate('/headers').expand(_parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -351,22 +352,22 @@ class Client extends DynamiteClient {
   ///  * [getPathParameter] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
     final $pathParameter = jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
-    parameters['path_parameter'] = $pathParameter;
+    _parameters['path_parameter'] = $pathParameter;
 
-    final path = UriTemplate('/{path_parameter}').expand(parameters);
+    final _path = UriTemplate('/{path_parameter}').expand(_parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(JsonObject),

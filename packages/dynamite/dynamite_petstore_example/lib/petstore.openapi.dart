@@ -2,6 +2,7 @@
 // ignore_for_file: discarded_futures
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:convert';
 import 'dart:typed_data';
 
