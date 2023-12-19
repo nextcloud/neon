@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -129,7 +128,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -175,7 +173,7 @@ class ApiClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ApiGenerateNotificationResponseApplicationJson),
@@ -245,7 +243,6 @@ class EndpointClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -280,7 +277,7 @@ class EndpointClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(EndpointListNotificationsResponseApplicationJson),
@@ -342,7 +339,6 @@ class EndpointClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -376,7 +372,7 @@ class EndpointClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
@@ -443,7 +439,6 @@ class EndpointClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -480,7 +475,7 @@ class EndpointClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(EndpointGetNotificationResponseApplicationJson),
@@ -549,7 +544,6 @@ class EndpointClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -586,7 +580,7 @@ class EndpointClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(EndpointDeleteNotificationResponseApplicationJson),
@@ -653,7 +647,6 @@ class EndpointClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -691,7 +684,7 @@ class EndpointClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
@@ -778,7 +771,6 @@ class PushClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -823,7 +815,7 @@ class PushClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201},
       ),
       bodyType: const FullType(PushRegisterDeviceResponseApplicationJson),
@@ -889,7 +881,6 @@ class PushClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -922,7 +913,7 @@ class PushClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 202, 401},
       ),
       bodyType: const FullType(PushRemoveDeviceResponseApplicationJson),
@@ -1003,7 +994,6 @@ class SettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1047,7 +1037,7 @@ class SettingsClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SettingsPersonalResponseApplicationJson),
@@ -1126,7 +1116,6 @@ class SettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1170,7 +1159,7 @@ class SettingsClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SettingsAdminResponseApplicationJson),

@@ -141,7 +141,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $contentString = jsonSerializers.serialize(
       contentString,
@@ -201,7 +200,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -276,7 +275,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($array != null) {
@@ -314,7 +312,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -355,7 +353,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $pathParameter = jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
@@ -366,7 +363,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),

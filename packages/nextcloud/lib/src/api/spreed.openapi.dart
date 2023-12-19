@@ -148,7 +148,6 @@ class AvatarClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -188,7 +187,7 @@ class AvatarClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -255,7 +254,6 @@ class AvatarClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -291,7 +289,7 @@ class AvatarClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(AvatarUploadAvatarResponseApplicationJson),
@@ -356,7 +354,6 @@ class AvatarClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -392,7 +389,7 @@ class AvatarClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(AvatarDeleteAvatarResponseApplicationJson),
@@ -469,7 +466,6 @@ class AvatarClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -511,7 +507,7 @@ class AvatarClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(AvatarEmojiAvatarResponseApplicationJson),
@@ -576,7 +572,6 @@ class AvatarClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -612,7 +607,7 @@ class AvatarClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -713,7 +708,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -765,7 +759,7 @@ class BotClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201, 400, 401, 413},
       ),
       bodyType: const FullType(BotSendMessageResponseApplicationJson),
@@ -848,7 +842,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -890,7 +883,7 @@ class BotClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201, 400, 401, 404},
       ),
       bodyType: const FullType(BotReactResponseApplicationJson),
@@ -971,7 +964,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1013,7 +1005,7 @@ class BotClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 404, 401},
       ),
       bodyType: const FullType(BotDeleteReactionResponseApplicationJson),
@@ -1077,7 +1069,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1110,7 +1101,7 @@ class BotClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BotAdminListBotsResponseApplicationJson),
@@ -1175,7 +1166,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1212,7 +1202,7 @@ class BotClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BotListBotsResponseApplicationJson),
@@ -1286,7 +1276,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1326,7 +1315,7 @@ class BotClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201},
       ),
       bodyType: const FullType(BotEnableBotResponseApplicationJson),
@@ -1398,7 +1387,6 @@ class BotClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1438,7 +1426,7 @@ class BotClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BotDisableBotResponseApplicationJson),
@@ -1526,7 +1514,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1578,7 +1565,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
@@ -1643,7 +1630,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1681,7 +1667,7 @@ class BreakoutRoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
@@ -1755,7 +1741,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1799,7 +1784,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
@@ -1871,7 +1856,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1914,7 +1898,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
@@ -1981,7 +1965,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2020,7 +2003,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
@@ -2088,7 +2071,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2129,7 +2111,7 @@ class BreakoutRoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
@@ -2196,7 +2178,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2235,7 +2216,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
@@ -2302,7 +2283,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2341,7 +2321,7 @@ class BreakoutRoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
@@ -2413,7 +2393,6 @@ class BreakoutRoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2455,7 +2434,7 @@ class BreakoutRoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
@@ -2526,7 +2505,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2562,7 +2540,7 @@ class CallClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(CallGetPeersForCallResponseApplicationJson),
@@ -2636,7 +2614,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2675,7 +2652,7 @@ class CallClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 404},
       ),
       bodyType: const FullType(CallUpdateCallFlagsResponseApplicationJson),
@@ -2764,7 +2741,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2815,7 +2791,7 @@ class CallClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 404},
       ),
       bodyType: const FullType(CallJoinCallResponseApplicationJson),
@@ -2887,7 +2863,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2926,7 +2901,7 @@ class CallClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 404},
       ),
       bodyType: const FullType(CallLeaveCallResponseApplicationJson),
@@ -2998,7 +2973,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3037,7 +3011,7 @@ class CallClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(CallRingAttendeeResponseApplicationJson),
@@ -3113,7 +3087,6 @@ class CallClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3152,7 +3125,7 @@ class CallClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201, 400, 404, 501},
       ),
       bodyType: const FullType(CallSipDialOutResponseApplicationJson),
@@ -3229,7 +3202,6 @@ class CertificateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3269,7 +3241,7 @@ class CertificateClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
@@ -3395,7 +3367,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3469,7 +3440,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 304},
       ),
       bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
@@ -3569,7 +3540,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3625,7 +3595,7 @@ class ChatClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(ChatSendMessageResponseApplicationJson),
@@ -3694,7 +3664,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3731,7 +3700,7 @@ class ChatClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 202},
       ),
       bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
@@ -3811,7 +3780,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3851,7 +3819,7 @@ class ChatClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 202},
       ),
       bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
@@ -3930,7 +3898,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -3974,7 +3941,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 304},
       ),
       bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
@@ -4046,7 +4013,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4087,7 +4053,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatGetReminderResponseApplicationJson),
@@ -4164,7 +4130,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4208,7 +4173,7 @@ class ChatClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(ChatSetReminderResponseApplicationJson),
@@ -4280,7 +4245,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4322,7 +4286,7 @@ class ChatClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 404},
       ),
       bodyType: const FullType(ChatDeleteReminderResponseApplicationJson),
@@ -4392,7 +4356,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4433,7 +4396,7 @@ class ChatClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
@@ -4498,7 +4461,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4535,7 +4497,7 @@ class ChatClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatMarkUnreadResponseApplicationJson),
@@ -4615,7 +4577,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4663,7 +4624,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatMentionsResponseApplicationJson),
@@ -4745,7 +4706,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4795,7 +4755,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
@@ -4897,7 +4857,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -4953,7 +4912,7 @@ class ChatClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
@@ -5025,7 +4984,6 @@ class ChatClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5068,7 +5026,7 @@ class ChatClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
@@ -5141,7 +5099,6 @@ class FederationClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5179,7 +5136,7 @@ class FederationClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(FederationAcceptShareResponseApplicationJson),
@@ -5246,7 +5203,6 @@ class FederationClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5284,7 +5240,7 @@ class FederationClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(FederationRejectShareResponseApplicationJson),
@@ -5344,7 +5300,6 @@ class FederationClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5378,7 +5333,7 @@ class FederationClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(FederationGetSharesResponseApplicationJson),
@@ -5461,7 +5416,6 @@ class FilesIntegrationClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5499,7 +5453,7 @@ class FilesIntegrationClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
@@ -5578,7 +5532,6 @@ class FilesIntegrationClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5616,7 +5569,7 @@ class FilesIntegrationClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
@@ -5696,7 +5649,6 @@ class GuestClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5736,7 +5688,7 @@ class GuestClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403, 404},
       ),
       bodyType: const FullType(GuestSetDisplayNameResponseApplicationJson),
@@ -5835,7 +5787,6 @@ class HostedSignalingServerClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5888,7 +5839,7 @@ class HostedSignalingServerClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
@@ -5956,7 +5907,6 @@ class HostedSignalingServerClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -5993,7 +5943,7 @@ class HostedSignalingServerClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {204},
       ),
       bodyType: const FullType(HostedSignalingServerDeleteAccountResponseApplicationJson),
@@ -6064,7 +6014,6 @@ class MatterbridgeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6102,7 +6051,7 @@ class MatterbridgeClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
@@ -6179,7 +6128,6 @@ class MatterbridgeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6231,7 +6179,7 @@ class MatterbridgeClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
@@ -6298,7 +6246,6 @@ class MatterbridgeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6336,7 +6283,7 @@ class MatterbridgeClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
@@ -6401,7 +6348,6 @@ class MatterbridgeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6441,7 +6387,7 @@ class MatterbridgeClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
@@ -6513,7 +6459,6 @@ class MatterbridgeSettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6549,7 +6494,7 @@ class MatterbridgeSettingsClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
@@ -6617,7 +6562,6 @@ class MatterbridgeSettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6653,7 +6597,7 @@ class MatterbridgeSettingsClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
@@ -6746,7 +6690,6 @@ class PollClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6795,7 +6738,7 @@ class PollClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(PollCreatePollResponseApplicationJson),
@@ -6867,7 +6810,6 @@ class PollClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -6905,7 +6847,7 @@ class PollClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(PollShowPollResponseApplicationJson),
@@ -6984,7 +6926,6 @@ class PollClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7027,7 +6968,7 @@ class PollClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(PollVotePollResponseApplicationJson),
@@ -7105,7 +7046,6 @@ class PollClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7143,7 +7083,7 @@ class PollClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(PollClosePollResponseApplicationJson),
@@ -7222,7 +7162,6 @@ class PublicShareAuthClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7258,7 +7197,7 @@ class PublicShareAuthClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
@@ -7341,7 +7280,6 @@ class ReactionClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7384,7 +7322,7 @@ class ReactionClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ReactionGetReactionsResponseApplicationJson),
@@ -7465,7 +7403,6 @@ class ReactionClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7507,7 +7444,7 @@ class ReactionClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201},
       ),
       bodyType: const FullType(ReactionReactResponseApplicationJson),
@@ -7586,7 +7523,6 @@ class ReactionClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7628,7 +7564,7 @@ class ReactionClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ReactionDeleteResponseApplicationJson),
@@ -7707,7 +7643,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7745,7 +7680,7 @@ class RecordingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
@@ -7817,7 +7752,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7858,7 +7792,7 @@ class RecordingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingStartResponseApplicationJson),
@@ -7925,7 +7859,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -7962,7 +7895,7 @@ class RecordingClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingStopResponseApplicationJson),
@@ -8036,7 +7969,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8075,7 +8007,7 @@ class RecordingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingStoreResponseApplicationJson),
@@ -8147,7 +8079,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8189,7 +8120,7 @@ class RecordingClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingNotificationDismissResponseApplicationJson),
@@ -8266,7 +8197,6 @@ class RecordingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8312,7 +8242,7 @@ class RecordingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RecordingShareToChatResponseApplicationJson),
@@ -8393,7 +8323,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8440,7 +8369,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetRoomsResponseApplicationJson),
@@ -8538,7 +8467,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8596,7 +8524,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201},
       ),
       bodyType: const FullType(RoomCreateRoomResponseApplicationJson),
@@ -8661,7 +8589,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8699,7 +8626,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetListedRoomsResponseApplicationJson),
@@ -8766,7 +8693,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8801,7 +8727,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
@@ -8870,7 +8796,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -8905,7 +8830,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
@@ -8977,7 +8902,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9015,7 +8939,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomRenameRoomResponseApplicationJson),
@@ -9082,7 +9006,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9117,7 +9040,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomDeleteRoomResponseApplicationJson),
@@ -9184,7 +9107,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9223,7 +9145,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
@@ -9290,7 +9212,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9327,7 +9248,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomMakePublicResponseApplicationJson),
@@ -9394,7 +9315,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9431,7 +9351,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomMakePrivateResponseApplicationJson),
@@ -9503,7 +9423,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9543,7 +9462,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomSetDescriptionResponseApplicationJson),
@@ -9615,7 +9534,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9656,7 +9574,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomSetReadOnlyResponseApplicationJson),
@@ -9728,7 +9646,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9769,7 +9686,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomSetListableResponseApplicationJson),
@@ -9843,7 +9760,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -9882,7 +9798,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403},
       ),
       bodyType: const FullType(RoomSetPasswordResponseApplicationJson),
@@ -9959,7 +9875,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10003,7 +9918,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetPermissionsResponseApplicationJson),
@@ -10075,7 +9990,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10116,7 +10030,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
@@ -10197,7 +10111,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10244,7 +10157,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomAddParticipantToRoomResponseApplicationJson),
@@ -10321,7 +10234,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10364,7 +10276,7 @@ class RoomClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
@@ -10433,7 +10345,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10472,7 +10383,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 404},
       ),
       bodyType: const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
@@ -10548,7 +10459,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10588,7 +10498,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403, 404},
       ),
       bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
@@ -10674,7 +10584,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10721,7 +10630,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403, 404},
       ),
       bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
@@ -10798,7 +10707,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10842,7 +10750,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
@@ -10923,7 +10831,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -10968,7 +10875,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomJoinRoomResponseApplicationJson),
@@ -11033,7 +10940,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11069,7 +10975,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
@@ -11141,7 +11047,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11184,7 +11089,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 404},
       ),
       bodyType: const FullType(RoomResendInvitationsResponseApplicationJson),
@@ -11256,7 +11161,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11296,7 +11200,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetSessionStateResponseApplicationJson),
@@ -11372,7 +11276,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11412,7 +11315,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403, 404},
       ),
       bodyType: const FullType(RoomPromoteModeratorResponseApplicationJson),
@@ -11488,7 +11391,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11528,7 +11430,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403, 404},
       ),
       bodyType: const FullType(RoomDemoteModeratorResponseApplicationJson),
@@ -11593,7 +11495,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11631,7 +11532,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomAddToFavoritesResponseApplicationJson),
@@ -11696,7 +11597,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11734,7 +11634,7 @@ class RoomClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
@@ -11806,7 +11706,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11848,7 +11747,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomSetNotificationLevelResponseApplicationJson),
@@ -11920,7 +11819,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -11962,7 +11860,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(RoomSetNotificationCallsResponseApplicationJson),
@@ -12039,7 +11937,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12083,7 +11980,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
@@ -12161,7 +12058,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12202,7 +12098,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetsipEnabledResponseApplicationJson),
@@ -12276,7 +12172,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12319,7 +12214,7 @@ class RoomClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetRecordingConsentResponseApplicationJson),
@@ -12391,7 +12286,6 @@ class RoomClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12431,7 +12325,7 @@ class RoomClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RoomSetMessageExpirationResponseApplicationJson),
@@ -12516,7 +12410,6 @@ class SettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12564,7 +12457,7 @@ class SettingsClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SettingsSetsipSettingsResponseApplicationJson),
@@ -12636,7 +12529,6 @@ class SettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12680,7 +12572,7 @@ class SettingsClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(SettingsSetUserSettingResponseApplicationJson),
@@ -12755,7 +12647,6 @@ class SignalingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12792,7 +12683,7 @@ class SignalingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SignalingGetSettingsResponseApplicationJson),
@@ -12867,7 +12758,6 @@ class SignalingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -12905,7 +12795,7 @@ class SignalingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
@@ -12976,7 +12866,6 @@ class SignalingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13012,7 +12901,7 @@ class SignalingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 404, 409},
       ),
       bodyType: const FullType(SignalingPullMessagesResponseApplicationJson),
@@ -13084,7 +12973,6 @@ class SignalingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13124,7 +13012,7 @@ class SignalingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SignalingSendMessagesResponseApplicationJson),
@@ -13182,7 +13070,6 @@ class TempAvatarClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13211,7 +13098,7 @@ class TempAvatarClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TempAvatarPostAvatarResponseApplicationJson),
@@ -13265,7 +13152,6 @@ class TempAvatarClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -13294,7 +13180,7 @@ class TempAvatarClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400},
       ),
       bodyType: const FullType(TempAvatarDeleteAvatarResponseApplicationJson),

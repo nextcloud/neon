@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -87,7 +86,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -116,7 +114,7 @@ class ApiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ApiGetUserMountsResponseApplicationJson),

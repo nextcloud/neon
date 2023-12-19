@@ -100,7 +100,6 @@ class DeletedShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -129,7 +128,7 @@ class DeletedShareapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DeletedShareapiListResponseApplicationJson),
@@ -191,7 +190,6 @@ class DeletedShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -223,7 +221,7 @@ class DeletedShareapiClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
@@ -295,7 +293,6 @@ class PublicPreviewClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -325,7 +322,7 @@ class PublicPreviewClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -411,7 +408,6 @@ class PublicPreviewClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -458,7 +454,7 @@ class PublicPreviewClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -514,7 +510,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -543,7 +538,7 @@ class RemoteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
@@ -595,7 +590,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -624,7 +618,7 @@ class RemoteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
@@ -686,7 +680,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -718,7 +711,7 @@ class RemoteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
@@ -780,7 +773,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -812,7 +804,7 @@ class RemoteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
@@ -874,7 +866,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -906,7 +897,7 @@ class RemoteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteGetShareResponseApplicationJson),
@@ -970,7 +961,6 @@ class RemoteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1002,7 +992,7 @@ class RemoteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(RemoteUnshareResponseApplicationJson),
@@ -1082,7 +1072,6 @@ class ShareInfoClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1118,7 +1107,7 @@ class ShareInfoClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareInfo),
@@ -1206,7 +1195,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1257,7 +1245,7 @@ class ShareapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
@@ -1373,7 +1361,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1443,7 +1430,7 @@ class ShareapiClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
@@ -1507,7 +1494,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1539,7 +1525,7 @@ class ShareapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
@@ -1591,7 +1577,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1620,7 +1605,7 @@ class ShareapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
@@ -1687,7 +1672,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1723,7 +1707,7 @@ class ShareapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
@@ -1834,7 +1818,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1895,7 +1878,7 @@ class ShareapiClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
@@ -1959,7 +1942,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1991,7 +1973,7 @@ class ShareapiClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
@@ -2055,7 +2037,6 @@ class ShareapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2087,7 +2068,7 @@ class ShareapiClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
@@ -2180,7 +2161,6 @@ class ShareesapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2236,7 +2216,7 @@ class ShareesapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
@@ -2301,7 +2281,6 @@ class ShareesapiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2340,7 +2319,7 @@ class ShareesapiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),

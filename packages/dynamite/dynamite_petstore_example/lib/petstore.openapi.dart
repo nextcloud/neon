@@ -97,7 +97,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     var $tags = jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = $tags;
@@ -111,7 +110,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: FullType(BuiltList, [FullType(Pet)]),
@@ -220,7 +219,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
@@ -231,7 +229,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: FullType(Pet),
@@ -282,7 +280,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
@@ -293,7 +290,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {204},
       ),
       bodyType: null,

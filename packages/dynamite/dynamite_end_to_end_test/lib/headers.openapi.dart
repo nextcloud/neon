@@ -61,7 +61,6 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<void, GetHeaders> $getRaw() {
     final _headers = <String, String>{};
-    Uint8List? _body;
 
     const _path = '/';
     return DynamiteRawResponse<void, GetHeaders>(
@@ -69,7 +68,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -105,7 +104,6 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
     final _headers = <String, String>{};
-    Uint8List? _body;
 
     const _path = '/with_content/operation_id';
     return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
@@ -113,7 +111,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -151,7 +149,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
-    Uint8List? _body;
 
     const _path = '/with_content';
     return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
@@ -159,7 +156,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

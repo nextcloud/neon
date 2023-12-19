@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -60,7 +59,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     const _path = '/';
     return DynamiteRawResponse<String, void>(
@@ -68,7 +66,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         null,
       ),
       bodyType: const FullType(String),
@@ -108,7 +106,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     const _path = '/';
     return DynamiteRawResponse<String, void>(
@@ -116,7 +113,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(String),
@@ -158,7 +155,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     const _path = '/';
     return DynamiteRawResponse<String, void>(
@@ -166,7 +162,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         null,
       ),
       bodyType: const FullType(String),
@@ -206,7 +202,6 @@ class Client extends DynamiteClient {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     const _path = '/';
     return DynamiteRawResponse<String, void>(
@@ -214,7 +209,7 @@ class Client extends DynamiteClient {
         'patch',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201},
       ),
       bodyType: const FullType(String),

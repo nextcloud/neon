@@ -246,10 +246,11 @@ Iterable<Method> buildTags(
       } else if (acceptHeader.isEmpty) {
         code.writeln('final _headers = <String, String>{};');
       }
-
-      code.writeln('''
-  Uint8List? _body;
-  ''');
+      if (operation.requestBody != null) {
+        code.writeln('Uint8List? _body;');
+      }
+      // Separate the declarations from the assignments
+      code.writeln();
 
       if (hasAuthentication) {
         buildAuthCheck(
@@ -393,7 +394,7 @@ Iterable<Method> buildTags(
       '$httpMethod',
       _path,
       _headers,
-      _body,
+      ${operation.requestBody != null ? '_body' : 'null'},
 ''');
 
         if (responses.values.isNotEmpty) {

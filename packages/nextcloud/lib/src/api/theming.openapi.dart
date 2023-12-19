@@ -98,7 +98,6 @@ class IconClient {
     final _headers = <String, String>{
       'Accept': 'image/x-icon',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -125,7 +124,7 @@ class IconClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -180,7 +179,6 @@ class IconClient {
     final _headers = <String, String>{
       'Accept': 'image/png',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -207,7 +205,7 @@ class IconClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -271,7 +269,6 @@ class IconClient {
     final _headers = <String, String>{
       'Accept': 'image/svg+xml',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -301,7 +298,7 @@ class IconClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -376,7 +373,6 @@ class ThemingClient {
     final _headers = <String, String>{
       'Accept': 'text/css',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -411,7 +407,7 @@ class ThemingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(String),
@@ -475,7 +471,6 @@ class ThemingClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -505,7 +500,7 @@ class ThemingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -556,7 +551,6 @@ class ThemingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -582,7 +576,7 @@ class ThemingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ThemingGetManifestResponseApplicationJson),
@@ -640,7 +634,6 @@ class UserThemeClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -669,7 +662,7 @@ class UserThemeClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -743,7 +736,6 @@ class UserThemeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -782,7 +774,7 @@ class UserThemeClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Background),
@@ -832,7 +824,6 @@ class UserThemeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -861,7 +852,7 @@ class UserThemeClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Background),
@@ -925,7 +916,6 @@ class UserThemeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -957,7 +947,7 @@ class UserThemeClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(UserThemeEnableThemeResponseApplicationJson),
@@ -1021,7 +1011,6 @@ class UserThemeClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1053,7 +1042,7 @@ class UserThemeClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(UserThemeDisableThemeResponseApplicationJson),

@@ -116,7 +116,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -151,7 +150,7 @@ class ApiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -207,7 +206,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -236,7 +234,7 @@ class DirectEditingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
@@ -303,7 +301,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -339,7 +336,7 @@ class DirectEditingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
@@ -413,7 +410,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -452,7 +448,7 @@ class DirectEditingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
@@ -531,7 +527,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -574,7 +569,7 @@ class DirectEditingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
@@ -642,7 +637,6 @@ class OpenLocalEditorClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -674,7 +668,7 @@ class OpenLocalEditorClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
@@ -741,7 +735,6 @@ class OpenLocalEditorClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -776,7 +769,7 @@ class OpenLocalEditorClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
@@ -832,7 +825,6 @@ class TemplateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -861,7 +853,7 @@ class TemplateClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplateListResponseApplicationJson),
@@ -933,7 +925,6 @@ class TemplateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -974,7 +965,7 @@ class TemplateClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplateCreateResponseApplicationJson),
@@ -1041,7 +1032,6 @@ class TemplateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1079,7 +1069,7 @@ class TemplateClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplatePathResponseApplicationJson),
@@ -1154,7 +1144,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1189,7 +1178,7 @@ class TransferOwnershipClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403},
       ),
       bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
@@ -1253,7 +1242,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1285,7 +1273,7 @@ class TransferOwnershipClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
@@ -1349,7 +1337,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1381,7 +1368,7 @@ class TransferOwnershipClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),

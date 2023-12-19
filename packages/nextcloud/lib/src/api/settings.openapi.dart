@@ -81,7 +81,6 @@ class LogSettingsClient {
     final _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -106,7 +105,7 @@ class LogSettingsClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

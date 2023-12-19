@@ -107,7 +107,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -157,7 +156,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BuiltList, [FullType(Note)]),
@@ -228,7 +227,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -274,7 +272,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -333,7 +331,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -370,7 +367,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -449,7 +446,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -498,7 +494,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -539,7 +535,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -567,7 +562,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(String),
@@ -605,7 +600,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -630,7 +624,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Settings),

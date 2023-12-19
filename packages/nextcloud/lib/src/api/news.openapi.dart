@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -68,7 +67,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -93,7 +91,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SupportedAPIVersions),
@@ -131,7 +129,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -156,7 +153,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListFolders),
@@ -203,7 +200,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -231,7 +227,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListFolders),
@@ -283,7 +279,6 @@ class Client extends DynamiteClient {
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -314,7 +309,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -353,7 +348,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -381,7 +375,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -433,7 +427,6 @@ class Client extends DynamiteClient {
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -465,7 +458,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -503,7 +496,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -528,7 +520,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListFeeds),
@@ -584,7 +576,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -615,7 +606,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListFeeds),
@@ -654,7 +645,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -682,7 +672,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -734,7 +724,6 @@ class Client extends DynamiteClient {
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -765,7 +754,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -817,7 +806,6 @@ class Client extends DynamiteClient {
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -848,7 +836,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -900,7 +888,6 @@ class Client extends DynamiteClient {
   }) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -931,7 +918,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -1007,7 +994,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1058,7 +1044,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListArticles),
@@ -1119,7 +1105,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1157,7 +1142,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ListArticles),
@@ -1196,7 +1181,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1224,7 +1208,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -1263,7 +1247,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1291,7 +1274,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -1330,7 +1313,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1358,7 +1340,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -1397,7 +1379,6 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1425,7 +1406,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
