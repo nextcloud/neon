@@ -32,9 +32,9 @@ class SortBox<T extends Enum, R> {
   ///
   /// This function sorts the input in place and a reference to it mutating the provided list.
   List<R> sort(
-    final List<R> input,
-    final Box<T> box, [
-    final Set<Box<T>>? presort,
+    List<R> input,
+    Box<T> box, [
+    Set<Box<T>>? presort,
   ]) {
     if (input.length <= 1) {
       return input;
@@ -46,15 +46,15 @@ class SortBox<T extends Enum, R> {
       ...?_boxes[box.property],
     };
 
-    final sorted = input..sort((final item1, final item2) => _compare(item1, item2, boxes.iterator..moveNext()));
+    final sorted = input..sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
 
     return sorted;
   }
 
   int _compare(
-    final R item1,
-    final R item2,
-    final Iterator<Box<T>> iterator,
+    R item1,
+    R item2,
+    Iterator<Box<T>> iterator,
   ) {
     final box = iterator.current;
     final comparableGetter = _properties[box.property]!;

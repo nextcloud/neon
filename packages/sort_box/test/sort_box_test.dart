@@ -25,9 +25,9 @@ class Fruit {
 void main() {
   final sortBox = SortBox<FruitSort, Fruit>(
     {
-      FruitSort.alphabetical: (final fruit) => fruit.name.toLowerCase(),
-      FruitSort.count: (final fruit) => fruit.count,
-      FruitSort.price: (final fruit) => fruit.price!,
+      FruitSort.alphabetical: (fruit) => fruit.name.toLowerCase(),
+      FruitSort.count: (fruit) => fruit.count,
+      FruitSort.price: (fruit) => fruit.price!,
     },
     {
       FruitSort.alphabetical: {
