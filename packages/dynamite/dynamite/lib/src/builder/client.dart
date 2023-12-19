@@ -17,6 +17,10 @@ Iterable<Class> generateClients(
   final openapi.OpenAPI spec,
   final State state,
 ) sync* {
+  if (spec.paths == null || spec.paths!.isEmpty) {
+    return;
+  }
+
   final tags = generateTags(spec);
   yield buildRootClient(spec, state, tags);
 

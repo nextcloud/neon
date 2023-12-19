@@ -10,30 +10,10 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite_runtime/built_value.dart';
-import 'package:dynamite_runtime/http_client.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 
 part 'type_defs.openapi.g.dart';
-
-class Client extends DynamiteClient {
-  Client(
-    super.baseURL, {
-    super.baseHeaders,
-    super.userAgent,
-    super.httpClient,
-    super.cookieJar,
-  });
-
-  Client.fromClient(DynamiteClient client)
-      : super(
-          client.baseURL,
-          baseHeaders: client.baseHeaders,
-          httpClient: client.httpClient,
-          cookieJar: client.cookieJar,
-          authentications: client.authentications,
-        );
-}
 
 typedef TypeResultBase = int;
 
