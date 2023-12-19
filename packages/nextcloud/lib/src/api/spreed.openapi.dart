@@ -20641,7 +20641,7 @@ class RoomGetParticipantsApiVersion extends EnumClass {
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  ContentString<bool>? get xNextcloudHasUserStatuses;
+  Header<bool>? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetParticipantsHeaders
@@ -20901,7 +20901,7 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
 @BuiltValue(instantiable: false)
 abstract interface class $RoomRoomGetBreakoutRoomParticipantsHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-has-user-statuses')
-  ContentString<bool>? get xNextcloudHasUserStatuses;
+  Header<bool>? get xNextcloudHasUserStatuses;
 }
 
 abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
@@ -24912,7 +24912,8 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(RoomGetParticipantsApiVersion.serializer)
       ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
       ..add(RoomRoomGetParticipantsHeaders.serializer)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
+      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
+      ..add(Header.serializer)
       ..addBuilderFactory(
         const FullType(RoomGetParticipantsResponseApplicationJson),
         RoomGetParticipantsResponseApplicationJsonBuilder.new,
@@ -25338,6 +25339,7 @@ final Serializers serializers = (Serializers().toBuilder()
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
+      ..addPlugin(const HeaderPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
 // coverage:ignore-end

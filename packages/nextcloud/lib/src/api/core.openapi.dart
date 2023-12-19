@@ -5539,7 +5539,7 @@ abstract class AutoCompleteGetResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarDarkHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  ContentString<int>? get xNcIscustomavatar;
+  Header<int>? get xNcIscustomavatar;
 }
 
 abstract class AvatarAvatarGetAvatarDarkHeaders
@@ -5568,7 +5568,7 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
 @BuiltValue(instantiable: false)
 abstract interface class $AvatarAvatarGetAvatarHeadersInterface {
   @BuiltValueField(wireName: 'x-nc-iscustomavatar')
-  ContentString<int>? get xNcIscustomavatar;
+  Header<int>? get xNcIscustomavatar;
 }
 
 abstract class AvatarAvatarGetAvatarHeaders
@@ -6477,7 +6477,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $OcmOcmDiscoveryHeadersInterface {
   @BuiltValueField(wireName: 'x-nextcloud-ocm-providers')
-  ContentString<bool>? get xNextcloudOcmProviders;
+  Header<bool>? get xNextcloudOcmProviders;
 }
 
 abstract class OcmOcmDiscoveryHeaders
@@ -11199,8 +11199,8 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarDarkHeaders), AvatarAvatarGetAvatarDarkHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
-      ..add(ContentString.serializer)
+      ..addBuilderFactory(const FullType(Header, [FullType(int)]), HeaderBuilder<int>.new)
+      ..add(Header.serializer)
       ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
       ..add(AvatarAvatarGetAvatarHeaders.serializer)
       ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2CredentialsBuilder.new)
@@ -11335,7 +11335,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
       ..add(OcmOcmDiscoveryHeaders.serializer)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
+      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
       ..addBuilderFactory(
         const FullType(OcmDiscoveryResponseApplicationJson),
         OcmDiscoveryResponseApplicationJsonBuilder.new,
@@ -11902,6 +11902,7 @@ final Serializers serializers = (Serializers().toBuilder()
         const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
         ContentStringBuilder<UnifiedSearchSearchCursor>.new,
       )
+      ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
         UnifiedSearchSearchResponseApplicationJsonBuilder.new,
@@ -11961,6 +11962,7 @@ final Serializers serializers = (Serializers().toBuilder()
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
+      ..addPlugin(const HeaderPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
 // coverage:ignore-end

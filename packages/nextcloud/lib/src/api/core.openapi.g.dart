@@ -1173,7 +1173,7 @@ class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializ
     if (value != null) {
       result
         ..add('x-nc-iscustomavatar')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(int)])));
     }
     return result;
   }
@@ -1190,8 +1190,8 @@ class _$AvatarAvatarGetAvatarDarkHeadersSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
+          result.xNcIscustomavatar.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(int)]))! as Header<int>);
           break;
       }
     }
@@ -1215,7 +1215,7 @@ class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<A
     if (value != null) {
       result
         ..add('x-nc-iscustomavatar')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(int)])));
     }
     return result;
   }
@@ -1232,8 +1232,8 @@ class _$AvatarAvatarGetAvatarHeadersSerializer implements StructuredSerializer<A
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nc-iscustomavatar':
-          result.xNcIscustomavatar.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, [FullType(int)]))! as ContentString<int>);
+          result.xNcIscustomavatar.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(int)]))! as Header<int>);
           break;
       }
     }
@@ -2707,7 +2707,7 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
     if (value != null) {
       result
         ..add('x-nextcloud-ocm-providers')
-        ..add(serializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(bool)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(Header, [FullType(bool)])));
     }
     return result;
   }
@@ -2724,8 +2724,8 @@ class _$OcmOcmDiscoveryHeadersSerializer implements StructuredSerializer<OcmOcmD
       final Object? value = iterator.current;
       switch (key) {
         case 'x-nextcloud-ocm-providers':
-          result.xNextcloudOcmProviders.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ContentString, [FullType(bool)]))! as ContentString<bool>);
+          result.xNextcloudOcmProviders.replace(
+              serializers.deserialize(value, specifiedType: const FullType(Header, [FullType(bool)]))! as Header<bool>);
           break;
       }
     }
@@ -11241,13 +11241,13 @@ class AutoCompleteGetResponseApplicationJsonBuilder
 abstract mixin class $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarDarkHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder) updates);
-  ContentStringBuilder<int> get xNcIscustomavatar;
-  set xNcIscustomavatar(ContentStringBuilder<int>? xNcIscustomavatar);
+  HeaderBuilder<int> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarDarkHeaders extends AvatarAvatarGetAvatarDarkHeaders {
   @override
-  final ContentString<int>? xNcIscustomavatar;
+  final Header<int>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarDarkHeaders([void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarDarkHeadersBuilder()..update(updates))._build();
@@ -11289,9 +11289,9 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
         $AvatarAvatarGetAvatarDarkHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarDarkHeaders? _$v;
 
-  ContentStringBuilder<int>? _xNcIscustomavatar;
-  ContentStringBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= ContentStringBuilder<int>();
-  set xNcIscustomavatar(covariant ContentStringBuilder<int>? xNcIscustomavatar) =>
+  HeaderBuilder<int>? _xNcIscustomavatar;
+  HeaderBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int>? xNcIscustomavatar) =>
       _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarDarkHeadersBuilder();
@@ -11341,13 +11341,13 @@ class AvatarAvatarGetAvatarDarkHeadersBuilder
 abstract mixin class $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   void replace($AvatarAvatarGetAvatarHeadersInterface other);
   void update(void Function($AvatarAvatarGetAvatarHeadersInterfaceBuilder) updates);
-  ContentStringBuilder<int> get xNcIscustomavatar;
-  set xNcIscustomavatar(ContentStringBuilder<int>? xNcIscustomavatar);
+  HeaderBuilder<int> get xNcIscustomavatar;
+  set xNcIscustomavatar(HeaderBuilder<int>? xNcIscustomavatar);
 }
 
 class _$AvatarAvatarGetAvatarHeaders extends AvatarAvatarGetAvatarHeaders {
   @override
-  final ContentString<int>? xNcIscustomavatar;
+  final Header<int>? xNcIscustomavatar;
 
   factory _$AvatarAvatarGetAvatarHeaders([void Function(AvatarAvatarGetAvatarHeadersBuilder)? updates]) =>
       (AvatarAvatarGetAvatarHeadersBuilder()..update(updates))._build();
@@ -11388,9 +11388,9 @@ class AvatarAvatarGetAvatarHeadersBuilder
         $AvatarAvatarGetAvatarHeadersInterfaceBuilder {
   _$AvatarAvatarGetAvatarHeaders? _$v;
 
-  ContentStringBuilder<int>? _xNcIscustomavatar;
-  ContentStringBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= ContentStringBuilder<int>();
-  set xNcIscustomavatar(covariant ContentStringBuilder<int>? xNcIscustomavatar) =>
+  HeaderBuilder<int>? _xNcIscustomavatar;
+  HeaderBuilder<int> get xNcIscustomavatar => _$this._xNcIscustomavatar ??= HeaderBuilder<int>();
+  set xNcIscustomavatar(covariant HeaderBuilder<int>? xNcIscustomavatar) =>
       _$this._xNcIscustomavatar = xNcIscustomavatar;
 
   AvatarAvatarGetAvatarHeadersBuilder();
@@ -15052,13 +15052,13 @@ class NavigationGetSettingsNavigationResponseApplicationJsonBuilder
 abstract mixin class $OcmOcmDiscoveryHeadersInterfaceBuilder {
   void replace($OcmOcmDiscoveryHeadersInterface other);
   void update(void Function($OcmOcmDiscoveryHeadersInterfaceBuilder) updates);
-  ContentStringBuilder<bool> get xNextcloudOcmProviders;
-  set xNextcloudOcmProviders(ContentStringBuilder<bool>? xNextcloudOcmProviders);
+  HeaderBuilder<bool> get xNextcloudOcmProviders;
+  set xNextcloudOcmProviders(HeaderBuilder<bool>? xNextcloudOcmProviders);
 }
 
 class _$OcmOcmDiscoveryHeaders extends OcmOcmDiscoveryHeaders {
   @override
-  final ContentString<bool>? xNextcloudOcmProviders;
+  final Header<bool>? xNextcloudOcmProviders;
 
   factory _$OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? updates]) =>
       (OcmOcmDiscoveryHeadersBuilder()..update(updates))._build();
@@ -15098,10 +15098,9 @@ class OcmOcmDiscoveryHeadersBuilder
     implements Builder<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder>, $OcmOcmDiscoveryHeadersInterfaceBuilder {
   _$OcmOcmDiscoveryHeaders? _$v;
 
-  ContentStringBuilder<bool>? _xNextcloudOcmProviders;
-  ContentStringBuilder<bool> get xNextcloudOcmProviders =>
-      _$this._xNextcloudOcmProviders ??= ContentStringBuilder<bool>();
-  set xNextcloudOcmProviders(covariant ContentStringBuilder<bool>? xNextcloudOcmProviders) =>
+  HeaderBuilder<bool>? _xNextcloudOcmProviders;
+  HeaderBuilder<bool> get xNextcloudOcmProviders => _$this._xNextcloudOcmProviders ??= HeaderBuilder<bool>();
+  set xNextcloudOcmProviders(covariant HeaderBuilder<bool>? xNextcloudOcmProviders) =>
       _$this._xNextcloudOcmProviders = xNextcloudOcmProviders;
 
   OcmOcmDiscoveryHeadersBuilder();

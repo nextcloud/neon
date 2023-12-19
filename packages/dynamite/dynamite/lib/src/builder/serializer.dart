@@ -14,7 +14,7 @@ List<Spec> buildSerializer(final State state) => [
       const Code(''),
       const Code('@visibleForTesting'),
       const Code(
-        'final Serializers jsonSerializers = (serializers.toBuilder()..add(DynamiteDoubleSerializer())..addPlugin(StandardJsonPlugin())..addPlugin(const ContentStringPlugin())).build();',
+        'final Serializers jsonSerializers = (serializers.toBuilder()..add(DynamiteDoubleSerializer())..addPlugin(StandardJsonPlugin())..addPlugin(const HeaderPlugin())..addPlugin(const ContentStringPlugin())).build();',
       ),
       const Code('// coverage:ignore-end'),
     ];
