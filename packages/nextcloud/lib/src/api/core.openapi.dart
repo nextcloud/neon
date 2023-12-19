@@ -197,7 +197,7 @@ class AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/getapppassword';
     return DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
@@ -281,7 +281,7 @@ class AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/apppassword/rotate';
     return DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
@@ -365,7 +365,7 @@ class AppPasswordClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/apppassword';
     return DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
@@ -504,7 +504,7 @@ class AutoCompleteClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/core/autocomplete/get{?search*,itemType*,itemId*,sorter*,shareTypes%5B%5D*,limit*}')
@@ -940,7 +940,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(_parameters);
     return DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
@@ -1035,7 +1035,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(_parameters);
     return DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>(
@@ -1138,7 +1138,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?collectionName*}')
         .expand(_parameters);
@@ -1250,7 +1250,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
@@ -1363,7 +1363,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
@@ -1468,7 +1468,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(_parameters);
     return DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
@@ -1583,7 +1583,7 @@ class CollaborationResourcesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}{?name*}')
         .expand(_parameters);
@@ -1883,7 +1883,7 @@ class HoverCardClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(_parameters);
     return DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void>(
@@ -1983,7 +1983,7 @@ class NavigationClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(_parameters);
     return DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void>(
@@ -2077,7 +2077,7 @@ class NavigationClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(_parameters);
     return DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>(
@@ -2234,7 +2234,7 @@ class OcsClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/capabilities';
     return DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
@@ -2651,7 +2651,7 @@ class ProfileApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/profile/{targetUserId}{?paramId*,visibility*}').expand(_parameters);
     return DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void>(
@@ -2832,7 +2832,7 @@ class ReferenceApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(_parameters);
     return DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void>(
@@ -2933,7 +2933,7 @@ class ReferenceApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/references/resolve{?references%5B%5D*,limit*}').expand(_parameters);
     return DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void>(
@@ -3042,7 +3042,7 @@ class ReferenceApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(_parameters);
     return DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void>(
@@ -3124,7 +3124,7 @@ class ReferenceApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/references/providers';
     return DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
@@ -3223,7 +3223,7 @@ class ReferenceApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/references/provider/{providerId}{?timestamp*}').expand(_parameters);
     return DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void>(
@@ -3307,7 +3307,7 @@ class TextProcessingApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/textprocessing/tasktypes';
     return DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
@@ -3425,7 +3425,7 @@ class TextProcessingApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/textprocessing/schedule{?input*,type*,appId*,identifier*}').expand(_parameters);
@@ -3519,7 +3519,7 @@ class TextProcessingApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
     return DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void>(
@@ -3614,7 +3614,7 @@ class TextProcessingApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(_parameters);
     return DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
@@ -3715,7 +3715,7 @@ class TextProcessingApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(_parameters);
     return DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
@@ -3799,7 +3799,7 @@ class TextToImageApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/text2image/is_available';
     return DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void>(
@@ -3918,7 +3918,7 @@ class TextToImageApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/text2image/schedule{?input*,appId*,identifier*,numberOfImages*}').expand(_parameters);
@@ -4012,7 +4012,7 @@ class TextToImageApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
     return DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void>(
@@ -4107,7 +4107,7 @@ class TextToImageApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(_parameters);
     return DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>(
@@ -4208,7 +4208,7 @@ class TextToImageApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
@@ -4309,7 +4309,7 @@ class TextToImageApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(_parameters);
     return DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>(
@@ -4393,7 +4393,7 @@ class TranslationApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/translation/languages';
     return DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
@@ -4504,7 +4504,7 @@ class TranslationApiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/translation/translate{?text*,toLanguage*,fromLanguage*}').expand(_parameters);
@@ -4603,7 +4603,7 @@ class UnifiedSearchClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(_parameters);
     return DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>(
@@ -4741,7 +4741,7 @@ class UnifiedSearchClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
@@ -4829,7 +4829,7 @@ class WhatsNewClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/core/whatsnew';
     return DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
@@ -4922,7 +4922,7 @@ class WhatsNewClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/core/whatsnew{?version*}').expand(_parameters);
     return DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void>(

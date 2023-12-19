@@ -120,7 +120,7 @@ class DeletedShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     return DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
@@ -213,7 +213,7 @@ class DeletedShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
     return DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>(
@@ -314,7 +314,7 @@ class PublicPreviewClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
@@ -445,7 +445,7 @@ class PublicPreviewClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
@@ -530,7 +530,7 @@ class RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     return DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
@@ -610,7 +610,7 @@ class RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     return DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
@@ -703,7 +703,7 @@ class RemoteClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>(
@@ -796,7 +796,7 @@ class RemoteClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>(
@@ -889,7 +889,7 @@ class RemoteClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>(
@@ -984,7 +984,7 @@ class RemoteClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>(
@@ -1235,7 +1235,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
@@ -1420,7 +1420,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
@@ -1517,7 +1517,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
     return DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>(
@@ -1597,7 +1597,7 @@ class ShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     return DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
@@ -1699,7 +1699,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
     return DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>(
@@ -1868,7 +1868,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
@@ -1965,7 +1965,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     return DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>(
@@ -2060,7 +2060,7 @@ class ShareapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>(
@@ -2206,7 +2206,7 @@ class ShareesapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
@@ -2310,7 +2310,7 @@ class ShareesapiClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
         .expand(_parameters);

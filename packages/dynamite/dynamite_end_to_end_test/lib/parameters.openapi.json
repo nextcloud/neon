@@ -36,6 +36,13 @@
                         "name": "array",
                         "in": "query",
                         "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "array_string",
+                        "in": "query",
+                        "schema": {
                             "type": "array",
                             "items": {
                                 "type": "string"
@@ -150,7 +157,38 @@
             "get": {
                 "parameters": [
                     {
+                        "name": "content_string",
+                        "in": "header",
+                        "schema": {
+                            "type": "string",
+                            "contentMediaType": "application/json",
+                            "contentSchema": {
+                                "type": "object",
+                                "additionalProperties": {}
+                            }
+                        }
+                    },
+                    {
+                        "name": "content_parameter",
+                        "in": "header",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "additionalProperties": {}
+                                }
+                            }
+                        }
+                    },
+                    {
                         "name": "array",
+                        "in": "header",
+                        "schema": {
+                            "type": "array"
+                        }
+                    },
+                    {
+                        "name": "array_string",
                         "in": "header",
                         "schema": {
                             "type": "array",
@@ -174,6 +212,14 @@
                         }
                     },
                     {
+                        "name": "string_binary",
+                        "in": "header",
+                        "schema": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                    },
+                    {
                         "name": "int",
                         "in": "header",
                         "schema": {
@@ -193,6 +239,53 @@
                         "in": "header",
                         "schema": {
                             "type": "number"
+                        }
+                    },
+                    {
+                        "name": "object",
+                        "in": "header",
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "oneOf",
+                        "in": "header",
+                        "schema": {
+                            "oneOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "anyOf",
+                        "in": "header",
+                        "schema": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "boolean"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "enum_pattern",
+                        "in": "header",
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[a-z]",
+                            "enum": [
+                                "a",
+                                "0"
+                            ]
                         }
                     }
                 ],

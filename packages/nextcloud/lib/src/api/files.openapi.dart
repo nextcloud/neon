@@ -226,7 +226,7 @@ class DirectEditingClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
@@ -327,7 +327,7 @@ class DirectEditingClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}').expand(_parameters);
@@ -439,7 +439,7 @@ class DirectEditingClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}').expand(_parameters);
@@ -559,7 +559,7 @@ class DirectEditingClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
@@ -660,7 +660,7 @@ class OpenLocalEditorClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
     return DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
@@ -761,7 +761,7 @@ class OpenLocalEditorClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
     return DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
@@ -845,7 +845,7 @@ class TemplateClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/files/api/v1/templates';
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
@@ -956,7 +956,7 @@ class TemplateClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
         .expand(_parameters);
@@ -1060,7 +1060,7 @@ class TemplateClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
         .expand(_parameters);
@@ -1170,7 +1170,7 @@ class TransferOwnershipClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
@@ -1265,7 +1265,7 @@ class TransferOwnershipClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
@@ -1360,7 +1360,7 @@ class TransferOwnershipClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(

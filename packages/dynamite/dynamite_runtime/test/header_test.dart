@@ -28,6 +28,13 @@ final Serializers serializers = (_$serializers.toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..addBuilderFactory(
         const FullType(Header, [
+          FullType(BuiltList, [FullType(String)]),
+        ]),
+        HeaderBuilder<BuiltList<String>>.new,
+      )
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(
+        const FullType(Header, [
           FullType(BuiltMap, [FullType(String), FullType(int)]),
         ]),
         HeaderBuilder<BuiltMap<String, int>>.new,
@@ -116,17 +123,25 @@ void main() {
   });
 
   group('Header with known specifiedType holding list', () {
-    final data = Header<BuiltList<int>>((final b) => b..content = BuiltList([1, 2, 3]));
-    const serialized = '1,2,3';
-    const specifiedType = FullType(Header, [
-      FullType(BuiltList, [FullType(int)]),
-    ]);
+    test('integer list', () {
+      final Header<BuiltList<Object>> data = Header<BuiltList<int>>((final b) => b..content = BuiltList([1, 2, 3]));
+      const serialized = '1,2,3';
+      const specifiedType = FullType(Header, [
+        FullType(BuiltList, [FullType(int)]),
+      ]);
 
-    test('can be serialized', () {
       expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+      expect(serializers.deserialize(serialized, specifiedType: specifiedType), equals(data));
     });
 
-    test('can be deserialized', () {
+    test('string list', () {
+      final data = Header<BuiltList<String>>((final b) => b..content = BuiltList(['1', '2', '3']));
+      const serialized = '1,2,3';
+      const specifiedType = FullType(Header, [
+        FullType(BuiltList, [FullType(String)]),
+      ]);
+
+      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
       expect(serializers.deserialize(serialized, specifiedType: specifiedType), equals(data));
     });
   });
@@ -235,7 +250,7 @@ void main() {
 
   group('Header with known specifiedType holding String', () {
     final data = Header<String>((final b) => b..content = 'test');
-    final serialized = json.encode('test');
+    const serialized = 'test';
     const specifiedType = FullType(Header, [FullType(String)]);
 
     test('can be serialized', () {
@@ -273,7 +288,7 @@ void main() {
           (final b) => b..content = 'test',
         ),
     );
-    final serialized = json.encode(json.encode('test'));
+    const serialized = 'test';
     const specifiedType = FullType(Header, [
       FullType(Header, [FullType(String)]),
     ]);

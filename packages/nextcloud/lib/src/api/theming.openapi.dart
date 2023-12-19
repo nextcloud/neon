@@ -654,7 +654,7 @@ class UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background';
     return DynamiteRawResponse<Uint8List, void>(
@@ -766,7 +766,7 @@ class UserThemeClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(_parameters);
     return DynamiteRawResponse<Background, void>(
@@ -844,7 +844,7 @@ class UserThemeClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/index.php/apps/theming/background/custom';
     return DynamiteRawResponse<Background, void>(
@@ -939,7 +939,7 @@ class UserThemeClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(_parameters);
     return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
@@ -1034,7 +1034,7 @@ class UserThemeClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(_parameters);
     return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(

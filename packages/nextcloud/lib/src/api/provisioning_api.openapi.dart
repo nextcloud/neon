@@ -121,7 +121,7 @@ class AppConfigClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
     return DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void>(
@@ -218,7 +218,7 @@ class AppConfigClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
     return DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void>(
@@ -332,7 +332,7 @@ class AppConfigClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
         .expand(_parameters);
@@ -442,7 +442,7 @@ class AppConfigClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}').expand(_parameters);
@@ -548,7 +548,7 @@ class AppConfigClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
     return DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
@@ -649,7 +649,7 @@ class AppsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
     return DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void>(
@@ -744,7 +744,7 @@ class AppsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void>(
@@ -839,7 +839,7 @@ class AppsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return DynamiteRawResponse<AppsEnableResponseApplicationJson, void>(
@@ -934,7 +934,7 @@ class AppsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return DynamiteRawResponse<AppsDisableResponseApplicationJson, void>(
@@ -1049,7 +1049,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void>(
@@ -1153,7 +1153,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
     return DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
@@ -1262,7 +1262,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>(
@@ -1358,7 +1358,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
     return DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void>(
@@ -1476,7 +1476,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}').expand(_parameters);
@@ -1573,7 +1573,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
     return DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
@@ -1667,7 +1667,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     return DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
@@ -1779,7 +1779,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
     return DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
@@ -1875,7 +1875,7 @@ class GroupsClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     return DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
@@ -1990,7 +1990,7 @@ class PreferencesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
@@ -2093,7 +2093,7 @@ class PreferencesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}').expand(_parameters);
@@ -2200,7 +2200,7 @@ class PreferencesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
         UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
@@ -2303,7 +2303,7 @@ class PreferencesClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
         .expand(_parameters);
@@ -2419,7 +2419,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void>(
@@ -2583,7 +2583,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate(
       '/ocs/v2.php/cloud/users{?userid*,password*,displayName*,email*,groups%5B%5D*,subadmin%5B%5D*,quota*,language*,manager*}',
@@ -2694,7 +2694,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void>(
@@ -2794,7 +2794,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(
@@ -2903,7 +2903,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
     return DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>(
@@ -2994,7 +2994,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     return DynamiteRawResponse<UsersGetUserResponseApplicationJson, void>(
@@ -3101,7 +3101,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
     return DynamiteRawResponse<UsersEditUserResponseApplicationJson, void>(
@@ -3192,7 +3192,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     return DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void>(
@@ -3272,7 +3272,7 @@ class UsersClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/user';
     return DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void>(
@@ -3352,7 +3352,7 @@ class UsersClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     const _path = '/ocs/v2.php/cloud/user/fields';
     return DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void>(
@@ -3443,7 +3443,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
     return DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>(
@@ -3563,7 +3563,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
     return DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void>(
@@ -3654,7 +3654,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
     return DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void>(
@@ -3745,7 +3745,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
     return DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void>(
@@ -3836,7 +3836,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
     return DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void>(
@@ -3927,7 +3927,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     return DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void>(
@@ -4027,7 +4027,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     return DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void>(
@@ -4126,7 +4126,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     return DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void>(
@@ -4221,7 +4221,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     return DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
@@ -4324,7 +4324,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     return DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
@@ -4427,7 +4427,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     return DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
@@ -4518,7 +4518,7 @@ class UsersClient {
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = const dynamite_utils.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
     return DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void>(

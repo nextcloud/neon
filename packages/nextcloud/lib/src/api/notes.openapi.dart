@@ -15,6 +15,7 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
+import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 import 'package:uri/uri.dart';
@@ -145,7 +146,7 @@ class Client extends DynamiteClient {
 
     final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
-      _headers['If-None-Match'] = $ifNoneMatch as String;
+      _headers['If-None-Match'] = const dynamite_utils.HeaderEncoder().convert($ifNoneMatch);
     }
 
     final _path =
@@ -358,7 +359,7 @@ class Client extends DynamiteClient {
 
     final $ifNoneMatch = jsonSerializers.serialize(ifNoneMatch, specifiedType: const FullType(String));
     if ($ifNoneMatch != null) {
-      _headers['If-None-Match'] = $ifNoneMatch as String;
+      _headers['If-None-Match'] = const dynamite_utils.HeaderEncoder().convert($ifNoneMatch);
     }
 
     final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
@@ -484,7 +485,7 @@ class Client extends DynamiteClient {
 
     final $ifMatch = jsonSerializers.serialize(ifMatch, specifiedType: const FullType(String));
     if ($ifMatch != null) {
-      _headers['If-Match'] = $ifMatch as String;
+      _headers['If-Match'] = const dynamite_utils.HeaderEncoder().convert($ifMatch);
     }
 
     final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
