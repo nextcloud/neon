@@ -138,7 +138,7 @@ class Client extends DynamiteClient {
     GetEnumPattern? enumPattern,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -352,7 +352,7 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;

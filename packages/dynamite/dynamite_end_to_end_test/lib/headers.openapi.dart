@@ -148,7 +148,7 @@ class Client extends DynamiteClient {
   ///  * [getWithContent] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
     Uint8List? _body;

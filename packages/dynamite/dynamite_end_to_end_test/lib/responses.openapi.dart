@@ -57,7 +57,7 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> $getRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -105,7 +105,7 @@ class Client extends DynamiteClient {
   ///  * [put] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> putRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -155,7 +155,7 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> postRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -203,7 +203,7 @@ class Client extends DynamiteClient {
   ///  * [patch] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> patchRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;

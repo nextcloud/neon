@@ -189,10 +189,26 @@ Iterable<Method> buildTags(
         ...?pathEntry.value.parameters,
         ...?operation.parameters,
       ]..sort(sortRequiredParameters);
-      final hasUriParameters = parameters
-          .where((final p) => p.$in == openapi.ParameterType.path || p.$in == openapi.ParameterType.query)
-          .isNotEmpty;
       final name = toDartName(filterMethodName(operationName, tag ?? ''));
+
+      final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);
+      var hasUriParameters = false;
+      var hasHeaderParameters = false;
+      for (final parameter in parameters) {
+        switch (parameter.$in) {
+          case openapi.ParameterType.path:
+          case openapi.ParameterType.query:
+            hasUriParameters = true;
+          case openapi.ParameterType.header:
+            hasHeaderParameters = true;
+          default:
+        }
+
+        // No need to continue searching.
+        if (hasHeaderParameters && hasUriParameters) {
+          break;
+        }
+      }
 
       var responses = <openapi.Response, List<String>>{};
       if (operation.responses != null) {
@@ -221,18 +237,28 @@ Iterable<Method> buildTags(
       if (hasUriParameters) {
         code.writeln('final _parameters = <String, dynamic>{};');
       }
+      if (acceptHeader.isNotEmpty) {
+        if (hasHeaderParameters || hasAuthentication) {
+          code.writeln("final _headers = <String, String>{'Accept': '$acceptHeader',};");
+        } else {
+          code.writeln("const _headers = <String, String>{'Accept': '$acceptHeader',};");
+        }
+      } else if (acceptHeader.isEmpty) {
+        code.writeln('final _headers = <String, String>{};');
+      }
 
       code.writeln('''
-  final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
   ''');
 
-      buildAuthCheck(
-        pathEntry,
-        operation,
-        spec,
-        client,
-      ).forEach(code.writeln);
+      if (hasAuthentication) {
+        buildAuthCheck(
+          pathEntry,
+          operation,
+          spec,
+          client,
+        ).forEach(code.writeln);
+      }
 
       final operationParameters = ListBuilder<Parameter>();
       final annotations = operation.deprecated ? refer('Deprecated').call([refer("''")]) : null;
@@ -473,6 +499,18 @@ String buildParameterSerialization(
   }
 
   return buffer.toString();
+}
+
+bool needsAuthCheck(
+  final MapEntry<String, openapi.PathItem> pathEntry,
+  final openapi.Operation operation,
+  final openapi.OpenAPI spec,
+  final String client,
+) {
+  final security = operation.security ?? spec.security ?? BuiltList();
+  final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+
+  return securityRequirements.isNotEmpty;
 }
 
 Iterable<String> buildAuthCheck(

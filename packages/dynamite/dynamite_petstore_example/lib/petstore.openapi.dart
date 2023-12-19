@@ -94,7 +94,7 @@ class Client extends DynamiteClient {
     int? limit,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -154,7 +154,7 @@ class Client extends DynamiteClient {
   ///  * [addPet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
@@ -217,7 +217,7 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;

@@ -107,7 +107,7 @@ class Client extends DynamiteClient {
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Status, void> getStatusRaw() {
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
