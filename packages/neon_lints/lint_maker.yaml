@@ -17,7 +17,6 @@ base:
         avoid_annotating_with_dynamic: false
         avoid_as: false
         avoid_catches_without_on_clauses: false
-        avoid_final_parameters: false
         avoid_print: false
         diagnostic_describe_all_properties: false
         lines_longer_than_80_chars: false
@@ -26,3 +25,4 @@ base:
         prefer_double_quotes: false
         prefer_relative_imports: false
         unnecessary_final: false
+        prefer_final_parameters: false

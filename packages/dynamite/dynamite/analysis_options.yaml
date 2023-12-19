@@ -3,6 +3,9 @@ include: package:neon_lints/dart.yaml
 linter:
   rules:
     public_member_api_docs: false
+    # TODO: migrate package to new lint rules
+    prefer_final_parameters: true
+    avoid_final_parameters: false
 
 analyzer:
   exclude:
