@@ -273,7 +273,6 @@ class Client extends DynamiteClient {
     double? $double,
     num? $num,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -309,7 +308,7 @@ class Client extends DynamiteClient {
       _headers['num'] = $$num.toString();
     }
 
-    final _path = UriTemplate('/headers').expand(_parameters);
+    const _path = '/headers';
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',

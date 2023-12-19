@@ -154,7 +154,6 @@ class Client extends DynamiteClient {
   ///  * [addPet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -162,7 +161,7 @@ class Client extends DynamiteClient {
 
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
-    final _path = UriTemplate('/pets').expand(_parameters);
+    const _path = '/pets';
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
         'post',

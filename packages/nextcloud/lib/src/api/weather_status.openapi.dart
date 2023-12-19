@@ -180,7 +180,6 @@ class WeatherStatusClient {
   DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -207,7 +206,7 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/use-personal').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/use-personal';
     return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -262,7 +261,6 @@ class WeatherStatusClient {
   ///  * [getLocation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -289,7 +287,7 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/location';
     return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -455,7 +453,6 @@ class WeatherStatusClient {
   ///  * [getForecast] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -482,7 +479,7 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/forecast').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/forecast';
     return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -537,7 +534,6 @@ class WeatherStatusClient {
   ///  * [getFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -564,7 +560,7 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/weather_status/api/v1/favorites';
     return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

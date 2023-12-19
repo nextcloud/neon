@@ -107,13 +107,12 @@ class Client extends DynamiteClient {
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Status, void> getStatusRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _path = UriTemplate('/status.php').expand(_parameters);
+    const _path = '/status.php';
     return DynamiteRawResponse<Status, void>(
       response: executeRequest(
         'get',
@@ -176,7 +175,6 @@ class AppPasswordClient {
   ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -203,7 +201,7 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/core/getapppassword').expand(_parameters);
+    const _path = '/ocs/v2.php/core/getapppassword';
     return DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -262,7 +260,6 @@ class AppPasswordClient {
   DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -289,7 +286,7 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/core/apppassword/rotate').expand(_parameters);
+    const _path = '/ocs/v2.php/core/apppassword/rotate';
     return DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -348,7 +345,6 @@ class AppPasswordClient {
   DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -375,7 +371,7 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/core/apppassword').expand(_parameters);
+    const _path = '/ocs/v2.php/core/apppassword';
     return DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -836,7 +832,6 @@ class ClientFlowLoginV2Client {
   ///  * [init] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<LoginFlowV2, void> initRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -857,7 +852,7 @@ class ClientFlowLoginV2Client {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/login/v2').expand(_parameters);
+    const _path = '/index.php/login/v2';
     return DynamiteRawResponse<LoginFlowV2, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2159,7 +2154,6 @@ class OcmClient {
   ///  * [discovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders> discoveryRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2180,7 +2174,7 @@ class OcmClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/ocm-provider').expand(_parameters);
+    const _path = '/index.php/ocm-provider';
     return DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(
       response: _rootClient.executeRequest(
         'get',
@@ -2241,7 +2235,6 @@ class OcsClient {
   ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -2266,7 +2259,7 @@ class OcsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/capabilities').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/capabilities';
     return DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3138,7 +3131,6 @@ class ReferenceApiClient {
   DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
     bool? oCSAPIRequest,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3165,7 +3157,7 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/references/providers').expand(_parameters);
+    const _path = '/ocs/v2.php/references/providers';
     return DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3326,7 +3318,6 @@ class TextProcessingApiClient {
   ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3351,7 +3342,7 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/textprocessing/tasktypes').expand(_parameters);
+    const _path = '/ocs/v2.php/textprocessing/tasktypes';
     return DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3824,7 +3815,6 @@ class TextToImageApiClient {
   ///  * [isAvailable] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3849,7 +3839,7 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/text2image/is_available').expand(_parameters);
+    const _path = '/ocs/v2.php/text2image/is_available';
     return DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4425,7 +4415,6 @@ class TranslationApiClient {
   ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4450,7 +4439,7 @@ class TranslationApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/translation/languages').expand(_parameters);
+    const _path = '/ocs/v2.php/translation/languages';
     return DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4864,7 +4853,6 @@ class WhatsNewClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -4891,7 +4879,7 @@ class WhatsNewClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/core/whatsnew').expand(_parameters);
+    const _path = '/ocs/v2.php/core/whatsnew';
     return DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

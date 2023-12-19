@@ -68,7 +68,6 @@ class Client extends DynamiteClient {
   ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -91,7 +90,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush').expand(_parameters);
+    const _path = '/index.php/apps/uppush';
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -762,7 +761,6 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -785,7 +783,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
+    const _path = '/index.php/apps/uppush/gateway/matrix';
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
@@ -830,7 +828,6 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -853,7 +850,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
+    const _path = '/index.php/apps/uppush/gateway/matrix';
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',

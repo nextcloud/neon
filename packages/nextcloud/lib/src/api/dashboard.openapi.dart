@@ -87,7 +87,6 @@ class DashboardApiClient {
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -114,7 +113,7 @@ class DashboardApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/dashboard/api/v1/widgets';
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

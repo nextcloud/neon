@@ -12,7 +12,6 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
 
 class Client extends DynamiteClient {
   Client(
@@ -58,13 +57,12 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> $getRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'get',
@@ -107,13 +105,12 @@ class Client extends DynamiteClient {
   ///  * [put] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> putRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'put',
@@ -158,13 +155,12 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> postRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'post',
@@ -207,13 +203,12 @@ class Client extends DynamiteClient {
   ///  * [patch] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> patchRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
     Uint8List? _body;
 
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'patch',

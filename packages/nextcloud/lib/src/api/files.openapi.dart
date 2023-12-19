@@ -204,7 +204,6 @@ class DirectEditingClient {
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -231,7 +230,7 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -830,7 +829,6 @@ class TemplateClient {
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -857,7 +855,7 @@ class TemplateClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/templates';
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

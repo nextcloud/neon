@@ -602,7 +602,6 @@ class Client extends DynamiteClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> getSettingsRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -625,7 +624,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(_parameters);
+    const _path = '/index.php/apps/notes/api/v1/settings';
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'get',
@@ -668,7 +667,6 @@ class Client extends DynamiteClient {
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -693,7 +691,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(_parameters);
+    const _path = '/index.php/apps/notes/api/v1/settings';
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'put',

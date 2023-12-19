@@ -637,7 +637,6 @@ class UserThemeClient {
   ///  * [getBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getBackgroundRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': '*/*',
     };
@@ -664,7 +663,7 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/index.php/apps/theming/background').expand(_parameters);
+    const _path = '/index.php/apps/theming/background';
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -830,7 +829,6 @@ class UserThemeClient {
   ///  * [deleteBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Background, void> deleteBackgroundRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -857,7 +855,7 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/index.php/apps/theming/background/custom').expand(_parameters);
+    const _path = '/index.php/apps/theming/background/custom';
     return DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'delete',

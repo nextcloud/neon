@@ -189,6 +189,9 @@ Iterable<Method> buildTags(
         ...?pathEntry.value.parameters,
         ...?operation.parameters,
       ]..sort(sortRequiredParameters);
+      final hasUriParameters = parameters
+          .where((final p) => p.$in == openapi.ParameterType.path || p.$in == openapi.ParameterType.query)
+          .isNotEmpty;
       final name = toDartName(filterMethodName(operationName, tag ?? ''));
 
       var responses = <openapi.Response, List<String>>{};
@@ -215,8 +218,11 @@ Iterable<Method> buildTags(
           .toSet()
           .join(',');
 
+      if (hasUriParameters) {
+        code.writeln('final _parameters = <String, dynamic>{};');
+      }
+
       code.writeln('''
-  final _parameters = <String, dynamic>{};
   final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
   Uint8List? _body;
   ''');
@@ -315,35 +321,38 @@ Iterable<Method> buildTags(
           toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
         );
 
-        final queryParams = <String>[];
-        for (final parameter in parameters) {
-          if (parameter.$in != openapi.ParameterType.query) {
-            continue;
+        if (!hasUriParameters) {
+          code.writeln("const _path = '${pathEntry.key}';");
+        } else {
+          final queryParams = <String>[];
+          for (final parameter in parameters) {
+            if (parameter.$in != openapi.ParameterType.query) {
+              continue;
+            }
+
+            // Default to a plain parameter without exploding.
+            queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
           }
 
-          // Default to a plain parameter without exploding.
-          queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
+          final pathBuilder = StringBuffer()..write(pathEntry.key);
+
+          if (queryParams.isNotEmpty) {
+            pathBuilder
+              ..write('{?')
+              ..writeAll(queryParams, ',')
+              ..write('}');
+          }
+
+          final path = pathBuilder.toString();
+          // Sanity check the uri at build time.
+          try {
+            UriTemplate(path);
+          } on ParseException catch (e) {
+            throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
+          }
+
+          code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
         }
-
-        final pathBuilder = StringBuffer()..write(pathEntry.key);
-
-        if (queryParams.isNotEmpty) {
-          pathBuilder
-            ..write('{?')
-            ..writeAll(queryParams, ',')
-            ..write('}');
-        }
-
-        final path = pathBuilder.toString();
-
-        // Sanity check the uri at build time.
-        try {
-          UriTemplate(path);
-        } on ParseException catch (e) {
-          throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
-        }
-
-        code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
 
         if (dataType != null) {
           returnDataType = dataType.name;

@@ -16,7 +16,6 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
 
 part 'files_external.openapi.g.dart';
 
@@ -85,7 +84,6 @@ class ApiClient {
   ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -112,7 +110,7 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_external/api/v1/mounts';
     return DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

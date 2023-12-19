@@ -13179,7 +13179,6 @@ class TempAvatarClient {
   ///  * [postAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -13206,7 +13205,7 @@ class TempAvatarClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     return DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -13263,7 +13262,6 @@ class TempAvatarClient {
   ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -13290,7 +13288,7 @@ class TempAvatarClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/spreed/temp-user-avatar';
     return DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',

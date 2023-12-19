@@ -99,7 +99,6 @@ class AppConfigClient {
   ///  * [getApps] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -126,7 +125,7 @@ class AppConfigClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/provisioning_api/api/v1/config/apps';
     return DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3281,7 +3280,6 @@ class UsersClient {
   ///  * [getCurrentUser] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3308,7 +3306,7 @@ class UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/user').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/user';
     return DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3363,7 +3361,6 @@ class UsersClient {
   ///  * [getEditableFields] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -3390,7 +3387,7 @@ class UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/user/fields').expand(_parameters);
+    const _path = '/ocs/v2.php/cloud/user/fields';
     return DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

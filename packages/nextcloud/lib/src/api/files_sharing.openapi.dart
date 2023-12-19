@@ -97,7 +97,6 @@ class DeletedShareapiClient {
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -124,7 +123,7 @@ class DeletedShareapiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/deletedshares';
     return DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -512,7 +511,6 @@ class RemoteClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -539,7 +537,7 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares';
     return DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -594,7 +592,6 @@ class RemoteClient {
   ///  * [getOpenShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -621,7 +618,7 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending';
     return DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1591,7 +1588,6 @@ class ShareapiClient {
   ///  * [pendingShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -1618,7 +1614,7 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files_sharing/api/v1/shares/pending';
     return DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',

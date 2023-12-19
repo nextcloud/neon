@@ -196,7 +196,6 @@ class PredefinedStatusClient {
   ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -223,7 +222,7 @@ class PredefinedStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/predefined_statuses').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/predefined_statuses';
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -484,7 +483,6 @@ class UserStatusClient {
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -511,7 +509,7 @@ class UserStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status';
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -877,7 +875,6 @@ class UserStatusClient {
   ///  * [clearMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -904,7 +901,7 @@ class UserStatusClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/user_status/api/v1/user_status/message';
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',

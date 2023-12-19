@@ -65,7 +65,6 @@ class Client extends DynamiteClient {
   ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -88,7 +87,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/news/api').expand(_parameters);
+    const _path = '/index.php/apps/news/api';
     return DynamiteRawResponse<SupportedAPIVersions, void>(
       response: executeRequest(
         'get',
@@ -129,7 +128,6 @@ class Client extends DynamiteClient {
   ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -152,7 +150,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(_parameters);
+    const _path = '/index.php/apps/news/api/v1-3/folders';
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'get',
@@ -502,7 +500,6 @@ class Client extends DynamiteClient {
   ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -525,7 +522,7 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(_parameters);
+    const _path = '/index.php/apps/news/api/v1-3/feeds';
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'get',

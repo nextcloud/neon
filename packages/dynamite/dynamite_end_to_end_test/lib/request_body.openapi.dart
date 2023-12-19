@@ -13,7 +13,6 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
 
 class Client extends DynamiteClient {
   Client(
@@ -61,7 +60,6 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -69,7 +67,7 @@ class Client extends DynamiteClient {
     if (uint8List != null) {
       _body = uint8List;
     }
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'get',
@@ -112,7 +110,6 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> postRaw({String? string}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
     Uint8List? _body;
 
@@ -120,7 +117,7 @@ class Client extends DynamiteClient {
     if (string != null) {
       _body = utf8.encode(string);
     }
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
