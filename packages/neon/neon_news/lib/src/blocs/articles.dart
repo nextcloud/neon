@@ -64,7 +64,7 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   }
 
   final NewsBloc _newsBloc;
-  final NewsAppSpecificOptions options;
+  final NewsOptions options;
   final Account account;
   final int? id;
   final ListType? listType;

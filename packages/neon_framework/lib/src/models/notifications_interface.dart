@@ -29,7 +29,7 @@ abstract interface class NotificationsBlocInterface extends InteractiveBloc {
 }
 
 /// The interface of the app options used by the notifications client.
-abstract interface class NotificationsOptionsInterface extends NextcloudAppOptions {
+abstract interface class NotificationsOptionsInterface extends AppImplementationOptions {
   /// Creates the nextcloud app options for the notifications client.
   NotificationsOptionsInterface(super.storage);
 }

@@ -8,9 +8,9 @@ import 'package:neon_framework/src/settings/models/storage.dart';
 /// Account related options.
 @internal
 @immutable
-class AccountSpecificOptions extends OptionsCollection {
+class AccountOptions extends OptionsCollection {
   /// Creates a new account options collection.
-  AccountSpecificOptions(
+  AccountOptions(
     super.storage,
     this._appsBloc,
   ) {
@@ -44,10 +44,10 @@ class AccountSpecificOptions extends OptionsCollection {
   );
 }
 
-/// Storage keys for the [AccountSpecificOptions].
+/// Storage keys for the [AccountOptions].
 @internal
 enum AccountOptionKeys implements Storable {
-  /// The storage key for [AccountSpecificOptions.initialApp]
+  /// The storage key for [AccountOptions.initialApp]
   initialApp._('initial-app');
 
   const AccountOptionKeys._(this.value);

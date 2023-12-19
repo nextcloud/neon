@@ -4,8 +4,8 @@ import 'package:neon_framework/sort_box.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 
-class NewsAppSpecificOptions extends NextcloudAppOptions {
-  NewsAppSpecificOptions(super.storage) {
+class NewsOptions extends AppImplementationOptions {
+  NewsOptions(super.storage) {
     super.categories = [
       generalCategory,
       articlesCategory,

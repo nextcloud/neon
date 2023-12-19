@@ -9,7 +9,7 @@ import 'package:neon_framework/models.dart';
 import 'package:nextcloud/nextcloud.dart';
 
 /// Implementation of the server `dashboard` app.
-class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecificOptions> {
+class DashboardApp extends AppImplementation<DashboardBloc, DashboardOptions> {
   /// Creates a new Dashboard app implementation instance.
   DashboardApp();
 
@@ -23,7 +23,7 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardAppSpecific
   final List<Locale> supportedLocales = DashboardLocalizations.supportedLocales;
 
   @override
-  late final DashboardAppSpecificOptions options = DashboardAppSpecificOptions(storage);
+  late final DashboardOptions options = DashboardOptions(storage);
 
   @override
   DashboardBloc buildBloc(final Account account) => DashboardBloc(account);

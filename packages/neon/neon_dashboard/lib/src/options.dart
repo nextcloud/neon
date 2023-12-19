@@ -1,9 +1,9 @@
 import 'package:neon_framework/settings.dart';
 
 /// Settings options specific to the dashboard app.
-class DashboardAppSpecificOptions extends NextcloudAppOptions {
+class DashboardOptions extends AppImplementationOptions {
   /// Creates a new dashboard options instance.
-  DashboardAppSpecificOptions(super.storage) {
+  DashboardOptions(super.storage) {
     super.categories = [];
     super.options = [];
   }

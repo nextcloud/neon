@@ -15,14 +15,14 @@ import 'package:test/test.dart';
 // ignore: missing_override_of_must_be_overridden, avoid_implementing_value_types
 class FakeAppImplementation extends Mock implements AppImplementation {}
 
-class NextcloudAppOptionsMock extends Mock implements NextcloudAppOptions {}
+class AppImplementationOptionsMock extends Mock implements AppImplementationOptions {}
 
 class AccountsBlocMock extends Mock implements AccountsBloc {}
 
 // ignore: avoid_implementing_value_types
 class FakeAccount extends Mock implements Account {}
 
-class AccountSpecificOptionsMock extends Mock implements AccountSpecificOptions {}
+class AccountOptionsMock extends Mock implements AccountOptions {}
 
 class ExporterMock extends Mock implements Exportable {}
 
@@ -35,7 +35,7 @@ void main() {
       expect(Map.fromEntries([export]), {'app': <String, dynamic>{}});
 
       final fakeApp = FakeAppImplementation();
-      final fakeOptions = NextcloudAppOptionsMock();
+      final fakeOptions = AppImplementationOptionsMock();
       exporter = AppImplementationsExporter([fakeApp]);
 
       const appValue = MapEntry('appID', 'value');
@@ -68,7 +68,7 @@ void main() {
       expect(Map.fromEntries([export]), {'accounts': <String, dynamic>{}});
 
       final fakeAccount = FakeAccount();
-      final fakeOptions = AccountSpecificOptionsMock();
+      final fakeOptions = AccountOptionsMock();
       when(() => bloc.accounts).thenAnswer((final _) => BehaviorSubject.seeded([fakeAccount]));
       when(() => bloc.getOptionsFor(fakeAccount)).thenReturn(fakeOptions);
       when(fakeOptions.export).thenReturn(accountValue);

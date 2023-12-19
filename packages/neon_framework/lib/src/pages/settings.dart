@@ -34,7 +34,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 /// the settings page.
 @internal
 enum SettingsCategories {
-  /// `NextcloudAppOptions` category.
+  /// `AppImplementationOptions` category.
   ///
   /// Each activated `AppImplementation` has an entry if it has any options specified.
   apps,
@@ -56,7 +56,7 @@ enum SettingsCategories {
 
   /// Account management category.
   ///
-  /// Also includes the `AccountSpecificOptions`.
+  /// Also includes the `AccountOptions`.
   accounts,
 
   /// Other category.
@@ -127,7 +127,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   leading: appImplementation.buildIcon(),
                   title: Text(appImplementation.name(context)),
                   onTap: () {
-                    NextcloudAppSettingsRoute(appid: appImplementation.id).go(context);
+                    AppImplementationSettingsRoute(appid: appImplementation.id).go(context);
                   },
                 ),
               ],

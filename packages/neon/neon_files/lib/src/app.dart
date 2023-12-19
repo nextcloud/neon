@@ -8,7 +8,7 @@ import 'package:neon_files/src/routes.dart';
 import 'package:neon_framework/models.dart';
 import 'package:nextcloud/nextcloud.dart';
 
-class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
+class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
   FilesApp();
 
   @override
@@ -21,7 +21,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesAppSpecificOptions> {
   final List<Locale> supportedLocales = FilesLocalizations.supportedLocales;
 
   @override
-  late final FilesAppSpecificOptions options = FilesAppSpecificOptions(storage);
+  late final FilesOptions options = FilesOptions(storage);
 
   @override
   FilesBloc buildBloc(final Account account) => FilesBloc(

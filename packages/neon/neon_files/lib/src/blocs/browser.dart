@@ -32,7 +32,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
     unawaited(refresh());
   }
 
-  final FilesAppSpecificOptions options;
+  final FilesOptions options;
   final Account account;
 
   @override

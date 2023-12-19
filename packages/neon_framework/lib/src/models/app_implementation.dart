@@ -25,7 +25,7 @@ import 'package:vector_graphics/vector_graphics.dart';
 /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
 /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
 @immutable
-abstract class AppImplementation<T extends Bloc, R extends NextcloudAppOptions> implements Disposable, Findable {
+abstract class AppImplementation<T extends Bloc, R extends AppImplementationOptions> implements Disposable, Findable {
   /// The unique id of an app.
   ///
   /// It is common to specify them in `AppIDs`.
