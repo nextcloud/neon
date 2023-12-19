@@ -24,7 +24,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -50,11 +50,11 @@ abstract interface class $BaseInterface {
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
-  factory Base([final void Function(BaseBuilder)? b]) = _$Base;
+  factory Base([void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
 
-  factory Base.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -69,12 +69,11 @@ abstract interface class $NestedRedirectInterface {
 }
 
 abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
-  factory NestedRedirect([final void Function(NestedRedirectBuilder)? b]) = _$NestedRedirect;
+  factory NestedRedirect([void Function(NestedRedirectBuilder)? b]) = _$NestedRedirect;
 
   const NestedRedirect._();
 
-  factory NestedRedirect.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory NestedRedirect.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -90,7 +89,7 @@ extension $BaseIntJsonObjectExtension on $BaseIntJsonObject {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseIntJsonObject> get serializer => const _$BaseIntJsonObjectSerializer();
-  static $BaseIntJsonObject fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BaseIntJsonObject fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -105,9 +104,9 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseIntJsonObject object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseIntJsonObject object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.base;
@@ -128,9 +127,9 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
 
   @override
   $BaseIntJsonObject deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     Base? base;
     try {

@@ -9,16 +9,16 @@ import 'package:test/test.dart';
 void main() {
   test(Base, () {
     final object = Base(
-      (final b) => b
+      (b) => b
         ..$bool = true
         ..integer = 350
         ..$double = 0.7617818016335848
         ..$num = 0.6538342555284606
         ..string = 'StringValue'
-        ..contentString.update((final b) => b..content = 98)
+        ..contentString.update((b) => b..content = 98)
         ..stringBinary = utf8.encode('StringValue')
         ..list.update(
-          (final b) => b
+          (b) => b
             ..addAll([
               JsonObject('value'),
               JsonObject(188),
@@ -28,7 +28,7 @@ void main() {
         )
         ..listNever = ListBuilder<Never>()
         ..listString.update(
-          (final b) => b
+          (b) => b
             ..addAll([
               'value1',
               'value2',
@@ -69,7 +69,7 @@ void main() {
 
   test(BuiltList<Never>, () {
     final object = Base(
-      (final b) => b..listNever = ListBuilder<Never>(),
+      (b) => b..listNever = ListBuilder<Never>(),
     );
 
     var json = <String, dynamic>{

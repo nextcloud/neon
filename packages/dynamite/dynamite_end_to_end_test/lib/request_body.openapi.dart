@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -40,7 +40,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> $get({final Uint8List? uint8List}) async {
+  Future<DynamiteResponse<void, void>> $get({Uint8List? uint8List}) async {
     final rawResponse = $getRaw(
       uint8List: uint8List,
     );
@@ -59,7 +59,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> $getRaw({final Uint8List? uint8List}) {
+  DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
@@ -91,7 +91,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [postRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> post({final String? string}) async {
+  Future<DynamiteResponse<void, void>> post({String? string}) async {
     final rawResponse = postRaw(
       string: string,
     );
@@ -110,7 +110,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> postRaw({final String? string}) {
+  DynamiteRawResponse<void, void> postRaw({String? string}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;

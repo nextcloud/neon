@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   test('ObjectOneOf', () {
     ObjectOneOf object = (
-      objectOneOf0: ObjectOneOf0((final b) => b..attribute1OneOf = 'attribute1OneOf'),
+      objectOneOf0: ObjectOneOf0((b) => b..attribute1OneOf = 'attribute1OneOf'),
       objectOneOf1: null,
     );
 
@@ -15,7 +15,7 @@ void main() {
 
     object = (
       objectOneOf0: null,
-      objectOneOf1: ObjectOneOf1((final b) => b..attribute2OneOf = 'attribute2OneOf'),
+      objectOneOf1: ObjectOneOf1((b) => b..attribute2OneOf = 'attribute2OneOf'),
     );
 
     json = {'attribute2-oneOf': 'attribute2OneOf'};
@@ -26,7 +26,7 @@ void main() {
 
   test('MixedOneOf', () {
     MixedOneOf object = (
-      mixedOneOf1: MixedOneOf1((final b) => b..attributeOneOf = 'attributeOneOf'),
+      mixedOneOf1: MixedOneOf1((b) => b..attributeOneOf = 'attributeOneOf'),
       string: null,
     );
 
@@ -47,7 +47,7 @@ void main() {
   });
 
   test('OneObjectOneOf', () {
-    final object = OneObjectOneOf0((final b) => b..attributeOneOf = 'attributeOneOf');
+    final object = OneObjectOneOf0((b) => b..attributeOneOf = 'attributeOneOf');
 
     final json = {'attribute-oneOf': 'attributeOneOf'};
 

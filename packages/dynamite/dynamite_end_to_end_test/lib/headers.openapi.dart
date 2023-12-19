@@ -25,7 +25,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -179,11 +179,11 @@ abstract interface class $GetHeadersInterface {
 }
 
 abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
-  factory GetHeaders([final void Function(GetHeadersBuilder)? b]) = _$GetHeaders;
+  factory GetHeaders([void Function(GetHeadersBuilder)? b]) = _$GetHeaders;
 
   const GetHeaders._();
 
-  factory GetHeaders.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory GetHeaders.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -200,12 +200,12 @@ abstract class WithContentOperationIdHeaders
     implements
         $WithContentOperationIdHeadersInterface,
         Built<WithContentOperationIdHeaders, WithContentOperationIdHeadersBuilder> {
-  factory WithContentOperationIdHeaders([final void Function(WithContentOperationIdHeadersBuilder)? b]) =
+  factory WithContentOperationIdHeaders([void Function(WithContentOperationIdHeadersBuilder)? b]) =
       _$WithContentOperationIdHeaders;
 
   const WithContentOperationIdHeaders._();
 
-  factory WithContentOperationIdHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory WithContentOperationIdHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
@@ -221,11 +221,11 @@ abstract interface class $GetWithContentHeadersInterface {
 
 abstract class GetWithContentHeaders
     implements $GetWithContentHeadersInterface, Built<GetWithContentHeaders, GetWithContentHeadersBuilder> {
-  factory GetWithContentHeaders([final void Function(GetWithContentHeadersBuilder)? b]) = _$GetWithContentHeaders;
+  factory GetWithContentHeaders([void Function(GetWithContentHeadersBuilder)? b]) = _$GetWithContentHeaders;
 
   const GetWithContentHeaders._();
 
-  factory GetWithContentHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory GetWithContentHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;

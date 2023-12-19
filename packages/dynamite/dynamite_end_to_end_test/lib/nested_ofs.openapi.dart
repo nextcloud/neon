@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -46,11 +46,11 @@ abstract interface class $BaseAllOfInterface implements $BaseAllOf_1Interface {
 }
 
 abstract class BaseAllOf implements $BaseAllOfInterface, Built<BaseAllOf, BaseAllOfBuilder> {
-  factory BaseAllOf([final void Function(BaseAllOfBuilder)? b]) = _$BaseAllOf;
+  factory BaseAllOf([void Function(BaseAllOfBuilder)? b]) = _$BaseAllOf;
 
   const BaseAllOf._();
 
-  factory BaseAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -64,11 +64,11 @@ abstract interface class $BaseOneOf1Interface {
 }
 
 abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, BaseOneOf1Builder> {
-  factory BaseOneOf1([final void Function(BaseOneOf1Builder)? b]) = _$BaseOneOf1;
+  factory BaseOneOf1([void Function(BaseOneOf1Builder)? b]) = _$BaseOneOf1;
 
   const BaseOneOf1._();
 
-  factory BaseOneOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseOneOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -82,11 +82,11 @@ abstract interface class $BaseAnyOf1Interface {
 }
 
 abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, BaseAnyOf1Builder> {
-  factory BaseAnyOf1([final void Function(BaseAnyOf1Builder)? b]) = _$BaseAnyOf1;
+  factory BaseAnyOf1([void Function(BaseAnyOf1Builder)? b]) = _$BaseAnyOf1;
 
   const BaseAnyOf1._();
 
-  factory BaseAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -108,12 +108,11 @@ abstract interface class $BaseNestedAllOfInterface implements $BaseAllOfInterfac
 }
 
 abstract class BaseNestedAllOf implements $BaseNestedAllOfInterface, Built<BaseNestedAllOf, BaseNestedAllOfBuilder> {
-  factory BaseNestedAllOf([final void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;
+  factory BaseNestedAllOf([void Function(BaseNestedAllOfBuilder)? b]) = _$BaseNestedAllOf;
 
   const BaseNestedAllOf._();
 
-  factory BaseNestedAllOf.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -128,12 +127,11 @@ abstract interface class $BaseNestedOneOf3Interface {
 
 abstract class BaseNestedOneOf3
     implements $BaseNestedOneOf3Interface, Built<BaseNestedOneOf3, BaseNestedOneOf3Builder> {
-  factory BaseNestedOneOf3([final void Function(BaseNestedOneOf3Builder)? b]) = _$BaseNestedOneOf3;
+  factory BaseNestedOneOf3([void Function(BaseNestedOneOf3Builder)? b]) = _$BaseNestedOneOf3;
 
   const BaseNestedOneOf3._();
 
-  factory BaseNestedOneOf3.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedOneOf3.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -148,12 +146,11 @@ abstract interface class $BaseNestedAnyOf3Interface {
 
 abstract class BaseNestedAnyOf3
     implements $BaseNestedAnyOf3Interface, Built<BaseNestedAnyOf3, BaseNestedAnyOf3Builder> {
-  factory BaseNestedAnyOf3([final void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
+  factory BaseNestedAnyOf3([void Function(BaseNestedAnyOf3Builder)? b]) = _$BaseNestedAnyOf3;
 
   const BaseNestedAnyOf3._();
 
-  factory BaseNestedAnyOf3.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory BaseNestedAnyOf3.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -189,7 +186,7 @@ extension $BaseOneOf1DoubleExtension on $BaseOneOf1Double {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseOneOf1Double> get serializer => const _$BaseOneOf1DoubleSerializer();
-  static $BaseOneOf1Double fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BaseOneOf1Double fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -204,9 +201,9 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseOneOf1Double object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseOneOf1Double object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.baseOneOf1;
@@ -223,9 +220,9 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
 
   @override
   $BaseOneOf1Double deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BaseOneOf1? baseOneOf1;
     try {
@@ -246,7 +243,7 @@ extension $BaseAnyOf1IntExtension on $BaseAnyOf1Int {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseAnyOf1Int> get serializer => const _$BaseAnyOf1IntSerializer();
-  static $BaseAnyOf1Int fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BaseAnyOf1Int fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -261,9 +258,9 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseAnyOf1Int object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseAnyOf1Int object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.baseAnyOf1;
@@ -280,9 +277,9 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
 
   @override
   $BaseAnyOf1Int deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BaseAnyOf1? baseAnyOf1;
     try {
@@ -311,7 +308,7 @@ extension $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> get serializer =>
       const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
-  static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double fromJson(final Object? json) =>
+  static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double fromJson(Object? json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
@@ -328,9 +325,9 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.baseAllOf;
@@ -359,9 +356,9 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
 
   @override
   $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BaseAllOf? baseAllOf;
     try {
@@ -410,7 +407,7 @@ extension $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> get serializer =>
       const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
-  static $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt fromJson(final Object? json) =>
+  static $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt fromJson(Object? json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
@@ -427,9 +424,9 @@ class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.baseAllOf;
@@ -458,9 +455,9 @@ class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
 
   @override
   $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BaseAllOf? baseAllOf;
     try {
@@ -501,7 +498,7 @@ extension $BaseOneOf1NumExtension on $BaseOneOf1Num {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BaseOneOf1Num> get serializer => const _$BaseOneOf1NumSerializer();
-  static $BaseOneOf1Num fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BaseOneOf1Num fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -516,9 +513,9 @@ class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BaseOneOf1Num object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BaseOneOf1Num object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.baseOneOf1;
@@ -535,9 +532,9 @@ class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
 
   @override
   $BaseOneOf1Num deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BaseOneOf1? baseOneOf1;
     try {

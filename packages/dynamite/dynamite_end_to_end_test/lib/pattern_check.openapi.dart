@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -46,18 +46,18 @@ abstract interface class $TestObjectInterface {
 }
 
 abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
-  factory TestObject([final void Function(TestObjectBuilder)? b]) = _$TestObject;
+  factory TestObject([void Function(TestObjectBuilder)? b]) = _$TestObject;
 
   const TestObject._();
 
-  factory TestObject.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory TestObject.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
   static Serializer<TestObject> get serializer => _$testObjectSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final TestObjectBuilder b) {
+  static void _validate(TestObjectBuilder b) {
     dynamite_utils.checkPattern(b.onlyNumbers, RegExp(r'^[0-9]*$'), 'onlyNumbers');
     dynamite_utils.checkMinLength(b.minLength, 3, 'minLength');
     dynamite_utils.checkMaxLength(b.maxLength, 20, 'maxLength');

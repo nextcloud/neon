@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -48,11 +48,11 @@ abstract interface class $ObjectAnyOf0Interface {
 }
 
 abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
-  factory ObjectAnyOf0([final void Function(ObjectAnyOf0Builder)? b]) = _$ObjectAnyOf0;
+  factory ObjectAnyOf0([void Function(ObjectAnyOf0Builder)? b]) = _$ObjectAnyOf0;
 
   const ObjectAnyOf0._();
 
-  factory ObjectAnyOf0.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -66,11 +66,11 @@ abstract interface class $ObjectAnyOf1Interface {
 }
 
 abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
-  factory ObjectAnyOf1([final void Function(ObjectAnyOf1Builder)? b]) = _$ObjectAnyOf1;
+  factory ObjectAnyOf1([void Function(ObjectAnyOf1Builder)? b]) = _$ObjectAnyOf1;
 
   const ObjectAnyOf1._();
 
-  factory ObjectAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -84,11 +84,11 @@ abstract interface class $MixedAnyOf1Interface {
 }
 
 abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
-  factory MixedAnyOf1([final void Function(MixedAnyOf1Builder)? b]) = _$MixedAnyOf1;
+  factory MixedAnyOf1([void Function(MixedAnyOf1Builder)? b]) = _$MixedAnyOf1;
 
   const MixedAnyOf1._();
 
-  factory MixedAnyOf1.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -102,12 +102,11 @@ abstract interface class $OneObjectAnyOf0Interface {
 }
 
 abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
-  factory OneObjectAnyOf0([final void Function(OneObjectAnyOf0Builder)? b]) = _$OneObjectAnyOf0;
+  factory OneObjectAnyOf0([void Function(OneObjectAnyOf0Builder)? b]) = _$OneObjectAnyOf0;
 
   const OneObjectAnyOf0._();
 
-  factory OneObjectAnyOf0.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -127,7 +126,7 @@ extension $ObjectAnyOf0ObjectAnyOf1Extension on $ObjectAnyOf0ObjectAnyOf1 {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$ObjectAnyOf0ObjectAnyOf1> get serializer => const _$ObjectAnyOf0ObjectAnyOf1Serializer();
-  static $ObjectAnyOf0ObjectAnyOf1 fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $ObjectAnyOf0ObjectAnyOf1 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -142,9 +141,9 @@ class _$ObjectAnyOf0ObjectAnyOf1Serializer implements PrimitiveSerializer<$Objec
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $ObjectAnyOf0ObjectAnyOf1 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $ObjectAnyOf0ObjectAnyOf1 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.objectAnyOf0;
@@ -161,9 +160,9 @@ class _$ObjectAnyOf0ObjectAnyOf1Serializer implements PrimitiveSerializer<$Objec
 
   @override
   $ObjectAnyOf0ObjectAnyOf1 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     ObjectAnyOf0? objectAnyOf0;
     try {
@@ -184,7 +183,7 @@ extension $MixedAnyOf1StringExtension on $MixedAnyOf1String {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$MixedAnyOf1String> get serializer => const _$MixedAnyOf1StringSerializer();
-  static $MixedAnyOf1String fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $MixedAnyOf1String fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -199,9 +198,9 @@ class _$MixedAnyOf1StringSerializer implements PrimitiveSerializer<$MixedAnyOf1S
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $MixedAnyOf1String object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $MixedAnyOf1String object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.mixedAnyOf1;
@@ -218,9 +217,9 @@ class _$MixedAnyOf1StringSerializer implements PrimitiveSerializer<$MixedAnyOf1S
 
   @override
   $MixedAnyOf1String deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     MixedAnyOf1? mixedAnyOf1;
     try {
@@ -241,7 +240,7 @@ extension $NumStringExtension on $NumString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $NumString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -256,9 +255,9 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $NumString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $NumString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.$num;
@@ -275,9 +274,9 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 
   @override
   $NumString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     num? $num;
     try {
