@@ -39,33 +39,33 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
   });
 
   WebDavPropWithoutValues.fromBools({
-    final bool davgetlastmodified = false,
-    final bool davgetetag = false,
-    final bool davgetcontenttype = false,
-    final bool davgetcontentlength = false,
-    final bool davresourcetype = false,
-    final bool ocid = false,
-    final bool ocfileid = false,
-    final bool ocfavorite = false,
-    final bool occommentshref = false,
-    final bool occommentscount = false,
-    final bool occommentsunread = false,
-    final bool ocdownloadurl = false,
-    final bool ocownerid = false,
-    final bool ocownerdisplayname = false,
-    final bool ocsize = false,
-    final bool ocpermissions = false,
-    final bool ncnote = false,
-    final bool ncdatafingerprint = false,
-    final bool nchaspreview = false,
-    final bool ncmounttype = false,
-    final bool ncisencrypted = false,
-    final bool ncmetadataetag = false,
-    final bool ncuploadtime = false,
-    final bool nccreationtime = false,
-    final bool ncrichworkspace = false,
-    final bool ocssharepermissions = false,
-    final bool ocmsharepermissions = false,
+    bool davgetlastmodified = false,
+    bool davgetetag = false,
+    bool davgetcontenttype = false,
+    bool davgetcontentlength = false,
+    bool davresourcetype = false,
+    bool ocid = false,
+    bool ocfileid = false,
+    bool ocfavorite = false,
+    bool occommentshref = false,
+    bool occommentscount = false,
+    bool occommentsunread = false,
+    bool ocdownloadurl = false,
+    bool ocownerid = false,
+    bool ocownerdisplayname = false,
+    bool ocsize = false,
+    bool ocpermissions = false,
+    bool ncnote = false,
+    bool ncdatafingerprint = false,
+    bool nchaspreview = false,
+    bool ncmounttype = false,
+    bool ncisencrypted = false,
+    bool ncmetadataetag = false,
+    bool ncuploadtime = false,
+    bool nccreationtime = false,
+    bool ncrichworkspace = false,
+    bool ocssharepermissions = false,
+    bool ocmsharepermissions = false,
   })  : davgetlastmodified = davgetlastmodified ? [null] : null,
         davgetetag = davgetetag ? [null] : null,
         davgetcontenttype = davgetcontenttype ? [null] : null,
@@ -94,7 +94,7 @@ class WebDavPropWithoutValues with _$WebDavPropWithoutValuesXmlSerializableMixin
         ocssharepermissions = ocssharepermissions ? [null] : null,
         ocmsharepermissions = ocmsharepermissions ? [null] : null;
 
-  factory WebDavPropWithoutValues.fromXmlElement(final XmlElement element) =>
+  factory WebDavPropWithoutValues.fromXmlElement(XmlElement element) =>
       _$WebDavPropWithoutValuesFromXmlElement(element);
 
   @annotation.XmlElement(
@@ -347,7 +347,7 @@ class WebDavProp with _$WebDavPropXmlSerializableMixin {
     this.ocmsharepermissions,
   });
 
-  factory WebDavProp.fromXmlElement(final XmlElement element) => _$WebDavPropFromXmlElement(element);
+  factory WebDavProp.fromXmlElement(XmlElement element) => _$WebDavPropFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',
@@ -572,7 +572,7 @@ class WebDavOcFilterRules with _$WebDavOcFilterRulesXmlSerializableMixin {
     this.ocmsharepermissions,
   });
 
-  factory WebDavOcFilterRules.fromXmlElement(final XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
+  factory WebDavOcFilterRules.fromXmlElement(XmlElement element) => _$WebDavOcFilterRulesFromXmlElement(element);
 
   @annotation.XmlElement(
     name: 'getlastmodified',

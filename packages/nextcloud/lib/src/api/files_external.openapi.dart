@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -59,9 +59,7 @@ class ApiClient {
   ///
   /// See:
   ///  * [getUserMountsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({
-    final bool? oCSAPIRequest,
-  }) async {
+  Future<DynamiteResponse<ApiGetUserMountsResponseApplicationJson, void>> getUserMounts({bool? oCSAPIRequest}) async {
     final rawResponse = getUserMountsRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -85,7 +83,7 @@ class ApiClient {
   /// See:
   ///  * [getUserMounts] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void> getUserMountsRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -94,7 +92,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -139,14 +137,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -165,7 +163,7 @@ class Mount_Type extends EnumClass {
   static BuiltSet<Mount_Type> get values => _$mountTypeValues;
   // coverage:ignore-end
 
-  static Mount_Type valueOf(final String name) => _$valueOfMount_Type(name);
+  static Mount_Type valueOf(String name) => _$valueOfMount_Type(name);
 
   static Serializer<Mount_Type> get serializer => _$mountTypeSerializer;
 }
@@ -181,7 +179,7 @@ class Mount_Scope extends EnumClass {
   static BuiltSet<Mount_Scope> get values => _$mountScopeValues;
   // coverage:ignore-end
 
-  static Mount_Scope valueOf(final String name) => _$valueOfMount_Scope(name);
+  static Mount_Scope valueOf(String name) => _$valueOfMount_Scope(name);
 
   static Serializer<Mount_Scope> get serializer => _$mountScopeSerializer;
 }
@@ -197,7 +195,7 @@ class StorageConfig_Type extends EnumClass {
   static BuiltSet<StorageConfig_Type> get values => _$storageConfigTypeValues;
   // coverage:ignore-end
 
-  static StorageConfig_Type valueOf(final String name) => _$valueOfStorageConfig_Type(name);
+  static StorageConfig_Type valueOf(String name) => _$valueOfStorageConfig_Type(name);
 
   static Serializer<StorageConfig_Type> get serializer => _$storageConfigTypeSerializer;
 }
@@ -220,14 +218,14 @@ abstract interface class $StorageConfigInterface {
 }
 
 abstract class StorageConfig implements $StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
-  factory StorageConfig([final void Function(StorageConfigBuilder)? b]) = _$StorageConfig;
+  factory StorageConfig([void Function(StorageConfigBuilder)? b]) = _$StorageConfig;
 
   // coverage:ignore-start
   const StorageConfig._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory StorageConfig.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory StorageConfig.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -252,14 +250,14 @@ abstract interface class $MountInterface {
 }
 
 abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
-  factory Mount([final void Function(MountBuilder)? b]) = _$Mount;
+  factory Mount([void Function(MountBuilder)? b]) = _$Mount;
 
   // coverage:ignore-start
   const Mount._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Mount.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Mount.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -280,7 +278,7 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
         $ApiGetUserMountsResponseApplicationJson_OcsInterface,
         Built<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder> {
   factory ApiGetUserMountsResponseApplicationJson_Ocs([
-    final void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? b,
+    void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ApiGetUserMountsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -288,7 +286,7 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetUserMountsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetUserMountsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -309,16 +307,15 @@ abstract class ApiGetUserMountsResponseApplicationJson
     implements
         $ApiGetUserMountsResponseApplicationJsonInterface,
         Built<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder> {
-  factory ApiGetUserMountsResponseApplicationJson([
-    final void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? b,
-  ]) = _$ApiGetUserMountsResponseApplicationJson;
+  factory ApiGetUserMountsResponseApplicationJson([void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? b]) =
+      _$ApiGetUserMountsResponseApplicationJson;
 
   // coverage:ignore-start
   const ApiGetUserMountsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetUserMountsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetUserMountsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

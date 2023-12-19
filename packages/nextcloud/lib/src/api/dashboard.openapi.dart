@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -60,7 +60,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgetsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetsResponseApplicationJson, void>> getWidgets({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetsRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -85,7 +85,7 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -94,7 +94,7 @@ class DashboardApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -145,10 +145,10 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgetItemsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>> getWidgetItems({
-    final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int? limit,
-    final BuiltList<String>? widgets,
-    final bool? oCSAPIRequest,
+    ContentString<BuiltMap<String, String>>? sinceIds,
+    int? limit,
+    BuiltList<String>? widgets,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsRaw(
       sinceIds: sinceIds,
@@ -180,10 +180,10 @@ class DashboardApiClient {
   ///  * [getWidgetItems] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void> getWidgetItemsRaw({
-    final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int? limit,
-    final BuiltList<String>? widgets,
-    final bool? oCSAPIRequest,
+    ContentString<BuiltMap<String, String>>? sinceIds,
+    int? limit,
+    BuiltList<String>? widgets,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -193,7 +193,7 @@ class DashboardApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -265,10 +265,10 @@ class DashboardApiClient {
   /// See:
   ///  * [getWidgetItemsV2Raw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>> getWidgetItemsV2({
-    final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int? limit,
-    final BuiltList<String>? widgets,
-    final bool? oCSAPIRequest,
+    ContentString<BuiltMap<String, String>>? sinceIds,
+    int? limit,
+    BuiltList<String>? widgets,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWidgetItemsV2Raw(
       sinceIds: sinceIds,
@@ -302,10 +302,10 @@ class DashboardApiClient {
   ///  * [getWidgetItemsV2] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void> getWidgetItemsV2Raw({
-    final ContentString<BuiltMap<String, String>>? sinceIds,
-    final int? limit,
-    final BuiltList<String>? widgets,
-    final bool? oCSAPIRequest,
+    ContentString<BuiltMap<String, String>>? sinceIds,
+    int? limit,
+    BuiltList<String>? widgets,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -315,7 +315,7 @@ class DashboardApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -379,14 +379,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -404,15 +404,14 @@ abstract interface class $Widget_ButtonsInterface {
 }
 
 abstract class Widget_Buttons implements $Widget_ButtonsInterface, Built<Widget_Buttons, Widget_ButtonsBuilder> {
-  factory Widget_Buttons([final void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
+  factory Widget_Buttons([void Function(Widget_ButtonsBuilder)? b]) = _$Widget_Buttons;
 
   // coverage:ignore-start
   const Widget_Buttons._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Widget_Buttons.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget_Buttons.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -443,14 +442,14 @@ abstract interface class $WidgetInterface {
 }
 
 abstract class Widget implements $WidgetInterface, Built<Widget, WidgetBuilder> {
-  factory Widget([final void Function(WidgetBuilder)? b]) = _$Widget;
+  factory Widget([void Function(WidgetBuilder)? b]) = _$Widget;
 
   // coverage:ignore-start
   const Widget._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Widget.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Widget.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -472,7 +471,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
         Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
-    final void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
+    void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -480,7 +479,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -502,7 +501,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
         $DashboardApiGetWidgetsResponseApplicationJsonInterface,
         Built<DashboardApiGetWidgetsResponseApplicationJson, DashboardApiGetWidgetsResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetsResponseApplicationJson([
-    final void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
+    void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -510,7 +509,7 @@ abstract class DashboardApiGetWidgetsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -533,14 +532,14 @@ abstract interface class $WidgetItemInterface {
 }
 
 abstract class WidgetItem implements $WidgetItemInterface, Built<WidgetItem, WidgetItemBuilder> {
-  factory WidgetItem([final void Function(WidgetItemBuilder)? b]) = _$WidgetItem;
+  factory WidgetItem([void Function(WidgetItemBuilder)? b]) = _$WidgetItem;
 
   // coverage:ignore-start
   const WidgetItem._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WidgetItem.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItem.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -562,7 +561,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
         Built<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
-    final void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -570,7 +569,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -593,7 +592,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
         Built<DashboardApiGetWidgetItemsResponseApplicationJson,
             DashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetItemsResponseApplicationJson([
-    final void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -601,7 +600,7 @@ abstract class DashboardApiGetWidgetItemsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -621,14 +620,14 @@ abstract interface class $WidgetItemsInterface {
 }
 
 abstract class WidgetItems implements $WidgetItemsInterface, Built<WidgetItems, WidgetItemsBuilder> {
-  factory WidgetItems([final void Function(WidgetItemsBuilder)? b]) = _$WidgetItems;
+  factory WidgetItems([void Function(WidgetItemsBuilder)? b]) = _$WidgetItems;
 
   // coverage:ignore-start
   const WidgetItems._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WidgetItems.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory WidgetItems.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -650,7 +649,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
             DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
-    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -658,7 +657,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -681,7 +680,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
         Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
             DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson([
-    final void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
   ]) = _$DashboardApiGetWidgetItemsV2ResponseApplicationJson;
 
   // coverage:ignore-start
@@ -689,7 +688,7 @@ abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DashboardApiGetWidgetItemsV2ResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

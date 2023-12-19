@@ -15,7 +15,7 @@ extension NewsVersionCheck on news.Client {
     final response = await getSupportedApiVersions();
     final versions = response.body.apiLevels;
     return VersionCheck(
-      versions: versions?.map((final version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toList(),
+      versions: versions?.map((version) => Version.parse(version.substring(1).replaceAll('-', '.'))).toList(),
       minimumVersion: minVersion,
       maximumMajor: null,
     );

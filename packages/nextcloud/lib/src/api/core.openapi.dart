@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -148,7 +148,7 @@ class AppPasswordClient {
   /// See:
   ///  * [getAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>> getAppPassword({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -174,9 +174,7 @@ class AppPasswordClient {
   /// See:
   ///  * [getAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void> getAppPasswordRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -185,7 +183,7 @@ class AppPasswordClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -234,7 +232,7 @@ class AppPasswordClient {
   /// See:
   ///  * [rotateAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>> rotateAppPassword({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = rotateAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -261,7 +259,7 @@ class AppPasswordClient {
   ///  * [rotateAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void> rotateAppPasswordRaw({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -271,7 +269,7 @@ class AppPasswordClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -320,7 +318,7 @@ class AppPasswordClient {
   /// See:
   ///  * [deleteAppPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>> deleteAppPassword({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAppPasswordRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -347,7 +345,7 @@ class AppPasswordClient {
   ///  * [deleteAppPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void> deleteAppPasswordRaw({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -357,7 +355,7 @@ class AppPasswordClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -417,13 +415,13 @@ class AutoCompleteClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AutoCompleteGetResponseApplicationJson, void>> $get({
-    required final String search,
-    final String? itemType,
-    final String? itemId,
-    final String? sorter,
-    final BuiltList<int>? shareTypes,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required String search,
+    String? itemType,
+    String? itemId,
+    String? sorter,
+    BuiltList<int>? shareTypes,
+    int? limit,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       search: search,
@@ -461,13 +459,13 @@ class AutoCompleteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void> $getRaw({
-    required final String search,
-    final String? itemType,
-    final String? itemId,
-    final String? sorter,
-    final BuiltList<int>? shareTypes,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required String search,
+    String? itemType,
+    String? itemId,
+    String? sorter,
+    BuiltList<int>? shareTypes,
+    int? limit,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -477,7 +475,7 @@ class AutoCompleteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -557,8 +555,8 @@ class AvatarClient {
   /// See:
   ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>> getAvatarDark({
-    required final String userId,
-    required final int size,
+    required String userId,
+    required int size,
   }) async {
     final rawResponse = getAvatarDarkRaw(
       userId: userId,
@@ -587,8 +585,8 @@ class AvatarClient {
   ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders> getAvatarDarkRaw({
-    required final String userId,
-    required final int size,
+    required String userId,
+    required int size,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -598,7 +596,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -648,8 +646,8 @@ class AvatarClient {
   /// See:
   ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, AvatarAvatarGetAvatarHeaders>> getAvatar({
-    required final String userId,
-    required final int size,
+    required String userId,
+    required int size,
   }) async {
     final rawResponse = getAvatarRaw(
       userId: userId,
@@ -678,8 +676,8 @@ class AvatarClient {
   ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders> getAvatarRaw({
-    required final String userId,
-    required final int size,
+    required String userId,
+    required int size,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -689,7 +687,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -743,7 +741,7 @@ class ClientFlowLoginV2Client {
   ///
   /// See:
   ///  * [pollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<LoginFlowV2Credentials, void>> poll({required final String token}) async {
+  Future<DynamiteResponse<LoginFlowV2Credentials, void>> poll({required String token}) async {
     final rawResponse = pollRaw(
       token: token,
     );
@@ -768,7 +766,7 @@ class ClientFlowLoginV2Client {
   /// See:
   ///  * [poll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<LoginFlowV2Credentials, void> pollRaw({required final String token}) {
+  DynamiteRawResponse<LoginFlowV2Credentials, void> pollRaw({required String token}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -777,7 +775,7 @@ class ClientFlowLoginV2Client {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -846,7 +844,7 @@ class ClientFlowLoginV2Client {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -896,8 +894,8 @@ class CollaborationResourcesClient {
   /// See:
   ///  * [searchCollectionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>> searchCollections({
-    required final String filter,
-    final bool? oCSAPIRequest,
+    required String filter,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchCollectionsRaw(
       filter: filter,
@@ -926,8 +924,8 @@ class CollaborationResourcesClient {
   ///  * [searchCollections] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void> searchCollectionsRaw({
-    required final String filter,
-    final bool? oCSAPIRequest,
+    required String filter,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -937,7 +935,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -992,8 +990,8 @@ class CollaborationResourcesClient {
   /// See:
   ///  * [listCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>> listCollection({
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = listCollectionRaw(
       collectionId: collectionId,
@@ -1023,8 +1021,8 @@ class CollaborationResourcesClient {
   ///  * [listCollection] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void> listCollectionRaw({
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1034,7 +1032,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1090,9 +1088,9 @@ class CollaborationResourcesClient {
   /// See:
   ///  * [renameCollectionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>> renameCollection({
-    required final String collectionName,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String collectionName,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = renameCollectionRaw(
       collectionName: collectionName,
@@ -1124,9 +1122,9 @@ class CollaborationResourcesClient {
   ///  * [renameCollection] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void> renameCollectionRaw({
-    required final String collectionName,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String collectionName,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1136,7 +1134,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1198,10 +1196,10 @@ class CollaborationResourcesClient {
   /// See:
   ///  * [addResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>> addResource({
-    required final String resourceType,
-    required final String resourceId,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = addResourceRaw(
       resourceType: resourceType,
@@ -1235,10 +1233,10 @@ class CollaborationResourcesClient {
   ///  * [addResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void> addResourceRaw({
-    required final String resourceType,
-    required final String resourceId,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1248,7 +1246,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1313,10 +1311,10 @@ class CollaborationResourcesClient {
   /// See:
   ///  * [removeResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>> removeResource({
-    required final String resourceType,
-    required final String resourceId,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeResourceRaw(
       resourceType: resourceType,
@@ -1350,10 +1348,10 @@ class CollaborationResourcesClient {
   ///  * [removeResource] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void> removeResourceRaw({
-    required final String resourceType,
-    required final String resourceId,
-    required final int collectionId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    required int collectionId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1363,7 +1361,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1427,9 +1425,9 @@ class CollaborationResourcesClient {
   ///  * [getCollectionsByResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
       getCollectionsByResource({
-    required final String resourceType,
-    required final String resourceId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCollectionsByResourceRaw(
       resourceType: resourceType,
@@ -1461,9 +1459,9 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
       getCollectionsByResourceRaw({
-    required final String resourceType,
-    required final String resourceId,
-    final bool? oCSAPIRequest,
+    required String resourceType,
+    required String resourceId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1473,7 +1471,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1535,10 +1533,10 @@ class CollaborationResourcesClient {
   ///  * [createCollectionOnResourceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
       createCollectionOnResource({
-    required final String name,
-    required final String baseResourceType,
-    required final String baseResourceId,
-    final bool? oCSAPIRequest,
+    required String name,
+    required String baseResourceType,
+    required String baseResourceId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createCollectionOnResourceRaw(
       name: name,
@@ -1574,10 +1572,10 @@ class CollaborationResourcesClient {
   @experimental
   DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
       createCollectionOnResourceRaw({
-    required final String name,
-    required final String baseResourceType,
-    required final String baseResourceId,
-    final bool? oCSAPIRequest,
+    required String name,
+    required String baseResourceType,
+    required String baseResourceId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1587,7 +1585,7 @@ class CollaborationResourcesClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1656,8 +1654,8 @@ class GuestAvatarClient {
   /// See:
   ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
-    required final String guestName,
-    required final String size,
+    required String guestName,
+    required String size,
   }) async {
     final rawResponse = getAvatarDarkRaw(
       guestName: guestName,
@@ -1687,8 +1685,8 @@ class GuestAvatarClient {
   ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
-    required final String guestName,
-    required final String size,
+    required String guestName,
+    required String size,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1698,7 +1696,7 @@ class GuestAvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1750,9 +1748,9 @@ class GuestAvatarClient {
   /// See:
   ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
-    required final String guestName,
-    required final String size,
-    final int? darkTheme,
+    required String guestName,
+    required String size,
+    int? darkTheme,
   }) async {
     final rawResponse = getAvatarRaw(
       guestName: guestName,
@@ -1784,9 +1782,9 @@ class GuestAvatarClient {
   ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
-    required final String guestName,
-    required final String size,
-    final int? darkTheme,
+    required String guestName,
+    required String size,
+    int? darkTheme,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1796,7 +1794,7 @@ class GuestAvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1856,8 +1854,8 @@ class HoverCardClient {
   /// See:
   ///  * [getUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HoverCardGetUserResponseApplicationJson, void>> getUser({
-    required final String userId,
-    final bool? oCSAPIRequest,
+    required String userId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUserRaw(
       userId: userId,
@@ -1886,8 +1884,8 @@ class HoverCardClient {
   ///  * [getUser] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void> getUserRaw({
-    required final String userId,
-    final bool? oCSAPIRequest,
+    required String userId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1897,7 +1895,7 @@ class HoverCardClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1956,8 +1954,8 @@ class NavigationClient {
   /// See:
   ///  * [getAppsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetAppsNavigationResponseApplicationJson, void>> getAppsNavigation({
-    final int? absolute,
-    final bool? oCSAPIRequest,
+    int? absolute,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppsNavigationRaw(
       absolute: absolute,
@@ -1986,8 +1984,8 @@ class NavigationClient {
   ///  * [getAppsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void> getAppsNavigationRaw({
-    final int? absolute,
-    final bool? oCSAPIRequest,
+    int? absolute,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1997,7 +1995,7 @@ class NavigationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2051,8 +2049,8 @@ class NavigationClient {
   /// See:
   ///  * [getSettingsNavigationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>> getSettingsNavigation({
-    final int? absolute,
-    final bool? oCSAPIRequest,
+    int? absolute,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsNavigationRaw(
       absolute: absolute,
@@ -2081,8 +2079,8 @@ class NavigationClient {
   ///  * [getSettingsNavigation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void> getSettingsNavigationRaw({
-    final int? absolute,
-    final bool? oCSAPIRequest,
+    int? absolute,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2092,7 +2090,7 @@ class NavigationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2177,7 +2175,7 @@ class OcmClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2225,7 +2223,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilitiesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OcsGetCapabilitiesResponseApplicationJson, void>> getCapabilities({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCapabilitiesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -2250,7 +2248,7 @@ class OcsClient {
   /// See:
   ///  * [getCapabilities] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void> getCapabilitiesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -2259,7 +2257,7 @@ class OcsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2321,13 +2319,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreviewByFileId({
-    final int? fileId,
-    final int? x,
-    final int? y,
-    final int? a,
-    final int? forceIcon,
-    final String? mode,
-    final int? mimeFallback,
+    int? fileId,
+    int? x,
+    int? y,
+    int? a,
+    int? forceIcon,
+    String? mode,
+    int? mimeFallback,
   }) async {
     final rawResponse = getPreviewByFileIdRaw(
       fileId: fileId,
@@ -2369,13 +2367,13 @@ class PreviewClient {
   ///  * [getPreviewByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewByFileIdRaw({
-    final int? fileId,
-    final int? x,
-    final int? y,
-    final int? a,
-    final int? forceIcon,
-    final String? mode,
-    final int? mimeFallback,
+    int? fileId,
+    int? x,
+    int? y,
+    int? a,
+    int? forceIcon,
+    String? mode,
+    int? mimeFallback,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2385,7 +2383,7 @@ class PreviewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2469,13 +2467,13 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String? file,
-    final int? x,
-    final int? y,
-    final int? a,
-    final int? forceIcon,
-    final String? mode,
-    final int? mimeFallback,
+    String? file,
+    int? x,
+    int? y,
+    int? a,
+    int? forceIcon,
+    String? mode,
+    int? mimeFallback,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -2517,13 +2515,13 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String? file,
-    final int? x,
-    final int? y,
-    final int? a,
-    final int? forceIcon,
-    final String? mode,
-    final int? mimeFallback,
+    String? file,
+    int? x,
+    int? y,
+    int? a,
+    int? forceIcon,
+    String? mode,
+    int? mimeFallback,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2533,7 +2531,7 @@ class PreviewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2619,10 +2617,10 @@ class ProfileApiClient {
   /// See:
   ///  * [setVisibilityRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ProfileApiSetVisibilityResponseApplicationJson, void>> setVisibility({
-    required final String paramId,
-    required final String visibility,
-    required final String targetUserId,
-    final bool? oCSAPIRequest,
+    required String paramId,
+    required String visibility,
+    required String targetUserId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setVisibilityRaw(
       paramId: paramId,
@@ -2657,10 +2655,10 @@ class ProfileApiClient {
   ///  * [setVisibility] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void> setVisibilityRaw({
-    required final String paramId,
-    required final String visibility,
-    required final String targetUserId,
-    final bool? oCSAPIRequest,
+    required String paramId,
+    required String visibility,
+    required String targetUserId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2670,7 +2668,7 @@ class ProfileApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2733,7 +2731,7 @@ class ReferenceClient {
   ///
   /// See:
   ///  * [previewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> preview({required final String referenceId}) async {
+  Future<DynamiteResponse<Uint8List, void>> preview({required String referenceId}) async {
     final rawResponse = previewRaw(
       referenceId: referenceId,
     );
@@ -2758,7 +2756,7 @@ class ReferenceClient {
   /// See:
   ///  * [preview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> previewRaw({required final String referenceId}) {
+  DynamiteRawResponse<Uint8List, void> previewRaw({required String referenceId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
@@ -2767,7 +2765,7 @@ class ReferenceClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2819,8 +2817,8 @@ class ReferenceApiClient {
   /// See:
   ///  * [resolveOneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveOneResponseApplicationJson, void>> resolveOne({
-    required final String reference,
-    final bool? oCSAPIRequest,
+    required String reference,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveOneRaw(
       reference: reference,
@@ -2848,8 +2846,8 @@ class ReferenceApiClient {
   ///  * [resolveOne] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void> resolveOneRaw({
-    required final String reference,
-    final bool? oCSAPIRequest,
+    required String reference,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2859,7 +2857,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2912,9 +2910,9 @@ class ReferenceApiClient {
   /// See:
   ///  * [resolveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiResolveResponseApplicationJson, void>> resolve({
-    required final BuiltList<String> references,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required BuiltList<String> references,
+    int? limit,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = resolveRaw(
       references: references,
@@ -2944,9 +2942,9 @@ class ReferenceApiClient {
   ///  * [resolve] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void> resolveRaw({
-    required final BuiltList<String> references,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required BuiltList<String> references,
+    int? limit,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2956,7 +2954,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3015,10 +3013,10 @@ class ReferenceApiClient {
   /// See:
   ///  * [extractRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiExtractResponseApplicationJson, void>> extract({
-    required final String text,
-    final int? resolve,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required String text,
+    int? resolve,
+    int? limit,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = extractRaw(
       text: text,
@@ -3050,10 +3048,10 @@ class ReferenceApiClient {
   ///  * [extract] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void> extractRaw({
-    required final String text,
-    final int? resolve,
-    final int? limit,
-    final bool? oCSAPIRequest,
+    required String text,
+    int? resolve,
+    int? limit,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3063,7 +3061,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3122,7 +3120,7 @@ class ReferenceApiClient {
   /// See:
   ///  * [getProvidersInfoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>> getProvidersInfo({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersInfoRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3148,7 +3146,7 @@ class ReferenceApiClient {
   ///  * [getProvidersInfo] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void> getProvidersInfoRaw({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3158,7 +3156,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3208,9 +3206,9 @@ class ReferenceApiClient {
   /// See:
   ///  * [touchProviderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReferenceApiTouchProviderResponseApplicationJson, void>> touchProvider({
-    required final String providerId,
-    final int? timestamp,
-    final bool? oCSAPIRequest,
+    required String providerId,
+    int? timestamp,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = touchProviderRaw(
       providerId: providerId,
@@ -3240,9 +3238,9 @@ class ReferenceApiClient {
   ///  * [touchProvider] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void> touchProviderRaw({
-    required final String providerId,
-    final int? timestamp,
-    final bool? oCSAPIRequest,
+    required String providerId,
+    int? timestamp,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3252,7 +3250,7 @@ class ReferenceApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3312,7 +3310,7 @@ class TextProcessingApiClient {
   /// See:
   ///  * [taskTypesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>> taskTypes({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = taskTypesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3337,9 +3335,7 @@ class TextProcessingApiClient {
   /// See:
   ///  * [taskTypes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void> taskTypesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -3348,7 +3344,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3400,11 +3396,11 @@ class TextProcessingApiClient {
   /// See:
   ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiScheduleResponseApplicationJson, void>> schedule({
-    required final String input,
-    required final String type,
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String input,
+    required String type,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = scheduleRaw(
       input: input,
@@ -3440,11 +3436,11 @@ class TextProcessingApiClient {
   ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void> scheduleRaw({
-    required final String input,
-    required final String type,
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String input,
+    required String type,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3454,7 +3450,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3518,8 +3514,8 @@ class TextProcessingApiClient {
   /// See:
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiGetTaskResponseApplicationJson, void>> getTask({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getTaskRaw(
       id: id,
@@ -3549,8 +3545,8 @@ class TextProcessingApiClient {
   ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void> getTaskRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3560,7 +3556,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3612,8 +3608,8 @@ class TextProcessingApiClient {
   /// See:
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>> deleteTask({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteTaskRaw(
       id: id,
@@ -3643,8 +3639,8 @@ class TextProcessingApiClient {
   ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3654,7 +3650,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3708,9 +3704,9 @@ class TextProcessingApiClient {
   /// See:
   ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = listTasksByAppRaw(
       appId: appId,
@@ -3741,9 +3737,9 @@ class TextProcessingApiClient {
   ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3753,7 +3749,7 @@ class TextProcessingApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3813,7 +3809,7 @@ class TextToImageApiClient {
   /// See:
   ///  * [isAvailableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiIsAvailableResponseApplicationJson, void>> isAvailable({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = isAvailableRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -3838,9 +3834,7 @@ class TextToImageApiClient {
   /// See:
   ///  * [isAvailable] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void> isAvailableRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -3849,7 +3843,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3901,11 +3895,11 @@ class TextToImageApiClient {
   /// See:
   ///  * [scheduleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiScheduleResponseApplicationJson, void>> schedule({
-    required final String input,
-    required final String appId,
-    final String? identifier,
-    final int? numberOfImages,
-    final bool? oCSAPIRequest,
+    required String input,
+    required String appId,
+    String? identifier,
+    int? numberOfImages,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = scheduleRaw(
       input: input,
@@ -3941,11 +3935,11 @@ class TextToImageApiClient {
   ///  * [schedule] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void> scheduleRaw({
-    required final String input,
-    required final String appId,
-    final String? identifier,
-    final int? numberOfImages,
-    final bool? oCSAPIRequest,
+    required String input,
+    required String appId,
+    String? identifier,
+    int? numberOfImages,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3955,7 +3949,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4020,8 +4014,8 @@ class TextToImageApiClient {
   /// See:
   ///  * [getTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiGetTaskResponseApplicationJson, void>> getTask({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getTaskRaw(
       id: id,
@@ -4051,8 +4045,8 @@ class TextToImageApiClient {
   ///  * [getTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void> getTaskRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4062,7 +4056,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4114,8 +4108,8 @@ class TextToImageApiClient {
   /// See:
   ///  * [deleteTaskRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>> deleteTask({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteTaskRaw(
       id: id,
@@ -4145,8 +4139,8 @@ class TextToImageApiClient {
   ///  * [deleteTask] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void> deleteTaskRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4156,7 +4150,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4211,9 +4205,9 @@ class TextToImageApiClient {
   /// See:
   ///  * [getImageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getImage({
-    required final int id,
-    required final int index,
-    final bool? oCSAPIRequest,
+    required int id,
+    required int index,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getImageRaw(
       id: id,
@@ -4245,9 +4239,9 @@ class TextToImageApiClient {
   ///  * [getImage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getImageRaw({
-    required final int id,
-    required final int index,
-    final bool? oCSAPIRequest,
+    required int id,
+    required int index,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4257,7 +4251,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4312,9 +4306,9 @@ class TextToImageApiClient {
   /// See:
   ///  * [listTasksByAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>> listTasksByApp({
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = listTasksByAppRaw(
       appId: appId,
@@ -4345,9 +4339,9 @@ class TextToImageApiClient {
   ///  * [listTasksByApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void> listTasksByAppRaw({
-    required final String appId,
-    final String? identifier,
-    final bool? oCSAPIRequest,
+    required String appId,
+    String? identifier,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4357,7 +4351,7 @@ class TextToImageApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4417,7 +4411,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TranslationApiLanguagesResponseApplicationJson, void>> languages({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = languagesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -4442,7 +4436,7 @@ class TranslationApiClient {
   /// See:
   ///  * [languages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void> languagesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -4451,7 +4445,7 @@ class TranslationApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4503,10 +4497,10 @@ class TranslationApiClient {
   /// See:
   ///  * [translateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TranslationApiTranslateResponseApplicationJson, void>> translate({
-    required final String text,
-    required final String toLanguage,
-    final String? fromLanguage,
-    final bool? oCSAPIRequest,
+    required String text,
+    required String toLanguage,
+    String? fromLanguage,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = translateRaw(
       text: text,
@@ -4541,10 +4535,10 @@ class TranslationApiClient {
   ///  * [translate] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void> translateRaw({
-    required final String text,
-    required final String toLanguage,
-    final String? fromLanguage,
-    final bool? oCSAPIRequest,
+    required String text,
+    required String toLanguage,
+    String? fromLanguage,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4554,7 +4548,7 @@ class TranslationApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4618,8 +4612,8 @@ class UnifiedSearchClient {
   /// See:
   ///  * [getProvidersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>> getProviders({
-    final String? from,
-    final bool? oCSAPIRequest,
+    String? from,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getProvidersRaw(
       from: from,
@@ -4647,8 +4641,8 @@ class UnifiedSearchClient {
   ///  * [getProviders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void> getProvidersRaw({
-    final String? from,
-    final bool? oCSAPIRequest,
+    String? from,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4658,7 +4652,7 @@ class UnifiedSearchClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4717,13 +4711,13 @@ class UnifiedSearchClient {
   /// See:
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedSearchSearchResponseApplicationJson, void>> search({
-    required final String providerId,
-    final String? term,
-    final int? sortOrder,
-    final int? limit,
-    final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String? from,
-    final bool? oCSAPIRequest,
+    required String providerId,
+    String? term,
+    int? sortOrder,
+    int? limit,
+    ContentString<UnifiedSearchSearchCursor>? cursor,
+    String? from,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
       providerId: providerId,
@@ -4762,13 +4756,13 @@ class UnifiedSearchClient {
   ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void> searchRaw({
-    required final String providerId,
-    final String? term,
-    final int? sortOrder,
-    final int? limit,
-    final ContentString<UnifiedSearchSearchCursor>? cursor,
-    final String? from,
-    final bool? oCSAPIRequest,
+    required String providerId,
+    String? term,
+    int? sortOrder,
+    int? limit,
+    ContentString<UnifiedSearchSearchCursor>? cursor,
+    String? from,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4778,7 +4772,7 @@ class UnifiedSearchClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4858,7 +4852,7 @@ class WhatsNewClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<WhatsNewGetResponseApplicationJson, void>> $get({bool? oCSAPIRequest}) async {
     final rawResponse = $getRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -4883,7 +4877,7 @@ class WhatsNewClient {
   /// See:
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void> $getRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -4892,7 +4886,7 @@ class WhatsNewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4942,8 +4936,8 @@ class WhatsNewClient {
   /// See:
   ///  * [dismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WhatsNewDismissResponseApplicationJson, void>> dismiss({
-    required final String version,
-    final bool? oCSAPIRequest,
+    required String version,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = dismissRaw(
       version: version,
@@ -4972,8 +4966,8 @@ class WhatsNewClient {
   ///  * [dismiss] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void> dismissRaw({
-    required final String version,
-    final bool? oCSAPIRequest,
+    required String version,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4983,7 +4977,7 @@ class WhatsNewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5040,7 +5034,7 @@ class WipeClient {
   ///
   /// See:
   ///  * [checkWipeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<WipeCheckWipeResponseApplicationJson, void>> checkWipe({required final String token}) async {
+  Future<DynamiteResponse<WipeCheckWipeResponseApplicationJson, void>> checkWipe({required String token}) async {
     final rawResponse = checkWipeRaw(
       token: token,
     );
@@ -5065,7 +5059,7 @@ class WipeClient {
   /// See:
   ///  * [checkWipe] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required final String token}) {
+  DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void> checkWipeRaw({required String token}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -5074,7 +5068,7 @@ class WipeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5119,7 +5113,7 @@ class WipeClient {
   ///
   /// See:
   ///  * [wipeDoneRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> wipeDone({required final String token}) async {
+  Future<DynamiteResponse<JsonObject, void>> wipeDone({required String token}) async {
     final rawResponse = wipeDoneRaw(
       token: token,
     );
@@ -5144,7 +5138,7 @@ class WipeClient {
   /// See:
   ///  * [wipeDone] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required final String token}) {
+  DynamiteRawResponse<JsonObject, void> wipeDoneRaw({required String token}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -5153,7 +5147,7 @@ class WipeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5198,14 +5192,14 @@ abstract interface class $StatusInterface {
 }
 
 abstract class Status implements $StatusInterface, Built<Status, StatusBuilder> {
-  factory Status([final void Function(StatusBuilder)? b]) = _$Status;
+  factory Status([void Function(StatusBuilder)? b]) = _$Status;
 
   // coverage:ignore-start
   const Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Status.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5225,14 +5219,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5253,7 +5247,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
         Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
             AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
   factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data([
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -5261,7 +5255,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5285,7 +5279,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
         Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs,
             AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder> {
   factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs([
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? b,
+    void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AppPasswordGetAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5293,7 +5287,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5316,7 +5310,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson
         Built<AppPasswordGetAppPasswordResponseApplicationJson,
             AppPasswordGetAppPasswordResponseApplicationJsonBuilder> {
   factory AppPasswordGetAppPasswordResponseApplicationJson([
-    final void Function(AppPasswordGetAppPasswordResponseApplicationJsonBuilder)? b,
+    void Function(AppPasswordGetAppPasswordResponseApplicationJsonBuilder)? b,
   ]) = _$AppPasswordGetAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
@@ -5324,7 +5318,7 @@ abstract class AppPasswordGetAppPasswordResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordGetAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordGetAppPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5347,7 +5341,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
         Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
             AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
   factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data([
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -5355,7 +5349,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5379,7 +5373,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
         Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
             AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder> {
   factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs([
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? b,
+    void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5387,7 +5381,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5410,7 +5404,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson
         Built<AppPasswordRotateAppPasswordResponseApplicationJson,
             AppPasswordRotateAppPasswordResponseApplicationJsonBuilder> {
   factory AppPasswordRotateAppPasswordResponseApplicationJson([
-    final void Function(AppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? b,
+    void Function(AppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? b,
   ]) = _$AppPasswordRotateAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
@@ -5418,7 +5412,7 @@ abstract class AppPasswordRotateAppPasswordResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordRotateAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordRotateAppPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5442,7 +5436,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
         Built<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
             AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
   factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
-    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
+    void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5450,7 +5444,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5473,7 +5467,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
         Built<AppPasswordDeleteAppPasswordResponseApplicationJson,
             AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
   factory AppPasswordDeleteAppPasswordResponseApplicationJson([
-    final void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
+    void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
   ]) = _$AppPasswordDeleteAppPasswordResponseApplicationJson;
 
   // coverage:ignore-start
@@ -5481,7 +5475,7 @@ abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AppPasswordDeleteAppPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5505,7 +5499,7 @@ abstract class AutocompleteResult_Status0
     implements
         $AutocompleteResult_Status0Interface,
         Built<AutocompleteResult_Status0, AutocompleteResult_Status0Builder> {
-  factory AutocompleteResult_Status0([final void Function(AutocompleteResult_Status0Builder)? b]) =
+  factory AutocompleteResult_Status0([void Function(AutocompleteResult_Status0Builder)? b]) =
       _$AutocompleteResult_Status0;
 
   // coverage:ignore-start
@@ -5513,7 +5507,7 @@ abstract class AutocompleteResult_Status0
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AutocompleteResult_Status0.fromJson(final Map<String, dynamic> json) =>
+  factory AutocompleteResult_Status0.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5537,15 +5531,14 @@ abstract interface class $AutocompleteResultInterface {
 
 abstract class AutocompleteResult
     implements $AutocompleteResultInterface, Built<AutocompleteResult, AutocompleteResultBuilder> {
-  factory AutocompleteResult([final void Function(AutocompleteResultBuilder)? b]) = _$AutocompleteResult;
+  factory AutocompleteResult([void Function(AutocompleteResultBuilder)? b]) = _$AutocompleteResult;
 
   // coverage:ignore-start
   const AutocompleteResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AutocompleteResult.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory AutocompleteResult.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5555,7 +5548,7 @@ abstract class AutocompleteResult
   static Serializer<AutocompleteResult> get serializer => _$autocompleteResultSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final AutocompleteResultBuilder b) {
+  static void _validate(AutocompleteResultBuilder b) {
     b.status?.validateOneOf();
   }
 }
@@ -5571,7 +5564,7 @@ abstract class AutoCompleteGetResponseApplicationJson_Ocs
         $AutoCompleteGetResponseApplicationJson_OcsInterface,
         Built<AutoCompleteGetResponseApplicationJson_Ocs, AutoCompleteGetResponseApplicationJson_OcsBuilder> {
   factory AutoCompleteGetResponseApplicationJson_Ocs([
-    final void Function(AutoCompleteGetResponseApplicationJson_OcsBuilder)? b,
+    void Function(AutoCompleteGetResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AutoCompleteGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5579,7 +5572,7 @@ abstract class AutoCompleteGetResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AutoCompleteGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AutoCompleteGetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5600,16 +5593,15 @@ abstract class AutoCompleteGetResponseApplicationJson
     implements
         $AutoCompleteGetResponseApplicationJsonInterface,
         Built<AutoCompleteGetResponseApplicationJson, AutoCompleteGetResponseApplicationJsonBuilder> {
-  factory AutoCompleteGetResponseApplicationJson([
-    final void Function(AutoCompleteGetResponseApplicationJsonBuilder)? b,
-  ]) = _$AutoCompleteGetResponseApplicationJson;
+  factory AutoCompleteGetResponseApplicationJson([void Function(AutoCompleteGetResponseApplicationJsonBuilder)? b]) =
+      _$AutoCompleteGetResponseApplicationJson;
 
   // coverage:ignore-start
   const AutoCompleteGetResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AutoCompleteGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AutoCompleteGetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5631,7 +5623,7 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
     implements
         $AvatarAvatarGetAvatarDarkHeadersInterface,
         Built<AvatarAvatarGetAvatarDarkHeaders, AvatarAvatarGetAvatarDarkHeadersBuilder> {
-  factory AvatarAvatarGetAvatarDarkHeaders([final void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
+  factory AvatarAvatarGetAvatarDarkHeaders([void Function(AvatarAvatarGetAvatarDarkHeadersBuilder)? b]) =
       _$AvatarAvatarGetAvatarDarkHeaders;
 
   // coverage:ignore-start
@@ -5639,7 +5631,7 @@ abstract class AvatarAvatarGetAvatarDarkHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarAvatarGetAvatarDarkHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarAvatarGetAvatarDarkHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5660,7 +5652,7 @@ abstract class AvatarAvatarGetAvatarHeaders
     implements
         $AvatarAvatarGetAvatarHeadersInterface,
         Built<AvatarAvatarGetAvatarHeaders, AvatarAvatarGetAvatarHeadersBuilder> {
-  factory AvatarAvatarGetAvatarHeaders([final void Function(AvatarAvatarGetAvatarHeadersBuilder)? b]) =
+  factory AvatarAvatarGetAvatarHeaders([void Function(AvatarAvatarGetAvatarHeadersBuilder)? b]) =
       _$AvatarAvatarGetAvatarHeaders;
 
   // coverage:ignore-start
@@ -5668,7 +5660,7 @@ abstract class AvatarAvatarGetAvatarHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarAvatarGetAvatarHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarAvatarGetAvatarHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5688,14 +5680,14 @@ abstract interface class $LoginFlowV2CredentialsInterface {
 
 abstract class LoginFlowV2Credentials
     implements $LoginFlowV2CredentialsInterface, Built<LoginFlowV2Credentials, LoginFlowV2CredentialsBuilder> {
-  factory LoginFlowV2Credentials([final void Function(LoginFlowV2CredentialsBuilder)? b]) = _$LoginFlowV2Credentials;
+  factory LoginFlowV2Credentials([void Function(LoginFlowV2CredentialsBuilder)? b]) = _$LoginFlowV2Credentials;
 
   // coverage:ignore-start
   const LoginFlowV2Credentials._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory LoginFlowV2Credentials.fromJson(final Map<String, dynamic> json) =>
+  factory LoginFlowV2Credentials.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5714,15 +5706,14 @@ abstract interface class $LoginFlowV2_PollInterface {
 
 abstract class LoginFlowV2_Poll
     implements $LoginFlowV2_PollInterface, Built<LoginFlowV2_Poll, LoginFlowV2_PollBuilder> {
-  factory LoginFlowV2_Poll([final void Function(LoginFlowV2_PollBuilder)? b]) = _$LoginFlowV2_Poll;
+  factory LoginFlowV2_Poll([void Function(LoginFlowV2_PollBuilder)? b]) = _$LoginFlowV2_Poll;
 
   // coverage:ignore-start
   const LoginFlowV2_Poll._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory LoginFlowV2_Poll.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory LoginFlowV2_Poll.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5739,14 +5730,14 @@ abstract interface class $LoginFlowV2Interface {
 }
 
 abstract class LoginFlowV2 implements $LoginFlowV2Interface, Built<LoginFlowV2, LoginFlowV2Builder> {
-  factory LoginFlowV2([final void Function(LoginFlowV2Builder)? b]) = _$LoginFlowV2;
+  factory LoginFlowV2([void Function(LoginFlowV2Builder)? b]) = _$LoginFlowV2;
 
   // coverage:ignore-start
   const LoginFlowV2._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory LoginFlowV2.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory LoginFlowV2.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5766,15 +5757,14 @@ abstract interface class $OpenGraphObjectInterface {
 }
 
 abstract class OpenGraphObject implements $OpenGraphObjectInterface, Built<OpenGraphObject, OpenGraphObjectBuilder> {
-  factory OpenGraphObject([final void Function(OpenGraphObjectBuilder)? b]) = _$OpenGraphObject;
+  factory OpenGraphObject([void Function(OpenGraphObjectBuilder)? b]) = _$OpenGraphObject;
 
   // coverage:ignore-start
   const OpenGraphObject._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenGraphObject.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory OpenGraphObject.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5793,14 +5783,14 @@ abstract interface class $ResourceInterface {
 }
 
 abstract class Resource implements $ResourceInterface, Built<Resource, ResourceBuilder> {
-  factory Resource([final void Function(ResourceBuilder)? b]) = _$Resource;
+  factory Resource([void Function(ResourceBuilder)? b]) = _$Resource;
 
   // coverage:ignore-start
   const Resource._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Resource.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Resource.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5818,14 +5808,14 @@ abstract interface class $CollectionInterface {
 }
 
 abstract class Collection implements $CollectionInterface, Built<Collection, CollectionBuilder> {
-  factory Collection([final void Function(CollectionBuilder)? b]) = _$Collection;
+  factory Collection([void Function(CollectionBuilder)? b]) = _$Collection;
 
   // coverage:ignore-start
   const Collection._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Collection.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Collection.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -5847,7 +5837,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Oc
         Built<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
             CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5855,9 +5845,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Oc
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5880,7 +5868,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
         Built<CollaborationResourcesSearchCollectionsResponseApplicationJson,
             CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
   factory CollaborationResourcesSearchCollectionsResponseApplicationJson([
-    final void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesSearchCollectionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -5888,7 +5876,7 @@ abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesSearchCollectionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5912,7 +5900,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
         Built<CollaborationResourcesListCollectionResponseApplicationJson_Ocs,
             CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesListCollectionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5920,7 +5908,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5943,7 +5931,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson
         Built<CollaborationResourcesListCollectionResponseApplicationJson,
             CollaborationResourcesListCollectionResponseApplicationJsonBuilder> {
   factory CollaborationResourcesListCollectionResponseApplicationJson([
-    final void Function(CollaborationResourcesListCollectionResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesListCollectionResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesListCollectionResponseApplicationJson;
 
   // coverage:ignore-start
@@ -5951,7 +5939,7 @@ abstract class CollaborationResourcesListCollectionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesListCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesListCollectionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -5975,7 +5963,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
         Built<CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
             CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -5983,7 +5971,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6006,7 +5994,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
         Built<CollaborationResourcesRenameCollectionResponseApplicationJson,
             CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder> {
   factory CollaborationResourcesRenameCollectionResponseApplicationJson([
-    final void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesRenameCollectionResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6014,7 +6002,7 @@ abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesRenameCollectionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRenameCollectionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6038,7 +6026,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
         Built<CollaborationResourcesAddResourceResponseApplicationJson_Ocs,
             CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesAddResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6046,7 +6034,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6069,7 +6057,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson
         Built<CollaborationResourcesAddResourceResponseApplicationJson,
             CollaborationResourcesAddResourceResponseApplicationJsonBuilder> {
   factory CollaborationResourcesAddResourceResponseApplicationJson([
-    final void Function(CollaborationResourcesAddResourceResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesAddResourceResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesAddResourceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6077,7 +6065,7 @@ abstract class CollaborationResourcesAddResourceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesAddResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesAddResourceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6101,7 +6089,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
         Built<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
             CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6109,7 +6097,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6132,7 +6120,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
         Built<CollaborationResourcesRemoveResourceResponseApplicationJson,
             CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder> {
   factory CollaborationResourcesRemoveResourceResponseApplicationJson([
-    final void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesRemoveResourceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6140,7 +6128,7 @@ abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesRemoveResourceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CollaborationResourcesRemoveResourceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6164,7 +6152,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
         Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
             CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6173,7 +6161,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
 
   // coverage:ignore-start
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
+    Map<String, dynamic> json,
   ) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
@@ -6197,7 +6185,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
         Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
             CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder> {
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson([
-    final void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesGetCollectionsByResourceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6205,9 +6193,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6231,7 +6217,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
         Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
             CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder> {
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs([
-    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? b,
+    void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6240,7 +6226,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
 
   // coverage:ignore-start
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
+    Map<String, dynamic> json,
   ) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
@@ -6264,7 +6250,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
         Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
             CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder> {
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson([
-    final void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? b,
+    void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? b,
   ]) = _$CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6272,9 +6258,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6295,15 +6279,14 @@ abstract interface class $ContactsActionInterface {
 }
 
 abstract class ContactsAction implements $ContactsActionInterface, Built<ContactsAction, ContactsActionBuilder> {
-  factory ContactsAction([final void Function(ContactsActionBuilder)? b]) = _$ContactsAction;
+  factory ContactsAction([void Function(ContactsActionBuilder)? b]) = _$ContactsAction;
 
   // coverage:ignore-start
   const ContactsAction._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ContactsAction.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory ContactsAction.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -6326,7 +6309,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
         Built<HoverCardGetUserResponseApplicationJson_Ocs_Data,
             HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder> {
   factory HoverCardGetUserResponseApplicationJson_Ocs_Data([
-    final void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$HoverCardGetUserResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -6334,7 +6317,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HoverCardGetUserResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6357,7 +6340,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs
         $HoverCardGetUserResponseApplicationJson_OcsInterface,
         Built<HoverCardGetUserResponseApplicationJson_Ocs, HoverCardGetUserResponseApplicationJson_OcsBuilder> {
   factory HoverCardGetUserResponseApplicationJson_Ocs([
-    final void Function(HoverCardGetUserResponseApplicationJson_OcsBuilder)? b,
+    void Function(HoverCardGetUserResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HoverCardGetUserResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6365,7 +6348,7 @@ abstract class HoverCardGetUserResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HoverCardGetUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6386,16 +6369,15 @@ abstract class HoverCardGetUserResponseApplicationJson
     implements
         $HoverCardGetUserResponseApplicationJsonInterface,
         Built<HoverCardGetUserResponseApplicationJson, HoverCardGetUserResponseApplicationJsonBuilder> {
-  factory HoverCardGetUserResponseApplicationJson([
-    final void Function(HoverCardGetUserResponseApplicationJsonBuilder)? b,
-  ]) = _$HoverCardGetUserResponseApplicationJson;
+  factory HoverCardGetUserResponseApplicationJson([void Function(HoverCardGetUserResponseApplicationJsonBuilder)? b]) =
+      _$HoverCardGetUserResponseApplicationJson;
 
   // coverage:ignore-start
   const HoverCardGetUserResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HoverCardGetUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory HoverCardGetUserResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6421,15 +6403,14 @@ abstract interface class $NavigationEntryInterface {
 }
 
 abstract class NavigationEntry implements $NavigationEntryInterface, Built<NavigationEntry, NavigationEntryBuilder> {
-  factory NavigationEntry([final void Function(NavigationEntryBuilder)? b]) = _$NavigationEntry;
+  factory NavigationEntry([void Function(NavigationEntryBuilder)? b]) = _$NavigationEntry;
 
   // coverage:ignore-start
   const NavigationEntry._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NavigationEntry.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory NavigationEntry.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -6439,7 +6420,7 @@ abstract class NavigationEntry implements $NavigationEntryInterface, Built<Navig
   static Serializer<NavigationEntry> get serializer => _$navigationEntrySerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final NavigationEntryBuilder b) {
+  static void _validate(NavigationEntryBuilder b) {
     b.order?.validateOneOf();
   }
 }
@@ -6456,7 +6437,7 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
         Built<NavigationGetAppsNavigationResponseApplicationJson_Ocs,
             NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder> {
   factory NavigationGetAppsNavigationResponseApplicationJson_Ocs([
-    final void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? b,
+    void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$NavigationGetAppsNavigationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6464,7 +6445,7 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NavigationGetAppsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetAppsNavigationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6487,7 +6468,7 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson
         Built<NavigationGetAppsNavigationResponseApplicationJson,
             NavigationGetAppsNavigationResponseApplicationJsonBuilder> {
   factory NavigationGetAppsNavigationResponseApplicationJson([
-    final void Function(NavigationGetAppsNavigationResponseApplicationJsonBuilder)? b,
+    void Function(NavigationGetAppsNavigationResponseApplicationJsonBuilder)? b,
   ]) = _$NavigationGetAppsNavigationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6495,7 +6476,7 @@ abstract class NavigationGetAppsNavigationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NavigationGetAppsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetAppsNavigationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6519,7 +6500,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
         Built<NavigationGetSettingsNavigationResponseApplicationJson_Ocs,
             NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder> {
   factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs([
-    final void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? b,
+    void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$NavigationGetSettingsNavigationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -6527,7 +6508,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6550,7 +6531,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
         Built<NavigationGetSettingsNavigationResponseApplicationJson,
             NavigationGetSettingsNavigationResponseApplicationJsonBuilder> {
   factory NavigationGetSettingsNavigationResponseApplicationJson([
-    final void Function(NavigationGetSettingsNavigationResponseApplicationJsonBuilder)? b,
+    void Function(NavigationGetSettingsNavigationResponseApplicationJsonBuilder)? b,
   ]) = _$NavigationGetSettingsNavigationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6558,7 +6539,7 @@ abstract class NavigationGetSettingsNavigationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NavigationGetSettingsNavigationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory NavigationGetSettingsNavigationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6578,14 +6559,14 @@ abstract interface class $OcmOcmDiscoveryHeadersInterface {
 
 abstract class OcmOcmDiscoveryHeaders
     implements $OcmOcmDiscoveryHeadersInterface, Built<OcmOcmDiscoveryHeaders, OcmOcmDiscoveryHeadersBuilder> {
-  factory OcmOcmDiscoveryHeaders([final void Function(OcmOcmDiscoveryHeadersBuilder)? b]) = _$OcmOcmDiscoveryHeaders;
+  factory OcmOcmDiscoveryHeaders([void Function(OcmOcmDiscoveryHeadersBuilder)? b]) = _$OcmOcmDiscoveryHeaders;
 
   // coverage:ignore-start
   const OcmOcmDiscoveryHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcmOcmDiscoveryHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory OcmOcmDiscoveryHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6607,7 +6588,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
         Built<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
             OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder> {
   factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols([
-    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
+    void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
   ]) = _$OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols;
 
   // coverage:ignore-start
@@ -6615,7 +6596,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6640,7 +6621,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
         Built<OcmDiscoveryResponseApplicationJson_ResourceTypes,
             OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder> {
   factory OcmDiscoveryResponseApplicationJson_ResourceTypes([
-    final void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
+    void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
   ]) = _$OcmDiscoveryResponseApplicationJson_ResourceTypes;
 
   // coverage:ignore-start
@@ -6648,7 +6629,7 @@ abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcmDiscoveryResponseApplicationJson_ResourceTypes.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson_ResourceTypes.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6672,7 +6653,7 @@ abstract class OcmDiscoveryResponseApplicationJson
     implements
         $OcmDiscoveryResponseApplicationJsonInterface,
         Built<OcmDiscoveryResponseApplicationJson, OcmDiscoveryResponseApplicationJsonBuilder> {
-  factory OcmDiscoveryResponseApplicationJson([final void Function(OcmDiscoveryResponseApplicationJsonBuilder)? b]) =
+  factory OcmDiscoveryResponseApplicationJson([void Function(OcmDiscoveryResponseApplicationJsonBuilder)? b]) =
       _$OcmDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
@@ -6680,7 +6661,7 @@ abstract class OcmDiscoveryResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcmDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OcmDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6708,7 +6689,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
         Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
             OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder> {
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version([
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? b,
+    void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? b,
   ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version;
 
   // coverage:ignore-start
@@ -6716,7 +6697,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6737,7 +6718,7 @@ abstract class CommentsCapabilities_Files
     implements
         $CommentsCapabilities_FilesInterface,
         Built<CommentsCapabilities_Files, CommentsCapabilities_FilesBuilder> {
-  factory CommentsCapabilities_Files([final void Function(CommentsCapabilities_FilesBuilder)? b]) =
+  factory CommentsCapabilities_Files([void Function(CommentsCapabilities_FilesBuilder)? b]) =
       _$CommentsCapabilities_Files;
 
   // coverage:ignore-start
@@ -6745,7 +6726,7 @@ abstract class CommentsCapabilities_Files
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CommentsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory CommentsCapabilities_Files.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6763,14 +6744,14 @@ abstract interface class $CommentsCapabilitiesInterface {
 
 abstract class CommentsCapabilities
     implements $CommentsCapabilitiesInterface, Built<CommentsCapabilities, CommentsCapabilitiesBuilder> {
-  factory CommentsCapabilities([final void Function(CommentsCapabilitiesBuilder)? b]) = _$CommentsCapabilities;
+  factory CommentsCapabilities([void Function(CommentsCapabilitiesBuilder)? b]) = _$CommentsCapabilities;
 
   // coverage:ignore-start
   const CommentsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CommentsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory CommentsCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6789,15 +6770,14 @@ abstract interface class $DavCapabilities_DavInterface {
 
 abstract class DavCapabilities_Dav
     implements $DavCapabilities_DavInterface, Built<DavCapabilities_Dav, DavCapabilities_DavBuilder> {
-  factory DavCapabilities_Dav([final void Function(DavCapabilities_DavBuilder)? b]) = _$DavCapabilities_Dav;
+  factory DavCapabilities_Dav([void Function(DavCapabilities_DavBuilder)? b]) = _$DavCapabilities_Dav;
 
   // coverage:ignore-start
   const DavCapabilities_Dav._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavCapabilities_Dav.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory DavCapabilities_Dav.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -6813,15 +6793,14 @@ abstract interface class $DavCapabilitiesInterface {
 }
 
 abstract class DavCapabilities implements $DavCapabilitiesInterface, Built<DavCapabilities, DavCapabilitiesBuilder> {
-  factory DavCapabilities([final void Function(DavCapabilitiesBuilder)? b]) = _$DavCapabilities;
+  factory DavCapabilities([void Function(DavCapabilitiesBuilder)? b]) = _$DavCapabilities;
 
   // coverage:ignore-start
   const DavCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DavCapabilities.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory DavCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -6842,16 +6821,15 @@ abstract class FilesCapabilities_Files_DirectEditing
     implements
         $FilesCapabilities_Files_DirectEditingInterface,
         Built<FilesCapabilities_Files_DirectEditing, FilesCapabilities_Files_DirectEditingBuilder> {
-  factory FilesCapabilities_Files_DirectEditing([
-    final void Function(FilesCapabilities_Files_DirectEditingBuilder)? b,
-  ]) = _$FilesCapabilities_Files_DirectEditing;
+  factory FilesCapabilities_Files_DirectEditing([void Function(FilesCapabilities_Files_DirectEditingBuilder)? b]) =
+      _$FilesCapabilities_Files_DirectEditing;
 
   // coverage:ignore-start
   const FilesCapabilities_Files_DirectEditing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesCapabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
+  factory FilesCapabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6873,14 +6851,14 @@ abstract interface class $FilesCapabilities_FilesInterface {
 
 abstract class FilesCapabilities_Files
     implements $FilesCapabilities_FilesInterface, Built<FilesCapabilities_Files, FilesCapabilities_FilesBuilder> {
-  factory FilesCapabilities_Files([final void Function(FilesCapabilities_FilesBuilder)? b]) = _$FilesCapabilities_Files;
+  factory FilesCapabilities_Files([void Function(FilesCapabilities_FilesBuilder)? b]) = _$FilesCapabilities_Files;
 
   // coverage:ignore-start
   const FilesCapabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesCapabilities_Files.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6898,15 +6876,14 @@ abstract interface class $FilesCapabilitiesInterface {
 
 abstract class FilesCapabilities
     implements $FilesCapabilitiesInterface, Built<FilesCapabilities, FilesCapabilitiesBuilder> {
-  factory FilesCapabilities([final void Function(FilesCapabilitiesBuilder)? b]) = _$FilesCapabilities;
+  factory FilesCapabilities([void Function(FilesCapabilitiesBuilder)? b]) = _$FilesCapabilities;
 
   // coverage:ignore-start
   const FilesCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesCapabilities.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory FilesCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -6928,7 +6905,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_Password
         Built<FilesSharingCapabilities_FilesSharing_Public_Password,
             FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_Password([
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_Password;
 
   // coverage:ignore-start
@@ -6936,7 +6913,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_Password
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6961,7 +6938,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate([
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDate;
 
   // coverage:ignore-start
@@ -6969,7 +6946,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -6994,7 +6971,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal;
 
   // coverage:ignore-start
@@ -7002,7 +6979,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7027,7 +7004,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
         Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
             FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
-    final void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote;
 
   // coverage:ignore-start
@@ -7035,7 +7012,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7071,7 +7048,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
         $FilesSharingCapabilities_FilesSharing_PublicInterface,
         Built<FilesSharingCapabilities_FilesSharing_Public, FilesSharingCapabilities_FilesSharing_PublicBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Public([
-    final void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_PublicBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Public;
 
   // coverage:ignore-start
@@ -7079,7 +7056,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Public
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7102,7 +7079,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
         Built<FilesSharingCapabilities_FilesSharing_User_ExpireDate,
             FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_User_ExpireDate([
-    final void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_User_ExpireDate;
 
   // coverage:ignore-start
@@ -7110,7 +7087,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_User_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7135,7 +7112,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User
         $FilesSharingCapabilities_FilesSharing_UserInterface,
         Built<FilesSharingCapabilities_FilesSharing_User, FilesSharingCapabilities_FilesSharing_UserBuilder> {
   factory FilesSharingCapabilities_FilesSharing_User([
-    final void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_UserBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_User;
 
   // coverage:ignore-start
@@ -7143,7 +7120,7 @@ abstract class FilesSharingCapabilities_FilesSharing_User
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7166,7 +7143,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
         Built<FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate([
-    final void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Group_ExpireDate;
 
   // coverage:ignore-start
@@ -7174,7 +7151,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7198,7 +7175,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
         $FilesSharingCapabilities_FilesSharing_GroupInterface,
         Built<FilesSharingCapabilities_FilesSharing_Group, FilesSharingCapabilities_FilesSharing_GroupBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Group([
-    final void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_GroupBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Group;
 
   // coverage:ignore-start
@@ -7206,7 +7183,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Group
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7229,7 +7206,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
         Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
             FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
-    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDate;
 
   // coverage:ignore-start
@@ -7237,7 +7214,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7260,7 +7237,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSuppor
         Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
             FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
-    final void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported;
 
   // coverage:ignore-start
@@ -7268,9 +7245,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSuppor
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7298,7 +7273,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation
         Built<FilesSharingCapabilities_FilesSharing_Federation,
             FilesSharingCapabilities_FilesSharing_FederationBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Federation([
-    final void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Federation;
 
   // coverage:ignore-start
@@ -7306,7 +7281,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Federation
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7331,7 +7306,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Sharee
         $FilesSharingCapabilities_FilesSharing_ShareeInterface,
         Built<FilesSharingCapabilities_FilesSharing_Sharee, FilesSharingCapabilities_FilesSharing_ShareeBuilder> {
   factory FilesSharingCapabilities_FilesSharing_Sharee([
-    final void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
+    void Function(FilesSharingCapabilities_FilesSharing_ShareeBuilder)? b,
   ]) = _$FilesSharingCapabilities_FilesSharing_Sharee;
 
   // coverage:ignore-start
@@ -7339,7 +7314,7 @@ abstract class FilesSharingCapabilities_FilesSharing_Sharee
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7371,16 +7346,15 @@ abstract class FilesSharingCapabilities_FilesSharing
     implements
         $FilesSharingCapabilities_FilesSharingInterface,
         Built<FilesSharingCapabilities_FilesSharing, FilesSharingCapabilities_FilesSharingBuilder> {
-  factory FilesSharingCapabilities_FilesSharing([
-    final void Function(FilesSharingCapabilities_FilesSharingBuilder)? b,
-  ]) = _$FilesSharingCapabilities_FilesSharing;
+  factory FilesSharingCapabilities_FilesSharing([void Function(FilesSharingCapabilities_FilesSharingBuilder)? b]) =
+      _$FilesSharingCapabilities_FilesSharing;
 
   // coverage:ignore-start
   const FilesSharingCapabilities_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7400,15 +7374,14 @@ abstract interface class $FilesSharingCapabilitiesInterface {
 
 abstract class FilesSharingCapabilities
     implements $FilesSharingCapabilitiesInterface, Built<FilesSharingCapabilities, FilesSharingCapabilitiesBuilder> {
-  factory FilesSharingCapabilities([final void Function(FilesSharingCapabilitiesBuilder)? b]) =
-      _$FilesSharingCapabilities;
+  factory FilesSharingCapabilities([void Function(FilesSharingCapabilitiesBuilder)? b]) = _$FilesSharingCapabilities;
 
   // coverage:ignore-start
   const FilesSharingCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesSharingCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesSharingCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7428,7 +7401,7 @@ abstract class FilesTrashbinCapabilities_Files
     implements
         $FilesTrashbinCapabilities_FilesInterface,
         Built<FilesTrashbinCapabilities_Files, FilesTrashbinCapabilities_FilesBuilder> {
-  factory FilesTrashbinCapabilities_Files([final void Function(FilesTrashbinCapabilities_FilesBuilder)? b]) =
+  factory FilesTrashbinCapabilities_Files([void Function(FilesTrashbinCapabilities_FilesBuilder)? b]) =
       _$FilesTrashbinCapabilities_Files;
 
   // coverage:ignore-start
@@ -7436,7 +7409,7 @@ abstract class FilesTrashbinCapabilities_Files
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesTrashbinCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesTrashbinCapabilities_Files.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7454,15 +7427,14 @@ abstract interface class $FilesTrashbinCapabilitiesInterface {
 
 abstract class FilesTrashbinCapabilities
     implements $FilesTrashbinCapabilitiesInterface, Built<FilesTrashbinCapabilities, FilesTrashbinCapabilitiesBuilder> {
-  factory FilesTrashbinCapabilities([final void Function(FilesTrashbinCapabilitiesBuilder)? b]) =
-      _$FilesTrashbinCapabilities;
+  factory FilesTrashbinCapabilities([void Function(FilesTrashbinCapabilitiesBuilder)? b]) = _$FilesTrashbinCapabilities;
 
   // coverage:ignore-start
   const FilesTrashbinCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesTrashbinCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesTrashbinCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7486,7 +7458,7 @@ abstract class FilesVersionsCapabilities_Files
     implements
         $FilesVersionsCapabilities_FilesInterface,
         Built<FilesVersionsCapabilities_Files, FilesVersionsCapabilities_FilesBuilder> {
-  factory FilesVersionsCapabilities_Files([final void Function(FilesVersionsCapabilities_FilesBuilder)? b]) =
+  factory FilesVersionsCapabilities_Files([void Function(FilesVersionsCapabilities_FilesBuilder)? b]) =
       _$FilesVersionsCapabilities_Files;
 
   // coverage:ignore-start
@@ -7494,7 +7466,7 @@ abstract class FilesVersionsCapabilities_Files
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesVersionsCapabilities_Files.fromJson(final Map<String, dynamic> json) =>
+  factory FilesVersionsCapabilities_Files.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7512,15 +7484,14 @@ abstract interface class $FilesVersionsCapabilitiesInterface {
 
 abstract class FilesVersionsCapabilities
     implements $FilesVersionsCapabilitiesInterface, Built<FilesVersionsCapabilities, FilesVersionsCapabilitiesBuilder> {
-  factory FilesVersionsCapabilities([final void Function(FilesVersionsCapabilitiesBuilder)? b]) =
-      _$FilesVersionsCapabilities;
+  factory FilesVersionsCapabilities([void Function(FilesVersionsCapabilitiesBuilder)? b]) = _$FilesVersionsCapabilities;
 
   // coverage:ignore-start
   const FilesVersionsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesVersionsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory FilesVersionsCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7540,14 +7511,14 @@ abstract interface class $NotesCapabilities_NotesInterface {
 
 abstract class NotesCapabilities_Notes
     implements $NotesCapabilities_NotesInterface, Built<NotesCapabilities_Notes, NotesCapabilities_NotesBuilder> {
-  factory NotesCapabilities_Notes([final void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
+  factory NotesCapabilities_Notes([void Function(NotesCapabilities_NotesBuilder)? b]) = _$NotesCapabilities_Notes;
 
   // coverage:ignore-start
   const NotesCapabilities_Notes._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesCapabilities_Notes.fromJson(final Map<String, dynamic> json) =>
+  factory NotesCapabilities_Notes.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7565,15 +7536,14 @@ abstract interface class $NotesCapabilitiesInterface {
 
 abstract class NotesCapabilities
     implements $NotesCapabilitiesInterface, Built<NotesCapabilities, NotesCapabilitiesBuilder> {
-  factory NotesCapabilities([final void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
+  factory NotesCapabilities([void Function(NotesCapabilitiesBuilder)? b]) = _$NotesCapabilities;
 
   // coverage:ignore-start
   const NotesCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotesCapabilities.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory NotesCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -7596,16 +7566,15 @@ abstract class NotificationsCapabilities_Notifications
     implements
         $NotificationsCapabilities_NotificationsInterface,
         Built<NotificationsCapabilities_Notifications, NotificationsCapabilities_NotificationsBuilder> {
-  factory NotificationsCapabilities_Notifications([
-    final void Function(NotificationsCapabilities_NotificationsBuilder)? b,
-  ]) = _$NotificationsCapabilities_Notifications;
+  factory NotificationsCapabilities_Notifications([void Function(NotificationsCapabilities_NotificationsBuilder)? b]) =
+      _$NotificationsCapabilities_Notifications;
 
   // coverage:ignore-start
   const NotificationsCapabilities_Notifications._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsCapabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsCapabilities_Notifications.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7624,15 +7593,14 @@ abstract interface class $NotificationsCapabilitiesInterface {
 
 abstract class NotificationsCapabilities
     implements $NotificationsCapabilitiesInterface, Built<NotificationsCapabilities, NotificationsCapabilitiesBuilder> {
-  factory NotificationsCapabilities([final void Function(NotificationsCapabilitiesBuilder)? b]) =
-      _$NotificationsCapabilities;
+  factory NotificationsCapabilities([void Function(NotificationsCapabilitiesBuilder)? b]) = _$NotificationsCapabilities;
 
   // coverage:ignore-start
   const NotificationsCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationsCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory NotificationsCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7659,7 +7627,7 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
         $ProvisioningApiCapabilities_ProvisioningApiInterface,
         Built<ProvisioningApiCapabilities_ProvisioningApi, ProvisioningApiCapabilities_ProvisioningApiBuilder> {
   factory ProvisioningApiCapabilities_ProvisioningApi([
-    final void Function(ProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
+    void Function(ProvisioningApiCapabilities_ProvisioningApiBuilder)? b,
   ]) = _$ProvisioningApiCapabilities_ProvisioningApi;
 
   // coverage:ignore-start
@@ -7667,7 +7635,7 @@ abstract class ProvisioningApiCapabilities_ProvisioningApi
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ProvisioningApiCapabilities_ProvisioningApi.fromJson(final Map<String, dynamic> json) =>
+  factory ProvisioningApiCapabilities_ProvisioningApi.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7689,7 +7657,7 @@ abstract class ProvisioningApiCapabilities
     implements
         $ProvisioningApiCapabilitiesInterface,
         Built<ProvisioningApiCapabilities, ProvisioningApiCapabilitiesBuilder> {
-  factory ProvisioningApiCapabilities([final void Function(ProvisioningApiCapabilitiesBuilder)? b]) =
+  factory ProvisioningApiCapabilities([void Function(ProvisioningApiCapabilitiesBuilder)? b]) =
       _$ProvisioningApiCapabilities;
 
   // coverage:ignore-start
@@ -7697,7 +7665,7 @@ abstract class ProvisioningApiCapabilities
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ProvisioningApiCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory ProvisioningApiCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7719,7 +7687,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
         Built<SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
             SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
   factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
-    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
   ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
@@ -7727,7 +7695,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7751,7 +7719,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
         Built<SharebymailCapabilities0_FilesSharing_Sharebymail_Password,
             SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
   factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password([
-    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
+    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
   ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
@@ -7759,7 +7727,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_Password
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7783,7 +7751,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
         Built<SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate,
             SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
   factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate([
-    final void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+    void Function(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
   ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate;
 
   // coverage:ignore-start
@@ -7791,7 +7759,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7821,7 +7789,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
         Built<SharebymailCapabilities0_FilesSharing_Sharebymail,
             SharebymailCapabilities0_FilesSharing_SharebymailBuilder> {
   factory SharebymailCapabilities0_FilesSharing_Sharebymail([
-    final void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? b,
+    void Function(SharebymailCapabilities0_FilesSharing_SharebymailBuilder)? b,
   ]) = _$SharebymailCapabilities0_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
@@ -7829,7 +7797,7 @@ abstract class SharebymailCapabilities0_FilesSharing_Sharebymail
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7850,16 +7818,15 @@ abstract class SharebymailCapabilities0_FilesSharing
     implements
         $SharebymailCapabilities0_FilesSharingInterface,
         Built<SharebymailCapabilities0_FilesSharing, SharebymailCapabilities0_FilesSharingBuilder> {
-  factory SharebymailCapabilities0_FilesSharing([
-    final void Function(SharebymailCapabilities0_FilesSharingBuilder)? b,
-  ]) = _$SharebymailCapabilities0_FilesSharing;
+  factory SharebymailCapabilities0_FilesSharing([void Function(SharebymailCapabilities0_FilesSharingBuilder)? b]) =
+      _$SharebymailCapabilities0_FilesSharing;
 
   // coverage:ignore-start
   const SharebymailCapabilities0_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7879,15 +7846,14 @@ abstract interface class $SharebymailCapabilities0Interface {
 
 abstract class SharebymailCapabilities0
     implements $SharebymailCapabilities0Interface, Built<SharebymailCapabilities0, SharebymailCapabilities0Builder> {
-  factory SharebymailCapabilities0([final void Function(SharebymailCapabilities0Builder)? b]) =
-      _$SharebymailCapabilities0;
+  factory SharebymailCapabilities0([void Function(SharebymailCapabilities0Builder)? b]) = _$SharebymailCapabilities0;
 
   // coverage:ignore-start
   const SharebymailCapabilities0._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SharebymailCapabilities0.fromJson(final Map<String, dynamic> json) =>
+  factory SharebymailCapabilities0.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7910,7 +7876,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Attachments
         Built<SpreedPublicCapabilities0_Spreed_Config_Attachments,
             SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Attachments([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Attachments;
 
   // coverage:ignore-start
@@ -7918,7 +7884,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Attachments
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Attachments.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7957,7 +7923,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Call
         $SpreedPublicCapabilities0_Spreed_Config_CallInterface,
         Built<SpreedPublicCapabilities0_Spreed_Config_Call, SpreedPublicCapabilities0_Spreed_Config_CallBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Call([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_CallBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Call;
 
   // coverage:ignore-start
@@ -7965,7 +7931,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Call
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Call.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -7995,7 +7961,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Chat
         $SpreedPublicCapabilities0_Spreed_Config_ChatInterface,
         Built<SpreedPublicCapabilities0_Spreed_Config_Chat, SpreedPublicCapabilities0_Spreed_Config_ChatBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Chat([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_ChatBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Chat;
 
   // coverage:ignore-start
@@ -8003,7 +7969,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Chat
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Chat.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8027,7 +7993,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Conversations
         Built<SpreedPublicCapabilities0_Spreed_Config_Conversations,
             SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Conversations([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Conversations;
 
   // coverage:ignore-start
@@ -8035,7 +8001,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Conversations
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Conversations.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8059,7 +8025,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Previews
         Built<SpreedPublicCapabilities0_Spreed_Config_Previews,
             SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Previews([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Previews;
 
   // coverage:ignore-start
@@ -8067,7 +8033,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Previews
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Previews.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8093,7 +8059,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Signaling
         Built<SpreedPublicCapabilities0_Spreed_Config_Signaling,
             SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder> {
   factory SpreedPublicCapabilities0_Spreed_Config_Signaling([
-    final void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
+    void Function(SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
   ]) = _$SpreedPublicCapabilities0_Spreed_Config_Signaling;
 
   // coverage:ignore-start
@@ -8101,7 +8067,7 @@ abstract class SpreedPublicCapabilities0_Spreed_Config_Signaling
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config_Signaling.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8127,16 +8093,15 @@ abstract class SpreedPublicCapabilities0_Spreed_Config
     implements
         $SpreedPublicCapabilities0_Spreed_ConfigInterface,
         Built<SpreedPublicCapabilities0_Spreed_Config, SpreedPublicCapabilities0_Spreed_ConfigBuilder> {
-  factory SpreedPublicCapabilities0_Spreed_Config([
-    final void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? b,
-  ]) = _$SpreedPublicCapabilities0_Spreed_Config;
+  factory SpreedPublicCapabilities0_Spreed_Config([void Function(SpreedPublicCapabilities0_Spreed_ConfigBuilder)? b]) =
+      _$SpreedPublicCapabilities0_Spreed_Config;
 
   // coverage:ignore-start
   const SpreedPublicCapabilities0_Spreed_Config._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed_Config.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8159,7 +8124,7 @@ abstract class SpreedPublicCapabilities0_Spreed
     implements
         $SpreedPublicCapabilities0_SpreedInterface,
         Built<SpreedPublicCapabilities0_Spreed, SpreedPublicCapabilities0_SpreedBuilder> {
-  factory SpreedPublicCapabilities0_Spreed([final void Function(SpreedPublicCapabilities0_SpreedBuilder)? b]) =
+  factory SpreedPublicCapabilities0_Spreed([void Function(SpreedPublicCapabilities0_SpreedBuilder)? b]) =
       _$SpreedPublicCapabilities0_Spreed;
 
   // coverage:ignore-start
@@ -8167,7 +8132,7 @@ abstract class SpreedPublicCapabilities0_Spreed
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0_Spreed.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8185,15 +8150,14 @@ abstract interface class $SpreedPublicCapabilities0Interface {
 
 abstract class SpreedPublicCapabilities0
     implements $SpreedPublicCapabilities0Interface, Built<SpreedPublicCapabilities0, SpreedPublicCapabilities0Builder> {
-  factory SpreedPublicCapabilities0([final void Function(SpreedPublicCapabilities0Builder)? b]) =
-      _$SpreedPublicCapabilities0;
+  factory SpreedPublicCapabilities0([void Function(SpreedPublicCapabilities0Builder)? b]) = _$SpreedPublicCapabilities0;
 
   // coverage:ignore-start
   const SpreedPublicCapabilities0._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SpreedPublicCapabilities0.fromJson(final Map<String, dynamic> json) =>
+  factory SpreedPublicCapabilities0.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8232,7 +8196,7 @@ abstract class ThemingPublicCapabilities_Theming
     implements
         $ThemingPublicCapabilities_ThemingInterface,
         Built<ThemingPublicCapabilities_Theming, ThemingPublicCapabilities_ThemingBuilder> {
-  factory ThemingPublicCapabilities_Theming([final void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
+  factory ThemingPublicCapabilities_Theming([void Function(ThemingPublicCapabilities_ThemingBuilder)? b]) =
       _$ThemingPublicCapabilities_Theming;
 
   // coverage:ignore-start
@@ -8240,7 +8204,7 @@ abstract class ThemingPublicCapabilities_Theming
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingPublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingPublicCapabilities_Theming.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8258,15 +8222,14 @@ abstract interface class $ThemingPublicCapabilitiesInterface {
 
 abstract class ThemingPublicCapabilities
     implements $ThemingPublicCapabilitiesInterface, Built<ThemingPublicCapabilities, ThemingPublicCapabilitiesBuilder> {
-  factory ThemingPublicCapabilities([final void Function(ThemingPublicCapabilitiesBuilder)? b]) =
-      _$ThemingPublicCapabilities;
+  factory ThemingPublicCapabilities([void Function(ThemingPublicCapabilitiesBuilder)? b]) = _$ThemingPublicCapabilities;
 
   // coverage:ignore-start
   const ThemingPublicCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingPublicCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingPublicCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8289,7 +8252,7 @@ abstract class UserStatusCapabilities_UserStatus
     implements
         $UserStatusCapabilities_UserStatusInterface,
         Built<UserStatusCapabilities_UserStatus, UserStatusCapabilities_UserStatusBuilder> {
-  factory UserStatusCapabilities_UserStatus([final void Function(UserStatusCapabilities_UserStatusBuilder)? b]) =
+  factory UserStatusCapabilities_UserStatus([void Function(UserStatusCapabilities_UserStatusBuilder)? b]) =
       _$UserStatusCapabilities_UserStatus;
 
   // coverage:ignore-start
@@ -8297,7 +8260,7 @@ abstract class UserStatusCapabilities_UserStatus
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusCapabilities_UserStatus.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities_UserStatus.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8316,14 +8279,14 @@ abstract interface class $UserStatusCapabilitiesInterface {
 
 abstract class UserStatusCapabilities
     implements $UserStatusCapabilitiesInterface, Built<UserStatusCapabilities, UserStatusCapabilitiesBuilder> {
-  factory UserStatusCapabilities([final void Function(UserStatusCapabilitiesBuilder)? b]) = _$UserStatusCapabilities;
+  factory UserStatusCapabilities([void Function(UserStatusCapabilitiesBuilder)? b]) = _$UserStatusCapabilities;
 
   // coverage:ignore-start
   const UserStatusCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory UserStatusCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8343,16 +8306,15 @@ abstract class WeatherStatusCapabilities_WeatherStatus
     implements
         $WeatherStatusCapabilities_WeatherStatusInterface,
         Built<WeatherStatusCapabilities_WeatherStatus, WeatherStatusCapabilities_WeatherStatusBuilder> {
-  factory WeatherStatusCapabilities_WeatherStatus([
-    final void Function(WeatherStatusCapabilities_WeatherStatusBuilder)? b,
-  ]) = _$WeatherStatusCapabilities_WeatherStatus;
+  factory WeatherStatusCapabilities_WeatherStatus([void Function(WeatherStatusCapabilities_WeatherStatusBuilder)? b]) =
+      _$WeatherStatusCapabilities_WeatherStatus;
 
   // coverage:ignore-start
   const WeatherStatusCapabilities_WeatherStatus._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusCapabilities_WeatherStatus.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusCapabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8372,15 +8334,14 @@ abstract interface class $WeatherStatusCapabilitiesInterface {
 
 abstract class WeatherStatusCapabilities
     implements $WeatherStatusCapabilitiesInterface, Built<WeatherStatusCapabilities, WeatherStatusCapabilitiesBuilder> {
-  factory WeatherStatusCapabilities([final void Function(WeatherStatusCapabilitiesBuilder)? b]) =
-      _$WeatherStatusCapabilities;
+  factory WeatherStatusCapabilities([void Function(WeatherStatusCapabilitiesBuilder)? b]) = _$WeatherStatusCapabilities;
 
   // coverage:ignore-start
   const WeatherStatusCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusCapabilities.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusCapabilities.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8403,7 +8364,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
         Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
             OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder> {
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data([
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -8411,7 +8372,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8423,7 +8384,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
       _$ocsGetCapabilitiesResponseApplicationJsonOcsDataSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder b) {
+  static void _validate(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder b) {
     b.capabilities?.validateAnyOf();
   }
 }
@@ -8439,7 +8400,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
         $OcsGetCapabilitiesResponseApplicationJson_OcsInterface,
         Built<OcsGetCapabilitiesResponseApplicationJson_Ocs, OcsGetCapabilitiesResponseApplicationJson_OcsBuilder> {
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs([
-    final void Function(OcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? b,
+    void Function(OcsGetCapabilitiesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OcsGetCapabilitiesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8447,7 +8408,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcsGetCapabilitiesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8469,7 +8430,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
         $OcsGetCapabilitiesResponseApplicationJsonInterface,
         Built<OcsGetCapabilitiesResponseApplicationJson, OcsGetCapabilitiesResponseApplicationJsonBuilder> {
   factory OcsGetCapabilitiesResponseApplicationJson([
-    final void Function(OcsGetCapabilitiesResponseApplicationJsonBuilder)? b,
+    void Function(OcsGetCapabilitiesResponseApplicationJsonBuilder)? b,
   ]) = _$OcsGetCapabilitiesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8477,7 +8438,7 @@ abstract class OcsGetCapabilitiesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OcsGetCapabilitiesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OcsGetCapabilitiesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8501,7 +8462,7 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
         Built<ProfileApiSetVisibilityResponseApplicationJson_Ocs,
             ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder> {
   factory ProfileApiSetVisibilityResponseApplicationJson_Ocs([
-    final void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? b,
+    void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ProfileApiSetVisibilityResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8509,7 +8470,7 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ProfileApiSetVisibilityResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ProfileApiSetVisibilityResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8531,7 +8492,7 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson
         $ProfileApiSetVisibilityResponseApplicationJsonInterface,
         Built<ProfileApiSetVisibilityResponseApplicationJson, ProfileApiSetVisibilityResponseApplicationJsonBuilder> {
   factory ProfileApiSetVisibilityResponseApplicationJson([
-    final void Function(ProfileApiSetVisibilityResponseApplicationJsonBuilder)? b,
+    void Function(ProfileApiSetVisibilityResponseApplicationJsonBuilder)? b,
   ]) = _$ProfileApiSetVisibilityResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8539,7 +8500,7 @@ abstract class ProfileApiSetVisibilityResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ProfileApiSetVisibilityResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ProfileApiSetVisibilityResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8560,14 +8521,14 @@ abstract interface class $ReferenceInterface {
 }
 
 abstract class Reference implements $ReferenceInterface, Built<Reference, ReferenceBuilder> {
-  factory Reference([final void Function(ReferenceBuilder)? b]) = _$Reference;
+  factory Reference([void Function(ReferenceBuilder)? b]) = _$Reference;
 
   // coverage:ignore-start
   const Reference._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Reference.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Reference.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -8588,7 +8549,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
         Built<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
             ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
   factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data([
-    final void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ReferenceApiResolveOneResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -8596,7 +8557,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8620,7 +8581,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
         Built<ReferenceApiResolveOneResponseApplicationJson_Ocs,
             ReferenceApiResolveOneResponseApplicationJson_OcsBuilder> {
   factory ReferenceApiResolveOneResponseApplicationJson_Ocs([
-    final void Function(ReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReferenceApiResolveOneResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8628,7 +8589,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveOneResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8650,7 +8611,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
         $ReferenceApiResolveOneResponseApplicationJsonInterface,
         Built<ReferenceApiResolveOneResponseApplicationJson, ReferenceApiResolveOneResponseApplicationJsonBuilder> {
   factory ReferenceApiResolveOneResponseApplicationJson([
-    final void Function(ReferenceApiResolveOneResponseApplicationJsonBuilder)? b,
+    void Function(ReferenceApiResolveOneResponseApplicationJsonBuilder)? b,
   ]) = _$ReferenceApiResolveOneResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8658,7 +8619,7 @@ abstract class ReferenceApiResolveOneResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveOneResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveOneResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8681,7 +8642,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
         Built<ReferenceApiResolveResponseApplicationJson_Ocs_Data,
             ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder> {
   factory ReferenceApiResolveResponseApplicationJson_Ocs_Data([
-    final void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ReferenceApiResolveResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -8689,7 +8650,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8712,7 +8673,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs
         $ReferenceApiResolveResponseApplicationJson_OcsInterface,
         Built<ReferenceApiResolveResponseApplicationJson_Ocs, ReferenceApiResolveResponseApplicationJson_OcsBuilder> {
   factory ReferenceApiResolveResponseApplicationJson_Ocs([
-    final void Function(ReferenceApiResolveResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReferenceApiResolveResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReferenceApiResolveResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8720,7 +8681,7 @@ abstract class ReferenceApiResolveResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8742,7 +8703,7 @@ abstract class ReferenceApiResolveResponseApplicationJson
         $ReferenceApiResolveResponseApplicationJsonInterface,
         Built<ReferenceApiResolveResponseApplicationJson, ReferenceApiResolveResponseApplicationJsonBuilder> {
   factory ReferenceApiResolveResponseApplicationJson([
-    final void Function(ReferenceApiResolveResponseApplicationJsonBuilder)? b,
+    void Function(ReferenceApiResolveResponseApplicationJsonBuilder)? b,
   ]) = _$ReferenceApiResolveResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8750,7 +8711,7 @@ abstract class ReferenceApiResolveResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiResolveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiResolveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8773,7 +8734,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
         Built<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
             ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
   factory ReferenceApiExtractResponseApplicationJson_Ocs_Data([
-    final void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -8781,7 +8742,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8804,7 +8765,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs
         $ReferenceApiExtractResponseApplicationJson_OcsInterface,
         Built<ReferenceApiExtractResponseApplicationJson_Ocs, ReferenceApiExtractResponseApplicationJson_OcsBuilder> {
   factory ReferenceApiExtractResponseApplicationJson_Ocs([
-    final void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReferenceApiExtractResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReferenceApiExtractResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8812,7 +8773,7 @@ abstract class ReferenceApiExtractResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8834,7 +8795,7 @@ abstract class ReferenceApiExtractResponseApplicationJson
         $ReferenceApiExtractResponseApplicationJsonInterface,
         Built<ReferenceApiExtractResponseApplicationJson, ReferenceApiExtractResponseApplicationJsonBuilder> {
   factory ReferenceApiExtractResponseApplicationJson([
-    final void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? b,
+    void Function(ReferenceApiExtractResponseApplicationJsonBuilder)? b,
   ]) = _$ReferenceApiExtractResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8842,7 +8803,7 @@ abstract class ReferenceApiExtractResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiExtractResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiExtractResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8867,15 +8828,14 @@ abstract interface class $ReferenceProviderInterface {
 
 abstract class ReferenceProvider
     implements $ReferenceProviderInterface, Built<ReferenceProvider, ReferenceProviderBuilder> {
-  factory ReferenceProvider([final void Function(ReferenceProviderBuilder)? b]) = _$ReferenceProvider;
+  factory ReferenceProvider([void Function(ReferenceProviderBuilder)? b]) = _$ReferenceProvider;
 
   // coverage:ignore-start
   const ReferenceProvider._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceProvider.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory ReferenceProvider.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -8897,7 +8857,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
         Built<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
             ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder> {
   factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs([
-    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8905,7 +8865,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8928,7 +8888,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
         Built<ReferenceApiGetProvidersInfoResponseApplicationJson,
             ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder> {
   factory ReferenceApiGetProvidersInfoResponseApplicationJson([
-    final void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? b,
+    void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? b,
   ]) = _$ReferenceApiGetProvidersInfoResponseApplicationJson;
 
   // coverage:ignore-start
@@ -8936,7 +8896,7 @@ abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiGetProvidersInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiGetProvidersInfoResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8959,7 +8919,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
         Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
             ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder> {
   factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data([
-    final void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -8967,7 +8927,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -8991,7 +8951,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
         Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs,
             ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder> {
   factory ReferenceApiTouchProviderResponseApplicationJson_Ocs([
-    final void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReferenceApiTouchProviderResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -8999,7 +8959,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9022,7 +8982,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson
         Built<ReferenceApiTouchProviderResponseApplicationJson,
             ReferenceApiTouchProviderResponseApplicationJsonBuilder> {
   factory ReferenceApiTouchProviderResponseApplicationJson([
-    final void Function(ReferenceApiTouchProviderResponseApplicationJsonBuilder)? b,
+    void Function(ReferenceApiTouchProviderResponseApplicationJsonBuilder)? b,
   ]) = _$ReferenceApiTouchProviderResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9030,7 +8990,7 @@ abstract class ReferenceApiTouchProviderResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReferenceApiTouchProviderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReferenceApiTouchProviderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9055,7 +9015,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
         Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
             TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder> {
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types([
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? b,
+    void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? b,
   ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types;
 
   // coverage:ignore-start
@@ -9063,7 +9023,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9086,7 +9046,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
         Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
             TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9094,7 +9054,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9118,7 +9078,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
         Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs,
             TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs([
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextProcessingApiTaskTypesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9126,7 +9086,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9149,7 +9109,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson
         Built<TextProcessingApiTaskTypesResponseApplicationJson,
             TextProcessingApiTaskTypesResponseApplicationJsonBuilder> {
   factory TextProcessingApiTaskTypesResponseApplicationJson([
-    final void Function(TextProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
+    void Function(TextProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
   ]) = _$TextProcessingApiTaskTypesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9157,7 +9117,7 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiTaskTypesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiTaskTypesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9183,15 +9143,14 @@ abstract interface class $TextProcessingTaskInterface {
 
 abstract class TextProcessingTask
     implements $TextProcessingTaskInterface, Built<TextProcessingTask, TextProcessingTaskBuilder> {
-  factory TextProcessingTask([final void Function(TextProcessingTaskBuilder)? b]) = _$TextProcessingTask;
+  factory TextProcessingTask([void Function(TextProcessingTaskBuilder)? b]) = _$TextProcessingTask;
 
   // coverage:ignore-start
   const TextProcessingTask._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingTask.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory TextProcessingTask.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -9212,7 +9171,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
         Built<TextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
             TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
   factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data([
-    final void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextProcessingApiScheduleResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9220,7 +9179,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9244,7 +9203,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
         Built<TextProcessingApiScheduleResponseApplicationJson_Ocs,
             TextProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
   factory TextProcessingApiScheduleResponseApplicationJson_Ocs([
-    final void Function(TextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextProcessingApiScheduleResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9252,7 +9211,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiScheduleResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9275,7 +9234,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson
         Built<TextProcessingApiScheduleResponseApplicationJson,
             TextProcessingApiScheduleResponseApplicationJsonBuilder> {
   factory TextProcessingApiScheduleResponseApplicationJson([
-    final void Function(TextProcessingApiScheduleResponseApplicationJsonBuilder)? b,
+    void Function(TextProcessingApiScheduleResponseApplicationJsonBuilder)? b,
   ]) = _$TextProcessingApiScheduleResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9283,7 +9242,7 @@ abstract class TextProcessingApiScheduleResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiScheduleResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiScheduleResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9306,7 +9265,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
         Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
             TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
   factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
-    final void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9314,7 +9273,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9338,7 +9297,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
         Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs,
             TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
   factory TextProcessingApiGetTaskResponseApplicationJson_Ocs([
-    final void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextProcessingApiGetTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9346,7 +9305,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9368,7 +9327,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson
         $TextProcessingApiGetTaskResponseApplicationJsonInterface,
         Built<TextProcessingApiGetTaskResponseApplicationJson, TextProcessingApiGetTaskResponseApplicationJsonBuilder> {
   factory TextProcessingApiGetTaskResponseApplicationJson([
-    final void Function(TextProcessingApiGetTaskResponseApplicationJsonBuilder)? b,
+    void Function(TextProcessingApiGetTaskResponseApplicationJsonBuilder)? b,
   ]) = _$TextProcessingApiGetTaskResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9376,7 +9335,7 @@ abstract class TextProcessingApiGetTaskResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiGetTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiGetTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9399,7 +9358,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
         Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
             TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
   factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data([
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9407,7 +9366,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9431,7 +9390,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
         Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
             TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
   factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs([
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9439,7 +9398,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9462,7 +9421,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson
         Built<TextProcessingApiDeleteTaskResponseApplicationJson,
             TextProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
   factory TextProcessingApiDeleteTaskResponseApplicationJson([
-    final void Function(TextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
+    void Function(TextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
   ]) = _$TextProcessingApiDeleteTaskResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9470,7 +9429,7 @@ abstract class TextProcessingApiDeleteTaskResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiDeleteTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiDeleteTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9493,7 +9452,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
         Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
             TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
   factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9501,7 +9460,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9525,7 +9484,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
         Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
             TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
   factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs([
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9533,7 +9492,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9556,7 +9515,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson
         Built<TextProcessingApiListTasksByAppResponseApplicationJson,
             TextProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
   factory TextProcessingApiListTasksByAppResponseApplicationJson([
-    final void Function(TextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
+    void Function(TextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
   ]) = _$TextProcessingApiListTasksByAppResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9564,7 +9523,7 @@ abstract class TextProcessingApiListTasksByAppResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextProcessingApiListTasksByAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextProcessingApiListTasksByAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9587,7 +9546,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
         Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
             TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder> {
   factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data([
-    final void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9595,7 +9554,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9619,7 +9578,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs
         Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs,
             TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder> {
   factory TextToImageApiIsAvailableResponseApplicationJson_Ocs([
-    final void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextToImageApiIsAvailableResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9627,7 +9586,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiIsAvailableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9650,7 +9609,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson
         Built<TextToImageApiIsAvailableResponseApplicationJson,
             TextToImageApiIsAvailableResponseApplicationJsonBuilder> {
   factory TextToImageApiIsAvailableResponseApplicationJson([
-    final void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? b,
+    void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? b,
   ]) = _$TextToImageApiIsAvailableResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9658,7 +9617,7 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiIsAvailableResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiIsAvailableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9683,15 +9642,14 @@ abstract interface class $TextToImageTaskInterface {
 }
 
 abstract class TextToImageTask implements $TextToImageTaskInterface, Built<TextToImageTask, TextToImageTaskBuilder> {
-  factory TextToImageTask([final void Function(TextToImageTaskBuilder)? b]) = _$TextToImageTask;
+  factory TextToImageTask([void Function(TextToImageTaskBuilder)? b]) = _$TextToImageTask;
 
   // coverage:ignore-start
   const TextToImageTask._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageTask.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory TextToImageTask.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -9712,7 +9670,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs_Data
         Built<TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
             TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
   factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data([
-    final void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextToImageApiScheduleResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9720,7 +9678,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9744,7 +9702,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs
         Built<TextToImageApiScheduleResponseApplicationJson_Ocs,
             TextToImageApiScheduleResponseApplicationJson_OcsBuilder> {
   factory TextToImageApiScheduleResponseApplicationJson_Ocs([
-    final void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextToImageApiScheduleResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9752,7 +9710,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiScheduleResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiScheduleResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9774,7 +9732,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson
         $TextToImageApiScheduleResponseApplicationJsonInterface,
         Built<TextToImageApiScheduleResponseApplicationJson, TextToImageApiScheduleResponseApplicationJsonBuilder> {
   factory TextToImageApiScheduleResponseApplicationJson([
-    final void Function(TextToImageApiScheduleResponseApplicationJsonBuilder)? b,
+    void Function(TextToImageApiScheduleResponseApplicationJsonBuilder)? b,
   ]) = _$TextToImageApiScheduleResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9782,7 +9740,7 @@ abstract class TextToImageApiScheduleResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiScheduleResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiScheduleResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9805,7 +9763,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
         Built<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
             TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
   factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data([
-    final void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextToImageApiGetTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9813,7 +9771,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9837,7 +9795,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs
         Built<TextToImageApiGetTaskResponseApplicationJson_Ocs,
             TextToImageApiGetTaskResponseApplicationJson_OcsBuilder> {
   factory TextToImageApiGetTaskResponseApplicationJson_Ocs([
-    final void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextToImageApiGetTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9845,7 +9803,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiGetTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiGetTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9867,7 +9825,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson
         $TextToImageApiGetTaskResponseApplicationJsonInterface,
         Built<TextToImageApiGetTaskResponseApplicationJson, TextToImageApiGetTaskResponseApplicationJsonBuilder> {
   factory TextToImageApiGetTaskResponseApplicationJson([
-    final void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder)? b,
+    void Function(TextToImageApiGetTaskResponseApplicationJsonBuilder)? b,
   ]) = _$TextToImageApiGetTaskResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9875,7 +9833,7 @@ abstract class TextToImageApiGetTaskResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiGetTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiGetTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9898,7 +9856,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
         Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
             TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
   factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data([
-    final void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9906,7 +9864,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9930,7 +9888,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs
         Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
             TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder> {
   factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs([
-    final void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextToImageApiDeleteTaskResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -9938,7 +9896,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9960,7 +9918,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson
         $TextToImageApiDeleteTaskResponseApplicationJsonInterface,
         Built<TextToImageApiDeleteTaskResponseApplicationJson, TextToImageApiDeleteTaskResponseApplicationJsonBuilder> {
   factory TextToImageApiDeleteTaskResponseApplicationJson([
-    final void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder)? b,
+    void Function(TextToImageApiDeleteTaskResponseApplicationJsonBuilder)? b,
   ]) = _$TextToImageApiDeleteTaskResponseApplicationJson;
 
   // coverage:ignore-start
@@ -9968,7 +9926,7 @@ abstract class TextToImageApiDeleteTaskResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiDeleteTaskResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiDeleteTaskResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -9991,7 +9949,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
         Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
             TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
   factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data([
-    final void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -9999,7 +9957,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10023,7 +9981,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs
         Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
             TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder> {
   factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs([
-    final void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
+    void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TextToImageApiListTasksByAppResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10031,7 +9989,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10054,7 +10012,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson
         Built<TextToImageApiListTasksByAppResponseApplicationJson,
             TextToImageApiListTasksByAppResponseApplicationJsonBuilder> {
   factory TextToImageApiListTasksByAppResponseApplicationJson([
-    final void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? b,
+    void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? b,
   ]) = _$TextToImageApiListTasksByAppResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10062,7 +10020,7 @@ abstract class TextToImageApiListTasksByAppResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TextToImageApiListTasksByAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TextToImageApiListTasksByAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10088,7 +10046,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
         Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
             TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder> {
   factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages([
-    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? b,
+    void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? b,
   ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages;
 
   // coverage:ignore-start
@@ -10096,7 +10054,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10120,7 +10078,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
         Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data,
             TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder> {
   factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data([
-    final void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -10128,7 +10086,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10152,7 +10110,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
         Built<TranslationApiLanguagesResponseApplicationJson_Ocs,
             TranslationApiLanguagesResponseApplicationJson_OcsBuilder> {
   factory TranslationApiLanguagesResponseApplicationJson_Ocs([
-    final void Function(TranslationApiLanguagesResponseApplicationJson_OcsBuilder)? b,
+    void Function(TranslationApiLanguagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TranslationApiLanguagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10160,7 +10118,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiLanguagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10182,7 +10140,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson
         $TranslationApiLanguagesResponseApplicationJsonInterface,
         Built<TranslationApiLanguagesResponseApplicationJson, TranslationApiLanguagesResponseApplicationJsonBuilder> {
   factory TranslationApiLanguagesResponseApplicationJson([
-    final void Function(TranslationApiLanguagesResponseApplicationJsonBuilder)? b,
+    void Function(TranslationApiLanguagesResponseApplicationJsonBuilder)? b,
   ]) = _$TranslationApiLanguagesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10190,7 +10148,7 @@ abstract class TranslationApiLanguagesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiLanguagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiLanguagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10214,7 +10172,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
         Built<TranslationApiTranslateResponseApplicationJson_Ocs_Data,
             TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder> {
   factory TranslationApiTranslateResponseApplicationJson_Ocs_Data([
-    final void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TranslationApiTranslateResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -10222,7 +10180,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiTranslateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10246,7 +10204,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs
         Built<TranslationApiTranslateResponseApplicationJson_Ocs,
             TranslationApiTranslateResponseApplicationJson_OcsBuilder> {
   factory TranslationApiTranslateResponseApplicationJson_Ocs([
-    final void Function(TranslationApiTranslateResponseApplicationJson_OcsBuilder)? b,
+    void Function(TranslationApiTranslateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TranslationApiTranslateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10254,7 +10212,7 @@ abstract class TranslationApiTranslateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiTranslateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10276,7 +10234,7 @@ abstract class TranslationApiTranslateResponseApplicationJson
         $TranslationApiTranslateResponseApplicationJsonInterface,
         Built<TranslationApiTranslateResponseApplicationJson, TranslationApiTranslateResponseApplicationJsonBuilder> {
   factory TranslationApiTranslateResponseApplicationJson([
-    final void Function(TranslationApiTranslateResponseApplicationJsonBuilder)? b,
+    void Function(TranslationApiTranslateResponseApplicationJsonBuilder)? b,
   ]) = _$TranslationApiTranslateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10284,7 +10242,7 @@ abstract class TranslationApiTranslateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TranslationApiTranslateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TranslationApiTranslateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10305,14 +10263,14 @@ abstract interface class $UnifiedSearchProviderInterface {
 
 abstract class UnifiedSearchProvider
     implements $UnifiedSearchProviderInterface, Built<UnifiedSearchProvider, UnifiedSearchProviderBuilder> {
-  factory UnifiedSearchProvider([final void Function(UnifiedSearchProviderBuilder)? b]) = _$UnifiedSearchProvider;
+  factory UnifiedSearchProvider([void Function(UnifiedSearchProviderBuilder)? b]) = _$UnifiedSearchProvider;
 
   // coverage:ignore-start
   const UnifiedSearchProvider._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchProvider.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchProvider.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10335,7 +10293,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
         Built<UnifiedSearchGetProvidersResponseApplicationJson_Ocs,
             UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder> {
   factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs([
-    final void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? b,
+    void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UnifiedSearchGetProvidersResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10343,7 +10301,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10366,7 +10324,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
         Built<UnifiedSearchGetProvidersResponseApplicationJson,
             UnifiedSearchGetProvidersResponseApplicationJsonBuilder> {
   factory UnifiedSearchGetProvidersResponseApplicationJson([
-    final void Function(UnifiedSearchGetProvidersResponseApplicationJsonBuilder)? b,
+    void Function(UnifiedSearchGetProvidersResponseApplicationJsonBuilder)? b,
   ]) = _$UnifiedSearchGetProvidersResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10374,7 +10332,7 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchGetProvidersResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchGetProvidersResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10399,15 +10357,14 @@ abstract interface class $UnifiedSearchResultEntryInterface {
 
 abstract class UnifiedSearchResultEntry
     implements $UnifiedSearchResultEntryInterface, Built<UnifiedSearchResultEntry, UnifiedSearchResultEntryBuilder> {
-  factory UnifiedSearchResultEntry([final void Function(UnifiedSearchResultEntryBuilder)? b]) =
-      _$UnifiedSearchResultEntry;
+  factory UnifiedSearchResultEntry([void Function(UnifiedSearchResultEntryBuilder)? b]) = _$UnifiedSearchResultEntry;
 
   // coverage:ignore-start
   const UnifiedSearchResultEntry._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchResultEntry.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchResultEntry.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10428,15 +10385,14 @@ abstract interface class $UnifiedSearchResultInterface {
 
 abstract class UnifiedSearchResult
     implements $UnifiedSearchResultInterface, Built<UnifiedSearchResult, UnifiedSearchResultBuilder> {
-  factory UnifiedSearchResult([final void Function(UnifiedSearchResultBuilder)? b]) = _$UnifiedSearchResult;
+  factory UnifiedSearchResult([void Function(UnifiedSearchResultBuilder)? b]) = _$UnifiedSearchResult;
 
   // coverage:ignore-start
   const UnifiedSearchResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchResult.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory UnifiedSearchResult.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -10446,7 +10402,7 @@ abstract class UnifiedSearchResult
   static Serializer<UnifiedSearchResult> get serializer => _$unifiedSearchResultSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final UnifiedSearchResultBuilder b) {
+  static void _validate(UnifiedSearchResultBuilder b) {
     b.cursor?.validateOneOf();
   }
 }
@@ -10462,7 +10418,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
         $UnifiedSearchSearchResponseApplicationJson_OcsInterface,
         Built<UnifiedSearchSearchResponseApplicationJson_Ocs, UnifiedSearchSearchResponseApplicationJson_OcsBuilder> {
   factory UnifiedSearchSearchResponseApplicationJson_Ocs([
-    final void Function(UnifiedSearchSearchResponseApplicationJson_OcsBuilder)? b,
+    void Function(UnifiedSearchSearchResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UnifiedSearchSearchResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10470,7 +10426,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchSearchResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchSearchResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10492,7 +10448,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson
         $UnifiedSearchSearchResponseApplicationJsonInterface,
         Built<UnifiedSearchSearchResponseApplicationJson, UnifiedSearchSearchResponseApplicationJsonBuilder> {
   factory UnifiedSearchSearchResponseApplicationJson([
-    final void Function(UnifiedSearchSearchResponseApplicationJsonBuilder)? b,
+    void Function(UnifiedSearchSearchResponseApplicationJsonBuilder)? b,
   ]) = _$UnifiedSearchSearchResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10500,7 +10456,7 @@ abstract class UnifiedSearchSearchResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedSearchSearchResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedSearchSearchResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10524,7 +10480,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
         Built<WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
             WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder> {
   factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew([
-    final void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
+    void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
   ]) = _$WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew;
 
   // coverage:ignore-start
@@ -10532,7 +10488,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10557,7 +10513,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
         $WhatsNewGetResponseApplicationJson_Ocs_DataInterface,
         Built<WhatsNewGetResponseApplicationJson_Ocs_Data, WhatsNewGetResponseApplicationJson_Ocs_DataBuilder> {
   factory WhatsNewGetResponseApplicationJson_Ocs_Data([
-    final void Function(WhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WhatsNewGetResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WhatsNewGetResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -10565,7 +10521,7 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10587,16 +10543,15 @@ abstract class WhatsNewGetResponseApplicationJson_Ocs
     implements
         $WhatsNewGetResponseApplicationJson_OcsInterface,
         Built<WhatsNewGetResponseApplicationJson_Ocs, WhatsNewGetResponseApplicationJson_OcsBuilder> {
-  factory WhatsNewGetResponseApplicationJson_Ocs([
-    final void Function(WhatsNewGetResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$WhatsNewGetResponseApplicationJson_Ocs;
+  factory WhatsNewGetResponseApplicationJson_Ocs([void Function(WhatsNewGetResponseApplicationJson_OcsBuilder)? b]) =
+      _$WhatsNewGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const WhatsNewGetResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10617,7 +10572,7 @@ abstract class WhatsNewGetResponseApplicationJson
     implements
         $WhatsNewGetResponseApplicationJsonInterface,
         Built<WhatsNewGetResponseApplicationJson, WhatsNewGetResponseApplicationJsonBuilder> {
-  factory WhatsNewGetResponseApplicationJson([final void Function(WhatsNewGetResponseApplicationJsonBuilder)? b]) =
+  factory WhatsNewGetResponseApplicationJson([void Function(WhatsNewGetResponseApplicationJsonBuilder)? b]) =
       _$WhatsNewGetResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10625,7 +10580,7 @@ abstract class WhatsNewGetResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewGetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10648,7 +10603,7 @@ abstract class WhatsNewDismissResponseApplicationJson_Ocs
         $WhatsNewDismissResponseApplicationJson_OcsInterface,
         Built<WhatsNewDismissResponseApplicationJson_Ocs, WhatsNewDismissResponseApplicationJson_OcsBuilder> {
   factory WhatsNewDismissResponseApplicationJson_Ocs([
-    final void Function(WhatsNewDismissResponseApplicationJson_OcsBuilder)? b,
+    void Function(WhatsNewDismissResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WhatsNewDismissResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -10656,7 +10611,7 @@ abstract class WhatsNewDismissResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewDismissResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewDismissResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10677,16 +10632,15 @@ abstract class WhatsNewDismissResponseApplicationJson
     implements
         $WhatsNewDismissResponseApplicationJsonInterface,
         Built<WhatsNewDismissResponseApplicationJson, WhatsNewDismissResponseApplicationJsonBuilder> {
-  factory WhatsNewDismissResponseApplicationJson([
-    final void Function(WhatsNewDismissResponseApplicationJsonBuilder)? b,
-  ]) = _$WhatsNewDismissResponseApplicationJson;
+  factory WhatsNewDismissResponseApplicationJson([void Function(WhatsNewDismissResponseApplicationJsonBuilder)? b]) =
+      _$WhatsNewDismissResponseApplicationJson;
 
   // coverage:ignore-start
   const WhatsNewDismissResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WhatsNewDismissResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WhatsNewDismissResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10707,7 +10661,7 @@ abstract class WipeCheckWipeResponseApplicationJson
     implements
         $WipeCheckWipeResponseApplicationJsonInterface,
         Built<WipeCheckWipeResponseApplicationJson, WipeCheckWipeResponseApplicationJsonBuilder> {
-  factory WipeCheckWipeResponseApplicationJson([final void Function(WipeCheckWipeResponseApplicationJsonBuilder)? b]) =
+  factory WipeCheckWipeResponseApplicationJson([void Function(WipeCheckWipeResponseApplicationJsonBuilder)? b]) =
       _$WipeCheckWipeResponseApplicationJson;
 
   // coverage:ignore-start
@@ -10715,7 +10669,7 @@ abstract class WipeCheckWipeResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WipeCheckWipeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WipeCheckWipeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -10770,8 +10724,7 @@ extension $AutocompleteResultStatus0StringExtension on $AutocompleteResultStatus
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$AutocompleteResultStatus0String> get serializer =>
       const _$AutocompleteResultStatus0StringSerializer();
-  static $AutocompleteResultStatus0String fromJson(final Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  static $AutocompleteResultStatus0String fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -10786,9 +10739,9 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $AutocompleteResultStatus0String object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $AutocompleteResultStatus0String object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.autocompleteResultStatus0;
@@ -10805,9 +10758,9 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
 
   @override
   $AutocompleteResultStatus0String deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     AutocompleteResult_Status0? autocompleteResultStatus0;
     try {
@@ -10831,7 +10784,7 @@ extension $IntStringExtension on $IntString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$IntString> get serializer => const _$IntStringSerializer();
-  static $IntString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $IntString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -10846,9 +10799,9 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $IntString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $IntString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.$int;
@@ -10865,9 +10818,9 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
 
   @override
   $IntString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     int? $int;
     try {
@@ -10892,7 +10845,7 @@ extension $BuiltListSharebymailCapabilities0Extension on $BuiltListSharebymailCa
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListSharebymailCapabilities0> get serializer =>
       const _$BuiltListSharebymailCapabilities0Serializer();
-  static $BuiltListSharebymailCapabilities0 fromJson(final Object? json) =>
+  static $BuiltListSharebymailCapabilities0 fromJson(Object? json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
@@ -10908,9 +10861,9 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListSharebymailCapabilities0 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListSharebymailCapabilities0 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -10927,9 +10880,9 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
 
   @override
   $BuiltListSharebymailCapabilities0 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
@@ -10956,7 +10909,7 @@ extension $BuiltListSpreedPublicCapabilities0Extension on $BuiltListSpreedPublic
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListSpreedPublicCapabilities0> get serializer =>
       const _$BuiltListSpreedPublicCapabilities0Serializer();
-  static $BuiltListSpreedPublicCapabilities0 fromJson(final Object? json) =>
+  static $BuiltListSpreedPublicCapabilities0 fromJson(Object? json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
@@ -10973,9 +10926,9 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListSpreedPublicCapabilities0 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListSpreedPublicCapabilities0 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -10992,9 +10945,9 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
 
   @override
   $BuiltListSpreedPublicCapabilities0 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
@@ -11055,7 +11008,7 @@ extension $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapab
       get serializer =>
           const _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer();
   static $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
-      fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+      fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -11076,10 +11029,10 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
+    Serializers serializers,
+    $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
         object, {
-    final FullType specifiedType = FullType.unspecified,
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.commentsCapabilities;
@@ -11145,9 +11098,9 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
   @override
   $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
       deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     CommentsCapabilities? commentsCapabilities;
     try {

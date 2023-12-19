@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -75,11 +75,11 @@ class ApiClient {
   /// See:
   ///  * [generateNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGenerateNotificationResponseApplicationJson, void>> generateNotification({
-    required final String shortMessage,
-    required final String userId,
-    final String? longMessage,
-    final ApiGenerateNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shortMessage,
+    required String userId,
+    String? longMessage,
+    ApiGenerateNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = generateNotificationRaw(
       shortMessage: shortMessage,
@@ -118,11 +118,11 @@ class ApiClient {
   ///  * [generateNotification] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void> generateNotificationRaw({
-    required final String shortMessage,
-    required final String userId,
-    final String? longMessage,
-    final ApiGenerateNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shortMessage,
+    required String userId,
+    String? longMessage,
+    ApiGenerateNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -132,7 +132,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -208,8 +208,8 @@ class EndpointClient {
   ///  * [listNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>>
       listNotifications({
-    final EndpointListNotificationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    EndpointListNotificationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = listNotificationsRaw(
       apiVersion: apiVersion,
@@ -239,8 +239,8 @@ class EndpointClient {
   @experimental
   DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson, EndpointEndpointListNotificationsHeaders>
       listNotificationsRaw({
-    final EndpointListNotificationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    EndpointListNotificationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -250,7 +250,7 @@ class EndpointClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -307,8 +307,8 @@ class EndpointClient {
   /// See:
   ///  * [deleteAllNotificationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>> deleteAllNotifications({
-    final EndpointDeleteAllNotificationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    EndpointDeleteAllNotificationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAllNotificationsRaw(
       apiVersion: apiVersion,
@@ -337,8 +337,8 @@ class EndpointClient {
   ///  * [deleteAllNotifications] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void> deleteAllNotificationsRaw({
-    final EndpointDeleteAllNotificationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    EndpointDeleteAllNotificationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -348,7 +348,7 @@ class EndpointClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -405,9 +405,9 @@ class EndpointClient {
   /// See:
   ///  * [getNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointGetNotificationResponseApplicationJson, void>> getNotification({
-    required final int id,
-    final EndpointGetNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    EndpointGetNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getNotificationRaw(
       id: id,
@@ -438,9 +438,9 @@ class EndpointClient {
   ///  * [getNotification] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void> getNotificationRaw({
-    required final int id,
-    final EndpointGetNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    EndpointGetNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -450,7 +450,7 @@ class EndpointClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -512,9 +512,9 @@ class EndpointClient {
   /// See:
   ///  * [deleteNotificationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointDeleteNotificationResponseApplicationJson, void>> deleteNotification({
-    required final int id,
-    final EndpointDeleteNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    EndpointDeleteNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteNotificationRaw(
       id: id,
@@ -546,9 +546,9 @@ class EndpointClient {
   ///  * [deleteNotification] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void> deleteNotificationRaw({
-    required final int id,
-    final EndpointDeleteNotificationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    EndpointDeleteNotificationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -558,7 +558,7 @@ class EndpointClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -619,9 +619,9 @@ class EndpointClient {
   /// See:
   ///  * [confirmIdsForUserRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>> confirmIdsForUser({
-    required final BuiltList<int> ids,
-    final EndpointConfirmIdsForUserApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required BuiltList<int> ids,
+    EndpointConfirmIdsForUserApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = confirmIdsForUserRaw(
       ids: ids,
@@ -652,9 +652,9 @@ class EndpointClient {
   ///  * [confirmIdsForUser] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void> confirmIdsForUserRaw({
-    required final BuiltList<int> ids,
-    final EndpointConfirmIdsForUserApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required BuiltList<int> ids,
+    EndpointConfirmIdsForUserApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -664,7 +664,7 @@ class EndpointClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -736,11 +736,11 @@ class PushClient {
   /// See:
   ///  * [registerDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PushRegisterDeviceResponseApplicationJson, void>> registerDevice({
-    required final String pushTokenHash,
-    required final String devicePublicKey,
-    required final String proxyServer,
-    final PushRegisterDeviceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String pushTokenHash,
+    required String devicePublicKey,
+    required String proxyServer,
+    PushRegisterDeviceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = registerDeviceRaw(
       pushTokenHash: pushTokenHash,
@@ -777,11 +777,11 @@ class PushClient {
   ///  * [registerDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void> registerDeviceRaw({
-    required final String pushTokenHash,
-    required final String devicePublicKey,
-    required final String proxyServer,
-    final PushRegisterDeviceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String pushTokenHash,
+    required String devicePublicKey,
+    required String proxyServer,
+    PushRegisterDeviceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -791,7 +791,7 @@ class PushClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -861,8 +861,8 @@ class PushClient {
   /// See:
   ///  * [removeDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PushRemoveDeviceResponseApplicationJson, void>> removeDevice({
-    final PushRemoveDeviceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    PushRemoveDeviceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeDeviceRaw(
       apiVersion: apiVersion,
@@ -893,8 +893,8 @@ class PushClient {
   ///  * [removeDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void> removeDeviceRaw({
-    final PushRemoveDeviceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    PushRemoveDeviceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -904,7 +904,7 @@ class PushClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -966,11 +966,11 @@ class SettingsClient {
   /// See:
   ///  * [personalRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsPersonalResponseApplicationJson, void>> personal({
-    required final int batchSetting,
-    required final String soundNotification,
-    required final String soundTalk,
-    final SettingsPersonalApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int batchSetting,
+    required String soundNotification,
+    required String soundTalk,
+    SettingsPersonalApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = personalRaw(
       batchSetting: batchSetting,
@@ -1004,11 +1004,11 @@ class SettingsClient {
   ///  * [personal] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void> personalRaw({
-    required final int batchSetting,
-    required final String soundNotification,
-    required final String soundTalk,
-    final SettingsPersonalApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int batchSetting,
+    required String soundNotification,
+    required String soundTalk,
+    SettingsPersonalApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1018,7 +1018,7 @@ class SettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1089,11 +1089,11 @@ class SettingsClient {
   /// See:
   ///  * [adminRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsAdminResponseApplicationJson, void>> admin({
-    required final int batchSetting,
-    required final String soundNotification,
-    required final String soundTalk,
-    final SettingsAdminApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int batchSetting,
+    required String soundNotification,
+    required String soundTalk,
+    SettingsAdminApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = adminRaw(
       batchSetting: batchSetting,
@@ -1129,11 +1129,11 @@ class SettingsClient {
   ///  * [admin] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsAdminResponseApplicationJson, void> adminRaw({
-    required final int batchSetting,
-    required final String soundNotification,
-    required final String soundTalk,
-    final SettingsAdminApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int batchSetting,
+    required String soundNotification,
+    required String soundTalk,
+    SettingsAdminApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1143,7 +1143,7 @@ class SettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1206,8 +1206,7 @@ class ApiGenerateNotificationApiVersion extends EnumClass {
   static BuiltSet<ApiGenerateNotificationApiVersion> get values => _$apiGenerateNotificationApiVersionValues;
   // coverage:ignore-end
 
-  static ApiGenerateNotificationApiVersion valueOf(final String name) =>
-      _$valueOfApiGenerateNotificationApiVersion(name);
+  static ApiGenerateNotificationApiVersion valueOf(String name) => _$valueOfApiGenerateNotificationApiVersion(name);
 
   static Serializer<ApiGenerateNotificationApiVersion> get serializer => _$apiGenerateNotificationApiVersionSerializer;
 }
@@ -1222,14 +1221,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1251,7 +1250,7 @@ abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
         Built<ApiGenerateNotificationResponseApplicationJson_Ocs,
             ApiGenerateNotificationResponseApplicationJson_OcsBuilder> {
   factory ApiGenerateNotificationResponseApplicationJson_Ocs([
-    final void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder)? b,
+    void Function(ApiGenerateNotificationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ApiGenerateNotificationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1259,7 +1258,7 @@ abstract class ApiGenerateNotificationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGenerateNotificationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGenerateNotificationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1281,7 +1280,7 @@ abstract class ApiGenerateNotificationResponseApplicationJson
         $ApiGenerateNotificationResponseApplicationJsonInterface,
         Built<ApiGenerateNotificationResponseApplicationJson, ApiGenerateNotificationResponseApplicationJsonBuilder> {
   factory ApiGenerateNotificationResponseApplicationJson([
-    final void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? b,
+    void Function(ApiGenerateNotificationResponseApplicationJsonBuilder)? b,
   ]) = _$ApiGenerateNotificationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1289,7 +1288,7 @@ abstract class ApiGenerateNotificationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGenerateNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGenerateNotificationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1312,8 +1311,7 @@ class EndpointListNotificationsApiVersion extends EnumClass {
   static BuiltSet<EndpointListNotificationsApiVersion> get values => _$endpointListNotificationsApiVersionValues;
   // coverage:ignore-end
 
-  static EndpointListNotificationsApiVersion valueOf(final String name) =>
-      _$valueOfEndpointListNotificationsApiVersion(name);
+  static EndpointListNotificationsApiVersion valueOf(String name) => _$valueOfEndpointListNotificationsApiVersion(name);
 
   static Serializer<EndpointListNotificationsApiVersion> get serializer =>
       _$endpointListNotificationsApiVersionSerializer;
@@ -1330,7 +1328,7 @@ abstract class EndpointEndpointListNotificationsHeaders
         $EndpointEndpointListNotificationsHeadersInterface,
         Built<EndpointEndpointListNotificationsHeaders, EndpointEndpointListNotificationsHeadersBuilder> {
   factory EndpointEndpointListNotificationsHeaders([
-    final void Function(EndpointEndpointListNotificationsHeadersBuilder)? b,
+    void Function(EndpointEndpointListNotificationsHeadersBuilder)? b,
   ]) = _$EndpointEndpointListNotificationsHeaders;
 
   // coverage:ignore-start
@@ -1338,7 +1336,7 @@ abstract class EndpointEndpointListNotificationsHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointEndpointListNotificationsHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointEndpointListNotificationsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1360,15 +1358,14 @@ abstract interface class $NotificationActionInterface {
 
 abstract class NotificationAction
     implements $NotificationActionInterface, Built<NotificationAction, NotificationActionBuilder> {
-  factory NotificationAction([final void Function(NotificationActionBuilder)? b]) = _$NotificationAction;
+  factory NotificationAction([void Function(NotificationActionBuilder)? b]) = _$NotificationAction;
 
   // coverage:ignore-start
   const NotificationAction._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory NotificationAction.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory NotificationAction.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1402,14 +1399,14 @@ abstract interface class $NotificationInterface {
 }
 
 abstract class Notification implements $NotificationInterface, Built<Notification, NotificationBuilder> {
-  factory Notification([final void Function(NotificationBuilder)? b]) = _$Notification;
+  factory Notification([void Function(NotificationBuilder)? b]) = _$Notification;
 
   // coverage:ignore-start
   const Notification._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Notification.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Notification.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1431,7 +1428,7 @@ abstract class EndpointListNotificationsResponseApplicationJson_Ocs
         Built<EndpointListNotificationsResponseApplicationJson_Ocs,
             EndpointListNotificationsResponseApplicationJson_OcsBuilder> {
   factory EndpointListNotificationsResponseApplicationJson_Ocs([
-    final void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder)? b,
+    void Function(EndpointListNotificationsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$EndpointListNotificationsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1439,7 +1436,7 @@ abstract class EndpointListNotificationsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointListNotificationsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointListNotificationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1462,7 +1459,7 @@ abstract class EndpointListNotificationsResponseApplicationJson
         Built<EndpointListNotificationsResponseApplicationJson,
             EndpointListNotificationsResponseApplicationJsonBuilder> {
   factory EndpointListNotificationsResponseApplicationJson([
-    final void Function(EndpointListNotificationsResponseApplicationJsonBuilder)? b,
+    void Function(EndpointListNotificationsResponseApplicationJsonBuilder)? b,
   ]) = _$EndpointListNotificationsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1470,7 +1467,7 @@ abstract class EndpointListNotificationsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointListNotificationsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointListNotificationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1494,7 +1491,7 @@ class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
       _$endpointDeleteAllNotificationsApiVersionValues;
   // coverage:ignore-end
 
-  static EndpointDeleteAllNotificationsApiVersion valueOf(final String name) =>
+  static EndpointDeleteAllNotificationsApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteAllNotificationsApiVersion(name);
 
   static Serializer<EndpointDeleteAllNotificationsApiVersion> get serializer =>
@@ -1513,7 +1510,7 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
         Built<EndpointDeleteAllNotificationsResponseApplicationJson_Ocs,
             EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder> {
   factory EndpointDeleteAllNotificationsResponseApplicationJson_Ocs([
-    final void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? b,
+    void Function(EndpointDeleteAllNotificationsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$EndpointDeleteAllNotificationsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1521,7 +1518,7 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointDeleteAllNotificationsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointDeleteAllNotificationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1544,7 +1541,7 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson
         Built<EndpointDeleteAllNotificationsResponseApplicationJson,
             EndpointDeleteAllNotificationsResponseApplicationJsonBuilder> {
   factory EndpointDeleteAllNotificationsResponseApplicationJson([
-    final void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? b,
+    void Function(EndpointDeleteAllNotificationsResponseApplicationJsonBuilder)? b,
   ]) = _$EndpointDeleteAllNotificationsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1552,7 +1549,7 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointDeleteAllNotificationsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointDeleteAllNotificationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1575,8 +1572,7 @@ class EndpointGetNotificationApiVersion extends EnumClass {
   static BuiltSet<EndpointGetNotificationApiVersion> get values => _$endpointGetNotificationApiVersionValues;
   // coverage:ignore-end
 
-  static EndpointGetNotificationApiVersion valueOf(final String name) =>
-      _$valueOfEndpointGetNotificationApiVersion(name);
+  static EndpointGetNotificationApiVersion valueOf(String name) => _$valueOfEndpointGetNotificationApiVersion(name);
 
   static Serializer<EndpointGetNotificationApiVersion> get serializer => _$endpointGetNotificationApiVersionSerializer;
 }
@@ -1593,7 +1589,7 @@ abstract class EndpointGetNotificationResponseApplicationJson_Ocs
         Built<EndpointGetNotificationResponseApplicationJson_Ocs,
             EndpointGetNotificationResponseApplicationJson_OcsBuilder> {
   factory EndpointGetNotificationResponseApplicationJson_Ocs([
-    final void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder)? b,
+    void Function(EndpointGetNotificationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$EndpointGetNotificationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1601,7 +1597,7 @@ abstract class EndpointGetNotificationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointGetNotificationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointGetNotificationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1623,7 +1619,7 @@ abstract class EndpointGetNotificationResponseApplicationJson
         $EndpointGetNotificationResponseApplicationJsonInterface,
         Built<EndpointGetNotificationResponseApplicationJson, EndpointGetNotificationResponseApplicationJsonBuilder> {
   factory EndpointGetNotificationResponseApplicationJson([
-    final void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? b,
+    void Function(EndpointGetNotificationResponseApplicationJsonBuilder)? b,
   ]) = _$EndpointGetNotificationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1631,7 +1627,7 @@ abstract class EndpointGetNotificationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointGetNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointGetNotificationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1654,7 +1650,7 @@ class EndpointDeleteNotificationApiVersion extends EnumClass {
   static BuiltSet<EndpointDeleteNotificationApiVersion> get values => _$endpointDeleteNotificationApiVersionValues;
   // coverage:ignore-end
 
-  static EndpointDeleteNotificationApiVersion valueOf(final String name) =>
+  static EndpointDeleteNotificationApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteNotificationApiVersion(name);
 
   static Serializer<EndpointDeleteNotificationApiVersion> get serializer =>
@@ -1673,7 +1669,7 @@ abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
         Built<EndpointDeleteNotificationResponseApplicationJson_Ocs,
             EndpointDeleteNotificationResponseApplicationJson_OcsBuilder> {
   factory EndpointDeleteNotificationResponseApplicationJson_Ocs([
-    final void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? b,
+    void Function(EndpointDeleteNotificationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$EndpointDeleteNotificationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1681,7 +1677,7 @@ abstract class EndpointDeleteNotificationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointDeleteNotificationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointDeleteNotificationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1704,7 +1700,7 @@ abstract class EndpointDeleteNotificationResponseApplicationJson
         Built<EndpointDeleteNotificationResponseApplicationJson,
             EndpointDeleteNotificationResponseApplicationJsonBuilder> {
   factory EndpointDeleteNotificationResponseApplicationJson([
-    final void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder)? b,
+    void Function(EndpointDeleteNotificationResponseApplicationJsonBuilder)? b,
   ]) = _$EndpointDeleteNotificationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1712,7 +1708,7 @@ abstract class EndpointDeleteNotificationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointDeleteNotificationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointDeleteNotificationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1735,8 +1731,7 @@ class EndpointConfirmIdsForUserApiVersion extends EnumClass {
   static BuiltSet<EndpointConfirmIdsForUserApiVersion> get values => _$endpointConfirmIdsForUserApiVersionValues;
   // coverage:ignore-end
 
-  static EndpointConfirmIdsForUserApiVersion valueOf(final String name) =>
-      _$valueOfEndpointConfirmIdsForUserApiVersion(name);
+  static EndpointConfirmIdsForUserApiVersion valueOf(String name) => _$valueOfEndpointConfirmIdsForUserApiVersion(name);
 
   static Serializer<EndpointConfirmIdsForUserApiVersion> get serializer =>
       _$endpointConfirmIdsForUserApiVersionSerializer;
@@ -1754,7 +1749,7 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
         Built<EndpointConfirmIdsForUserResponseApplicationJson_Ocs,
             EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder> {
   factory EndpointConfirmIdsForUserResponseApplicationJson_Ocs([
-    final void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? b,
+    void Function(EndpointConfirmIdsForUserResponseApplicationJson_OcsBuilder)? b,
   ]) = _$EndpointConfirmIdsForUserResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1762,7 +1757,7 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointConfirmIdsForUserResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointConfirmIdsForUserResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1785,7 +1780,7 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson
         Built<EndpointConfirmIdsForUserResponseApplicationJson,
             EndpointConfirmIdsForUserResponseApplicationJsonBuilder> {
   factory EndpointConfirmIdsForUserResponseApplicationJson([
-    final void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder)? b,
+    void Function(EndpointConfirmIdsForUserResponseApplicationJsonBuilder)? b,
   ]) = _$EndpointConfirmIdsForUserResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1793,7 +1788,7 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EndpointConfirmIdsForUserResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory EndpointConfirmIdsForUserResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1814,7 +1809,7 @@ class PushRegisterDeviceApiVersion extends EnumClass {
   static BuiltSet<PushRegisterDeviceApiVersion> get values => _$pushRegisterDeviceApiVersionValues;
   // coverage:ignore-end
 
-  static PushRegisterDeviceApiVersion valueOf(final String name) => _$valueOfPushRegisterDeviceApiVersion(name);
+  static PushRegisterDeviceApiVersion valueOf(String name) => _$valueOfPushRegisterDeviceApiVersion(name);
 
   static Serializer<PushRegisterDeviceApiVersion> get serializer => _$pushRegisterDeviceApiVersionSerializer;
 }
@@ -1827,14 +1822,14 @@ abstract interface class $PushDeviceInterface {
 }
 
 abstract class PushDevice implements $PushDeviceInterface, Built<PushDevice, PushDeviceBuilder> {
-  factory PushDevice([final void Function(PushDeviceBuilder)? b]) = _$PushDevice;
+  factory PushDevice([void Function(PushDeviceBuilder)? b]) = _$PushDevice;
 
   // coverage:ignore-start
   const PushDevice._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushDevice.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory PushDevice.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1855,7 +1850,7 @@ abstract class PushRegisterDeviceResponseApplicationJson_Ocs
         $PushRegisterDeviceResponseApplicationJson_OcsInterface,
         Built<PushRegisterDeviceResponseApplicationJson_Ocs, PushRegisterDeviceResponseApplicationJson_OcsBuilder> {
   factory PushRegisterDeviceResponseApplicationJson_Ocs([
-    final void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? b,
+    void Function(PushRegisterDeviceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PushRegisterDeviceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1863,7 +1858,7 @@ abstract class PushRegisterDeviceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushRegisterDeviceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PushRegisterDeviceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1885,7 +1880,7 @@ abstract class PushRegisterDeviceResponseApplicationJson
         $PushRegisterDeviceResponseApplicationJsonInterface,
         Built<PushRegisterDeviceResponseApplicationJson, PushRegisterDeviceResponseApplicationJsonBuilder> {
   factory PushRegisterDeviceResponseApplicationJson([
-    final void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? b,
+    void Function(PushRegisterDeviceResponseApplicationJsonBuilder)? b,
   ]) = _$PushRegisterDeviceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1893,7 +1888,7 @@ abstract class PushRegisterDeviceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushRegisterDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PushRegisterDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1914,7 +1909,7 @@ class PushRemoveDeviceApiVersion extends EnumClass {
   static BuiltSet<PushRemoveDeviceApiVersion> get values => _$pushRemoveDeviceApiVersionValues;
   // coverage:ignore-end
 
-  static PushRemoveDeviceApiVersion valueOf(final String name) => _$valueOfPushRemoveDeviceApiVersion(name);
+  static PushRemoveDeviceApiVersion valueOf(String name) => _$valueOfPushRemoveDeviceApiVersion(name);
 
   static Serializer<PushRemoveDeviceApiVersion> get serializer => _$pushRemoveDeviceApiVersionSerializer;
 }
@@ -1930,7 +1925,7 @@ abstract class PushRemoveDeviceResponseApplicationJson_Ocs
         $PushRemoveDeviceResponseApplicationJson_OcsInterface,
         Built<PushRemoveDeviceResponseApplicationJson_Ocs, PushRemoveDeviceResponseApplicationJson_OcsBuilder> {
   factory PushRemoveDeviceResponseApplicationJson_Ocs([
-    final void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? b,
+    void Function(PushRemoveDeviceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PushRemoveDeviceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1938,7 +1933,7 @@ abstract class PushRemoveDeviceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushRemoveDeviceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PushRemoveDeviceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1959,16 +1954,15 @@ abstract class PushRemoveDeviceResponseApplicationJson
     implements
         $PushRemoveDeviceResponseApplicationJsonInterface,
         Built<PushRemoveDeviceResponseApplicationJson, PushRemoveDeviceResponseApplicationJsonBuilder> {
-  factory PushRemoveDeviceResponseApplicationJson([
-    final void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? b,
-  ]) = _$PushRemoveDeviceResponseApplicationJson;
+  factory PushRemoveDeviceResponseApplicationJson([void Function(PushRemoveDeviceResponseApplicationJsonBuilder)? b]) =
+      _$PushRemoveDeviceResponseApplicationJson;
 
   // coverage:ignore-start
   const PushRemoveDeviceResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushRemoveDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PushRemoveDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1989,7 +1983,7 @@ class SettingsPersonalApiVersion extends EnumClass {
   static BuiltSet<SettingsPersonalApiVersion> get values => _$settingsPersonalApiVersionValues;
   // coverage:ignore-end
 
-  static SettingsPersonalApiVersion valueOf(final String name) => _$valueOfSettingsPersonalApiVersion(name);
+  static SettingsPersonalApiVersion valueOf(String name) => _$valueOfSettingsPersonalApiVersion(name);
 
   static Serializer<SettingsPersonalApiVersion> get serializer => _$settingsPersonalApiVersionSerializer;
 }
@@ -2005,7 +1999,7 @@ abstract class SettingsPersonalResponseApplicationJson_Ocs
         $SettingsPersonalResponseApplicationJson_OcsInterface,
         Built<SettingsPersonalResponseApplicationJson_Ocs, SettingsPersonalResponseApplicationJson_OcsBuilder> {
   factory SettingsPersonalResponseApplicationJson_Ocs([
-    final void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? b,
+    void Function(SettingsPersonalResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsPersonalResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2013,7 +2007,7 @@ abstract class SettingsPersonalResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsPersonalResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsPersonalResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2034,16 +2028,15 @@ abstract class SettingsPersonalResponseApplicationJson
     implements
         $SettingsPersonalResponseApplicationJsonInterface,
         Built<SettingsPersonalResponseApplicationJson, SettingsPersonalResponseApplicationJsonBuilder> {
-  factory SettingsPersonalResponseApplicationJson([
-    final void Function(SettingsPersonalResponseApplicationJsonBuilder)? b,
-  ]) = _$SettingsPersonalResponseApplicationJson;
+  factory SettingsPersonalResponseApplicationJson([void Function(SettingsPersonalResponseApplicationJsonBuilder)? b]) =
+      _$SettingsPersonalResponseApplicationJson;
 
   // coverage:ignore-start
   const SettingsPersonalResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsPersonalResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsPersonalResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2064,7 +2057,7 @@ class SettingsAdminApiVersion extends EnumClass {
   static BuiltSet<SettingsAdminApiVersion> get values => _$settingsAdminApiVersionValues;
   // coverage:ignore-end
 
-  static SettingsAdminApiVersion valueOf(final String name) => _$valueOfSettingsAdminApiVersion(name);
+  static SettingsAdminApiVersion valueOf(String name) => _$valueOfSettingsAdminApiVersion(name);
 
   static Serializer<SettingsAdminApiVersion> get serializer => _$settingsAdminApiVersionSerializer;
 }
@@ -2080,7 +2073,7 @@ abstract class SettingsAdminResponseApplicationJson_Ocs
         $SettingsAdminResponseApplicationJson_OcsInterface,
         Built<SettingsAdminResponseApplicationJson_Ocs, SettingsAdminResponseApplicationJson_OcsBuilder> {
   factory SettingsAdminResponseApplicationJson_Ocs([
-    final void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? b,
+    void Function(SettingsAdminResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsAdminResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2088,7 +2081,7 @@ abstract class SettingsAdminResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsAdminResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsAdminResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2109,7 +2102,7 @@ abstract class SettingsAdminResponseApplicationJson
     implements
         $SettingsAdminResponseApplicationJsonInterface,
         Built<SettingsAdminResponseApplicationJson, SettingsAdminResponseApplicationJsonBuilder> {
-  factory SettingsAdminResponseApplicationJson([final void Function(SettingsAdminResponseApplicationJsonBuilder)? b]) =
+  factory SettingsAdminResponseApplicationJson([void Function(SettingsAdminResponseApplicationJsonBuilder)? b]) =
       _$SettingsAdminResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2117,7 +2110,7 @@ abstract class SettingsAdminResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsAdminResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsAdminResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2142,7 +2135,7 @@ abstract class Capabilities_Notifications
     implements
         $Capabilities_NotificationsInterface,
         Built<Capabilities_Notifications, Capabilities_NotificationsBuilder> {
-  factory Capabilities_Notifications([final void Function(Capabilities_NotificationsBuilder)? b]) =
+  factory Capabilities_Notifications([void Function(Capabilities_NotificationsBuilder)? b]) =
       _$Capabilities_Notifications;
 
   // coverage:ignore-start
@@ -2150,7 +2143,7 @@ abstract class Capabilities_Notifications
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Notifications.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Notifications.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2167,14 +2160,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

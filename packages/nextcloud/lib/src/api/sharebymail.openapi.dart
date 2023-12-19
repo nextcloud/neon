@@ -25,7 +25,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -46,7 +46,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
         Built<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
             Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
-    final void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
+    void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
 
   // coverage:ignore-start
@@ -54,7 +54,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -77,7 +77,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
         $Capabilities0_FilesSharing_Sharebymail_PasswordInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_Password, Capabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_Password([
-    final void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
+    void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_Password;
 
   // coverage:ignore-start
@@ -85,7 +85,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -109,7 +109,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
         Built<Capabilities0_FilesSharing_Sharebymail_ExpireDate,
             Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
   factory Capabilities0_FilesSharing_Sharebymail_ExpireDate([
-    final void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
+    void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_ExpireDate;
 
   // coverage:ignore-start
@@ -117,7 +117,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -145,16 +145,15 @@ abstract class Capabilities0_FilesSharing_Sharebymail
     implements
         $Capabilities0_FilesSharing_SharebymailInterface,
         Built<Capabilities0_FilesSharing_Sharebymail, Capabilities0_FilesSharing_SharebymailBuilder> {
-  factory Capabilities0_FilesSharing_Sharebymail([
-    final void Function(Capabilities0_FilesSharing_SharebymailBuilder)? b,
-  ]) = _$Capabilities0_FilesSharing_Sharebymail;
+  factory Capabilities0_FilesSharing_Sharebymail([void Function(Capabilities0_FilesSharing_SharebymailBuilder)? b]) =
+      _$Capabilities0_FilesSharing_Sharebymail;
 
   // coverage:ignore-start
   const Capabilities0_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing_Sharebymail.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -175,7 +174,7 @@ abstract class Capabilities0_FilesSharing
     implements
         $Capabilities0_FilesSharingInterface,
         Built<Capabilities0_FilesSharing, Capabilities0_FilesSharingBuilder> {
-  factory Capabilities0_FilesSharing([final void Function(Capabilities0_FilesSharingBuilder)? b]) =
+  factory Capabilities0_FilesSharing([void Function(Capabilities0_FilesSharingBuilder)? b]) =
       _$Capabilities0_FilesSharing;
 
   // coverage:ignore-start
@@ -183,7 +182,7 @@ abstract class Capabilities0_FilesSharing
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -201,14 +200,14 @@ abstract interface class $Capabilities0Interface {
 }
 
 abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
-  factory Capabilities0([final void Function(Capabilities0Builder)? b]) = _$Capabilities0;
+  factory Capabilities0([void Function(Capabilities0Builder)? b]) = _$Capabilities0;
 
   // coverage:ignore-start
   const Capabilities0._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities0.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -227,7 +226,7 @@ extension $BuiltListCapabilities0Extension on $BuiltListCapabilities0 {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListCapabilities0> get serializer => const _$BuiltListCapabilities0Serializer();
-  static $BuiltListCapabilities0 fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BuiltListCapabilities0 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -242,9 +241,9 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListCapabilities0 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListCapabilities0 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -261,9 +260,9 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
 
   @override
   $BuiltListCapabilities0 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {

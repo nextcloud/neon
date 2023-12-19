@@ -28,7 +28,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -60,8 +60,8 @@ class WeatherStatusClient {
   /// See:
   ///  * [setModeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetModeResponseApplicationJson, void>> setMode({
-    required final int mode,
-    final bool? oCSAPIRequest,
+    required int mode,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setModeRaw(
       mode: mode,
@@ -89,8 +89,8 @@ class WeatherStatusClient {
   ///  * [setMode] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void> setModeRaw({
-    required final int mode,
-    final bool? oCSAPIRequest,
+    required int mode,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -100,7 +100,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -151,7 +151,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [usePersonalAddressRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>> usePersonalAddress({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = usePersonalAddressRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -177,7 +177,7 @@ class WeatherStatusClient {
   ///  * [usePersonalAddress] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void> usePersonalAddressRaw({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -187,7 +187,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -235,7 +235,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetLocationResponseApplicationJson, void>> getLocation({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getLocationRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -260,9 +260,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getLocation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void> getLocationRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -271,7 +269,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -322,10 +320,10 @@ class WeatherStatusClient {
   /// See:
   ///  * [setLocationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetLocationResponseApplicationJson, void>> setLocation({
-    final String? address,
-    final double? lat,
-    final double? lon,
-    final bool? oCSAPIRequest,
+    String? address,
+    double? lat,
+    double? lon,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setLocationRaw(
       address: address,
@@ -357,10 +355,10 @@ class WeatherStatusClient {
   ///  * [setLocation] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void> setLocationRaw({
-    final String? address,
-    final double? lat,
-    final double? lon,
-    final bool? oCSAPIRequest,
+    String? address,
+    double? lat,
+    double? lon,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -370,7 +368,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -430,7 +428,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getForecastRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetForecastResponseApplicationJson, void>> getForecast({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getForecastRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -456,9 +454,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getForecast] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void> getForecastRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -467,7 +463,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -515,7 +511,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>> getFavorites({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getFavoritesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -540,9 +536,7 @@ class WeatherStatusClient {
   /// See:
   ///  * [getFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void> getFavoritesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -551,7 +545,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -600,8 +594,8 @@ class WeatherStatusClient {
   /// See:
   ///  * [setFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>> setFavorites({
-    required final BuiltList<String> favorites,
-    final bool? oCSAPIRequest,
+    required BuiltList<String> favorites,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setFavoritesRaw(
       favorites: favorites,
@@ -629,8 +623,8 @@ class WeatherStatusClient {
   ///  * [setFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void> setFavoritesRaw({
-    required final BuiltList<String> favorites,
-    final bool? oCSAPIRequest,
+    required BuiltList<String> favorites,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -640,7 +634,7 @@ class WeatherStatusClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -691,14 +685,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -719,7 +713,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
         Built<WeatherStatusSetModeResponseApplicationJson_Ocs_Data,
             WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WeatherStatusSetModeResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WeatherStatusSetModeResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -727,7 +721,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetModeResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -750,7 +744,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
         $WeatherStatusSetModeResponseApplicationJson_OcsInterface,
         Built<WeatherStatusSetModeResponseApplicationJson_Ocs, WeatherStatusSetModeResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusSetModeResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusSetModeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusSetModeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -758,7 +752,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetModeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetModeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -780,7 +774,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson
         $WeatherStatusSetModeResponseApplicationJsonInterface,
         Built<WeatherStatusSetModeResponseApplicationJson, WeatherStatusSetModeResponseApplicationJsonBuilder> {
   factory WeatherStatusSetModeResponseApplicationJson([
-    final void Function(WeatherStatusSetModeResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusSetModeResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusSetModeResponseApplicationJson;
 
   // coverage:ignore-start
@@ -788,7 +782,7 @@ abstract class WeatherStatusSetModeResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetModeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetModeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -814,7 +808,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data,
             WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -822,7 +816,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -846,7 +840,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
             WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -854,7 +848,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -877,7 +871,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
         Built<WeatherStatusUsePersonalAddressResponseApplicationJson,
             WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder> {
   factory WeatherStatusUsePersonalAddressResponseApplicationJson([
-    final void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusUsePersonalAddressResponseApplicationJson;
 
   // coverage:ignore-start
@@ -885,7 +879,7 @@ abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusUsePersonalAddressResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusUsePersonalAddressResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -911,7 +905,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
         Built<WeatherStatusGetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WeatherStatusGetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WeatherStatusGetLocationResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -919,7 +913,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -943,7 +937,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
         Built<WeatherStatusGetLocationResponseApplicationJson_Ocs,
             WeatherStatusGetLocationResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusGetLocationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -951,7 +945,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetLocationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetLocationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -973,7 +967,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
         $WeatherStatusGetLocationResponseApplicationJsonInterface,
         Built<WeatherStatusGetLocationResponseApplicationJson, WeatherStatusGetLocationResponseApplicationJsonBuilder> {
   factory WeatherStatusGetLocationResponseApplicationJson([
-    final void Function(WeatherStatusGetLocationResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusGetLocationResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusGetLocationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -981,7 +975,7 @@ abstract class WeatherStatusGetLocationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetLocationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetLocationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1007,7 +1001,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
         Built<WeatherStatusSetLocationResponseApplicationJson_Ocs_Data,
             WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WeatherStatusSetLocationResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WeatherStatusSetLocationResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1015,7 +1009,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetLocationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1039,7 +1033,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
         Built<WeatherStatusSetLocationResponseApplicationJson_Ocs,
             WeatherStatusSetLocationResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusSetLocationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1047,7 +1041,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetLocationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetLocationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1069,7 +1063,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
         $WeatherStatusSetLocationResponseApplicationJsonInterface,
         Built<WeatherStatusSetLocationResponseApplicationJson, WeatherStatusSetLocationResponseApplicationJsonBuilder> {
   factory WeatherStatusSetLocationResponseApplicationJson([
-    final void Function(WeatherStatusSetLocationResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusSetLocationResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusSetLocationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1077,7 +1071,7 @@ abstract class WeatherStatusSetLocationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetLocationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetLocationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1123,7 +1117,7 @@ abstract class Forecast_Data_Instant_Details
     implements
         $Forecast_Data_Instant_DetailsInterface,
         Built<Forecast_Data_Instant_Details, Forecast_Data_Instant_DetailsBuilder> {
-  factory Forecast_Data_Instant_Details([final void Function(Forecast_Data_Instant_DetailsBuilder)? b]) =
+  factory Forecast_Data_Instant_Details([void Function(Forecast_Data_Instant_DetailsBuilder)? b]) =
       _$Forecast_Data_Instant_Details;
 
   // coverage:ignore-start
@@ -1131,7 +1125,7 @@ abstract class Forecast_Data_Instant_Details
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Instant_Details.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Instant_Details.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1149,14 +1143,14 @@ abstract interface class $Forecast_Data_InstantInterface {
 
 abstract class Forecast_Data_Instant
     implements $Forecast_Data_InstantInterface, Built<Forecast_Data_Instant, Forecast_Data_InstantBuilder> {
-  factory Forecast_Data_Instant([final void Function(Forecast_Data_InstantBuilder)? b]) = _$Forecast_Data_Instant;
+  factory Forecast_Data_Instant([void Function(Forecast_Data_InstantBuilder)? b]) = _$Forecast_Data_Instant;
 
   // coverage:ignore-start
   const Forecast_Data_Instant._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Instant.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Instant.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1177,7 +1171,7 @@ abstract class Forecast_Data_Next12Hours_Summary
     implements
         $Forecast_Data_Next12Hours_SummaryInterface,
         Built<Forecast_Data_Next12Hours_Summary, Forecast_Data_Next12Hours_SummaryBuilder> {
-  factory Forecast_Data_Next12Hours_Summary([final void Function(Forecast_Data_Next12Hours_SummaryBuilder)? b]) =
+  factory Forecast_Data_Next12Hours_Summary([void Function(Forecast_Data_Next12Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next12Hours_Summary;
 
   // coverage:ignore-start
@@ -1185,7 +1179,7 @@ abstract class Forecast_Data_Next12Hours_Summary
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next12Hours_Summary.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next12Hours_Summary.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1206,7 +1200,7 @@ abstract class Forecast_Data_Next12Hours_Details
     implements
         $Forecast_Data_Next12Hours_DetailsInterface,
         Built<Forecast_Data_Next12Hours_Details, Forecast_Data_Next12Hours_DetailsBuilder> {
-  factory Forecast_Data_Next12Hours_Details([final void Function(Forecast_Data_Next12Hours_DetailsBuilder)? b]) =
+  factory Forecast_Data_Next12Hours_Details([void Function(Forecast_Data_Next12Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next12Hours_Details;
 
   // coverage:ignore-start
@@ -1214,7 +1208,7 @@ abstract class Forecast_Data_Next12Hours_Details
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next12Hours_Details.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next12Hours_Details.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1233,15 +1227,14 @@ abstract interface class $Forecast_Data_Next12HoursInterface {
 
 abstract class Forecast_Data_Next12Hours
     implements $Forecast_Data_Next12HoursInterface, Built<Forecast_Data_Next12Hours, Forecast_Data_Next12HoursBuilder> {
-  factory Forecast_Data_Next12Hours([final void Function(Forecast_Data_Next12HoursBuilder)? b]) =
-      _$Forecast_Data_Next12Hours;
+  factory Forecast_Data_Next12Hours([void Function(Forecast_Data_Next12HoursBuilder)? b]) = _$Forecast_Data_Next12Hours;
 
   // coverage:ignore-start
   const Forecast_Data_Next12Hours._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next12Hours.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next12Hours.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1262,7 +1255,7 @@ abstract class Forecast_Data_Next1Hours_Summary
     implements
         $Forecast_Data_Next1Hours_SummaryInterface,
         Built<Forecast_Data_Next1Hours_Summary, Forecast_Data_Next1Hours_SummaryBuilder> {
-  factory Forecast_Data_Next1Hours_Summary([final void Function(Forecast_Data_Next1Hours_SummaryBuilder)? b]) =
+  factory Forecast_Data_Next1Hours_Summary([void Function(Forecast_Data_Next1Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next1Hours_Summary;
 
   // coverage:ignore-start
@@ -1270,7 +1263,7 @@ abstract class Forecast_Data_Next1Hours_Summary
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next1Hours_Summary.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next1Hours_Summary.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1299,7 +1292,7 @@ abstract class Forecast_Data_Next1Hours_Details
     implements
         $Forecast_Data_Next1Hours_DetailsInterface,
         Built<Forecast_Data_Next1Hours_Details, Forecast_Data_Next1Hours_DetailsBuilder> {
-  factory Forecast_Data_Next1Hours_Details([final void Function(Forecast_Data_Next1Hours_DetailsBuilder)? b]) =
+  factory Forecast_Data_Next1Hours_Details([void Function(Forecast_Data_Next1Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next1Hours_Details;
 
   // coverage:ignore-start
@@ -1307,7 +1300,7 @@ abstract class Forecast_Data_Next1Hours_Details
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next1Hours_Details.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next1Hours_Details.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1326,15 +1319,14 @@ abstract interface class $Forecast_Data_Next1HoursInterface {
 
 abstract class Forecast_Data_Next1Hours
     implements $Forecast_Data_Next1HoursInterface, Built<Forecast_Data_Next1Hours, Forecast_Data_Next1HoursBuilder> {
-  factory Forecast_Data_Next1Hours([final void Function(Forecast_Data_Next1HoursBuilder)? b]) =
-      _$Forecast_Data_Next1Hours;
+  factory Forecast_Data_Next1Hours([void Function(Forecast_Data_Next1HoursBuilder)? b]) = _$Forecast_Data_Next1Hours;
 
   // coverage:ignore-start
   const Forecast_Data_Next1Hours._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next1Hours.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next1Hours.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1355,7 +1347,7 @@ abstract class Forecast_Data_Next6Hours_Summary
     implements
         $Forecast_Data_Next6Hours_SummaryInterface,
         Built<Forecast_Data_Next6Hours_Summary, Forecast_Data_Next6Hours_SummaryBuilder> {
-  factory Forecast_Data_Next6Hours_Summary([final void Function(Forecast_Data_Next6Hours_SummaryBuilder)? b]) =
+  factory Forecast_Data_Next6Hours_Summary([void Function(Forecast_Data_Next6Hours_SummaryBuilder)? b]) =
       _$Forecast_Data_Next6Hours_Summary;
 
   // coverage:ignore-start
@@ -1363,7 +1355,7 @@ abstract class Forecast_Data_Next6Hours_Summary
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next6Hours_Summary.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next6Hours_Summary.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1394,7 +1386,7 @@ abstract class Forecast_Data_Next6Hours_Details
     implements
         $Forecast_Data_Next6Hours_DetailsInterface,
         Built<Forecast_Data_Next6Hours_Details, Forecast_Data_Next6Hours_DetailsBuilder> {
-  factory Forecast_Data_Next6Hours_Details([final void Function(Forecast_Data_Next6Hours_DetailsBuilder)? b]) =
+  factory Forecast_Data_Next6Hours_Details([void Function(Forecast_Data_Next6Hours_DetailsBuilder)? b]) =
       _$Forecast_Data_Next6Hours_Details;
 
   // coverage:ignore-start
@@ -1402,7 +1394,7 @@ abstract class Forecast_Data_Next6Hours_Details
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next6Hours_Details.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next6Hours_Details.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1421,15 +1413,14 @@ abstract interface class $Forecast_Data_Next6HoursInterface {
 
 abstract class Forecast_Data_Next6Hours
     implements $Forecast_Data_Next6HoursInterface, Built<Forecast_Data_Next6Hours, Forecast_Data_Next6HoursBuilder> {
-  factory Forecast_Data_Next6Hours([final void Function(Forecast_Data_Next6HoursBuilder)? b]) =
-      _$Forecast_Data_Next6Hours;
+  factory Forecast_Data_Next6Hours([void Function(Forecast_Data_Next6HoursBuilder)? b]) = _$Forecast_Data_Next6Hours;
 
   // coverage:ignore-start
   const Forecast_Data_Next6Hours._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data_Next6Hours.fromJson(final Map<String, dynamic> json) =>
+  factory Forecast_Data_Next6Hours.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1452,14 +1443,14 @@ abstract interface class $Forecast_DataInterface {
 }
 
 abstract class Forecast_Data implements $Forecast_DataInterface, Built<Forecast_Data, Forecast_DataBuilder> {
-  factory Forecast_Data([final void Function(Forecast_DataBuilder)? b]) = _$Forecast_Data;
+  factory Forecast_Data([void Function(Forecast_DataBuilder)? b]) = _$Forecast_Data;
 
   // coverage:ignore-start
   const Forecast_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast_Data.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Forecast_Data.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1476,14 +1467,14 @@ abstract interface class $ForecastInterface {
 }
 
 abstract class Forecast implements $ForecastInterface, Built<Forecast, ForecastBuilder> {
-  factory Forecast([final void Function(ForecastBuilder)? b]) = _$Forecast;
+  factory Forecast([void Function(ForecastBuilder)? b]) = _$Forecast;
 
   // coverage:ignore-start
   const Forecast._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Forecast.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Forecast.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1505,7 +1496,7 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
         Built<WeatherStatusGetForecastResponseApplicationJson_Ocs,
             WeatherStatusGetForecastResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetForecastResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusGetForecastResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1513,7 +1504,7 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetForecastResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetForecastResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1535,7 +1526,7 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
         $WeatherStatusGetForecastResponseApplicationJsonInterface,
         Built<WeatherStatusGetForecastResponseApplicationJson, WeatherStatusGetForecastResponseApplicationJsonBuilder> {
   factory WeatherStatusGetForecastResponseApplicationJson([
-    final void Function(WeatherStatusGetForecastResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusGetForecastResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusGetForecastResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1543,7 +1534,7 @@ abstract class WeatherStatusGetForecastResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetForecastResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetForecastResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1567,7 +1558,7 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
         Built<WeatherStatusGetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusGetFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1575,7 +1566,7 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1598,7 +1589,7 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
         Built<WeatherStatusGetFavoritesResponseApplicationJson,
             WeatherStatusGetFavoritesResponseApplicationJsonBuilder> {
   factory WeatherStatusGetFavoritesResponseApplicationJson([
-    final void Function(WeatherStatusGetFavoritesResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusGetFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusGetFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1606,7 +1597,7 @@ abstract class WeatherStatusGetFavoritesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusGetFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusGetFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1629,7 +1620,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
         Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data,
             WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data([
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(WeatherStatusSetFavoritesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1637,7 +1628,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1661,7 +1652,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
         Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs,
             WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs([
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder)? b,
+    void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$WeatherStatusSetFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1669,7 +1660,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1692,7 +1683,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
         Built<WeatherStatusSetFavoritesResponseApplicationJson,
             WeatherStatusSetFavoritesResponseApplicationJsonBuilder> {
   factory WeatherStatusSetFavoritesResponseApplicationJson([
-    final void Function(WeatherStatusSetFavoritesResponseApplicationJsonBuilder)? b,
+    void Function(WeatherStatusSetFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$WeatherStatusSetFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1700,7 +1691,7 @@ abstract class WeatherStatusSetFavoritesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory WeatherStatusSetFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory WeatherStatusSetFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1721,7 +1712,7 @@ abstract class Capabilities_WeatherStatus
     implements
         $Capabilities_WeatherStatusInterface,
         Built<Capabilities_WeatherStatus, Capabilities_WeatherStatusBuilder> {
-  factory Capabilities_WeatherStatus([final void Function(Capabilities_WeatherStatusBuilder)? b]) =
+  factory Capabilities_WeatherStatus([void Function(Capabilities_WeatherStatusBuilder)? b]) =
       _$Capabilities_WeatherStatus;
 
   // coverage:ignore-start
@@ -1729,7 +1720,7 @@ abstract class Capabilities_WeatherStatus
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_WeatherStatus.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_WeatherStatus.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1747,14 +1738,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

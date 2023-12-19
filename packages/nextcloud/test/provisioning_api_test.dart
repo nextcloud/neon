@@ -8,7 +8,7 @@ void main() {
   presets(
     'server',
     'provisioning_api',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {

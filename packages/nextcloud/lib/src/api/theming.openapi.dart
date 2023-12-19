@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -66,7 +66,7 @@ class IconClient {
   ///
   /// See:
   ///  * [getFaviconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getFavicon({final String? app}) async {
+  Future<DynamiteResponse<Uint8List, void>> getFavicon({String? app}) async {
     final rawResponse = getFaviconRaw(
       app: app,
     );
@@ -92,7 +92,7 @@ class IconClient {
   /// See:
   ///  * [getFavicon] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getFaviconRaw({final String? app}) {
+  DynamiteRawResponse<Uint8List, void> getFaviconRaw({String? app}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'image/x-icon',
@@ -101,7 +101,7 @@ class IconClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -148,7 +148,7 @@ class IconClient {
   ///
   /// See:
   ///  * [getTouchIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getTouchIcon({final String? app}) async {
+  Future<DynamiteResponse<Uint8List, void>> getTouchIcon({String? app}) async {
     final rawResponse = getTouchIconRaw(
       app: app,
     );
@@ -174,7 +174,7 @@ class IconClient {
   /// See:
   ///  * [getTouchIcon] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getTouchIconRaw({final String? app}) {
+  DynamiteRawResponse<Uint8List, void> getTouchIconRaw({String? app}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'image/png',
@@ -183,7 +183,7 @@ class IconClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -232,8 +232,8 @@ class IconClient {
   /// See:
   ///  * [getThemedIconRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getThemedIcon({
-    required final String app,
-    required final String image,
+    required String app,
+    required String image,
   }) async {
     final rawResponse = getThemedIconRaw(
       app: app,
@@ -263,8 +263,8 @@ class IconClient {
   ///  * [getThemedIcon] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getThemedIconRaw({
-    required final String app,
-    required final String image,
+    required String app,
+    required String image,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -274,7 +274,7 @@ class IconClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -334,9 +334,9 @@ class ThemingClient {
   /// See:
   ///  * [getThemeStylesheetRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<String, void>> getThemeStylesheet({
-    required final String themeId,
-    final int? plain,
-    final int? withCustomCss,
+    required String themeId,
+    int? plain,
+    int? withCustomCss,
   }) async {
     final rawResponse = getThemeStylesheetRaw(
       themeId: themeId,
@@ -367,9 +367,9 @@ class ThemingClient {
   ///  * [getThemeStylesheet] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> getThemeStylesheetRaw({
-    required final String themeId,
-    final int? plain,
-    final int? withCustomCss,
+    required String themeId,
+    int? plain,
+    int? withCustomCss,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -379,7 +379,7 @@ class ThemingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -437,8 +437,8 @@ class ThemingClient {
   /// See:
   ///  * [getImageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getImage({
-    required final String key,
-    final int? useSvg,
+    required String key,
+    int? useSvg,
   }) async {
     final rawResponse = getImageRaw(
       key: key,
@@ -468,8 +468,8 @@ class ThemingClient {
   ///  * [getImage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getImageRaw({
-    required final String key,
-    final int? useSvg,
+    required String key,
+    int? useSvg,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -479,7 +479,7 @@ class ThemingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -527,9 +527,7 @@ class ThemingClient {
   ///
   /// See:
   ///  * [getManifestRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({
-    required final String app,
-  }) async {
+  Future<DynamiteResponse<ThemingGetManifestResponseApplicationJson, void>> getManifest({required String app}) async {
     final rawResponse = getManifestRaw(
       app: app,
     );
@@ -553,7 +551,7 @@ class ThemingClient {
   /// See:
   ///  * [getManifest] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({required final String app}) {
+  DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void> getManifestRaw({required String app}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -562,7 +560,7 @@ class ThemingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -613,7 +611,7 @@ class UserThemeClient {
   ///
   /// See:
   ///  * [getBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Uint8List, void>> getBackground({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<Uint8List, void>> getBackground({bool? oCSAPIRequest}) async {
     final rawResponse = getBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -638,7 +636,7 @@ class UserThemeClient {
   /// See:
   ///  * [getBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Uint8List, void> getBackgroundRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<Uint8List, void> getBackgroundRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': '*/*',
@@ -647,7 +645,7 @@ class UserThemeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -700,10 +698,10 @@ class UserThemeClient {
   /// See:
   ///  * [setBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Background, void>> setBackground({
-    required final String type,
-    final String? value,
-    final String? color,
-    final bool? oCSAPIRequest,
+    required String type,
+    String? value,
+    String? color,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setBackgroundRaw(
       type: type,
@@ -737,10 +735,10 @@ class UserThemeClient {
   ///  * [setBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Background, void> setBackgroundRaw({
-    required final String type,
-    final String? value,
-    final String? color,
-    final bool? oCSAPIRequest,
+    required String type,
+    String? value,
+    String? color,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -750,7 +748,7 @@ class UserThemeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -807,7 +805,7 @@ class UserThemeClient {
   ///
   /// See:
   ///  * [deleteBackgroundRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Background, void>> deleteBackground({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<Background, void>> deleteBackground({bool? oCSAPIRequest}) async {
     final rawResponse = deleteBackgroundRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -831,7 +829,7 @@ class UserThemeClient {
   /// See:
   ///  * [deleteBackground] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Background, void> deleteBackgroundRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<Background, void> deleteBackgroundRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -840,7 +838,7 @@ class UserThemeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -891,8 +889,8 @@ class UserThemeClient {
   /// See:
   ///  * [enableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserThemeEnableThemeResponseApplicationJson, void>> enableTheme({
-    required final String themeId,
-    final bool? oCSAPIRequest,
+    required String themeId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = enableThemeRaw(
       themeId: themeId,
@@ -922,8 +920,8 @@ class UserThemeClient {
   ///  * [enableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void> enableThemeRaw({
-    required final String themeId,
-    final bool? oCSAPIRequest,
+    required String themeId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -933,7 +931,7 @@ class UserThemeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -987,8 +985,8 @@ class UserThemeClient {
   /// See:
   ///  * [disableThemeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UserThemeDisableThemeResponseApplicationJson, void>> disableTheme({
-    required final String themeId,
-    final bool? oCSAPIRequest,
+    required String themeId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = disableThemeRaw(
       themeId: themeId,
@@ -1018,8 +1016,8 @@ class UserThemeClient {
   ///  * [disableTheme] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void> disableThemeRaw({
-    required final String themeId,
-    final bool? oCSAPIRequest,
+    required String themeId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1029,7 +1027,7 @@ class UserThemeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1079,7 +1077,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
         $ThemingGetManifestResponseApplicationJson_IconsInterface,
         Built<ThemingGetManifestResponseApplicationJson_Icons, ThemingGetManifestResponseApplicationJson_IconsBuilder> {
   factory ThemingGetManifestResponseApplicationJson_Icons([
-    final void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? b,
+    void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? b,
   ]) = _$ThemingGetManifestResponseApplicationJson_Icons;
 
   // coverage:ignore-start
@@ -1087,7 +1085,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1099,7 +1097,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
       _$themingGetManifestResponseApplicationJsonIconsSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
+  static void _validate(ThemingGetManifestResponseApplicationJson_IconsBuilder b) {
     dynamite_utils.checkMinLength(b.src, 1, 'src');
   }
 }
@@ -1125,7 +1123,7 @@ abstract class ThemingGetManifestResponseApplicationJson
         $ThemingGetManifestResponseApplicationJsonInterface,
         Built<ThemingGetManifestResponseApplicationJson, ThemingGetManifestResponseApplicationJsonBuilder> {
   factory ThemingGetManifestResponseApplicationJson([
-    final void Function(ThemingGetManifestResponseApplicationJsonBuilder)? b,
+    void Function(ThemingGetManifestResponseApplicationJsonBuilder)? b,
   ]) = _$ThemingGetManifestResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1133,7 +1131,7 @@ abstract class ThemingGetManifestResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ThemingGetManifestResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ThemingGetManifestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1153,14 +1151,14 @@ abstract interface class $BackgroundInterface {
 }
 
 abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
-  factory Background([final void Function(BackgroundBuilder)? b]) = _$Background;
+  factory Background([void Function(BackgroundBuilder)? b]) = _$Background;
 
   // coverage:ignore-start
   const Background._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Background.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Background.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1180,14 +1178,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1208,7 +1206,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
         $UserThemeEnableThemeResponseApplicationJson_OcsInterface,
         Built<UserThemeEnableThemeResponseApplicationJson_Ocs, UserThemeEnableThemeResponseApplicationJson_OcsBuilder> {
   factory UserThemeEnableThemeResponseApplicationJson_Ocs([
-    final void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? b,
+    void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserThemeEnableThemeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1216,7 +1214,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1238,7 +1236,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson
         $UserThemeEnableThemeResponseApplicationJsonInterface,
         Built<UserThemeEnableThemeResponseApplicationJson, UserThemeEnableThemeResponseApplicationJsonBuilder> {
   factory UserThemeEnableThemeResponseApplicationJson([
-    final void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? b,
+    void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? b,
   ]) = _$UserThemeEnableThemeResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1246,7 +1244,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserThemeEnableThemeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserThemeEnableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1270,7 +1268,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
         Built<UserThemeDisableThemeResponseApplicationJson_Ocs,
             UserThemeDisableThemeResponseApplicationJson_OcsBuilder> {
   factory UserThemeDisableThemeResponseApplicationJson_Ocs([
-    final void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? b,
+    void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserThemeDisableThemeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1278,7 +1276,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1300,7 +1298,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson
         $UserThemeDisableThemeResponseApplicationJsonInterface,
         Built<UserThemeDisableThemeResponseApplicationJson, UserThemeDisableThemeResponseApplicationJsonBuilder> {
   factory UserThemeDisableThemeResponseApplicationJson([
-    final void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? b,
+    void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? b,
   ]) = _$UserThemeDisableThemeResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1308,7 +1306,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UserThemeDisableThemeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UserThemeDisableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1348,7 +1346,7 @@ abstract class PublicCapabilities_Theming
     implements
         $PublicCapabilities_ThemingInterface,
         Built<PublicCapabilities_Theming, PublicCapabilities_ThemingBuilder> {
-  factory PublicCapabilities_Theming([final void Function(PublicCapabilities_ThemingBuilder)? b]) =
+  factory PublicCapabilities_Theming([void Function(PublicCapabilities_ThemingBuilder)? b]) =
       _$PublicCapabilities_Theming;
 
   // coverage:ignore-start
@@ -1356,7 +1354,7 @@ abstract class PublicCapabilities_Theming
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities_Theming.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities_Theming.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1374,15 +1372,14 @@ abstract interface class $PublicCapabilitiesInterface {
 
 abstract class PublicCapabilities
     implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
-  factory PublicCapabilities([final void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
+  factory PublicCapabilities([void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
 
   // coverage:ignore-start
   const PublicCapabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

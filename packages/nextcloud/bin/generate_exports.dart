@@ -8,9 +8,9 @@ void main() {
   final files = Directory('lib/src/api')
       .listSync()
       .cast<File>()
-      .where((final file) => file.path.endsWith('.openapi.dart'))
+      .where((file) => file.path.endsWith('.openapi.dart'))
       .toList()
-    ..sort((final a, final b) => a.path.compareTo(b.path));
+    ..sort((a, b) => a.path.compareTo(b.path));
 
   final idStatements = StringBuffer();
 

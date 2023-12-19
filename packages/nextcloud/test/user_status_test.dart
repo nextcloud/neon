@@ -8,7 +8,7 @@ void main() {
   presets(
     'server',
     'user_status',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {
@@ -30,30 +30,30 @@ void main() {
           expect(() => response.headers, isA<void>());
 
           expect(response.body.ocs.data, hasLength(5));
-          final responseIDs = response.body.ocs.data.map((final status) => status.id);
+          final responseIDs = response.body.ocs.data.map((status) => status.id);
           expect(expectedStatusIDs.map(responseIDs.contains).contains(false), false);
           for (final status in response.body.ocs.data) {
             expect(status.icon, isNotNull);
             expect(status.message, isNotNull);
           }
 
-          final meeting = response.body.ocs.data.singleWhere((final s) => s.id == 'meeting').clearAt!;
+          final meeting = response.body.ocs.data.singleWhere((s) => s.id == 'meeting').clearAt!;
           expect(meeting.type, user_status.ClearAt_Type.period);
           expect(meeting.time.$int, 3600);
 
-          final commuting = response.body.ocs.data.singleWhere((final s) => s.id == 'commuting').clearAt!;
+          final commuting = response.body.ocs.data.singleWhere((s) => s.id == 'commuting').clearAt!;
           expect(commuting.type, user_status.ClearAt_Type.period);
           expect(commuting.time.$int, 1800);
 
-          final remoteWork = response.body.ocs.data.singleWhere((final s) => s.id == 'remote-work').clearAt!;
+          final remoteWork = response.body.ocs.data.singleWhere((s) => s.id == 'remote-work').clearAt!;
           expect(remoteWork.type, user_status.ClearAt_Type.endOf);
           expect(remoteWork.time.clearAtTimeType, user_status.ClearAtTimeType.day);
 
-          final sickLeave = response.body.ocs.data.singleWhere((final s) => s.id == 'sick-leave').clearAt!;
+          final sickLeave = response.body.ocs.data.singleWhere((s) => s.id == 'sick-leave').clearAt!;
           expect(sickLeave.type, user_status.ClearAt_Type.endOf);
           expect(sickLeave.time.clearAtTimeType, user_status.ClearAtTimeType.day);
 
-          final vacationing = response.body.ocs.data.singleWhere((final s) => s.id == 'vacationing').clearAt;
+          final vacationing = response.body.ocs.data.singleWhere((s) => s.id == 'vacationing').clearAt;
           expect(vacationing, null);
         });
       });

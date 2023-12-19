@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -56,12 +56,12 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [getNotesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BuiltList<Note>, void>> getNotes({
-    final String? category,
-    final String? exclude,
-    final int? pruneBefore,
-    final int? chunkSize,
-    final String? chunkCursor,
-    final String? ifNoneMatch,
+    String? category,
+    String? exclude,
+    int? pruneBefore,
+    int? chunkSize,
+    String? chunkCursor,
+    String? ifNoneMatch,
   }) async {
     final rawResponse = getNotesRaw(
       category: category,
@@ -95,12 +95,12 @@ class Client extends DynamiteClient {
   ///  * [getNotes] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
-    final String? category,
-    final String? exclude,
-    final int? pruneBefore,
-    final int? chunkSize,
-    final String? chunkCursor,
-    final String? ifNoneMatch,
+    String? category,
+    String? exclude,
+    int? pruneBefore,
+    int? chunkSize,
+    String? chunkCursor,
+    String? ifNoneMatch,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -110,7 +110,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -182,11 +182,11 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> createNote({
-    final String? category,
-    final String? title,
-    final String? content,
-    final int? modified,
-    final int? favorite,
+    String? category,
+    String? title,
+    String? content,
+    int? modified,
+    int? favorite,
   }) async {
     final rawResponse = createNoteRaw(
       category: category,
@@ -218,11 +218,11 @@ class Client extends DynamiteClient {
   ///  * [createNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> createNoteRaw({
-    final String? category,
-    final String? title,
-    final String? content,
-    final int? modified,
-    final int? favorite,
+    String? category,
+    String? title,
+    String? content,
+    int? modified,
+    int? favorite,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -232,7 +232,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -298,9 +298,9 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [getNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> getNote({
-    required final int id,
-    final String? exclude,
-    final String? ifNoneMatch,
+    required int id,
+    String? exclude,
+    String? ifNoneMatch,
   }) async {
     final rawResponse = getNoteRaw(
       id: id,
@@ -327,9 +327,9 @@ class Client extends DynamiteClient {
   ///  * [getNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> getNoteRaw({
-    required final int id,
-    final String? exclude,
-    final String? ifNoneMatch,
+    required int id,
+    String? exclude,
+    String? ifNoneMatch,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -339,7 +339,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -398,13 +398,13 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [updateNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Note, void>> updateNote({
-    required final int id,
-    final String? content,
-    final int? modified,
-    final String? title,
-    final String? category,
-    final int? favorite,
-    final String? ifMatch,
+    required int id,
+    String? content,
+    int? modified,
+    String? title,
+    String? category,
+    int? favorite,
+    String? ifMatch,
   }) async {
     final rawResponse = updateNoteRaw(
       id: id,
@@ -439,13 +439,13 @@ class Client extends DynamiteClient {
   ///  * [updateNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Note, void> updateNoteRaw({
-    required final int id,
-    final String? content,
-    final int? modified,
-    final String? title,
-    final String? category,
-    final int? favorite,
-    final String? ifMatch,
+    required int id,
+    String? content,
+    int? modified,
+    String? title,
+    String? category,
+    int? favorite,
+    String? ifMatch,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -455,7 +455,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -519,7 +519,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [deleteNoteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<String, void>> deleteNote({required final int id}) async {
+  Future<DynamiteResponse<String, void>> deleteNote({required int id}) async {
     final rawResponse = deleteNoteRaw(
       id: id,
     );
@@ -538,7 +538,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [deleteNote] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<String, void> deleteNoteRaw({required final int id}) {
+  DynamiteRawResponse<String, void> deleteNoteRaw({required int id}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -547,7 +547,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -614,7 +614,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -652,7 +652,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [updateSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<Settings, void>> updateSettings({required final Settings settings}) async {
+  Future<DynamiteResponse<Settings, void>> updateSettings({required Settings settings}) async {
     final rawResponse = updateSettingsRaw(
       settings: settings,
     );
@@ -671,7 +671,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<Settings, void> updateSettingsRaw({required final Settings settings}) {
+  DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -680,7 +680,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -728,14 +728,14 @@ abstract interface class $NoteInterface {
 }
 
 abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
-  factory Note([final void Function(NoteBuilder)? b]) = _$Note;
+  factory Note([void Function(NoteBuilder)? b]) = _$Note;
 
   // coverage:ignore-start
   const Note._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Note.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Note.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -758,7 +758,7 @@ class Settings_NoteMode extends EnumClass {
   static BuiltSet<Settings_NoteMode> get values => _$settingsNoteModeValues;
   // coverage:ignore-end
 
-  static Settings_NoteMode valueOf(final String name) => _$valueOfSettings_NoteMode(name);
+  static Settings_NoteMode valueOf(String name) => _$valueOfSettings_NoteMode(name);
 
   static Serializer<Settings_NoteMode> get serializer => _$settingsNoteModeSerializer;
 }
@@ -771,14 +771,14 @@ abstract interface class $SettingsInterface {
 }
 
 abstract class Settings implements $SettingsInterface, Built<Settings, SettingsBuilder> {
-  factory Settings([final void Function(SettingsBuilder)? b]) = _$Settings;
+  factory Settings([void Function(SettingsBuilder)? b]) = _$Settings;
 
   // coverage:ignore-start
   const Settings._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Settings.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Settings.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -797,15 +797,14 @@ abstract interface class $Capabilities_NotesInterface {
 
 abstract class Capabilities_Notes
     implements $Capabilities_NotesInterface, Built<Capabilities_Notes, Capabilities_NotesBuilder> {
-  factory Capabilities_Notes([final void Function(Capabilities_NotesBuilder)? b]) = _$Capabilities_Notes;
+  factory Capabilities_Notes([void Function(Capabilities_NotesBuilder)? b]) = _$Capabilities_Notes;
 
   // coverage:ignore-start
   const Capabilities_Notes._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Notes.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Notes.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -821,14 +820,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -848,14 +847,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -872,14 +871,14 @@ abstract interface class $EmptyOCS_OcsInterface {
 }
 
 abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
-  factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
+  factory EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
   const EmptyOCS_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -895,14 +894,14 @@ abstract interface class $EmptyOCSInterface {
 }
 
 abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
-  factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
+  factory EmptyOCS([void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start
   const EmptyOCS._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

@@ -13,7 +13,7 @@ void main() {
   presets(
     'spreed',
     'spreed',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client1;
       setUp(() async {
@@ -278,7 +278,7 @@ void main() {
                 .ocs
                 .data!;
             unawaited(
-              Future<void>.delayed(const Duration(seconds: 1)).then((final _) async {
+              Future<void>.delayed(const Duration(seconds: 1)).then((_) async {
                 await client1.spreed.chat.sendMessage(
                   token: room.token,
                   message: '123',
@@ -333,7 +333,7 @@ void main() {
           expect(response.body.ocs.data.helloAuthParams.$10.userid, 'user1');
           expect(response.body.ocs.data.helloAuthParams.$10.ticket, contains(':user1:'));
           expect(
-            response.body.ocs.data.helloAuthParams.$20.token.split('').where((final x) => x == '.'),
+            response.body.ocs.data.helloAuthParams.$20.token.split('').where((x) => x == '.'),
             hasLength(2),
           );
           expect(response.body.ocs.data.stunservers, hasLength(1));

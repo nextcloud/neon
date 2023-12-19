@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -71,7 +71,7 @@ class DeletedShareapiClient {
   ///
   /// See:
   ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeletedShareapiListResponseApplicationJson, void>> list({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<DeletedShareapiListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
     final rawResponse = listRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -95,7 +95,7 @@ class DeletedShareapiClient {
   /// See:
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -104,7 +104,7 @@ class DeletedShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -154,8 +154,8 @@ class DeletedShareapiClient {
   /// See:
   ///  * [undeleteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DeletedShareapiUndeleteResponseApplicationJson, void>> undelete({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = undeleteRaw(
       id: id,
@@ -184,8 +184,8 @@ class DeletedShareapiClient {
   ///  * [undelete] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void> undeleteRaw({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -195,7 +195,7 @@ class DeletedShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -256,8 +256,8 @@ class PublicPreviewClient {
   /// See:
   ///  * [directLinkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> directLink({
-    required final String token,
-    final bool? oCSAPIRequest,
+    required String token,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = directLinkRaw(
       token: token,
@@ -288,8 +288,8 @@ class PublicPreviewClient {
   ///  * [directLink] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> directLinkRaw({
-    required final String token,
-    final bool? oCSAPIRequest,
+    required String token,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -299,7 +299,7 @@ class PublicPreviewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -356,12 +356,12 @@ class PublicPreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    required final String token,
-    final String? file,
-    final int? x,
-    final int? y,
-    final int? a,
-    final bool? oCSAPIRequest,
+    required String token,
+    String? file,
+    int? x,
+    int? y,
+    int? a,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getPreviewRaw(
       token: token,
@@ -400,12 +400,12 @@ class PublicPreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    required final String token,
-    final String? file,
-    final int? x,
-    final int? y,
-    final int? a,
-    final bool? oCSAPIRequest,
+    required String token,
+    String? file,
+    int? x,
+    int? y,
+    int? a,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -415,7 +415,7 @@ class PublicPreviewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -487,7 +487,7 @@ class RemoteClient {
   ///
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<RemoteGetSharesResponseApplicationJson, void>> getShares({bool? oCSAPIRequest}) async {
     final rawResponse = getSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -511,7 +511,7 @@ class RemoteClient {
   /// See:
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -520,7 +520,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -568,7 +568,7 @@ class RemoteClient {
   /// See:
   ///  * [getOpenSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteGetOpenSharesResponseApplicationJson, void>> getOpenShares({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getOpenSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -593,7 +593,7 @@ class RemoteClient {
   /// See:
   ///  * [getOpenShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -602,7 +602,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -653,8 +653,8 @@ class RemoteClient {
   /// See:
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteAcceptShareResponseApplicationJson, void>> acceptShare({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -683,8 +683,8 @@ class RemoteClient {
   ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void> acceptShareRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -694,7 +694,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -748,8 +748,8 @@ class RemoteClient {
   /// See:
   ///  * [declineShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteDeclineShareResponseApplicationJson, void>> declineShare({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = declineShareRaw(
       id: id,
@@ -778,8 +778,8 @@ class RemoteClient {
   ///  * [declineShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void> declineShareRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -789,7 +789,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -843,8 +843,8 @@ class RemoteClient {
   /// See:
   ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteGetShareResponseApplicationJson, void>> getShare({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getShareRaw(
       id: id,
@@ -873,8 +873,8 @@ class RemoteClient {
   ///  * [getShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void> getShareRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -884,7 +884,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -938,8 +938,8 @@ class RemoteClient {
   /// See:
   ///  * [unshareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RemoteUnshareResponseApplicationJson, void>> unshare({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = unshareRaw(
       id: id,
@@ -969,8 +969,8 @@ class RemoteClient {
   ///  * [unshare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void> unshareRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -980,7 +980,7 @@ class RemoteClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1042,10 +1042,10 @@ class ShareInfoClient {
   /// See:
   ///  * [infoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareInfo, void>> info({
-    required final String t,
-    final String? password,
-    final String? dir,
-    final int? depth,
+    required String t,
+    String? password,
+    String? dir,
+    int? depth,
   }) async {
     final rawResponse = infoRaw(
       t: t,
@@ -1079,10 +1079,10 @@ class ShareInfoClient {
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareInfo, void> infoRaw({
-    required final String t,
-    final String? password,
-    final String? dir,
-    final int? depth,
+    required String t,
+    String? password,
+    String? dir,
+    int? depth,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1092,7 +1092,7 @@ class ShareInfoClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1161,12 +1161,12 @@ class ShareapiClient {
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetSharesResponseApplicationJson, void>> getShares({
-    final String? sharedWithMe,
-    final String? reshares,
-    final String? subfiles,
-    final String? path,
-    final String? includeTags,
-    final bool? oCSAPIRequest,
+    String? sharedWithMe,
+    String? reshares,
+    String? subfiles,
+    String? path,
+    String? includeTags,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSharesRaw(
       sharedWithMe: sharedWithMe,
@@ -1203,12 +1203,12 @@ class ShareapiClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void> getSharesRaw({
-    final String? sharedWithMe,
-    final String? reshares,
-    final String? subfiles,
-    final String? path,
-    final String? includeTags,
-    final bool? oCSAPIRequest,
+    String? sharedWithMe,
+    String? reshares,
+    String? subfiles,
+    String? path,
+    String? includeTags,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1218,7 +1218,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1304,18 +1304,18 @@ class ShareapiClient {
   /// See:
   ///  * [createShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiCreateShareResponseApplicationJson, void>> createShare({
-    final String? path,
-    final int? permissions,
-    final int? shareType,
-    final String? shareWith,
-    final String? publicUpload,
-    final String? password,
-    final String? sendPasswordByTalk,
-    final String? expireDate,
-    final String? note,
-    final String? label,
-    final String? attributes,
-    final bool? oCSAPIRequest,
+    String? path,
+    int? permissions,
+    int? shareType,
+    String? shareWith,
+    String? publicUpload,
+    String? password,
+    String? sendPasswordByTalk,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? attributes,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createShareRaw(
       path: path,
@@ -1366,18 +1366,18 @@ class ShareapiClient {
   ///  * [createShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void> createShareRaw({
-    final String? path,
-    final int? permissions,
-    final int? shareType,
-    final String? shareWith,
-    final String? publicUpload,
-    final String? password,
-    final String? sendPasswordByTalk,
-    final String? expireDate,
-    final String? note,
-    final String? label,
-    final String? attributes,
-    final bool? oCSAPIRequest,
+    String? path,
+    int? permissions,
+    int? shareType,
+    String? shareWith,
+    String? publicUpload,
+    String? password,
+    String? sendPasswordByTalk,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? attributes,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1387,7 +1387,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1481,8 +1481,8 @@ class ShareapiClient {
   /// See:
   ///  * [getInheritedSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>> getInheritedShares({
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String path,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getInheritedSharesRaw(
       path: path,
@@ -1512,8 +1512,8 @@ class ShareapiClient {
   ///  * [getInheritedShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void> getInheritedSharesRaw({
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String path,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1523,7 +1523,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1575,7 +1575,7 @@ class ShareapiClient {
   /// See:
   ///  * [pendingSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiPendingSharesResponseApplicationJson, void>> pendingShares({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = pendingSharesRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -1600,9 +1600,7 @@ class ShareapiClient {
   /// See:
   ///  * [pendingShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -1611,7 +1609,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1662,9 +1660,9 @@ class ShareapiClient {
   /// See:
   ///  * [getShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiGetShareResponseApplicationJson, void>> getShare({
-    required final String id,
-    final int? includeTags,
-    final bool? oCSAPIRequest,
+    required String id,
+    int? includeTags,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getShareRaw(
       id: id,
@@ -1695,9 +1693,9 @@ class ShareapiClient {
   ///  * [getShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void> getShareRaw({
-    required final String id,
-    final int? includeTags,
-    final bool? oCSAPIRequest,
+    required String id,
+    int? includeTags,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1707,7 +1705,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1776,17 +1774,17 @@ class ShareapiClient {
   /// See:
   ///  * [updateShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiUpdateShareResponseApplicationJson, void>> updateShare({
-    required final String id,
-    final int? permissions,
-    final String? password,
-    final String? sendPasswordByTalk,
-    final String? publicUpload,
-    final String? expireDate,
-    final String? note,
-    final String? label,
-    final String? hideDownload,
-    final String? attributes,
-    final bool? oCSAPIRequest,
+    required String id,
+    int? permissions,
+    String? password,
+    String? sendPasswordByTalk,
+    String? publicUpload,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? hideDownload,
+    String? attributes,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = updateShareRaw(
       id: id,
@@ -1835,17 +1833,17 @@ class ShareapiClient {
   ///  * [updateShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void> updateShareRaw({
-    required final String id,
-    final int? permissions,
-    final String? password,
-    final String? sendPasswordByTalk,
-    final String? publicUpload,
-    final String? expireDate,
-    final String? note,
-    final String? label,
-    final String? hideDownload,
-    final String? attributes,
-    final bool? oCSAPIRequest,
+    required String id,
+    int? permissions,
+    String? password,
+    String? sendPasswordByTalk,
+    String? publicUpload,
+    String? expireDate,
+    String? note,
+    String? label,
+    String? hideDownload,
+    String? attributes,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1855,7 +1853,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1940,8 +1938,8 @@ class ShareapiClient {
   /// See:
   ///  * [deleteShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiDeleteShareResponseApplicationJson, void>> deleteShare({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteShareRaw(
       id: id,
@@ -1971,8 +1969,8 @@ class ShareapiClient {
   ///  * [deleteShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void> deleteShareRaw({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1982,7 +1980,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2036,8 +2034,8 @@ class ShareapiClient {
   /// See:
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareapiAcceptShareResponseApplicationJson, void>> acceptShare({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -2067,8 +2065,8 @@ class ShareapiClient {
   ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void> acceptShareRaw({
-    required final String id,
-    final bool? oCSAPIRequest,
+    required String id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2078,7 +2076,7 @@ class ShareapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2142,13 +2140,13 @@ class ShareesapiClient {
   /// See:
   ///  * [searchRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>> search({
-    final String? search,
-    final String? itemType,
-    final int? page,
-    final int? perPage,
-    final ContentString<ShareesapiSearchShareType>? shareType,
-    final int? lookup,
-    final bool? oCSAPIRequest,
+    String? search,
+    String? itemType,
+    int? page,
+    int? perPage,
+    ContentString<ShareesapiSearchShareType>? shareType,
+    int? lookup,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = searchRaw(
       search: search,
@@ -2187,13 +2185,13 @@ class ShareesapiClient {
   ///  * [search] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders> searchRaw({
-    final String? search,
-    final String? itemType,
-    final int? page,
-    final int? perPage,
-    final ContentString<ShareesapiSearchShareType>? shareType,
-    final int? lookup,
-    final bool? oCSAPIRequest,
+    String? search,
+    String? itemType,
+    int? page,
+    int? perPage,
+    ContentString<ShareesapiSearchShareType>? shareType,
+    int? lookup,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2203,7 +2201,7 @@ class ShareesapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2282,9 +2280,9 @@ class ShareesapiClient {
   /// See:
   ///  * [findRecommendedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
-    required final String itemType,
-    final ContentString<ShareesapiFindRecommendedShareType>? shareType,
-    final bool? oCSAPIRequest,
+    required String itemType,
+    ContentString<ShareesapiFindRecommendedShareType>? shareType,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = findRecommendedRaw(
       itemType: itemType,
@@ -2314,9 +2312,9 @@ class ShareesapiClient {
   ///  * [findRecommended] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
-    required final String itemType,
-    final ContentString<ShareesapiFindRecommendedShareType>? shareType,
-    final bool? oCSAPIRequest,
+    required String itemType,
+    ContentString<ShareesapiFindRecommendedShareType>? shareType,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2326,7 +2324,7 @@ class ShareesapiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2383,14 +2381,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2438,14 +2436,14 @@ abstract interface class $DeletedShareInterface {
 }
 
 abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShare, DeletedShareBuilder> {
-  factory DeletedShare([final void Function(DeletedShareBuilder)? b]) = _$DeletedShare;
+  factory DeletedShare([void Function(DeletedShareBuilder)? b]) = _$DeletedShare;
 
   // coverage:ignore-start
   const DeletedShare._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeletedShare.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory DeletedShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2466,7 +2464,7 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
         $DeletedShareapiListResponseApplicationJson_OcsInterface,
         Built<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder> {
   factory DeletedShareapiListResponseApplicationJson_Ocs([
-    final void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? b,
+    void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DeletedShareapiListResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2474,7 +2472,7 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeletedShareapiListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DeletedShareapiListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2496,7 +2494,7 @@ abstract class DeletedShareapiListResponseApplicationJson
         $DeletedShareapiListResponseApplicationJsonInterface,
         Built<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder> {
   factory DeletedShareapiListResponseApplicationJson([
-    final void Function(DeletedShareapiListResponseApplicationJsonBuilder)? b,
+    void Function(DeletedShareapiListResponseApplicationJsonBuilder)? b,
   ]) = _$DeletedShareapiListResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2504,7 +2502,7 @@ abstract class DeletedShareapiListResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeletedShareapiListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DeletedShareapiListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2528,7 +2526,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
         Built<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
             DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder> {
   factory DeletedShareapiUndeleteResponseApplicationJson_Ocs([
-    final void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? b,
+    void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DeletedShareapiUndeleteResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2536,7 +2534,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeletedShareapiUndeleteResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DeletedShareapiUndeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2558,7 +2556,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
         $DeletedShareapiUndeleteResponseApplicationJsonInterface,
         Built<DeletedShareapiUndeleteResponseApplicationJson, DeletedShareapiUndeleteResponseApplicationJsonBuilder> {
   factory DeletedShareapiUndeleteResponseApplicationJson([
-    final void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? b,
+    void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? b,
   ]) = _$DeletedShareapiUndeleteResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2566,7 +2564,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeletedShareapiUndeleteResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DeletedShareapiUndeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2603,14 +2601,14 @@ abstract interface class $RemoteShareInterface {
 }
 
 abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, RemoteShareBuilder> {
-  factory RemoteShare([final void Function(RemoteShareBuilder)? b]) = _$RemoteShare;
+  factory RemoteShare([void Function(RemoteShareBuilder)? b]) = _$RemoteShare;
 
   // coverage:ignore-start
   const RemoteShare._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteShare.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory RemoteShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2631,7 +2629,7 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
         $RemoteGetSharesResponseApplicationJson_OcsInterface,
         Built<RemoteGetSharesResponseApplicationJson_Ocs, RemoteGetSharesResponseApplicationJson_OcsBuilder> {
   factory RemoteGetSharesResponseApplicationJson_Ocs([
-    final void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2639,7 +2637,7 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2660,16 +2658,15 @@ abstract class RemoteGetSharesResponseApplicationJson
     implements
         $RemoteGetSharesResponseApplicationJsonInterface,
         Built<RemoteGetSharesResponseApplicationJson, RemoteGetSharesResponseApplicationJsonBuilder> {
-  factory RemoteGetSharesResponseApplicationJson([
-    final void Function(RemoteGetSharesResponseApplicationJsonBuilder)? b,
-  ]) = _$RemoteGetSharesResponseApplicationJson;
+  factory RemoteGetSharesResponseApplicationJson([void Function(RemoteGetSharesResponseApplicationJsonBuilder)? b]) =
+      _$RemoteGetSharesResponseApplicationJson;
 
   // coverage:ignore-start
   const RemoteGetSharesResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2692,7 +2689,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
         $RemoteGetOpenSharesResponseApplicationJson_OcsInterface,
         Built<RemoteGetOpenSharesResponseApplicationJson_Ocs, RemoteGetOpenSharesResponseApplicationJson_OcsBuilder> {
   factory RemoteGetOpenSharesResponseApplicationJson_Ocs([
-    final void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetOpenSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2700,7 +2697,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetOpenSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetOpenSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2722,7 +2719,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
         $RemoteGetOpenSharesResponseApplicationJsonInterface,
         Built<RemoteGetOpenSharesResponseApplicationJson, RemoteGetOpenSharesResponseApplicationJsonBuilder> {
   factory RemoteGetOpenSharesResponseApplicationJson([
-    final void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? b,
+    void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteGetOpenSharesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2730,7 +2727,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetOpenSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetOpenSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2753,7 +2750,7 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
         $RemoteAcceptShareResponseApplicationJson_OcsInterface,
         Built<RemoteAcceptShareResponseApplicationJson_Ocs, RemoteAcceptShareResponseApplicationJson_OcsBuilder> {
   factory RemoteAcceptShareResponseApplicationJson_Ocs([
-    final void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteAcceptShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2761,7 +2758,7 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteAcceptShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2783,7 +2780,7 @@ abstract class RemoteAcceptShareResponseApplicationJson
         $RemoteAcceptShareResponseApplicationJsonInterface,
         Built<RemoteAcceptShareResponseApplicationJson, RemoteAcceptShareResponseApplicationJsonBuilder> {
   factory RemoteAcceptShareResponseApplicationJson([
-    final void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? b,
+    void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteAcceptShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2791,7 +2788,7 @@ abstract class RemoteAcceptShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteAcceptShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2814,7 +2811,7 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
         $RemoteDeclineShareResponseApplicationJson_OcsInterface,
         Built<RemoteDeclineShareResponseApplicationJson_Ocs, RemoteDeclineShareResponseApplicationJson_OcsBuilder> {
   factory RemoteDeclineShareResponseApplicationJson_Ocs([
-    final void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteDeclineShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2822,7 +2819,7 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteDeclineShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteDeclineShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2844,7 +2841,7 @@ abstract class RemoteDeclineShareResponseApplicationJson
         $RemoteDeclineShareResponseApplicationJsonInterface,
         Built<RemoteDeclineShareResponseApplicationJson, RemoteDeclineShareResponseApplicationJsonBuilder> {
   factory RemoteDeclineShareResponseApplicationJson([
-    final void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? b,
+    void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteDeclineShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2852,7 +2849,7 @@ abstract class RemoteDeclineShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteDeclineShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteDeclineShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2875,7 +2872,7 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
         $RemoteGetShareResponseApplicationJson_OcsInterface,
         Built<RemoteGetShareResponseApplicationJson_Ocs, RemoteGetShareResponseApplicationJson_OcsBuilder> {
   factory RemoteGetShareResponseApplicationJson_Ocs([
-    final void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2883,7 +2880,7 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2904,16 +2901,15 @@ abstract class RemoteGetShareResponseApplicationJson
     implements
         $RemoteGetShareResponseApplicationJsonInterface,
         Built<RemoteGetShareResponseApplicationJson, RemoteGetShareResponseApplicationJsonBuilder> {
-  factory RemoteGetShareResponseApplicationJson([
-    final void Function(RemoteGetShareResponseApplicationJsonBuilder)? b,
-  ]) = _$RemoteGetShareResponseApplicationJson;
+  factory RemoteGetShareResponseApplicationJson([void Function(RemoteGetShareResponseApplicationJsonBuilder)? b]) =
+      _$RemoteGetShareResponseApplicationJson;
 
   // coverage:ignore-start
   const RemoteGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteGetShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2936,7 +2932,7 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
         $RemoteUnshareResponseApplicationJson_OcsInterface,
         Built<RemoteUnshareResponseApplicationJson_Ocs, RemoteUnshareResponseApplicationJson_OcsBuilder> {
   factory RemoteUnshareResponseApplicationJson_Ocs([
-    final void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? b,
+    void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteUnshareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2944,7 +2940,7 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteUnshareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteUnshareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2965,7 +2961,7 @@ abstract class RemoteUnshareResponseApplicationJson
     implements
         $RemoteUnshareResponseApplicationJsonInterface,
         Built<RemoteUnshareResponseApplicationJson, RemoteUnshareResponseApplicationJsonBuilder> {
-  factory RemoteUnshareResponseApplicationJson([final void Function(RemoteUnshareResponseApplicationJsonBuilder)? b]) =
+  factory RemoteUnshareResponseApplicationJson([void Function(RemoteUnshareResponseApplicationJsonBuilder)? b]) =
       _$RemoteUnshareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2973,7 +2969,7 @@ abstract class RemoteUnshareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RemoteUnshareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RemoteUnshareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3000,14 +2996,14 @@ abstract interface class $ShareInfoInterface {
 }
 
 abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareInfoBuilder> {
-  factory ShareInfo([final void Function(ShareInfoBuilder)? b]) = _$ShareInfo;
+  factory ShareInfo([void Function(ShareInfoBuilder)? b]) = _$ShareInfo;
 
   // coverage:ignore-start
   const ShareInfo._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareInfo.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareInfo.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3028,7 +3024,7 @@ class Share_ItemType extends EnumClass {
   static BuiltSet<Share_ItemType> get values => _$shareItemTypeValues;
   // coverage:ignore-end
 
-  static Share_ItemType valueOf(final String name) => _$valueOfShare_ItemType(name);
+  static Share_ItemType valueOf(String name) => _$valueOfShare_ItemType(name);
 
   static Serializer<Share_ItemType> get serializer => _$shareItemTypeSerializer;
 }
@@ -3042,14 +3038,14 @@ abstract interface class $Share_StatusInterface {
 }
 
 abstract class Share_Status implements $Share_StatusInterface, Built<Share_Status, Share_StatusBuilder> {
-  factory Share_Status([final void Function(Share_StatusBuilder)? b]) = _$Share_Status;
+  factory Share_Status([void Function(Share_StatusBuilder)? b]) = _$Share_Status;
 
   // coverage:ignore-start
   const Share_Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Share_Status.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Share_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3131,14 +3127,14 @@ abstract interface class $ShareInterface {
 }
 
 abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
-  factory Share([final void Function(ShareBuilder)? b]) = _$Share;
+  factory Share([void Function(ShareBuilder)? b]) = _$Share;
 
   // coverage:ignore-start
   const Share._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Share.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Share.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3159,7 +3155,7 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
         $ShareapiGetSharesResponseApplicationJson_OcsInterface,
         Built<ShareapiGetSharesResponseApplicationJson_Ocs, ShareapiGetSharesResponseApplicationJson_OcsBuilder> {
   factory ShareapiGetSharesResponseApplicationJson_Ocs([
-    final void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3167,7 +3163,7 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3189,7 +3185,7 @@ abstract class ShareapiGetSharesResponseApplicationJson
         $ShareapiGetSharesResponseApplicationJsonInterface,
         Built<ShareapiGetSharesResponseApplicationJson, ShareapiGetSharesResponseApplicationJsonBuilder> {
   factory ShareapiGetSharesResponseApplicationJson([
-    final void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiGetSharesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3197,7 +3193,7 @@ abstract class ShareapiGetSharesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3220,7 +3216,7 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
         $ShareapiCreateShareResponseApplicationJson_OcsInterface,
         Built<ShareapiCreateShareResponseApplicationJson_Ocs, ShareapiCreateShareResponseApplicationJson_OcsBuilder> {
   factory ShareapiCreateShareResponseApplicationJson_Ocs([
-    final void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiCreateShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3228,7 +3224,7 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiCreateShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiCreateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3250,7 +3246,7 @@ abstract class ShareapiCreateShareResponseApplicationJson
         $ShareapiCreateShareResponseApplicationJsonInterface,
         Built<ShareapiCreateShareResponseApplicationJson, ShareapiCreateShareResponseApplicationJsonBuilder> {
   factory ShareapiCreateShareResponseApplicationJson([
-    final void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiCreateShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3258,7 +3254,7 @@ abstract class ShareapiCreateShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiCreateShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiCreateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3282,7 +3278,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
         Built<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
             ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder> {
   factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs([
-    final void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3290,7 +3286,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3313,7 +3309,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
         Built<ShareapiGetInheritedSharesResponseApplicationJson,
             ShareapiGetInheritedSharesResponseApplicationJsonBuilder> {
   factory ShareapiGetInheritedSharesResponseApplicationJson([
-    final void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiGetInheritedSharesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3321,7 +3317,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetInheritedSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetInheritedSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3345,7 +3341,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
         Built<ShareapiPendingSharesResponseApplicationJson_Ocs,
             ShareapiPendingSharesResponseApplicationJson_OcsBuilder> {
   factory ShareapiPendingSharesResponseApplicationJson_Ocs([
-    final void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiPendingSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3353,7 +3349,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiPendingSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiPendingSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3375,7 +3371,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson
         $ShareapiPendingSharesResponseApplicationJsonInterface,
         Built<ShareapiPendingSharesResponseApplicationJson, ShareapiPendingSharesResponseApplicationJsonBuilder> {
   factory ShareapiPendingSharesResponseApplicationJson([
-    final void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiPendingSharesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3383,7 +3379,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiPendingSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiPendingSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3406,7 +3402,7 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
         $ShareapiGetShareResponseApplicationJson_OcsInterface,
         Built<ShareapiGetShareResponseApplicationJson_Ocs, ShareapiGetShareResponseApplicationJson_OcsBuilder> {
   factory ShareapiGetShareResponseApplicationJson_Ocs([
-    final void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3414,7 +3410,7 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3435,16 +3431,15 @@ abstract class ShareapiGetShareResponseApplicationJson
     implements
         $ShareapiGetShareResponseApplicationJsonInterface,
         Built<ShareapiGetShareResponseApplicationJson, ShareapiGetShareResponseApplicationJsonBuilder> {
-  factory ShareapiGetShareResponseApplicationJson([
-    final void Function(ShareapiGetShareResponseApplicationJsonBuilder)? b,
-  ]) = _$ShareapiGetShareResponseApplicationJson;
+  factory ShareapiGetShareResponseApplicationJson([void Function(ShareapiGetShareResponseApplicationJsonBuilder)? b]) =
+      _$ShareapiGetShareResponseApplicationJson;
 
   // coverage:ignore-start
   const ShareapiGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiGetShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3467,7 +3462,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
         $ShareapiUpdateShareResponseApplicationJson_OcsInterface,
         Built<ShareapiUpdateShareResponseApplicationJson_Ocs, ShareapiUpdateShareResponseApplicationJson_OcsBuilder> {
   factory ShareapiUpdateShareResponseApplicationJson_Ocs([
-    final void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiUpdateShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3475,7 +3470,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiUpdateShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiUpdateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3497,7 +3492,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson
         $ShareapiUpdateShareResponseApplicationJsonInterface,
         Built<ShareapiUpdateShareResponseApplicationJson, ShareapiUpdateShareResponseApplicationJsonBuilder> {
   factory ShareapiUpdateShareResponseApplicationJson([
-    final void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiUpdateShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3505,7 +3500,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiUpdateShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiUpdateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3528,7 +3523,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
         $ShareapiDeleteShareResponseApplicationJson_OcsInterface,
         Built<ShareapiDeleteShareResponseApplicationJson_Ocs, ShareapiDeleteShareResponseApplicationJson_OcsBuilder> {
   factory ShareapiDeleteShareResponseApplicationJson_Ocs([
-    final void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiDeleteShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3536,7 +3531,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiDeleteShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiDeleteShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3558,7 +3553,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson
         $ShareapiDeleteShareResponseApplicationJsonInterface,
         Built<ShareapiDeleteShareResponseApplicationJson, ShareapiDeleteShareResponseApplicationJsonBuilder> {
   factory ShareapiDeleteShareResponseApplicationJson([
-    final void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiDeleteShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3566,7 +3561,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiDeleteShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiDeleteShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3589,7 +3584,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
         $ShareapiAcceptShareResponseApplicationJson_OcsInterface,
         Built<ShareapiAcceptShareResponseApplicationJson_Ocs, ShareapiAcceptShareResponseApplicationJson_OcsBuilder> {
   factory ShareapiAcceptShareResponseApplicationJson_Ocs([
-    final void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiAcceptShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -3597,7 +3592,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiAcceptShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3619,7 +3614,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson
         $ShareapiAcceptShareResponseApplicationJsonInterface,
         Built<ShareapiAcceptShareResponseApplicationJson, ShareapiAcceptShareResponseApplicationJsonBuilder> {
   factory ShareapiAcceptShareResponseApplicationJson([
-    final void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? b,
+    void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiAcceptShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -3627,7 +3622,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareapiAcceptShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareapiAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3648,7 +3643,7 @@ abstract class ShareesapiShareesapiSearchHeaders
     implements
         $ShareesapiShareesapiSearchHeadersInterface,
         Built<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder> {
-  factory ShareesapiShareesapiSearchHeaders([final void Function(ShareesapiShareesapiSearchHeadersBuilder)? b]) =
+  factory ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? b]) =
       _$ShareesapiShareesapiSearchHeaders;
 
   // coverage:ignore-start
@@ -3656,7 +3651,7 @@ abstract class ShareesapiShareesapiSearchHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesapiShareesapiSearchHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesapiShareesapiSearchHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3674,14 +3669,14 @@ abstract interface class $ShareeInterface {
 }
 
 abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> {
-  factory Sharee([final void Function(ShareeBuilder)? b]) = _$Sharee;
+  factory Sharee([void Function(ShareeBuilder)? b]) = _$Sharee;
 
   // coverage:ignore-start
   const Sharee._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Sharee.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Sharee.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3698,14 +3693,14 @@ abstract interface class $ShareeValueInterface {
 }
 
 abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, ShareeValueBuilder> {
-  factory ShareeValue([final void Function(ShareeValueBuilder)? b]) = _$ShareeValue;
+  factory ShareeValue([void Function(ShareeValueBuilder)? b]) = _$ShareeValue;
 
   // coverage:ignore-start
   const ShareeValue._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeValue.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeValue.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3726,14 +3721,14 @@ abstract interface class $ShareeCircle_1_ValueInterface
 
 abstract class ShareeCircle_1_Value
     implements $ShareeCircle_1_ValueInterface, Built<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder> {
-  factory ShareeCircle_1_Value([final void Function(ShareeCircle_1_ValueBuilder)? b]) = _$ShareeCircle_1_Value;
+  factory ShareeCircle_1_Value([void Function(ShareeCircle_1_ValueBuilder)? b]) = _$ShareeCircle_1_Value;
 
   // coverage:ignore-start
   const ShareeCircle_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeCircle_1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory ShareeCircle_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3754,14 +3749,14 @@ abstract interface class $ShareeCircle_1Interface {
 abstract interface class $ShareeCircleInterface implements $ShareeInterface, $ShareeCircle_1Interface {}
 
 abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
-  factory ShareeCircle([final void Function(ShareeCircleBuilder)? b]) = _$ShareeCircle;
+  factory ShareeCircle([void Function(ShareeCircleBuilder)? b]) = _$ShareeCircle;
 
   // coverage:ignore-start
   const ShareeCircle._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeCircle.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeCircle.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3784,14 +3779,14 @@ abstract interface class $ShareeEmail_1Interface {
 abstract interface class $ShareeEmailInterface implements $ShareeInterface, $ShareeEmail_1Interface {}
 
 abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
-  factory ShareeEmail([final void Function(ShareeEmailBuilder)? b]) = _$ShareeEmail;
+  factory ShareeEmail([void Function(ShareeEmailBuilder)? b]) = _$ShareeEmail;
 
   // coverage:ignore-start
   const ShareeEmail._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeEmail.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeEmail.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3812,15 +3807,14 @@ abstract interface class $ShareeRemoteGroup_1_ValueInterface
 
 abstract class ShareeRemoteGroup_1_Value
     implements $ShareeRemoteGroup_1_ValueInterface, Built<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder> {
-  factory ShareeRemoteGroup_1_Value([final void Function(ShareeRemoteGroup_1_ValueBuilder)? b]) =
-      _$ShareeRemoteGroup_1_Value;
+  factory ShareeRemoteGroup_1_Value([void Function(ShareeRemoteGroup_1_ValueBuilder)? b]) = _$ShareeRemoteGroup_1_Value;
 
   // coverage:ignore-start
   const ShareeRemoteGroup_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeRemoteGroup_1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory ShareeRemoteGroup_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3843,15 +3837,14 @@ abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface
 
 abstract class ShareeRemoteGroup
     implements $ShareeRemoteGroupInterface, Built<ShareeRemoteGroup, ShareeRemoteGroupBuilder> {
-  factory ShareeRemoteGroup([final void Function(ShareeRemoteGroupBuilder)? b]) = _$ShareeRemoteGroup;
+  factory ShareeRemoteGroup([void Function(ShareeRemoteGroupBuilder)? b]) = _$ShareeRemoteGroup;
 
   // coverage:ignore-start
   const ShareeRemoteGroup._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeRemoteGroup.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeRemoteGroup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3872,14 +3865,14 @@ abstract interface class $ShareeRemote_1_ValueInterface
 
 abstract class ShareeRemote_1_Value
     implements $ShareeRemote_1_ValueInterface, Built<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder> {
-  factory ShareeRemote_1_Value([final void Function(ShareeRemote_1_ValueBuilder)? b]) = _$ShareeRemote_1_Value;
+  factory ShareeRemote_1_Value([void Function(ShareeRemote_1_ValueBuilder)? b]) = _$ShareeRemote_1_Value;
 
   // coverage:ignore-start
   const ShareeRemote_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeRemote_1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory ShareeRemote_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -3902,14 +3895,14 @@ abstract interface class $ShareeRemote_1Interface {
 abstract interface class $ShareeRemoteInterface implements $ShareeInterface, $ShareeRemote_1Interface {}
 
 abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
-  factory ShareeRemote([final void Function(ShareeRemoteBuilder)? b]) = _$ShareeRemote;
+  factory ShareeRemote([void Function(ShareeRemoteBuilder)? b]) = _$ShareeRemote;
 
   // coverage:ignore-start
   const ShareeRemote._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeRemote.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeRemote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3929,15 +3922,14 @@ abstract interface class $ShareeUser_1_StatusInterface {
 
 abstract class ShareeUser_1_Status
     implements $ShareeUser_1_StatusInterface, Built<ShareeUser_1_Status, ShareeUser_1_StatusBuilder> {
-  factory ShareeUser_1_Status([final void Function(ShareeUser_1_StatusBuilder)? b]) = _$ShareeUser_1_Status;
+  factory ShareeUser_1_Status([void Function(ShareeUser_1_StatusBuilder)? b]) = _$ShareeUser_1_Status;
 
   // coverage:ignore-start
   const ShareeUser_1_Status._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeUser_1_Status.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeUser_1_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3960,14 +3952,14 @@ abstract interface class $ShareeUser_1Interface {
 abstract interface class $ShareeUserInterface implements $ShareeInterface, $ShareeUser_1Interface {}
 
 abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
-  factory ShareeUser([final void Function(ShareeUserBuilder)? b]) = _$ShareeUser;
+  factory ShareeUser([void Function(ShareeUserBuilder)? b]) = _$ShareeUser;
 
   // coverage:ignore-start
   const ShareeUser._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeUser.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeUser.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -3991,15 +3983,14 @@ abstract interface class $ShareesSearchResult_ExactInterface {
 
 abstract class ShareesSearchResult_Exact
     implements $ShareesSearchResult_ExactInterface, Built<ShareesSearchResult_Exact, ShareesSearchResult_ExactBuilder> {
-  factory ShareesSearchResult_Exact([final void Function(ShareesSearchResult_ExactBuilder)? b]) =
-      _$ShareesSearchResult_Exact;
+  factory ShareesSearchResult_Exact([void Function(ShareesSearchResult_ExactBuilder)? b]) = _$ShareesSearchResult_Exact;
 
   // coverage:ignore-start
   const ShareesSearchResult_Exact._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesSearchResult_Exact.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesSearchResult_Exact.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4017,14 +4008,14 @@ abstract interface class $LookupInterface {
 }
 
 abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> {
-  factory Lookup([final void Function(LookupBuilder)? b]) = _$Lookup;
+  factory Lookup([void Function(LookupBuilder)? b]) = _$Lookup;
 
   // coverage:ignore-start
   const Lookup._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Lookup.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Lookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -4052,14 +4043,14 @@ abstract interface class $ShareeLookup_1_ExtraInterface {
 
 abstract class ShareeLookup_1_Extra
     implements $ShareeLookup_1_ExtraInterface, Built<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder> {
-  factory ShareeLookup_1_Extra([final void Function(ShareeLookup_1_ExtraBuilder)? b]) = _$ShareeLookup_1_Extra;
+  factory ShareeLookup_1_Extra([void Function(ShareeLookup_1_ExtraBuilder)? b]) = _$ShareeLookup_1_Extra;
 
   // coverage:ignore-start
   const ShareeLookup_1_Extra._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeLookup_1_Extra.fromJson(final Map<String, dynamic> json) =>
+  factory ShareeLookup_1_Extra.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4081,14 +4072,14 @@ abstract interface class $ShareeLookup_1_ValueInterface
 
 abstract class ShareeLookup_1_Value
     implements $ShareeLookup_1_ValueInterface, Built<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder> {
-  factory ShareeLookup_1_Value([final void Function(ShareeLookup_1_ValueBuilder)? b]) = _$ShareeLookup_1_Value;
+  factory ShareeLookup_1_Value([void Function(ShareeLookup_1_ValueBuilder)? b]) = _$ShareeLookup_1_Value;
 
   // coverage:ignore-start
   const ShareeLookup_1_Value._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeLookup_1_Value.fromJson(final Map<String, dynamic> json) =>
+  factory ShareeLookup_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4109,14 +4100,14 @@ abstract interface class $ShareeLookup_1Interface {
 abstract interface class $ShareeLookupInterface implements $ShareeInterface, $ShareeLookup_1Interface {}
 
 abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {
-  factory ShareeLookup([final void Function(ShareeLookupBuilder)? b]) = _$ShareeLookup;
+  factory ShareeLookup([void Function(ShareeLookupBuilder)? b]) = _$ShareeLookup;
 
   // coverage:ignore-start
   const ShareeLookup._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareeLookup.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareeLookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -4143,15 +4134,14 @@ abstract interface class $ShareesSearchResultInterface {
 
 abstract class ShareesSearchResult
     implements $ShareesSearchResultInterface, Built<ShareesSearchResult, ShareesSearchResultBuilder> {
-  factory ShareesSearchResult([final void Function(ShareesSearchResultBuilder)? b]) = _$ShareesSearchResult;
+  factory ShareesSearchResult([void Function(ShareesSearchResultBuilder)? b]) = _$ShareesSearchResult;
 
   // coverage:ignore-start
   const ShareesSearchResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesSearchResult.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory ShareesSearchResult.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -4172,7 +4162,7 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
         $ShareesapiSearchResponseApplicationJson_OcsInterface,
         Built<ShareesapiSearchResponseApplicationJson_Ocs, ShareesapiSearchResponseApplicationJson_OcsBuilder> {
   factory ShareesapiSearchResponseApplicationJson_Ocs([
-    final void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareesapiSearchResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -4180,7 +4170,7 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesapiSearchResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesapiSearchResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4201,16 +4191,15 @@ abstract class ShareesapiSearchResponseApplicationJson
     implements
         $ShareesapiSearchResponseApplicationJsonInterface,
         Built<ShareesapiSearchResponseApplicationJson, ShareesapiSearchResponseApplicationJsonBuilder> {
-  factory ShareesapiSearchResponseApplicationJson([
-    final void Function(ShareesapiSearchResponseApplicationJsonBuilder)? b,
-  ]) = _$ShareesapiSearchResponseApplicationJson;
+  factory ShareesapiSearchResponseApplicationJson([void Function(ShareesapiSearchResponseApplicationJsonBuilder)? b]) =
+      _$ShareesapiSearchResponseApplicationJson;
 
   // coverage:ignore-start
   const ShareesapiSearchResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesapiSearchResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesapiSearchResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4236,7 +4225,7 @@ abstract class ShareesRecommendedResult_Exact
     implements
         $ShareesRecommendedResult_ExactInterface,
         Built<ShareesRecommendedResult_Exact, ShareesRecommendedResult_ExactBuilder> {
-  factory ShareesRecommendedResult_Exact([final void Function(ShareesRecommendedResult_ExactBuilder)? b]) =
+  factory ShareesRecommendedResult_Exact([void Function(ShareesRecommendedResult_ExactBuilder)? b]) =
       _$ShareesRecommendedResult_Exact;
 
   // coverage:ignore-start
@@ -4244,7 +4233,7 @@ abstract class ShareesRecommendedResult_Exact
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesRecommendedResult_Exact.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesRecommendedResult_Exact.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4268,15 +4257,14 @@ abstract interface class $ShareesRecommendedResultInterface {
 
 abstract class ShareesRecommendedResult
     implements $ShareesRecommendedResultInterface, Built<ShareesRecommendedResult, ShareesRecommendedResultBuilder> {
-  factory ShareesRecommendedResult([final void Function(ShareesRecommendedResultBuilder)? b]) =
-      _$ShareesRecommendedResult;
+  factory ShareesRecommendedResult([void Function(ShareesRecommendedResultBuilder)? b]) = _$ShareesRecommendedResult;
 
   // coverage:ignore-start
   const ShareesRecommendedResult._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesRecommendedResult.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesRecommendedResult.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4299,7 +4287,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
         Built<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
             ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder> {
   factory ShareesapiFindRecommendedResponseApplicationJson_Ocs([
-    final void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? b,
+    void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareesapiFindRecommendedResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -4307,7 +4295,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesapiFindRecommendedResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesapiFindRecommendedResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4330,7 +4318,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
         Built<ShareesapiFindRecommendedResponseApplicationJson,
             ShareesapiFindRecommendedResponseApplicationJsonBuilder> {
   factory ShareesapiFindRecommendedResponseApplicationJson([
-    final void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? b,
+    void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? b,
   ]) = _$ShareesapiFindRecommendedResponseApplicationJson;
 
   // coverage:ignore-start
@@ -4338,7 +4326,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ShareesapiFindRecommendedResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ShareesapiFindRecommendedResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4361,7 +4349,7 @@ abstract class Capabilities_FilesSharing_Public_Password
         $Capabilities_FilesSharing_Public_PasswordInterface,
         Built<Capabilities_FilesSharing_Public_Password, Capabilities_FilesSharing_Public_PasswordBuilder> {
   factory Capabilities_FilesSharing_Public_Password([
-    final void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? b,
+    void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_Password;
 
   // coverage:ignore-start
@@ -4369,7 +4357,7 @@ abstract class Capabilities_FilesSharing_Public_Password
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Public_Password.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Public_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4393,7 +4381,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
         $Capabilities_FilesSharing_Public_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Public_ExpireDate, Capabilities_FilesSharing_Public_ExpireDateBuilder> {
   factory Capabilities_FilesSharing_Public_ExpireDate([
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? b,
+    void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDate;
 
   // coverage:ignore-start
@@ -4401,7 +4389,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Public_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Public_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4426,7 +4414,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
         Built<Capabilities_FilesSharing_Public_ExpireDateInternal,
             Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
   factory Capabilities_FilesSharing_Public_ExpireDateInternal([
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
+    void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDateInternal;
 
   // coverage:ignore-start
@@ -4434,7 +4422,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4459,7 +4447,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
         Built<Capabilities_FilesSharing_Public_ExpireDateRemote,
             Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
   factory Capabilities_FilesSharing_Public_ExpireDateRemote([
-    final void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
+    void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDateRemote;
 
   // coverage:ignore-start
@@ -4467,7 +4455,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4502,7 +4490,7 @@ abstract class Capabilities_FilesSharing_Public
     implements
         $Capabilities_FilesSharing_PublicInterface,
         Built<Capabilities_FilesSharing_Public, Capabilities_FilesSharing_PublicBuilder> {
-  factory Capabilities_FilesSharing_Public([final void Function(Capabilities_FilesSharing_PublicBuilder)? b]) =
+  factory Capabilities_FilesSharing_Public([void Function(Capabilities_FilesSharing_PublicBuilder)? b]) =
       _$Capabilities_FilesSharing_Public;
 
   // coverage:ignore-start
@@ -4510,7 +4498,7 @@ abstract class Capabilities_FilesSharing_Public
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Public.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4531,7 +4519,7 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
         $Capabilities_FilesSharing_User_ExpireDateInterface,
         Built<Capabilities_FilesSharing_User_ExpireDate, Capabilities_FilesSharing_User_ExpireDateBuilder> {
   factory Capabilities_FilesSharing_User_ExpireDate([
-    final void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? b,
+    void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_User_ExpireDate;
 
   // coverage:ignore-start
@@ -4539,7 +4527,7 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_User_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_User_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4563,7 +4551,7 @@ abstract class Capabilities_FilesSharing_User
     implements
         $Capabilities_FilesSharing_UserInterface,
         Built<Capabilities_FilesSharing_User, Capabilities_FilesSharing_UserBuilder> {
-  factory Capabilities_FilesSharing_User([final void Function(Capabilities_FilesSharing_UserBuilder)? b]) =
+  factory Capabilities_FilesSharing_User([void Function(Capabilities_FilesSharing_UserBuilder)? b]) =
       _$Capabilities_FilesSharing_User;
 
   // coverage:ignore-start
@@ -4571,7 +4559,7 @@ abstract class Capabilities_FilesSharing_User
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_User.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4592,7 +4580,7 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
         $Capabilities_FilesSharing_Group_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Group_ExpireDate, Capabilities_FilesSharing_Group_ExpireDateBuilder> {
   factory Capabilities_FilesSharing_Group_ExpireDate([
-    final void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? b,
+    void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Group_ExpireDate;
 
   // coverage:ignore-start
@@ -4600,7 +4588,7 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Group_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Group_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4623,7 +4611,7 @@ abstract class Capabilities_FilesSharing_Group
     implements
         $Capabilities_FilesSharing_GroupInterface,
         Built<Capabilities_FilesSharing_Group, Capabilities_FilesSharing_GroupBuilder> {
-  factory Capabilities_FilesSharing_Group([final void Function(Capabilities_FilesSharing_GroupBuilder)? b]) =
+  factory Capabilities_FilesSharing_Group([void Function(Capabilities_FilesSharing_GroupBuilder)? b]) =
       _$Capabilities_FilesSharing_Group;
 
   // coverage:ignore-start
@@ -4631,7 +4619,7 @@ abstract class Capabilities_FilesSharing_Group
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Group.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4652,7 +4640,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
         $Capabilities_FilesSharing_Federation_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Federation_ExpireDate, Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
   factory Capabilities_FilesSharing_Federation_ExpireDate([
-    final void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Federation_ExpireDate;
 
   // coverage:ignore-start
@@ -4660,7 +4648,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Federation_ExpireDate.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Federation_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4683,7 +4671,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
         Built<Capabilities_FilesSharing_Federation_ExpireDateSupported,
             Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
   factory Capabilities_FilesSharing_Federation_ExpireDateSupported([
-    final void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Federation_ExpireDateSupported;
 
   // coverage:ignore-start
@@ -4691,7 +4679,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4717,7 +4705,7 @@ abstract class Capabilities_FilesSharing_Federation
     implements
         $Capabilities_FilesSharing_FederationInterface,
         Built<Capabilities_FilesSharing_Federation, Capabilities_FilesSharing_FederationBuilder> {
-  factory Capabilities_FilesSharing_Federation([final void Function(Capabilities_FilesSharing_FederationBuilder)? b]) =
+  factory Capabilities_FilesSharing_Federation([void Function(Capabilities_FilesSharing_FederationBuilder)? b]) =
       _$Capabilities_FilesSharing_Federation;
 
   // coverage:ignore-start
@@ -4725,7 +4713,7 @@ abstract class Capabilities_FilesSharing_Federation
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Federation.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4749,7 +4737,7 @@ abstract class Capabilities_FilesSharing_Sharee
     implements
         $Capabilities_FilesSharing_ShareeInterface,
         Built<Capabilities_FilesSharing_Sharee, Capabilities_FilesSharing_ShareeBuilder> {
-  factory Capabilities_FilesSharing_Sharee([final void Function(Capabilities_FilesSharing_ShareeBuilder)? b]) =
+  factory Capabilities_FilesSharing_Sharee([void Function(Capabilities_FilesSharing_ShareeBuilder)? b]) =
       _$Capabilities_FilesSharing_Sharee;
 
   // coverage:ignore-start
@@ -4757,7 +4745,7 @@ abstract class Capabilities_FilesSharing_Sharee
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing_Sharee.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4786,15 +4774,14 @@ abstract interface class $Capabilities_FilesSharingInterface {
 
 abstract class Capabilities_FilesSharing
     implements $Capabilities_FilesSharingInterface, Built<Capabilities_FilesSharing, Capabilities_FilesSharingBuilder> {
-  factory Capabilities_FilesSharing([final void Function(Capabilities_FilesSharingBuilder)? b]) =
-      _$Capabilities_FilesSharing;
+  factory Capabilities_FilesSharing([void Function(Capabilities_FilesSharingBuilder)? b]) = _$Capabilities_FilesSharing;
 
   // coverage:ignore-start
   const Capabilities_FilesSharing._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_FilesSharing.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -4812,14 +4799,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -4840,7 +4827,7 @@ extension $BuiltListIntExtension on $BuiltListInt {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListInt> get serializer => const _$BuiltListIntSerializer();
-  static $BuiltListInt fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BuiltListInt fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -4855,9 +4842,9 @@ class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListInt object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListInt object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListInt;
@@ -4874,9 +4861,9 @@ class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
 
   @override
   $BuiltListInt deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<int>? builtListInt;
     try {

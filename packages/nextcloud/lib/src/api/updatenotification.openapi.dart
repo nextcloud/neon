@@ -28,7 +28,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -64,9 +64,9 @@ class ApiClient {
   /// See:
   ///  * [getAppListRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetAppListResponseApplicationJson, void>> getAppList({
-    required final String newVersion,
-    final ApiGetAppListApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String newVersion,
+    ApiGetAppListApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAppListRaw(
       newVersion: newVersion,
@@ -99,9 +99,9 @@ class ApiClient {
   ///  * [getAppList] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void> getAppListRaw({
-    required final String newVersion,
-    final ApiGetAppListApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String newVersion,
+    ApiGetAppListApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -111,7 +111,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -164,7 +164,7 @@ class ApiGetAppListApiVersion extends EnumClass {
   static BuiltSet<ApiGetAppListApiVersion> get values => _$apiGetAppListApiVersionValues;
   // coverage:ignore-end
 
-  static ApiGetAppListApiVersion valueOf(final String name) => _$valueOfApiGetAppListApiVersion(name);
+  static ApiGetAppListApiVersion valueOf(String name) => _$valueOfApiGetAppListApiVersion(name);
 
   static Serializer<ApiGetAppListApiVersion> get serializer => _$apiGetAppListApiVersionSerializer;
 }
@@ -179,14 +179,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -203,14 +203,14 @@ abstract interface class $AppInterface {
 }
 
 abstract class App implements $AppInterface, Built<App, AppBuilder> {
-  factory App([final void Function(AppBuilder)? b]) = _$App;
+  factory App([void Function(AppBuilder)? b]) = _$App;
 
   // coverage:ignore-start
   const App._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory App.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory App.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -231,7 +231,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
         $ApiGetAppListResponseApplicationJson_Ocs_DataInterface,
         Built<ApiGetAppListResponseApplicationJson_Ocs_Data, ApiGetAppListResponseApplicationJson_Ocs_DataBuilder> {
   factory ApiGetAppListResponseApplicationJson_Ocs_Data([
-    final void Function(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(ApiGetAppListResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$ApiGetAppListResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -239,7 +239,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -262,7 +262,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
         $ApiGetAppListResponseApplicationJson_OcsInterface,
         Built<ApiGetAppListResponseApplicationJson_Ocs, ApiGetAppListResponseApplicationJson_OcsBuilder> {
   factory ApiGetAppListResponseApplicationJson_Ocs([
-    final void Function(ApiGetAppListResponseApplicationJson_OcsBuilder)? b,
+    void Function(ApiGetAppListResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ApiGetAppListResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -270,7 +270,7 @@ abstract class ApiGetAppListResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -291,7 +291,7 @@ abstract class ApiGetAppListResponseApplicationJson
     implements
         $ApiGetAppListResponseApplicationJsonInterface,
         Built<ApiGetAppListResponseApplicationJson, ApiGetAppListResponseApplicationJsonBuilder> {
-  factory ApiGetAppListResponseApplicationJson([final void Function(ApiGetAppListResponseApplicationJsonBuilder)? b]) =
+  factory ApiGetAppListResponseApplicationJson([void Function(ApiGetAppListResponseApplicationJsonBuilder)? b]) =
       _$ApiGetAppListResponseApplicationJson;
 
   // coverage:ignore-start
@@ -299,7 +299,7 @@ abstract class ApiGetAppListResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetAppListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetAppListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

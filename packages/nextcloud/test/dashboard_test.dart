@@ -9,7 +9,7 @@ void main() {
   presets(
     'server',
     'dashboard',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {

@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -72,7 +72,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -136,7 +136,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -177,7 +177,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [createFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<ListFolders, void>> createFolder({required final String name}) async {
+  Future<DynamiteResponse<ListFolders, void>> createFolder({required String name}) async {
     final rawResponse = createFolderRaw(
       name: name,
     );
@@ -199,7 +199,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<ListFolders, void> createFolderRaw({required final String name}) {
+  DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -208,7 +208,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -253,8 +253,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [renameFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> renameFolder({
-    required final int folderId,
-    required final String name,
+    required int folderId,
+    required String name,
   }) async {
     final rawResponse = renameFolderRaw(
       folderId: folderId,
@@ -279,8 +279,8 @@ class Client extends DynamiteClient {
   ///  * [renameFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> renameFolderRaw({
-    required final int folderId,
-    required final String name,
+    required int folderId,
+    required String name,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -288,7 +288,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -332,7 +332,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [deleteFolderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> deleteFolder({required final int folderId}) async {
+  Future<DynamiteResponse<void, void>> deleteFolder({required int folderId}) async {
     final rawResponse = deleteFolderRaw(
       folderId: folderId,
     );
@@ -351,14 +351,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> deleteFolderRaw({required final int folderId}) {
+  DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -403,8 +403,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [markFolderAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markFolderAsRead({
-    required final int folderId,
-    required final int newestItemId,
+    required int folderId,
+    required int newestItemId,
   }) async {
     final rawResponse = markFolderAsReadRaw(
       folderId: folderId,
@@ -429,8 +429,8 @@ class Client extends DynamiteClient {
   ///  * [markFolderAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markFolderAsReadRaw({
-    required final int folderId,
-    required final int newestItemId,
+    required int folderId,
+    required int newestItemId,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -438,7 +438,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -510,7 +510,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -553,8 +553,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [addFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListFeeds, void>> addFeed({
-    required final String url,
-    final int? folderId,
+    required String url,
+    int? folderId,
   }) async {
     final rawResponse = addFeedRaw(
       url: url,
@@ -580,8 +580,8 @@ class Client extends DynamiteClient {
   ///  * [addFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFeeds, void> addFeedRaw({
-    required final String url,
-    final int? folderId,
+    required String url,
+    int? folderId,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -591,7 +591,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -635,7 +635,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [deleteFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> deleteFeed({required final int feedId}) async {
+  Future<DynamiteResponse<void, void>> deleteFeed({required int feedId}) async {
     final rawResponse = deleteFeedRaw(
       feedId: feedId,
     );
@@ -654,14 +654,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> deleteFeedRaw({required final int feedId}) {
+  DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -706,8 +706,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [moveFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> moveFeed({
-    required final int feedId,
-    final int? folderId,
+    required int feedId,
+    int? folderId,
   }) async {
     final rawResponse = moveFeedRaw(
       feedId: feedId,
@@ -732,8 +732,8 @@ class Client extends DynamiteClient {
   ///  * [moveFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> moveFeedRaw({
-    required final int feedId,
-    final int? folderId,
+    required int feedId,
+    int? folderId,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -741,7 +741,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -790,8 +790,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [renameFeedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> renameFeed({
-    required final int feedId,
-    required final String feedTitle,
+    required int feedId,
+    required String feedTitle,
   }) async {
     final rawResponse = renameFeedRaw(
       feedId: feedId,
@@ -816,8 +816,8 @@ class Client extends DynamiteClient {
   ///  * [renameFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> renameFeedRaw({
-    required final int feedId,
-    required final String feedTitle,
+    required int feedId,
+    required String feedTitle,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -825,7 +825,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -874,8 +874,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [markFeedAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<void, void>> markFeedAsRead({
-    required final int feedId,
-    required final int newestItemId,
+    required int feedId,
+    required int newestItemId,
   }) async {
     final rawResponse = markFeedAsReadRaw(
       feedId: feedId,
@@ -900,8 +900,8 @@ class Client extends DynamiteClient {
   ///  * [markFeedAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markFeedAsReadRaw({
-    required final int feedId,
-    required final int newestItemId,
+    required int feedId,
+    required int newestItemId,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
@@ -909,7 +909,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -963,12 +963,12 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listArticles({
-    final int? type,
-    final int? id,
-    final int? getRead,
-    final int? batchSize,
-    final int? offset,
-    final int? oldestFirst,
+    int? type,
+    int? id,
+    int? getRead,
+    int? batchSize,
+    int? offset,
+    int? oldestFirst,
   }) async {
     final rawResponse = listArticlesRaw(
       type: type,
@@ -1002,12 +1002,12 @@ class Client extends DynamiteClient {
   ///  * [listArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listArticlesRaw({
-    final int? type,
-    final int? id,
-    final int? getRead,
-    final int? batchSize,
-    final int? offset,
-    final int? oldestFirst,
+    int? type,
+    int? id,
+    int? getRead,
+    int? batchSize,
+    int? offset,
+    int? oldestFirst,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1017,7 +1017,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1088,9 +1088,9 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [listUpdatedArticlesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ListArticles, void>> listUpdatedArticles({
-    final int? type,
-    final int? id,
-    final int? lastModified,
+    int? type,
+    int? id,
+    int? lastModified,
   }) async {
     final rawResponse = listUpdatedArticlesRaw(
       type: type,
@@ -1118,9 +1118,9 @@ class Client extends DynamiteClient {
   ///  * [listUpdatedArticles] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListArticles, void> listUpdatedArticlesRaw({
-    final int? type,
-    final int? id,
-    final int? lastModified,
+    int? type,
+    int? id,
+    int? lastModified,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1130,7 +1130,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1182,7 +1182,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [markArticleAsReadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markArticleAsRead({required final int itemId}) async {
+  Future<DynamiteResponse<void, void>> markArticleAsRead({required int itemId}) async {
     final rawResponse = markArticleAsReadRaw(
       itemId: itemId,
     );
@@ -1201,14 +1201,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markArticleAsReadRaw({required final int itemId}) {
+  DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1249,7 +1249,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [markArticleAsUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> markArticleAsUnread({required final int itemId}) async {
+  Future<DynamiteResponse<void, void>> markArticleAsUnread({required int itemId}) async {
     final rawResponse = markArticleAsUnreadRaw(
       itemId: itemId,
     );
@@ -1268,14 +1268,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required final int itemId}) {
+  DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1316,7 +1316,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [starArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> starArticle({required final int itemId}) async {
+  Future<DynamiteResponse<void, void>> starArticle({required int itemId}) async {
     final rawResponse = starArticleRaw(
       itemId: itemId,
     );
@@ -1335,14 +1335,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> starArticleRaw({required final int itemId}) {
+  DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1383,7 +1383,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [unstarArticleRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<void, void>> unstarArticle({required final int itemId}) async {
+  Future<DynamiteResponse<void, void>> unstarArticle({required int itemId}) async {
     final rawResponse = unstarArticleRaw(
       itemId: itemId,
     );
@@ -1402,14 +1402,14 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<void, void> unstarArticleRaw({required final int itemId}) {
+  DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{};
     Uint8List? body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1450,14 +1450,14 @@ abstract interface class $SupportedAPIVersionsInterface {
 
 abstract class SupportedAPIVersions
     implements $SupportedAPIVersionsInterface, Built<SupportedAPIVersions, SupportedAPIVersionsBuilder> {
-  factory SupportedAPIVersions([final void Function(SupportedAPIVersionsBuilder)? b]) = _$SupportedAPIVersions;
+  factory SupportedAPIVersions([void Function(SupportedAPIVersionsBuilder)? b]) = _$SupportedAPIVersions;
 
   // coverage:ignore-start
   const SupportedAPIVersions._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SupportedAPIVersions.fromJson(final Map<String, dynamic> json) =>
+  factory SupportedAPIVersions.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1493,14 +1493,14 @@ abstract interface class $ArticleInterface {
 }
 
 abstract class Article implements $ArticleInterface, Built<Article, ArticleBuilder> {
-  factory Article([final void Function(ArticleBuilder)? b]) = _$Article;
+  factory Article([void Function(ArticleBuilder)? b]) = _$Article;
 
   // coverage:ignore-start
   const Article._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Article.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Article.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1528,14 +1528,14 @@ abstract interface class $FeedInterface {
 }
 
 abstract class Feed implements $FeedInterface, Built<Feed, FeedBuilder> {
-  factory Feed([final void Function(FeedBuilder)? b]) = _$Feed;
+  factory Feed([void Function(FeedBuilder)? b]) = _$Feed;
 
   // coverage:ignore-start
   const Feed._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Feed.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Feed.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1556,14 +1556,14 @@ abstract interface class $FolderInterface {
 }
 
 abstract class Folder implements $FolderInterface, Built<Folder, FolderBuilder> {
-  factory Folder([final void Function(FolderBuilder)? b]) = _$Folder;
+  factory Folder([void Function(FolderBuilder)? b]) = _$Folder;
 
   // coverage:ignore-start
   const Folder._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Folder.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Folder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1579,14 +1579,14 @@ abstract interface class $ListFoldersInterface {
 }
 
 abstract class ListFolders implements $ListFoldersInterface, Built<ListFolders, ListFoldersBuilder> {
-  factory ListFolders([final void Function(ListFoldersBuilder)? b]) = _$ListFolders;
+  factory ListFolders([void Function(ListFoldersBuilder)? b]) = _$ListFolders;
 
   // coverage:ignore-start
   const ListFolders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListFolders.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFolders.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1604,14 +1604,14 @@ abstract interface class $ListFeedsInterface {
 }
 
 abstract class ListFeeds implements $ListFeedsInterface, Built<ListFeeds, ListFeedsBuilder> {
-  factory ListFeeds([final void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
+  factory ListFeeds([void Function(ListFeedsBuilder)? b]) = _$ListFeeds;
 
   // coverage:ignore-start
   const ListFeeds._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListFeeds.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListFeeds.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1627,14 +1627,14 @@ abstract interface class $ListArticlesInterface {
 }
 
 abstract class ListArticles implements $ListArticlesInterface, Built<ListArticles, ListArticlesBuilder> {
-  factory ListArticles([final void Function(ListArticlesBuilder)? b]) = _$ListArticles;
+  factory ListArticles([void Function(ListArticlesBuilder)? b]) = _$ListArticles;
 
   // coverage:ignore-start
   const ListArticles._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ListArticles.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ListArticles.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1654,14 +1654,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1678,14 +1678,14 @@ abstract interface class $EmptyOCS_OcsInterface {
 }
 
 abstract class EmptyOCS_Ocs implements $EmptyOCS_OcsInterface, Built<EmptyOCS_Ocs, EmptyOCS_OcsBuilder> {
-  factory EmptyOCS_Ocs([final void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
+  factory EmptyOCS_Ocs([void Function(EmptyOCS_OcsBuilder)? b]) = _$EmptyOCS_Ocs;
 
   // coverage:ignore-start
   const EmptyOCS_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS_Ocs.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS_Ocs.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1701,14 +1701,14 @@ abstract interface class $EmptyOCSInterface {
 }
 
 abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSBuilder> {
-  factory EmptyOCS([final void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
+  factory EmptyOCS([void Function(EmptyOCSBuilder)? b]) = _$EmptyOCS;
 
   // coverage:ignore-start
   const EmptyOCS._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory EmptyOCS.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory EmptyOCS.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
