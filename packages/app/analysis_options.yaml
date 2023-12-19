@@ -1,7 +1,1 @@
 include: package:neon_lints/flutter.yaml
-
-linter:
-  rules:
-    # TODO: migrate package to new lint rules
-    prefer_final_parameters: true
-    avoid_final_parameters: false

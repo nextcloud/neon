@@ -6,7 +6,7 @@ Future<void> main() async {
   Directory('screenshots').createSync();
   try {
     await integrationDriver(
-      onScreenshot: (final screenshotName, final screenshotBytes, [final args]) async {
+      onScreenshot: (screenshotName, screenshotBytes, [args]) async {
         final file = File('screenshots/$screenshotName.png');
         if (!file.existsSync()) {
           file.writeAsBytesSync(screenshotBytes);
