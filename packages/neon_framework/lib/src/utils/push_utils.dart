@@ -16,7 +16,6 @@ import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/utils/findable.dart';
-import 'package:neon_framework/src/utils/global.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/universal_svg_file_loader.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
@@ -25,6 +24,16 @@ import 'package:nextcloud/notifications.dart' as notifications;
 @immutable
 class PushUtils {
   const PushUtils._();
+
+  /// Called when a new push notification was received.
+  ///
+  /// The callback will only be set if the current flutter engine was opened in the foreground.
+  static Future<void> Function(String accountID)? onPushNotificationReceived;
+
+  /// Called when a local notification was clicked on by the user.
+  ///
+  /// The callback will only be set if the current flutter engine was opened in the foreground.
+  static Future<void> Function(PushNotification notification)? onLocalNotificationClicked;
 
   static notifications.RSAKeypair loadRSAKeypair() {
     const storage = AppStorage(StorageKeys.notifications);
@@ -66,8 +75,8 @@ class PushUtils {
 
     final localNotificationsPlugin = await initLocalNotifications(
       onDidReceiveNotificationResponse: (final notification) async {
-        if (Global.onPushNotificationClicked != null && notification.payload != null) {
-          await Global.onPushNotificationClicked!(
+        if (onLocalNotificationClicked != null && notification.payload != null) {
+          await onLocalNotificationClicked!(
             PushNotification.fromJson(
               json.decode(notification.payload!) as Map<String, dynamic>,
             ),
@@ -90,7 +99,7 @@ class PushUtils {
         await localNotificationsPlugin.cancel(_getNotificationID(instance, pushNotification));
       } else if (pushNotification.subject.deleteAll ?? false) {
         await localNotificationsPlugin.cancelAll();
-        await Global.onPushNotificationReceived?.call(instance);
+        await onPushNotificationReceived?.call(instance);
       } else if (pushNotification.type == 'background') {
         debugPrint('Got unknown background notification ${json.encode(pushNotification.toJson())}');
       } else {
@@ -174,7 +183,7 @@ class PushUtils {
         }
       }
 
-      await Global.onPushNotificationReceived?.call(instance);
+      await onPushNotificationReceived?.call(instance);
     }
   }
 
