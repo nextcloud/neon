@@ -147,6 +147,9 @@ class _SettingsPageState extends State<SettingsPage> {
             ToggleSettingsTile(
               option: globalOptions.themeUseNextcloudTheme,
             ),
+            ToggleSettingsTile(
+              option: globalOptions.themeCustomBackground,
+            ),
           ],
         ),
         SettingsCategory(

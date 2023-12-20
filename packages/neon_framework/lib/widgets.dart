@@ -1,3 +1,4 @@
+export 'package:neon_framework/src/widgets/custom_background.dart';
 export 'package:neon_framework/src/widgets/dialog.dart';
 export 'package:neon_framework/src/widgets/error.dart';
 export 'package:neon_framework/src/widgets/image.dart';
