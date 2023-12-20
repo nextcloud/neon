@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -60,21 +61,21 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> $getRaw({Uint8List? uint8List}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
-    headers['Content-Type'] = 'application/octet-stream';
+    _headers['Content-Type'] = 'application/octet-stream';
     if (uint8List != null) {
-      body = uint8List;
+      _body = uint8List;
     }
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         null,
       ),
       bodyType: null,
@@ -111,21 +112,21 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> postRaw({String? string}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
-    headers['Content-Type'] = 'application/octet-stream';
+    _headers['Content-Type'] = 'application/octet-stream';
     if (string != null) {
-      body = utf8.encode(string);
+      _body = utf8.encode(string);
     }
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         null,
       ),
       bodyType: null,

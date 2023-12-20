@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
@@ -102,11 +103,11 @@ class DirectClient {
     int? expirationTime,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -117,7 +118,7 @@ class DirectClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -126,22 +127,22 @@ class DirectClient {
 
 // coverage:ignore-end
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    parameters['fileId'] = $fileId;
+    _parameters['fileId'] = $fileId;
 
     final $expirationTime = jsonSerializers.serialize(expirationTime, specifiedType: const FullType(int));
-    parameters['expirationTime'] = $expirationTime;
+    _parameters['expirationTime'] = $expirationTime;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(_parameters);
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DirectGetUrlResponseApplicationJson),

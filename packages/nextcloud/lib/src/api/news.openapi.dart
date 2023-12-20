@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -64,11 +65,11 @@ class Client extends DynamiteClient {
   ///  * [getSupportedApiVersions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SupportedAPIVersions, void> getSupportedApiVersionsRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -79,7 +80,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -87,13 +88,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/news/api').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api').expand(_parameters);
     return DynamiteRawResponse<SupportedAPIVersions, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(SupportedAPIVersions),
@@ -128,11 +129,11 @@ class Client extends DynamiteClient {
   ///  * [listFolders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFolders, void> listFoldersRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -143,7 +144,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -151,13 +152,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(_parameters);
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListFolders),
@@ -200,11 +201,11 @@ class Client extends DynamiteClient {
   ///  * [createFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFolders, void> createFolderRaw({required String name}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -215,7 +216,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -224,15 +225,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    parameters['name'] = $name;
+    _parameters['name'] = $name;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(_parameters);
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListFolders),
@@ -282,9 +283,9 @@ class Client extends DynamiteClient {
     required int folderId,
     required String name,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -295,7 +296,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -304,18 +305,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    parameters['folderId'] = $folderId;
+    _parameters['folderId'] = $folderId;
 
     final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
-    parameters['name'] = $name;
+    _parameters['name'] = $name;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -352,9 +353,9 @@ class Client extends DynamiteClient {
   ///  * [deleteFolder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deleteFolderRaw({required int folderId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -365,7 +366,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -374,15 +375,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    parameters['folderId'] = $folderId;
+    _parameters['folderId'] = $folderId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -432,9 +433,9 @@ class Client extends DynamiteClient {
     required int folderId,
     required int newestItemId,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -445,7 +446,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -454,19 +455,19 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    parameters['folderId'] = $folderId;
+    _parameters['folderId'] = $folderId;
 
     final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
-    parameters['newestItemId'] = $newestItemId;
+    _parameters['newestItemId'] = $newestItemId;
 
-    final path =
-        UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(parameters);
+    final _path =
+        UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -501,11 +502,11 @@ class Client extends DynamiteClient {
   ///  * [listFeeds] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ListFeeds, void> listFeedsRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -516,7 +517,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -524,13 +525,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(_parameters);
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListFeeds),
@@ -582,11 +583,11 @@ class Client extends DynamiteClient {
     required String url,
     int? folderId,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -597,7 +598,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -606,18 +607,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $url = jsonSerializers.serialize(url, specifiedType: const FullType(String));
-    parameters['url'] = $url;
+    _parameters['url'] = $url;
 
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    parameters['folderId'] = $folderId;
+    _parameters['folderId'] = $folderId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(_parameters);
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListFeeds),
@@ -654,9 +655,9 @@ class Client extends DynamiteClient {
   ///  * [deleteFeed] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> deleteFeedRaw({required int feedId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -667,7 +668,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -676,15 +677,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    parameters['feedId'] = $feedId;
+    _parameters['feedId'] = $feedId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -734,9 +735,9 @@ class Client extends DynamiteClient {
     required int feedId,
     int? folderId,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -747,7 +748,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -756,18 +757,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    parameters['feedId'] = $feedId;
+    _parameters['feedId'] = $feedId;
 
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
-    parameters['folderId'] = $folderId;
+    _parameters['folderId'] = $folderId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -817,9 +818,9 @@ class Client extends DynamiteClient {
     required int feedId,
     required String feedTitle,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -830,7 +831,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -839,18 +840,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    parameters['feedId'] = $feedId;
+    _parameters['feedId'] = $feedId;
 
     final $feedTitle = jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
-    parameters['feedTitle'] = $feedTitle;
+    _parameters['feedTitle'] = $feedTitle;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -900,9 +901,9 @@ class Client extends DynamiteClient {
     required int feedId,
     required int newestItemId,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -913,7 +914,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -922,18 +923,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
-    parameters['feedId'] = $feedId;
+    _parameters['feedId'] = $feedId;
 
     final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
-    parameters['newestItemId'] = $newestItemId;
+    _parameters['newestItemId'] = $newestItemId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -1005,11 +1006,11 @@ class Client extends DynamiteClient {
     int? offset,
     int? oldestFirst,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1020,7 +1021,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1030,36 +1031,37 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     var $type = jsonSerializers.serialize(type, specifiedType: const FullType(int));
     $type ??= 3;
-    parameters['type'] = $type;
+    _parameters['type'] = $type;
 
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     $id ??= 0;
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $getRead = jsonSerializers.serialize(getRead, specifiedType: const FullType(int));
     $getRead ??= 1;
-    parameters['getRead'] = $getRead;
+    _parameters['getRead'] = $getRead;
 
     var $batchSize = jsonSerializers.serialize(batchSize, specifiedType: const FullType(int));
     $batchSize ??= -1;
-    parameters['batchSize'] = $batchSize;
+    _parameters['batchSize'] = $batchSize;
 
     var $offset = jsonSerializers.serialize(offset, specifiedType: const FullType(int));
     $offset ??= 0;
-    parameters['offset'] = $offset;
+    _parameters['offset'] = $offset;
 
     var $oldestFirst = jsonSerializers.serialize(oldestFirst, specifiedType: const FullType(int));
     $oldestFirst ??= 0;
-    parameters['oldestFirst'] = $oldestFirst;
+    _parameters['oldestFirst'] = $oldestFirst;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
-        .expand(parameters);
+    final _path =
+        UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
+            .expand(_parameters);
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListArticles),
@@ -1116,11 +1118,11 @@ class Client extends DynamiteClient {
     int? id,
     int? lastModified,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1131,7 +1133,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1141,24 +1143,24 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     var $type = jsonSerializers.serialize(type, specifiedType: const FullType(int));
     $type ??= 3;
-    parameters['type'] = $type;
+    _parameters['type'] = $type;
 
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     $id ??= 0;
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $lastModified = jsonSerializers.serialize(lastModified, specifiedType: const FullType(int));
     $lastModified ??= 0;
-    parameters['lastModified'] = $lastModified;
+    _parameters['lastModified'] = $lastModified;
 
-    final path =
-        UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(parameters);
+    final _path =
+        UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(_parameters);
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ListArticles),
@@ -1195,9 +1197,9 @@ class Client extends DynamiteClient {
   ///  * [markArticleAsRead] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markArticleAsReadRaw({required int itemId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1208,7 +1210,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1217,15 +1219,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    parameters['itemId'] = $itemId;
+    _parameters['itemId'] = $itemId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -1262,9 +1264,9 @@ class Client extends DynamiteClient {
   ///  * [markArticleAsUnread] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> markArticleAsUnreadRaw({required int itemId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1275,7 +1277,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1284,15 +1286,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    parameters['itemId'] = $itemId;
+    _parameters['itemId'] = $itemId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -1329,9 +1331,9 @@ class Client extends DynamiteClient {
   ///  * [starArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> starArticleRaw({required int itemId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1342,7 +1344,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1351,15 +1353,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    parameters['itemId'] = $itemId;
+    _parameters['itemId'] = $itemId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -1396,9 +1398,9 @@ class Client extends DynamiteClient {
   ///  * [unstarArticle] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, void> unstarArticleRaw({required int itemId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -1409,7 +1411,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1418,15 +1420,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
-    parameters['itemId'] = $itemId;
+    _parameters['itemId'] = $itemId;
 
-    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,

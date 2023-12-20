@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -96,11 +97,11 @@ class DeletedShareapiClient {
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -111,7 +112,7 @@ class DeletedShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -121,15 +122,15 @@ class DeletedShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares').expand(_parameters);
     return DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DeletedShareapiListResponseApplicationJson),
@@ -187,11 +188,11 @@ class DeletedShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -202,7 +203,7 @@ class DeletedShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -211,19 +212,19 @@ class DeletedShareapiClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(_parameters);
     return DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DeletedShareapiUndeleteResponseApplicationJson),
@@ -291,11 +292,11 @@ class PublicPreviewClient {
     required String token,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -306,26 +307,26 @@ class PublicPreviewClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     }
 
 // coverage:ignore-end
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/index.php/s/{token}/preview').expand(parameters);
+    final _path = UriTemplate('/index.php/s/{token}/preview').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -407,11 +408,11 @@ class PublicPreviewClient {
     int? a,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -422,42 +423,43 @@ class PublicPreviewClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     }
 
 // coverage:ignore-end
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
     var $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
     $file ??= '';
-    parameters['file'] = $file;
+    _parameters['file'] = $file;
 
     var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
     $x ??= 32;
-    parameters['x'] = $x;
+    _parameters['x'] = $x;
 
     var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
     $y ??= 32;
-    parameters['y'] = $y;
+    _parameters['y'] = $y;
 
     var $a = jsonSerializers.serialize(a, specifiedType: const FullType(int));
     $a ??= 0;
-    parameters['a'] = $a;
+    _parameters['a'] = $a;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(parameters);
+    final _path =
+        UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -510,11 +512,11 @@ class RemoteClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void> getSharesRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -525,7 +527,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -535,15 +537,15 @@ class RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares').expand(_parameters);
     return DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteGetSharesResponseApplicationJson),
@@ -592,11 +594,11 @@ class RemoteClient {
   ///  * [getOpenShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void> getOpenSharesRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -607,7 +609,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -617,15 +619,15 @@ class RemoteClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending').expand(_parameters);
     return DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteGetOpenSharesResponseApplicationJson),
@@ -683,11 +685,11 @@ class RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -698,7 +700,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -707,19 +709,19 @@ class RemoteClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteAcceptShareResponseApplicationJson),
@@ -777,11 +779,11 @@ class RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -792,7 +794,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -801,19 +803,19 @@ class RemoteClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteDeclineShareResponseApplicationJson),
@@ -871,11 +873,11 @@ class RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -886,7 +888,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -895,19 +897,19 @@ class RemoteClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteGetShareResponseApplicationJson),
@@ -967,11 +969,11 @@ class RemoteClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -982,7 +984,7 @@ class RemoteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -991,19 +993,19 @@ class RemoteClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(_parameters);
     return DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(RemoteUnshareResponseApplicationJson),
@@ -1079,11 +1081,11 @@ class ShareInfoClient {
     String? dir,
     int? depth,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1094,32 +1096,32 @@ class ShareInfoClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     }
 
 // coverage:ignore-end
     final $t = jsonSerializers.serialize(t, specifiedType: const FullType(String));
-    parameters['t'] = $t;
+    _parameters['t'] = $t;
 
     final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    parameters['password'] = $password;
+    _parameters['password'] = $password;
 
     final $dir = jsonSerializers.serialize(dir, specifiedType: const FullType(String));
-    parameters['dir'] = $dir;
+    _parameters['dir'] = $dir;
 
     var $depth = jsonSerializers.serialize(depth, specifiedType: const FullType(int));
     $depth ??= -1;
-    parameters['depth'] = $depth;
+    _parameters['depth'] = $depth;
 
-    final path = UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(_parameters);
     return DynamiteRawResponse<ShareInfo, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareInfo),
@@ -1203,11 +1205,11 @@ class ShareapiClient {
     String? includeTags,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1218,7 +1220,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1228,37 +1230,37 @@ class ShareapiClient {
 // coverage:ignore-end
     var $sharedWithMe = jsonSerializers.serialize(sharedWithMe, specifiedType: const FullType(String));
     $sharedWithMe ??= 'false';
-    parameters['shared_with_me'] = $sharedWithMe;
+    _parameters['shared_with_me'] = $sharedWithMe;
 
     var $reshares = jsonSerializers.serialize(reshares, specifiedType: const FullType(String));
     $reshares ??= 'false';
-    parameters['reshares'] = $reshares;
+    _parameters['reshares'] = $reshares;
 
     var $subfiles = jsonSerializers.serialize(subfiles, specifiedType: const FullType(String));
     $subfiles ??= 'false';
-    parameters['subfiles'] = $subfiles;
+    _parameters['subfiles'] = $subfiles;
 
     var $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
     $path ??= '';
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     var $includeTags = jsonSerializers.serialize(includeTags, specifiedType: const FullType(String));
     $includeTags ??= 'false';
-    parameters['include_tags'] = $includeTags;
+    _parameters['include_tags'] = $includeTags;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetSharesResponseApplicationJson),
@@ -1370,11 +1372,11 @@ class ShareapiClient {
     String? attributes,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1385,7 +1387,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1394,57 +1396,57 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    parameters['permissions'] = $permissions;
+    _parameters['permissions'] = $permissions;
 
     var $shareType = jsonSerializers.serialize(shareType, specifiedType: const FullType(int));
     $shareType ??= -1;
-    parameters['shareType'] = $shareType;
+    _parameters['shareType'] = $shareType;
 
     final $shareWith = jsonSerializers.serialize(shareWith, specifiedType: const FullType(String));
-    parameters['shareWith'] = $shareWith;
+    _parameters['shareWith'] = $shareWith;
 
     var $publicUpload = jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
     $publicUpload ??= 'false';
-    parameters['publicUpload'] = $publicUpload;
+    _parameters['publicUpload'] = $publicUpload;
 
     var $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
     $password ??= '';
-    parameters['password'] = $password;
+    _parameters['password'] = $password;
 
     final $sendPasswordByTalk = jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
+    _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
 
     var $expireDate = jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
     $expireDate ??= '';
-    parameters['expireDate'] = $expireDate;
+    _parameters['expireDate'] = $expireDate;
 
     var $note = jsonSerializers.serialize(note, specifiedType: const FullType(String));
     $note ??= '';
-    parameters['note'] = $note;
+    _parameters['note'] = $note;
 
     var $label = jsonSerializers.serialize(label, specifiedType: const FullType(String));
     $label ??= '';
-    parameters['label'] = $label;
+    _parameters['label'] = $label;
 
     final $attributes = jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    parameters['attributes'] = $attributes;
+    _parameters['attributes'] = $attributes;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiCreateShareResponseApplicationJson),
@@ -1504,11 +1506,11 @@ class ShareapiClient {
     required String path,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1519,7 +1521,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1528,19 +1530,19 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(_parameters);
     return DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
@@ -1589,11 +1591,11 @@ class ShareapiClient {
   ///  * [pendingShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void> pendingSharesRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1604,7 +1606,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1614,15 +1616,15 @@ class ShareapiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending').expand(_parameters);
     return DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiPendingSharesResponseApplicationJson),
@@ -1685,11 +1687,11 @@ class ShareapiClient {
     int? includeTags,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1700,7 +1702,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1709,23 +1711,23 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $includeTags = jsonSerializers.serialize(includeTags, specifiedType: const FullType(int));
     $includeTags ??= 0;
-    parameters['include_tags'] = $includeTags;
+    _parameters['include_tags'] = $includeTags;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(_parameters);
     return DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiGetShareResponseApplicationJson),
@@ -1832,11 +1834,11 @@ class ShareapiClient {
     String? attributes,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1847,7 +1849,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1856,48 +1858,48 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     final $permissions = jsonSerializers.serialize(permissions, specifiedType: const FullType(int));
-    parameters['permissions'] = $permissions;
+    _parameters['permissions'] = $permissions;
 
     final $password = jsonSerializers.serialize(password, specifiedType: const FullType(String));
-    parameters['password'] = $password;
+    _parameters['password'] = $password;
 
     final $sendPasswordByTalk = jsonSerializers.serialize(sendPasswordByTalk, specifiedType: const FullType(String));
-    parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
+    _parameters['sendPasswordByTalk'] = $sendPasswordByTalk;
 
     final $publicUpload = jsonSerializers.serialize(publicUpload, specifiedType: const FullType(String));
-    parameters['publicUpload'] = $publicUpload;
+    _parameters['publicUpload'] = $publicUpload;
 
     final $expireDate = jsonSerializers.serialize(expireDate, specifiedType: const FullType(String));
-    parameters['expireDate'] = $expireDate;
+    _parameters['expireDate'] = $expireDate;
 
     final $note = jsonSerializers.serialize(note, specifiedType: const FullType(String));
-    parameters['note'] = $note;
+    _parameters['note'] = $note;
 
     final $label = jsonSerializers.serialize(label, specifiedType: const FullType(String));
-    parameters['label'] = $label;
+    _parameters['label'] = $label;
 
     final $hideDownload = jsonSerializers.serialize(hideDownload, specifiedType: const FullType(String));
-    parameters['hideDownload'] = $hideDownload;
+    _parameters['hideDownload'] = $hideDownload;
 
     final $attributes = jsonSerializers.serialize(attributes, specifiedType: const FullType(String));
-    parameters['attributes'] = $attributes;
+    _parameters['attributes'] = $attributes;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiUpdateShareResponseApplicationJson),
@@ -1957,11 +1959,11 @@ class ShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1972,7 +1974,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1981,19 +1983,19 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(_parameters);
     return DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiDeleteShareResponseApplicationJson),
@@ -2053,11 +2055,11 @@ class ShareapiClient {
     required String id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2068,7 +2070,7 @@ class ShareapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -2077,19 +2079,19 @@ class ShareapiClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(String));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(_parameters);
     return DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareapiAcceptShareResponseApplicationJson),
@@ -2178,11 +2180,11 @@ class ShareesapiClient {
     int? lookup,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2193,7 +2195,7 @@ class ShareesapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -2203,42 +2205,42 @@ class ShareesapiClient {
 // coverage:ignore-end
     var $search = jsonSerializers.serialize(search, specifiedType: const FullType(String));
     $search ??= '';
-    parameters['search'] = $search;
+    _parameters['search'] = $search;
 
     final $itemType = jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    parameters['itemType'] = $itemType;
+    _parameters['itemType'] = $itemType;
 
     var $page = jsonSerializers.serialize(page, specifiedType: const FullType(int));
     $page ??= 1;
-    parameters['page'] = $page;
+    _parameters['page'] = $page;
 
     var $perPage = jsonSerializers.serialize(perPage, specifiedType: const FullType(int));
     $perPage ??= 200;
-    parameters['perPage'] = $perPage;
+    _parameters['perPage'] = $perPage;
 
     final $shareType = jsonSerializers.serialize(
       shareType,
       specifiedType: const FullType(ContentString, [FullType(ShareesapiSearchShareType)]),
     );
-    parameters['shareType'] = $shareType;
+    _parameters['shareType'] = $shareType;
 
     var $lookup = jsonSerializers.serialize(lookup, specifiedType: const FullType(int));
     $lookup ??= 0;
-    parameters['lookup'] = $lookup;
+    _parameters['lookup'] = $lookup;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
@@ -2299,11 +2301,11 @@ class ShareesapiClient {
     ContentString<ShareesapiFindRecommendedShareType>? shareType,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -2314,7 +2316,7 @@ class ShareesapiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -2323,26 +2325,26 @@ class ShareesapiClient {
 
 // coverage:ignore-end
     final $itemType = jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
-    parameters['itemType'] = $itemType;
+    _parameters['itemType'] = $itemType;
 
     final $shareType = jsonSerializers.serialize(
       shareType,
       specifiedType: const FullType(ContentString, [FullType(ShareesapiFindRecommendedShareType)]),
     );
-    parameters['shareType'] = $shareType;
+    _parameters['shareType'] = $shareType;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
+        .expand(_parameters);
     return DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ShareesapiFindRecommendedResponseApplicationJson),

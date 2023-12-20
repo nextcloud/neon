@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -103,11 +104,11 @@ class ApiClient {
     ApiGetAppListApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -118,7 +119,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -127,24 +128,24 @@ class ApiClient {
 
 // coverage:ignore-end
     final $newVersion = jsonSerializers.serialize(newVersion, specifiedType: const FullType(String));
-    parameters['newVersion'] = $newVersion;
+    _parameters['newVersion'] = $newVersion;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGetAppListApiVersion));
     $apiVersion ??= 'v1';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path =
-        UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(_parameters);
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ApiGetAppListResponseApplicationJson),

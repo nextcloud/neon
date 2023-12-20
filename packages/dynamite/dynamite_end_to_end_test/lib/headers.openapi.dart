@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
@@ -60,17 +61,17 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, GetHeaders> $getRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -105,17 +106,17 @@ class Client extends DynamiteClient {
   ///  * [withContentOperationId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{};
-    Uint8List? body;
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{};
+    Uint8List? _body;
 
-    final path = UriTemplate('/with_content/operation_id').expand(parameters);
+    final _path = UriTemplate('/with_content/operation_id').expand(_parameters);
     return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: null,
@@ -150,19 +151,19 @@ class Client extends DynamiteClient {
   ///  * [getWithContent] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
-    final path = UriTemplate('/with_content').expand(parameters);
+    final _path = UriTemplate('/with_content').expand(_parameters);
     return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

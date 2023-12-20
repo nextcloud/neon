@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
@@ -100,11 +101,11 @@ class ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -115,7 +116,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -125,22 +126,22 @@ class ApiClient {
 // coverage:ignore-end
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
-    parameters['version'] = $version;
+    _parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    parameters['fileId'] = $fileId;
+    _parameters['fileId'] = $fileId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ApiGetResponseApplicationJson),
@@ -214,11 +215,11 @@ class ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -229,7 +230,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -238,26 +239,27 @@ class ApiClient {
 
 // coverage:ignore-end
     final $dueDate = jsonSerializers.serialize(dueDate, specifiedType: const FullType(String));
-    parameters['dueDate'] = $dueDate;
+    _parameters['dueDate'] = $dueDate;
 
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
-    parameters['version'] = $version;
+    _parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    parameters['fileId'] = $fileId;
+    _parameters['fileId'] = $fileId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(_parameters);
     return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 201, 400, 401, 404},
       ),
       bodyType: const FullType(ApiSetResponseApplicationJson),
@@ -322,11 +324,11 @@ class ApiClient {
     required int fileId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -337,7 +339,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -347,22 +349,22 @@ class ApiClient {
 // coverage:ignore-end
     final $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($version as String?, RegExp(r'^1$'), 'version');
-    parameters['version'] = $version;
+    _parameters['version'] = $version;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    parameters['fileId'] = $fileId;
+    _parameters['fileId'] = $fileId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(_parameters);
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 401, 404},
       ),
       bodyType: const FullType(ApiRemoveResponseApplicationJson),

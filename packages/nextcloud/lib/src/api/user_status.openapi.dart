@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -106,11 +107,11 @@ class HeartbeatClient {
     required String status,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -121,7 +122,7 @@ class HeartbeatClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -130,19 +131,19 @@ class HeartbeatClient {
 
 // coverage:ignore-end
     final $status = jsonSerializers.serialize(status, specifiedType: const FullType(String));
-    parameters['status'] = $status;
+    _parameters['status'] = $status;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/heartbeat{?status*}').expand(_parameters);
     return DynamiteRawResponse<HeartbeatHeartbeatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(HeartbeatHeartbeatResponseApplicationJson),
@@ -195,11 +196,11 @@ class PredefinedStatusClient {
   ///  * [findAll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void> findAllRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -210,7 +211,7 @@ class PredefinedStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -220,15 +221,15 @@ class PredefinedStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/predefined_statuses').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/predefined_statuses').expand(_parameters);
     return DynamiteRawResponse<PredefinedStatusFindAllResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(PredefinedStatusFindAllResponseApplicationJson),
@@ -295,11 +296,11 @@ class StatusesClient {
     int? offset,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -310,7 +311,7 @@ class StatusesClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -319,22 +320,22 @@ class StatusesClient {
 
 // coverage:ignore-end
     final $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
-    parameters['limit'] = $limit;
+    _parameters['limit'] = $limit;
 
     final $offset = jsonSerializers.serialize(offset, specifiedType: const FullType(int));
-    parameters['offset'] = $offset;
+    _parameters['offset'] = $offset;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses{?limit*,offset*}').expand(_parameters);
     return DynamiteRawResponse<StatusesFindAllResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(StatusesFindAllResponseApplicationJson),
@@ -392,11 +393,11 @@ class StatusesClient {
     required String userId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -407,7 +408,7 @@ class StatusesClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -416,19 +417,19 @@ class StatusesClient {
 
 // coverage:ignore-end
     final $userId = jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    parameters['userId'] = $userId;
+    _parameters['userId'] = $userId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/statuses/{userId}').expand(_parameters);
     return DynamiteRawResponse<StatusesFindResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(StatusesFindResponseApplicationJson),
@@ -483,11 +484,11 @@ class UserStatusClient {
   ///  * [getStatus] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void> getStatusRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -498,7 +499,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -508,15 +509,15 @@ class UserStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status').expand(_parameters);
     return DynamiteRawResponse<UserStatusGetStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusGetStatusResponseApplicationJson),
@@ -574,11 +575,11 @@ class UserStatusClient {
     required String statusType,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -589,7 +590,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -598,19 +599,20 @@ class UserStatusClient {
 
 // coverage:ignore-end
     final $statusType = jsonSerializers.serialize(statusType, specifiedType: const FullType(String));
-    parameters['statusType'] = $statusType;
+    _parameters['statusType'] = $statusType;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/status{?statusType*}').expand(_parameters);
     return DynamiteRawResponse<UserStatusSetStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusSetStatusResponseApplicationJson),
@@ -673,11 +675,11 @@ class UserStatusClient {
     int? clearAt,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -688,7 +690,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -697,23 +699,24 @@ class UserStatusClient {
 
 // coverage:ignore-end
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
-    parameters['messageId'] = $messageId;
+    _parameters['messageId'] = $messageId;
 
     final $clearAt = jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    parameters['clearAt'] = $clearAt;
+    _parameters['clearAt'] = $clearAt;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
-        .expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/predefined{?messageId*,clearAt*}')
+            .expand(_parameters);
     return DynamiteRawResponse<UserStatusSetPredefinedMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
@@ -781,11 +784,11 @@ class UserStatusClient {
     int? clearAt,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -796,7 +799,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -805,27 +808,27 @@ class UserStatusClient {
 
 // coverage:ignore-end
     final $statusIcon = jsonSerializers.serialize(statusIcon, specifiedType: const FullType(String));
-    parameters['statusIcon'] = $statusIcon;
+    _parameters['statusIcon'] = $statusIcon;
 
     final $message = jsonSerializers.serialize(message, specifiedType: const FullType(String));
-    parameters['message'] = $message;
+    _parameters['message'] = $message;
 
     final $clearAt = jsonSerializers.serialize(clearAt, specifiedType: const FullType(int));
-    parameters['clearAt'] = $clearAt;
+    _parameters['clearAt'] = $clearAt;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path =
+    final _path =
         UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message/custom{?statusIcon*,message*,clearAt*}')
-            .expand(parameters);
+            .expand(_parameters);
     return DynamiteRawResponse<UserStatusSetCustomMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusSetCustomMessageResponseApplicationJson),
@@ -874,11 +877,11 @@ class UserStatusClient {
   ///  * [clearMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void> clearMessageRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -889,7 +892,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -899,15 +902,15 @@ class UserStatusClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/message').expand(_parameters);
     return DynamiteRawResponse<UserStatusClearMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusClearMessageResponseApplicationJson),
@@ -963,11 +966,11 @@ class UserStatusClient {
     required String messageId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -978,7 +981,7 @@ class UserStatusClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -987,19 +990,19 @@ class UserStatusClient {
 
 // coverage:ignore-end
     final $messageId = jsonSerializers.serialize(messageId, specifiedType: const FullType(String));
-    parameters['messageId'] = $messageId;
+    _parameters['messageId'] = $messageId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/user_status/api/v1/user_status/revert/{messageId}').expand(_parameters);
     return DynamiteRawResponse<UserStatusRevertStatusResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UserStatusRevertStatusResponseApplicationJson),

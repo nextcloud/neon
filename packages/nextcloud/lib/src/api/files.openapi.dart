@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -111,11 +112,11 @@ class ApiClient {
     required int y,
     required String file,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -126,7 +127,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -135,22 +136,22 @@ class ApiClient {
 
 // coverage:ignore-end
     final $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
-    parameters['x'] = $x;
+    _parameters['x'] = $x;
 
     final $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
-    parameters['y'] = $y;
+    _parameters['y'] = $y;
 
     final $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
     dynamite_utils.checkPattern($file as String?, RegExp(r'^.+$'), 'file');
-    parameters['file'] = $file;
+    _parameters['file'] = $file;
 
-    final path = UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -203,11 +204,11 @@ class DirectEditingClient {
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -218,7 +219,7 @@ class DirectEditingClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -228,15 +229,15 @@ class DirectEditingClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(_parameters);
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
@@ -299,11 +300,11 @@ class DirectEditingClient {
     required String creatorId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -314,7 +315,7 @@ class DirectEditingClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -323,23 +324,23 @@ class DirectEditingClient {
 
 // coverage:ignore-end
     final $editorId = jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    parameters['editorId'] = $editorId;
+    _parameters['editorId'] = $editorId;
 
     final $creatorId = jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
-    parameters['creatorId'] = $creatorId;
+    _parameters['creatorId'] = $creatorId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path =
-        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}').expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}').expand(_parameters);
     return DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
@@ -409,11 +410,11 @@ class DirectEditingClient {
     int? fileId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -424,7 +425,7 @@ class DirectEditingClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -433,26 +434,26 @@ class DirectEditingClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     final $editorId = jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    parameters['editorId'] = $editorId;
+    _parameters['editorId'] = $editorId;
 
     final $fileId = jsonSerializers.serialize(fileId, specifiedType: const FullType(int));
-    parameters['fileId'] = $fileId;
+    _parameters['fileId'] = $fileId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 =
-        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}').expand(parameters);
+    final _path =
+        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}').expand(_parameters);
     return DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
@@ -527,11 +528,11 @@ class DirectEditingClient {
     String? templateId,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -542,7 +543,7 @@ class DirectEditingClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -551,30 +552,30 @@ class DirectEditingClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     final $editorId = jsonSerializers.serialize(editorId, specifiedType: const FullType(String));
-    parameters['editorId'] = $editorId;
+    _parameters['editorId'] = $editorId;
 
     final $creatorId = jsonSerializers.serialize(creatorId, specifiedType: const FullType(String));
-    parameters['creatorId'] = $creatorId;
+    _parameters['creatorId'] = $creatorId;
 
     final $templateId = jsonSerializers.serialize(templateId, specifiedType: const FullType(String));
-    parameters['templateId'] = $templateId;
+    _parameters['templateId'] = $templateId;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 =
+    final _path =
         UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
-            .expand(parameters);
+            .expand(_parameters);
     return DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
@@ -638,11 +639,11 @@ class OpenLocalEditorClient {
     required String path,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -653,7 +654,7 @@ class OpenLocalEditorClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -662,19 +663,19 @@ class OpenLocalEditorClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(_parameters);
     return DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
@@ -737,11 +738,11 @@ class OpenLocalEditorClient {
     required String token,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -752,7 +753,7 @@ class OpenLocalEditorClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -761,22 +762,22 @@ class OpenLocalEditorClient {
 
 // coverage:ignore-end
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(_parameters);
     return DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
@@ -829,11 +830,11 @@ class TemplateClient {
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -844,7 +845,7 @@ class TemplateClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -854,15 +855,15 @@ class TemplateClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(_parameters);
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(TemplateListResponseApplicationJson),
@@ -930,11 +931,11 @@ class TemplateClient {
     String? templateType,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -945,7 +946,7 @@ class TemplateClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -954,28 +955,28 @@ class TemplateClient {
 
 // coverage:ignore-end
     final $filePath = jsonSerializers.serialize(filePath, specifiedType: const FullType(String));
-    parameters['filePath'] = $filePath;
+    _parameters['filePath'] = $filePath;
 
     var $templatePath = jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
     $templatePath ??= '';
-    parameters['templatePath'] = $templatePath;
+    _parameters['templatePath'] = $templatePath;
 
     var $templateType = jsonSerializers.serialize(templateType, specifiedType: const FullType(String));
     $templateType ??= 'user';
-    parameters['templateType'] = $templateType;
+    _parameters['templateType'] = $templateType;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
+        .expand(_parameters);
     return DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(TemplateCreateResponseApplicationJson),
@@ -1038,11 +1039,11 @@ class TemplateClient {
     int? copySystemTemplates,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1053,7 +1054,7 @@ class TemplateClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1063,24 +1064,24 @@ class TemplateClient {
 // coverage:ignore-end
     var $templatePath = jsonSerializers.serialize(templatePath, specifiedType: const FullType(String));
     $templatePath ??= '';
-    parameters['templatePath'] = $templatePath;
+    _parameters['templatePath'] = $templatePath;
 
     var $copySystemTemplates = jsonSerializers.serialize(copySystemTemplates, specifiedType: const FullType(int));
     $copySystemTemplates ??= 0;
-    parameters['copySystemTemplates'] = $copySystemTemplates;
+    _parameters['copySystemTemplates'] = $copySystemTemplates;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
+        .expand(_parameters);
     return DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(TemplatePathResponseApplicationJson),
@@ -1151,11 +1152,11 @@ class TransferOwnershipClient {
     required String path,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1166,7 +1167,7 @@ class TransferOwnershipClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1175,22 +1176,22 @@ class TransferOwnershipClient {
 
 // coverage:ignore-end
     final $recipient = jsonSerializers.serialize(recipient, specifiedType: const FullType(String));
-    parameters['recipient'] = $recipient;
+    _parameters['recipient'] = $recipient;
 
     final $path = jsonSerializers.serialize(path, specifiedType: const FullType(String));
-    parameters['path'] = $path;
+    _parameters['path'] = $path;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path0,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 400, 403},
       ),
       bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
@@ -1250,11 +1251,11 @@ class TransferOwnershipClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1265,7 +1266,7 @@ class TransferOwnershipClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1274,19 +1275,19 @@ class TransferOwnershipClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
@@ -1346,11 +1347,11 @@ class TransferOwnershipClient {
     required int id,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1361,7 +1362,7 @@ class TransferOwnershipClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1370,19 +1371,19 @@ class TransferOwnershipClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(_parameters);
     return DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),

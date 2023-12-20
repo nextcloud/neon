@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
@@ -78,11 +79,11 @@ class LogSettingsClient {
   ///  * [download] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders> downloadRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -93,7 +94,7 @@ class LogSettingsClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -101,13 +102,13 @@ class LogSettingsClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/settings/admin/log/download').expand(parameters);
+    final _path = UriTemplate('/index.php/settings/admin/log/download').expand(_parameters);
     return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -86,11 +87,11 @@ class DashboardApiClient {
   ///  * [getWidgets] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void> getWidgetsRaw({bool? oCSAPIRequest}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -101,7 +102,7 @@ class DashboardApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -111,15 +112,15 @@ class DashboardApiClient {
 // coverage:ignore-end
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(_parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DashboardApiGetWidgetsResponseApplicationJson),
@@ -185,11 +186,11 @@ class DashboardApiClient {
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -200,7 +201,7 @@ class DashboardApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -214,28 +215,28 @@ class DashboardApiClient {
         FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
-    parameters['sinceIds'] = $sinceIds;
+    _parameters['sinceIds'] = $sinceIds;
 
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
-    parameters['limit'] = $limit;
+    _parameters['limit'] = $limit;
 
     var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
     $widgets ??= [];
-    parameters['widgets%5B%5D'] = $widgets;
+    _parameters['widgets%5B%5D'] = $widgets;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+        .expand(_parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
@@ -305,11 +306,11 @@ class DashboardApiClient {
     BuiltList<String>? widgets,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -320,7 +321,7 @@ class DashboardApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -334,28 +335,28 @@ class DashboardApiClient {
         FullType(BuiltMap, [FullType(String), FullType(String)]),
       ]),
     );
-    parameters['sinceIds'] = $sinceIds;
+    _parameters['sinceIds'] = $sinceIds;
 
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     $limit ??= 7;
-    parameters['limit'] = $limit;
+    _parameters['limit'] = $limit;
 
     var $widgets = jsonSerializers.serialize(widgets, specifiedType: const FullType(BuiltList, [FullType(String)]));
     $widgets ??= [];
-    parameters['widgets%5B%5D'] = $widgets;
+    _parameters['widgets%5B%5D'] = $widgets;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+        .expand(_parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),

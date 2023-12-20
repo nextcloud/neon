@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -124,11 +125,11 @@ class ApiClient {
     ApiGenerateNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -139,7 +140,7 @@ class ApiClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -148,33 +149,33 @@ class ApiClient {
 
 // coverage:ignore-end
     final $shortMessage = jsonSerializers.serialize(shortMessage, specifiedType: const FullType(String));
-    parameters['shortMessage'] = $shortMessage;
+    _parameters['shortMessage'] = $shortMessage;
 
     final $userId = jsonSerializers.serialize(userId, specifiedType: const FullType(String));
-    parameters['userId'] = $userId;
+    _parameters['userId'] = $userId;
 
     var $longMessage = jsonSerializers.serialize(longMessage, specifiedType: const FullType(String));
     $longMessage ??= '';
-    parameters['longMessage'] = $longMessage;
+    _parameters['longMessage'] = $longMessage;
 
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(ApiGenerateNotificationApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(ApiGenerateNotificationResponseApplicationJson),
@@ -240,11 +241,11 @@ class EndpointClient {
     EndpointListNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -255,7 +256,7 @@ class EndpointClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -266,20 +267,20 @@ class EndpointClient {
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointListNotificationsApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     return DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
         EndpointEndpointListNotificationsHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(EndpointListNotificationsResponseApplicationJson),
@@ -337,11 +338,11 @@ class EndpointClient {
     EndpointDeleteAllNotificationsApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -352,7 +353,7 @@ class EndpointClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -363,19 +364,19 @@ class EndpointClient {
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointDeleteAllNotificationsApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(_parameters);
     return DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(EndpointDeleteAllNotificationsResponseApplicationJson),
@@ -438,11 +439,11 @@ class EndpointClient {
     EndpointGetNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -453,7 +454,7 @@ class EndpointClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -462,24 +463,24 @@ class EndpointClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointGetNotificationApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
     return DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(EndpointGetNotificationResponseApplicationJson),
@@ -544,11 +545,11 @@ class EndpointClient {
     EndpointDeleteNotificationApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -559,7 +560,7 @@ class EndpointClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -568,24 +569,24 @@ class EndpointClient {
 
 // coverage:ignore-end
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
-    parameters['id'] = $id;
+    _parameters['id'] = $id;
 
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointDeleteNotificationApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(_parameters);
     return DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(EndpointDeleteNotificationResponseApplicationJson),
@@ -648,11 +649,11 @@ class EndpointClient {
     EndpointConfirmIdsForUserApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -663,7 +664,7 @@ class EndpointClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -672,25 +673,25 @@ class EndpointClient {
 
 // coverage:ignore-end
     final $ids = jsonSerializers.serialize(ids, specifiedType: const FullType(BuiltList, [FullType(int)]));
-    parameters['ids%5B%5D'] = $ids;
+    _parameters['ids%5B%5D'] = $ids;
 
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(EndpointConfirmIdsForUserApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
-        .expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
+        .expand(_parameters);
     return DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 400},
       ),
       bodyType: const FullType(EndpointConfirmIdsForUserResponseApplicationJson),
@@ -773,11 +774,11 @@ class PushClient {
     PushRegisterDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -788,7 +789,7 @@ class PushClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -797,32 +798,32 @@ class PushClient {
 
 // coverage:ignore-end
     final $pushTokenHash = jsonSerializers.serialize(pushTokenHash, specifiedType: const FullType(String));
-    parameters['pushTokenHash'] = $pushTokenHash;
+    _parameters['pushTokenHash'] = $pushTokenHash;
 
     final $devicePublicKey = jsonSerializers.serialize(devicePublicKey, specifiedType: const FullType(String));
-    parameters['devicePublicKey'] = $devicePublicKey;
+    _parameters['devicePublicKey'] = $devicePublicKey;
 
     final $proxyServer = jsonSerializers.serialize(proxyServer, specifiedType: const FullType(String));
-    parameters['proxyServer'] = $proxyServer;
+    _parameters['proxyServer'] = $proxyServer;
 
     var $apiVersion =
         jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRegisterDeviceApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 201},
       ),
       bodyType: const FullType(PushRegisterDeviceResponseApplicationJson),
@@ -884,11 +885,11 @@ class PushClient {
     PushRemoveDeviceApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -899,7 +900,7 @@ class PushClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -909,19 +910,19 @@ class PushClient {
 // coverage:ignore-end
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(PushRemoveDeviceApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(parameters);
+    final _path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(_parameters);
     return DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 202, 401},
       ),
       bodyType: const FullType(PushRemoveDeviceResponseApplicationJson),
@@ -998,11 +999,11 @@ class SettingsClient {
     SettingsPersonalApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1013,7 +1014,7 @@ class SettingsClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1022,31 +1023,31 @@ class SettingsClient {
 
 // coverage:ignore-end
     final $batchSetting = jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    parameters['batchSetting'] = $batchSetting;
+    _parameters['batchSetting'] = $batchSetting;
 
     final $soundNotification = jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    parameters['soundNotification'] = $soundNotification;
+    _parameters['soundNotification'] = $soundNotification;
 
     final $soundTalk = jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    parameters['soundTalk'] = $soundTalk;
+    _parameters['soundTalk'] = $soundTalk;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsPersonalApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(SettingsPersonalResponseApplicationJson),
@@ -1121,11 +1122,11 @@ class SettingsClient {
     SettingsAdminApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1136,7 +1137,7 @@ class SettingsClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -1145,31 +1146,31 @@ class SettingsClient {
 
 // coverage:ignore-end
     final $batchSetting = jsonSerializers.serialize(batchSetting, specifiedType: const FullType(int));
-    parameters['batchSetting'] = $batchSetting;
+    _parameters['batchSetting'] = $batchSetting;
 
     final $soundNotification = jsonSerializers.serialize(soundNotification, specifiedType: const FullType(String));
-    parameters['soundNotification'] = $soundNotification;
+    _parameters['soundNotification'] = $soundNotification;
 
     final $soundTalk = jsonSerializers.serialize(soundTalk, specifiedType: const FullType(String));
-    parameters['soundTalk'] = $soundTalk;
+    _parameters['soundTalk'] = $soundTalk;
 
     var $apiVersion = jsonSerializers.serialize(apiVersion, specifiedType: const FullType(SettingsAdminApiVersion));
     $apiVersion ??= 'v2';
-    parameters['apiVersion'] = $apiVersion;
+    _parameters['apiVersion'] = $apiVersion;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
     $oCSAPIRequest ??= true;
-    headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
+    _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final path = UriTemplate(
+    final _path = UriTemplate(
       '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
-    ).expand(parameters);
+    ).expand(_parameters);
     return DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(SettingsAdminResponseApplicationJson),

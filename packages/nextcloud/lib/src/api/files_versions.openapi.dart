@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
@@ -105,11 +106,11 @@ class PreviewClient {
     int? y,
     String? version,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -120,7 +121,7 @@ class PreviewClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -130,27 +131,27 @@ class PreviewClient {
 // coverage:ignore-end
     var $file = jsonSerializers.serialize(file, specifiedType: const FullType(String));
     $file ??= '';
-    parameters['file'] = $file;
+    _parameters['file'] = $file;
 
     var $x = jsonSerializers.serialize(x, specifiedType: const FullType(int));
     $x ??= 44;
-    parameters['x'] = $x;
+    _parameters['x'] = $x;
 
     var $y = jsonSerializers.serialize(y, specifiedType: const FullType(int));
     $y ??= 44;
-    parameters['y'] = $y;
+    _parameters['y'] = $y;
 
     var $version = jsonSerializers.serialize(version, specifiedType: const FullType(String));
     $version ??= '';
-    parameters['version'] = $version;
+    _parameters['version'] = $version;
 
-    final path = UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(_parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

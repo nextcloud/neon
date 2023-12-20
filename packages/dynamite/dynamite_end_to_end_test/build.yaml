@@ -12,3 +12,4 @@ targets:
             - public_member_api_docs
             - unreachable_switch_case
             - unused_element
+            - no_leading_underscores_for_local_identifiers

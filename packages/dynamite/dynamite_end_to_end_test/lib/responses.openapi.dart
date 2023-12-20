@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: unused_element
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_value/serializer.dart';
@@ -57,19 +58,19 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> $getRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         null,
       ),
       bodyType: const FullType(String),
@@ -106,19 +107,19 @@ class Client extends DynamiteClient {
   ///  * [put] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> putRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(String),
@@ -157,19 +158,19 @@ class Client extends DynamiteClient {
   ///  * [post] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> postRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         null,
       ),
       bodyType: const FullType(String),
@@ -206,19 +207,19 @@ class Client extends DynamiteClient {
   ///  * [patch] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<String, void> patchRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
-    final path = UriTemplate('/').expand(parameters);
+    final _path = UriTemplate('/').expand(_parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'patch',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200, 201},
       ),
       bodyType: const FullType(String),

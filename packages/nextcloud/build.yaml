@@ -12,6 +12,7 @@ targets:
             - public_member_api_docs
             - unreachable_switch_case
             - camel_case_extensions
+            - no_leading_underscores_for_local_identifiers
           coverage_ignores:
             - 'const .*\._\(\);'
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => jsonSerializers\.deserializeWith\(serializer, json\)!;'

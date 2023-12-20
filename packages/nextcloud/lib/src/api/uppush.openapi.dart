@@ -3,6 +3,7 @@
 // ignore_for_file: public_member_api_docs
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
+// ignore_for_file: no_leading_underscores_for_local_identifiers
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -67,11 +68,11 @@ class Client extends DynamiteClient {
   ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -82,7 +83,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -90,13 +91,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/uppush').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush').expand(_parameters);
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(CheckResponseApplicationJson),
@@ -147,11 +148,11 @@ class Client extends DynamiteClient {
   ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -162,7 +163,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -171,15 +172,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $keepalive = jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
-    parameters['keepalive'] = $keepalive;
+    _parameters['keepalive'] = $keepalive;
 
-    final path = UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(_parameters);
     return DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(SetKeepaliveResponseApplicationJson),
@@ -226,11 +227,11 @@ class Client extends DynamiteClient {
   ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -241,7 +242,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -250,15 +251,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $deviceName = jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
-    parameters['deviceName'] = $deviceName;
+    _parameters['deviceName'] = $deviceName;
 
-    final path = UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(_parameters);
     return DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(CreateDeviceResponseApplicationJson),
@@ -303,11 +304,11 @@ class Client extends DynamiteClient {
   ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -318,7 +319,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -327,15 +328,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    parameters['deviceId'] = $deviceId;
+    _parameters['deviceId'] = $deviceId;
 
-    final path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     return DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {401},
       ),
       bodyType: const FullType(SyncDeviceResponseApplicationJson),
@@ -376,11 +377,11 @@ class Client extends DynamiteClient {
   ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -391,7 +392,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -400,15 +401,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    parameters['deviceId'] = $deviceId;
+    _parameters['deviceId'] = $deviceId;
 
-    final path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(_parameters);
     return DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DeleteDeviceResponseApplicationJson),
@@ -464,11 +465,11 @@ class Client extends DynamiteClient {
     required String deviceId,
     required String appName,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -479,7 +480,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -488,18 +489,18 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
-    parameters['deviceId'] = $deviceId;
+    _parameters['deviceId'] = $deviceId;
 
     final $appName = jsonSerializers.serialize(appName, specifiedType: const FullType(String));
-    parameters['appName'] = $appName;
+    _parameters['appName'] = $appName;
 
-    final path = UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(_parameters);
     return DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(CreateAppResponseApplicationJson),
@@ -540,11 +541,11 @@ class Client extends DynamiteClient {
   ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -555,7 +556,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -564,15 +565,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
-    final path = UriTemplate('/index.php/apps/uppush/app/{token}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/app/{token}').expand(_parameters);
     return DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(DeleteAppResponseApplicationJson),
@@ -617,11 +618,11 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
     required String token,
   }) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -632,7 +633,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -641,15 +642,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
-    final path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     return DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
@@ -690,11 +691,11 @@ class Client extends DynamiteClient {
   ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -705,7 +706,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -714,15 +715,15 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-end
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
-    parameters['token'] = $token;
+    _parameters['token'] = $token;
 
-    final path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(_parameters);
     return DynamiteRawResponse<PushResponseApplicationJson, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {201},
       ),
       bodyType: const FullType(PushResponseApplicationJson),
@@ -761,11 +762,11 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -776,7 +777,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -784,13 +785,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
@@ -829,11 +830,11 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
-    final parameters = <String, dynamic>{};
-    final headers = <String, String>{
+    final _parameters = <String, dynamic>{};
+    final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? body;
+    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -844,7 +845,7 @@ class Client extends DynamiteClient {
     );
 
     if (authentication != null) {
-      headers.addAll(
+      _headers.addAll(
         authentication.headers,
       );
     } else {
@@ -852,13 +853,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters);
+    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',
-        path,
-        headers,
-        body,
+        _path,
+        _headers,
+        _body,
         const {200},
       ),
       bodyType: const FullType(GatewayMatrixResponseApplicationJson),
