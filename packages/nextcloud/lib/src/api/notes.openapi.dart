@@ -148,14 +148,13 @@ class Client extends DynamiteClient {
       headers['If-None-Match'] = $ifNoneMatch as String;
     }
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
+            .expand(parameters);
     return DynamiteRawResponse<BuiltList<Note>, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -267,14 +266,12 @@ class Client extends DynamiteClient {
     $favorite ??= 0;
     parameters['favorite'] = $favorite;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
+        .expand(parameters);
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -366,11 +363,11 @@ class Client extends DynamiteClient {
       headers['If-None-Match'] = $ifNoneMatch as String;
     }
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(parameters);
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -493,14 +490,12 @@ class Client extends DynamiteClient {
       headers['If-Match'] = $ifMatch as String;
     }
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
+        .expand(parameters);
     return DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -565,11 +560,11 @@ class Client extends DynamiteClient {
     final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     parameters['id'] = $id;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -629,11 +624,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters));
+    final path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters);
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -697,11 +692,11 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     headers['Content-Type'] = 'application/json';
     body = utf8.encode(json.encode(jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
-    final uri = Uri.parse(UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters));
+    final path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(parameters);
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},

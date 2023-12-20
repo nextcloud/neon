@@ -64,11 +64,11 @@ class Client extends DynamiteClient {
     final headers = <String, String>{};
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -109,11 +109,11 @@ class Client extends DynamiteClient {
     final headers = <String, String>{};
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/with_content/operation_id').expand(parameters));
+    final path = UriTemplate('/with_content/operation_id').expand(parameters);
     return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -156,11 +156,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/with_content').expand(parameters));
+    final path = UriTemplate('/with_content').expand(parameters);
     return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

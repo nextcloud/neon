@@ -415,7 +415,7 @@ class DynamiteClient {
   /// All [baseHeaders] are added to the request.
   Future<HttpClientResponse> executeRequest(
     final String method,
-    final Uri path,
+    final String path,
     final Map<String, String> headers,
     final Uint8List? body,
     final Set<int>? validStatuses,

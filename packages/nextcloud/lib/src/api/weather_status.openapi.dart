@@ -122,11 +122,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/mode{?mode*}').expand(parameters);
     return DynamiteRawResponse<WeatherStatusSetModeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -206,11 +206,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/use-personal').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/use-personal').expand(parameters);
     return DynamiteRawResponse<WeatherStatusUsePersonalAddressResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -290,11 +290,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location').expand(parameters);
     return DynamiteRawResponse<WeatherStatusGetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -398,13 +398,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/location{?address*,lat*,lon*}').expand(parameters);
     return DynamiteRawResponse<WeatherStatusSetLocationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -486,11 +484,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/forecast').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/forecast').expand(parameters);
     return DynamiteRawResponse<WeatherStatusGetForecastResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -570,11 +568,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites').expand(parameters);
     return DynamiteRawResponse<WeatherStatusGetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -663,13 +661,11 @@ class WeatherStatusClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/weather_status/api/v1/favorites{?favorites%5B%5D*}').expand(parameters);
     return DynamiteRawResponse<WeatherStatusSetFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},

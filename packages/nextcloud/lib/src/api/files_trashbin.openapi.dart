@@ -144,11 +144,11 @@ class PreviewClient {
     $a ??= 0;
     parameters['a'] = $a;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/files_trashbin/preview{?fileId*,x*,y*,a*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/files_trashbin/preview{?fileId*,x*,y*,a*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

@@ -104,11 +104,11 @@ class Client extends DynamiteClient {
     var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
-    final _uri = Uri.parse(UriTemplate('/pets{?tags*,limit*}').expand(_parameters));
+    final _path = UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
     return DynamiteRawResponse<BuiltList<Pet>, void>(
       response: this.executeRequest(
         'get',
-        _uri,
+        _path,
         _headers,
         _body,
         const {200},
@@ -161,11 +161,11 @@ class Client extends DynamiteClient {
 
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
-    final _uri = Uri.parse(UriTemplate('/pets').expand(_parameters));
+    final _path = UriTemplate('/pets').expand(_parameters);
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
         'post',
-        _uri,
+        _path,
         _headers,
         _body,
         const {200},
@@ -225,11 +225,11 @@ class Client extends DynamiteClient {
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_parameters));
+    final _path = UriTemplate('/pets/{id}').expand(_parameters);
     return DynamiteRawResponse<Pet, void>(
       response: this.executeRequest(
         'get',
-        _uri,
+        _path,
         _headers,
         _body,
         const {200},
@@ -287,11 +287,11 @@ class Client extends DynamiteClient {
     var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _uri = Uri.parse(UriTemplate('/pets/{id}').expand(_parameters));
+    final _path = UriTemplate('/pets/{id}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
       response: this.executeRequest(
         'delete',
-        _uri,
+        _path,
         _headers,
         _body,
         const {204},

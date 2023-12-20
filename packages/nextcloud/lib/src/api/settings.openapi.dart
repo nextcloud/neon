@@ -101,11 +101,11 @@ class LogSettingsClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/settings/admin/log/download').expand(parameters));
+    final path = UriTemplate('/index.php/settings/admin/log/download').expand(parameters);
     return DynamiteRawResponse<Uint8List, LogSettingsLogSettingsDownloadHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

@@ -112,11 +112,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/status.php').expand(parameters));
+    final path = UriTemplate('/status.php').expand(parameters);
     return DynamiteRawResponse<Status, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -204,11 +204,11 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/getapppassword').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/getapppassword').expand(parameters);
     return DynamiteRawResponse<AppPasswordGetAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -290,11 +290,11 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/apppassword/rotate').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/apppassword/rotate').expand(parameters);
     return DynamiteRawResponse<AppPasswordRotateAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -376,11 +376,11 @@ class AppPasswordClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/apppassword').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/apppassword').expand(parameters);
     return DynamiteRawResponse<AppPasswordDeleteAppPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -516,14 +516,13 @@ class AutoCompleteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/core/autocomplete/get{?search*,itemType*,itemId*,sorter*,shareTypes%5B%5D*,limit*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/core/autocomplete/get{?search*,itemType*,itemId*,sorter*,shareTypes%5B%5D*,limit*}')
+            .expand(parameters);
     return DynamiteRawResponse<AutoCompleteGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -617,11 +616,11 @@ class AvatarClient {
     final $size = jsonSerializers.serialize(size, specifiedType: const FullType(int));
     parameters['size'] = $size;
 
-    final uri = Uri.parse(UriTemplate('/index.php/avatar/{userId}/{size}/dark').expand(parameters));
+    final path = UriTemplate('/index.php/avatar/{userId}/{size}/dark').expand(parameters);
     return DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarDarkHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -708,11 +707,11 @@ class AvatarClient {
     final $size = jsonSerializers.serialize(size, specifiedType: const FullType(int));
     parameters['size'] = $size;
 
-    final uri = Uri.parse(UriTemplate('/index.php/avatar/{userId}/{size}').expand(parameters));
+    final path = UriTemplate('/index.php/avatar/{userId}/{size}').expand(parameters);
     return DynamiteRawResponse<Uint8List, AvatarAvatarGetAvatarHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -793,11 +792,11 @@ class ClientFlowLoginV2Client {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/login/v2/poll{?token*}').expand(parameters));
+    final path = UriTemplate('/index.php/login/v2/poll{?token*}').expand(parameters);
     return DynamiteRawResponse<LoginFlowV2Credentials, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -859,11 +858,11 @@ class ClientFlowLoginV2Client {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/login/v2').expand(parameters));
+    final path = UriTemplate('/index.php/login/v2').expand(parameters);
     return DynamiteRawResponse<LoginFlowV2, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -959,12 +958,11 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/search/{filter}').expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1056,12 +1054,11 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}').expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesListCollectionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1161,14 +1158,12 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?collectionName*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?collectionName*}')
+        .expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesRenameCollectionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1276,14 +1271,13 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
+            .expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesAddResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1391,14 +1385,13 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/collaboration/resources/collections/{collectionId}{?resourceType*,resourceId*}')
+            .expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesRemoveResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1498,12 +1491,11 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/collaboration/resources/{resourceType}/{resourceId}').expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1615,13 +1607,12 @@ class CollaborationResourcesClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}{?name*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/collaboration/resources/{baseResourceType}/{baseResourceId}{?name*}')
+        .expand(parameters);
     return DynamiteRawResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1717,11 +1708,11 @@ class GuestAvatarClient {
     final $size = jsonSerializers.serialize(size, specifiedType: const FullType(String));
     parameters['size'] = $size;
 
-    final uri = Uri.parse(UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(parameters));
+    final path = UriTemplate('/index.php/avatar/guest/{guestName}/{size}/dark').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -1819,11 +1810,11 @@ class GuestAvatarClient {
     $darkTheme ??= 0;
     parameters['darkTheme'] = $darkTheme;
 
-    final uri = Uri.parse(UriTemplate('/index.php/avatar/guest/{guestName}/{size}{?darkTheme*}').expand(parameters));
+    final path = UriTemplate('/index.php/avatar/guest/{guestName}/{size}{?darkTheme*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -1919,11 +1910,11 @@ class HoverCardClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/hovercard/v1/{userId}').expand(parameters);
     return DynamiteRawResponse<HoverCardGetUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2020,11 +2011,11 @@ class NavigationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/navigation/apps{?absolute*}').expand(parameters);
     return DynamiteRawResponse<NavigationGetAppsNavigationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2115,11 +2106,11 @@ class NavigationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/navigation/settings{?absolute*}').expand(parameters);
     return DynamiteRawResponse<NavigationGetSettingsNavigationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2190,11 +2181,11 @@ class OcmClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/ocm-provider').expand(parameters));
+    final path = UriTemplate('/index.php/ocm-provider').expand(parameters);
     return DynamiteRawResponse<OcmDiscoveryResponseApplicationJson, OcmOcmDiscoveryHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2276,11 +2267,11 @@ class OcsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/cloud/capabilities').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/cloud/capabilities').expand(parameters);
     return DynamiteRawResponse<OcsGetCapabilitiesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2428,13 +2419,12 @@ class PreviewClient {
     $mimeFallback ??= 0;
     parameters['mimeFallback'] = $mimeFallback;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/index.php/core/preview{?fileId*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2576,13 +2566,12 @@ class PreviewClient {
     $mimeFallback ??= 0;
     parameters['mimeFallback'] = $mimeFallback;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/index.php/core/preview.png{?file*,x*,y*,a*,forceIcon*,mode*,mimeFallback*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2698,11 +2687,11 @@ class ProfileApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/profile/{targetUserId}{?paramId*,visibility*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/profile/{targetUserId}{?paramId*,visibility*}').expand(parameters);
     return DynamiteRawResponse<ProfileApiSetVisibilityResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2783,11 +2772,11 @@ class ReferenceClient {
     final $referenceId = jsonSerializers.serialize(referenceId, specifiedType: const FullType(String));
     parameters['referenceId'] = $referenceId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/core/references/preview/{referenceId}').expand(parameters));
+    final path = UriTemplate('/index.php/core/references/preview/{referenceId}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2881,11 +2870,11 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/references/resolve{?reference*}').expand(parameters);
     return DynamiteRawResponse<ReferenceApiResolveOneResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2983,11 +2972,11 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/references/resolve{?references%5B%5D*,limit*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/references/resolve{?references%5B%5D*,limit*}').expand(parameters);
     return DynamiteRawResponse<ReferenceApiResolveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3093,11 +3082,11 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/references/extract{?text*,resolve*,limit*}').expand(parameters);
     return DynamiteRawResponse<ReferenceApiExtractResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3177,11 +3166,11 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/references/providers').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/references/providers').expand(parameters);
     return DynamiteRawResponse<ReferenceApiGetProvidersInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3277,11 +3266,11 @@ class ReferenceApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/references/provider/{providerId}{?timestamp*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/references/provider/{providerId}{?timestamp*}').expand(parameters);
     return DynamiteRawResponse<ReferenceApiTouchProviderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3365,11 +3354,11 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/tasktypes').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/textprocessing/tasktypes').expand(parameters);
     return DynamiteRawResponse<TextProcessingApiTaskTypesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3484,13 +3473,12 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/textprocessing/schedule{?input*,type*,appId*,identifier*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/textprocessing/schedule{?input*,type*,appId*,identifier*}').expand(parameters);
     return DynamiteRawResponse<TextProcessingApiScheduleResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3580,11 +3568,11 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(parameters);
     return DynamiteRawResponse<TextProcessingApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3676,11 +3664,11 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/textprocessing/task/{id}').expand(parameters);
     return DynamiteRawResponse<TextProcessingApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3778,11 +3766,11 @@ class TextProcessingApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/textprocessing/tasks/app/{appId}{?identifier*}').expand(parameters);
     return DynamiteRawResponse<TextProcessingApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3866,11 +3854,11 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/is_available').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/text2image/is_available').expand(parameters);
     return DynamiteRawResponse<TextToImageApiIsAvailableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3986,13 +3974,12 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/text2image/schedule{?input*,appId*,identifier*,numberOfImages*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/text2image/schedule{?input*,appId*,identifier*,numberOfImages*}').expand(parameters);
     return DynamiteRawResponse<TextToImageApiScheduleResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4082,11 +4069,11 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(parameters);
     return DynamiteRawResponse<TextToImageApiGetTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4178,11 +4165,11 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/text2image/task/{id}').expand(parameters);
     return DynamiteRawResponse<TextToImageApiDeleteTaskResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4280,11 +4267,11 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/text2image/task/{id}/image/{index}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4382,11 +4369,11 @@ class TextToImageApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/text2image/tasks/app/{appId}{?identifier*}').expand(parameters);
     return DynamiteRawResponse<TextToImageApiListTasksByAppResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4468,11 +4455,11 @@ class TranslationApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/translation/languages').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/translation/languages').expand(parameters);
     return DynamiteRawResponse<TranslationApiLanguagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4580,13 +4567,11 @@ class TranslationApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/translation/translate{?text*,toLanguage*,fromLanguage*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/translation/translate{?text*,toLanguage*,fromLanguage*}').expand(parameters);
     return DynamiteRawResponse<TranslationApiTranslateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4681,11 +4666,11 @@ class UnifiedSearchClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/search/providers{?from*}').expand(parameters);
     return DynamiteRawResponse<UnifiedSearchGetProvidersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4820,14 +4805,12 @@ class UnifiedSearchClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/search/providers/{providerId}/search{?term*,sortOrder*,limit*,cursor*,from*}')
+        .expand(parameters);
     return DynamiteRawResponse<UnifiedSearchSearchResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4911,11 +4894,11 @@ class WhatsNewClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/whatsnew').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/whatsnew').expand(parameters);
     return DynamiteRawResponse<WhatsNewGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5005,11 +4988,11 @@ class WhatsNewClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/core/whatsnew{?version*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/core/whatsnew{?version*}').expand(parameters);
     return DynamiteRawResponse<WhatsNewDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5090,11 +5073,11 @@ class WipeClient {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/core/wipe/check{?token*}').expand(parameters));
+    final path = UriTemplate('/index.php/core/wipe/check{?token*}').expand(parameters);
     return DynamiteRawResponse<WipeCheckWipeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5169,11 +5152,11 @@ class WipeClient {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/core/wipe/success{?token*}').expand(parameters));
+    final path = UriTemplate('/index.php/core/wipe/success{?token*}').expand(parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 404},

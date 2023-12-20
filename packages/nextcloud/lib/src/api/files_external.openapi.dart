@@ -113,11 +113,11 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_external/api/v1/mounts').expand(parameters);
     return DynamiteRawResponse<ApiGetUserMountsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

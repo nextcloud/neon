@@ -90,11 +90,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush').expand(parameters);
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -175,11 +175,11 @@ class Client extends DynamiteClient {
     final $keepalive = jsonSerializers.serialize(keepalive, specifiedType: const FullType(int));
     parameters['keepalive'] = $keepalive;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/keepalive{?keepalive*}').expand(parameters);
     return DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -256,11 +256,11 @@ class Client extends DynamiteClient {
     final $deviceName = jsonSerializers.serialize(deviceName, specifiedType: const FullType(String));
     parameters['deviceName'] = $deviceName;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/device{?deviceName*}').expand(parameters);
     return DynamiteRawResponse<CreateDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -333,11 +333,11 @@ class Client extends DynamiteClient {
     final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     parameters['deviceId'] = $deviceId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters);
     return DynamiteRawResponse<SyncDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {401},
@@ -408,11 +408,11 @@ class Client extends DynamiteClient {
     final $deviceId = jsonSerializers.serialize(deviceId, specifiedType: const FullType(String));
     parameters['deviceId'] = $deviceId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/device/{deviceId}').expand(parameters);
     return DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -499,11 +499,11 @@ class Client extends DynamiteClient {
     final $appName = jsonSerializers.serialize(appName, specifiedType: const FullType(String));
     parameters['appName'] = $appName;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/app{?deviceId*,appName*}').expand(parameters);
     return DynamiteRawResponse<CreateAppResponseApplicationJson, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -572,11 +572,11 @@ class Client extends DynamiteClient {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/app/{token}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/app/{token}').expand(parameters);
     return DynamiteRawResponse<DeleteAppResponseApplicationJson, void>(
       response: executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -649,11 +649,11 @@ class Client extends DynamiteClient {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters);
     return DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -722,11 +722,11 @@ class Client extends DynamiteClient {
     final $token = jsonSerializers.serialize(token, specifiedType: const FullType(String));
     parameters['token'] = $token;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/push/{token}').expand(parameters);
     return DynamiteRawResponse<PushResponseApplicationJson, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -790,11 +790,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters);
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -858,11 +858,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters));
+    final path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(parameters);
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},

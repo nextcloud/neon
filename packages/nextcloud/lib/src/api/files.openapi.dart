@@ -144,11 +144,11 @@ class ApiClient {
     dynamite_utils.checkPattern($file as String?, RegExp(r'^.+$'), 'file');
     parameters['file'] = $file;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/files/api/v1/thumbnail/{x}/{y}/{file}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -230,11 +230,11 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(parameters);
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -332,13 +332,12 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/templates/{editorId}/{creatorId}').expand(parameters);
     return DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -446,13 +445,12 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}').expand(parameters),
-    );
+    final path0 =
+        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/open{?path*,editorId*,fileId*}').expand(parameters);
     return DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -568,14 +566,13 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
-          .expand(parameters),
-    );
+    final path0 =
+        UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing/create{?path*,editorId*,creatorId*,templateId*}')
+            .expand(parameters);
     return DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -671,11 +668,11 @@ class OpenLocalEditorClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(parameters));
+    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor{?path*}').expand(parameters);
     return DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -773,12 +770,11 @@ class OpenLocalEditorClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(parameters));
+    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/openlocaleditor/{token}{?path*}').expand(parameters);
     return DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -860,11 +856,11 @@ class TemplateClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(parameters);
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -972,14 +968,12 @@ class TemplateClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/create{?filePath*,templatePath*,templateType*}')
+        .expand(parameters);
     return DynamiteRawResponse<TemplateCreateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1079,14 +1073,12 @@ class TemplateClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates/path{?templatePath*,copySystemTemplates*}')
+        .expand(parameters);
     return DynamiteRawResponse<TemplatePathResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1192,13 +1184,11 @@ class TransferOwnershipClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(parameters),
-    );
+    final path0 = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership{?recipient*,path*}').expand(parameters);
     return DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200, 400, 403},
@@ -1290,11 +1280,11 @@ class TransferOwnershipClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters);
     return DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 403, 404},
@@ -1386,11 +1376,11 @@ class TransferOwnershipClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files/api/v1/transferownership/{id}').expand(parameters);
     return DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 403, 404},

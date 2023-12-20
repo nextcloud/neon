@@ -118,11 +118,11 @@ class IconClient {
     $app ??= 'core';
     parameters['app'] = $app;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/favicon/{app}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/favicon/{app}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -200,11 +200,11 @@ class IconClient {
     $app ??= 'core';
     parameters['app'] = $app;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/icon/{app}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/icon/{app}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -294,11 +294,11 @@ class IconClient {
     dynamite_utils.checkPattern($image as String?, RegExp(r'^.+$'), 'image');
     parameters['image'] = $image;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/img/{app}/{image}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -403,13 +403,11 @@ class ThemingClient {
     $withCustomCss ??= 0;
     parameters['withCustomCss'] = $withCustomCss;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/theming/theme/{themeId}.css{?plain*,withCustomCss*}').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -499,11 +497,11 @@ class ThemingClient {
     $useSvg ??= 1;
     parameters['useSvg'] = $useSvg;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/image/{key}{?useSvg*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -578,11 +576,11 @@ class ThemingClient {
     final $app = jsonSerializers.serialize(app, specifiedType: const FullType(String));
     parameters['app'] = $app;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/manifest/{app}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/manifest/{app}').expand(parameters);
     return DynamiteRawResponse<ThemingGetManifestResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -666,11 +664,11 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/background').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -779,11 +777,11 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/background/{type}{?value*,color*}').expand(parameters);
     return DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -859,11 +857,11 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/theming/background/custom').expand(parameters));
+    final path = UriTemplate('/index.php/apps/theming/background/custom').expand(parameters);
     return DynamiteRawResponse<Background, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -955,11 +953,11 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}/enable').expand(parameters);
     return DynamiteRawResponse<UserThemeEnableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1051,11 +1049,11 @@ class UserThemeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/theming/api/v1/theme/{themeId}').expand(parameters);
     return DynamiteRawResponse<UserThemeDisableThemeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
