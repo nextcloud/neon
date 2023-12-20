@@ -119,8 +119,7 @@ sealed class TypeResult {
   /// Encodes the variable named [object].
   String encode(
     final String object, {
-    final bool onlyChildren = false,
-    final String? mimeType,
+    required final String mimeType,
   }) {
     final serialized = serialize(object);
 

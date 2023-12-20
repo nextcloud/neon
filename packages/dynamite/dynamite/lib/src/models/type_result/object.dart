@@ -18,14 +18,12 @@ class TypeResultObject extends TypeResult {
   @override
   String encode(
     final String object, {
-    final bool onlyChildren = false,
-    final String? mimeType,
+    required final String mimeType,
   }) {
-    if (className == _contentString) {
-      assert(mimeType == 'application/json', '$_contentString should have a mimeType of application/json');
-      return serialize(object);
+    if (className == _contentString && mimeType != 'application/json') {
+      throw StateError('$_contentString should have a mimeType of application/json');
     }
 
-    return super.encode(object, onlyChildren: onlyChildren, mimeType: mimeType);
+    return super.encode(object, mimeType: mimeType);
   }
 }

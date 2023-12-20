@@ -141,6 +141,7 @@ final Serializers serializers = Serializers().toBuilder().build();
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
+      ..addPlugin(const HeaderPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
 // coverage:ignore-end

@@ -16,19 +16,6 @@ class TypeResultList extends TypeResult {
   String? get _serializer => null;
 
   @override
-  String encode(
-    final String object, {
-    final bool onlyChildren = false,
-    final String? mimeType,
-  }) {
-    if (onlyChildren) {
-      return '($object as List).map<String>((e) => ${subType.encode('e', mimeType: mimeType)}).join()';
-    }
-
-    return super.encode(object, mimeType: mimeType);
-  }
-
-  @override
   TypeResultList get dartType => TypeResultList('List', subType, nullable: nullable);
 
   @override

@@ -46,6 +46,7 @@ class Client extends DynamiteClient {
   ///   * [contentString]
   ///   * [contentParameter]
   ///   * [array]
+  ///   * [arrayString]
   ///   * [$bool]
   ///   * [string]
   ///   * [stringBinary]
@@ -65,7 +66,8 @@ class Client extends DynamiteClient {
   Future<DynamiteResponse<JsonObject, void>> $get({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    BuiltList<String>? array,
+    BuiltList<JsonObject>? array,
+    BuiltList<String>? arrayString,
     bool? $bool,
     String? string,
     Uint8List? stringBinary,
@@ -81,6 +83,7 @@ class Client extends DynamiteClient {
       contentString: contentString,
       contentParameter: contentParameter,
       array: array,
+      arrayString: arrayString,
       $bool: $bool,
       string: string,
       stringBinary: stringBinary,
@@ -105,6 +108,7 @@ class Client extends DynamiteClient {
   ///   * [contentString]
   ///   * [contentParameter]
   ///   * [array]
+  ///   * [arrayString]
   ///   * [$bool]
   ///   * [string]
   ///   * [stringBinary]
@@ -125,7 +129,8 @@ class Client extends DynamiteClient {
   DynamiteRawResponse<JsonObject, void> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    BuiltList<String>? array,
+    BuiltList<JsonObject>? array,
+    BuiltList<String>? arrayString,
     bool? $bool,
     String? string,
     Uint8List? stringBinary,
@@ -158,8 +163,12 @@ class Client extends DynamiteClient {
     );
     _parameters['content_parameter'] = $contentParameter;
 
-    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
     _parameters['array'] = $array;
+
+    final $arrayString =
+        jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    _parameters['array_string'] = $arrayString;
 
     final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     _parameters['bool'] = $$bool;
@@ -193,7 +202,7 @@ class Client extends DynamiteClient {
     _parameters['enum_pattern'] = $enumPattern;
 
     final _path = UriTemplate(
-      '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
+      '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
     ).expand(_parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
@@ -213,12 +222,20 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [contentString]
+  ///   * [contentParameter]
   ///   * [array]
+  ///   * [arrayString]
   ///   * [$bool]
   ///   * [string]
+  ///   * [stringBinary]
   ///   * [$int]
   ///   * [$double]
   ///   * [$num]
+  ///   * [object]
+  ///   * [oneOf]
+  ///   * [anyOf]
+  ///   * [enumPattern]
   ///
   /// Status codes:
   ///   * 200
@@ -226,20 +243,36 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [getHeadersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<JsonObject, void>> getHeaders({
-    BuiltList<String>? array,
+    ContentString<BuiltMap<String, JsonObject>>? contentString,
+    ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    BuiltList<JsonObject>? array,
+    BuiltList<String>? arrayString,
     bool? $bool,
     String? string,
+    Uint8List? stringBinary,
     int? $int,
     double? $double,
     num? $num,
+    JsonObject? object,
+    GetHeadersOneOf? oneOf,
+    GetHeadersAnyOf? anyOf,
+    GetHeadersEnumPattern? enumPattern,
   }) async {
     final rawResponse = getHeadersRaw(
+      contentString: contentString,
+      contentParameter: contentParameter,
       array: array,
+      arrayString: arrayString,
       $bool: $bool,
       string: string,
+      stringBinary: stringBinary,
       $int: $int,
       $double: $double,
       $num: $num,
+      object: object,
+      oneOf: oneOf,
+      anyOf: anyOf,
+      enumPattern: enumPattern,
     );
 
     return rawResponse.future;
@@ -251,12 +284,20 @@ class Client extends DynamiteClient {
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
   ///
   /// Parameters:
+  ///   * [contentString]
+  ///   * [contentParameter]
   ///   * [array]
+  ///   * [arrayString]
   ///   * [$bool]
   ///   * [string]
+  ///   * [stringBinary]
   ///   * [$int]
   ///   * [$double]
   ///   * [$num]
+  ///   * [object]
+  ///   * [oneOf]
+  ///   * [anyOf]
+  ///   * [enumPattern]
   ///
   /// Status codes:
   ///   * 200
@@ -265,45 +306,105 @@ class Client extends DynamiteClient {
   ///  * [getHeaders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<JsonObject, void> getHeadersRaw({
-    BuiltList<String>? array,
+    ContentString<BuiltMap<String, JsonObject>>? contentString,
+    ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    BuiltList<JsonObject>? array,
+    BuiltList<String>? arrayString,
     bool? $bool,
     String? string,
+    Uint8List? stringBinary,
     int? $int,
     double? $double,
     num? $num,
+    JsonObject? object,
+    GetHeadersOneOf? oneOf,
+    GetHeadersAnyOf? anyOf,
+    GetHeadersEnumPattern? enumPattern,
   }) {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
 
-    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final $contentString = jsonSerializers.serialize(
+      contentString,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      ]),
+    );
+    if ($contentString != null) {
+      _headers['content_string'] = const dynamite_utils.HeaderEncoder().convert($contentString);
+    }
+
+    final $contentParameter = jsonSerializers.serialize(
+      contentParameter,
+      specifiedType: const FullType(ContentString, [
+        FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+      ]),
+    );
+    if ($contentParameter != null) {
+      _headers['content_parameter'] = const dynamite_utils.HeaderEncoder().convert($contentParameter);
+    }
+
+    final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(JsonObject)]));
     if ($array != null) {
-      _headers['array'] = ($array as List).map<String>((e) => e as String).join();
+      _headers['array'] = const dynamite_utils.HeaderEncoder().convert($array);
+    }
+
+    final $arrayString =
+        jsonSerializers.serialize(arrayString, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    if ($arrayString != null) {
+      _headers['array_string'] = const dynamite_utils.HeaderEncoder().convert($arrayString);
     }
 
     final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
     if ($$bool != null) {
-      _headers['bool'] = $$bool.toString();
+      _headers['bool'] = const dynamite_utils.HeaderEncoder().convert($$bool);
     }
 
     final $string = jsonSerializers.serialize(string, specifiedType: const FullType(String));
     if ($string != null) {
-      _headers['string'] = $string as String;
+      _headers['string'] = const dynamite_utils.HeaderEncoder().convert($string);
+    }
+
+    final $stringBinary = jsonSerializers.serialize(stringBinary, specifiedType: const FullType(Uint8List));
+    if ($stringBinary != null) {
+      _headers['string_binary'] = const dynamite_utils.HeaderEncoder().convert($stringBinary);
     }
 
     final $$int = jsonSerializers.serialize($int, specifiedType: const FullType(int));
     if ($$int != null) {
-      _headers['int'] = $$int.toString();
+      _headers['int'] = const dynamite_utils.HeaderEncoder().convert($$int);
     }
 
     final $$double = jsonSerializers.serialize($double, specifiedType: const FullType(double));
     if ($$double != null) {
-      _headers['double'] = $$double.toString();
+      _headers['double'] = const dynamite_utils.HeaderEncoder().convert($$double);
     }
 
     final $$num = jsonSerializers.serialize($num, specifiedType: const FullType(num));
     if ($$num != null) {
-      _headers['num'] = $$num.toString();
+      _headers['num'] = const dynamite_utils.HeaderEncoder().convert($$num);
+    }
+
+    final $object = jsonSerializers.serialize(object, specifiedType: const FullType(JsonObject));
+    if ($object != null) {
+      _headers['object'] = const dynamite_utils.HeaderEncoder().convert($object);
+    }
+
+    final $oneOf = jsonSerializers.serialize(oneOf, specifiedType: const FullType(GetHeadersOneOf));
+    if ($oneOf != null) {
+      _headers['oneOf'] = const dynamite_utils.HeaderEncoder().convert($oneOf);
+    }
+
+    final $anyOf = jsonSerializers.serialize(anyOf, specifiedType: const FullType(GetHeadersAnyOf));
+    if ($anyOf != null) {
+      _headers['anyOf'] = const dynamite_utils.HeaderEncoder().convert($anyOf);
+    }
+
+    final $enumPattern = jsonSerializers.serialize(enumPattern, specifiedType: const FullType(GetHeadersEnumPattern));
+    dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
+    if ($enumPattern != null) {
+      _headers['enum_pattern'] = const dynamite_utils.HeaderEncoder().convert($enumPattern);
     }
 
     const _path = '/headers';
@@ -388,9 +489,28 @@ class GetEnumPattern extends EnumClass {
   static Serializer<GetEnumPattern> get serializer => _$getEnumPatternSerializer;
 }
 
+class GetHeadersEnumPattern extends EnumClass {
+  const GetHeadersEnumPattern._(super.name);
+
+  static const GetHeadersEnumPattern a = _$getHeadersEnumPatternA;
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const GetHeadersEnumPattern $0 = _$getHeadersEnumPattern$0;
+
+  static BuiltSet<GetHeadersEnumPattern> get values => _$getHeadersEnumPatternValues;
+
+  static GetHeadersEnumPattern valueOf(String name) => _$valueOfGetHeadersEnumPattern(name);
+
+  static Serializer<GetHeadersEnumPattern> get serializer => _$getHeadersEnumPatternSerializer;
+}
+
 typedef GetOneOf = ({bool? $bool, String? string});
 
 typedef GetAnyOf = ({bool? $bool, String? string});
+
+typedef GetHeadersOneOf = ({bool? $bool, String? string});
+
+typedef GetHeadersAnyOf = ({bool? $bool, String? string});
 
 typedef $BoolString = ({bool? $bool, String? string});
 
@@ -463,15 +583,18 @@ final Serializers serializers = (Serializers().toBuilder()
         ContentStringBuilder<BuiltMap<String, JsonObject>>.new,
       )
       ..add(ContentString.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
       ..add($BoolStringExtension.serializer)
-      ..add(GetEnumPattern.serializer))
+      ..add(GetEnumPattern.serializer)
+      ..add(GetHeadersEnumPattern.serializer))
     .build();
 
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
       ..addPlugin(StandardJsonPlugin())
+      ..addPlugin(const HeaderPlugin())
       ..addPlugin(const ContentStringPlugin()))
     .build();
 // coverage:ignore-end

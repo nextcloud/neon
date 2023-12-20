@@ -489,7 +489,7 @@ String buildParameterSerialization(
 
   if (parameter.$in == openapi.ParameterType.header) {
     final assignment =
-        "_headers['${parameter.pctEncodedName}'] = ${result.encode(serializedName, onlyChildren: true)};";
+        "_headers['${parameter.pctEncodedName}'] = const dynamite_utils.HeaderEncoder(explode: ${parameter.explode}).convert($serializedName);";
 
     if ($default == null) {
       buffer

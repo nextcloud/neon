@@ -53,7 +53,7 @@ TypeResultObject resolveObject(
 
       if (isHeader && result.className != 'String') {
         result = TypeResultObject(
-          'ContentString',
+          'Header',
           generics: BuiltList([result]),
           nullable: result.nullable,
         );
