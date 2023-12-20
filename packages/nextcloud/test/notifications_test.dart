@@ -10,7 +10,7 @@ void main() {
   presets(
     'server',
     'notifications',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {

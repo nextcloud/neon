@@ -27,7 +27,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -63,10 +63,10 @@ class PreviewClient {
   /// See:
   ///  * [getPreviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getPreview({
-    final String? file,
-    final int? x,
-    final int? y,
-    final String? version,
+    String? file,
+    int? x,
+    int? y,
+    String? version,
   }) async {
     final rawResponse = getPreviewRaw(
       file: file,
@@ -100,10 +100,10 @@ class PreviewClient {
   ///  * [getPreview] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getPreviewRaw({
-    final String? file,
-    final int? x,
-    final int? y,
-    final String? version,
+    String? file,
+    int? x,
+    int? y,
+    String? version,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -113,7 +113,7 @@ class PreviewClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -171,15 +171,14 @@ abstract interface class $Capabilities_FilesInterface {
 
 abstract class Capabilities_Files
     implements $Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
-  factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
+  factory Capabilities_Files([void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
   const Capabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Files.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Files.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -195,14 +194,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

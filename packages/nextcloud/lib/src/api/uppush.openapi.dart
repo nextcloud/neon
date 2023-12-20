@@ -28,7 +28,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -75,7 +75,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -120,9 +120,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [setKeepaliveRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SetKeepaliveResponseApplicationJson, void>> setKeepalive({
-    required final int keepalive,
-  }) async {
+  Future<DynamiteResponse<SetKeepaliveResponseApplicationJson, void>> setKeepalive({required int keepalive}) async {
     final rawResponse = setKeepaliveRaw(
       keepalive: keepalive,
     );
@@ -148,7 +146,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [setKeepalive] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required final int keepalive}) {
+  DynamiteRawResponse<SetKeepaliveResponseApplicationJson, void> setKeepaliveRaw({required int keepalive}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -157,7 +155,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -203,9 +201,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [createDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<CreateDeviceResponseApplicationJson, void>> createDevice({
-    required final String deviceName,
-  }) async {
+  Future<DynamiteResponse<CreateDeviceResponseApplicationJson, void>> createDevice({required String deviceName}) async {
     final rawResponse = createDeviceRaw(
       deviceName: deviceName,
     );
@@ -229,7 +225,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required final String deviceName}) {
+  DynamiteRawResponse<CreateDeviceResponseApplicationJson, void> createDeviceRaw({required String deviceName}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -238,7 +234,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -283,7 +279,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [syncDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<SyncDeviceResponseApplicationJson, void>> syncDevice({required final String deviceId}) async {
+  Future<DynamiteResponse<SyncDeviceResponseApplicationJson, void>> syncDevice({required String deviceId}) async {
     final rawResponse = syncDeviceRaw(
       deviceId: deviceId,
     );
@@ -306,7 +302,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [syncDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required final String deviceId}) {
+  DynamiteRawResponse<SyncDeviceResponseApplicationJson, void> syncDeviceRaw({required String deviceId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -315,7 +311,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -358,9 +354,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [deleteDeviceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeleteDeviceResponseApplicationJson, void>> deleteDevice({
-    required final String deviceId,
-  }) async {
+  Future<DynamiteResponse<DeleteDeviceResponseApplicationJson, void>> deleteDevice({required String deviceId}) async {
     final rawResponse = deleteDeviceRaw(
       deviceId: deviceId,
     );
@@ -381,7 +375,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [deleteDevice] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required final String deviceId}) {
+  DynamiteRawResponse<DeleteDeviceResponseApplicationJson, void> deleteDeviceRaw({required String deviceId}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -390,7 +384,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -438,8 +432,8 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [createAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CreateAppResponseApplicationJson, void>> createApp({
-    required final String deviceId,
-    required final String appName,
+    required String deviceId,
+    required String appName,
   }) async {
     final rawResponse = createAppRaw(
       deviceId: deviceId,
@@ -467,8 +461,8 @@ class Client extends DynamiteClient {
   ///  * [createApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CreateAppResponseApplicationJson, void> createAppRaw({
-    required final String deviceId,
-    required final String appName,
+    required String deviceId,
+    required String appName,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -478,7 +472,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -524,7 +518,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [deleteAppRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DeleteAppResponseApplicationJson, void>> deleteApp({required final String token}) async {
+  Future<DynamiteResponse<DeleteAppResponseApplicationJson, void>> deleteApp({required String token}) async {
     final rawResponse = deleteAppRaw(
       token: token,
     );
@@ -545,7 +539,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [deleteApp] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required final String token}) {
+  DynamiteRawResponse<DeleteAppResponseApplicationJson, void> deleteAppRaw({required String token}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -554,7 +548,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -598,7 +592,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [unifiedpushDiscoveryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<UnifiedpushDiscoveryResponseApplicationJson, void>> unifiedpushDiscovery({
-    required final String token,
+    required String token,
   }) async {
     final rawResponse = unifiedpushDiscoveryRaw(
       token: token,
@@ -621,7 +615,7 @@ class Client extends DynamiteClient {
   ///  * [unifiedpushDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<UnifiedpushDiscoveryResponseApplicationJson, void> unifiedpushDiscoveryRaw({
-    required final String token,
+    required String token,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -631,7 +625,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -674,7 +668,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [pushRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<PushResponseApplicationJson, void>> push({required final String token}) async {
+  Future<DynamiteResponse<PushResponseApplicationJson, void>> push({required String token}) async {
     final rawResponse = pushRaw(
       token: token,
     );
@@ -695,7 +689,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [push] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required final String token}) {
+  DynamiteRawResponse<PushResponseApplicationJson, void> pushRaw({required String token}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -704,7 +698,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -775,7 +769,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -843,7 +837,7 @@ class Client extends DynamiteClient {
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -883,7 +877,7 @@ abstract class CheckResponseApplicationJson
     implements
         $CheckResponseApplicationJsonInterface,
         Built<CheckResponseApplicationJson, CheckResponseApplicationJsonBuilder> {
-  factory CheckResponseApplicationJson([final void Function(CheckResponseApplicationJsonBuilder)? b]) =
+  factory CheckResponseApplicationJson([void Function(CheckResponseApplicationJsonBuilder)? b]) =
       _$CheckResponseApplicationJson;
 
   // coverage:ignore-start
@@ -891,7 +885,7 @@ abstract class CheckResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CheckResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CheckResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -911,7 +905,7 @@ abstract class SetKeepaliveResponseApplicationJson
     implements
         $SetKeepaliveResponseApplicationJsonInterface,
         Built<SetKeepaliveResponseApplicationJson, SetKeepaliveResponseApplicationJsonBuilder> {
-  factory SetKeepaliveResponseApplicationJson([final void Function(SetKeepaliveResponseApplicationJsonBuilder)? b]) =
+  factory SetKeepaliveResponseApplicationJson([void Function(SetKeepaliveResponseApplicationJsonBuilder)? b]) =
       _$SetKeepaliveResponseApplicationJson;
 
   // coverage:ignore-start
@@ -919,7 +913,7 @@ abstract class SetKeepaliveResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SetKeepaliveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SetKeepaliveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -941,7 +935,7 @@ abstract class CreateDeviceResponseApplicationJson
     implements
         $CreateDeviceResponseApplicationJsonInterface,
         Built<CreateDeviceResponseApplicationJson, CreateDeviceResponseApplicationJsonBuilder> {
-  factory CreateDeviceResponseApplicationJson([final void Function(CreateDeviceResponseApplicationJsonBuilder)? b]) =
+  factory CreateDeviceResponseApplicationJson([void Function(CreateDeviceResponseApplicationJsonBuilder)? b]) =
       _$CreateDeviceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -949,7 +943,7 @@ abstract class CreateDeviceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CreateDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CreateDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -970,7 +964,7 @@ abstract class SyncDeviceResponseApplicationJson
     implements
         $SyncDeviceResponseApplicationJsonInterface,
         Built<SyncDeviceResponseApplicationJson, SyncDeviceResponseApplicationJsonBuilder> {
-  factory SyncDeviceResponseApplicationJson([final void Function(SyncDeviceResponseApplicationJsonBuilder)? b]) =
+  factory SyncDeviceResponseApplicationJson([void Function(SyncDeviceResponseApplicationJsonBuilder)? b]) =
       _$SyncDeviceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -978,7 +972,7 @@ abstract class SyncDeviceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SyncDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SyncDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -998,7 +992,7 @@ abstract class DeleteDeviceResponseApplicationJson
     implements
         $DeleteDeviceResponseApplicationJsonInterface,
         Built<DeleteDeviceResponseApplicationJson, DeleteDeviceResponseApplicationJsonBuilder> {
-  factory DeleteDeviceResponseApplicationJson([final void Function(DeleteDeviceResponseApplicationJsonBuilder)? b]) =
+  factory DeleteDeviceResponseApplicationJson([void Function(DeleteDeviceResponseApplicationJsonBuilder)? b]) =
       _$DeleteDeviceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1006,7 +1000,7 @@ abstract class DeleteDeviceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeleteDeviceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DeleteDeviceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1028,7 +1022,7 @@ abstract class CreateAppResponseApplicationJson
     implements
         $CreateAppResponseApplicationJsonInterface,
         Built<CreateAppResponseApplicationJson, CreateAppResponseApplicationJsonBuilder> {
-  factory CreateAppResponseApplicationJson([final void Function(CreateAppResponseApplicationJsonBuilder)? b]) =
+  factory CreateAppResponseApplicationJson([void Function(CreateAppResponseApplicationJsonBuilder)? b]) =
       _$CreateAppResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1036,7 +1030,7 @@ abstract class CreateAppResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CreateAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CreateAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1056,7 +1050,7 @@ abstract class DeleteAppResponseApplicationJson
     implements
         $DeleteAppResponseApplicationJsonInterface,
         Built<DeleteAppResponseApplicationJson, DeleteAppResponseApplicationJsonBuilder> {
-  factory DeleteAppResponseApplicationJson([final void Function(DeleteAppResponseApplicationJsonBuilder)? b]) =
+  factory DeleteAppResponseApplicationJson([void Function(DeleteAppResponseApplicationJsonBuilder)? b]) =
       _$DeleteAppResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1064,7 +1058,7 @@ abstract class DeleteAppResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DeleteAppResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DeleteAppResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1086,7 +1080,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
         Built<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
             UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
   factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush([
-    final void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
+    void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
   ]) = _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush;
 
   // coverage:ignore-start
@@ -1094,7 +1088,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1116,7 +1110,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
         $UnifiedpushDiscoveryResponseApplicationJsonInterface,
         Built<UnifiedpushDiscoveryResponseApplicationJson, UnifiedpushDiscoveryResponseApplicationJsonBuilder> {
   factory UnifiedpushDiscoveryResponseApplicationJson([
-    final void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? b,
+    void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? b,
   ]) = _$UnifiedpushDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1124,7 +1118,7 @@ abstract class UnifiedpushDiscoveryResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory UnifiedpushDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory UnifiedpushDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1145,7 +1139,7 @@ abstract class PushResponseApplicationJson
     implements
         $PushResponseApplicationJsonInterface,
         Built<PushResponseApplicationJson, PushResponseApplicationJsonBuilder> {
-  factory PushResponseApplicationJson([final void Function(PushResponseApplicationJsonBuilder)? b]) =
+  factory PushResponseApplicationJson([void Function(PushResponseApplicationJsonBuilder)? b]) =
       _$PushResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1153,7 +1147,7 @@ abstract class PushResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PushResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PushResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1175,7 +1169,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
         Built<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
             GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
   factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush([
-    final void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
+    void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
   ]) = _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush;
 
   // coverage:ignore-start
@@ -1183,7 +1177,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(final Map<String, dynamic> json) =>
+  factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1205,7 +1199,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
         $GatewayMatrixDiscoveryResponseApplicationJsonInterface,
         Built<GatewayMatrixDiscoveryResponseApplicationJson, GatewayMatrixDiscoveryResponseApplicationJsonBuilder> {
   factory GatewayMatrixDiscoveryResponseApplicationJson([
-    final void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? b,
+    void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? b,
   ]) = _$GatewayMatrixDiscoveryResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1213,7 +1207,7 @@ abstract class GatewayMatrixDiscoveryResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GatewayMatrixDiscoveryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory GatewayMatrixDiscoveryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1234,7 +1228,7 @@ abstract class GatewayMatrixResponseApplicationJson
     implements
         $GatewayMatrixResponseApplicationJsonInterface,
         Built<GatewayMatrixResponseApplicationJson, GatewayMatrixResponseApplicationJsonBuilder> {
-  factory GatewayMatrixResponseApplicationJson([final void Function(GatewayMatrixResponseApplicationJsonBuilder)? b]) =
+  factory GatewayMatrixResponseApplicationJson([void Function(GatewayMatrixResponseApplicationJsonBuilder)? b]) =
       _$GatewayMatrixResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1242,7 +1236,7 @@ abstract class GatewayMatrixResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GatewayMatrixResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory GatewayMatrixResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

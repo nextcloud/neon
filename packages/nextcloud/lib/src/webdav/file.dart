@@ -6,24 +6,21 @@ import 'package:nextcloud/src/webdav/webdav.dart';
 // ignore: public_member_api_docs
 extension WebDavMultistatusFile on WebDavMultistatus {
   /// Convert the [WebDavMultistatus] into a [WebDavFile] for easier handling
-  List<WebDavFile> toWebDavFiles() => responses
-      .where((final response) => response.href != null)
-      .map((final response) => WebDavFile(response: response))
-      .toList();
+  List<WebDavFile> toWebDavFiles() =>
+      responses.where((response) => response.href != null).map((response) => WebDavFile(response: response)).toList();
 }
 
 /// WebDavFile class
 class WebDavFile {
   /// Creates a new WebDavFile object with the given path
   WebDavFile({
-    required final WebDavResponse response,
+    required WebDavResponse response,
   }) : _response = response;
 
   final WebDavResponse _response;
 
   /// Get the props of the file
-  late final WebDavProp props =
-      _response.propstats.singleWhere((final propstat) => propstat.status.contains('200')).prop;
+  late final WebDavProp props = _response.propstats.singleWhere((propstat) => propstat.status.contains('200')).prop;
 
   /// The path of file
   late final PathUri path = () {

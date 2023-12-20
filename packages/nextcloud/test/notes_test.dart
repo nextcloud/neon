@@ -9,7 +9,7 @@ void main() {
   presets(
     'notes',
     'notes',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {
@@ -126,7 +126,7 @@ void main() {
             title: 'c',
             ifMatch: '"${response.body.etag}"',
           ),
-          throwsA(predicate((final e) => (e! as DynamiteApiException).statusCode == 412)),
+          throwsA(predicate((e) => (e! as DynamiteApiException).statusCode == 412)),
         );
       });
 
@@ -161,7 +161,7 @@ void main() {
       test('Update settings', () async {
         var response = await client.notes.updateSettings(
           settings: notes.Settings(
-            (final b) => b
+            (b) => b
               ..notesPath = 'Test Notes'
               ..fileSuffix = '.txt'
               ..noteMode = notes.Settings_NoteMode.preview,

@@ -15,7 +15,7 @@ class PathUri {
   /// Creates a new `PathUri` object by parsing a [path] string.
   ///
   /// An empty [path] is considered to be the current working directory.
-  factory PathUri.parse(final String path) {
+  factory PathUri.parse(String path) {
     final parts = path.split('/');
     if (parts.length == 1 && parts.single.isEmpty) {
       return PathUri(
@@ -27,7 +27,7 @@ class PathUri {
     return PathUri(
       isAbsolute: parts.first.isEmpty,
       isDirectory: parts.last.isEmpty,
-      pathSegments: BuiltList(parts.where((final element) => element.isNotEmpty)),
+      pathSegments: BuiltList(parts.where((element) => element.isNotEmpty)),
     );
   }
 
@@ -77,7 +77,7 @@ class PathUri {
       return PathUri(
         isAbsolute: isAbsolute,
         isDirectory: true,
-        pathSegments: pathSegments.rebuild((final b) => b.removeLast()),
+        pathSegments: pathSegments.rebuild((b) => b.removeLast()),
       );
     }
 
@@ -88,7 +88,7 @@ class PathUri {
   ///
   /// If the current path is not a directory a [StateError] will be thrown.
   /// See [isDirectory] for checking if the current path is a directory.
-  PathUri join(final PathUri other) {
+  PathUri join(PathUri other) {
     if (!isDirectory) {
       throw StateError('$this is not a directory.');
     }
@@ -96,12 +96,12 @@ class PathUri {
     return PathUri(
       isAbsolute: isAbsolute,
       isDirectory: other.isDirectory,
-      pathSegments: pathSegments.rebuild((final b) => b.addAll(other.pathSegments)),
+      pathSegments: pathSegments.rebuild((b) => b.addAll(other.pathSegments)),
     );
   }
 
   /// Renames the last path segment and returns a new path URI.
-  PathUri rename(final String name) {
+  PathUri rename(String name) {
     if (name.contains('/')) {
       throw Exception('Path names must not contain /');
     }
@@ -111,7 +111,7 @@ class PathUri {
       isDirectory: isDirectory,
       pathSegments: pathSegments.isNotEmpty
           ? pathSegments.rebuild(
-              (final b) => b
+              (b) => b
                 ..removeLast()
                 ..add(name),
             )
@@ -120,7 +120,7 @@ class PathUri {
   }
 
   @override
-  bool operator ==(final Object other) =>
+  bool operator ==(Object other) =>
       other is PathUri &&
       isAbsolute == other.isAbsolute &&
       isDirectory == other.isDirectory &&

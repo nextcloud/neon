@@ -14,7 +14,7 @@ extension SpreedVersionCheck on spreed.Client {
   /// Checks whether the spreed app installed on the server is supported by this client.
   ///
   /// Also returns the supported version number.
-  VersionCheck getVersionCheck(final core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
+  VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
     final version = capabilities.capabilities.spreedPublicCapabilities?.spreedPublicCapabilities0?.spreed.version;
     return VersionCheck(
       versions: version != null ? [Version.parse(version)] : null,
@@ -51,7 +51,7 @@ enum RoomType {
   int get value => index + 1;
 
   /// Converts the integer [value] representation of a [RoomType] into a [RoomType].
-  static RoomType fromValue(final int value) => RoomType.values[value - 1];
+  static RoomType fromValue(int value) => RoomType.values[value - 1];
 
   /// Whether the room is only with one other user.
   bool get isSingleUser => switch (this) {
@@ -153,7 +153,7 @@ enum ParticipantType {
   int get value => index + 1;
 
   /// Converts the integer [value] representation of a [ParticipantType] into a [ParticipantType].
-  static ParticipantType fromValue(final int value) => ParticipantType.values[value - 1];
+  static ParticipantType fromValue(int value) => ParticipantType.values[value - 1];
 }
 
 /// Attendee permissions.
@@ -222,7 +222,7 @@ enum ParticipantInCallFlag {
 /// See [EnumCollectionBinary.binary] for getting the binary representation of multiple enum values.
 extension EnumByBinary<T extends Enum> on List<T> {
   /// Converts the binary representation of an enum into enum values.
-  Set<T> byBinary(final int value) {
+  Set<T> byBinary(int value) {
     final result = <T>{};
 
     var v = value;
@@ -256,5 +256,5 @@ extension EnumCollectionBinary<T extends Enum> on Set<T> {
   ///
   /// See [EnumBinary.binary] for getting the binary representation of a single enum value.
   /// See [EnumByBinary.byBinary] for converting the binary representation into enum values.
-  int get binary => map((final p) => p.binary).reduce((final a, final b) => a | b);
+  int get binary => map((p) => p.binary).reduce((a, b) => a | b);
 }

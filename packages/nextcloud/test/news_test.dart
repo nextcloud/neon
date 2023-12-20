@@ -10,7 +10,7 @@ void main() {
   presets(
     'news',
     'news',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {
@@ -24,8 +24,7 @@ void main() {
         container.destroy();
       });
 
-      Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([final int? folderID]) async =>
-          client.news.addFeed(
+      Future<DynamiteResponse<news.ListFeeds, void>> addWikipediaFeed([int? folderID]) async => client.news.addFeed(
             url: 'http://localhost/static/wikipedia.xml',
             folderId: folderID,
           );

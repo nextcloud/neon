@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -73,9 +73,9 @@ class ApiClient {
   /// See:
   ///  * [getThumbnailRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getThumbnail({
-    required final int x,
-    required final int y,
-    required final String file,
+    required int x,
+    required int y,
+    required String file,
   }) async {
     final rawResponse = getThumbnailRaw(
       x: x,
@@ -107,9 +107,9 @@ class ApiClient {
   ///  * [getThumbnail] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getThumbnailRaw({
-    required final int x,
-    required final int y,
-    required final String file,
+    required int x,
+    required int y,
+    required String file,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -119,7 +119,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -178,7 +178,7 @@ class DirectEditingClient {
   ///
   /// See:
   ///  * [infoRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<DirectEditingInfoResponseApplicationJson, void>> info({bool? oCSAPIRequest}) async {
     final rawResponse = infoRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -202,7 +202,7 @@ class DirectEditingClient {
   /// See:
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -211,7 +211,7 @@ class DirectEditingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -262,9 +262,9 @@ class DirectEditingClient {
   /// See:
   ///  * [templatesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DirectEditingTemplatesResponseApplicationJson, void>> templates({
-    required final String editorId,
-    required final String creatorId,
-    final bool? oCSAPIRequest,
+    required String editorId,
+    required String creatorId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = templatesRaw(
       editorId: editorId,
@@ -295,9 +295,9 @@ class DirectEditingClient {
   ///  * [templates] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingTemplatesResponseApplicationJson, void> templatesRaw({
-    required final String editorId,
-    required final String creatorId,
-    final bool? oCSAPIRequest,
+    required String editorId,
+    required String creatorId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -307,7 +307,7 @@ class DirectEditingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -367,10 +367,10 @@ class DirectEditingClient {
   /// See:
   ///  * [openRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DirectEditingOpenResponseApplicationJson, void>> open({
-    required final String path,
-    final String? editorId,
-    final int? fileId,
-    final bool? oCSAPIRequest,
+    required String path,
+    String? editorId,
+    int? fileId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = openRaw(
       path: path,
@@ -404,10 +404,10 @@ class DirectEditingClient {
   ///  * [open] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingOpenResponseApplicationJson, void> openRaw({
-    required final String path,
-    final String? editorId,
-    final int? fileId,
-    final bool? oCSAPIRequest,
+    required String path,
+    String? editorId,
+    int? fileId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -417,7 +417,7 @@ class DirectEditingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -481,11 +481,11 @@ class DirectEditingClient {
   /// See:
   ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DirectEditingCreateResponseApplicationJson, void>> create({
-    required final String path,
-    required final String editorId,
-    required final String creatorId,
-    final String? templateId,
-    final bool? oCSAPIRequest,
+    required String path,
+    required String editorId,
+    required String creatorId,
+    String? templateId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       path: path,
@@ -521,11 +521,11 @@ class DirectEditingClient {
   ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingCreateResponseApplicationJson, void> createRaw({
-    required final String path,
-    required final String editorId,
-    required final String creatorId,
-    final String? templateId,
-    final bool? oCSAPIRequest,
+    required String path,
+    required String editorId,
+    required String creatorId,
+    String? templateId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -535,7 +535,7 @@ class DirectEditingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -605,8 +605,8 @@ class OpenLocalEditorClient {
   /// See:
   ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OpenLocalEditorCreateResponseApplicationJson, void>> create({
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String path,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       path: path,
@@ -635,8 +635,8 @@ class OpenLocalEditorClient {
   ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<OpenLocalEditorCreateResponseApplicationJson, void> createRaw({
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String path,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -646,7 +646,7 @@ class OpenLocalEditorClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -700,9 +700,9 @@ class OpenLocalEditorClient {
   /// See:
   ///  * [validateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<OpenLocalEditorValidateResponseApplicationJson, void>> validate({
-    required final String path,
-    required final String token,
-    final bool? oCSAPIRequest,
+    required String path,
+    required String token,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = validateRaw(
       path: path,
@@ -733,9 +733,9 @@ class OpenLocalEditorClient {
   ///  * [validate] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<OpenLocalEditorValidateResponseApplicationJson, void> validateRaw({
-    required final String path,
-    required final String token,
-    final bool? oCSAPIRequest,
+    required String path,
+    required String token,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -745,7 +745,7 @@ class OpenLocalEditorClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -804,7 +804,7 @@ class TemplateClient {
   ///
   /// See:
   ///  * [listRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<TemplateListResponseApplicationJson, void>> list({final bool? oCSAPIRequest}) async {
+  Future<DynamiteResponse<TemplateListResponseApplicationJson, void>> list({bool? oCSAPIRequest}) async {
     final rawResponse = listRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -828,7 +828,7 @@ class TemplateClient {
   /// See:
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -837,7 +837,7 @@ class TemplateClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -889,10 +889,10 @@ class TemplateClient {
   /// See:
   ///  * [createRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TemplateCreateResponseApplicationJson, void>> create({
-    required final String filePath,
-    final String? templatePath,
-    final String? templateType,
-    final bool? oCSAPIRequest,
+    required String filePath,
+    String? templatePath,
+    String? templateType,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRaw(
       filePath: filePath,
@@ -925,10 +925,10 @@ class TemplateClient {
   ///  * [create] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplateCreateResponseApplicationJson, void> createRaw({
-    required final String filePath,
-    final String? templatePath,
-    final String? templateType,
-    final bool? oCSAPIRequest,
+    required String filePath,
+    String? templatePath,
+    String? templateType,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -938,7 +938,7 @@ class TemplateClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1001,9 +1001,9 @@ class TemplateClient {
   /// See:
   ///  * [pathRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TemplatePathResponseApplicationJson, void>> path({
-    final String? templatePath,
-    final int? copySystemTemplates,
-    final bool? oCSAPIRequest,
+    String? templatePath,
+    int? copySystemTemplates,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = pathRaw(
       templatePath: templatePath,
@@ -1034,9 +1034,9 @@ class TemplateClient {
   ///  * [path] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplatePathResponseApplicationJson, void> pathRaw({
-    final String? templatePath,
-    final int? copySystemTemplates,
-    final bool? oCSAPIRequest,
+    String? templatePath,
+    int? copySystemTemplates,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1046,7 +1046,7 @@ class TemplateClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1113,9 +1113,9 @@ class TransferOwnershipClient {
   /// See:
   ///  * [transferRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TransferOwnershipTransferResponseApplicationJson, void>> transfer({
-    required final String recipient,
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String recipient,
+    required String path,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = transferRaw(
       recipient: recipient,
@@ -1147,9 +1147,9 @@ class TransferOwnershipClient {
   ///  * [transfer] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TransferOwnershipTransferResponseApplicationJson, void> transferRaw({
-    required final String recipient,
-    required final String path,
-    final bool? oCSAPIRequest,
+    required String recipient,
+    required String path,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1159,7 +1159,7 @@ class TransferOwnershipClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1216,8 +1216,8 @@ class TransferOwnershipClient {
   /// See:
   ///  * [acceptRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TransferOwnershipAcceptResponseApplicationJson, void>> accept({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptRaw(
       id: id,
@@ -1247,8 +1247,8 @@ class TransferOwnershipClient {
   ///  * [accept] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TransferOwnershipAcceptResponseApplicationJson, void> acceptRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1258,7 +1258,7 @@ class TransferOwnershipClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1312,8 +1312,8 @@ class TransferOwnershipClient {
   /// See:
   ///  * [rejectRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TransferOwnershipRejectResponseApplicationJson, void>> reject({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = rejectRaw(
       id: id,
@@ -1343,8 +1343,8 @@ class TransferOwnershipClient {
   ///  * [reject] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TransferOwnershipRejectResponseApplicationJson, void> rejectRaw({
-    required final int id,
-    final bool? oCSAPIRequest,
+    required int id,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1354,7 +1354,7 @@ class TransferOwnershipClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1402,14 +1402,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -1434,7 +1434,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors([
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? b,
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors;
 
   // coverage:ignore-start
@@ -1442,7 +1442,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1471,7 +1471,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
             DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators([
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? b,
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators;
 
   // coverage:ignore-start
@@ -1479,7 +1479,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1503,7 +1503,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
         Built<DirectEditingInfoResponseApplicationJson_Ocs_Data,
             DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data([
-    final void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1511,7 +1511,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingInfoResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingInfoResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1534,7 +1534,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
         $DirectEditingInfoResponseApplicationJson_OcsInterface,
         Built<DirectEditingInfoResponseApplicationJson_Ocs, DirectEditingInfoResponseApplicationJson_OcsBuilder> {
   factory DirectEditingInfoResponseApplicationJson_Ocs([
-    final void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? b,
+    void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1542,7 +1542,7 @@ abstract class DirectEditingInfoResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingInfoResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingInfoResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1564,7 +1564,7 @@ abstract class DirectEditingInfoResponseApplicationJson
         $DirectEditingInfoResponseApplicationJsonInterface,
         Built<DirectEditingInfoResponseApplicationJson, DirectEditingInfoResponseApplicationJsonBuilder> {
   factory DirectEditingInfoResponseApplicationJson([
-    final void Function(DirectEditingInfoResponseApplicationJsonBuilder)? b,
+    void Function(DirectEditingInfoResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingInfoResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1572,7 +1572,7 @@ abstract class DirectEditingInfoResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingInfoResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingInfoResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1600,7 +1600,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
             DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates([
-    final void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? b,
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates;
 
   // coverage:ignore-start
@@ -1608,7 +1608,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1631,7 +1631,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
             DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data([
-    final void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1639,7 +1639,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1663,7 +1663,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
         Built<DirectEditingTemplatesResponseApplicationJson_Ocs,
             DirectEditingTemplatesResponseApplicationJson_OcsBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson_Ocs([
-    final void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? b,
+    void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1671,7 +1671,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingTemplatesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingTemplatesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1693,7 +1693,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson
         $DirectEditingTemplatesResponseApplicationJsonInterface,
         Built<DirectEditingTemplatesResponseApplicationJson, DirectEditingTemplatesResponseApplicationJsonBuilder> {
   factory DirectEditingTemplatesResponseApplicationJson([
-    final void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? b,
+    void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingTemplatesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1701,7 +1701,7 @@ abstract class DirectEditingTemplatesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingTemplatesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingTemplatesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1724,7 +1724,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
         Built<DirectEditingOpenResponseApplicationJson_Ocs_Data,
             DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data([
-    final void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1732,7 +1732,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingOpenResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingOpenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1755,7 +1755,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
         $DirectEditingOpenResponseApplicationJson_OcsInterface,
         Built<DirectEditingOpenResponseApplicationJson_Ocs, DirectEditingOpenResponseApplicationJson_OcsBuilder> {
   factory DirectEditingOpenResponseApplicationJson_Ocs([
-    final void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? b,
+    void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1763,7 +1763,7 @@ abstract class DirectEditingOpenResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingOpenResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingOpenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1785,7 +1785,7 @@ abstract class DirectEditingOpenResponseApplicationJson
         $DirectEditingOpenResponseApplicationJsonInterface,
         Built<DirectEditingOpenResponseApplicationJson, DirectEditingOpenResponseApplicationJsonBuilder> {
   factory DirectEditingOpenResponseApplicationJson([
-    final void Function(DirectEditingOpenResponseApplicationJsonBuilder)? b,
+    void Function(DirectEditingOpenResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingOpenResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1793,7 +1793,7 @@ abstract class DirectEditingOpenResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingOpenResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingOpenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1816,7 +1816,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
         Built<DirectEditingCreateResponseApplicationJson_Ocs_Data,
             DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data([
-    final void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1824,7 +1824,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingCreateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingCreateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1847,7 +1847,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
         $DirectEditingCreateResponseApplicationJson_OcsInterface,
         Built<DirectEditingCreateResponseApplicationJson_Ocs, DirectEditingCreateResponseApplicationJson_OcsBuilder> {
   factory DirectEditingCreateResponseApplicationJson_Ocs([
-    final void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? b,
+    void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1855,7 +1855,7 @@ abstract class DirectEditingCreateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1877,7 +1877,7 @@ abstract class DirectEditingCreateResponseApplicationJson
         $DirectEditingCreateResponseApplicationJsonInterface,
         Built<DirectEditingCreateResponseApplicationJson, DirectEditingCreateResponseApplicationJsonBuilder> {
   factory DirectEditingCreateResponseApplicationJson([
-    final void Function(DirectEditingCreateResponseApplicationJsonBuilder)? b,
+    void Function(DirectEditingCreateResponseApplicationJsonBuilder)? b,
   ]) = _$DirectEditingCreateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1885,7 +1885,7 @@ abstract class DirectEditingCreateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectEditingCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectEditingCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1911,7 +1911,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data([
-    final void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -1919,7 +1919,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1943,7 +1943,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
         Built<OpenLocalEditorCreateResponseApplicationJson_Ocs,
             OpenLocalEditorCreateResponseApplicationJson_OcsBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs([
-    final void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? b,
+    void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -1951,7 +1951,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -1973,7 +1973,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
         $OpenLocalEditorCreateResponseApplicationJsonInterface,
         Built<OpenLocalEditorCreateResponseApplicationJson, OpenLocalEditorCreateResponseApplicationJsonBuilder> {
   factory OpenLocalEditorCreateResponseApplicationJson([
-    final void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? b,
+    void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? b,
   ]) = _$OpenLocalEditorCreateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -1981,7 +1981,7 @@ abstract class OpenLocalEditorCreateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2007,7 +2007,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
             OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data([
-    final void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -2015,7 +2015,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2039,7 +2039,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
         Built<OpenLocalEditorValidateResponseApplicationJson_Ocs,
             OpenLocalEditorValidateResponseApplicationJson_OcsBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs([
-    final void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? b,
+    void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2047,7 +2047,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorValidateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorValidateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2069,7 +2069,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
         $OpenLocalEditorValidateResponseApplicationJsonInterface,
         Built<OpenLocalEditorValidateResponseApplicationJson, OpenLocalEditorValidateResponseApplicationJsonBuilder> {
   factory OpenLocalEditorValidateResponseApplicationJson([
-    final void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? b,
+    void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? b,
   ]) = _$OpenLocalEditorValidateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2077,7 +2077,7 @@ abstract class OpenLocalEditorValidateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OpenLocalEditorValidateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory OpenLocalEditorValidateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2103,15 +2103,14 @@ abstract interface class $TemplateFileCreatorInterface {
 
 abstract class TemplateFileCreator
     implements $TemplateFileCreatorInterface, Built<TemplateFileCreator, TemplateFileCreatorBuilder> {
-  factory TemplateFileCreator([final void Function(TemplateFileCreatorBuilder)? b]) = _$TemplateFileCreator;
+  factory TemplateFileCreator([void Function(TemplateFileCreatorBuilder)? b]) = _$TemplateFileCreator;
 
   // coverage:ignore-start
   const TemplateFileCreator._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateFileCreator.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory TemplateFileCreator.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2131,16 +2130,15 @@ abstract class TemplateListResponseApplicationJson_Ocs
     implements
         $TemplateListResponseApplicationJson_OcsInterface,
         Built<TemplateListResponseApplicationJson_Ocs, TemplateListResponseApplicationJson_OcsBuilder> {
-  factory TemplateListResponseApplicationJson_Ocs([
-    final void Function(TemplateListResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$TemplateListResponseApplicationJson_Ocs;
+  factory TemplateListResponseApplicationJson_Ocs([void Function(TemplateListResponseApplicationJson_OcsBuilder)? b]) =
+      _$TemplateListResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const TemplateListResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateListResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TemplateListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2161,7 +2159,7 @@ abstract class TemplateListResponseApplicationJson
     implements
         $TemplateListResponseApplicationJsonInterface,
         Built<TemplateListResponseApplicationJson, TemplateListResponseApplicationJsonBuilder> {
-  factory TemplateListResponseApplicationJson([final void Function(TemplateListResponseApplicationJsonBuilder)? b]) =
+  factory TemplateListResponseApplicationJson([void Function(TemplateListResponseApplicationJsonBuilder)? b]) =
       _$TemplateListResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2169,7 +2167,7 @@ abstract class TemplateListResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateListResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TemplateListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2195,14 +2193,14 @@ abstract interface class $TemplateFileInterface {
 }
 
 abstract class TemplateFile implements $TemplateFileInterface, Built<TemplateFile, TemplateFileBuilder> {
-  factory TemplateFile([final void Function(TemplateFileBuilder)? b]) = _$TemplateFile;
+  factory TemplateFile([void Function(TemplateFileBuilder)? b]) = _$TemplateFile;
 
   // coverage:ignore-start
   const TemplateFile._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateFile.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory TemplateFile.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2223,7 +2221,7 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
         $TemplateCreateResponseApplicationJson_OcsInterface,
         Built<TemplateCreateResponseApplicationJson_Ocs, TemplateCreateResponseApplicationJson_OcsBuilder> {
   factory TemplateCreateResponseApplicationJson_Ocs([
-    final void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? b,
+    void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TemplateCreateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2231,7 +2229,7 @@ abstract class TemplateCreateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateCreateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TemplateCreateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2252,16 +2250,15 @@ abstract class TemplateCreateResponseApplicationJson
     implements
         $TemplateCreateResponseApplicationJsonInterface,
         Built<TemplateCreateResponseApplicationJson, TemplateCreateResponseApplicationJsonBuilder> {
-  factory TemplateCreateResponseApplicationJson([
-    final void Function(TemplateCreateResponseApplicationJsonBuilder)? b,
-  ]) = _$TemplateCreateResponseApplicationJson;
+  factory TemplateCreateResponseApplicationJson([void Function(TemplateCreateResponseApplicationJsonBuilder)? b]) =
+      _$TemplateCreateResponseApplicationJson;
 
   // coverage:ignore-start
   const TemplateCreateResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplateCreateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TemplateCreateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2285,7 +2282,7 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
         $TemplatePathResponseApplicationJson_Ocs_DataInterface,
         Built<TemplatePathResponseApplicationJson_Ocs_Data, TemplatePathResponseApplicationJson_Ocs_DataBuilder> {
   factory TemplatePathResponseApplicationJson_Ocs_Data([
-    final void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$TemplatePathResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -2293,7 +2290,7 @@ abstract class TemplatePathResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplatePathResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory TemplatePathResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2315,16 +2312,15 @@ abstract class TemplatePathResponseApplicationJson_Ocs
     implements
         $TemplatePathResponseApplicationJson_OcsInterface,
         Built<TemplatePathResponseApplicationJson_Ocs, TemplatePathResponseApplicationJson_OcsBuilder> {
-  factory TemplatePathResponseApplicationJson_Ocs([
-    final void Function(TemplatePathResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$TemplatePathResponseApplicationJson_Ocs;
+  factory TemplatePathResponseApplicationJson_Ocs([void Function(TemplatePathResponseApplicationJson_OcsBuilder)? b]) =
+      _$TemplatePathResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const TemplatePathResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplatePathResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TemplatePathResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2345,7 +2341,7 @@ abstract class TemplatePathResponseApplicationJson
     implements
         $TemplatePathResponseApplicationJsonInterface,
         Built<TemplatePathResponseApplicationJson, TemplatePathResponseApplicationJsonBuilder> {
-  factory TemplatePathResponseApplicationJson([final void Function(TemplatePathResponseApplicationJsonBuilder)? b]) =
+  factory TemplatePathResponseApplicationJson([void Function(TemplatePathResponseApplicationJsonBuilder)? b]) =
       _$TemplatePathResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2353,7 +2349,7 @@ abstract class TemplatePathResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TemplatePathResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TemplatePathResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2377,7 +2373,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
         Built<TransferOwnershipTransferResponseApplicationJson_Ocs,
             TransferOwnershipTransferResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipTransferResponseApplicationJson_Ocs([
-    final void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? b,
+    void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipTransferResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2385,7 +2381,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipTransferResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipTransferResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2408,7 +2404,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson
         Built<TransferOwnershipTransferResponseApplicationJson,
             TransferOwnershipTransferResponseApplicationJsonBuilder> {
   factory TransferOwnershipTransferResponseApplicationJson([
-    final void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? b,
+    void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipTransferResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2416,7 +2412,7 @@ abstract class TransferOwnershipTransferResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipTransferResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipTransferResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2440,7 +2436,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
         Built<TransferOwnershipAcceptResponseApplicationJson_Ocs,
             TransferOwnershipAcceptResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs([
-    final void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? b,
+    void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipAcceptResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2448,7 +2444,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipAcceptResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipAcceptResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2470,7 +2466,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
         $TransferOwnershipAcceptResponseApplicationJsonInterface,
         Built<TransferOwnershipAcceptResponseApplicationJson, TransferOwnershipAcceptResponseApplicationJsonBuilder> {
   factory TransferOwnershipAcceptResponseApplicationJson([
-    final void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? b,
+    void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipAcceptResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2478,7 +2474,7 @@ abstract class TransferOwnershipAcceptResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipAcceptResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipAcceptResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2502,7 +2498,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
         Built<TransferOwnershipRejectResponseApplicationJson_Ocs,
             TransferOwnershipRejectResponseApplicationJson_OcsBuilder> {
   factory TransferOwnershipRejectResponseApplicationJson_Ocs([
-    final void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? b,
+    void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TransferOwnershipRejectResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -2510,7 +2506,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipRejectResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipRejectResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2532,7 +2528,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson
         $TransferOwnershipRejectResponseApplicationJsonInterface,
         Built<TransferOwnershipRejectResponseApplicationJson, TransferOwnershipRejectResponseApplicationJsonBuilder> {
   factory TransferOwnershipRejectResponseApplicationJson([
-    final void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? b,
+    void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? b,
   ]) = _$TransferOwnershipRejectResponseApplicationJson;
 
   // coverage:ignore-start
@@ -2540,7 +2536,7 @@ abstract class TransferOwnershipRejectResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TransferOwnershipRejectResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TransferOwnershipRejectResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2563,7 +2559,7 @@ abstract class Capabilities_Files_DirectEditing
     implements
         $Capabilities_Files_DirectEditingInterface,
         Built<Capabilities_Files_DirectEditing, Capabilities_Files_DirectEditingBuilder> {
-  factory Capabilities_Files_DirectEditing([final void Function(Capabilities_Files_DirectEditingBuilder)? b]) =
+  factory Capabilities_Files_DirectEditing([void Function(Capabilities_Files_DirectEditingBuilder)? b]) =
       _$Capabilities_Files_DirectEditing;
 
   // coverage:ignore-start
@@ -2571,7 +2567,7 @@ abstract class Capabilities_Files_DirectEditing
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Files_DirectEditing.fromJson(final Map<String, dynamic> json) =>
+  factory Capabilities_Files_DirectEditing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -2592,15 +2588,14 @@ abstract interface class $Capabilities_FilesInterface {
 
 abstract class Capabilities_Files
     implements $Capabilities_FilesInterface, Built<Capabilities_Files, Capabilities_FilesBuilder> {
-  factory Capabilities_Files([final void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
+  factory Capabilities_Files([void Function(Capabilities_FilesBuilder)? b]) = _$Capabilities_Files;
 
   // coverage:ignore-start
   const Capabilities_Files._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Files.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Files.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2616,14 +2611,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -2650,14 +2645,14 @@ abstract interface class $TemplateInterface {
 }
 
 abstract class Template implements $TemplateInterface, Built<Template, TemplateBuilder> {
-  factory Template([final void Function(TemplateBuilder)? b]) = _$Template;
+  factory Template([void Function(TemplateBuilder)? b]) = _$Template;
 
   // coverage:ignore-start
   const Template._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Template.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Template.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

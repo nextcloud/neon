@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -103,10 +103,10 @@ class AvatarClient {
   /// See:
   ///  * [getAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatar({
-    required final String token,
-    final int? darkTheme,
-    final AvatarGetAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? darkTheme,
+    AvatarGetAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAvatarRaw(
       token: token,
@@ -138,10 +138,10 @@ class AvatarClient {
   ///  * [getAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarRaw({
-    required final String token,
-    final int? darkTheme,
-    final AvatarGetAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? darkTheme,
+    AvatarGetAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -151,7 +151,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -213,9 +213,9 @@ class AvatarClient {
   /// See:
   ///  * [uploadAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AvatarUploadAvatarResponseApplicationJson, void>> uploadAvatar({
-    required final String token,
-    final AvatarUploadAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarUploadAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = uploadAvatarRaw(
       token: token,
@@ -246,9 +246,9 @@ class AvatarClient {
   ///  * [uploadAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void> uploadAvatarRaw({
-    required final String token,
-    final AvatarUploadAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarUploadAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -258,7 +258,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -315,9 +315,9 @@ class AvatarClient {
   /// See:
   ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
-    required final String token,
-    final AvatarDeleteAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarDeleteAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAvatarRaw(
       token: token,
@@ -347,9 +347,9 @@ class AvatarClient {
   ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
-    required final String token,
-    final AvatarDeleteAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarDeleteAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -359,7 +359,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -419,11 +419,11 @@ class AvatarClient {
   /// See:
   ///  * [emojiAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<AvatarEmojiAvatarResponseApplicationJson, void>> emojiAvatar({
-    required final String emoji,
-    required final String token,
-    final String? color,
-    final AvatarEmojiAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String emoji,
+    required String token,
+    String? color,
+    AvatarEmojiAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = emojiAvatarRaw(
       emoji: emoji,
@@ -458,11 +458,11 @@ class AvatarClient {
   ///  * [emojiAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void> emojiAvatarRaw({
-    required final String emoji,
-    required final String token,
-    final String? color,
-    final AvatarEmojiAvatarApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String emoji,
+    required String token,
+    String? color,
+    AvatarEmojiAvatarApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -472,7 +472,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -535,9 +535,9 @@ class AvatarClient {
   /// See:
   ///  * [getAvatarDarkRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<Uint8List, void>> getAvatarDark({
-    required final String token,
-    final AvatarGetAvatarDarkApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarGetAvatarDarkApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getAvatarDarkRaw(
       token: token,
@@ -567,9 +567,9 @@ class AvatarClient {
   ///  * [getAvatarDark] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, void> getAvatarDarkRaw({
-    required final String token,
-    final AvatarGetAvatarDarkApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    AvatarGetAvatarDarkApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -579,7 +579,7 @@ class AvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -651,13 +651,13 @@ class BotClient {
   /// See:
   ///  * [sendMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotSendMessageResponseApplicationJson, void>> sendMessage({
-    required final String message,
-    required final String token,
-    final String? referenceId,
-    final int? replyTo,
-    final int? silent,
-    final BotSendMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    String? referenceId,
+    int? replyTo,
+    int? silent,
+    BotSendMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessageRaw(
       message: message,
@@ -700,13 +700,13 @@ class BotClient {
   ///  * [sendMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotSendMessageResponseApplicationJson, void> sendMessageRaw({
-    required final String message,
-    required final String token,
-    final String? referenceId,
-    final int? replyTo,
-    final int? silent,
-    final BotSendMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    String? referenceId,
+    int? replyTo,
+    int? silent,
+    BotSendMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -716,7 +716,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -795,11 +795,11 @@ class BotClient {
   /// See:
   ///  * [reactRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotReactResponseApplicationJson, void>> react({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final BotReactApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    BotReactApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = reactRaw(
       reaction: reaction,
@@ -837,11 +837,11 @@ class BotClient {
   ///  * [react] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotReactResponseApplicationJson, void> reactRaw({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final BotReactApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    BotReactApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -851,7 +851,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -919,11 +919,11 @@ class BotClient {
   /// See:
   ///  * [deleteReactionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotDeleteReactionResponseApplicationJson, void>> deleteReaction({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final BotDeleteReactionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    BotDeleteReactionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteReactionRaw(
       reaction: reaction,
@@ -960,11 +960,11 @@ class BotClient {
   ///  * [deleteReaction] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void> deleteReactionRaw({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final BotDeleteReactionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    BotDeleteReactionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -974,7 +974,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1038,8 +1038,8 @@ class BotClient {
   /// See:
   ///  * [adminListBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotAdminListBotsResponseApplicationJson, void>> adminListBots({
-    final BotAdminListBotsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = adminListBotsRaw(
       apiVersion: apiVersion,
@@ -1069,8 +1069,8 @@ class BotClient {
   ///  * [adminListBots] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void> adminListBotsRaw({
-    final BotAdminListBotsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    BotAdminListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1080,7 +1080,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1134,9 +1134,9 @@ class BotClient {
   /// See:
   ///  * [listBotsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotListBotsResponseApplicationJson, void>> listBots({
-    required final String token,
-    final BotListBotsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BotListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = listBotsRaw(
       token: token,
@@ -1166,9 +1166,9 @@ class BotClient {
   ///  * [listBots] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotListBotsResponseApplicationJson, void> listBotsRaw({
-    required final String token,
-    final BotListBotsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BotListBotsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1178,7 +1178,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1239,10 +1239,10 @@ class BotClient {
   /// See:
   ///  * [enableBotRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotEnableBotResponseApplicationJson, void>> enableBot({
-    required final String token,
-    required final int botId,
-    final BotEnableBotApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int botId,
+    BotEnableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = enableBotRaw(
       token: token,
@@ -1276,10 +1276,10 @@ class BotClient {
   ///  * [enableBot] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotEnableBotResponseApplicationJson, void> enableBotRaw({
-    required final String token,
-    required final int botId,
-    final BotEnableBotApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int botId,
+    BotEnableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1289,7 +1289,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1352,10 +1352,10 @@ class BotClient {
   /// See:
   ///  * [disableBotRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BotDisableBotResponseApplicationJson, void>> disableBot({
-    required final String token,
-    required final int botId,
-    final BotDisableBotApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int botId,
+    BotDisableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = disableBotRaw(
       token: token,
@@ -1388,10 +1388,10 @@ class BotClient {
   ///  * [disableBot] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BotDisableBotResponseApplicationJson, void> disableBotRaw({
-    required final String token,
-    required final int botId,
-    final BotDisableBotApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int botId,
+    BotDisableBotApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1401,7 +1401,7 @@ class BotClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1472,12 +1472,12 @@ class BreakoutRoomClient {
   /// See:
   ///  * [configureBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>> configureBreakoutRooms({
-    required final int mode,
-    required final int amount,
-    required final String token,
-    final String? attendeeMap,
-    final BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int mode,
+    required int amount,
+    required String token,
+    String? attendeeMap,
+    BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = configureBreakoutRoomsRaw(
       mode: mode,
@@ -1514,12 +1514,12 @@ class BreakoutRoomClient {
   ///  * [configureBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void> configureBreakoutRoomsRaw({
-    required final int mode,
-    required final int amount,
-    required final String token,
-    final String? attendeeMap,
-    final BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int mode,
+    required int amount,
+    required String token,
+    String? attendeeMap,
+    BreakoutRoomConfigureBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1529,7 +1529,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1602,9 +1602,9 @@ class BreakoutRoomClient {
   /// See:
   ///  * [removeBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>> removeBreakoutRooms({
-    required final String token,
-    final BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeBreakoutRoomsRaw(
       token: token,
@@ -1634,9 +1634,9 @@ class BreakoutRoomClient {
   ///  * [removeBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void> removeBreakoutRoomsRaw({
-    required final String token,
-    final BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomRemoveBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1646,7 +1646,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1708,10 +1708,10 @@ class BreakoutRoomClient {
   /// See:
   ///  * [broadcastChatMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>> broadcastChatMessage({
-    required final String message,
-    required final String token,
-    final BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = broadcastChatMessageRaw(
       message: message,
@@ -1745,10 +1745,10 @@ class BreakoutRoomClient {
   ///  * [broadcastChatMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void> broadcastChatMessageRaw({
-    required final String message,
-    required final String token,
-    final BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    BreakoutRoomBroadcastChatMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1758,7 +1758,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1825,10 +1825,10 @@ class BreakoutRoomClient {
   /// See:
   ///  * [applyAttendeeMapRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>> applyAttendeeMap({
-    required final String attendeeMap,
-    required final String token,
-    final BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String attendeeMap,
+    required String token,
+    BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = applyAttendeeMapRaw(
       attendeeMap: attendeeMap,
@@ -1861,10 +1861,10 @@ class BreakoutRoomClient {
   ///  * [applyAttendeeMap] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void> applyAttendeeMapRaw({
-    required final String attendeeMap,
-    required final String token,
-    final BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String attendeeMap,
+    required String token,
+    BreakoutRoomApplyAttendeeMapApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1874,7 +1874,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -1938,9 +1938,9 @@ class BreakoutRoomClient {
   /// See:
   ///  * [requestAssistanceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>> requestAssistance({
-    required final String token,
-    final BreakoutRoomRequestAssistanceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomRequestAssistanceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = requestAssistanceRaw(
       token: token,
@@ -1971,9 +1971,9 @@ class BreakoutRoomClient {
   ///  * [requestAssistance] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void> requestAssistanceRaw({
-    required final String token,
-    final BreakoutRoomRequestAssistanceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomRequestAssistanceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -1983,7 +1983,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2045,9 +2045,9 @@ class BreakoutRoomClient {
   ///  * [resetRequestForAssistanceRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
       resetRequestForAssistance({
-    required final String token,
-    final BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = resetRequestForAssistanceRaw(
       token: token,
@@ -2078,9 +2078,9 @@ class BreakoutRoomClient {
   ///  * [resetRequestForAssistance] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void> resetRequestForAssistanceRaw({
-    required final String token,
-    final BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2090,7 +2090,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2153,9 +2153,9 @@ class BreakoutRoomClient {
   /// See:
   ///  * [startBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>> startBreakoutRooms({
-    required final String token,
-    final BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = startBreakoutRoomsRaw(
       token: token,
@@ -2186,9 +2186,9 @@ class BreakoutRoomClient {
   ///  * [startBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void> startBreakoutRoomsRaw({
-    required final String token,
-    final BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomStartBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2198,7 +2198,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2259,9 +2259,9 @@ class BreakoutRoomClient {
   /// See:
   ///  * [stopBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>> stopBreakoutRooms({
-    required final String token,
-    final BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopBreakoutRoomsRaw(
       token: token,
@@ -2292,9 +2292,9 @@ class BreakoutRoomClient {
   ///  * [stopBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void> stopBreakoutRoomsRaw({
-    required final String token,
-    final BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    BreakoutRoomStopBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2304,7 +2304,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2366,10 +2366,10 @@ class BreakoutRoomClient {
   /// See:
   ///  * [switchBreakoutRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>> switchBreakoutRoom({
-    required final String target,
-    required final String token,
-    final BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String target,
+    required String token,
+    BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = switchBreakoutRoomRaw(
       target: target,
@@ -2402,10 +2402,10 @@ class BreakoutRoomClient {
   ///  * [switchBreakoutRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void> switchBreakoutRoomRaw({
-    required final String target,
-    required final String token,
-    final BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String target,
+    required String token,
+    BreakoutRoomSwitchBreakoutRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2415,7 +2415,7 @@ class BreakoutRoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2484,9 +2484,9 @@ class CallClient {
   /// See:
   ///  * [getPeersForCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallGetPeersForCallResponseApplicationJson, void>> getPeersForCall({
-    required final String token,
-    final CallGetPeersForCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    CallGetPeersForCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getPeersForCallRaw(
       token: token,
@@ -2516,9 +2516,9 @@ class CallClient {
   ///  * [getPeersForCall] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void> getPeersForCallRaw({
-    required final String token,
-    final CallGetPeersForCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    CallGetPeersForCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2528,7 +2528,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2588,10 +2588,10 @@ class CallClient {
   /// See:
   ///  * [updateCallFlagsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallUpdateCallFlagsResponseApplicationJson, void>> updateCallFlags({
-    required final int flags,
-    required final String token,
-    final CallUpdateCallFlagsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int flags,
+    required String token,
+    CallUpdateCallFlagsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = updateCallFlagsRaw(
       flags: flags,
@@ -2625,10 +2625,10 @@ class CallClient {
   ///  * [updateCallFlags] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void> updateCallFlagsRaw({
-    required final int flags,
-    required final String token,
-    final CallUpdateCallFlagsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int flags,
+    required String token,
+    CallUpdateCallFlagsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2638,7 +2638,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2704,13 +2704,13 @@ class CallClient {
   /// See:
   ///  * [joinCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallJoinCallResponseApplicationJson, void>> joinCall({
-    required final String token,
-    final int? flags,
-    final int? forcePermissions,
-    final int? silent,
-    final int? recordingConsent,
-    final CallJoinCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? flags,
+    int? forcePermissions,
+    int? silent,
+    int? recordingConsent,
+    CallJoinCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = joinCallRaw(
       token: token,
@@ -2750,13 +2750,13 @@ class CallClient {
   ///  * [joinCall] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallJoinCallResponseApplicationJson, void> joinCallRaw({
-    required final String token,
-    final int? flags,
-    final int? forcePermissions,
-    final int? silent,
-    final int? recordingConsent,
-    final CallJoinCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? flags,
+    int? forcePermissions,
+    int? silent,
+    int? recordingConsent,
+    CallJoinCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2766,7 +2766,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2840,10 +2840,10 @@ class CallClient {
   /// See:
   ///  * [leaveCallRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallLeaveCallResponseApplicationJson, void>> leaveCall({
-    required final String token,
-    final int? all,
-    final CallLeaveCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? all,
+    CallLeaveCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = leaveCallRaw(
       token: token,
@@ -2876,10 +2876,10 @@ class CallClient {
   ///  * [leaveCall] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void> leaveCallRaw({
-    required final String token,
-    final int? all,
-    final CallLeaveCallApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? all,
+    CallLeaveCallApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -2889,7 +2889,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -2951,10 +2951,10 @@ class CallClient {
   /// See:
   ///  * [ringAttendeeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallRingAttendeeResponseApplicationJson, void>> ringAttendee({
-    required final String token,
-    required final int attendeeId,
-    final CallRingAttendeeApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int attendeeId,
+    CallRingAttendeeApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = ringAttendeeRaw(
       token: token,
@@ -2987,10 +2987,10 @@ class CallClient {
   ///  * [ringAttendee] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void> ringAttendeeRaw({
-    required final String token,
-    required final int attendeeId,
-    final CallRingAttendeeApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int attendeeId,
+    CallRingAttendeeApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3000,7 +3000,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3064,10 +3064,10 @@ class CallClient {
   /// See:
   ///  * [sipDialOutRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CallSipDialOutResponseApplicationJson, void>> sipDialOut({
-    required final String token,
-    required final int attendeeId,
-    final CallSipDialOutApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int attendeeId,
+    CallSipDialOutApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = sipDialOutRaw(
       token: token,
@@ -3102,10 +3102,10 @@ class CallClient {
   ///  * [sipDialOut] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void> sipDialOutRaw({
-    required final String token,
-    required final int attendeeId,
-    final CallSipDialOutApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int attendeeId,
+    CallSipDialOutApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3115,7 +3115,7 @@ class CallClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3184,9 +3184,9 @@ class CertificateClient {
   /// See:
   ///  * [getCertificateExpirationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>> getCertificateExpiration({
-    required final String host,
-    final CertificateGetCertificateExpirationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String host,
+    CertificateGetCertificateExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getCertificateExpirationRaw(
       host: host,
@@ -3219,9 +3219,9 @@ class CertificateClient {
   ///  * [getCertificateExpiration] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void> getCertificateExpirationRaw({
-    required final String host,
-    final CertificateGetCertificateExpirationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String host,
+    CertificateGetCertificateExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3231,7 +3231,7 @@ class CertificateClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3312,18 +3312,18 @@ class ChatClient {
   /// See:
   ///  * [receiveMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>> receiveMessages({
-    required final int lookIntoFuture,
-    required final String token,
-    final int? limit,
-    final int? lastKnownMessageId,
-    final int? lastCommonReadId,
-    final int? timeout,
-    final int? setReadMarker,
-    final int? includeLastKnown,
-    final int? noStatusUpdate,
-    final int? markNotificationsAsRead,
-    final ChatReceiveMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int lookIntoFuture,
+    required String token,
+    int? limit,
+    int? lastKnownMessageId,
+    int? lastCommonReadId,
+    int? timeout,
+    int? setReadMarker,
+    int? includeLastKnown,
+    int? noStatusUpdate,
+    int? markNotificationsAsRead,
+    ChatReceiveMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = receiveMessagesRaw(
       lookIntoFuture: lookIntoFuture,
@@ -3376,18 +3376,18 @@ class ChatClient {
   ///  * [receiveMessages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders> receiveMessagesRaw({
-    required final int lookIntoFuture,
-    required final String token,
-    final int? limit,
-    final int? lastKnownMessageId,
-    final int? lastCommonReadId,
-    final int? timeout,
-    final int? setReadMarker,
-    final int? includeLastKnown,
-    final int? noStatusUpdate,
-    final int? markNotificationsAsRead,
-    final ChatReceiveMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int lookIntoFuture,
+    required String token,
+    int? limit,
+    int? lastKnownMessageId,
+    int? lastCommonReadId,
+    int? timeout,
+    int? setReadMarker,
+    int? includeLastKnown,
+    int? noStatusUpdate,
+    int? markNotificationsAsRead,
+    ChatReceiveMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3397,7 +3397,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3502,14 +3502,14 @@ class ChatClient {
   /// See:
   ///  * [sendMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>> sendMessage({
-    required final String message,
-    required final String token,
-    final String? actorDisplayName,
-    final String? referenceId,
-    final int? replyTo,
-    final int? silent,
-    final ChatSendMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    String? actorDisplayName,
+    String? referenceId,
+    int? replyTo,
+    int? silent,
+    ChatSendMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessageRaw(
       message: message,
@@ -3554,14 +3554,14 @@ class ChatClient {
   ///  * [sendMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders> sendMessageRaw({
-    required final String message,
-    required final String token,
-    final String? actorDisplayName,
-    final String? referenceId,
-    final int? replyTo,
-    final int? silent,
-    final ChatSendMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String message,
+    required String token,
+    String? actorDisplayName,
+    String? referenceId,
+    int? replyTo,
+    int? silent,
+    ChatSendMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3571,7 +3571,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3650,9 +3650,9 @@ class ChatClient {
   /// See:
   ///  * [clearHistoryRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>> clearHistory({
-    required final String token,
-    final ChatClearHistoryApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    ChatClearHistoryApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = clearHistoryRaw(
       token: token,
@@ -3684,9 +3684,9 @@ class ChatClient {
   ///  * [clearHistory] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders> clearHistoryRaw({
-    required final String token,
-    final ChatClearHistoryApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    ChatClearHistoryApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3696,7 +3696,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3760,10 +3760,10 @@ class ChatClient {
   /// See:
   ///  * [deleteMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>> deleteMessage({
-    required final String token,
-    required final int messageId,
-    final ChatDeleteMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatDeleteMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteMessageRaw(
       token: token,
@@ -3800,10 +3800,10 @@ class ChatClient {
   ///  * [deleteMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders> deleteMessageRaw({
-    required final String token,
-    required final int messageId,
-    final ChatDeleteMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatDeleteMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3813,7 +3813,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3878,11 +3878,11 @@ class ChatClient {
   ///  * [getMessageContextRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>>
       getMessageContext({
-    required final String token,
-    required final int messageId,
-    final int? limit,
-    final ChatGetMessageContextApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    int? limit,
+    ChatGetMessageContextApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getMessageContextRaw(
       token: token,
@@ -3918,11 +3918,11 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
       getMessageContextRaw({
-    required final String token,
-    required final int messageId,
-    final int? limit,
-    final ChatGetMessageContextApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    int? limit,
+    ChatGetMessageContextApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -3932,7 +3932,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -3999,10 +3999,10 @@ class ChatClient {
   /// See:
   ///  * [getReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatGetReminderResponseApplicationJson, void>> getReminder({
-    required final String token,
-    required final int messageId,
-    final ChatGetReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatGetReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getReminderRaw(
       token: token,
@@ -4035,10 +4035,10 @@ class ChatClient {
   ///  * [getReminder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void> getReminderRaw({
-    required final String token,
-    required final int messageId,
-    final ChatGetReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatGetReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4048,7 +4048,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4113,11 +4113,11 @@ class ChatClient {
   /// See:
   ///  * [setReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatSetReminderResponseApplicationJson, void>> setReminder({
-    required final int timestamp,
-    required final String token,
-    required final int messageId,
-    final ChatSetReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int timestamp,
+    required String token,
+    required int messageId,
+    ChatSetReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReminderRaw(
       timestamp: timestamp,
@@ -4152,11 +4152,11 @@ class ChatClient {
   ///  * [setReminder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void> setReminderRaw({
-    required final int timestamp,
-    required final String token,
-    required final int messageId,
-    final ChatSetReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int timestamp,
+    required String token,
+    required int messageId,
+    ChatSetReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4166,7 +4166,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4233,10 +4233,10 @@ class ChatClient {
   /// See:
   ///  * [deleteReminderRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatDeleteReminderResponseApplicationJson, void>> deleteReminder({
-    required final String token,
-    required final int messageId,
-    final ChatDeleteReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatDeleteReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteReminderRaw(
       token: token,
@@ -4269,10 +4269,10 @@ class ChatClient {
   ///  * [deleteReminder] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void> deleteReminderRaw({
-    required final String token,
-    required final int messageId,
-    final ChatDeleteReminderApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    ChatDeleteReminderApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4282,7 +4282,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4346,10 +4346,10 @@ class ChatClient {
   /// See:
   ///  * [setReadMarkerRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>> setReadMarker({
-    required final int lastReadMessage,
-    required final String token,
-    final ChatSetReadMarkerApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int lastReadMessage,
+    required String token,
+    ChatSetReadMarkerApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReadMarkerRaw(
       lastReadMessage: lastReadMessage,
@@ -4381,10 +4381,10 @@ class ChatClient {
   ///  * [setReadMarker] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders> setReadMarkerRaw({
-    required final int lastReadMessage,
-    required final String token,
-    final ChatSetReadMarkerApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int lastReadMessage,
+    required String token,
+    ChatSetReadMarkerApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4394,7 +4394,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4456,9 +4456,9 @@ class ChatClient {
   /// See:
   ///  * [markUnreadRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>> markUnread({
-    required final String token,
-    final ChatMarkUnreadApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    ChatMarkUnreadApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = markUnreadRaw(
       token: token,
@@ -4488,9 +4488,9 @@ class ChatClient {
   ///  * [markUnread] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders> markUnreadRaw({
-    required final String token,
-    final ChatMarkUnreadApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    ChatMarkUnreadApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4500,7 +4500,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4561,12 +4561,12 @@ class ChatClient {
   /// See:
   ///  * [mentionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatMentionsResponseApplicationJson, void>> mentions({
-    required final String search,
-    required final String token,
-    final int? limit,
-    final int? includeStatus,
-    final ChatMentionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String search,
+    required String token,
+    int? limit,
+    int? includeStatus,
+    ChatMentionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = mentionsRaw(
       search: search,
@@ -4602,12 +4602,12 @@ class ChatClient {
   ///  * [mentions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ChatMentionsResponseApplicationJson, void> mentionsRaw({
-    required final String search,
-    required final String token,
-    final int? limit,
-    final int? includeStatus,
-    final ChatMentionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String search,
+    required String token,
+    int? limit,
+    int? includeStatus,
+    ChatMentionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4617,7 +4617,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4690,12 +4690,12 @@ class ChatClient {
   ///  * [getObjectsSharedInRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>>
       getObjectsSharedInRoom({
-    required final String objectType,
-    required final String token,
-    final int? lastKnownMessageId,
-    final int? limit,
-    final ChatGetObjectsSharedInRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String objectType,
+    required String token,
+    int? lastKnownMessageId,
+    int? limit,
+    ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getObjectsSharedInRoomRaw(
       objectType: objectType,
@@ -4732,12 +4732,12 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
       getObjectsSharedInRoomRaw({
-    required final String objectType,
-    required final String token,
-    final int? lastKnownMessageId,
-    final int? limit,
-    final ChatGetObjectsSharedInRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String objectType,
+    required String token,
+    int? lastKnownMessageId,
+    int? limit,
+    ChatGetObjectsSharedInRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4747,7 +4747,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4829,14 +4829,14 @@ class ChatClient {
   ///  * [shareObjectToChatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>>
       shareObjectToChat({
-    required final String objectType,
-    required final String objectId,
-    required final String token,
-    final String? metaData,
-    final String? actorDisplayName,
-    final String? referenceId,
-    final ChatShareObjectToChatApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String objectType,
+    required String objectId,
+    required String token,
+    String? metaData,
+    String? actorDisplayName,
+    String? referenceId,
+    ChatShareObjectToChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = shareObjectToChatRaw(
       objectType: objectType,
@@ -4882,14 +4882,14 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
       shareObjectToChatRaw({
-    required final String objectType,
-    required final String objectId,
-    required final String token,
-    final String? metaData,
-    final String? actorDisplayName,
-    final String? referenceId,
-    final ChatShareObjectToChatApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String objectType,
+    required String objectId,
+    required String token,
+    String? metaData,
+    String? actorDisplayName,
+    String? referenceId,
+    ChatShareObjectToChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -4899,7 +4899,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -4978,10 +4978,10 @@ class ChatClient {
   ///  * [getObjectsSharedInRoomOverviewRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
       getObjectsSharedInRoomOverview({
-    required final String token,
-    final int? limit,
-    final ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? limit,
+    ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getObjectsSharedInRoomOverviewRaw(
       token: token,
@@ -5014,10 +5014,10 @@ class ChatClient {
   @experimental
   DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
       getObjectsSharedInRoomOverviewRaw({
-    required final String token,
-    final int? limit,
-    final ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? limit,
+    ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5027,7 +5027,7 @@ class ChatClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5098,9 +5098,9 @@ class FederationClient {
   /// See:
   ///  * [acceptShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationAcceptShareResponseApplicationJson, void>> acceptShare({
-    required final int id,
-    final FederationAcceptShareApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    FederationAcceptShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = acceptShareRaw(
       id: id,
@@ -5131,9 +5131,9 @@ class FederationClient {
   ///  * [acceptShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void> acceptShareRaw({
-    required final int id,
-    final FederationAcceptShareApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    FederationAcceptShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5143,7 +5143,7 @@ class FederationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5202,9 +5202,9 @@ class FederationClient {
   /// See:
   ///  * [rejectShareRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationRejectShareResponseApplicationJson, void>> rejectShare({
-    required final int id,
-    final FederationRejectShareApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    FederationRejectShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = rejectShareRaw(
       id: id,
@@ -5235,9 +5235,9 @@ class FederationClient {
   ///  * [rejectShare] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void> rejectShareRaw({
-    required final int id,
-    final FederationRejectShareApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int id,
+    FederationRejectShareApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5247,7 +5247,7 @@ class FederationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5304,8 +5304,8 @@ class FederationClient {
   /// See:
   ///  * [getSharesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FederationGetSharesResponseApplicationJson, void>> getShares({
-    final FederationGetSharesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    FederationGetSharesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSharesRaw(
       apiVersion: apiVersion,
@@ -5333,8 +5333,8 @@ class FederationClient {
   ///  * [getShares] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void> getSharesRaw({
-    final FederationGetSharesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    FederationGetSharesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5344,7 +5344,7 @@ class FederationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5411,9 +5411,9 @@ class FilesIntegrationClient {
   /// See:
   ///  * [getRoomByFileIdRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>> getRoomByFileId({
-    required final String fileId,
-    final FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String fileId,
+    FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomByFileIdRaw(
       fileId: fileId,
@@ -5449,9 +5449,9 @@ class FilesIntegrationClient {
   ///  * [getRoomByFileId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void> getRoomByFileIdRaw({
-    required final String fileId,
-    final FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String fileId,
+    FilesIntegrationGetRoomByFileIdApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5461,7 +5461,7 @@ class FilesIntegrationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5527,9 +5527,9 @@ class FilesIntegrationClient {
   /// See:
   ///  * [getRoomByShareTokenRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>> getRoomByShareToken({
-    required final String shareToken,
-    final FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shareToken,
+    FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomByShareTokenRaw(
       shareToken: shareToken,
@@ -5566,9 +5566,9 @@ class FilesIntegrationClient {
   ///  * [getRoomByShareToken] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void> getRoomByShareTokenRaw({
-    required final String shareToken,
-    final FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shareToken,
+    FilesIntegrationGetRoomByShareTokenApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5578,7 +5578,7 @@ class FilesIntegrationClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5646,10 +5646,10 @@ class GuestClient {
   /// See:
   ///  * [setDisplayNameRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<GuestSetDisplayNameResponseApplicationJson, void>> setDisplayName({
-    required final String displayName,
-    required final String token,
-    final GuestSetDisplayNameApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String displayName,
+    required String token,
+    GuestSetDisplayNameApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setDisplayNameRaw(
       displayName: displayName,
@@ -5683,10 +5683,10 @@ class GuestClient {
   ///  * [setDisplayName] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void> setDisplayNameRaw({
-    required final String displayName,
-    required final String token,
-    final GuestSetDisplayNameApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String displayName,
+    required String token,
+    GuestSetDisplayNameApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5696,7 +5696,7 @@ class GuestClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5771,13 +5771,13 @@ class HostedSignalingServerClient {
   /// See:
   ///  * [requestTrialRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>> requestTrial({
-    required final String url,
-    required final String name,
-    required final String email,
-    required final String language,
-    required final String country,
-    final HostedSignalingServerRequestTrialApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String url,
+    required String name,
+    required String email,
+    required String language,
+    required String country,
+    HostedSignalingServerRequestTrialApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = requestTrialRaw(
       url: url,
@@ -5819,13 +5819,13 @@ class HostedSignalingServerClient {
   ///  * [requestTrial] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void> requestTrialRaw({
-    required final String url,
-    required final String name,
-    required final String email,
-    required final String language,
-    required final String country,
-    final HostedSignalingServerRequestTrialApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String url,
+    required String name,
+    required String email,
+    required String language,
+    required String country,
+    HostedSignalingServerRequestTrialApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5835,7 +5835,7 @@ class HostedSignalingServerClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -5912,8 +5912,8 @@ class HostedSignalingServerClient {
   /// See:
   ///  * [deleteAccountRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>> deleteAccount({
-    final HostedSignalingServerDeleteAccountApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    HostedSignalingServerDeleteAccountApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAccountRaw(
       apiVersion: apiVersion,
@@ -5945,8 +5945,8 @@ class HostedSignalingServerClient {
   ///  * [deleteAccount] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void> deleteAccountRaw({
-    final HostedSignalingServerDeleteAccountApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    HostedSignalingServerDeleteAccountApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -5956,7 +5956,7 @@ class HostedSignalingServerClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6020,9 +6020,9 @@ class MatterbridgeClient {
   /// See:
   ///  * [getBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>> getBridgeOfRoom({
-    required final String token,
-    final MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBridgeOfRoomRaw(
       token: token,
@@ -6052,9 +6052,9 @@ class MatterbridgeClient {
   ///  * [getBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void> getBridgeOfRoomRaw({
-    required final String token,
-    final MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeGetBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6064,7 +6064,7 @@ class MatterbridgeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6126,11 +6126,11 @@ class MatterbridgeClient {
   /// See:
   ///  * [editBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>> editBridgeOfRoom({
-    required final int enabled,
-    required final String token,
-    final ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
-    final MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int enabled,
+    required String token,
+    ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
+    MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = editBridgeOfRoomRaw(
       enabled: enabled,
@@ -6165,11 +6165,11 @@ class MatterbridgeClient {
   ///  * [editBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void> editBridgeOfRoomRaw({
-    required final int enabled,
-    required final String token,
-    final ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
-    final MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int enabled,
+    required String token,
+    ContentString<BuiltList<BuiltMap<String, JsonObject>>>? parts,
+    MatterbridgeEditBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6179,7 +6179,7 @@ class MatterbridgeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6253,9 +6253,9 @@ class MatterbridgeClient {
   /// See:
   ///  * [deleteBridgeOfRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>> deleteBridgeOfRoom({
-    required final String token,
-    final MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteBridgeOfRoomRaw(
       token: token,
@@ -6286,9 +6286,9 @@ class MatterbridgeClient {
   ///  * [deleteBridgeOfRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void> deleteBridgeOfRoomRaw({
-    required final String token,
-    final MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeDeleteBridgeOfRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6298,7 +6298,7 @@ class MatterbridgeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6357,9 +6357,9 @@ class MatterbridgeClient {
   /// See:
   ///  * [getBridgeProcessStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>> getBridgeProcessState({
-    required final String token,
-    final MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBridgeProcessStateRaw(
       token: token,
@@ -6389,9 +6389,9 @@ class MatterbridgeClient {
   ///  * [getBridgeProcessState] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void> getBridgeProcessStateRaw({
-    required final String token,
-    final MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    MatterbridgeGetBridgeProcessStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6401,7 +6401,7 @@ class MatterbridgeClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6470,8 +6470,8 @@ class MatterbridgeSettingsClient {
   /// See:
   ///  * [stopAllBridgesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>> stopAllBridges({
-    final MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopAllBridgesRaw(
       apiVersion: apiVersion,
@@ -6502,8 +6502,8 @@ class MatterbridgeSettingsClient {
   ///  * [stopAllBridges] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void> stopAllBridgesRaw({
-    final MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6513,7 +6513,7 @@ class MatterbridgeSettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6573,8 +6573,8 @@ class MatterbridgeSettingsClient {
   ///  * [getMatterbridgeVersionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
       getMatterbridgeVersion({
-    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getMatterbridgeVersionRaw(
       apiVersion: apiVersion,
@@ -6606,8 +6606,8 @@ class MatterbridgeSettingsClient {
   @experimental
   DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
       getMatterbridgeVersionRaw({
-    final MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6617,7 +6617,7 @@ class MatterbridgeSettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6685,13 +6685,13 @@ class PollClient {
   /// See:
   ///  * [createPollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PollCreatePollResponseApplicationJson, void>> createPoll({
-    required final String question,
-    required final BuiltList<String> options,
-    required final int resultMode,
-    required final int maxVotes,
-    required final String token,
-    final PollCreatePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String question,
+    required BuiltList<String> options,
+    required int resultMode,
+    required int maxVotes,
+    required String token,
+    PollCreatePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createPollRaw(
       question: question,
@@ -6730,13 +6730,13 @@ class PollClient {
   ///  * [createPoll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PollCreatePollResponseApplicationJson, void> createPollRaw({
-    required final String question,
-    required final BuiltList<String> options,
-    required final int resultMode,
-    required final int maxVotes,
-    required final String token,
-    final PollCreatePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String question,
+    required BuiltList<String> options,
+    required int resultMode,
+    required int maxVotes,
+    required String token,
+    PollCreatePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6746,7 +6746,7 @@ class PollClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6818,10 +6818,10 @@ class PollClient {
   /// See:
   ///  * [showPollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PollShowPollResponseApplicationJson, void>> showPoll({
-    required final String token,
-    required final int pollId,
-    final PollShowPollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    PollShowPollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = showPollRaw(
       token: token,
@@ -6854,10 +6854,10 @@ class PollClient {
   ///  * [showPoll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PollShowPollResponseApplicationJson, void> showPollRaw({
-    required final String token,
-    required final int pollId,
-    final PollShowPollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    PollShowPollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6867,7 +6867,7 @@ class PollClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -6930,11 +6930,11 @@ class PollClient {
   /// See:
   ///  * [votePollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PollVotePollResponseApplicationJson, void>> votePoll({
-    required final String token,
-    required final int pollId,
-    final BuiltList<int>? optionIds,
-    final PollVotePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    BuiltList<int>? optionIds,
+    PollVotePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = votePollRaw(
       token: token,
@@ -6970,11 +6970,11 @@ class PollClient {
   ///  * [votePoll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PollVotePollResponseApplicationJson, void> votePollRaw({
-    required final String token,
-    required final int pollId,
-    final BuiltList<int>? optionIds,
-    final PollVotePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    BuiltList<int>? optionIds,
+    PollVotePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -6984,7 +6984,7 @@ class PollClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7053,10 +7053,10 @@ class PollClient {
   /// See:
   ///  * [closePollRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PollClosePollResponseApplicationJson, void>> closePoll({
-    required final String token,
-    required final int pollId,
-    final PollClosePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    PollClosePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = closePollRaw(
       token: token,
@@ -7092,10 +7092,10 @@ class PollClient {
   ///  * [closePoll] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PollClosePollResponseApplicationJson, void> closePollRaw({
-    required final String token,
-    required final int pollId,
-    final PollClosePollApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int pollId,
+    PollClosePollApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7105,7 +7105,7 @@ class PollClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7174,9 +7174,9 @@ class PublicShareAuthClient {
   /// See:
   ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>> createRoom({
-    required final String shareToken,
-    final PublicShareAuthCreateRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shareToken,
+    PublicShareAuthCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRoomRaw(
       shareToken: shareToken,
@@ -7210,9 +7210,9 @@ class PublicShareAuthClient {
   ///  * [createRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void> createRoomRaw({
-    required final String shareToken,
-    final PublicShareAuthCreateRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String shareToken,
+    PublicShareAuthCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7222,7 +7222,7 @@ class PublicShareAuthClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7288,11 +7288,11 @@ class ReactionClient {
   /// See:
   ///  * [getReactionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReactionGetReactionsResponseApplicationJson, void>> getReactions({
-    required final String token,
-    required final int messageId,
-    final String? reaction,
-    final ReactionGetReactionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    String? reaction,
+    ReactionGetReactionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getReactionsRaw(
       token: token,
@@ -7327,11 +7327,11 @@ class ReactionClient {
   ///  * [getReactions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void> getReactionsRaw({
-    required final String token,
-    required final int messageId,
-    final String? reaction,
-    final ReactionGetReactionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    required int messageId,
+    String? reaction,
+    ReactionGetReactionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7341,7 +7341,7 @@ class ReactionClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7410,11 +7410,11 @@ class ReactionClient {
   /// See:
   ///  * [reactRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReactionReactResponseApplicationJson, void>> react({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final ReactionReactApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    ReactionReactApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = reactRaw(
       reaction: reaction,
@@ -7451,11 +7451,11 @@ class ReactionClient {
   ///  * [react] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReactionReactResponseApplicationJson, void> reactRaw({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final ReactionReactApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    ReactionReactApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7465,7 +7465,7 @@ class ReactionClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7532,11 +7532,11 @@ class ReactionClient {
   /// See:
   ///  * [deleteRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ReactionDeleteResponseApplicationJson, void>> delete({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final ReactionDeleteApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    ReactionDeleteApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteRaw(
       reaction: reaction,
@@ -7572,11 +7572,11 @@ class ReactionClient {
   ///  * [delete] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void> deleteRaw({
-    required final String reaction,
-    required final String token,
-    required final int messageId,
-    final ReactionDeleteApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String reaction,
+    required String token,
+    required int messageId,
+    ReactionDeleteApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7586,7 +7586,7 @@ class ReactionClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7659,9 +7659,9 @@ class RecordingClient {
   /// See:
   ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
-    required final int serverId,
-    final RecordingGetWelcomeMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWelcomeMessageRaw(
       serverId: serverId,
@@ -7695,9 +7695,9 @@ class RecordingClient {
   ///  * [getWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
-    required final int serverId,
-    final RecordingGetWelcomeMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int serverId,
+    RecordingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7707,7 +7707,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7768,10 +7768,10 @@ class RecordingClient {
   /// See:
   ///  * [startRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingStartResponseApplicationJson, void>> start({
-    required final int status,
-    required final String token,
-    final RecordingStartApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int status,
+    required String token,
+    RecordingStartApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = startRaw(
       status: status,
@@ -7804,10 +7804,10 @@ class RecordingClient {
   ///  * [start] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingStartResponseApplicationJson, void> startRaw({
-    required final int status,
-    required final String token,
-    final RecordingStartApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int status,
+    required String token,
+    RecordingStartApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7817,7 +7817,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7879,9 +7879,9 @@ class RecordingClient {
   /// See:
   ///  * [stopRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingStopResponseApplicationJson, void>> stop({
-    required final String token,
-    final RecordingStopApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RecordingStopApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = stopRaw(
       token: token,
@@ -7912,9 +7912,9 @@ class RecordingClient {
   ///  * [stop] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingStopResponseApplicationJson, void> stopRaw({
-    required final String token,
-    final RecordingStopApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RecordingStopApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -7924,7 +7924,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -7985,10 +7985,10 @@ class RecordingClient {
   /// See:
   ///  * [storeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingStoreResponseApplicationJson, void>> store({
-    required final String owner,
-    required final String token,
-    final RecordingStoreApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String owner,
+    required String token,
+    RecordingStoreApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = storeRaw(
       owner: owner,
@@ -8022,10 +8022,10 @@ class RecordingClient {
   ///  * [store] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingStoreResponseApplicationJson, void> storeRaw({
-    required final String owner,
-    required final String token,
-    final RecordingStoreApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String owner,
+    required String token,
+    RecordingStoreApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8035,7 +8035,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8097,10 +8097,10 @@ class RecordingClient {
   /// See:
   ///  * [notificationDismissRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingNotificationDismissResponseApplicationJson, void>> notificationDismiss({
-    required final int timestamp,
-    required final String token,
-    final RecordingNotificationDismissApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int timestamp,
+    required String token,
+    RecordingNotificationDismissApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = notificationDismissRaw(
       timestamp: timestamp,
@@ -8133,10 +8133,10 @@ class RecordingClient {
   ///  * [notificationDismiss] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void> notificationDismissRaw({
-    required final int timestamp,
-    required final String token,
-    final RecordingNotificationDismissApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int timestamp,
+    required String token,
+    RecordingNotificationDismissApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8146,7 +8146,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8212,11 +8212,11 @@ class RecordingClient {
   /// See:
   ///  * [shareToChatRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RecordingShareToChatResponseApplicationJson, void>> shareToChat({
-    required final int fileId,
-    required final int timestamp,
-    required final String token,
-    final RecordingShareToChatApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int fileId,
+    required int timestamp,
+    required String token,
+    RecordingShareToChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = shareToChatRaw(
       fileId: fileId,
@@ -8251,11 +8251,11 @@ class RecordingClient {
   ///  * [shareToChat] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void> shareToChatRaw({
-    required final int fileId,
-    required final int timestamp,
-    required final String token,
-    final RecordingShareToChatApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int fileId,
+    required int timestamp,
+    required String token,
+    RecordingShareToChatApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8265,7 +8265,7 @@ class RecordingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8340,11 +8340,11 @@ class RoomClient {
   /// See:
   ///  * [getRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>> getRooms({
-    final int? noStatusUpdate,
-    final int? includeStatus,
-    final int? modifiedSince,
-    final RoomGetRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    int? noStatusUpdate,
+    int? includeStatus,
+    int? modifiedSince,
+    RoomGetRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getRoomsRaw(
       noStatusUpdate: noStatusUpdate,
@@ -8378,11 +8378,11 @@ class RoomClient {
   ///  * [getRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders> getRoomsRaw({
-    final int? noStatusUpdate,
-    final int? includeStatus,
-    final int? modifiedSince,
-    final RoomGetRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    int? noStatusUpdate,
+    int? includeStatus,
+    int? modifiedSince,
+    RoomGetRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8392,7 +8392,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8469,14 +8469,14 @@ class RoomClient {
   /// See:
   ///  * [createRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomCreateRoomResponseApplicationJson, void>> createRoom({
-    required final int roomType,
-    final String? invite,
-    final String? roomName,
-    final String? source,
-    final String? objectType,
-    final String? objectId,
-    final RoomCreateRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int roomType,
+    String? invite,
+    String? roomName,
+    String? source,
+    String? objectType,
+    String? objectId,
+    RoomCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = createRoomRaw(
       roomType: roomType,
@@ -8520,14 +8520,14 @@ class RoomClient {
   ///  * [createRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void> createRoomRaw({
-    required final int roomType,
-    final String? invite,
-    final String? roomName,
-    final String? source,
-    final String? objectType,
-    final String? objectId,
-    final RoomCreateRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int roomType,
+    String? invite,
+    String? roomName,
+    String? source,
+    String? objectType,
+    String? objectId,
+    RoomCreateRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8537,7 +8537,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8616,9 +8616,9 @@ class RoomClient {
   /// See:
   ///  * [getListedRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetListedRoomsResponseApplicationJson, void>> getListedRooms({
-    final String? searchTerm,
-    final RoomGetListedRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    String? searchTerm,
+    RoomGetListedRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getListedRoomsRaw(
       searchTerm: searchTerm,
@@ -8648,9 +8648,9 @@ class RoomClient {
   ///  * [getListedRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void> getListedRoomsRaw({
-    final String? searchTerm,
-    final RoomGetListedRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    String? searchTerm,
+    RoomGetListedRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8660,7 +8660,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8722,8 +8722,8 @@ class RoomClient {
   Future<
       DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
           RoomRoomGetNoteToSelfConversationHeaders>> getNoteToSelfConversation({
-    final RoomGetNoteToSelfConversationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    RoomGetNoteToSelfConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getNoteToSelfConversationRaw(
       apiVersion: apiVersion,
@@ -8754,8 +8754,8 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
       getNoteToSelfConversationRaw({
-    final RoomGetNoteToSelfConversationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    RoomGetNoteToSelfConversationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8765,7 +8765,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8823,9 +8823,9 @@ class RoomClient {
   /// See:
   ///  * [getSingleRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>> getSingleRoom({
-    required final String token,
-    final RoomGetSingleRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomGetSingleRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSingleRoomRaw(
       token: token,
@@ -8857,9 +8857,9 @@ class RoomClient {
   ///  * [getSingleRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders> getSingleRoomRaw({
-    required final String token,
-    final RoomGetSingleRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomGetSingleRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8869,7 +8869,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -8927,10 +8927,10 @@ class RoomClient {
   /// See:
   ///  * [renameRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRenameRoomResponseApplicationJson, void>> renameRoom({
-    required final String roomName,
-    required final String token,
-    final RoomRenameRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String roomName,
+    required String token,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = renameRoomRaw(
       roomName: roomName,
@@ -8963,10 +8963,10 @@ class RoomClient {
   ///  * [renameRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void> renameRoomRaw({
-    required final String roomName,
-    required final String token,
-    final RoomRenameRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String roomName,
+    required String token,
+    RoomRenameRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -8976,7 +8976,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9036,9 +9036,9 @@ class RoomClient {
   /// See:
   ///  * [deleteRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomDeleteRoomResponseApplicationJson, void>> deleteRoom({
-    required final String token,
-    final RoomDeleteRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomDeleteRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteRoomRaw(
       token: token,
@@ -9069,9 +9069,9 @@ class RoomClient {
   ///  * [deleteRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void> deleteRoomRaw({
-    required final String token,
-    final RoomDeleteRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomDeleteRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9081,7 +9081,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9138,9 +9138,9 @@ class RoomClient {
   /// See:
   ///  * [getBreakoutRoomsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>> getBreakoutRooms({
-    required final String token,
-    final RoomGetBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomGetBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBreakoutRoomsRaw(
       token: token,
@@ -9171,9 +9171,9 @@ class RoomClient {
   ///  * [getBreakoutRooms] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void> getBreakoutRoomsRaw({
-    required final String token,
-    final RoomGetBreakoutRoomsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomGetBreakoutRoomsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9183,7 +9183,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9243,9 +9243,9 @@ class RoomClient {
   /// See:
   ///  * [makePublicRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomMakePublicResponseApplicationJson, void>> makePublic({
-    required final String token,
-    final RoomMakePublicApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomMakePublicApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = makePublicRaw(
       token: token,
@@ -9276,9 +9276,9 @@ class RoomClient {
   ///  * [makePublic] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void> makePublicRaw({
-    required final String token,
-    final RoomMakePublicApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomMakePublicApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9288,7 +9288,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9347,9 +9347,9 @@ class RoomClient {
   /// See:
   ///  * [makePrivateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomMakePrivateResponseApplicationJson, void>> makePrivate({
-    required final String token,
-    final RoomMakePrivateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomMakePrivateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = makePrivateRaw(
       token: token,
@@ -9380,9 +9380,9 @@ class RoomClient {
   ///  * [makePrivate] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void> makePrivateRaw({
-    required final String token,
-    final RoomMakePrivateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomMakePrivateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9392,7 +9392,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9452,10 +9452,10 @@ class RoomClient {
   /// See:
   ///  * [setDescriptionRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetDescriptionResponseApplicationJson, void>> setDescription({
-    required final String description,
-    required final String token,
-    final RoomSetDescriptionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String description,
+    required String token,
+    RoomSetDescriptionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setDescriptionRaw(
       description: description,
@@ -9488,10 +9488,10 @@ class RoomClient {
   ///  * [setDescription] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void> setDescriptionRaw({
-    required final String description,
-    required final String token,
-    final RoomSetDescriptionApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String description,
+    required String token,
+    RoomSetDescriptionApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9501,7 +9501,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9564,10 +9564,10 @@ class RoomClient {
   /// See:
   ///  * [setReadOnlyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetReadOnlyResponseApplicationJson, void>> setReadOnly({
-    required final int state,
-    required final String token,
-    final RoomSetReadOnlyApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetReadOnlyApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setReadOnlyRaw(
       state: state,
@@ -9600,10 +9600,10 @@ class RoomClient {
   ///  * [setReadOnly] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void> setReadOnlyRaw({
-    required final int state,
-    required final String token,
-    final RoomSetReadOnlyApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetReadOnlyApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9613,7 +9613,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9677,10 +9677,10 @@ class RoomClient {
   /// See:
   ///  * [setListableRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetListableResponseApplicationJson, void>> setListable({
-    required final int scope,
-    required final String token,
-    final RoomSetListableApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int scope,
+    required String token,
+    RoomSetListableApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setListableRaw(
       scope: scope,
@@ -9713,10 +9713,10 @@ class RoomClient {
   ///  * [setListable] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetListableResponseApplicationJson, void> setListableRaw({
-    required final int scope,
-    required final String token,
-    final RoomSetListableApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int scope,
+    required String token,
+    RoomSetListableApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9726,7 +9726,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9791,10 +9791,10 @@ class RoomClient {
   /// See:
   ///  * [setPasswordRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetPasswordResponseApplicationJson, void>> setPassword({
-    required final String password,
-    required final String token,
-    final RoomSetPasswordApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String password,
+    required String token,
+    RoomSetPasswordApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPasswordRaw(
       password: password,
@@ -9828,10 +9828,10 @@ class RoomClient {
   ///  * [setPassword] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void> setPasswordRaw({
-    required final String password,
-    required final String token,
-    final RoomSetPasswordApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String password,
+    required String token,
+    RoomSetPasswordApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9841,7 +9841,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -9904,11 +9904,11 @@ class RoomClient {
   /// See:
   ///  * [setPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetPermissionsResponseApplicationJson, void>> setPermissions({
-    required final int permissions,
-    required final String token,
-    required final String mode,
-    final RoomSetPermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int permissions,
+    required String token,
+    required String mode,
+    RoomSetPermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setPermissionsRaw(
       permissions: permissions,
@@ -9943,11 +9943,11 @@ class RoomClient {
   ///  * [setPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void> setPermissionsRaw({
-    required final int permissions,
-    required final String token,
-    required final String mode,
-    final RoomSetPermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int permissions,
+    required String token,
+    required String mode,
+    RoomSetPermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -9957,7 +9957,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10024,10 +10024,10 @@ class RoomClient {
   /// See:
   ///  * [getParticipantsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>> getParticipants({
-    required final String token,
-    final int? includeStatus,
-    final RoomGetParticipantsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? includeStatus,
+    RoomGetParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getParticipantsRaw(
       token: token,
@@ -10060,10 +10060,10 @@ class RoomClient {
   ///  * [getParticipants] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders> getParticipantsRaw({
-    required final String token,
-    final int? includeStatus,
-    final RoomGetParticipantsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? includeStatus,
+    RoomGetParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10073,7 +10073,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10140,11 +10140,11 @@ class RoomClient {
   /// See:
   ///  * [addParticipantToRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomAddParticipantToRoomResponseApplicationJson, void>> addParticipantToRoom({
-    required final String newParticipant,
-    required final String token,
-    final String? source,
-    final RoomAddParticipantToRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String newParticipant,
+    required String token,
+    String? source,
+    RoomAddParticipantToRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = addParticipantToRoomRaw(
       newParticipant: newParticipant,
@@ -10181,11 +10181,11 @@ class RoomClient {
   ///  * [addParticipantToRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void> addParticipantToRoomRaw({
-    required final String newParticipant,
-    required final String token,
-    final String? source,
-    final RoomAddParticipantToRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String newParticipant,
+    required String token,
+    String? source,
+    RoomAddParticipantToRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10195,7 +10195,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10268,10 +10268,10 @@ class RoomClient {
   Future<
       DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
           RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
-    required final String token,
-    final int? includeStatus,
-    final RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? includeStatus,
+    RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getBreakoutRoomParticipantsRaw(
       token: token,
@@ -10306,10 +10306,10 @@ class RoomClient {
   @experimental
   DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
       RoomRoomGetBreakoutRoomParticipantsHeaders> getBreakoutRoomParticipantsRaw({
-    required final String token,
-    final int? includeStatus,
-    final RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? includeStatus,
+    RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10319,7 +10319,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10385,9 +10385,9 @@ class RoomClient {
   /// See:
   ///  * [removeSelfFromRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>> removeSelfFromRoom({
-    required final String token,
-    final RoomRemoveSelfFromRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomRemoveSelfFromRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeSelfFromRoomRaw(
       token: token,
@@ -10419,9 +10419,9 @@ class RoomClient {
   ///  * [removeSelfFromRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void> removeSelfFromRoomRaw({
-    required final String token,
-    final RoomRemoveSelfFromRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomRemoveSelfFromRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10431,7 +10431,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10495,10 +10495,10 @@ class RoomClient {
   /// See:
   ///  * [removeAttendeeFromRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>> removeAttendeeFromRoom({
-    required final int attendeeId,
-    required final String token,
-    final RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeAttendeeFromRoomRaw(
       attendeeId: attendeeId,
@@ -10533,10 +10533,10 @@ class RoomClient {
   ///  * [removeAttendeeFromRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void> removeAttendeeFromRoomRaw({
-    required final int attendeeId,
-    required final String token,
-    final RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomRemoveAttendeeFromRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10546,7 +10546,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10613,12 +10613,12 @@ class RoomClient {
   /// See:
   ///  * [setAttendeePermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>> setAttendeePermissions({
-    required final int attendeeId,
-    required final String method,
-    required final int permissions,
-    required final String token,
-    final RoomSetAttendeePermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String method,
+    required int permissions,
+    required String token,
+    RoomSetAttendeePermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setAttendeePermissionsRaw(
       attendeeId: attendeeId,
@@ -10657,12 +10657,12 @@ class RoomClient {
   ///  * [setAttendeePermissions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void> setAttendeePermissionsRaw({
-    required final int attendeeId,
-    required final String method,
-    required final int permissions,
-    required final String token,
-    final RoomSetAttendeePermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String method,
+    required int permissions,
+    required String token,
+    RoomSetAttendeePermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10672,7 +10672,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10743,11 +10743,11 @@ class RoomClient {
   /// See:
   ///  * [setAllAttendeesPermissionsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>> setAllAttendeesPermissions({
-    required final String method,
-    required final int permissions,
-    required final String token,
-    final RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String method,
+    required int permissions,
+    required String token,
+    RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setAllAttendeesPermissionsRaw(
       method: method,
@@ -10782,11 +10782,11 @@ class RoomClient {
   ///  * [setAllAttendeesPermissions] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void> setAllAttendeesPermissionsRaw({
-    required final String method,
-    required final int permissions,
-    required final String token,
-    final RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String method,
+    required int permissions,
+    required String token,
+    RoomSetAllAttendeesPermissionsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10796,7 +10796,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10866,11 +10866,11 @@ class RoomClient {
   /// See:
   ///  * [joinRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomJoinRoomResponseApplicationJson, void>> joinRoom({
-    required final String token,
-    final String? password,
-    final int? force,
-    final RoomJoinRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    String? password,
+    int? force,
+    RoomJoinRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = joinRoomRaw(
       token: token,
@@ -10907,11 +10907,11 @@ class RoomClient {
   ///  * [joinRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void> joinRoomRaw({
-    required final String token,
-    final String? password,
-    final int? force,
-    final RoomJoinRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    String? password,
+    int? force,
+    RoomJoinRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -10921,7 +10921,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -10987,9 +10987,9 @@ class RoomClient {
   /// See:
   ///  * [leaveRoomRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomLeaveRoomResponseApplicationJson, void>> leaveRoom({
-    required final String token,
-    final RoomLeaveRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomLeaveRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = leaveRoomRaw(
       token: token,
@@ -11019,9 +11019,9 @@ class RoomClient {
   ///  * [leaveRoom] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void> leaveRoomRaw({
-    required final String token,
-    final RoomLeaveRoomApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomLeaveRoomApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11031,7 +11031,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11090,10 +11090,10 @@ class RoomClient {
   /// See:
   ///  * [resendInvitationsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomResendInvitationsResponseApplicationJson, void>> resendInvitations({
-    required final String token,
-    final int? attendeeId,
-    final RoomResendInvitationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? attendeeId,
+    RoomResendInvitationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = resendInvitationsRaw(
       token: token,
@@ -11126,10 +11126,10 @@ class RoomClient {
   ///  * [resendInvitations] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void> resendInvitationsRaw({
-    required final String token,
-    final int? attendeeId,
-    final RoomResendInvitationsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    int? attendeeId,
+    RoomResendInvitationsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11139,7 +11139,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11205,10 +11205,10 @@ class RoomClient {
   /// See:
   ///  * [setSessionStateRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetSessionStateResponseApplicationJson, void>> setSessionState({
-    required final int state,
-    required final String token,
-    final RoomSetSessionStateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetSessionStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setSessionStateRaw(
       state: state,
@@ -11241,10 +11241,10 @@ class RoomClient {
   ///  * [setSessionState] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void> setSessionStateRaw({
-    required final int state,
-    required final String token,
-    final RoomSetSessionStateApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetSessionStateApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11254,7 +11254,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11319,10 +11319,10 @@ class RoomClient {
   /// See:
   ///  * [promoteModeratorRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomPromoteModeratorResponseApplicationJson, void>> promoteModerator({
-    required final int attendeeId,
-    required final String token,
-    final RoomPromoteModeratorApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomPromoteModeratorApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = promoteModeratorRaw(
       attendeeId: attendeeId,
@@ -11357,10 +11357,10 @@ class RoomClient {
   ///  * [promoteModerator] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void> promoteModeratorRaw({
-    required final int attendeeId,
-    required final String token,
-    final RoomPromoteModeratorApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomPromoteModeratorApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11370,7 +11370,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11435,10 +11435,10 @@ class RoomClient {
   /// See:
   ///  * [demoteModeratorRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomDemoteModeratorResponseApplicationJson, void>> demoteModerator({
-    required final int attendeeId,
-    required final String token,
-    final RoomDemoteModeratorApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomDemoteModeratorApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = demoteModeratorRaw(
       attendeeId: attendeeId,
@@ -11473,10 +11473,10 @@ class RoomClient {
   ///  * [demoteModerator] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void> demoteModeratorRaw({
-    required final int attendeeId,
-    required final String token,
-    final RoomDemoteModeratorApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int attendeeId,
+    required String token,
+    RoomDemoteModeratorApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11486,7 +11486,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11547,9 +11547,9 @@ class RoomClient {
   /// See:
   ///  * [addToFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomAddToFavoritesResponseApplicationJson, void>> addToFavorites({
-    required final String token,
-    final RoomAddToFavoritesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomAddToFavoritesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = addToFavoritesRaw(
       token: token,
@@ -11579,9 +11579,9 @@ class RoomClient {
   ///  * [addToFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void> addToFavoritesRaw({
-    required final String token,
-    final RoomAddToFavoritesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomAddToFavoritesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11591,7 +11591,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11650,9 +11650,9 @@ class RoomClient {
   /// See:
   ///  * [removeFromFavoritesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>> removeFromFavorites({
-    required final String token,
-    final RoomRemoveFromFavoritesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomRemoveFromFavoritesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeFromFavoritesRaw(
       token: token,
@@ -11682,9 +11682,9 @@ class RoomClient {
   ///  * [removeFromFavorites] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void> removeFromFavoritesRaw({
-    required final String token,
-    final RoomRemoveFromFavoritesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    RoomRemoveFromFavoritesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11694,7 +11694,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11755,10 +11755,10 @@ class RoomClient {
   /// See:
   ///  * [setNotificationLevelRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetNotificationLevelResponseApplicationJson, void>> setNotificationLevel({
-    required final int level,
-    required final String token,
-    final RoomSetNotificationLevelApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int level,
+    required String token,
+    RoomSetNotificationLevelApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setNotificationLevelRaw(
       level: level,
@@ -11791,10 +11791,10 @@ class RoomClient {
   ///  * [setNotificationLevel] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void> setNotificationLevelRaw({
-    required final int level,
-    required final String token,
-    final RoomSetNotificationLevelApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int level,
+    required String token,
+    RoomSetNotificationLevelApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11804,7 +11804,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11869,10 +11869,10 @@ class RoomClient {
   /// See:
   ///  * [setNotificationCallsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetNotificationCallsResponseApplicationJson, void>> setNotificationCalls({
-    required final int level,
-    required final String token,
-    final RoomSetNotificationCallsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int level,
+    required String token,
+    RoomSetNotificationCallsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setNotificationCallsRaw(
       level: level,
@@ -11905,10 +11905,10 @@ class RoomClient {
   ///  * [setNotificationCalls] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void> setNotificationCallsRaw({
-    required final int level,
-    required final String token,
-    final RoomSetNotificationCallsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int level,
+    required String token,
+    RoomSetNotificationCallsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -11918,7 +11918,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -11984,11 +11984,11 @@ class RoomClient {
   /// See:
   ///  * [setLobbyRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetLobbyResponseApplicationJson, void>> setLobby({
-    required final int state,
-    required final String token,
-    final int? timer,
-    final RoomSetLobbyApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    int? timer,
+    RoomSetLobbyApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setLobbyRaw(
       state: state,
@@ -12023,11 +12023,11 @@ class RoomClient {
   ///  * [setLobby] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void> setLobbyRaw({
-    required final int state,
-    required final String token,
-    final int? timer,
-    final RoomSetLobbyApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    int? timer,
+    RoomSetLobbyApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12037,7 +12037,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12107,10 +12107,10 @@ class RoomClient {
   /// See:
   ///  * [setsipEnabledRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetsipEnabledResponseApplicationJson, void>> setsipEnabled({
-    required final int state,
-    required final String token,
-    final RoomSetsipEnabledApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetsipEnabledApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setsipEnabledRaw(
       state: state,
@@ -12146,10 +12146,10 @@ class RoomClient {
   ///  * [setsipEnabled] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void> setsipEnabledRaw({
-    required final int state,
-    required final String token,
-    final RoomSetsipEnabledApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int state,
+    required String token,
+    RoomSetsipEnabledApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12159,7 +12159,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12224,10 +12224,10 @@ class RoomClient {
   /// See:
   ///  * [setRecordingConsentRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetRecordingConsentResponseApplicationJson, void>> setRecordingConsent({
-    required final int recordingConsent,
-    required final String token,
-    final RoomSetRecordingConsentApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int recordingConsent,
+    required String token,
+    RoomSetRecordingConsentApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setRecordingConsentRaw(
       recordingConsent: recordingConsent,
@@ -12261,10 +12261,10 @@ class RoomClient {
   ///  * [setRecordingConsent] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void> setRecordingConsentRaw({
-    required final int recordingConsent,
-    required final String token,
-    final RoomSetRecordingConsentApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int recordingConsent,
+    required String token,
+    RoomSetRecordingConsentApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12274,7 +12274,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12340,10 +12340,10 @@ class RoomClient {
   /// See:
   ///  * [setMessageExpirationRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<RoomSetMessageExpirationResponseApplicationJson, void>> setMessageExpiration({
-    required final int seconds,
-    required final String token,
-    final RoomSetMessageExpirationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int seconds,
+    required String token,
+    RoomSetMessageExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setMessageExpirationRaw(
       seconds: seconds,
@@ -12376,10 +12376,10 @@ class RoomClient {
   ///  * [setMessageExpiration] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void> setMessageExpirationRaw({
-    required final int seconds,
-    required final String token,
-    final RoomSetMessageExpirationApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int seconds,
+    required String token,
+    RoomSetMessageExpirationApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12389,7 +12389,7 @@ class RoomClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12460,11 +12460,11 @@ class SettingsClient {
   /// See:
   ///  * [setsipSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsSetsipSettingsResponseApplicationJson, void>> setsipSettings({
-    final BuiltList<String>? sipGroups,
-    final String? dialInInfo,
-    final String? sharedSecret,
-    final SettingsSetsipSettingsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    BuiltList<String>? sipGroups,
+    String? dialInInfo,
+    String? sharedSecret,
+    SettingsSetsipSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setsipSettingsRaw(
       sipGroups: sipGroups,
@@ -12500,11 +12500,11 @@ class SettingsClient {
   ///  * [setsipSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void> setsipSettingsRaw({
-    final BuiltList<String>? sipGroups,
-    final String? dialInInfo,
-    final String? sharedSecret,
-    final SettingsSetsipSettingsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    BuiltList<String>? sipGroups,
+    String? dialInInfo,
+    String? sharedSecret,
+    SettingsSetsipSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12514,7 +12514,7 @@ class SettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12585,10 +12585,10 @@ class SettingsClient {
   /// See:
   ///  * [setUserSettingRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SettingsSetUserSettingResponseApplicationJson, void>> setUserSetting({
-    required final String key,
-    final ContentString<SettingsSetUserSettingValue>? value,
-    final SettingsSetUserSettingApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String key,
+    ContentString<SettingsSetUserSettingValue>? value,
+    SettingsSetUserSettingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = setUserSettingRaw(
       key: key,
@@ -12621,10 +12621,10 @@ class SettingsClient {
   ///  * [setUserSetting] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void> setUserSettingRaw({
-    required final String key,
-    final ContentString<SettingsSetUserSettingValue>? value,
-    final SettingsSetUserSettingApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String key,
+    ContentString<SettingsSetUserSettingValue>? value,
+    SettingsSetUserSettingApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12634,7 +12634,7 @@ class SettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12706,9 +12706,9 @@ class SignalingClient {
   /// See:
   ///  * [getSettingsRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingGetSettingsResponseApplicationJson, void>> getSettings({
-    final String? token,
-    final SignalingGetSettingsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getSettingsRaw(
       token: token,
@@ -12740,9 +12740,9 @@ class SignalingClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void> getSettingsRaw({
-    final String? token,
-    final SignalingGetSettingsApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    String? token,
+    SignalingGetSettingsApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12752,7 +12752,7 @@ class SignalingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12814,9 +12814,9 @@ class SignalingClient {
   /// See:
   ///  * [getWelcomeMessageRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>> getWelcomeMessage({
-    required final int serverId,
-    final SignalingGetWelcomeMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int serverId,
+    SignalingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getWelcomeMessageRaw(
       serverId: serverId,
@@ -12851,9 +12851,9 @@ class SignalingClient {
   ///  * [getWelcomeMessage] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void> getWelcomeMessageRaw({
-    required final int serverId,
-    final SignalingGetWelcomeMessageApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required int serverId,
+    SignalingGetWelcomeMessageApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12863,7 +12863,7 @@ class SignalingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -12925,9 +12925,9 @@ class SignalingClient {
   /// See:
   ///  * [pullMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingPullMessagesResponseApplicationJson, void>> pullMessages({
-    required final String token,
-    final SignalingPullMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    SignalingPullMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = pullMessagesRaw(
       token: token,
@@ -12960,9 +12960,9 @@ class SignalingClient {
   ///  * [pullMessages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void> pullMessagesRaw({
-    required final String token,
-    final SignalingPullMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String token,
+    SignalingPullMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -12972,7 +12972,7 @@ class SignalingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -13031,10 +13031,10 @@ class SignalingClient {
   /// See:
   ///  * [sendMessagesRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<SignalingSendMessagesResponseApplicationJson, void>> sendMessages({
-    required final String messages,
-    required final String token,
-    final SignalingSendMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String messages,
+    required String token,
+    SignalingSendMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = sendMessagesRaw(
       messages: messages,
@@ -13067,10 +13067,10 @@ class SignalingClient {
   ///  * [sendMessages] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void> sendMessagesRaw({
-    required final String messages,
-    required final String token,
-    final SignalingSendMessagesApiVersion? apiVersion,
-    final bool? oCSAPIRequest,
+    required String messages,
+    required String token,
+    SignalingSendMessagesApiVersion? apiVersion,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -13080,7 +13080,7 @@ class SignalingClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -13145,9 +13145,7 @@ class TempAvatarClient {
   ///
   /// See:
   ///  * [postAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({
-    final bool? oCSAPIRequest,
-  }) async {
+  Future<DynamiteResponse<TempAvatarPostAvatarResponseApplicationJson, void>> postAvatar({bool? oCSAPIRequest}) async {
     final rawResponse = postAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
     );
@@ -13172,7 +13170,7 @@ class TempAvatarClient {
   /// See:
   ///  * [postAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({final bool? oCSAPIRequest}) {
+  DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void> postAvatarRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -13181,7 +13179,7 @@ class TempAvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -13230,7 +13228,7 @@ class TempAvatarClient {
   /// See:
   ///  * [deleteAvatarRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>> deleteAvatar({
-    final bool? oCSAPIRequest,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = deleteAvatarRaw(
       oCSAPIRequest: oCSAPIRequest,
@@ -13256,9 +13254,7 @@ class TempAvatarClient {
   /// See:
   ///  * [deleteAvatar] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({
-    final bool? oCSAPIRequest,
-  }) {
+  DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void> deleteAvatarRaw({bool? oCSAPIRequest}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -13267,7 +13263,7 @@ class TempAvatarClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -13311,7 +13307,7 @@ class AvatarGetAvatarApiVersion extends EnumClass {
   static BuiltSet<AvatarGetAvatarApiVersion> get values => _$avatarGetAvatarApiVersionValues;
   // coverage:ignore-end
 
-  static AvatarGetAvatarApiVersion valueOf(final String name) => _$valueOfAvatarGetAvatarApiVersion(name);
+  static AvatarGetAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarApiVersion(name);
 
   static Serializer<AvatarGetAvatarApiVersion> get serializer => _$avatarGetAvatarApiVersionSerializer;
 }
@@ -13325,7 +13321,7 @@ class AvatarUploadAvatarApiVersion extends EnumClass {
   static BuiltSet<AvatarUploadAvatarApiVersion> get values => _$avatarUploadAvatarApiVersionValues;
   // coverage:ignore-end
 
-  static AvatarUploadAvatarApiVersion valueOf(final String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
+  static AvatarUploadAvatarApiVersion valueOf(String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
 
   static Serializer<AvatarUploadAvatarApiVersion> get serializer => _$avatarUploadAvatarApiVersionSerializer;
 }
@@ -13340,14 +13336,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -13378,14 +13374,14 @@ abstract interface class $ChatMessageInterface {
 }
 
 abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, ChatMessageBuilder> {
-  factory ChatMessage([final void Function(ChatMessageBuilder)? b]) = _$ChatMessage;
+  factory ChatMessage([void Function(ChatMessageBuilder)? b]) = _$ChatMessage;
 
   // coverage:ignore-start
   const ChatMessage._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMessage.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatMessage.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -13454,14 +13450,14 @@ abstract interface class $RoomInterface {
 }
 
 abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
-  factory Room([final void Function(RoomBuilder)? b]) = _$Room;
+  factory Room([void Function(RoomBuilder)? b]) = _$Room;
 
   // coverage:ignore-start
   const Room._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Room.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Room.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -13471,7 +13467,7 @@ abstract class Room implements $RoomInterface, Built<Room, RoomBuilder> {
   static Serializer<Room> get serializer => _$roomSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final RoomBuilder b) {
+  static void _validate(RoomBuilder b) {
     b.lastMessage?.validateOneOf();
   }
 }
@@ -13487,7 +13483,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
         $AvatarUploadAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarUploadAvatarResponseApplicationJson_Ocs, AvatarUploadAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarUploadAvatarResponseApplicationJson_Ocs([
-    final void Function(AvatarUploadAvatarResponseApplicationJson_OcsBuilder)? b,
+    void Function(AvatarUploadAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarUploadAvatarResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13495,7 +13491,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarUploadAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13517,7 +13513,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson
         $AvatarUploadAvatarResponseApplicationJsonInterface,
         Built<AvatarUploadAvatarResponseApplicationJson, AvatarUploadAvatarResponseApplicationJsonBuilder> {
   factory AvatarUploadAvatarResponseApplicationJson([
-    final void Function(AvatarUploadAvatarResponseApplicationJsonBuilder)? b,
+    void Function(AvatarUploadAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarUploadAvatarResponseApplicationJson;
 
   // coverage:ignore-start
@@ -13525,7 +13521,7 @@ abstract class AvatarUploadAvatarResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarUploadAvatarResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarUploadAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13546,7 +13542,7 @@ class AvatarDeleteAvatarApiVersion extends EnumClass {
   static BuiltSet<AvatarDeleteAvatarApiVersion> get values => _$avatarDeleteAvatarApiVersionValues;
   // coverage:ignore-end
 
-  static AvatarDeleteAvatarApiVersion valueOf(final String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
+  static AvatarDeleteAvatarApiVersion valueOf(String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
 
   static Serializer<AvatarDeleteAvatarApiVersion> get serializer => _$avatarDeleteAvatarApiVersionSerializer;
 }
@@ -13562,7 +13558,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
         $AvatarDeleteAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson_Ocs, AvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarDeleteAvatarResponseApplicationJson_Ocs([
-    final void Function(AvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
+    void Function(AvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarDeleteAvatarResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13570,7 +13566,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13592,7 +13588,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
         $AvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<AvatarDeleteAvatarResponseApplicationJson, AvatarDeleteAvatarResponseApplicationJsonBuilder> {
   factory AvatarDeleteAvatarResponseApplicationJson([
-    final void Function(AvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
+    void Function(AvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarDeleteAvatarResponseApplicationJson;
 
   // coverage:ignore-start
@@ -13600,7 +13596,7 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarDeleteAvatarResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13621,7 +13617,7 @@ class AvatarEmojiAvatarApiVersion extends EnumClass {
   static BuiltSet<AvatarEmojiAvatarApiVersion> get values => _$avatarEmojiAvatarApiVersionValues;
   // coverage:ignore-end
 
-  static AvatarEmojiAvatarApiVersion valueOf(final String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
+  static AvatarEmojiAvatarApiVersion valueOf(String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
 
   static Serializer<AvatarEmojiAvatarApiVersion> get serializer => _$avatarEmojiAvatarApiVersionSerializer;
 }
@@ -13637,7 +13633,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
         $AvatarEmojiAvatarResponseApplicationJson_OcsInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson_Ocs, AvatarEmojiAvatarResponseApplicationJson_OcsBuilder> {
   factory AvatarEmojiAvatarResponseApplicationJson_Ocs([
-    final void Function(AvatarEmojiAvatarResponseApplicationJson_OcsBuilder)? b,
+    void Function(AvatarEmojiAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$AvatarEmojiAvatarResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13645,7 +13641,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarEmojiAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13667,7 +13663,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
         $AvatarEmojiAvatarResponseApplicationJsonInterface,
         Built<AvatarEmojiAvatarResponseApplicationJson, AvatarEmojiAvatarResponseApplicationJsonBuilder> {
   factory AvatarEmojiAvatarResponseApplicationJson([
-    final void Function(AvatarEmojiAvatarResponseApplicationJsonBuilder)? b,
+    void Function(AvatarEmojiAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$AvatarEmojiAvatarResponseApplicationJson;
 
   // coverage:ignore-start
@@ -13675,7 +13671,7 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory AvatarEmojiAvatarResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory AvatarEmojiAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13696,7 +13692,7 @@ class AvatarGetAvatarDarkApiVersion extends EnumClass {
   static BuiltSet<AvatarGetAvatarDarkApiVersion> get values => _$avatarGetAvatarDarkApiVersionValues;
   // coverage:ignore-end
 
-  static AvatarGetAvatarDarkApiVersion valueOf(final String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
+  static AvatarGetAvatarDarkApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
 
   static Serializer<AvatarGetAvatarDarkApiVersion> get serializer => _$avatarGetAvatarDarkApiVersionSerializer;
 }
@@ -13710,7 +13706,7 @@ class BotSendMessageApiVersion extends EnumClass {
   static BuiltSet<BotSendMessageApiVersion> get values => _$botSendMessageApiVersionValues;
   // coverage:ignore-end
 
-  static BotSendMessageApiVersion valueOf(final String name) => _$valueOfBotSendMessageApiVersion(name);
+  static BotSendMessageApiVersion valueOf(String name) => _$valueOfBotSendMessageApiVersion(name);
 
   static Serializer<BotSendMessageApiVersion> get serializer => _$botSendMessageApiVersionSerializer;
 }
@@ -13726,7 +13722,7 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
         $BotSendMessageResponseApplicationJson_OcsInterface,
         Built<BotSendMessageResponseApplicationJson_Ocs, BotSendMessageResponseApplicationJson_OcsBuilder> {
   factory BotSendMessageResponseApplicationJson_Ocs([
-    final void Function(BotSendMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(BotSendMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotSendMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13734,7 +13730,7 @@ abstract class BotSendMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotSendMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13755,16 +13751,15 @@ abstract class BotSendMessageResponseApplicationJson
     implements
         $BotSendMessageResponseApplicationJsonInterface,
         Built<BotSendMessageResponseApplicationJson, BotSendMessageResponseApplicationJsonBuilder> {
-  factory BotSendMessageResponseApplicationJson([
-    final void Function(BotSendMessageResponseApplicationJsonBuilder)? b,
-  ]) = _$BotSendMessageResponseApplicationJson;
+  factory BotSendMessageResponseApplicationJson([void Function(BotSendMessageResponseApplicationJsonBuilder)? b]) =
+      _$BotSendMessageResponseApplicationJson;
 
   // coverage:ignore-start
   const BotSendMessageResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotSendMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13785,7 +13780,7 @@ class BotReactApiVersion extends EnumClass {
   static BuiltSet<BotReactApiVersion> get values => _$botReactApiVersionValues;
   // coverage:ignore-end
 
-  static BotReactApiVersion valueOf(final String name) => _$valueOfBotReactApiVersion(name);
+  static BotReactApiVersion valueOf(String name) => _$valueOfBotReactApiVersion(name);
 
   static Serializer<BotReactApiVersion> get serializer => _$botReactApiVersionSerializer;
 }
@@ -13800,7 +13795,7 @@ abstract class BotReactResponseApplicationJson_Ocs
     implements
         $BotReactResponseApplicationJson_OcsInterface,
         Built<BotReactResponseApplicationJson_Ocs, BotReactResponseApplicationJson_OcsBuilder> {
-  factory BotReactResponseApplicationJson_Ocs([final void Function(BotReactResponseApplicationJson_OcsBuilder)? b]) =
+  factory BotReactResponseApplicationJson_Ocs([void Function(BotReactResponseApplicationJson_OcsBuilder)? b]) =
       _$BotReactResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13808,7 +13803,7 @@ abstract class BotReactResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotReactResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13829,7 +13824,7 @@ abstract class BotReactResponseApplicationJson
     implements
         $BotReactResponseApplicationJsonInterface,
         Built<BotReactResponseApplicationJson, BotReactResponseApplicationJsonBuilder> {
-  factory BotReactResponseApplicationJson([final void Function(BotReactResponseApplicationJsonBuilder)? b]) =
+  factory BotReactResponseApplicationJson([void Function(BotReactResponseApplicationJsonBuilder)? b]) =
       _$BotReactResponseApplicationJson;
 
   // coverage:ignore-start
@@ -13837,7 +13832,7 @@ abstract class BotReactResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotReactResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13857,7 +13852,7 @@ class BotDeleteReactionApiVersion extends EnumClass {
   static BuiltSet<BotDeleteReactionApiVersion> get values => _$botDeleteReactionApiVersionValues;
   // coverage:ignore-end
 
-  static BotDeleteReactionApiVersion valueOf(final String name) => _$valueOfBotDeleteReactionApiVersion(name);
+  static BotDeleteReactionApiVersion valueOf(String name) => _$valueOfBotDeleteReactionApiVersion(name);
 
   static Serializer<BotDeleteReactionApiVersion> get serializer => _$botDeleteReactionApiVersionSerializer;
 }
@@ -13873,7 +13868,7 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
         $BotDeleteReactionResponseApplicationJson_OcsInterface,
         Built<BotDeleteReactionResponseApplicationJson_Ocs, BotDeleteReactionResponseApplicationJson_OcsBuilder> {
   factory BotDeleteReactionResponseApplicationJson_Ocs([
-    final void Function(BotDeleteReactionResponseApplicationJson_OcsBuilder)? b,
+    void Function(BotDeleteReactionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotDeleteReactionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -13881,7 +13876,7 @@ abstract class BotDeleteReactionResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotDeleteReactionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13903,7 +13898,7 @@ abstract class BotDeleteReactionResponseApplicationJson
         $BotDeleteReactionResponseApplicationJsonInterface,
         Built<BotDeleteReactionResponseApplicationJson, BotDeleteReactionResponseApplicationJsonBuilder> {
   factory BotDeleteReactionResponseApplicationJson([
-    final void Function(BotDeleteReactionResponseApplicationJsonBuilder)? b,
+    void Function(BotDeleteReactionResponseApplicationJsonBuilder)? b,
   ]) = _$BotDeleteReactionResponseApplicationJson;
 
   // coverage:ignore-start
@@ -13911,7 +13906,7 @@ abstract class BotDeleteReactionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotDeleteReactionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotDeleteReactionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -13932,7 +13927,7 @@ class BotAdminListBotsApiVersion extends EnumClass {
   static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
   // coverage:ignore-end
 
-  static BotAdminListBotsApiVersion valueOf(final String name) => _$valueOfBotAdminListBotsApiVersion(name);
+  static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
 
   static Serializer<BotAdminListBotsApiVersion> get serializer => _$botAdminListBotsApiVersionSerializer;
 }
@@ -13946,14 +13941,14 @@ abstract interface class $BotInterface {
 }
 
 abstract class Bot implements $BotInterface, Built<Bot, BotBuilder> {
-  factory Bot([final void Function(BotBuilder)? b]) = _$Bot;
+  factory Bot([void Function(BotBuilder)? b]) = _$Bot;
 
   // coverage:ignore-start
   const Bot._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Bot.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Bot.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -13981,15 +13976,14 @@ abstract interface class $BotWithDetails_1Interface {
 abstract interface class $BotWithDetailsInterface implements $BotInterface, $BotWithDetails_1Interface {}
 
 abstract class BotWithDetails implements $BotWithDetailsInterface, Built<BotWithDetails, BotWithDetailsBuilder> {
-  factory BotWithDetails([final void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
+  factory BotWithDetails([void Function(BotWithDetailsBuilder)? b]) = _$BotWithDetails;
 
   // coverage:ignore-start
   const BotWithDetails._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotWithDetails.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory BotWithDetails.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -14010,7 +14004,7 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
         $BotAdminListBotsResponseApplicationJson_OcsInterface,
         Built<BotAdminListBotsResponseApplicationJson_Ocs, BotAdminListBotsResponseApplicationJson_OcsBuilder> {
   factory BotAdminListBotsResponseApplicationJson_Ocs([
-    final void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
+    void Function(BotAdminListBotsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotAdminListBotsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14018,7 +14012,7 @@ abstract class BotAdminListBotsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotAdminListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14039,16 +14033,15 @@ abstract class BotAdminListBotsResponseApplicationJson
     implements
         $BotAdminListBotsResponseApplicationJsonInterface,
         Built<BotAdminListBotsResponseApplicationJson, BotAdminListBotsResponseApplicationJsonBuilder> {
-  factory BotAdminListBotsResponseApplicationJson([
-    final void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b,
-  ]) = _$BotAdminListBotsResponseApplicationJson;
+  factory BotAdminListBotsResponseApplicationJson([void Function(BotAdminListBotsResponseApplicationJsonBuilder)? b]) =
+      _$BotAdminListBotsResponseApplicationJson;
 
   // coverage:ignore-start
   const BotAdminListBotsResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotAdminListBotsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotAdminListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14069,7 +14062,7 @@ class BotListBotsApiVersion extends EnumClass {
   static BuiltSet<BotListBotsApiVersion> get values => _$botListBotsApiVersionValues;
   // coverage:ignore-end
 
-  static BotListBotsApiVersion valueOf(final String name) => _$valueOfBotListBotsApiVersion(name);
+  static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
 
   static Serializer<BotListBotsApiVersion> get serializer => _$botListBotsApiVersionSerializer;
 }
@@ -14084,16 +14077,15 @@ abstract class BotListBotsResponseApplicationJson_Ocs
     implements
         $BotListBotsResponseApplicationJson_OcsInterface,
         Built<BotListBotsResponseApplicationJson_Ocs, BotListBotsResponseApplicationJson_OcsBuilder> {
-  factory BotListBotsResponseApplicationJson_Ocs([
-    final void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$BotListBotsResponseApplicationJson_Ocs;
+  factory BotListBotsResponseApplicationJson_Ocs([void Function(BotListBotsResponseApplicationJson_OcsBuilder)? b]) =
+      _$BotListBotsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const BotListBotsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotListBotsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14114,7 +14106,7 @@ abstract class BotListBotsResponseApplicationJson
     implements
         $BotListBotsResponseApplicationJsonInterface,
         Built<BotListBotsResponseApplicationJson, BotListBotsResponseApplicationJsonBuilder> {
-  factory BotListBotsResponseApplicationJson([final void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
+  factory BotListBotsResponseApplicationJson([void Function(BotListBotsResponseApplicationJsonBuilder)? b]) =
       _$BotListBotsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14122,7 +14114,7 @@ abstract class BotListBotsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotListBotsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotListBotsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14143,7 +14135,7 @@ class BotEnableBotApiVersion extends EnumClass {
   static BuiltSet<BotEnableBotApiVersion> get values => _$botEnableBotApiVersionValues;
   // coverage:ignore-end
 
-  static BotEnableBotApiVersion valueOf(final String name) => _$valueOfBotEnableBotApiVersion(name);
+  static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
 
   static Serializer<BotEnableBotApiVersion> get serializer => _$botEnableBotApiVersionSerializer;
 }
@@ -14158,16 +14150,15 @@ abstract class BotEnableBotResponseApplicationJson_Ocs
     implements
         $BotEnableBotResponseApplicationJson_OcsInterface,
         Built<BotEnableBotResponseApplicationJson_Ocs, BotEnableBotResponseApplicationJson_OcsBuilder> {
-  factory BotEnableBotResponseApplicationJson_Ocs([
-    final void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$BotEnableBotResponseApplicationJson_Ocs;
+  factory BotEnableBotResponseApplicationJson_Ocs([void Function(BotEnableBotResponseApplicationJson_OcsBuilder)? b]) =
+      _$BotEnableBotResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const BotEnableBotResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotEnableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14188,7 +14179,7 @@ abstract class BotEnableBotResponseApplicationJson
     implements
         $BotEnableBotResponseApplicationJsonInterface,
         Built<BotEnableBotResponseApplicationJson, BotEnableBotResponseApplicationJsonBuilder> {
-  factory BotEnableBotResponseApplicationJson([final void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
+  factory BotEnableBotResponseApplicationJson([void Function(BotEnableBotResponseApplicationJsonBuilder)? b]) =
       _$BotEnableBotResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14196,7 +14187,7 @@ abstract class BotEnableBotResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotEnableBotResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotEnableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14217,7 +14208,7 @@ class BotDisableBotApiVersion extends EnumClass {
   static BuiltSet<BotDisableBotApiVersion> get values => _$botDisableBotApiVersionValues;
   // coverage:ignore-end
 
-  static BotDisableBotApiVersion valueOf(final String name) => _$valueOfBotDisableBotApiVersion(name);
+  static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
 
   static Serializer<BotDisableBotApiVersion> get serializer => _$botDisableBotApiVersionSerializer;
 }
@@ -14233,7 +14224,7 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
         $BotDisableBotResponseApplicationJson_OcsInterface,
         Built<BotDisableBotResponseApplicationJson_Ocs, BotDisableBotResponseApplicationJson_OcsBuilder> {
   factory BotDisableBotResponseApplicationJson_Ocs([
-    final void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
+    void Function(BotDisableBotResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BotDisableBotResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14241,7 +14232,7 @@ abstract class BotDisableBotResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BotDisableBotResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14262,7 +14253,7 @@ abstract class BotDisableBotResponseApplicationJson
     implements
         $BotDisableBotResponseApplicationJsonInterface,
         Built<BotDisableBotResponseApplicationJson, BotDisableBotResponseApplicationJsonBuilder> {
-  factory BotDisableBotResponseApplicationJson([final void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
+  factory BotDisableBotResponseApplicationJson([void Function(BotDisableBotResponseApplicationJsonBuilder)? b]) =
       _$BotDisableBotResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14270,7 +14261,7 @@ abstract class BotDisableBotResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotDisableBotResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BotDisableBotResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14292,7 +14283,7 @@ class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
       _$breakoutRoomConfigureBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomConfigureBreakoutRoomsApiVersion valueOf(final String name) =>
+  static BreakoutRoomConfigureBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsApiVersion(name);
 
   static Serializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> get serializer =>
@@ -14311,7 +14302,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14319,7 +14310,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14342,7 +14333,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
         Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
             BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson([
-    final void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14350,7 +14341,7 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14372,7 +14363,7 @@ class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
       _$breakoutRoomRemoveBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomRemoveBreakoutRoomsApiVersion valueOf(final String name) =>
+  static BreakoutRoomRemoveBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRemoveBreakoutRoomsApiVersion(name);
 
   static Serializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> get serializer =>
@@ -14391,7 +14382,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14399,7 +14390,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14422,7 +14413,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
         Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
             BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson([
-    final void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14430,7 +14421,7 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14452,7 +14443,7 @@ class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
       _$breakoutRoomBroadcastChatMessageApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomBroadcastChatMessageApiVersion valueOf(final String name) =>
+  static BreakoutRoomBroadcastChatMessageApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomBroadcastChatMessageApiVersion(name);
 
   static Serializer<BreakoutRoomBroadcastChatMessageApiVersion> get serializer =>
@@ -14471,7 +14462,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
             BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14479,7 +14470,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14502,7 +14493,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
         Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson,
             BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder> {
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson([
-    final void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomBroadcastChatMessageResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14510,7 +14501,7 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomBroadcastChatMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14531,7 +14522,7 @@ class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
   static BuiltSet<BreakoutRoomApplyAttendeeMapApiVersion> get values => _$breakoutRoomApplyAttendeeMapApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomApplyAttendeeMapApiVersion valueOf(final String name) =>
+  static BreakoutRoomApplyAttendeeMapApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomApplyAttendeeMapApiVersion(name);
 
   static Serializer<BreakoutRoomApplyAttendeeMapApiVersion> get serializer =>
@@ -14550,7 +14541,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
             BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14558,7 +14549,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14581,7 +14572,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
         Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson,
             BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder> {
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson([
-    final void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomApplyAttendeeMapResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14589,7 +14580,7 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomApplyAttendeeMapResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14611,7 +14602,7 @@ class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
       _$breakoutRoomRequestAssistanceApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomRequestAssistanceApiVersion valueOf(final String name) =>
+  static BreakoutRoomRequestAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRequestAssistanceApiVersion(name);
 
   static Serializer<BreakoutRoomRequestAssistanceApiVersion> get serializer =>
@@ -14630,7 +14621,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14638,7 +14629,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14661,7 +14652,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
         Built<BreakoutRoomRequestAssistanceResponseApplicationJson,
             BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder> {
   factory BreakoutRoomRequestAssistanceResponseApplicationJson([
-    final void Function(BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomRequestAssistanceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14669,7 +14660,7 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomRequestAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14691,7 +14682,7 @@ class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
       _$breakoutRoomResetRequestForAssistanceApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomResetRequestForAssistanceApiVersion valueOf(final String name) =>
+  static BreakoutRoomResetRequestForAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomResetRequestForAssistanceApiVersion(name);
 
   static Serializer<BreakoutRoomResetRequestForAssistanceApiVersion> get serializer =>
@@ -14710,7 +14701,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14718,7 +14709,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14741,7 +14732,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
         Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
             BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder> {
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson([
-    final void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14749,7 +14740,7 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14771,7 +14762,7 @@ class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
       _$breakoutRoomStartBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomStartBreakoutRoomsApiVersion valueOf(final String name) =>
+  static BreakoutRoomStartBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStartBreakoutRoomsApiVersion(name);
 
   static Serializer<BreakoutRoomStartBreakoutRoomsApiVersion> get serializer =>
@@ -14790,7 +14781,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14798,7 +14789,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14821,7 +14812,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
         Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson([
-    final void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14829,7 +14820,7 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14851,7 +14842,7 @@ class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
       _$breakoutRoomStopBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomStopBreakoutRoomsApiVersion valueOf(final String name) =>
+  static BreakoutRoomStopBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStopBreakoutRoomsApiVersion(name);
 
   static Serializer<BreakoutRoomStopBreakoutRoomsApiVersion> get serializer =>
@@ -14870,7 +14861,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14878,7 +14869,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14901,7 +14892,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
         Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
             BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder> {
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson([
-    final void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14909,7 +14900,7 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14931,7 +14922,7 @@ class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
       _$breakoutRoomSwitchBreakoutRoomApiVersionValues;
   // coverage:ignore-end
 
-  static BreakoutRoomSwitchBreakoutRoomApiVersion valueOf(final String name) =>
+  static BreakoutRoomSwitchBreakoutRoomApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomSwitchBreakoutRoomApiVersion(name);
 
   static Serializer<BreakoutRoomSwitchBreakoutRoomApiVersion> get serializer =>
@@ -14950,7 +14941,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder> {
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs([
-    final void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -14958,7 +14949,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -14981,7 +14972,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
         Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
             BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder> {
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson([
-    final void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder)? b,
+    void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder)? b,
   ]) = _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -14989,7 +14980,7 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15010,7 +15001,7 @@ class CallGetPeersForCallApiVersion extends EnumClass {
   static BuiltSet<CallGetPeersForCallApiVersion> get values => _$callGetPeersForCallApiVersionValues;
   // coverage:ignore-end
 
-  static CallGetPeersForCallApiVersion valueOf(final String name) => _$valueOfCallGetPeersForCallApiVersion(name);
+  static CallGetPeersForCallApiVersion valueOf(String name) => _$valueOfCallGetPeersForCallApiVersion(name);
 
   static Serializer<CallGetPeersForCallApiVersion> get serializer => _$callGetPeersForCallApiVersionSerializer;
 }
@@ -15026,14 +15017,14 @@ abstract interface class $CallPeerInterface {
 }
 
 abstract class CallPeer implements $CallPeerInterface, Built<CallPeer, CallPeerBuilder> {
-  factory CallPeer([final void Function(CallPeerBuilder)? b]) = _$CallPeer;
+  factory CallPeer([void Function(CallPeerBuilder)? b]) = _$CallPeer;
 
   // coverage:ignore-start
   const CallPeer._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallPeer.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory CallPeer.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -15054,7 +15045,7 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
         $CallGetPeersForCallResponseApplicationJson_OcsInterface,
         Built<CallGetPeersForCallResponseApplicationJson_Ocs, CallGetPeersForCallResponseApplicationJson_OcsBuilder> {
   factory CallGetPeersForCallResponseApplicationJson_Ocs([
-    final void Function(CallGetPeersForCallResponseApplicationJson_OcsBuilder)? b,
+    void Function(CallGetPeersForCallResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallGetPeersForCallResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15062,7 +15053,7 @@ abstract class CallGetPeersForCallResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallGetPeersForCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15084,7 +15075,7 @@ abstract class CallGetPeersForCallResponseApplicationJson
         $CallGetPeersForCallResponseApplicationJsonInterface,
         Built<CallGetPeersForCallResponseApplicationJson, CallGetPeersForCallResponseApplicationJsonBuilder> {
   factory CallGetPeersForCallResponseApplicationJson([
-    final void Function(CallGetPeersForCallResponseApplicationJsonBuilder)? b,
+    void Function(CallGetPeersForCallResponseApplicationJsonBuilder)? b,
   ]) = _$CallGetPeersForCallResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15092,7 +15083,7 @@ abstract class CallGetPeersForCallResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallGetPeersForCallResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallGetPeersForCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15113,7 +15104,7 @@ class CallUpdateCallFlagsApiVersion extends EnumClass {
   static BuiltSet<CallUpdateCallFlagsApiVersion> get values => _$callUpdateCallFlagsApiVersionValues;
   // coverage:ignore-end
 
-  static CallUpdateCallFlagsApiVersion valueOf(final String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
+  static CallUpdateCallFlagsApiVersion valueOf(String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
 
   static Serializer<CallUpdateCallFlagsApiVersion> get serializer => _$callUpdateCallFlagsApiVersionSerializer;
 }
@@ -15129,7 +15120,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
         $CallUpdateCallFlagsResponseApplicationJson_OcsInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson_Ocs, CallUpdateCallFlagsResponseApplicationJson_OcsBuilder> {
   factory CallUpdateCallFlagsResponseApplicationJson_Ocs([
-    final void Function(CallUpdateCallFlagsResponseApplicationJson_OcsBuilder)? b,
+    void Function(CallUpdateCallFlagsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallUpdateCallFlagsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15137,7 +15128,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallUpdateCallFlagsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15159,7 +15150,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
         $CallUpdateCallFlagsResponseApplicationJsonInterface,
         Built<CallUpdateCallFlagsResponseApplicationJson, CallUpdateCallFlagsResponseApplicationJsonBuilder> {
   factory CallUpdateCallFlagsResponseApplicationJson([
-    final void Function(CallUpdateCallFlagsResponseApplicationJsonBuilder)? b,
+    void Function(CallUpdateCallFlagsResponseApplicationJsonBuilder)? b,
   ]) = _$CallUpdateCallFlagsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15167,7 +15158,7 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallUpdateCallFlagsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallUpdateCallFlagsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15188,7 +15179,7 @@ class CallJoinCallApiVersion extends EnumClass {
   static BuiltSet<CallJoinCallApiVersion> get values => _$callJoinCallApiVersionValues;
   // coverage:ignore-end
 
-  static CallJoinCallApiVersion valueOf(final String name) => _$valueOfCallJoinCallApiVersion(name);
+  static CallJoinCallApiVersion valueOf(String name) => _$valueOfCallJoinCallApiVersion(name);
 
   static Serializer<CallJoinCallApiVersion> get serializer => _$callJoinCallApiVersionSerializer;
 }
@@ -15203,16 +15194,15 @@ abstract class CallJoinCallResponseApplicationJson_Ocs
     implements
         $CallJoinCallResponseApplicationJson_OcsInterface,
         Built<CallJoinCallResponseApplicationJson_Ocs, CallJoinCallResponseApplicationJson_OcsBuilder> {
-  factory CallJoinCallResponseApplicationJson_Ocs([
-    final void Function(CallJoinCallResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$CallJoinCallResponseApplicationJson_Ocs;
+  factory CallJoinCallResponseApplicationJson_Ocs([void Function(CallJoinCallResponseApplicationJson_OcsBuilder)? b]) =
+      _$CallJoinCallResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const CallJoinCallResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallJoinCallResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallJoinCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15233,7 +15223,7 @@ abstract class CallJoinCallResponseApplicationJson
     implements
         $CallJoinCallResponseApplicationJsonInterface,
         Built<CallJoinCallResponseApplicationJson, CallJoinCallResponseApplicationJsonBuilder> {
-  factory CallJoinCallResponseApplicationJson([final void Function(CallJoinCallResponseApplicationJsonBuilder)? b]) =
+  factory CallJoinCallResponseApplicationJson([void Function(CallJoinCallResponseApplicationJsonBuilder)? b]) =
       _$CallJoinCallResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15241,7 +15231,7 @@ abstract class CallJoinCallResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallJoinCallResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallJoinCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15262,7 +15252,7 @@ class CallLeaveCallApiVersion extends EnumClass {
   static BuiltSet<CallLeaveCallApiVersion> get values => _$callLeaveCallApiVersionValues;
   // coverage:ignore-end
 
-  static CallLeaveCallApiVersion valueOf(final String name) => _$valueOfCallLeaveCallApiVersion(name);
+  static CallLeaveCallApiVersion valueOf(String name) => _$valueOfCallLeaveCallApiVersion(name);
 
   static Serializer<CallLeaveCallApiVersion> get serializer => _$callLeaveCallApiVersionSerializer;
 }
@@ -15278,7 +15268,7 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
         $CallLeaveCallResponseApplicationJson_OcsInterface,
         Built<CallLeaveCallResponseApplicationJson_Ocs, CallLeaveCallResponseApplicationJson_OcsBuilder> {
   factory CallLeaveCallResponseApplicationJson_Ocs([
-    final void Function(CallLeaveCallResponseApplicationJson_OcsBuilder)? b,
+    void Function(CallLeaveCallResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallLeaveCallResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15286,7 +15276,7 @@ abstract class CallLeaveCallResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallLeaveCallResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15307,7 +15297,7 @@ abstract class CallLeaveCallResponseApplicationJson
     implements
         $CallLeaveCallResponseApplicationJsonInterface,
         Built<CallLeaveCallResponseApplicationJson, CallLeaveCallResponseApplicationJsonBuilder> {
-  factory CallLeaveCallResponseApplicationJson([final void Function(CallLeaveCallResponseApplicationJsonBuilder)? b]) =
+  factory CallLeaveCallResponseApplicationJson([void Function(CallLeaveCallResponseApplicationJsonBuilder)? b]) =
       _$CallLeaveCallResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15315,7 +15305,7 @@ abstract class CallLeaveCallResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallLeaveCallResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallLeaveCallResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15336,7 +15326,7 @@ class CallRingAttendeeApiVersion extends EnumClass {
   static BuiltSet<CallRingAttendeeApiVersion> get values => _$callRingAttendeeApiVersionValues;
   // coverage:ignore-end
 
-  static CallRingAttendeeApiVersion valueOf(final String name) => _$valueOfCallRingAttendeeApiVersion(name);
+  static CallRingAttendeeApiVersion valueOf(String name) => _$valueOfCallRingAttendeeApiVersion(name);
 
   static Serializer<CallRingAttendeeApiVersion> get serializer => _$callRingAttendeeApiVersionSerializer;
 }
@@ -15352,7 +15342,7 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
         $CallRingAttendeeResponseApplicationJson_OcsInterface,
         Built<CallRingAttendeeResponseApplicationJson_Ocs, CallRingAttendeeResponseApplicationJson_OcsBuilder> {
   factory CallRingAttendeeResponseApplicationJson_Ocs([
-    final void Function(CallRingAttendeeResponseApplicationJson_OcsBuilder)? b,
+    void Function(CallRingAttendeeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallRingAttendeeResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15360,7 +15350,7 @@ abstract class CallRingAttendeeResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallRingAttendeeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15381,16 +15371,15 @@ abstract class CallRingAttendeeResponseApplicationJson
     implements
         $CallRingAttendeeResponseApplicationJsonInterface,
         Built<CallRingAttendeeResponseApplicationJson, CallRingAttendeeResponseApplicationJsonBuilder> {
-  factory CallRingAttendeeResponseApplicationJson([
-    final void Function(CallRingAttendeeResponseApplicationJsonBuilder)? b,
-  ]) = _$CallRingAttendeeResponseApplicationJson;
+  factory CallRingAttendeeResponseApplicationJson([void Function(CallRingAttendeeResponseApplicationJsonBuilder)? b]) =
+      _$CallRingAttendeeResponseApplicationJson;
 
   // coverage:ignore-start
   const CallRingAttendeeResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallRingAttendeeResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallRingAttendeeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15411,7 +15400,7 @@ class CallSipDialOutApiVersion extends EnumClass {
   static BuiltSet<CallSipDialOutApiVersion> get values => _$callSipDialOutApiVersionValues;
   // coverage:ignore-end
 
-  static CallSipDialOutApiVersion valueOf(final String name) => _$valueOfCallSipDialOutApiVersion(name);
+  static CallSipDialOutApiVersion valueOf(String name) => _$valueOfCallSipDialOutApiVersion(name);
 
   static Serializer<CallSipDialOutApiVersion> get serializer => _$callSipDialOutApiVersionSerializer;
 }
@@ -15427,7 +15416,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
         $CallSipDialOutResponseApplicationJson_Ocs_DataInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs_Data, CallSipDialOutResponseApplicationJson_Ocs_DataBuilder> {
   factory CallSipDialOutResponseApplicationJson_Ocs_Data([
-    final void Function(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(CallSipDialOutResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CallSipDialOutResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -15435,7 +15424,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15458,7 +15447,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
         $CallSipDialOutResponseApplicationJson_OcsInterface,
         Built<CallSipDialOutResponseApplicationJson_Ocs, CallSipDialOutResponseApplicationJson_OcsBuilder> {
   factory CallSipDialOutResponseApplicationJson_Ocs([
-    final void Function(CallSipDialOutResponseApplicationJson_OcsBuilder)? b,
+    void Function(CallSipDialOutResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CallSipDialOutResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15466,7 +15455,7 @@ abstract class CallSipDialOutResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15487,16 +15476,15 @@ abstract class CallSipDialOutResponseApplicationJson
     implements
         $CallSipDialOutResponseApplicationJsonInterface,
         Built<CallSipDialOutResponseApplicationJson, CallSipDialOutResponseApplicationJsonBuilder> {
-  factory CallSipDialOutResponseApplicationJson([
-    final void Function(CallSipDialOutResponseApplicationJsonBuilder)? b,
-  ]) = _$CallSipDialOutResponseApplicationJson;
+  factory CallSipDialOutResponseApplicationJson([void Function(CallSipDialOutResponseApplicationJsonBuilder)? b]) =
+      _$CallSipDialOutResponseApplicationJson;
 
   // coverage:ignore-start
   const CallSipDialOutResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CallSipDialOutResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CallSipDialOutResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15518,7 +15506,7 @@ class CertificateGetCertificateExpirationApiVersion extends EnumClass {
       _$certificateGetCertificateExpirationApiVersionValues;
   // coverage:ignore-end
 
-  static CertificateGetCertificateExpirationApiVersion valueOf(final String name) =>
+  static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
       _$valueOfCertificateGetCertificateExpirationApiVersion(name);
 
   static Serializer<CertificateGetCertificateExpirationApiVersion> get serializer =>
@@ -15537,7 +15525,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
             CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
-    final void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -15545,9 +15533,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Da
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15571,7 +15557,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
         Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
             CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
-    final void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
+    void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15579,7 +15565,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15602,7 +15588,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
         Built<CertificateGetCertificateExpirationResponseApplicationJson,
             CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
   factory CertificateGetCertificateExpirationResponseApplicationJson([
-    final void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
+    void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
   ]) = _$CertificateGetCertificateExpirationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15610,7 +15596,7 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory CertificateGetCertificateExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15631,7 +15617,7 @@ class ChatReceiveMessagesApiVersion extends EnumClass {
   static BuiltSet<ChatReceiveMessagesApiVersion> get values => _$chatReceiveMessagesApiVersionValues;
   // coverage:ignore-end
 
-  static ChatReceiveMessagesApiVersion valueOf(final String name) => _$valueOfChatReceiveMessagesApiVersion(name);
+  static ChatReceiveMessagesApiVersion valueOf(String name) => _$valueOfChatReceiveMessagesApiVersion(name);
 
   static Serializer<ChatReceiveMessagesApiVersion> get serializer => _$chatReceiveMessagesApiVersionSerializer;
 }
@@ -15648,7 +15634,7 @@ abstract class ChatChatReceiveMessagesHeaders
     implements
         $ChatChatReceiveMessagesHeadersInterface,
         Built<ChatChatReceiveMessagesHeaders, ChatChatReceiveMessagesHeadersBuilder> {
-  factory ChatChatReceiveMessagesHeaders([final void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
+  factory ChatChatReceiveMessagesHeaders([void Function(ChatChatReceiveMessagesHeadersBuilder)? b]) =
       _$ChatChatReceiveMessagesHeaders;
 
   // coverage:ignore-start
@@ -15656,7 +15642,7 @@ abstract class ChatChatReceiveMessagesHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatReceiveMessagesHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatReceiveMessagesHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15678,14 +15664,14 @@ abstract interface class $ChatMessageWithParentInterface
 
 abstract class ChatMessageWithParent
     implements $ChatMessageWithParentInterface, Built<ChatMessageWithParent, ChatMessageWithParentBuilder> {
-  factory ChatMessageWithParent([final void Function(ChatMessageWithParentBuilder)? b]) = _$ChatMessageWithParent;
+  factory ChatMessageWithParent([void Function(ChatMessageWithParentBuilder)? b]) = _$ChatMessageWithParent;
 
   // coverage:ignore-start
   const ChatMessageWithParent._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMessageWithParent.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMessageWithParent.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15707,7 +15693,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
         $ChatReceiveMessagesResponseApplicationJson_OcsInterface,
         Built<ChatReceiveMessagesResponseApplicationJson_Ocs, ChatReceiveMessagesResponseApplicationJson_OcsBuilder> {
   factory ChatReceiveMessagesResponseApplicationJson_Ocs([
-    final void Function(ChatReceiveMessagesResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatReceiveMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatReceiveMessagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15715,7 +15701,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatReceiveMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15737,7 +15723,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson
         $ChatReceiveMessagesResponseApplicationJsonInterface,
         Built<ChatReceiveMessagesResponseApplicationJson, ChatReceiveMessagesResponseApplicationJsonBuilder> {
   factory ChatReceiveMessagesResponseApplicationJson([
-    final void Function(ChatReceiveMessagesResponseApplicationJsonBuilder)? b,
+    void Function(ChatReceiveMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$ChatReceiveMessagesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -15745,7 +15731,7 @@ abstract class ChatReceiveMessagesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatReceiveMessagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatReceiveMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15766,7 +15752,7 @@ class ChatSendMessageApiVersion extends EnumClass {
   static BuiltSet<ChatSendMessageApiVersion> get values => _$chatSendMessageApiVersionValues;
   // coverage:ignore-end
 
-  static ChatSendMessageApiVersion valueOf(final String name) => _$valueOfChatSendMessageApiVersion(name);
+  static ChatSendMessageApiVersion valueOf(String name) => _$valueOfChatSendMessageApiVersion(name);
 
   static Serializer<ChatSendMessageApiVersion> get serializer => _$chatSendMessageApiVersionSerializer;
 }
@@ -15781,7 +15767,7 @@ abstract class ChatChatSendMessageHeaders
     implements
         $ChatChatSendMessageHeadersInterface,
         Built<ChatChatSendMessageHeaders, ChatChatSendMessageHeadersBuilder> {
-  factory ChatChatSendMessageHeaders([final void Function(ChatChatSendMessageHeadersBuilder)? b]) =
+  factory ChatChatSendMessageHeaders([void Function(ChatChatSendMessageHeadersBuilder)? b]) =
       _$ChatChatSendMessageHeaders;
 
   // coverage:ignore-start
@@ -15789,7 +15775,7 @@ abstract class ChatChatSendMessageHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatSendMessageHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatSendMessageHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15811,7 +15797,7 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
         $ChatSendMessageResponseApplicationJson_OcsInterface,
         Built<ChatSendMessageResponseApplicationJson_Ocs, ChatSendMessageResponseApplicationJson_OcsBuilder> {
   factory ChatSendMessageResponseApplicationJson_Ocs([
-    final void Function(ChatSendMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatSendMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSendMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15819,7 +15805,7 @@ abstract class ChatSendMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSendMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15840,16 +15826,15 @@ abstract class ChatSendMessageResponseApplicationJson
     implements
         $ChatSendMessageResponseApplicationJsonInterface,
         Built<ChatSendMessageResponseApplicationJson, ChatSendMessageResponseApplicationJsonBuilder> {
-  factory ChatSendMessageResponseApplicationJson([
-    final void Function(ChatSendMessageResponseApplicationJsonBuilder)? b,
-  ]) = _$ChatSendMessageResponseApplicationJson;
+  factory ChatSendMessageResponseApplicationJson([void Function(ChatSendMessageResponseApplicationJsonBuilder)? b]) =
+      _$ChatSendMessageResponseApplicationJson;
 
   // coverage:ignore-start
   const ChatSendMessageResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSendMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSendMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15870,7 +15855,7 @@ class ChatClearHistoryApiVersion extends EnumClass {
   static BuiltSet<ChatClearHistoryApiVersion> get values => _$chatClearHistoryApiVersionValues;
   // coverage:ignore-end
 
-  static ChatClearHistoryApiVersion valueOf(final String name) => _$valueOfChatClearHistoryApiVersion(name);
+  static ChatClearHistoryApiVersion valueOf(String name) => _$valueOfChatClearHistoryApiVersion(name);
 
   static Serializer<ChatClearHistoryApiVersion> get serializer => _$chatClearHistoryApiVersionSerializer;
 }
@@ -15885,7 +15870,7 @@ abstract class ChatChatClearHistoryHeaders
     implements
         $ChatChatClearHistoryHeadersInterface,
         Built<ChatChatClearHistoryHeaders, ChatChatClearHistoryHeadersBuilder> {
-  factory ChatChatClearHistoryHeaders([final void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
+  factory ChatChatClearHistoryHeaders([void Function(ChatChatClearHistoryHeadersBuilder)? b]) =
       _$ChatChatClearHistoryHeaders;
 
   // coverage:ignore-start
@@ -15893,7 +15878,7 @@ abstract class ChatChatClearHistoryHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatClearHistoryHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatClearHistoryHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15915,7 +15900,7 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
         $ChatClearHistoryResponseApplicationJson_OcsInterface,
         Built<ChatClearHistoryResponseApplicationJson_Ocs, ChatClearHistoryResponseApplicationJson_OcsBuilder> {
   factory ChatClearHistoryResponseApplicationJson_Ocs([
-    final void Function(ChatClearHistoryResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatClearHistoryResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatClearHistoryResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -15923,7 +15908,7 @@ abstract class ChatClearHistoryResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatClearHistoryResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15944,16 +15929,15 @@ abstract class ChatClearHistoryResponseApplicationJson
     implements
         $ChatClearHistoryResponseApplicationJsonInterface,
         Built<ChatClearHistoryResponseApplicationJson, ChatClearHistoryResponseApplicationJsonBuilder> {
-  factory ChatClearHistoryResponseApplicationJson([
-    final void Function(ChatClearHistoryResponseApplicationJsonBuilder)? b,
-  ]) = _$ChatClearHistoryResponseApplicationJson;
+  factory ChatClearHistoryResponseApplicationJson([void Function(ChatClearHistoryResponseApplicationJsonBuilder)? b]) =
+      _$ChatClearHistoryResponseApplicationJson;
 
   // coverage:ignore-start
   const ChatClearHistoryResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatClearHistoryResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatClearHistoryResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -15974,7 +15958,7 @@ class ChatDeleteMessageApiVersion extends EnumClass {
   static BuiltSet<ChatDeleteMessageApiVersion> get values => _$chatDeleteMessageApiVersionValues;
   // coverage:ignore-end
 
-  static ChatDeleteMessageApiVersion valueOf(final String name) => _$valueOfChatDeleteMessageApiVersion(name);
+  static ChatDeleteMessageApiVersion valueOf(String name) => _$valueOfChatDeleteMessageApiVersion(name);
 
   static Serializer<ChatDeleteMessageApiVersion> get serializer => _$chatDeleteMessageApiVersionSerializer;
 }
@@ -15989,7 +15973,7 @@ abstract class ChatChatDeleteMessageHeaders
     implements
         $ChatChatDeleteMessageHeadersInterface,
         Built<ChatChatDeleteMessageHeaders, ChatChatDeleteMessageHeadersBuilder> {
-  factory ChatChatDeleteMessageHeaders([final void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
+  factory ChatChatDeleteMessageHeaders([void Function(ChatChatDeleteMessageHeadersBuilder)? b]) =
       _$ChatChatDeleteMessageHeaders;
 
   // coverage:ignore-start
@@ -15997,7 +15981,7 @@ abstract class ChatChatDeleteMessageHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatDeleteMessageHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatDeleteMessageHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16019,7 +16003,7 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
         $ChatDeleteMessageResponseApplicationJson_OcsInterface,
         Built<ChatDeleteMessageResponseApplicationJson_Ocs, ChatDeleteMessageResponseApplicationJson_OcsBuilder> {
   factory ChatDeleteMessageResponseApplicationJson_Ocs([
-    final void Function(ChatDeleteMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatDeleteMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatDeleteMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16027,7 +16011,7 @@ abstract class ChatDeleteMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatDeleteMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16049,7 +16033,7 @@ abstract class ChatDeleteMessageResponseApplicationJson
         $ChatDeleteMessageResponseApplicationJsonInterface,
         Built<ChatDeleteMessageResponseApplicationJson, ChatDeleteMessageResponseApplicationJsonBuilder> {
   factory ChatDeleteMessageResponseApplicationJson([
-    final void Function(ChatDeleteMessageResponseApplicationJsonBuilder)? b,
+    void Function(ChatDeleteMessageResponseApplicationJsonBuilder)? b,
   ]) = _$ChatDeleteMessageResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16057,7 +16041,7 @@ abstract class ChatDeleteMessageResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatDeleteMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatDeleteMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16078,7 +16062,7 @@ class ChatGetMessageContextApiVersion extends EnumClass {
   static BuiltSet<ChatGetMessageContextApiVersion> get values => _$chatGetMessageContextApiVersionValues;
   // coverage:ignore-end
 
-  static ChatGetMessageContextApiVersion valueOf(final String name) => _$valueOfChatGetMessageContextApiVersion(name);
+  static ChatGetMessageContextApiVersion valueOf(String name) => _$valueOfChatGetMessageContextApiVersion(name);
 
   static Serializer<ChatGetMessageContextApiVersion> get serializer => _$chatGetMessageContextApiVersionSerializer;
 }
@@ -16095,7 +16079,7 @@ abstract class ChatChatGetMessageContextHeaders
     implements
         $ChatChatGetMessageContextHeadersInterface,
         Built<ChatChatGetMessageContextHeaders, ChatChatGetMessageContextHeadersBuilder> {
-  factory ChatChatGetMessageContextHeaders([final void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
+  factory ChatChatGetMessageContextHeaders([void Function(ChatChatGetMessageContextHeadersBuilder)? b]) =
       _$ChatChatGetMessageContextHeaders;
 
   // coverage:ignore-start
@@ -16103,7 +16087,7 @@ abstract class ChatChatGetMessageContextHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatGetMessageContextHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatGetMessageContextHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16126,7 +16110,7 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
         Built<ChatGetMessageContextResponseApplicationJson_Ocs,
             ChatGetMessageContextResponseApplicationJson_OcsBuilder> {
   factory ChatGetMessageContextResponseApplicationJson_Ocs([
-    final void Function(ChatGetMessageContextResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatGetMessageContextResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetMessageContextResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16134,7 +16118,7 @@ abstract class ChatGetMessageContextResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetMessageContextResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16156,7 +16140,7 @@ abstract class ChatGetMessageContextResponseApplicationJson
         $ChatGetMessageContextResponseApplicationJsonInterface,
         Built<ChatGetMessageContextResponseApplicationJson, ChatGetMessageContextResponseApplicationJsonBuilder> {
   factory ChatGetMessageContextResponseApplicationJson([
-    final void Function(ChatGetMessageContextResponseApplicationJsonBuilder)? b,
+    void Function(ChatGetMessageContextResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetMessageContextResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16164,7 +16148,7 @@ abstract class ChatGetMessageContextResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetMessageContextResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetMessageContextResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16185,7 +16169,7 @@ class ChatGetReminderApiVersion extends EnumClass {
   static BuiltSet<ChatGetReminderApiVersion> get values => _$chatGetReminderApiVersionValues;
   // coverage:ignore-end
 
-  static ChatGetReminderApiVersion valueOf(final String name) => _$valueOfChatGetReminderApiVersion(name);
+  static ChatGetReminderApiVersion valueOf(String name) => _$valueOfChatGetReminderApiVersion(name);
 
   static Serializer<ChatGetReminderApiVersion> get serializer => _$chatGetReminderApiVersionSerializer;
 }
@@ -16199,14 +16183,14 @@ abstract interface class $ChatReminderInterface {
 }
 
 abstract class ChatReminder implements $ChatReminderInterface, Built<ChatReminder, ChatReminderBuilder> {
-  factory ChatReminder([final void Function(ChatReminderBuilder)? b]) = _$ChatReminder;
+  factory ChatReminder([void Function(ChatReminderBuilder)? b]) = _$ChatReminder;
 
   // coverage:ignore-start
   const ChatReminder._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatReminder.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ChatReminder.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -16227,7 +16211,7 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
         $ChatGetReminderResponseApplicationJson_OcsInterface,
         Built<ChatGetReminderResponseApplicationJson_Ocs, ChatGetReminderResponseApplicationJson_OcsBuilder> {
   factory ChatGetReminderResponseApplicationJson_Ocs([
-    final void Function(ChatGetReminderResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatGetReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetReminderResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16235,7 +16219,7 @@ abstract class ChatGetReminderResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16256,16 +16240,15 @@ abstract class ChatGetReminderResponseApplicationJson
     implements
         $ChatGetReminderResponseApplicationJsonInterface,
         Built<ChatGetReminderResponseApplicationJson, ChatGetReminderResponseApplicationJsonBuilder> {
-  factory ChatGetReminderResponseApplicationJson([
-    final void Function(ChatGetReminderResponseApplicationJsonBuilder)? b,
-  ]) = _$ChatGetReminderResponseApplicationJson;
+  factory ChatGetReminderResponseApplicationJson([void Function(ChatGetReminderResponseApplicationJsonBuilder)? b]) =
+      _$ChatGetReminderResponseApplicationJson;
 
   // coverage:ignore-start
   const ChatGetReminderResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetReminderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16286,7 +16269,7 @@ class ChatSetReminderApiVersion extends EnumClass {
   static BuiltSet<ChatSetReminderApiVersion> get values => _$chatSetReminderApiVersionValues;
   // coverage:ignore-end
 
-  static ChatSetReminderApiVersion valueOf(final String name) => _$valueOfChatSetReminderApiVersion(name);
+  static ChatSetReminderApiVersion valueOf(String name) => _$valueOfChatSetReminderApiVersion(name);
 
   static Serializer<ChatSetReminderApiVersion> get serializer => _$chatSetReminderApiVersionSerializer;
 }
@@ -16302,7 +16285,7 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
         $ChatSetReminderResponseApplicationJson_OcsInterface,
         Built<ChatSetReminderResponseApplicationJson_Ocs, ChatSetReminderResponseApplicationJson_OcsBuilder> {
   factory ChatSetReminderResponseApplicationJson_Ocs([
-    final void Function(ChatSetReminderResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatSetReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSetReminderResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16310,7 +16293,7 @@ abstract class ChatSetReminderResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSetReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16331,16 +16314,15 @@ abstract class ChatSetReminderResponseApplicationJson
     implements
         $ChatSetReminderResponseApplicationJsonInterface,
         Built<ChatSetReminderResponseApplicationJson, ChatSetReminderResponseApplicationJsonBuilder> {
-  factory ChatSetReminderResponseApplicationJson([
-    final void Function(ChatSetReminderResponseApplicationJsonBuilder)? b,
-  ]) = _$ChatSetReminderResponseApplicationJson;
+  factory ChatSetReminderResponseApplicationJson([void Function(ChatSetReminderResponseApplicationJsonBuilder)? b]) =
+      _$ChatSetReminderResponseApplicationJson;
 
   // coverage:ignore-start
   const ChatSetReminderResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSetReminderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSetReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16361,7 +16343,7 @@ class ChatDeleteReminderApiVersion extends EnumClass {
   static BuiltSet<ChatDeleteReminderApiVersion> get values => _$chatDeleteReminderApiVersionValues;
   // coverage:ignore-end
 
-  static ChatDeleteReminderApiVersion valueOf(final String name) => _$valueOfChatDeleteReminderApiVersion(name);
+  static ChatDeleteReminderApiVersion valueOf(String name) => _$valueOfChatDeleteReminderApiVersion(name);
 
   static Serializer<ChatDeleteReminderApiVersion> get serializer => _$chatDeleteReminderApiVersionSerializer;
 }
@@ -16377,7 +16359,7 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
         $ChatDeleteReminderResponseApplicationJson_OcsInterface,
         Built<ChatDeleteReminderResponseApplicationJson_Ocs, ChatDeleteReminderResponseApplicationJson_OcsBuilder> {
   factory ChatDeleteReminderResponseApplicationJson_Ocs([
-    final void Function(ChatDeleteReminderResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatDeleteReminderResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatDeleteReminderResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16385,7 +16367,7 @@ abstract class ChatDeleteReminderResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatDeleteReminderResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16407,7 +16389,7 @@ abstract class ChatDeleteReminderResponseApplicationJson
         $ChatDeleteReminderResponseApplicationJsonInterface,
         Built<ChatDeleteReminderResponseApplicationJson, ChatDeleteReminderResponseApplicationJsonBuilder> {
   factory ChatDeleteReminderResponseApplicationJson([
-    final void Function(ChatDeleteReminderResponseApplicationJsonBuilder)? b,
+    void Function(ChatDeleteReminderResponseApplicationJsonBuilder)? b,
   ]) = _$ChatDeleteReminderResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16415,7 +16397,7 @@ abstract class ChatDeleteReminderResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatDeleteReminderResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatDeleteReminderResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16436,7 +16418,7 @@ class ChatSetReadMarkerApiVersion extends EnumClass {
   static BuiltSet<ChatSetReadMarkerApiVersion> get values => _$chatSetReadMarkerApiVersionValues;
   // coverage:ignore-end
 
-  static ChatSetReadMarkerApiVersion valueOf(final String name) => _$valueOfChatSetReadMarkerApiVersion(name);
+  static ChatSetReadMarkerApiVersion valueOf(String name) => _$valueOfChatSetReadMarkerApiVersion(name);
 
   static Serializer<ChatSetReadMarkerApiVersion> get serializer => _$chatSetReadMarkerApiVersionSerializer;
 }
@@ -16451,7 +16433,7 @@ abstract class ChatChatSetReadMarkerHeaders
     implements
         $ChatChatSetReadMarkerHeadersInterface,
         Built<ChatChatSetReadMarkerHeaders, ChatChatSetReadMarkerHeadersBuilder> {
-  factory ChatChatSetReadMarkerHeaders([final void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
+  factory ChatChatSetReadMarkerHeaders([void Function(ChatChatSetReadMarkerHeadersBuilder)? b]) =
       _$ChatChatSetReadMarkerHeaders;
 
   // coverage:ignore-start
@@ -16459,7 +16441,7 @@ abstract class ChatChatSetReadMarkerHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatSetReadMarkerHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatSetReadMarkerHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16481,7 +16463,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
         $ChatSetReadMarkerResponseApplicationJson_OcsInterface,
         Built<ChatSetReadMarkerResponseApplicationJson_Ocs, ChatSetReadMarkerResponseApplicationJson_OcsBuilder> {
   factory ChatSetReadMarkerResponseApplicationJson_Ocs([
-    final void Function(ChatSetReadMarkerResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatSetReadMarkerResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatSetReadMarkerResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16489,7 +16471,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSetReadMarkerResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16511,7 +16493,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson
         $ChatSetReadMarkerResponseApplicationJsonInterface,
         Built<ChatSetReadMarkerResponseApplicationJson, ChatSetReadMarkerResponseApplicationJsonBuilder> {
   factory ChatSetReadMarkerResponseApplicationJson([
-    final void Function(ChatSetReadMarkerResponseApplicationJsonBuilder)? b,
+    void Function(ChatSetReadMarkerResponseApplicationJsonBuilder)? b,
   ]) = _$ChatSetReadMarkerResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16519,7 +16501,7 @@ abstract class ChatSetReadMarkerResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatSetReadMarkerResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatSetReadMarkerResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16540,7 +16522,7 @@ class ChatMarkUnreadApiVersion extends EnumClass {
   static BuiltSet<ChatMarkUnreadApiVersion> get values => _$chatMarkUnreadApiVersionValues;
   // coverage:ignore-end
 
-  static ChatMarkUnreadApiVersion valueOf(final String name) => _$valueOfChatMarkUnreadApiVersion(name);
+  static ChatMarkUnreadApiVersion valueOf(String name) => _$valueOfChatMarkUnreadApiVersion(name);
 
   static Serializer<ChatMarkUnreadApiVersion> get serializer => _$chatMarkUnreadApiVersionSerializer;
 }
@@ -16553,15 +16535,14 @@ abstract interface class $ChatChatMarkUnreadHeadersInterface {
 
 abstract class ChatChatMarkUnreadHeaders
     implements $ChatChatMarkUnreadHeadersInterface, Built<ChatChatMarkUnreadHeaders, ChatChatMarkUnreadHeadersBuilder> {
-  factory ChatChatMarkUnreadHeaders([final void Function(ChatChatMarkUnreadHeadersBuilder)? b]) =
-      _$ChatChatMarkUnreadHeaders;
+  factory ChatChatMarkUnreadHeaders([void Function(ChatChatMarkUnreadHeadersBuilder)? b]) = _$ChatChatMarkUnreadHeaders;
 
   // coverage:ignore-start
   const ChatChatMarkUnreadHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatMarkUnreadHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatMarkUnreadHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16583,7 +16564,7 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
         $ChatMarkUnreadResponseApplicationJson_OcsInterface,
         Built<ChatMarkUnreadResponseApplicationJson_Ocs, ChatMarkUnreadResponseApplicationJson_OcsBuilder> {
   factory ChatMarkUnreadResponseApplicationJson_Ocs([
-    final void Function(ChatMarkUnreadResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatMarkUnreadResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatMarkUnreadResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16591,7 +16572,7 @@ abstract class ChatMarkUnreadResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMarkUnreadResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16612,16 +16593,15 @@ abstract class ChatMarkUnreadResponseApplicationJson
     implements
         $ChatMarkUnreadResponseApplicationJsonInterface,
         Built<ChatMarkUnreadResponseApplicationJson, ChatMarkUnreadResponseApplicationJsonBuilder> {
-  factory ChatMarkUnreadResponseApplicationJson([
-    final void Function(ChatMarkUnreadResponseApplicationJsonBuilder)? b,
-  ]) = _$ChatMarkUnreadResponseApplicationJson;
+  factory ChatMarkUnreadResponseApplicationJson([void Function(ChatMarkUnreadResponseApplicationJsonBuilder)? b]) =
+      _$ChatMarkUnreadResponseApplicationJson;
 
   // coverage:ignore-start
   const ChatMarkUnreadResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMarkUnreadResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMarkUnreadResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16642,7 +16622,7 @@ class ChatMentionsApiVersion extends EnumClass {
   static BuiltSet<ChatMentionsApiVersion> get values => _$chatMentionsApiVersionValues;
   // coverage:ignore-end
 
-  static ChatMentionsApiVersion valueOf(final String name) => _$valueOfChatMentionsApiVersion(name);
+  static ChatMentionsApiVersion valueOf(String name) => _$valueOfChatMentionsApiVersion(name);
 
   static Serializer<ChatMentionsApiVersion> get serializer => _$chatMentionsApiVersionSerializer;
 }
@@ -16660,14 +16640,14 @@ abstract interface class $ChatMentionSuggestionInterface {
 
 abstract class ChatMentionSuggestion
     implements $ChatMentionSuggestionInterface, Built<ChatMentionSuggestion, ChatMentionSuggestionBuilder> {
-  factory ChatMentionSuggestion([final void Function(ChatMentionSuggestionBuilder)? b]) = _$ChatMentionSuggestion;
+  factory ChatMentionSuggestion([void Function(ChatMentionSuggestionBuilder)? b]) = _$ChatMentionSuggestion;
 
   // coverage:ignore-start
   const ChatMentionSuggestion._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMentionSuggestion.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMentionSuggestion.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16688,16 +16668,15 @@ abstract class ChatMentionsResponseApplicationJson_Ocs
     implements
         $ChatMentionsResponseApplicationJson_OcsInterface,
         Built<ChatMentionsResponseApplicationJson_Ocs, ChatMentionsResponseApplicationJson_OcsBuilder> {
-  factory ChatMentionsResponseApplicationJson_Ocs([
-    final void Function(ChatMentionsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$ChatMentionsResponseApplicationJson_Ocs;
+  factory ChatMentionsResponseApplicationJson_Ocs([void Function(ChatMentionsResponseApplicationJson_OcsBuilder)? b]) =
+      _$ChatMentionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const ChatMentionsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMentionsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMentionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16718,7 +16697,7 @@ abstract class ChatMentionsResponseApplicationJson
     implements
         $ChatMentionsResponseApplicationJsonInterface,
         Built<ChatMentionsResponseApplicationJson, ChatMentionsResponseApplicationJsonBuilder> {
-  factory ChatMentionsResponseApplicationJson([final void Function(ChatMentionsResponseApplicationJsonBuilder)? b]) =
+  factory ChatMentionsResponseApplicationJson([void Function(ChatMentionsResponseApplicationJsonBuilder)? b]) =
       _$ChatMentionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16726,7 +16705,7 @@ abstract class ChatMentionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatMentionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatMentionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16747,7 +16726,7 @@ class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
   static BuiltSet<ChatGetObjectsSharedInRoomApiVersion> get values => _$chatGetObjectsSharedInRoomApiVersionValues;
   // coverage:ignore-end
 
-  static ChatGetObjectsSharedInRoomApiVersion valueOf(final String name) =>
+  static ChatGetObjectsSharedInRoomApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomApiVersion(name);
 
   static Serializer<ChatGetObjectsSharedInRoomApiVersion> get serializer =>
@@ -16764,16 +16743,15 @@ abstract class ChatChatGetObjectsSharedInRoomHeaders
     implements
         $ChatChatGetObjectsSharedInRoomHeadersInterface,
         Built<ChatChatGetObjectsSharedInRoomHeaders, ChatChatGetObjectsSharedInRoomHeadersBuilder> {
-  factory ChatChatGetObjectsSharedInRoomHeaders([
-    final void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b,
-  ]) = _$ChatChatGetObjectsSharedInRoomHeaders;
+  factory ChatChatGetObjectsSharedInRoomHeaders([void Function(ChatChatGetObjectsSharedInRoomHeadersBuilder)? b]) =
+      _$ChatChatGetObjectsSharedInRoomHeaders;
 
   // coverage:ignore-start
   const ChatChatGetObjectsSharedInRoomHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatGetObjectsSharedInRoomHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16797,7 +16775,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder> {
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs([
-    final void Function(ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16805,7 +16783,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16828,7 +16806,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
         Built<ChatGetObjectsSharedInRoomResponseApplicationJson,
             ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder> {
   factory ChatGetObjectsSharedInRoomResponseApplicationJson([
-    final void Function(ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder)? b,
+    void Function(ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16836,7 +16814,7 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16857,7 +16835,7 @@ class ChatShareObjectToChatApiVersion extends EnumClass {
   static BuiltSet<ChatShareObjectToChatApiVersion> get values => _$chatShareObjectToChatApiVersionValues;
   // coverage:ignore-end
 
-  static ChatShareObjectToChatApiVersion valueOf(final String name) => _$valueOfChatShareObjectToChatApiVersion(name);
+  static ChatShareObjectToChatApiVersion valueOf(String name) => _$valueOfChatShareObjectToChatApiVersion(name);
 
   static Serializer<ChatShareObjectToChatApiVersion> get serializer => _$chatShareObjectToChatApiVersionSerializer;
 }
@@ -16872,7 +16850,7 @@ abstract class ChatChatShareObjectToChatHeaders
     implements
         $ChatChatShareObjectToChatHeadersInterface,
         Built<ChatChatShareObjectToChatHeaders, ChatChatShareObjectToChatHeadersBuilder> {
-  factory ChatChatShareObjectToChatHeaders([final void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
+  factory ChatChatShareObjectToChatHeaders([void Function(ChatChatShareObjectToChatHeadersBuilder)? b]) =
       _$ChatChatShareObjectToChatHeaders;
 
   // coverage:ignore-start
@@ -16880,7 +16858,7 @@ abstract class ChatChatShareObjectToChatHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatChatShareObjectToChatHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory ChatChatShareObjectToChatHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16903,7 +16881,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
         Built<ChatShareObjectToChatResponseApplicationJson_Ocs,
             ChatShareObjectToChatResponseApplicationJson_OcsBuilder> {
   factory ChatShareObjectToChatResponseApplicationJson_Ocs([
-    final void Function(ChatShareObjectToChatResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatShareObjectToChatResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatShareObjectToChatResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16911,7 +16889,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatShareObjectToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16933,7 +16911,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson
         $ChatShareObjectToChatResponseApplicationJsonInterface,
         Built<ChatShareObjectToChatResponseApplicationJson, ChatShareObjectToChatResponseApplicationJsonBuilder> {
   factory ChatShareObjectToChatResponseApplicationJson([
-    final void Function(ChatShareObjectToChatResponseApplicationJsonBuilder)? b,
+    void Function(ChatShareObjectToChatResponseApplicationJsonBuilder)? b,
   ]) = _$ChatShareObjectToChatResponseApplicationJson;
 
   // coverage:ignore-start
@@ -16941,7 +16919,7 @@ abstract class ChatShareObjectToChatResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatShareObjectToChatResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatShareObjectToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -16963,7 +16941,7 @@ class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
       _$chatGetObjectsSharedInRoomOverviewApiVersionValues;
   // coverage:ignore-end
 
-  static ChatGetObjectsSharedInRoomOverviewApiVersion valueOf(final String name) =>
+  static ChatGetObjectsSharedInRoomOverviewApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomOverviewApiVersion(name);
 
   static Serializer<ChatGetObjectsSharedInRoomOverviewApiVersion> get serializer =>
@@ -16982,7 +16960,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder> {
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs([
-    final void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder)? b,
+    void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -16990,7 +16968,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17013,7 +16991,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
         Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
             ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder> {
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson([
-    final void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder)? b,
+    void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder)? b,
   ]) = _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17021,7 +16999,7 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17042,7 +17020,7 @@ class FederationAcceptShareApiVersion extends EnumClass {
   static BuiltSet<FederationAcceptShareApiVersion> get values => _$federationAcceptShareApiVersionValues;
   // coverage:ignore-end
 
-  static FederationAcceptShareApiVersion valueOf(final String name) => _$valueOfFederationAcceptShareApiVersion(name);
+  static FederationAcceptShareApiVersion valueOf(String name) => _$valueOfFederationAcceptShareApiVersion(name);
 
   static Serializer<FederationAcceptShareApiVersion> get serializer => _$federationAcceptShareApiVersionSerializer;
 }
@@ -17059,7 +17037,7 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
         Built<FederationAcceptShareResponseApplicationJson_Ocs,
             FederationAcceptShareResponseApplicationJson_OcsBuilder> {
   factory FederationAcceptShareResponseApplicationJson_Ocs([
-    final void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FederationAcceptShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17067,7 +17045,7 @@ abstract class FederationAcceptShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FederationAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17089,7 +17067,7 @@ abstract class FederationAcceptShareResponseApplicationJson
         $FederationAcceptShareResponseApplicationJsonInterface,
         Built<FederationAcceptShareResponseApplicationJson, FederationAcceptShareResponseApplicationJsonBuilder> {
   factory FederationAcceptShareResponseApplicationJson([
-    final void Function(FederationAcceptShareResponseApplicationJsonBuilder)? b,
+    void Function(FederationAcceptShareResponseApplicationJsonBuilder)? b,
   ]) = _$FederationAcceptShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17097,7 +17075,7 @@ abstract class FederationAcceptShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationAcceptShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FederationAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17118,7 +17096,7 @@ class FederationRejectShareApiVersion extends EnumClass {
   static BuiltSet<FederationRejectShareApiVersion> get values => _$federationRejectShareApiVersionValues;
   // coverage:ignore-end
 
-  static FederationRejectShareApiVersion valueOf(final String name) => _$valueOfFederationRejectShareApiVersion(name);
+  static FederationRejectShareApiVersion valueOf(String name) => _$valueOfFederationRejectShareApiVersion(name);
 
   static Serializer<FederationRejectShareApiVersion> get serializer => _$federationRejectShareApiVersionSerializer;
 }
@@ -17135,7 +17113,7 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
         Built<FederationRejectShareResponseApplicationJson_Ocs,
             FederationRejectShareResponseApplicationJson_OcsBuilder> {
   factory FederationRejectShareResponseApplicationJson_Ocs([
-    final void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? b,
+    void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FederationRejectShareResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17143,7 +17121,7 @@ abstract class FederationRejectShareResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FederationRejectShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17165,7 +17143,7 @@ abstract class FederationRejectShareResponseApplicationJson
         $FederationRejectShareResponseApplicationJsonInterface,
         Built<FederationRejectShareResponseApplicationJson, FederationRejectShareResponseApplicationJsonBuilder> {
   factory FederationRejectShareResponseApplicationJson([
-    final void Function(FederationRejectShareResponseApplicationJsonBuilder)? b,
+    void Function(FederationRejectShareResponseApplicationJsonBuilder)? b,
   ]) = _$FederationRejectShareResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17173,7 +17151,7 @@ abstract class FederationRejectShareResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationRejectShareResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FederationRejectShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17194,7 +17172,7 @@ class FederationGetSharesApiVersion extends EnumClass {
   static BuiltSet<FederationGetSharesApiVersion> get values => _$federationGetSharesApiVersionValues;
   // coverage:ignore-end
 
-  static FederationGetSharesApiVersion valueOf(final String name) => _$valueOfFederationGetSharesApiVersion(name);
+  static FederationGetSharesApiVersion valueOf(String name) => _$valueOfFederationGetSharesApiVersion(name);
 
   static Serializer<FederationGetSharesApiVersion> get serializer => _$federationGetSharesApiVersionSerializer;
 }
@@ -17218,15 +17196,14 @@ abstract interface class $FederationInviteInterface {
 
 abstract class FederationInvite
     implements $FederationInviteInterface, Built<FederationInvite, FederationInviteBuilder> {
-  factory FederationInvite([final void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
+  factory FederationInvite([void Function(FederationInviteBuilder)? b]) = _$FederationInvite;
 
   // coverage:ignore-start
   const FederationInvite._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationInvite.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory FederationInvite.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -17247,7 +17224,7 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
         $FederationGetSharesResponseApplicationJson_OcsInterface,
         Built<FederationGetSharesResponseApplicationJson_Ocs, FederationGetSharesResponseApplicationJson_OcsBuilder> {
   factory FederationGetSharesResponseApplicationJson_Ocs([
-    final void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? b,
+    void Function(FederationGetSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FederationGetSharesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17255,7 +17232,7 @@ abstract class FederationGetSharesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FederationGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17277,7 +17254,7 @@ abstract class FederationGetSharesResponseApplicationJson
         $FederationGetSharesResponseApplicationJsonInterface,
         Built<FederationGetSharesResponseApplicationJson, FederationGetSharesResponseApplicationJsonBuilder> {
   factory FederationGetSharesResponseApplicationJson([
-    final void Function(FederationGetSharesResponseApplicationJsonBuilder)? b,
+    void Function(FederationGetSharesResponseApplicationJsonBuilder)? b,
   ]) = _$FederationGetSharesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17285,7 +17262,7 @@ abstract class FederationGetSharesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FederationGetSharesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FederationGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17307,7 +17284,7 @@ class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
       _$filesIntegrationGetRoomByFileIdApiVersionValues;
   // coverage:ignore-end
 
-  static FilesIntegrationGetRoomByFileIdApiVersion valueOf(final String name) =>
+  static FilesIntegrationGetRoomByFileIdApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByFileIdApiVersion(name);
 
   static Serializer<FilesIntegrationGetRoomByFileIdApiVersion> get serializer =>
@@ -17325,7 +17302,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data([
-    final void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -17333,7 +17310,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17357,7 +17334,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs([
-    final void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder)? b,
+    void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17365,7 +17342,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17388,7 +17365,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
         Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson,
             FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder> {
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson([
-    final void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder)? b,
+    void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByFileIdResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17396,7 +17373,7 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByFileIdResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17418,7 +17395,7 @@ class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
       _$filesIntegrationGetRoomByShareTokenApiVersionValues;
   // coverage:ignore-end
 
-  static FilesIntegrationGetRoomByShareTokenApiVersion valueOf(final String name) =>
+  static FilesIntegrationGetRoomByShareTokenApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByShareTokenApiVersion(name);
 
   static Serializer<FilesIntegrationGetRoomByShareTokenApiVersion> get serializer =>
@@ -17438,7 +17415,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data([
-    final void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -17446,9 +17423,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Da
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17472,7 +17447,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs([
-    final void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder)? b,
+    void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17480,7 +17455,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17503,7 +17478,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
         Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
             FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder> {
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson([
-    final void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder)? b,
+    void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder)? b,
   ]) = _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17511,7 +17486,7 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17532,7 +17507,7 @@ class GuestSetDisplayNameApiVersion extends EnumClass {
   static BuiltSet<GuestSetDisplayNameApiVersion> get values => _$guestSetDisplayNameApiVersionValues;
   // coverage:ignore-end
 
-  static GuestSetDisplayNameApiVersion valueOf(final String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
+  static GuestSetDisplayNameApiVersion valueOf(String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
 
   static Serializer<GuestSetDisplayNameApiVersion> get serializer => _$guestSetDisplayNameApiVersionSerializer;
 }
@@ -17548,7 +17523,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
         $GuestSetDisplayNameResponseApplicationJson_OcsInterface,
         Built<GuestSetDisplayNameResponseApplicationJson_Ocs, GuestSetDisplayNameResponseApplicationJson_OcsBuilder> {
   factory GuestSetDisplayNameResponseApplicationJson_Ocs([
-    final void Function(GuestSetDisplayNameResponseApplicationJson_OcsBuilder)? b,
+    void Function(GuestSetDisplayNameResponseApplicationJson_OcsBuilder)? b,
   ]) = _$GuestSetDisplayNameResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17556,7 +17531,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory GuestSetDisplayNameResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17578,7 +17553,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson
         $GuestSetDisplayNameResponseApplicationJsonInterface,
         Built<GuestSetDisplayNameResponseApplicationJson, GuestSetDisplayNameResponseApplicationJsonBuilder> {
   factory GuestSetDisplayNameResponseApplicationJson([
-    final void Function(GuestSetDisplayNameResponseApplicationJsonBuilder)? b,
+    void Function(GuestSetDisplayNameResponseApplicationJsonBuilder)? b,
   ]) = _$GuestSetDisplayNameResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17586,7 +17561,7 @@ abstract class GuestSetDisplayNameResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory GuestSetDisplayNameResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory GuestSetDisplayNameResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17608,7 +17583,7 @@ class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
       _$hostedSignalingServerRequestTrialApiVersionValues;
   // coverage:ignore-end
 
-  static HostedSignalingServerRequestTrialApiVersion valueOf(final String name) =>
+  static HostedSignalingServerRequestTrialApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerRequestTrialApiVersion(name);
 
   static Serializer<HostedSignalingServerRequestTrialApiVersion> get serializer =>
@@ -17627,7 +17602,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
         Built<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
             HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder> {
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs([
-    final void Function(HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder)? b,
+    void Function(HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HostedSignalingServerRequestTrialResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17635,7 +17610,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17658,7 +17633,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
         Built<HostedSignalingServerRequestTrialResponseApplicationJson,
             HostedSignalingServerRequestTrialResponseApplicationJsonBuilder> {
   factory HostedSignalingServerRequestTrialResponseApplicationJson([
-    final void Function(HostedSignalingServerRequestTrialResponseApplicationJsonBuilder)? b,
+    void Function(HostedSignalingServerRequestTrialResponseApplicationJsonBuilder)? b,
   ]) = _$HostedSignalingServerRequestTrialResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17666,7 +17641,7 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory HostedSignalingServerRequestTrialResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17688,7 +17663,7 @@ class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
       _$hostedSignalingServerDeleteAccountApiVersionValues;
   // coverage:ignore-end
 
-  static HostedSignalingServerDeleteAccountApiVersion valueOf(final String name) =>
+  static HostedSignalingServerDeleteAccountApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerDeleteAccountApiVersion(name);
 
   static Serializer<HostedSignalingServerDeleteAccountApiVersion> get serializer =>
@@ -17707,7 +17682,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs,
             HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder> {
   factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs([
-    final void Function(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder)? b,
+    void Function(HostedSignalingServerDeleteAccountResponseApplicationJson_OcsBuilder)? b,
   ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17715,7 +17690,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17738,7 +17713,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
         Built<HostedSignalingServerDeleteAccountResponseApplicationJson,
             HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder> {
   factory HostedSignalingServerDeleteAccountResponseApplicationJson([
-    final void Function(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder)? b,
+    void Function(HostedSignalingServerDeleteAccountResponseApplicationJsonBuilder)? b,
   ]) = _$HostedSignalingServerDeleteAccountResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17746,7 +17721,7 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory HostedSignalingServerDeleteAccountResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory HostedSignalingServerDeleteAccountResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17767,7 +17742,7 @@ class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
   static BuiltSet<MatterbridgeGetBridgeOfRoomApiVersion> get values => _$matterbridgeGetBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeGetBridgeOfRoomApiVersion valueOf(final String name) =>
+  static MatterbridgeGetBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeOfRoomApiVersion(name);
 
   static Serializer<MatterbridgeGetBridgeOfRoomApiVersion> get serializer =>
@@ -17782,14 +17757,14 @@ abstract interface class $MatterbridgeInterface {
 }
 
 abstract class Matterbridge implements $MatterbridgeInterface, Built<Matterbridge, MatterbridgeBuilder> {
-  factory Matterbridge([final void Function(MatterbridgeBuilder)? b]) = _$Matterbridge;
+  factory Matterbridge([void Function(MatterbridgeBuilder)? b]) = _$Matterbridge;
 
   // coverage:ignore-start
   const Matterbridge._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Matterbridge.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Matterbridge.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -17807,15 +17782,14 @@ abstract interface class $MatterbridgeProcessStateInterface {
 
 abstract class MatterbridgeProcessState
     implements $MatterbridgeProcessStateInterface, Built<MatterbridgeProcessState, MatterbridgeProcessStateBuilder> {
-  factory MatterbridgeProcessState([final void Function(MatterbridgeProcessStateBuilder)? b]) =
-      _$MatterbridgeProcessState;
+  factory MatterbridgeProcessState([void Function(MatterbridgeProcessStateBuilder)? b]) = _$MatterbridgeProcessState;
 
   // coverage:ignore-start
   const MatterbridgeProcessState._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeProcessState.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeProcessState.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17834,7 +17808,7 @@ abstract class MatterbridgeWithProcessState
     implements
         $MatterbridgeWithProcessStateInterface,
         Built<MatterbridgeWithProcessState, MatterbridgeWithProcessStateBuilder> {
-  factory MatterbridgeWithProcessState([final void Function(MatterbridgeWithProcessStateBuilder)? b]) =
+  factory MatterbridgeWithProcessState([void Function(MatterbridgeWithProcessStateBuilder)? b]) =
       _$MatterbridgeWithProcessState;
 
   // coverage:ignore-start
@@ -17842,7 +17816,7 @@ abstract class MatterbridgeWithProcessState
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeWithProcessState.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeWithProcessState.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17865,7 +17839,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17873,7 +17847,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17896,7 +17870,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
         Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson,
             MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson([
-    final void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeGetBridgeOfRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17904,7 +17878,7 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17925,7 +17899,7 @@ class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
   static BuiltSet<MatterbridgeEditBridgeOfRoomApiVersion> get values => _$matterbridgeEditBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeEditBridgeOfRoomApiVersion valueOf(final String name) =>
+  static MatterbridgeEditBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeEditBridgeOfRoomApiVersion(name);
 
   static Serializer<MatterbridgeEditBridgeOfRoomApiVersion> get serializer =>
@@ -17944,7 +17918,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -17952,7 +17926,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -17975,7 +17949,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
         Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson,
             MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson([
-    final void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeEditBridgeOfRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -17983,7 +17957,7 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeEditBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18005,7 +17979,7 @@ class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
       _$matterbridgeDeleteBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeDeleteBridgeOfRoomApiVersion valueOf(final String name) =>
+  static MatterbridgeDeleteBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeDeleteBridgeOfRoomApiVersion(name);
 
   static Serializer<MatterbridgeDeleteBridgeOfRoomApiVersion> get serializer =>
@@ -18024,7 +17998,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18032,7 +18006,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18055,7 +18029,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
         Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
             MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder> {
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson([
-    final void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18063,7 +18037,7 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18085,7 +18059,7 @@ class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
       _$matterbridgeGetBridgeProcessStateApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeGetBridgeProcessStateApiVersion valueOf(final String name) =>
+  static MatterbridgeGetBridgeProcessStateApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeProcessStateApiVersion(name);
 
   static Serializer<MatterbridgeGetBridgeProcessStateApiVersion> get serializer =>
@@ -18104,7 +18078,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
             MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18112,7 +18086,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18135,7 +18109,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
         Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson,
             MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder> {
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson([
-    final void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeGetBridgeProcessStateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18143,7 +18117,7 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeGetBridgeProcessStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18165,7 +18139,7 @@ class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
       _$matterbridgeSettingsStopAllBridgesApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeSettingsStopAllBridgesApiVersion valueOf(final String name) =>
+  static MatterbridgeSettingsStopAllBridgesApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsStopAllBridgesApiVersion(name);
 
   static Serializer<MatterbridgeSettingsStopAllBridgesApiVersion> get serializer =>
@@ -18184,7 +18158,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18192,7 +18166,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18215,7 +18189,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
         Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
             MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder> {
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson([
-    final void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18223,7 +18197,7 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18246,7 +18220,7 @@ class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
       _$matterbridgeSettingsGetMatterbridgeVersionApiVersionValues;
   // coverage:ignore-end
 
-  static MatterbridgeSettingsGetMatterbridgeVersionApiVersion valueOf(final String name) =>
+  static MatterbridgeSettingsGetMatterbridgeVersionApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsGetMatterbridgeVersionApiVersion(name);
 
   static Serializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> get serializer =>
@@ -18264,7 +18238,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data([
-    final void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -18273,7 +18247,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(
-    final Map<String, dynamic> json,
+    Map<String, dynamic> json,
   ) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
@@ -18298,7 +18272,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs([
-    final void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder)? b,
+    void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18306,9 +18280,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(
-    final Map<String, dynamic> json,
-  ) =>
+  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18331,7 +18303,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
         Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
             MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder> {
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson([
-    final void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder)? b,
+    void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder)? b,
   ]) = _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18339,7 +18311,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18360,7 +18332,7 @@ class PollCreatePollApiVersion extends EnumClass {
   static BuiltSet<PollCreatePollApiVersion> get values => _$pollCreatePollApiVersionValues;
   // coverage:ignore-end
 
-  static PollCreatePollApiVersion valueOf(final String name) => _$valueOfPollCreatePollApiVersion(name);
+  static PollCreatePollApiVersion valueOf(String name) => _$valueOfPollCreatePollApiVersion(name);
 
   static Serializer<PollCreatePollApiVersion> get serializer => _$pollCreatePollApiVersionSerializer;
 }
@@ -18374,14 +18346,14 @@ abstract interface class $PollVoteInterface {
 }
 
 abstract class PollVote implements $PollVoteInterface, Built<PollVote, PollVoteBuilder> {
-  factory PollVote([final void Function(PollVoteBuilder)? b]) = _$PollVote;
+  factory PollVote([void Function(PollVoteBuilder)? b]) = _$PollVote;
 
   // coverage:ignore-start
   const PollVote._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollVote.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory PollVote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -18409,14 +18381,14 @@ abstract interface class $PollInterface {
 }
 
 abstract class Poll implements $PollInterface, Built<Poll, PollBuilder> {
-  factory Poll([final void Function(PollBuilder)? b]) = _$Poll;
+  factory Poll([void Function(PollBuilder)? b]) = _$Poll;
 
   // coverage:ignore-start
   const Poll._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Poll.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Poll.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -18437,7 +18409,7 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
         $PollCreatePollResponseApplicationJson_OcsInterface,
         Built<PollCreatePollResponseApplicationJson_Ocs, PollCreatePollResponseApplicationJson_OcsBuilder> {
   factory PollCreatePollResponseApplicationJson_Ocs([
-    final void Function(PollCreatePollResponseApplicationJson_OcsBuilder)? b,
+    void Function(PollCreatePollResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PollCreatePollResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18445,7 +18417,7 @@ abstract class PollCreatePollResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollCreatePollResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PollCreatePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18466,16 +18438,15 @@ abstract class PollCreatePollResponseApplicationJson
     implements
         $PollCreatePollResponseApplicationJsonInterface,
         Built<PollCreatePollResponseApplicationJson, PollCreatePollResponseApplicationJsonBuilder> {
-  factory PollCreatePollResponseApplicationJson([
-    final void Function(PollCreatePollResponseApplicationJsonBuilder)? b,
-  ]) = _$PollCreatePollResponseApplicationJson;
+  factory PollCreatePollResponseApplicationJson([void Function(PollCreatePollResponseApplicationJsonBuilder)? b]) =
+      _$PollCreatePollResponseApplicationJson;
 
   // coverage:ignore-start
   const PollCreatePollResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollCreatePollResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PollCreatePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18496,7 +18467,7 @@ class PollShowPollApiVersion extends EnumClass {
   static BuiltSet<PollShowPollApiVersion> get values => _$pollShowPollApiVersionValues;
   // coverage:ignore-end
 
-  static PollShowPollApiVersion valueOf(final String name) => _$valueOfPollShowPollApiVersion(name);
+  static PollShowPollApiVersion valueOf(String name) => _$valueOfPollShowPollApiVersion(name);
 
   static Serializer<PollShowPollApiVersion> get serializer => _$pollShowPollApiVersionSerializer;
 }
@@ -18511,16 +18482,15 @@ abstract class PollShowPollResponseApplicationJson_Ocs
     implements
         $PollShowPollResponseApplicationJson_OcsInterface,
         Built<PollShowPollResponseApplicationJson_Ocs, PollShowPollResponseApplicationJson_OcsBuilder> {
-  factory PollShowPollResponseApplicationJson_Ocs([
-    final void Function(PollShowPollResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$PollShowPollResponseApplicationJson_Ocs;
+  factory PollShowPollResponseApplicationJson_Ocs([void Function(PollShowPollResponseApplicationJson_OcsBuilder)? b]) =
+      _$PollShowPollResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const PollShowPollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollShowPollResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PollShowPollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18541,7 +18511,7 @@ abstract class PollShowPollResponseApplicationJson
     implements
         $PollShowPollResponseApplicationJsonInterface,
         Built<PollShowPollResponseApplicationJson, PollShowPollResponseApplicationJsonBuilder> {
-  factory PollShowPollResponseApplicationJson([final void Function(PollShowPollResponseApplicationJsonBuilder)? b]) =
+  factory PollShowPollResponseApplicationJson([void Function(PollShowPollResponseApplicationJsonBuilder)? b]) =
       _$PollShowPollResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18549,7 +18519,7 @@ abstract class PollShowPollResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollShowPollResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PollShowPollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18570,7 +18540,7 @@ class PollVotePollApiVersion extends EnumClass {
   static BuiltSet<PollVotePollApiVersion> get values => _$pollVotePollApiVersionValues;
   // coverage:ignore-end
 
-  static PollVotePollApiVersion valueOf(final String name) => _$valueOfPollVotePollApiVersion(name);
+  static PollVotePollApiVersion valueOf(String name) => _$valueOfPollVotePollApiVersion(name);
 
   static Serializer<PollVotePollApiVersion> get serializer => _$pollVotePollApiVersionSerializer;
 }
@@ -18585,16 +18555,15 @@ abstract class PollVotePollResponseApplicationJson_Ocs
     implements
         $PollVotePollResponseApplicationJson_OcsInterface,
         Built<PollVotePollResponseApplicationJson_Ocs, PollVotePollResponseApplicationJson_OcsBuilder> {
-  factory PollVotePollResponseApplicationJson_Ocs([
-    final void Function(PollVotePollResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$PollVotePollResponseApplicationJson_Ocs;
+  factory PollVotePollResponseApplicationJson_Ocs([void Function(PollVotePollResponseApplicationJson_OcsBuilder)? b]) =
+      _$PollVotePollResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const PollVotePollResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollVotePollResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PollVotePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18615,7 +18584,7 @@ abstract class PollVotePollResponseApplicationJson
     implements
         $PollVotePollResponseApplicationJsonInterface,
         Built<PollVotePollResponseApplicationJson, PollVotePollResponseApplicationJsonBuilder> {
-  factory PollVotePollResponseApplicationJson([final void Function(PollVotePollResponseApplicationJsonBuilder)? b]) =
+  factory PollVotePollResponseApplicationJson([void Function(PollVotePollResponseApplicationJsonBuilder)? b]) =
       _$PollVotePollResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18623,7 +18592,7 @@ abstract class PollVotePollResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollVotePollResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PollVotePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18644,7 +18613,7 @@ class PollClosePollApiVersion extends EnumClass {
   static BuiltSet<PollClosePollApiVersion> get values => _$pollClosePollApiVersionValues;
   // coverage:ignore-end
 
-  static PollClosePollApiVersion valueOf(final String name) => _$valueOfPollClosePollApiVersion(name);
+  static PollClosePollApiVersion valueOf(String name) => _$valueOfPollClosePollApiVersion(name);
 
   static Serializer<PollClosePollApiVersion> get serializer => _$pollClosePollApiVersionSerializer;
 }
@@ -18660,7 +18629,7 @@ abstract class PollClosePollResponseApplicationJson_Ocs
         $PollClosePollResponseApplicationJson_OcsInterface,
         Built<PollClosePollResponseApplicationJson_Ocs, PollClosePollResponseApplicationJson_OcsBuilder> {
   factory PollClosePollResponseApplicationJson_Ocs([
-    final void Function(PollClosePollResponseApplicationJson_OcsBuilder)? b,
+    void Function(PollClosePollResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PollClosePollResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18668,7 +18637,7 @@ abstract class PollClosePollResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollClosePollResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PollClosePollResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18689,7 +18658,7 @@ abstract class PollClosePollResponseApplicationJson
     implements
         $PollClosePollResponseApplicationJsonInterface,
         Built<PollClosePollResponseApplicationJson, PollClosePollResponseApplicationJsonBuilder> {
-  factory PollClosePollResponseApplicationJson([final void Function(PollClosePollResponseApplicationJsonBuilder)? b]) =
+  factory PollClosePollResponseApplicationJson([void Function(PollClosePollResponseApplicationJsonBuilder)? b]) =
       _$PollClosePollResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18697,7 +18666,7 @@ abstract class PollClosePollResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PollClosePollResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PollClosePollResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18718,8 +18687,7 @@ class PublicShareAuthCreateRoomApiVersion extends EnumClass {
   static BuiltSet<PublicShareAuthCreateRoomApiVersion> get values => _$publicShareAuthCreateRoomApiVersionValues;
   // coverage:ignore-end
 
-  static PublicShareAuthCreateRoomApiVersion valueOf(final String name) =>
-      _$valueOfPublicShareAuthCreateRoomApiVersion(name);
+  static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
 
   static Serializer<PublicShareAuthCreateRoomApiVersion> get serializer =>
       _$publicShareAuthCreateRoomApiVersionSerializer;
@@ -18738,7 +18706,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
             PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
-    final void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -18746,7 +18714,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18770,7 +18738,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
         Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
             PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
-    final void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18778,7 +18746,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18801,7 +18769,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
         Built<PublicShareAuthCreateRoomResponseApplicationJson,
             PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
   factory PublicShareAuthCreateRoomResponseApplicationJson([
-    final void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
+    void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
   ]) = _$PublicShareAuthCreateRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18809,7 +18777,7 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory PublicShareAuthCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18830,7 +18798,7 @@ class ReactionGetReactionsApiVersion extends EnumClass {
   static BuiltSet<ReactionGetReactionsApiVersion> get values => _$reactionGetReactionsApiVersionValues;
   // coverage:ignore-end
 
-  static ReactionGetReactionsApiVersion valueOf(final String name) => _$valueOfReactionGetReactionsApiVersion(name);
+  static ReactionGetReactionsApiVersion valueOf(String name) => _$valueOfReactionGetReactionsApiVersion(name);
 
   static Serializer<ReactionGetReactionsApiVersion> get serializer => _$reactionGetReactionsApiVersionSerializer;
 }
@@ -18844,14 +18812,14 @@ abstract interface class $ReactionInterface {
 }
 
 abstract class Reaction implements $ReactionInterface, Built<Reaction, ReactionBuilder> {
-  factory Reaction([final void Function(ReactionBuilder)? b]) = _$Reaction;
+  factory Reaction([void Function(ReactionBuilder)? b]) = _$Reaction;
 
   // coverage:ignore-start
   const Reaction._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Reaction.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Reaction.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -18872,7 +18840,7 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
         $ReactionGetReactionsResponseApplicationJson_OcsInterface,
         Built<ReactionGetReactionsResponseApplicationJson_Ocs, ReactionGetReactionsResponseApplicationJson_OcsBuilder> {
   factory ReactionGetReactionsResponseApplicationJson_Ocs([
-    final void Function(ReactionGetReactionsResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReactionGetReactionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionGetReactionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18880,7 +18848,7 @@ abstract class ReactionGetReactionsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionGetReactionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18902,7 +18870,7 @@ abstract class ReactionGetReactionsResponseApplicationJson
         $ReactionGetReactionsResponseApplicationJsonInterface,
         Built<ReactionGetReactionsResponseApplicationJson, ReactionGetReactionsResponseApplicationJsonBuilder> {
   factory ReactionGetReactionsResponseApplicationJson([
-    final void Function(ReactionGetReactionsResponseApplicationJsonBuilder)? b,
+    void Function(ReactionGetReactionsResponseApplicationJsonBuilder)? b,
   ]) = _$ReactionGetReactionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18910,7 +18878,7 @@ abstract class ReactionGetReactionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionGetReactionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionGetReactionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18931,7 +18899,7 @@ class ReactionReactApiVersion extends EnumClass {
   static BuiltSet<ReactionReactApiVersion> get values => _$reactionReactApiVersionValues;
   // coverage:ignore-end
 
-  static ReactionReactApiVersion valueOf(final String name) => _$valueOfReactionReactApiVersion(name);
+  static ReactionReactApiVersion valueOf(String name) => _$valueOfReactionReactApiVersion(name);
 
   static Serializer<ReactionReactApiVersion> get serializer => _$reactionReactApiVersionSerializer;
 }
@@ -18947,7 +18915,7 @@ abstract class ReactionReactResponseApplicationJson_Ocs
         $ReactionReactResponseApplicationJson_OcsInterface,
         Built<ReactionReactResponseApplicationJson_Ocs, ReactionReactResponseApplicationJson_OcsBuilder> {
   factory ReactionReactResponseApplicationJson_Ocs([
-    final void Function(ReactionReactResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReactionReactResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionReactResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -18955,7 +18923,7 @@ abstract class ReactionReactResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionReactResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionReactResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -18976,7 +18944,7 @@ abstract class ReactionReactResponseApplicationJson
     implements
         $ReactionReactResponseApplicationJsonInterface,
         Built<ReactionReactResponseApplicationJson, ReactionReactResponseApplicationJsonBuilder> {
-  factory ReactionReactResponseApplicationJson([final void Function(ReactionReactResponseApplicationJsonBuilder)? b]) =
+  factory ReactionReactResponseApplicationJson([void Function(ReactionReactResponseApplicationJsonBuilder)? b]) =
       _$ReactionReactResponseApplicationJson;
 
   // coverage:ignore-start
@@ -18984,7 +18952,7 @@ abstract class ReactionReactResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionReactResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionReactResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19005,7 +18973,7 @@ class ReactionDeleteApiVersion extends EnumClass {
   static BuiltSet<ReactionDeleteApiVersion> get values => _$reactionDeleteApiVersionValues;
   // coverage:ignore-end
 
-  static ReactionDeleteApiVersion valueOf(final String name) => _$valueOfReactionDeleteApiVersion(name);
+  static ReactionDeleteApiVersion valueOf(String name) => _$valueOfReactionDeleteApiVersion(name);
 
   static Serializer<ReactionDeleteApiVersion> get serializer => _$reactionDeleteApiVersionSerializer;
 }
@@ -19021,7 +18989,7 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
         $ReactionDeleteResponseApplicationJson_OcsInterface,
         Built<ReactionDeleteResponseApplicationJson_Ocs, ReactionDeleteResponseApplicationJson_OcsBuilder> {
   factory ReactionDeleteResponseApplicationJson_Ocs([
-    final void Function(ReactionDeleteResponseApplicationJson_OcsBuilder)? b,
+    void Function(ReactionDeleteResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ReactionDeleteResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19029,7 +18997,7 @@ abstract class ReactionDeleteResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionDeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19050,16 +19018,15 @@ abstract class ReactionDeleteResponseApplicationJson
     implements
         $ReactionDeleteResponseApplicationJsonInterface,
         Built<ReactionDeleteResponseApplicationJson, ReactionDeleteResponseApplicationJsonBuilder> {
-  factory ReactionDeleteResponseApplicationJson([
-    final void Function(ReactionDeleteResponseApplicationJsonBuilder)? b,
-  ]) = _$ReactionDeleteResponseApplicationJson;
+  factory ReactionDeleteResponseApplicationJson([void Function(ReactionDeleteResponseApplicationJsonBuilder)? b]) =
+      _$ReactionDeleteResponseApplicationJson;
 
   // coverage:ignore-start
   const ReactionDeleteResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ReactionDeleteResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ReactionDeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19080,7 +19047,7 @@ class RecordingGetWelcomeMessageApiVersion extends EnumClass {
   static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingGetWelcomeMessageApiVersion valueOf(final String name) =>
+  static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfRecordingGetWelcomeMessageApiVersion(name);
 
   static Serializer<RecordingGetWelcomeMessageApiVersion> get serializer =>
@@ -19098,7 +19065,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
             RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
-    final void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -19106,7 +19073,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19130,7 +19097,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
         Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
             RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
-    final void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19138,7 +19105,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19161,7 +19128,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
         Built<RecordingGetWelcomeMessageResponseApplicationJson,
             RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
   factory RecordingGetWelcomeMessageResponseApplicationJson([
-    final void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
+    void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingGetWelcomeMessageResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19169,7 +19136,7 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19190,7 +19157,7 @@ class RecordingStartApiVersion extends EnumClass {
   static BuiltSet<RecordingStartApiVersion> get values => _$recordingStartApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingStartApiVersion valueOf(final String name) => _$valueOfRecordingStartApiVersion(name);
+  static RecordingStartApiVersion valueOf(String name) => _$valueOfRecordingStartApiVersion(name);
 
   static Serializer<RecordingStartApiVersion> get serializer => _$recordingStartApiVersionSerializer;
 }
@@ -19206,7 +19173,7 @@ abstract class RecordingStartResponseApplicationJson_Ocs
         $RecordingStartResponseApplicationJson_OcsInterface,
         Built<RecordingStartResponseApplicationJson_Ocs, RecordingStartResponseApplicationJson_OcsBuilder> {
   factory RecordingStartResponseApplicationJson_Ocs([
-    final void Function(RecordingStartResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingStartResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStartResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19214,7 +19181,7 @@ abstract class RecordingStartResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStartResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStartResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19235,16 +19202,15 @@ abstract class RecordingStartResponseApplicationJson
     implements
         $RecordingStartResponseApplicationJsonInterface,
         Built<RecordingStartResponseApplicationJson, RecordingStartResponseApplicationJsonBuilder> {
-  factory RecordingStartResponseApplicationJson([
-    final void Function(RecordingStartResponseApplicationJsonBuilder)? b,
-  ]) = _$RecordingStartResponseApplicationJson;
+  factory RecordingStartResponseApplicationJson([void Function(RecordingStartResponseApplicationJsonBuilder)? b]) =
+      _$RecordingStartResponseApplicationJson;
 
   // coverage:ignore-start
   const RecordingStartResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStartResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStartResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19265,7 +19231,7 @@ class RecordingStopApiVersion extends EnumClass {
   static BuiltSet<RecordingStopApiVersion> get values => _$recordingStopApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingStopApiVersion valueOf(final String name) => _$valueOfRecordingStopApiVersion(name);
+  static RecordingStopApiVersion valueOf(String name) => _$valueOfRecordingStopApiVersion(name);
 
   static Serializer<RecordingStopApiVersion> get serializer => _$recordingStopApiVersionSerializer;
 }
@@ -19281,7 +19247,7 @@ abstract class RecordingStopResponseApplicationJson_Ocs
         $RecordingStopResponseApplicationJson_OcsInterface,
         Built<RecordingStopResponseApplicationJson_Ocs, RecordingStopResponseApplicationJson_OcsBuilder> {
   factory RecordingStopResponseApplicationJson_Ocs([
-    final void Function(RecordingStopResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingStopResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStopResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19289,7 +19255,7 @@ abstract class RecordingStopResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStopResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStopResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19310,7 +19276,7 @@ abstract class RecordingStopResponseApplicationJson
     implements
         $RecordingStopResponseApplicationJsonInterface,
         Built<RecordingStopResponseApplicationJson, RecordingStopResponseApplicationJsonBuilder> {
-  factory RecordingStopResponseApplicationJson([final void Function(RecordingStopResponseApplicationJsonBuilder)? b]) =
+  factory RecordingStopResponseApplicationJson([void Function(RecordingStopResponseApplicationJsonBuilder)? b]) =
       _$RecordingStopResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19318,7 +19284,7 @@ abstract class RecordingStopResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStopResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStopResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19339,7 +19305,7 @@ class RecordingStoreApiVersion extends EnumClass {
   static BuiltSet<RecordingStoreApiVersion> get values => _$recordingStoreApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingStoreApiVersion valueOf(final String name) => _$valueOfRecordingStoreApiVersion(name);
+  static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
 
   static Serializer<RecordingStoreApiVersion> get serializer => _$recordingStoreApiVersionSerializer;
 }
@@ -19355,7 +19321,7 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
         $RecordingStoreResponseApplicationJson_OcsInterface,
         Built<RecordingStoreResponseApplicationJson_Ocs, RecordingStoreResponseApplicationJson_OcsBuilder> {
   factory RecordingStoreResponseApplicationJson_Ocs([
-    final void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingStoreResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingStoreResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19363,7 +19329,7 @@ abstract class RecordingStoreResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStoreResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19384,16 +19350,15 @@ abstract class RecordingStoreResponseApplicationJson
     implements
         $RecordingStoreResponseApplicationJsonInterface,
         Built<RecordingStoreResponseApplicationJson, RecordingStoreResponseApplicationJsonBuilder> {
-  factory RecordingStoreResponseApplicationJson([
-    final void Function(RecordingStoreResponseApplicationJsonBuilder)? b,
-  ]) = _$RecordingStoreResponseApplicationJson;
+  factory RecordingStoreResponseApplicationJson([void Function(RecordingStoreResponseApplicationJsonBuilder)? b]) =
+      _$RecordingStoreResponseApplicationJson;
 
   // coverage:ignore-start
   const RecordingStoreResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingStoreResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingStoreResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19414,7 +19379,7 @@ class RecordingNotificationDismissApiVersion extends EnumClass {
   static BuiltSet<RecordingNotificationDismissApiVersion> get values => _$recordingNotificationDismissApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingNotificationDismissApiVersion valueOf(final String name) =>
+  static RecordingNotificationDismissApiVersion valueOf(String name) =>
       _$valueOfRecordingNotificationDismissApiVersion(name);
 
   static Serializer<RecordingNotificationDismissApiVersion> get serializer =>
@@ -19433,7 +19398,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
         Built<RecordingNotificationDismissResponseApplicationJson_Ocs,
             RecordingNotificationDismissResponseApplicationJson_OcsBuilder> {
   factory RecordingNotificationDismissResponseApplicationJson_Ocs([
-    final void Function(RecordingNotificationDismissResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingNotificationDismissResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingNotificationDismissResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19441,7 +19406,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingNotificationDismissResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19464,7 +19429,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson
         Built<RecordingNotificationDismissResponseApplicationJson,
             RecordingNotificationDismissResponseApplicationJsonBuilder> {
   factory RecordingNotificationDismissResponseApplicationJson([
-    final void Function(RecordingNotificationDismissResponseApplicationJsonBuilder)? b,
+    void Function(RecordingNotificationDismissResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingNotificationDismissResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19472,7 +19437,7 @@ abstract class RecordingNotificationDismissResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingNotificationDismissResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingNotificationDismissResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19493,7 +19458,7 @@ class RecordingShareToChatApiVersion extends EnumClass {
   static BuiltSet<RecordingShareToChatApiVersion> get values => _$recordingShareToChatApiVersionValues;
   // coverage:ignore-end
 
-  static RecordingShareToChatApiVersion valueOf(final String name) => _$valueOfRecordingShareToChatApiVersion(name);
+  static RecordingShareToChatApiVersion valueOf(String name) => _$valueOfRecordingShareToChatApiVersion(name);
 
   static Serializer<RecordingShareToChatApiVersion> get serializer => _$recordingShareToChatApiVersionSerializer;
 }
@@ -19509,7 +19474,7 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
         $RecordingShareToChatResponseApplicationJson_OcsInterface,
         Built<RecordingShareToChatResponseApplicationJson_Ocs, RecordingShareToChatResponseApplicationJson_OcsBuilder> {
   factory RecordingShareToChatResponseApplicationJson_Ocs([
-    final void Function(RecordingShareToChatResponseApplicationJson_OcsBuilder)? b,
+    void Function(RecordingShareToChatResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RecordingShareToChatResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19517,7 +19482,7 @@ abstract class RecordingShareToChatResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingShareToChatResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19539,7 +19504,7 @@ abstract class RecordingShareToChatResponseApplicationJson
         $RecordingShareToChatResponseApplicationJsonInterface,
         Built<RecordingShareToChatResponseApplicationJson, RecordingShareToChatResponseApplicationJsonBuilder> {
   factory RecordingShareToChatResponseApplicationJson([
-    final void Function(RecordingShareToChatResponseApplicationJsonBuilder)? b,
+    void Function(RecordingShareToChatResponseApplicationJsonBuilder)? b,
   ]) = _$RecordingShareToChatResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19547,7 +19512,7 @@ abstract class RecordingShareToChatResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RecordingShareToChatResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RecordingShareToChatResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19568,7 +19533,7 @@ class RoomGetRoomsApiVersion extends EnumClass {
   static BuiltSet<RoomGetRoomsApiVersion> get values => _$roomGetRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetRoomsApiVersion valueOf(final String name) => _$valueOfRoomGetRoomsApiVersion(name);
+  static RoomGetRoomsApiVersion valueOf(String name) => _$valueOfRoomGetRoomsApiVersion(name);
 
   static Serializer<RoomGetRoomsApiVersion> get serializer => _$roomGetRoomsApiVersionSerializer;
 }
@@ -19583,14 +19548,14 @@ abstract interface class $RoomRoomGetRoomsHeadersInterface {
 
 abstract class RoomRoomGetRoomsHeaders
     implements $RoomRoomGetRoomsHeadersInterface, Built<RoomRoomGetRoomsHeaders, RoomRoomGetRoomsHeadersBuilder> {
-  factory RoomRoomGetRoomsHeaders([final void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
+  factory RoomRoomGetRoomsHeaders([void Function(RoomRoomGetRoomsHeadersBuilder)? b]) = _$RoomRoomGetRoomsHeaders;
 
   // coverage:ignore-start
   const RoomRoomGetRoomsHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRoomGetRoomsHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRoomGetRoomsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19611,16 +19576,15 @@ abstract class RoomGetRoomsResponseApplicationJson_Ocs
     implements
         $RoomGetRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetRoomsResponseApplicationJson_Ocs, RoomGetRoomsResponseApplicationJson_OcsBuilder> {
-  factory RoomGetRoomsResponseApplicationJson_Ocs([
-    final void Function(RoomGetRoomsResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RoomGetRoomsResponseApplicationJson_Ocs;
+  factory RoomGetRoomsResponseApplicationJson_Ocs([void Function(RoomGetRoomsResponseApplicationJson_OcsBuilder)? b]) =
+      _$RoomGetRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const RoomGetRoomsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19641,7 +19605,7 @@ abstract class RoomGetRoomsResponseApplicationJson
     implements
         $RoomGetRoomsResponseApplicationJsonInterface,
         Built<RoomGetRoomsResponseApplicationJson, RoomGetRoomsResponseApplicationJsonBuilder> {
-  factory RoomGetRoomsResponseApplicationJson([final void Function(RoomGetRoomsResponseApplicationJsonBuilder)? b]) =
+  factory RoomGetRoomsResponseApplicationJson([void Function(RoomGetRoomsResponseApplicationJsonBuilder)? b]) =
       _$RoomGetRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19649,7 +19613,7 @@ abstract class RoomGetRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19670,7 +19634,7 @@ class RoomCreateRoomApiVersion extends EnumClass {
   static BuiltSet<RoomCreateRoomApiVersion> get values => _$roomCreateRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomCreateRoomApiVersion valueOf(final String name) => _$valueOfRoomCreateRoomApiVersion(name);
+  static RoomCreateRoomApiVersion valueOf(String name) => _$valueOfRoomCreateRoomApiVersion(name);
 
   static Serializer<RoomCreateRoomApiVersion> get serializer => _$roomCreateRoomApiVersionSerializer;
 }
@@ -19686,7 +19650,7 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
         $RoomCreateRoomResponseApplicationJson_OcsInterface,
         Built<RoomCreateRoomResponseApplicationJson_Ocs, RoomCreateRoomResponseApplicationJson_OcsBuilder> {
   factory RoomCreateRoomResponseApplicationJson_Ocs([
-    final void Function(RoomCreateRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomCreateRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomCreateRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19694,7 +19658,7 @@ abstract class RoomCreateRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomCreateRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19715,16 +19679,15 @@ abstract class RoomCreateRoomResponseApplicationJson
     implements
         $RoomCreateRoomResponseApplicationJsonInterface,
         Built<RoomCreateRoomResponseApplicationJson, RoomCreateRoomResponseApplicationJsonBuilder> {
-  factory RoomCreateRoomResponseApplicationJson([
-    final void Function(RoomCreateRoomResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomCreateRoomResponseApplicationJson;
+  factory RoomCreateRoomResponseApplicationJson([void Function(RoomCreateRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomCreateRoomResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomCreateRoomResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomCreateRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomCreateRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19745,7 +19708,7 @@ class RoomGetListedRoomsApiVersion extends EnumClass {
   static BuiltSet<RoomGetListedRoomsApiVersion> get values => _$roomGetListedRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetListedRoomsApiVersion valueOf(final String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
+  static RoomGetListedRoomsApiVersion valueOf(String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
 
   static Serializer<RoomGetListedRoomsApiVersion> get serializer => _$roomGetListedRoomsApiVersionSerializer;
 }
@@ -19761,7 +19724,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
         $RoomGetListedRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetListedRoomsResponseApplicationJson_Ocs, RoomGetListedRoomsResponseApplicationJson_OcsBuilder> {
   factory RoomGetListedRoomsResponseApplicationJson_Ocs([
-    final void Function(RoomGetListedRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetListedRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetListedRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19769,7 +19732,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetListedRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19791,7 +19754,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson
         $RoomGetListedRoomsResponseApplicationJsonInterface,
         Built<RoomGetListedRoomsResponseApplicationJson, RoomGetListedRoomsResponseApplicationJsonBuilder> {
   factory RoomGetListedRoomsResponseApplicationJson([
-    final void Function(RoomGetListedRoomsResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetListedRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetListedRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19799,7 +19762,7 @@ abstract class RoomGetListedRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetListedRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetListedRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19821,7 +19784,7 @@ class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
       _$roomGetNoteToSelfConversationApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetNoteToSelfConversationApiVersion valueOf(final String name) =>
+  static RoomGetNoteToSelfConversationApiVersion valueOf(String name) =>
       _$valueOfRoomGetNoteToSelfConversationApiVersion(name);
 
   static Serializer<RoomGetNoteToSelfConversationApiVersion> get serializer =>
@@ -19839,7 +19802,7 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
         $RoomRoomGetNoteToSelfConversationHeadersInterface,
         Built<RoomRoomGetNoteToSelfConversationHeaders, RoomRoomGetNoteToSelfConversationHeadersBuilder> {
   factory RoomRoomGetNoteToSelfConversationHeaders([
-    final void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
+    void Function(RoomRoomGetNoteToSelfConversationHeadersBuilder)? b,
   ]) = _$RoomRoomGetNoteToSelfConversationHeaders;
 
   // coverage:ignore-start
@@ -19847,7 +19810,7 @@ abstract class RoomRoomGetNoteToSelfConversationHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRoomGetNoteToSelfConversationHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19871,7 +19834,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
         Built<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
             RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder> {
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs([
-    final void Function(RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetNoteToSelfConversationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19879,7 +19842,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19902,7 +19865,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
         Built<RoomGetNoteToSelfConversationResponseApplicationJson,
             RoomGetNoteToSelfConversationResponseApplicationJsonBuilder> {
   factory RoomGetNoteToSelfConversationResponseApplicationJson([
-    final void Function(RoomGetNoteToSelfConversationResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetNoteToSelfConversationResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetNoteToSelfConversationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -19910,7 +19873,7 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetNoteToSelfConversationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19931,7 +19894,7 @@ class RoomGetSingleRoomApiVersion extends EnumClass {
   static BuiltSet<RoomGetSingleRoomApiVersion> get values => _$roomGetSingleRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetSingleRoomApiVersion valueOf(final String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
+  static RoomGetSingleRoomApiVersion valueOf(String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
 
   static Serializer<RoomGetSingleRoomApiVersion> get serializer => _$roomGetSingleRoomApiVersionSerializer;
 }
@@ -19946,7 +19909,7 @@ abstract class RoomRoomGetSingleRoomHeaders
     implements
         $RoomRoomGetSingleRoomHeadersInterface,
         Built<RoomRoomGetSingleRoomHeaders, RoomRoomGetSingleRoomHeadersBuilder> {
-  factory RoomRoomGetSingleRoomHeaders([final void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
+  factory RoomRoomGetSingleRoomHeaders([void Function(RoomRoomGetSingleRoomHeadersBuilder)? b]) =
       _$RoomRoomGetSingleRoomHeaders;
 
   // coverage:ignore-start
@@ -19954,7 +19917,7 @@ abstract class RoomRoomGetSingleRoomHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRoomGetSingleRoomHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRoomGetSingleRoomHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -19976,7 +19939,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
         $RoomGetSingleRoomResponseApplicationJson_OcsInterface,
         Built<RoomGetSingleRoomResponseApplicationJson_Ocs, RoomGetSingleRoomResponseApplicationJson_OcsBuilder> {
   factory RoomGetSingleRoomResponseApplicationJson_Ocs([
-    final void Function(RoomGetSingleRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetSingleRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetSingleRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -19984,7 +19947,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetSingleRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20006,7 +19969,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson
         $RoomGetSingleRoomResponseApplicationJsonInterface,
         Built<RoomGetSingleRoomResponseApplicationJson, RoomGetSingleRoomResponseApplicationJsonBuilder> {
   factory RoomGetSingleRoomResponseApplicationJson([
-    final void Function(RoomGetSingleRoomResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetSingleRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetSingleRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -20014,7 +19977,7 @@ abstract class RoomGetSingleRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetSingleRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetSingleRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20035,7 +19998,7 @@ class RoomRenameRoomApiVersion extends EnumClass {
   static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomRenameRoomApiVersion valueOf(final String name) => _$valueOfRoomRenameRoomApiVersion(name);
+  static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
 
   static Serializer<RoomRenameRoomApiVersion> get serializer => _$roomRenameRoomApiVersionSerializer;
 }
@@ -20051,7 +20014,7 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
         $RoomRenameRoomResponseApplicationJson_OcsInterface,
         Built<RoomRenameRoomResponseApplicationJson_Ocs, RoomRenameRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRenameRoomResponseApplicationJson_Ocs([
-    final void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomRenameRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRenameRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20059,7 +20022,7 @@ abstract class RoomRenameRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRenameRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20080,16 +20043,15 @@ abstract class RoomRenameRoomResponseApplicationJson
     implements
         $RoomRenameRoomResponseApplicationJsonInterface,
         Built<RoomRenameRoomResponseApplicationJson, RoomRenameRoomResponseApplicationJsonBuilder> {
-  factory RoomRenameRoomResponseApplicationJson([
-    final void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomRenameRoomResponseApplicationJson;
+  factory RoomRenameRoomResponseApplicationJson([void Function(RoomRenameRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomRenameRoomResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomRenameRoomResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRenameRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRenameRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20110,7 +20072,7 @@ class RoomDeleteRoomApiVersion extends EnumClass {
   static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomDeleteRoomApiVersion valueOf(final String name) => _$valueOfRoomDeleteRoomApiVersion(name);
+  static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
 
   static Serializer<RoomDeleteRoomApiVersion> get serializer => _$roomDeleteRoomApiVersionSerializer;
 }
@@ -20126,7 +20088,7 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
         $RoomDeleteRoomResponseApplicationJson_OcsInterface,
         Built<RoomDeleteRoomResponseApplicationJson_Ocs, RoomDeleteRoomResponseApplicationJson_OcsBuilder> {
   factory RoomDeleteRoomResponseApplicationJson_Ocs([
-    final void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomDeleteRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomDeleteRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20134,7 +20096,7 @@ abstract class RoomDeleteRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomDeleteRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20155,16 +20117,15 @@ abstract class RoomDeleteRoomResponseApplicationJson
     implements
         $RoomDeleteRoomResponseApplicationJsonInterface,
         Built<RoomDeleteRoomResponseApplicationJson, RoomDeleteRoomResponseApplicationJsonBuilder> {
-  factory RoomDeleteRoomResponseApplicationJson([
-    final void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomDeleteRoomResponseApplicationJson;
+  factory RoomDeleteRoomResponseApplicationJson([void Function(RoomDeleteRoomResponseApplicationJsonBuilder)? b]) =
+      _$RoomDeleteRoomResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomDeleteRoomResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomDeleteRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomDeleteRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20185,7 +20146,7 @@ class RoomGetBreakoutRoomsApiVersion extends EnumClass {
   static BuiltSet<RoomGetBreakoutRoomsApiVersion> get values => _$roomGetBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetBreakoutRoomsApiVersion valueOf(final String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
+  static RoomGetBreakoutRoomsApiVersion valueOf(String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
 
   static Serializer<RoomGetBreakoutRoomsApiVersion> get serializer => _$roomGetBreakoutRoomsApiVersionSerializer;
 }
@@ -20201,7 +20162,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
         $RoomGetBreakoutRoomsResponseApplicationJson_OcsInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson_Ocs, RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder> {
   factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs([
-    final void Function(RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetBreakoutRoomsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20209,7 +20170,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20231,7 +20192,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
         $RoomGetBreakoutRoomsResponseApplicationJsonInterface,
         Built<RoomGetBreakoutRoomsResponseApplicationJson, RoomGetBreakoutRoomsResponseApplicationJsonBuilder> {
   factory RoomGetBreakoutRoomsResponseApplicationJson([
-    final void Function(RoomGetBreakoutRoomsResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetBreakoutRoomsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetBreakoutRoomsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -20239,7 +20200,7 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20260,7 +20221,7 @@ class RoomMakePublicApiVersion extends EnumClass {
   static BuiltSet<RoomMakePublicApiVersion> get values => _$roomMakePublicApiVersionValues;
   // coverage:ignore-end
 
-  static RoomMakePublicApiVersion valueOf(final String name) => _$valueOfRoomMakePublicApiVersion(name);
+  static RoomMakePublicApiVersion valueOf(String name) => _$valueOfRoomMakePublicApiVersion(name);
 
   static Serializer<RoomMakePublicApiVersion> get serializer => _$roomMakePublicApiVersionSerializer;
 }
@@ -20276,7 +20237,7 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
         $RoomMakePublicResponseApplicationJson_OcsInterface,
         Built<RoomMakePublicResponseApplicationJson_Ocs, RoomMakePublicResponseApplicationJson_OcsBuilder> {
   factory RoomMakePublicResponseApplicationJson_Ocs([
-    final void Function(RoomMakePublicResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomMakePublicResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomMakePublicResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20284,7 +20245,7 @@ abstract class RoomMakePublicResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomMakePublicResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20305,16 +20266,15 @@ abstract class RoomMakePublicResponseApplicationJson
     implements
         $RoomMakePublicResponseApplicationJsonInterface,
         Built<RoomMakePublicResponseApplicationJson, RoomMakePublicResponseApplicationJsonBuilder> {
-  factory RoomMakePublicResponseApplicationJson([
-    final void Function(RoomMakePublicResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomMakePublicResponseApplicationJson;
+  factory RoomMakePublicResponseApplicationJson([void Function(RoomMakePublicResponseApplicationJsonBuilder)? b]) =
+      _$RoomMakePublicResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomMakePublicResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomMakePublicResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomMakePublicResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20335,7 +20295,7 @@ class RoomMakePrivateApiVersion extends EnumClass {
   static BuiltSet<RoomMakePrivateApiVersion> get values => _$roomMakePrivateApiVersionValues;
   // coverage:ignore-end
 
-  static RoomMakePrivateApiVersion valueOf(final String name) => _$valueOfRoomMakePrivateApiVersion(name);
+  static RoomMakePrivateApiVersion valueOf(String name) => _$valueOfRoomMakePrivateApiVersion(name);
 
   static Serializer<RoomMakePrivateApiVersion> get serializer => _$roomMakePrivateApiVersionSerializer;
 }
@@ -20351,7 +20311,7 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
         $RoomMakePrivateResponseApplicationJson_OcsInterface,
         Built<RoomMakePrivateResponseApplicationJson_Ocs, RoomMakePrivateResponseApplicationJson_OcsBuilder> {
   factory RoomMakePrivateResponseApplicationJson_Ocs([
-    final void Function(RoomMakePrivateResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomMakePrivateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomMakePrivateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20359,7 +20319,7 @@ abstract class RoomMakePrivateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomMakePrivateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20380,16 +20340,15 @@ abstract class RoomMakePrivateResponseApplicationJson
     implements
         $RoomMakePrivateResponseApplicationJsonInterface,
         Built<RoomMakePrivateResponseApplicationJson, RoomMakePrivateResponseApplicationJsonBuilder> {
-  factory RoomMakePrivateResponseApplicationJson([
-    final void Function(RoomMakePrivateResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomMakePrivateResponseApplicationJson;
+  factory RoomMakePrivateResponseApplicationJson([void Function(RoomMakePrivateResponseApplicationJsonBuilder)? b]) =
+      _$RoomMakePrivateResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomMakePrivateResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomMakePrivateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomMakePrivateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20410,7 +20369,7 @@ class RoomSetDescriptionApiVersion extends EnumClass {
   static BuiltSet<RoomSetDescriptionApiVersion> get values => _$roomSetDescriptionApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetDescriptionApiVersion valueOf(final String name) => _$valueOfRoomSetDescriptionApiVersion(name);
+  static RoomSetDescriptionApiVersion valueOf(String name) => _$valueOfRoomSetDescriptionApiVersion(name);
 
   static Serializer<RoomSetDescriptionApiVersion> get serializer => _$roomSetDescriptionApiVersionSerializer;
 }
@@ -20426,7 +20385,7 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
         $RoomSetDescriptionResponseApplicationJson_OcsInterface,
         Built<RoomSetDescriptionResponseApplicationJson_Ocs, RoomSetDescriptionResponseApplicationJson_OcsBuilder> {
   factory RoomSetDescriptionResponseApplicationJson_Ocs([
-    final void Function(RoomSetDescriptionResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetDescriptionResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetDescriptionResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20434,7 +20393,7 @@ abstract class RoomSetDescriptionResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetDescriptionResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20456,7 +20415,7 @@ abstract class RoomSetDescriptionResponseApplicationJson
         $RoomSetDescriptionResponseApplicationJsonInterface,
         Built<RoomSetDescriptionResponseApplicationJson, RoomSetDescriptionResponseApplicationJsonBuilder> {
   factory RoomSetDescriptionResponseApplicationJson([
-    final void Function(RoomSetDescriptionResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetDescriptionResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetDescriptionResponseApplicationJson;
 
   // coverage:ignore-start
@@ -20464,7 +20423,7 @@ abstract class RoomSetDescriptionResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetDescriptionResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetDescriptionResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20485,7 +20444,7 @@ class RoomSetReadOnlyApiVersion extends EnumClass {
   static BuiltSet<RoomSetReadOnlyApiVersion> get values => _$roomSetReadOnlyApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetReadOnlyApiVersion valueOf(final String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
+  static RoomSetReadOnlyApiVersion valueOf(String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
 
   static Serializer<RoomSetReadOnlyApiVersion> get serializer => _$roomSetReadOnlyApiVersionSerializer;
 }
@@ -20501,7 +20460,7 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
         $RoomSetReadOnlyResponseApplicationJson_OcsInterface,
         Built<RoomSetReadOnlyResponseApplicationJson_Ocs, RoomSetReadOnlyResponseApplicationJson_OcsBuilder> {
   factory RoomSetReadOnlyResponseApplicationJson_Ocs([
-    final void Function(RoomSetReadOnlyResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetReadOnlyResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetReadOnlyResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20509,7 +20468,7 @@ abstract class RoomSetReadOnlyResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetReadOnlyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20530,16 +20489,15 @@ abstract class RoomSetReadOnlyResponseApplicationJson
     implements
         $RoomSetReadOnlyResponseApplicationJsonInterface,
         Built<RoomSetReadOnlyResponseApplicationJson, RoomSetReadOnlyResponseApplicationJsonBuilder> {
-  factory RoomSetReadOnlyResponseApplicationJson([
-    final void Function(RoomSetReadOnlyResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomSetReadOnlyResponseApplicationJson;
+  factory RoomSetReadOnlyResponseApplicationJson([void Function(RoomSetReadOnlyResponseApplicationJsonBuilder)? b]) =
+      _$RoomSetReadOnlyResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomSetReadOnlyResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetReadOnlyResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetReadOnlyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20560,7 +20518,7 @@ class RoomSetListableApiVersion extends EnumClass {
   static BuiltSet<RoomSetListableApiVersion> get values => _$roomSetListableApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetListableApiVersion valueOf(final String name) => _$valueOfRoomSetListableApiVersion(name);
+  static RoomSetListableApiVersion valueOf(String name) => _$valueOfRoomSetListableApiVersion(name);
 
   static Serializer<RoomSetListableApiVersion> get serializer => _$roomSetListableApiVersionSerializer;
 }
@@ -20576,7 +20534,7 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
         $RoomSetListableResponseApplicationJson_OcsInterface,
         Built<RoomSetListableResponseApplicationJson_Ocs, RoomSetListableResponseApplicationJson_OcsBuilder> {
   factory RoomSetListableResponseApplicationJson_Ocs([
-    final void Function(RoomSetListableResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetListableResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetListableResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20584,7 +20542,7 @@ abstract class RoomSetListableResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetListableResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetListableResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20605,16 +20563,15 @@ abstract class RoomSetListableResponseApplicationJson
     implements
         $RoomSetListableResponseApplicationJsonInterface,
         Built<RoomSetListableResponseApplicationJson, RoomSetListableResponseApplicationJsonBuilder> {
-  factory RoomSetListableResponseApplicationJson([
-    final void Function(RoomSetListableResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomSetListableResponseApplicationJson;
+  factory RoomSetListableResponseApplicationJson([void Function(RoomSetListableResponseApplicationJsonBuilder)? b]) =
+      _$RoomSetListableResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomSetListableResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetListableResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetListableResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20635,7 +20592,7 @@ class RoomSetPasswordApiVersion extends EnumClass {
   static BuiltSet<RoomSetPasswordApiVersion> get values => _$roomSetPasswordApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetPasswordApiVersion valueOf(final String name) => _$valueOfRoomSetPasswordApiVersion(name);
+  static RoomSetPasswordApiVersion valueOf(String name) => _$valueOfRoomSetPasswordApiVersion(name);
 
   static Serializer<RoomSetPasswordApiVersion> get serializer => _$roomSetPasswordApiVersionSerializer;
 }
@@ -20651,7 +20608,7 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
         $RoomSetPasswordResponseApplicationJson_OcsInterface,
         Built<RoomSetPasswordResponseApplicationJson_Ocs, RoomSetPasswordResponseApplicationJson_OcsBuilder> {
   factory RoomSetPasswordResponseApplicationJson_Ocs([
-    final void Function(RoomSetPasswordResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetPasswordResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetPasswordResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20659,7 +20616,7 @@ abstract class RoomSetPasswordResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetPasswordResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20680,16 +20637,15 @@ abstract class RoomSetPasswordResponseApplicationJson
     implements
         $RoomSetPasswordResponseApplicationJsonInterface,
         Built<RoomSetPasswordResponseApplicationJson, RoomSetPasswordResponseApplicationJsonBuilder> {
-  factory RoomSetPasswordResponseApplicationJson([
-    final void Function(RoomSetPasswordResponseApplicationJsonBuilder)? b,
-  ]) = _$RoomSetPasswordResponseApplicationJson;
+  factory RoomSetPasswordResponseApplicationJson([void Function(RoomSetPasswordResponseApplicationJsonBuilder)? b]) =
+      _$RoomSetPasswordResponseApplicationJson;
 
   // coverage:ignore-start
   const RoomSetPasswordResponseApplicationJson._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetPasswordResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetPasswordResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20710,7 +20666,7 @@ class RoomSetPermissionsApiVersion extends EnumClass {
   static BuiltSet<RoomSetPermissionsApiVersion> get values => _$roomSetPermissionsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetPermissionsApiVersion valueOf(final String name) => _$valueOfRoomSetPermissionsApiVersion(name);
+  static RoomSetPermissionsApiVersion valueOf(String name) => _$valueOfRoomSetPermissionsApiVersion(name);
 
   static Serializer<RoomSetPermissionsApiVersion> get serializer => _$roomSetPermissionsApiVersionSerializer;
 }
@@ -20726,7 +20682,7 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
         $RoomSetPermissionsResponseApplicationJson_OcsInterface,
         Built<RoomSetPermissionsResponseApplicationJson_Ocs, RoomSetPermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetPermissionsResponseApplicationJson_Ocs([
-    final void Function(RoomSetPermissionsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetPermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetPermissionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20734,7 +20690,7 @@ abstract class RoomSetPermissionsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20756,7 +20712,7 @@ abstract class RoomSetPermissionsResponseApplicationJson
         $RoomSetPermissionsResponseApplicationJsonInterface,
         Built<RoomSetPermissionsResponseApplicationJson, RoomSetPermissionsResponseApplicationJsonBuilder> {
   factory RoomSetPermissionsResponseApplicationJson([
-    final void Function(RoomSetPermissionsResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetPermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetPermissionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -20764,7 +20720,7 @@ abstract class RoomSetPermissionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetPermissionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20785,7 +20741,7 @@ class RoomGetParticipantsApiVersion extends EnumClass {
   static BuiltSet<RoomGetParticipantsApiVersion> get values => _$roomGetParticipantsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetParticipantsApiVersion valueOf(final String name) => _$valueOfRoomGetParticipantsApiVersion(name);
+  static RoomGetParticipantsApiVersion valueOf(String name) => _$valueOfRoomGetParticipantsApiVersion(name);
 
   static Serializer<RoomGetParticipantsApiVersion> get serializer => _$roomGetParticipantsApiVersionSerializer;
 }
@@ -20800,7 +20756,7 @@ abstract class RoomRoomGetParticipantsHeaders
     implements
         $RoomRoomGetParticipantsHeadersInterface,
         Built<RoomRoomGetParticipantsHeaders, RoomRoomGetParticipantsHeadersBuilder> {
-  factory RoomRoomGetParticipantsHeaders([final void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
+  factory RoomRoomGetParticipantsHeaders([void Function(RoomRoomGetParticipantsHeadersBuilder)? b]) =
       _$RoomRoomGetParticipantsHeaders;
 
   // coverage:ignore-start
@@ -20808,7 +20764,7 @@ abstract class RoomRoomGetParticipantsHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRoomGetParticipantsHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRoomGetParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20842,14 +20798,14 @@ abstract interface class $ParticipantInterface {
 }
 
 abstract class Participant implements $ParticipantInterface, Built<Participant, ParticipantBuilder> {
-  factory Participant([final void Function(ParticipantBuilder)? b]) = _$Participant;
+  factory Participant([void Function(ParticipantBuilder)? b]) = _$Participant;
 
   // coverage:ignore-start
   const Participant._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Participant.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Participant.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -20870,7 +20826,7 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
         $RoomGetParticipantsResponseApplicationJson_OcsInterface,
         Built<RoomGetParticipantsResponseApplicationJson_Ocs, RoomGetParticipantsResponseApplicationJson_OcsBuilder> {
   factory RoomGetParticipantsResponseApplicationJson_Ocs([
-    final void Function(RoomGetParticipantsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetParticipantsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetParticipantsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20878,7 +20834,7 @@ abstract class RoomGetParticipantsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20900,7 +20856,7 @@ abstract class RoomGetParticipantsResponseApplicationJson
         $RoomGetParticipantsResponseApplicationJsonInterface,
         Built<RoomGetParticipantsResponseApplicationJson, RoomGetParticipantsResponseApplicationJsonBuilder> {
   factory RoomGetParticipantsResponseApplicationJson([
-    final void Function(RoomGetParticipantsResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetParticipantsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetParticipantsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -20908,7 +20864,7 @@ abstract class RoomGetParticipantsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetParticipantsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20929,8 +20885,7 @@ class RoomAddParticipantToRoomApiVersion extends EnumClass {
   static BuiltSet<RoomAddParticipantToRoomApiVersion> get values => _$roomAddParticipantToRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomAddParticipantToRoomApiVersion valueOf(final String name) =>
-      _$valueOfRoomAddParticipantToRoomApiVersion(name);
+  static RoomAddParticipantToRoomApiVersion valueOf(String name) => _$valueOfRoomAddParticipantToRoomApiVersion(name);
 
   static Serializer<RoomAddParticipantToRoomApiVersion> get serializer =>
       _$roomAddParticipantToRoomApiVersionSerializer;
@@ -20947,7 +20902,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0,
             RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder> {
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0([
-    final void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder)? b,
+    void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0;
 
   // coverage:ignore-start
@@ -20955,7 +20910,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(final Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20979,7 +20934,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
         Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs,
             RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder> {
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs([
-    final void Function(RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -20987,7 +20942,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -20999,7 +20954,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
       _$roomAddParticipantToRoomResponseApplicationJsonOcsSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder b) {
+  static void _validate(RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder b) {
     b.data?.validateOneOf();
   }
 }
@@ -21014,7 +20969,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
         $RoomAddParticipantToRoomResponseApplicationJsonInterface,
         Built<RoomAddParticipantToRoomResponseApplicationJson, RoomAddParticipantToRoomResponseApplicationJsonBuilder> {
   factory RoomAddParticipantToRoomResponseApplicationJson([
-    final void Function(RoomAddParticipantToRoomResponseApplicationJsonBuilder)? b,
+    void Function(RoomAddParticipantToRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomAddParticipantToRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21022,7 +20977,7 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomAddParticipantToRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21044,7 +20999,7 @@ class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
       _$roomGetBreakoutRoomParticipantsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomGetBreakoutRoomParticipantsApiVersion valueOf(final String name) =>
+  static RoomGetBreakoutRoomParticipantsApiVersion valueOf(String name) =>
       _$valueOfRoomGetBreakoutRoomParticipantsApiVersion(name);
 
   static Serializer<RoomGetBreakoutRoomParticipantsApiVersion> get serializer =>
@@ -21062,7 +21017,7 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
         $RoomRoomGetBreakoutRoomParticipantsHeadersInterface,
         Built<RoomRoomGetBreakoutRoomParticipantsHeaders, RoomRoomGetBreakoutRoomParticipantsHeadersBuilder> {
   factory RoomRoomGetBreakoutRoomParticipantsHeaders([
-    final void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
+    void Function(RoomRoomGetBreakoutRoomParticipantsHeadersBuilder)? b,
   ]) = _$RoomRoomGetBreakoutRoomParticipantsHeaders;
 
   // coverage:ignore-start
@@ -21070,7 +21025,7 @@ abstract class RoomRoomGetBreakoutRoomParticipantsHeaders
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRoomGetBreakoutRoomParticipantsHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21094,7 +21049,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
             RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder> {
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs([
-    final void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21102,7 +21057,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21125,7 +21080,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
         Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
             RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder> {
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson([
-    final void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder)? b,
+    void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomGetBreakoutRoomParticipantsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21133,7 +21088,7 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomGetBreakoutRoomParticipantsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21154,7 +21109,7 @@ class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
   static BuiltSet<RoomRemoveSelfFromRoomApiVersion> get values => _$roomRemoveSelfFromRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomRemoveSelfFromRoomApiVersion valueOf(final String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
+  static RoomRemoveSelfFromRoomApiVersion valueOf(String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
 
   static Serializer<RoomRemoveSelfFromRoomApiVersion> get serializer => _$roomRemoveSelfFromRoomApiVersionSerializer;
 }
@@ -21171,7 +21126,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
         Built<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
             RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs([
-    final void Function(RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveSelfFromRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21179,7 +21134,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21201,7 +21156,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
         $RoomRemoveSelfFromRoomResponseApplicationJsonInterface,
         Built<RoomRemoveSelfFromRoomResponseApplicationJson, RoomRemoveSelfFromRoomResponseApplicationJsonBuilder> {
   factory RoomRemoveSelfFromRoomResponseApplicationJson([
-    final void Function(RoomRemoveSelfFromRoomResponseApplicationJsonBuilder)? b,
+    void Function(RoomRemoveSelfFromRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveSelfFromRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21209,7 +21164,7 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveSelfFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21230,7 +21185,7 @@ class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
   static BuiltSet<RoomRemoveAttendeeFromRoomApiVersion> get values => _$roomRemoveAttendeeFromRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomRemoveAttendeeFromRoomApiVersion valueOf(final String name) =>
+  static RoomRemoveAttendeeFromRoomApiVersion valueOf(String name) =>
       _$valueOfRoomRemoveAttendeeFromRoomApiVersion(name);
 
   static Serializer<RoomRemoveAttendeeFromRoomApiVersion> get serializer =>
@@ -21249,7 +21204,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
             RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs([
-    final void Function(RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21257,7 +21212,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21280,7 +21235,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
         Built<RoomRemoveAttendeeFromRoomResponseApplicationJson,
             RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder> {
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson([
-    final void Function(RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder)? b,
+    void Function(RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveAttendeeFromRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21288,7 +21243,7 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveAttendeeFromRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21309,7 +21264,7 @@ class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   static BuiltSet<RoomSetAttendeePermissionsApiVersion> get values => _$roomSetAttendeePermissionsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetAttendeePermissionsApiVersion valueOf(final String name) =>
+  static RoomSetAttendeePermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsApiVersion(name);
 
   static Serializer<RoomSetAttendeePermissionsApiVersion> get serializer =>
@@ -21328,7 +21283,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
         Built<RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
             RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs([
-    final void Function(RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetAttendeePermissionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21336,7 +21291,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21359,7 +21314,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
         Built<RoomSetAttendeePermissionsResponseApplicationJson,
             RoomSetAttendeePermissionsResponseApplicationJsonBuilder> {
   factory RoomSetAttendeePermissionsResponseApplicationJson([
-    final void Function(RoomSetAttendeePermissionsResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetAttendeePermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetAttendeePermissionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21367,7 +21322,7 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetAttendeePermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21389,7 +21344,7 @@ class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
       _$roomSetAllAttendeesPermissionsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetAllAttendeesPermissionsApiVersion valueOf(final String name) =>
+  static RoomSetAllAttendeesPermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsApiVersion(name);
 
   static Serializer<RoomSetAllAttendeesPermissionsApiVersion> get serializer =>
@@ -21408,7 +21363,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
             RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder> {
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs([
-    final void Function(RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21416,7 +21371,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21439,7 +21394,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
         Built<RoomSetAllAttendeesPermissionsResponseApplicationJson,
             RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder> {
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson([
-    final void Function(RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetAllAttendeesPermissionsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21447,7 +21402,7 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetAllAttendeesPermissionsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21468,7 +21423,7 @@ class RoomJoinRoomApiVersion extends EnumClass {
   static BuiltSet<RoomJoinRoomApiVersion> get values => _$roomJoinRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomJoinRoomApiVersion valueOf(final String name) => _$valueOfRoomJoinRoomApiVersion(name);
+  static RoomJoinRoomApiVersion valueOf(String name) => _$valueOfRoomJoinRoomApiVersion(name);
 
   static Serializer<RoomJoinRoomApiVersion> get serializer => _$roomJoinRoomApiVersionSerializer;
 }
@@ -21483,16 +21438,15 @@ abstract class RoomJoinRoomResponseApplicationJson_Ocs
     implements
         $RoomJoinRoomResponseApplicationJson_OcsInterface,
         Built<RoomJoinRoomResponseApplicationJson_Ocs, RoomJoinRoomResponseApplicationJson_OcsBuilder> {
-  factory RoomJoinRoomResponseApplicationJson_Ocs([
-    final void Function(RoomJoinRoomResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RoomJoinRoomResponseApplicationJson_Ocs;
+  factory RoomJoinRoomResponseApplicationJson_Ocs([void Function(RoomJoinRoomResponseApplicationJson_OcsBuilder)? b]) =
+      _$RoomJoinRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const RoomJoinRoomResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomJoinRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21513,7 +21467,7 @@ abstract class RoomJoinRoomResponseApplicationJson
     implements
         $RoomJoinRoomResponseApplicationJsonInterface,
         Built<RoomJoinRoomResponseApplicationJson, RoomJoinRoomResponseApplicationJsonBuilder> {
-  factory RoomJoinRoomResponseApplicationJson([final void Function(RoomJoinRoomResponseApplicationJsonBuilder)? b]) =
+  factory RoomJoinRoomResponseApplicationJson([void Function(RoomJoinRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomJoinRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21521,7 +21475,7 @@ abstract class RoomJoinRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomJoinRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomJoinRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21542,7 +21496,7 @@ class RoomLeaveRoomApiVersion extends EnumClass {
   static BuiltSet<RoomLeaveRoomApiVersion> get values => _$roomLeaveRoomApiVersionValues;
   // coverage:ignore-end
 
-  static RoomLeaveRoomApiVersion valueOf(final String name) => _$valueOfRoomLeaveRoomApiVersion(name);
+  static RoomLeaveRoomApiVersion valueOf(String name) => _$valueOfRoomLeaveRoomApiVersion(name);
 
   static Serializer<RoomLeaveRoomApiVersion> get serializer => _$roomLeaveRoomApiVersionSerializer;
 }
@@ -21558,7 +21512,7 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
         $RoomLeaveRoomResponseApplicationJson_OcsInterface,
         Built<RoomLeaveRoomResponseApplicationJson_Ocs, RoomLeaveRoomResponseApplicationJson_OcsBuilder> {
   factory RoomLeaveRoomResponseApplicationJson_Ocs([
-    final void Function(RoomLeaveRoomResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomLeaveRoomResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomLeaveRoomResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21566,7 +21520,7 @@ abstract class RoomLeaveRoomResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomLeaveRoomResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21587,7 +21541,7 @@ abstract class RoomLeaveRoomResponseApplicationJson
     implements
         $RoomLeaveRoomResponseApplicationJsonInterface,
         Built<RoomLeaveRoomResponseApplicationJson, RoomLeaveRoomResponseApplicationJsonBuilder> {
-  factory RoomLeaveRoomResponseApplicationJson([final void Function(RoomLeaveRoomResponseApplicationJsonBuilder)? b]) =
+  factory RoomLeaveRoomResponseApplicationJson([void Function(RoomLeaveRoomResponseApplicationJsonBuilder)? b]) =
       _$RoomLeaveRoomResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21595,7 +21549,7 @@ abstract class RoomLeaveRoomResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomLeaveRoomResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomLeaveRoomResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21616,7 +21570,7 @@ class RoomResendInvitationsApiVersion extends EnumClass {
   static BuiltSet<RoomResendInvitationsApiVersion> get values => _$roomResendInvitationsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomResendInvitationsApiVersion valueOf(final String name) => _$valueOfRoomResendInvitationsApiVersion(name);
+  static RoomResendInvitationsApiVersion valueOf(String name) => _$valueOfRoomResendInvitationsApiVersion(name);
 
   static Serializer<RoomResendInvitationsApiVersion> get serializer => _$roomResendInvitationsApiVersionSerializer;
 }
@@ -21633,7 +21587,7 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
         Built<RoomResendInvitationsResponseApplicationJson_Ocs,
             RoomResendInvitationsResponseApplicationJson_OcsBuilder> {
   factory RoomResendInvitationsResponseApplicationJson_Ocs([
-    final void Function(RoomResendInvitationsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomResendInvitationsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomResendInvitationsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21641,7 +21595,7 @@ abstract class RoomResendInvitationsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomResendInvitationsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21663,7 +21617,7 @@ abstract class RoomResendInvitationsResponseApplicationJson
         $RoomResendInvitationsResponseApplicationJsonInterface,
         Built<RoomResendInvitationsResponseApplicationJson, RoomResendInvitationsResponseApplicationJsonBuilder> {
   factory RoomResendInvitationsResponseApplicationJson([
-    final void Function(RoomResendInvitationsResponseApplicationJsonBuilder)? b,
+    void Function(RoomResendInvitationsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomResendInvitationsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21671,7 +21625,7 @@ abstract class RoomResendInvitationsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomResendInvitationsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomResendInvitationsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21692,7 +21646,7 @@ class RoomSetSessionStateApiVersion extends EnumClass {
   static BuiltSet<RoomSetSessionStateApiVersion> get values => _$roomSetSessionStateApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetSessionStateApiVersion valueOf(final String name) => _$valueOfRoomSetSessionStateApiVersion(name);
+  static RoomSetSessionStateApiVersion valueOf(String name) => _$valueOfRoomSetSessionStateApiVersion(name);
 
   static Serializer<RoomSetSessionStateApiVersion> get serializer => _$roomSetSessionStateApiVersionSerializer;
 }
@@ -21708,7 +21662,7 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
         $RoomSetSessionStateResponseApplicationJson_OcsInterface,
         Built<RoomSetSessionStateResponseApplicationJson_Ocs, RoomSetSessionStateResponseApplicationJson_OcsBuilder> {
   factory RoomSetSessionStateResponseApplicationJson_Ocs([
-    final void Function(RoomSetSessionStateResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetSessionStateResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetSessionStateResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21716,7 +21670,7 @@ abstract class RoomSetSessionStateResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetSessionStateResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21738,7 +21692,7 @@ abstract class RoomSetSessionStateResponseApplicationJson
         $RoomSetSessionStateResponseApplicationJsonInterface,
         Built<RoomSetSessionStateResponseApplicationJson, RoomSetSessionStateResponseApplicationJsonBuilder> {
   factory RoomSetSessionStateResponseApplicationJson([
-    final void Function(RoomSetSessionStateResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetSessionStateResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetSessionStateResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21746,7 +21700,7 @@ abstract class RoomSetSessionStateResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetSessionStateResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetSessionStateResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21767,7 +21721,7 @@ class RoomPromoteModeratorApiVersion extends EnumClass {
   static BuiltSet<RoomPromoteModeratorApiVersion> get values => _$roomPromoteModeratorApiVersionValues;
   // coverage:ignore-end
 
-  static RoomPromoteModeratorApiVersion valueOf(final String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
+  static RoomPromoteModeratorApiVersion valueOf(String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
 
   static Serializer<RoomPromoteModeratorApiVersion> get serializer => _$roomPromoteModeratorApiVersionSerializer;
 }
@@ -21783,7 +21737,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
         $RoomPromoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomPromoteModeratorResponseApplicationJson_Ocs, RoomPromoteModeratorResponseApplicationJson_OcsBuilder> {
   factory RoomPromoteModeratorResponseApplicationJson_Ocs([
-    final void Function(RoomPromoteModeratorResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomPromoteModeratorResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomPromoteModeratorResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21791,7 +21745,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomPromoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21813,7 +21767,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson
         $RoomPromoteModeratorResponseApplicationJsonInterface,
         Built<RoomPromoteModeratorResponseApplicationJson, RoomPromoteModeratorResponseApplicationJsonBuilder> {
   factory RoomPromoteModeratorResponseApplicationJson([
-    final void Function(RoomPromoteModeratorResponseApplicationJsonBuilder)? b,
+    void Function(RoomPromoteModeratorResponseApplicationJsonBuilder)? b,
   ]) = _$RoomPromoteModeratorResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21821,7 +21775,7 @@ abstract class RoomPromoteModeratorResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomPromoteModeratorResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomPromoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21842,7 +21796,7 @@ class RoomDemoteModeratorApiVersion extends EnumClass {
   static BuiltSet<RoomDemoteModeratorApiVersion> get values => _$roomDemoteModeratorApiVersionValues;
   // coverage:ignore-end
 
-  static RoomDemoteModeratorApiVersion valueOf(final String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
+  static RoomDemoteModeratorApiVersion valueOf(String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
 
   static Serializer<RoomDemoteModeratorApiVersion> get serializer => _$roomDemoteModeratorApiVersionSerializer;
 }
@@ -21858,7 +21812,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
         $RoomDemoteModeratorResponseApplicationJson_OcsInterface,
         Built<RoomDemoteModeratorResponseApplicationJson_Ocs, RoomDemoteModeratorResponseApplicationJson_OcsBuilder> {
   factory RoomDemoteModeratorResponseApplicationJson_Ocs([
-    final void Function(RoomDemoteModeratorResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomDemoteModeratorResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomDemoteModeratorResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21866,7 +21820,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomDemoteModeratorResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21888,7 +21842,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson
         $RoomDemoteModeratorResponseApplicationJsonInterface,
         Built<RoomDemoteModeratorResponseApplicationJson, RoomDemoteModeratorResponseApplicationJsonBuilder> {
   factory RoomDemoteModeratorResponseApplicationJson([
-    final void Function(RoomDemoteModeratorResponseApplicationJsonBuilder)? b,
+    void Function(RoomDemoteModeratorResponseApplicationJsonBuilder)? b,
   ]) = _$RoomDemoteModeratorResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21896,7 +21850,7 @@ abstract class RoomDemoteModeratorResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomDemoteModeratorResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomDemoteModeratorResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21917,7 +21871,7 @@ class RoomAddToFavoritesApiVersion extends EnumClass {
   static BuiltSet<RoomAddToFavoritesApiVersion> get values => _$roomAddToFavoritesApiVersionValues;
   // coverage:ignore-end
 
-  static RoomAddToFavoritesApiVersion valueOf(final String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
+  static RoomAddToFavoritesApiVersion valueOf(String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
 
   static Serializer<RoomAddToFavoritesApiVersion> get serializer => _$roomAddToFavoritesApiVersionSerializer;
 }
@@ -21933,7 +21887,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
         $RoomAddToFavoritesResponseApplicationJson_OcsInterface,
         Built<RoomAddToFavoritesResponseApplicationJson_Ocs, RoomAddToFavoritesResponseApplicationJson_OcsBuilder> {
   factory RoomAddToFavoritesResponseApplicationJson_Ocs([
-    final void Function(RoomAddToFavoritesResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomAddToFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomAddToFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -21941,7 +21895,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomAddToFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21963,7 +21917,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson
         $RoomAddToFavoritesResponseApplicationJsonInterface,
         Built<RoomAddToFavoritesResponseApplicationJson, RoomAddToFavoritesResponseApplicationJsonBuilder> {
   factory RoomAddToFavoritesResponseApplicationJson([
-    final void Function(RoomAddToFavoritesResponseApplicationJsonBuilder)? b,
+    void Function(RoomAddToFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$RoomAddToFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -21971,7 +21925,7 @@ abstract class RoomAddToFavoritesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomAddToFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomAddToFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -21992,8 +21946,7 @@ class RoomRemoveFromFavoritesApiVersion extends EnumClass {
   static BuiltSet<RoomRemoveFromFavoritesApiVersion> get values => _$roomRemoveFromFavoritesApiVersionValues;
   // coverage:ignore-end
 
-  static RoomRemoveFromFavoritesApiVersion valueOf(final String name) =>
-      _$valueOfRoomRemoveFromFavoritesApiVersion(name);
+  static RoomRemoveFromFavoritesApiVersion valueOf(String name) => _$valueOfRoomRemoveFromFavoritesApiVersion(name);
 
   static Serializer<RoomRemoveFromFavoritesApiVersion> get serializer => _$roomRemoveFromFavoritesApiVersionSerializer;
 }
@@ -22010,7 +21963,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
         Built<RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
             RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder> {
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs([
-    final void Function(RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomRemoveFromFavoritesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22018,7 +21971,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22040,7 +21993,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
         $RoomRemoveFromFavoritesResponseApplicationJsonInterface,
         Built<RoomRemoveFromFavoritesResponseApplicationJson, RoomRemoveFromFavoritesResponseApplicationJsonBuilder> {
   factory RoomRemoveFromFavoritesResponseApplicationJson([
-    final void Function(RoomRemoveFromFavoritesResponseApplicationJsonBuilder)? b,
+    void Function(RoomRemoveFromFavoritesResponseApplicationJsonBuilder)? b,
   ]) = _$RoomRemoveFromFavoritesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22048,7 +22001,7 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomRemoveFromFavoritesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22069,8 +22022,7 @@ class RoomSetNotificationLevelApiVersion extends EnumClass {
   static BuiltSet<RoomSetNotificationLevelApiVersion> get values => _$roomSetNotificationLevelApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetNotificationLevelApiVersion valueOf(final String name) =>
-      _$valueOfRoomSetNotificationLevelApiVersion(name);
+  static RoomSetNotificationLevelApiVersion valueOf(String name) => _$valueOfRoomSetNotificationLevelApiVersion(name);
 
   static Serializer<RoomSetNotificationLevelApiVersion> get serializer =>
       _$roomSetNotificationLevelApiVersionSerializer;
@@ -22088,7 +22040,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
         Built<RoomSetNotificationLevelResponseApplicationJson_Ocs,
             RoomSetNotificationLevelResponseApplicationJson_OcsBuilder> {
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs([
-    final void Function(RoomSetNotificationLevelResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetNotificationLevelResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetNotificationLevelResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22096,7 +22048,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetNotificationLevelResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22118,7 +22070,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
         $RoomSetNotificationLevelResponseApplicationJsonInterface,
         Built<RoomSetNotificationLevelResponseApplicationJson, RoomSetNotificationLevelResponseApplicationJsonBuilder> {
   factory RoomSetNotificationLevelResponseApplicationJson([
-    final void Function(RoomSetNotificationLevelResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetNotificationLevelResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetNotificationLevelResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22126,7 +22078,7 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetNotificationLevelResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetNotificationLevelResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22147,8 +22099,7 @@ class RoomSetNotificationCallsApiVersion extends EnumClass {
   static BuiltSet<RoomSetNotificationCallsApiVersion> get values => _$roomSetNotificationCallsApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetNotificationCallsApiVersion valueOf(final String name) =>
-      _$valueOfRoomSetNotificationCallsApiVersion(name);
+  static RoomSetNotificationCallsApiVersion valueOf(String name) => _$valueOfRoomSetNotificationCallsApiVersion(name);
 
   static Serializer<RoomSetNotificationCallsApiVersion> get serializer =>
       _$roomSetNotificationCallsApiVersionSerializer;
@@ -22166,7 +22117,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
         Built<RoomSetNotificationCallsResponseApplicationJson_Ocs,
             RoomSetNotificationCallsResponseApplicationJson_OcsBuilder> {
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs([
-    final void Function(RoomSetNotificationCallsResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetNotificationCallsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetNotificationCallsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22174,7 +22125,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetNotificationCallsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22196,7 +22147,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
         $RoomSetNotificationCallsResponseApplicationJsonInterface,
         Built<RoomSetNotificationCallsResponseApplicationJson, RoomSetNotificationCallsResponseApplicationJsonBuilder> {
   factory RoomSetNotificationCallsResponseApplicationJson([
-    final void Function(RoomSetNotificationCallsResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetNotificationCallsResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetNotificationCallsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22204,7 +22155,7 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetNotificationCallsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetNotificationCallsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22225,7 +22176,7 @@ class RoomSetLobbyApiVersion extends EnumClass {
   static BuiltSet<RoomSetLobbyApiVersion> get values => _$roomSetLobbyApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetLobbyApiVersion valueOf(final String name) => _$valueOfRoomSetLobbyApiVersion(name);
+  static RoomSetLobbyApiVersion valueOf(String name) => _$valueOfRoomSetLobbyApiVersion(name);
 
   static Serializer<RoomSetLobbyApiVersion> get serializer => _$roomSetLobbyApiVersionSerializer;
 }
@@ -22240,16 +22191,15 @@ abstract class RoomSetLobbyResponseApplicationJson_Ocs
     implements
         $RoomSetLobbyResponseApplicationJson_OcsInterface,
         Built<RoomSetLobbyResponseApplicationJson_Ocs, RoomSetLobbyResponseApplicationJson_OcsBuilder> {
-  factory RoomSetLobbyResponseApplicationJson_Ocs([
-    final void Function(RoomSetLobbyResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$RoomSetLobbyResponseApplicationJson_Ocs;
+  factory RoomSetLobbyResponseApplicationJson_Ocs([void Function(RoomSetLobbyResponseApplicationJson_OcsBuilder)? b]) =
+      _$RoomSetLobbyResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const RoomSetLobbyResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetLobbyResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22270,7 +22220,7 @@ abstract class RoomSetLobbyResponseApplicationJson
     implements
         $RoomSetLobbyResponseApplicationJsonInterface,
         Built<RoomSetLobbyResponseApplicationJson, RoomSetLobbyResponseApplicationJsonBuilder> {
-  factory RoomSetLobbyResponseApplicationJson([final void Function(RoomSetLobbyResponseApplicationJsonBuilder)? b]) =
+  factory RoomSetLobbyResponseApplicationJson([void Function(RoomSetLobbyResponseApplicationJsonBuilder)? b]) =
       _$RoomSetLobbyResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22278,7 +22228,7 @@ abstract class RoomSetLobbyResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetLobbyResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetLobbyResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22299,7 +22249,7 @@ class RoomSetsipEnabledApiVersion extends EnumClass {
   static BuiltSet<RoomSetsipEnabledApiVersion> get values => _$roomSetsipEnabledApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetsipEnabledApiVersion valueOf(final String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
+  static RoomSetsipEnabledApiVersion valueOf(String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
 
   static Serializer<RoomSetsipEnabledApiVersion> get serializer => _$roomSetsipEnabledApiVersionSerializer;
 }
@@ -22315,7 +22265,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
         $RoomSetsipEnabledResponseApplicationJson_OcsInterface,
         Built<RoomSetsipEnabledResponseApplicationJson_Ocs, RoomSetsipEnabledResponseApplicationJson_OcsBuilder> {
   factory RoomSetsipEnabledResponseApplicationJson_Ocs([
-    final void Function(RoomSetsipEnabledResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetsipEnabledResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetsipEnabledResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22323,7 +22273,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetsipEnabledResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22345,7 +22295,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson
         $RoomSetsipEnabledResponseApplicationJsonInterface,
         Built<RoomSetsipEnabledResponseApplicationJson, RoomSetsipEnabledResponseApplicationJsonBuilder> {
   factory RoomSetsipEnabledResponseApplicationJson([
-    final void Function(RoomSetsipEnabledResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetsipEnabledResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetsipEnabledResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22353,7 +22303,7 @@ abstract class RoomSetsipEnabledResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetsipEnabledResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetsipEnabledResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22374,8 +22324,7 @@ class RoomSetRecordingConsentApiVersion extends EnumClass {
   static BuiltSet<RoomSetRecordingConsentApiVersion> get values => _$roomSetRecordingConsentApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetRecordingConsentApiVersion valueOf(final String name) =>
-      _$valueOfRoomSetRecordingConsentApiVersion(name);
+  static RoomSetRecordingConsentApiVersion valueOf(String name) => _$valueOfRoomSetRecordingConsentApiVersion(name);
 
   static Serializer<RoomSetRecordingConsentApiVersion> get serializer => _$roomSetRecordingConsentApiVersionSerializer;
 }
@@ -22392,7 +22341,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
         Built<RoomSetRecordingConsentResponseApplicationJson_Ocs,
             RoomSetRecordingConsentResponseApplicationJson_OcsBuilder> {
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs([
-    final void Function(RoomSetRecordingConsentResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetRecordingConsentResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetRecordingConsentResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22400,7 +22349,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetRecordingConsentResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22422,7 +22371,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
         $RoomSetRecordingConsentResponseApplicationJsonInterface,
         Built<RoomSetRecordingConsentResponseApplicationJson, RoomSetRecordingConsentResponseApplicationJsonBuilder> {
   factory RoomSetRecordingConsentResponseApplicationJson([
-    final void Function(RoomSetRecordingConsentResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetRecordingConsentResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetRecordingConsentResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22430,7 +22379,7 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetRecordingConsentResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetRecordingConsentResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22451,8 +22400,7 @@ class RoomSetMessageExpirationApiVersion extends EnumClass {
   static BuiltSet<RoomSetMessageExpirationApiVersion> get values => _$roomSetMessageExpirationApiVersionValues;
   // coverage:ignore-end
 
-  static RoomSetMessageExpirationApiVersion valueOf(final String name) =>
-      _$valueOfRoomSetMessageExpirationApiVersion(name);
+  static RoomSetMessageExpirationApiVersion valueOf(String name) => _$valueOfRoomSetMessageExpirationApiVersion(name);
 
   static Serializer<RoomSetMessageExpirationApiVersion> get serializer =>
       _$roomSetMessageExpirationApiVersionSerializer;
@@ -22470,7 +22418,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
         Built<RoomSetMessageExpirationResponseApplicationJson_Ocs,
             RoomSetMessageExpirationResponseApplicationJson_OcsBuilder> {
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs([
-    final void Function(RoomSetMessageExpirationResponseApplicationJson_OcsBuilder)? b,
+    void Function(RoomSetMessageExpirationResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RoomSetMessageExpirationResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22478,7 +22426,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetMessageExpirationResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22500,7 +22448,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
         $RoomSetMessageExpirationResponseApplicationJsonInterface,
         Built<RoomSetMessageExpirationResponseApplicationJson, RoomSetMessageExpirationResponseApplicationJsonBuilder> {
   factory RoomSetMessageExpirationResponseApplicationJson([
-    final void Function(RoomSetMessageExpirationResponseApplicationJsonBuilder)? b,
+    void Function(RoomSetMessageExpirationResponseApplicationJsonBuilder)? b,
   ]) = _$RoomSetMessageExpirationResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22508,7 +22456,7 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory RoomSetMessageExpirationResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory RoomSetMessageExpirationResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22529,7 +22477,7 @@ class SettingsSetsipSettingsApiVersion extends EnumClass {
   static BuiltSet<SettingsSetsipSettingsApiVersion> get values => _$settingsSetsipSettingsApiVersionValues;
   // coverage:ignore-end
 
-  static SettingsSetsipSettingsApiVersion valueOf(final String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
+  static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
 
   static Serializer<SettingsSetsipSettingsApiVersion> get serializer => _$settingsSetsipSettingsApiVersionSerializer;
 }
@@ -22546,7 +22494,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
         Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
             SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
-    final void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
+    void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsSetsipSettingsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22554,7 +22502,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsSetsipSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22576,7 +22524,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
         $SettingsSetsipSettingsResponseApplicationJsonInterface,
         Built<SettingsSetsipSettingsResponseApplicationJson, SettingsSetsipSettingsResponseApplicationJsonBuilder> {
   factory SettingsSetsipSettingsResponseApplicationJson([
-    final void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
+    void Function(SettingsSetsipSettingsResponseApplicationJsonBuilder)? b,
   ]) = _$SettingsSetsipSettingsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22584,7 +22532,7 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsSetsipSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22605,7 +22553,7 @@ class SettingsSetUserSettingApiVersion extends EnumClass {
   static BuiltSet<SettingsSetUserSettingApiVersion> get values => _$settingsSetUserSettingApiVersionValues;
   // coverage:ignore-end
 
-  static SettingsSetUserSettingApiVersion valueOf(final String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
+  static SettingsSetUserSettingApiVersion valueOf(String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
 
   static Serializer<SettingsSetUserSettingApiVersion> get serializer => _$settingsSetUserSettingApiVersionSerializer;
 }
@@ -22622,7 +22570,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
         Built<SettingsSetUserSettingResponseApplicationJson_Ocs,
             SettingsSetUserSettingResponseApplicationJson_OcsBuilder> {
   factory SettingsSetUserSettingResponseApplicationJson_Ocs([
-    final void Function(SettingsSetUserSettingResponseApplicationJson_OcsBuilder)? b,
+    void Function(SettingsSetUserSettingResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SettingsSetUserSettingResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22630,7 +22578,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsSetUserSettingResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22652,7 +22600,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson
         $SettingsSetUserSettingResponseApplicationJsonInterface,
         Built<SettingsSetUserSettingResponseApplicationJson, SettingsSetUserSettingResponseApplicationJsonBuilder> {
   factory SettingsSetUserSettingResponseApplicationJson([
-    final void Function(SettingsSetUserSettingResponseApplicationJsonBuilder)? b,
+    void Function(SettingsSetUserSettingResponseApplicationJsonBuilder)? b,
   ]) = _$SettingsSetUserSettingResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22660,7 +22608,7 @@ abstract class SettingsSetUserSettingResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SettingsSetUserSettingResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SettingsSetUserSettingResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22681,7 +22629,7 @@ class SignalingGetSettingsApiVersion extends EnumClass {
   static BuiltSet<SignalingGetSettingsApiVersion> get values => _$signalingGetSettingsApiVersionValues;
   // coverage:ignore-end
 
-  static SignalingGetSettingsApiVersion valueOf(final String name) => _$valueOfSignalingGetSettingsApiVersion(name);
+  static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
 
   static Serializer<SignalingGetSettingsApiVersion> get serializer => _$signalingGetSettingsApiVersionSerializer;
 }
@@ -22696,16 +22644,15 @@ abstract class SignalingSettings_HelloAuthParams_$10
     implements
         $SignalingSettings_HelloAuthParams_$10Interface,
         Built<SignalingSettings_HelloAuthParams_$10, SignalingSettings_HelloAuthParams_$10Builder> {
-  factory SignalingSettings_HelloAuthParams_$10([
-    final void Function(SignalingSettings_HelloAuthParams_$10Builder)? b,
-  ]) = _$SignalingSettings_HelloAuthParams_$10;
+  factory SignalingSettings_HelloAuthParams_$10([void Function(SignalingSettings_HelloAuthParams_$10Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_$10;
 
   // coverage:ignore-start
   const SignalingSettings_HelloAuthParams_$10._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_$10.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_$10.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22726,16 +22673,15 @@ abstract class SignalingSettings_HelloAuthParams_$20
     implements
         $SignalingSettings_HelloAuthParams_$20Interface,
         Built<SignalingSettings_HelloAuthParams_$20, SignalingSettings_HelloAuthParams_$20Builder> {
-  factory SignalingSettings_HelloAuthParams_$20([
-    final void Function(SignalingSettings_HelloAuthParams_$20Builder)? b,
-  ]) = _$SignalingSettings_HelloAuthParams_$20;
+  factory SignalingSettings_HelloAuthParams_$20([void Function(SignalingSettings_HelloAuthParams_$20Builder)? b]) =
+      _$SignalingSettings_HelloAuthParams_$20;
 
   // coverage:ignore-start
   const SignalingSettings_HelloAuthParams_$20._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams_$20.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams_$20.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22759,7 +22705,7 @@ abstract class SignalingSettings_HelloAuthParams
     implements
         $SignalingSettings_HelloAuthParamsInterface,
         Built<SignalingSettings_HelloAuthParams, SignalingSettings_HelloAuthParamsBuilder> {
-  factory SignalingSettings_HelloAuthParams([final void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
+  factory SignalingSettings_HelloAuthParams([void Function(SignalingSettings_HelloAuthParamsBuilder)? b]) =
       _$SignalingSettings_HelloAuthParams;
 
   // coverage:ignore-start
@@ -22767,7 +22713,7 @@ abstract class SignalingSettings_HelloAuthParams
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings_HelloAuthParams.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSettings_HelloAuthParams.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22787,7 +22733,7 @@ abstract class SignalingSettings_Stunservers
     implements
         $SignalingSettings_StunserversInterface,
         Built<SignalingSettings_Stunservers, SignalingSettings_StunserversBuilder> {
-  factory SignalingSettings_Stunservers([final void Function(SignalingSettings_StunserversBuilder)? b]) =
+  factory SignalingSettings_Stunservers([void Function(SignalingSettings_StunserversBuilder)? b]) =
       _$SignalingSettings_Stunservers;
 
   // coverage:ignore-start
@@ -22795,7 +22741,7 @@ abstract class SignalingSettings_Stunservers
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings_Stunservers.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSettings_Stunservers.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22817,7 +22763,7 @@ abstract class SignalingSettings_Turnservers
     implements
         $SignalingSettings_TurnserversInterface,
         Built<SignalingSettings_Turnservers, SignalingSettings_TurnserversBuilder> {
-  factory SignalingSettings_Turnservers([final void Function(SignalingSettings_TurnserversBuilder)? b]) =
+  factory SignalingSettings_Turnservers([void Function(SignalingSettings_TurnserversBuilder)? b]) =
       _$SignalingSettings_Turnservers;
 
   // coverage:ignore-start
@@ -22825,7 +22771,7 @@ abstract class SignalingSettings_Turnservers
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings_Turnservers.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSettings_Turnservers.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22851,15 +22797,14 @@ abstract interface class $SignalingSettingsInterface {
 
 abstract class SignalingSettings
     implements $SignalingSettingsInterface, Built<SignalingSettings, SignalingSettingsBuilder> {
-  factory SignalingSettings([final void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
+  factory SignalingSettings([void Function(SignalingSettingsBuilder)? b]) = _$SignalingSettings;
 
   // coverage:ignore-start
   const SignalingSettings._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSettings.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSettings.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -22880,7 +22825,7 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
         $SignalingGetSettingsResponseApplicationJson_OcsInterface,
         Built<SignalingGetSettingsResponseApplicationJson_Ocs, SignalingGetSettingsResponseApplicationJson_OcsBuilder> {
   factory SignalingGetSettingsResponseApplicationJson_Ocs([
-    final void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
+    void Function(SignalingGetSettingsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingGetSettingsResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22888,7 +22833,7 @@ abstract class SignalingGetSettingsResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingGetSettingsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22910,7 +22855,7 @@ abstract class SignalingGetSettingsResponseApplicationJson
         $SignalingGetSettingsResponseApplicationJsonInterface,
         Built<SignalingGetSettingsResponseApplicationJson, SignalingGetSettingsResponseApplicationJsonBuilder> {
   factory SignalingGetSettingsResponseApplicationJson([
-    final void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
+    void Function(SignalingGetSettingsResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingGetSettingsResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22918,7 +22863,7 @@ abstract class SignalingGetSettingsResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingGetSettingsResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingGetSettingsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22939,7 +22884,7 @@ class SignalingGetWelcomeMessageApiVersion extends EnumClass {
   static BuiltSet<SignalingGetWelcomeMessageApiVersion> get values => _$signalingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
-  static SignalingGetWelcomeMessageApiVersion valueOf(final String name) =>
+  static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfSignalingGetWelcomeMessageApiVersion(name);
 
   static Serializer<SignalingGetWelcomeMessageApiVersion> get serializer =>
@@ -22958,7 +22903,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
         Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
             SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
-    final void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
+    void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingGetWelcomeMessageResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -22966,7 +22911,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -22989,7 +22934,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
         Built<SignalingGetWelcomeMessageResponseApplicationJson,
             SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
   factory SignalingGetWelcomeMessageResponseApplicationJson([
-    final void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
+    void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingGetWelcomeMessageResponseApplicationJson;
 
   // coverage:ignore-start
@@ -22997,7 +22942,7 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingGetWelcomeMessageResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23018,7 +22963,7 @@ class SignalingPullMessagesApiVersion extends EnumClass {
   static BuiltSet<SignalingPullMessagesApiVersion> get values => _$signalingPullMessagesApiVersionValues;
   // coverage:ignore-end
 
-  static SignalingPullMessagesApiVersion valueOf(final String name) => _$valueOfSignalingPullMessagesApiVersion(name);
+  static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
 
   static Serializer<SignalingPullMessagesApiVersion> get serializer => _$signalingPullMessagesApiVersionSerializer;
 }
@@ -23035,15 +22980,14 @@ abstract interface class $SignalingSessionInterface {
 
 abstract class SignalingSession
     implements $SignalingSessionInterface, Built<SignalingSession, SignalingSessionBuilder> {
-  factory SignalingSession([final void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
+  factory SignalingSession([void Function(SignalingSessionBuilder)? b]) = _$SignalingSession;
 
   // coverage:ignore-start
   const SignalingSession._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSession.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory SignalingSession.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -23065,7 +23009,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
         Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
             SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
-    final void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -23073,7 +23017,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23085,7 +23029,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
       _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
+  static void _validate(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder b) {
     b.data?.validateOneOf();
   }
 }
@@ -23102,7 +23046,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
         Built<SignalingPullMessagesResponseApplicationJson_Ocs,
             SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
   factory SignalingPullMessagesResponseApplicationJson_Ocs([
-    final void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
+    void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -23110,7 +23054,7 @@ abstract class SignalingPullMessagesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23132,7 +23076,7 @@ abstract class SignalingPullMessagesResponseApplicationJson
         $SignalingPullMessagesResponseApplicationJsonInterface,
         Built<SignalingPullMessagesResponseApplicationJson, SignalingPullMessagesResponseApplicationJsonBuilder> {
   factory SignalingPullMessagesResponseApplicationJson([
-    final void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
+    void Function(SignalingPullMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingPullMessagesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -23140,7 +23084,7 @@ abstract class SignalingPullMessagesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingPullMessagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingPullMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23161,7 +23105,7 @@ class SignalingSendMessagesApiVersion extends EnumClass {
   static BuiltSet<SignalingSendMessagesApiVersion> get values => _$signalingSendMessagesApiVersionValues;
   // coverage:ignore-end
 
-  static SignalingSendMessagesApiVersion valueOf(final String name) => _$valueOfSignalingSendMessagesApiVersion(name);
+  static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
 
   static Serializer<SignalingSendMessagesApiVersion> get serializer => _$signalingSendMessagesApiVersionSerializer;
 }
@@ -23178,7 +23122,7 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
         Built<SignalingSendMessagesResponseApplicationJson_Ocs,
             SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
   factory SignalingSendMessagesResponseApplicationJson_Ocs([
-    final void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
+    void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$SignalingSendMessagesResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -23186,7 +23130,7 @@ abstract class SignalingSendMessagesResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23208,7 +23152,7 @@ abstract class SignalingSendMessagesResponseApplicationJson
         $SignalingSendMessagesResponseApplicationJsonInterface,
         Built<SignalingSendMessagesResponseApplicationJson, SignalingSendMessagesResponseApplicationJsonBuilder> {
   factory SignalingSendMessagesResponseApplicationJson([
-    final void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
+    void Function(SignalingSendMessagesResponseApplicationJsonBuilder)? b,
   ]) = _$SignalingSendMessagesResponseApplicationJson;
 
   // coverage:ignore-start
@@ -23216,7 +23160,7 @@ abstract class SignalingSendMessagesResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory SignalingSendMessagesResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory SignalingSendMessagesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23239,7 +23183,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
         $TempAvatarPostAvatarResponseApplicationJson_OcsInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson_Ocs, TempAvatarPostAvatarResponseApplicationJson_OcsBuilder> {
   factory TempAvatarPostAvatarResponseApplicationJson_Ocs([
-    final void Function(TempAvatarPostAvatarResponseApplicationJson_OcsBuilder)? b,
+    void Function(TempAvatarPostAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TempAvatarPostAvatarResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -23247,7 +23191,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TempAvatarPostAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23269,7 +23213,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
         $TempAvatarPostAvatarResponseApplicationJsonInterface,
         Built<TempAvatarPostAvatarResponseApplicationJson, TempAvatarPostAvatarResponseApplicationJsonBuilder> {
   factory TempAvatarPostAvatarResponseApplicationJson([
-    final void Function(TempAvatarPostAvatarResponseApplicationJsonBuilder)? b,
+    void Function(TempAvatarPostAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$TempAvatarPostAvatarResponseApplicationJson;
 
   // coverage:ignore-start
@@ -23277,7 +23221,7 @@ abstract class TempAvatarPostAvatarResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TempAvatarPostAvatarResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TempAvatarPostAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23301,7 +23245,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
         Built<TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
             TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs([
-    final void Function(TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
+    void Function(TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
   ]) = _$TempAvatarDeleteAvatarResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -23309,7 +23253,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23331,7 +23275,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
         $TempAvatarDeleteAvatarResponseApplicationJsonInterface,
         Built<TempAvatarDeleteAvatarResponseApplicationJson, TempAvatarDeleteAvatarResponseApplicationJsonBuilder> {
   factory TempAvatarDeleteAvatarResponseApplicationJson([
-    final void Function(TempAvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
+    void Function(TempAvatarDeleteAvatarResponseApplicationJsonBuilder)? b,
   ]) = _$TempAvatarDeleteAvatarResponseApplicationJson;
 
   // coverage:ignore-start
@@ -23339,7 +23283,7 @@ abstract class TempAvatarDeleteAvatarResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory TempAvatarDeleteAvatarResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23362,14 +23306,14 @@ abstract interface class $BotWithDetailsAndSecretInterface
 
 abstract class BotWithDetailsAndSecret
     implements $BotWithDetailsAndSecretInterface, Built<BotWithDetailsAndSecret, BotWithDetailsAndSecretBuilder> {
-  factory BotWithDetailsAndSecret([final void Function(BotWithDetailsAndSecretBuilder)? b]) = _$BotWithDetailsAndSecret;
+  factory BotWithDetailsAndSecret([void Function(BotWithDetailsAndSecretBuilder)? b]) = _$BotWithDetailsAndSecret;
 
   // coverage:ignore-start
   const BotWithDetailsAndSecret._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory BotWithDetailsAndSecret.fromJson(final Map<String, dynamic> json) =>
+  factory BotWithDetailsAndSecret.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23391,7 +23335,7 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
         $PublicCapabilities0_Spreed_Config_AttachmentsInterface,
         Built<PublicCapabilities0_Spreed_Config_Attachments, PublicCapabilities0_Spreed_Config_AttachmentsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Attachments([
-    final void Function(PublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
+    void Function(PublicCapabilities0_Spreed_Config_AttachmentsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Attachments;
 
   // coverage:ignore-start
@@ -23399,7 +23343,7 @@ abstract class PublicCapabilities0_Spreed_Config_Attachments
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Attachments.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Attachments.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23437,16 +23381,15 @@ abstract class PublicCapabilities0_Spreed_Config_Call
     implements
         $PublicCapabilities0_Spreed_Config_CallInterface,
         Built<PublicCapabilities0_Spreed_Config_Call, PublicCapabilities0_Spreed_Config_CallBuilder> {
-  factory PublicCapabilities0_Spreed_Config_Call([
-    final void Function(PublicCapabilities0_Spreed_Config_CallBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Call;
+  factory PublicCapabilities0_Spreed_Config_Call([void Function(PublicCapabilities0_Spreed_Config_CallBuilder)? b]) =
+      _$PublicCapabilities0_Spreed_Config_Call;
 
   // coverage:ignore-start
   const PublicCapabilities0_Spreed_Config_Call._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Call.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Call.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23475,16 +23418,15 @@ abstract class PublicCapabilities0_Spreed_Config_Chat
     implements
         $PublicCapabilities0_Spreed_Config_ChatInterface,
         Built<PublicCapabilities0_Spreed_Config_Chat, PublicCapabilities0_Spreed_Config_ChatBuilder> {
-  factory PublicCapabilities0_Spreed_Config_Chat([
-    final void Function(PublicCapabilities0_Spreed_Config_ChatBuilder)? b,
-  ]) = _$PublicCapabilities0_Spreed_Config_Chat;
+  factory PublicCapabilities0_Spreed_Config_Chat([void Function(PublicCapabilities0_Spreed_Config_ChatBuilder)? b]) =
+      _$PublicCapabilities0_Spreed_Config_Chat;
 
   // coverage:ignore-start
   const PublicCapabilities0_Spreed_Config_Chat._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Chat.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Chat.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23507,7 +23449,7 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
         $PublicCapabilities0_Spreed_Config_ConversationsInterface,
         Built<PublicCapabilities0_Spreed_Config_Conversations, PublicCapabilities0_Spreed_Config_ConversationsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Conversations([
-    final void Function(PublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
+    void Function(PublicCapabilities0_Spreed_Config_ConversationsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Conversations;
 
   // coverage:ignore-start
@@ -23515,7 +23457,7 @@ abstract class PublicCapabilities0_Spreed_Config_Conversations
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Conversations.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Conversations.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23538,7 +23480,7 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
         $PublicCapabilities0_Spreed_Config_PreviewsInterface,
         Built<PublicCapabilities0_Spreed_Config_Previews, PublicCapabilities0_Spreed_Config_PreviewsBuilder> {
   factory PublicCapabilities0_Spreed_Config_Previews([
-    final void Function(PublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
+    void Function(PublicCapabilities0_Spreed_Config_PreviewsBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Previews;
 
   // coverage:ignore-start
@@ -23546,7 +23488,7 @@ abstract class PublicCapabilities0_Spreed_Config_Previews
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Previews.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Previews.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23571,7 +23513,7 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
         $PublicCapabilities0_Spreed_Config_SignalingInterface,
         Built<PublicCapabilities0_Spreed_Config_Signaling, PublicCapabilities0_Spreed_Config_SignalingBuilder> {
   factory PublicCapabilities0_Spreed_Config_Signaling([
-    final void Function(PublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
+    void Function(PublicCapabilities0_Spreed_Config_SignalingBuilder)? b,
   ]) = _$PublicCapabilities0_Spreed_Config_Signaling;
 
   // coverage:ignore-start
@@ -23579,7 +23521,7 @@ abstract class PublicCapabilities0_Spreed_Config_Signaling
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config_Signaling.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config_Signaling.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23605,7 +23547,7 @@ abstract class PublicCapabilities0_Spreed_Config
     implements
         $PublicCapabilities0_Spreed_ConfigInterface,
         Built<PublicCapabilities0_Spreed_Config, PublicCapabilities0_Spreed_ConfigBuilder> {
-  factory PublicCapabilities0_Spreed_Config([final void Function(PublicCapabilities0_Spreed_ConfigBuilder)? b]) =
+  factory PublicCapabilities0_Spreed_Config([void Function(PublicCapabilities0_Spreed_ConfigBuilder)? b]) =
       _$PublicCapabilities0_Spreed_Config;
 
   // coverage:ignore-start
@@ -23613,7 +23555,7 @@ abstract class PublicCapabilities0_Spreed_Config
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed_Config.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed_Config.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23635,7 +23577,7 @@ abstract class PublicCapabilities0_Spreed
     implements
         $PublicCapabilities0_SpreedInterface,
         Built<PublicCapabilities0_Spreed, PublicCapabilities0_SpreedBuilder> {
-  factory PublicCapabilities0_Spreed([final void Function(PublicCapabilities0_SpreedBuilder)? b]) =
+  factory PublicCapabilities0_Spreed([void Function(PublicCapabilities0_SpreedBuilder)? b]) =
       _$PublicCapabilities0_Spreed;
 
   // coverage:ignore-start
@@ -23643,7 +23585,7 @@ abstract class PublicCapabilities0_Spreed
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0_Spreed.fromJson(final Map<String, dynamic> json) =>
+  factory PublicCapabilities0_Spreed.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -23661,15 +23603,14 @@ abstract interface class $PublicCapabilities0Interface {
 
 abstract class PublicCapabilities0
     implements $PublicCapabilities0Interface, Built<PublicCapabilities0, PublicCapabilities0Builder> {
-  factory PublicCapabilities0([final void Function(PublicCapabilities0Builder)? b]) = _$PublicCapabilities0;
+  factory PublicCapabilities0([void Function(PublicCapabilities0Builder)? b]) = _$PublicCapabilities0;
 
   // coverage:ignore-start
   const PublicCapabilities0._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory PublicCapabilities0.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory PublicCapabilities0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -23702,7 +23643,7 @@ extension $BuiltListChatMessageExtension on $BuiltListChatMessage {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListChatMessage> get serializer => const _$BuiltListChatMessageSerializer();
-  static $BuiltListChatMessage fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BuiltListChatMessage fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -23717,9 +23658,9 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListChatMessage object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListChatMessage object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -23736,9 +23677,9 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
 
   @override
   $BuiltListChatMessage deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
@@ -23765,7 +23706,7 @@ extension $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Exten
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> get serializer =>
       const _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer();
-  static $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 fromJson(final Object? json) =>
+  static $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 fromJson(Object? json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
@@ -23782,9 +23723,9 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -23804,9 +23745,9 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
 
   @override
   $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {
@@ -23834,7 +23775,7 @@ extension $IntStringExtension on $IntString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$IntString> get serializer => const _$IntStringSerializer();
-  static $IntString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $IntString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -23849,9 +23790,9 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $IntString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $IntString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.$int;
@@ -23868,9 +23809,9 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
 
   @override
   $IntString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     int? $int;
     try {
@@ -23891,7 +23832,7 @@ extension $BuiltListStringExtension on $BuiltListString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListString> get serializer => const _$BuiltListStringSerializer();
-  static $BuiltListString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BuiltListString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -23906,9 +23847,9 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListSignalingSession;
@@ -23925,9 +23866,9 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
 
   @override
   $BuiltListString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<SignalingSession>? builtListSignalingSession;
     try {
@@ -23951,8 +23892,7 @@ extension $BuiltListPublicCapabilities0Extension on $BuiltListPublicCapabilities
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BuiltListPublicCapabilities0> get serializer => const _$BuiltListPublicCapabilities0Serializer();
-  static $BuiltListPublicCapabilities0 fromJson(final Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  static $BuiltListPublicCapabilities0 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -23967,9 +23907,9 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BuiltListPublicCapabilities0 object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BuiltListPublicCapabilities0 object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.builtListNever;
@@ -23986,9 +23926,9 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
 
   @override
   $BuiltListPublicCapabilities0 deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     BuiltList<Never>? builtListNever;
     try {

@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   test('ObjectAllOf', () {
     final object = ObjectAllOf(
-      (final b) => b
+      (b) => b
         ..attribute1AllOf = 'attribute1AllOfValue'
         ..attribute2AllOf = 'attribute2AllOfValue',
     );
@@ -20,7 +20,7 @@ void main() {
 
   test('OneObjectAllOf', () {
     final object = OneObjectAllOf(
-      (final b) => b..attributeAllOf = 'attributeAllOfValue',
+      (b) => b..attributeAllOf = 'attributeAllOfValue',
     );
 
     final json = {
@@ -33,7 +33,7 @@ void main() {
 
   test('PrimitiveAllOf', () {
     final object = PrimitiveAllOf(
-      (final b) => b
+      (b) => b
         ..string = 'stringValue'
         ..$int = 62,
     );
@@ -49,7 +49,7 @@ void main() {
 
   test('MixedAllOf', () {
     final object = MixedAllOf(
-      (final b) => b
+      (b) => b
         ..string = 'stringValue'
         ..attributeAllOf = 'attributeAllOfValue',
     );
@@ -65,7 +65,7 @@ void main() {
 
   test('OneValueAllOf', () {
     final object = OneValueAllOf(
-      (final b) => b..string = 'stringValue',
+      (b) => b..string = 'stringValue',
     );
 
     final json = {

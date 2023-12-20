@@ -28,7 +28,7 @@ linter:
     avoid_equals_and_hash_code_on_mutable_classes: true
     avoid_escaping_inner_quotes: true
     avoid_field_initializers_in_const_classes: true
-    avoid_final_parameters: false
+    avoid_final_parameters: true
     avoid_function_literals_in_foreach_calls: true
     avoid_implementing_value_types: true
     avoid_init_to_null: true
@@ -137,7 +137,7 @@ linter:
     prefer_final_fields: true
     prefer_final_in_for_each: true
     prefer_final_locals: true
-    prefer_final_parameters: true
+    prefer_final_parameters: false
     prefer_for_elements_to_map_fromIterable: true
     prefer_foreach: true
     prefer_function_declarations_over_variables: true

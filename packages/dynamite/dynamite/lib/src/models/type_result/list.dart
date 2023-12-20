@@ -22,7 +22,7 @@ class TypeResultList extends TypeResult {
     final String? mimeType,
   }) {
     if (onlyChildren) {
-      return '($object as List).map<String>((final e) => ${subType.encode('e', mimeType: mimeType)}).join()';
+      return '($object as List).map<String>((e) => ${subType.encode('e', mimeType: mimeType)}).join()';
     }
 
     return super.encode(object, mimeType: mimeType);

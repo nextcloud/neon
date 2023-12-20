@@ -22,7 +22,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -48,11 +48,11 @@ abstract interface class $ObjectAllOf_1Interface {
 abstract interface class $ObjectAllOfInterface implements $ObjectAllOf_0Interface, $ObjectAllOf_1Interface {}
 
 abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, ObjectAllOfBuilder> {
-  factory ObjectAllOf([final void Function(ObjectAllOfBuilder)? b]) = _$ObjectAllOf;
+  factory ObjectAllOf([void Function(ObjectAllOfBuilder)? b]) = _$ObjectAllOf;
 
   const ObjectAllOf._();
 
-  factory ObjectAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory ObjectAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -69,12 +69,11 @@ abstract interface class $OneObjectAllOf_0Interface {
 abstract interface class $OneObjectAllOfInterface implements $OneObjectAllOf_0Interface {}
 
 abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObjectAllOf, OneObjectAllOfBuilder> {
-  factory OneObjectAllOf([final void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
+  factory OneObjectAllOf([void Function(OneObjectAllOfBuilder)? b]) = _$OneObjectAllOf;
 
   const OneObjectAllOf._();
 
-  factory OneObjectAllOf.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneObjectAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -90,12 +89,11 @@ abstract interface class $PrimitiveAllOfInterface {
 }
 
 abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<PrimitiveAllOf, PrimitiveAllOfBuilder> {
-  factory PrimitiveAllOf([final void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
+  factory PrimitiveAllOf([void Function(PrimitiveAllOfBuilder)? b]) = _$PrimitiveAllOf;
 
   const PrimitiveAllOf._();
 
-  factory PrimitiveAllOf.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory PrimitiveAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -115,11 +113,11 @@ abstract interface class $MixedAllOfInterface implements $MixedAllOf_1Interface 
 }
 
 abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, MixedAllOfBuilder> {
-  factory MixedAllOf([final void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
+  factory MixedAllOf([void Function(MixedAllOfBuilder)? b]) = _$MixedAllOf;
 
   const MixedAllOf._();
 
-  factory MixedAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory MixedAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
@@ -133,11 +131,11 @@ abstract interface class $OneValueAllOfInterface {
 }
 
 abstract class OneValueAllOf implements $OneValueAllOfInterface, Built<OneValueAllOf, OneValueAllOfBuilder> {
-  factory OneValueAllOf([final void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
+  factory OneValueAllOf([void Function(OneValueAllOfBuilder)? b]) = _$OneValueAllOf;
 
   const OneValueAllOf._();
 
-  factory OneValueAllOf.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OneValueAllOf.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 

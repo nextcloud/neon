@@ -27,7 +27,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -63,9 +63,9 @@ class DirectClient {
   /// See:
   ///  * [getUrlRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<DirectGetUrlResponseApplicationJson, void>> getUrl({
-    required final int fileId,
-    final int? expirationTime,
-    final bool? oCSAPIRequest,
+    required int fileId,
+    int? expirationTime,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = getUrlRaw(
       fileId: fileId,
@@ -98,9 +98,9 @@ class DirectClient {
   ///  * [getUrl] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void> getUrlRaw({
-    required final int fileId,
-    final int? expirationTime,
-    final bool? oCSAPIRequest,
+    required int fileId,
+    int? expirationTime,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -110,7 +110,7 @@ class DirectClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -161,14 +161,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -188,7 +188,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
         $DirectGetUrlResponseApplicationJson_Ocs_DataInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
   factory DirectGetUrlResponseApplicationJson_Ocs_Data([
-    final void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
+    void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectGetUrlResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
@@ -196,7 +196,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -218,16 +218,15 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
     implements
         $DirectGetUrlResponseApplicationJson_OcsInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder> {
-  factory DirectGetUrlResponseApplicationJson_Ocs([
-    final void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? b,
-  ]) = _$DirectGetUrlResponseApplicationJson_Ocs;
+  factory DirectGetUrlResponseApplicationJson_Ocs([void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? b]) =
+      _$DirectGetUrlResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
   const DirectGetUrlResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectGetUrlResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -248,7 +247,7 @@ abstract class DirectGetUrlResponseApplicationJson
     implements
         $DirectGetUrlResponseApplicationJsonInterface,
         Built<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder> {
-  factory DirectGetUrlResponseApplicationJson([final void Function(DirectGetUrlResponseApplicationJsonBuilder)? b]) =
+  factory DirectGetUrlResponseApplicationJson([void Function(DirectGetUrlResponseApplicationJsonBuilder)? b]) =
       _$DirectGetUrlResponseApplicationJson;
 
   // coverage:ignore-start
@@ -256,7 +255,7 @@ abstract class DirectGetUrlResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory DirectGetUrlResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory DirectGetUrlResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -276,15 +275,14 @@ abstract interface class $Capabilities_DavInterface {
 
 abstract class Capabilities_Dav
     implements $Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
-  factory Capabilities_Dav([final void Function(Capabilities_DavBuilder)? b]) = _$Capabilities_Dav;
+  factory Capabilities_Dav([void Function(Capabilities_DavBuilder)? b]) = _$Capabilities_Dav;
 
   // coverage:ignore-start
   const Capabilities_Dav._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities_Dav.fromJson(final Map<String, dynamic> json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities_Dav.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -300,14 +298,14 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
-  factory Capabilities([final void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
+  factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory Capabilities.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start

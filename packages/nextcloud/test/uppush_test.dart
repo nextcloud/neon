@@ -8,7 +8,7 @@ void main() {
   presets(
     'uppush',
     'uppush',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
       setUp(() async {

@@ -10,7 +10,7 @@ class VersionCheck {
   VersionCheck({
     required this.versions,
     required this.minimumVersion,
-    required final int? maximumMajor,
+    required int? maximumMajor,
   }) : maximumMajor = maximumMajor ?? minimumVersion.major;
 
   /// Current version of the app.

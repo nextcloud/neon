@@ -4,17 +4,17 @@ import 'package:test/test.dart';
 void main() {
   test('BaseNestedAllOf', () {
     final object = BaseNestedAllOf(
-      (final b) => b
+      (b) => b
         ..string = 'attributeValue'
         ..attributeAllOf = 'attributeAllOfValue'
         ..attributeNestedAllOf = 'attributeNestedAllOf'
         ..baseAnyOf = (
           $int: null,
-          baseAnyOf1: BaseAnyOf1((final b) => b..attributeAnyOf = 'baseAnyOfAttributeAnyOfValue'),
+          baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseAnyOfAttributeAnyOfValue'),
         )
         ..baseOneOf = (
           $double: null,
-          baseOneOf1: BaseOneOf1((final b) => b..attributeOneOf = 'baseAnyOfAttributeOneOfValue'),
+          baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseAnyOfAttributeOneOfValue'),
         ),
     );
 
@@ -33,7 +33,7 @@ void main() {
   test('BaseNestedOneOf', () {
     BaseNestedOneOf object = (
       baseAllOf: BaseAllOf(
-        (final b) => b
+        (b) => b
           ..string = 'BaseAllOfAttributeValue'
           ..attributeAllOf = 'BaseAllOfAttributeAllOfValue',
       ),
@@ -54,7 +54,7 @@ void main() {
     object = (
       baseAllOf: null,
       $double: null,
-      baseOneOf1: BaseOneOf1((final b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
+      baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
       baseAnyOf: null,
       baseNestedOneOf3: null,
     );
@@ -85,7 +85,7 @@ void main() {
       baseOneOf1: null,
       baseAnyOf: (
         $int: null,
-        baseAnyOf1: BaseAnyOf1((final b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
+        baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
       ),
       baseNestedOneOf3: null,
     );
@@ -119,7 +119,7 @@ void main() {
       baseOneOf1: null,
       baseAnyOf: null,
       baseNestedOneOf3: BaseNestedOneOf3(
-        (final b) => b..attributeNestedOneOf = 'BaseNestedOneOf3AttributeNestedOneOfValue',
+        (b) => b..attributeNestedOneOf = 'BaseNestedOneOf3AttributeNestedOneOfValue',
       ),
     );
 
@@ -134,7 +134,7 @@ void main() {
   test('BaseNestedAnyOf', () {
     BaseNestedAnyOf object = (
       baseAllOf: BaseAllOf(
-        (final b) => b
+        (b) => b
           ..string = 'BaseAllOfAttributeValue'
           ..attributeAllOf = 'BaseAllOfAttributeAllOfValue',
       ),
@@ -156,7 +156,7 @@ void main() {
       baseAllOf: null,
       baseOneOf: (
         $double: null,
-        baseOneOf1: BaseOneOf1((final b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
+        baseOneOf1: BaseOneOf1((b) => b..attributeOneOf = 'baseOneOfAttributeOneOfValue'),
       ),
       $int: null,
       baseAnyOf1: null,
@@ -190,7 +190,7 @@ void main() {
       baseAllOf: null,
       baseOneOf: null,
       $int: null,
-      baseAnyOf1: BaseAnyOf1((final b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
+      baseAnyOf1: BaseAnyOf1((b) => b..attributeAnyOf = 'baseOneOfAttributeAnyOfValue'),
       baseNestedAnyOf3: null,
     );
 
@@ -220,7 +220,7 @@ void main() {
       $int: null,
       baseAnyOf1: null,
       baseNestedAnyOf3: BaseNestedAnyOf3(
-        (final b) => b..attributeNestedAnyOf = 'BaseNestedOneOf3AttributeNestedAnyOfValue',
+        (b) => b..attributeNestedAnyOf = 'BaseNestedOneOf3AttributeNestedAnyOfValue',
       ),
     );
 
@@ -256,7 +256,7 @@ void main() {
     object = (
       $num: null,
       baseOneOf1: BaseOneOf1(
-        (final b) => b..attributeOneOf = 'NestedOptimizedOneOfBaseOneOf1AttributeOneOfValue',
+        (b) => b..attributeOneOf = 'NestedOptimizedOneOfBaseOneOf1AttributeOneOfValue',
       ),
     );
 

@@ -25,11 +25,11 @@ class NextcloudClient extends DynamiteClient {
   NextcloudClient(
     super.baseURL, {
     this.loginName,
-    final String? password,
-    final String? appPassword,
-    final String? language,
-    final AppType appType = AppType.unknown,
-    final String? userAgentOverride,
+    String? password,
+    String? appPassword,
+    String? language,
+    AppType appType = AppType.unknown,
+    String? userAgentOverride,
     super.httpClient,
     super.cookieJar,
   }) : super(

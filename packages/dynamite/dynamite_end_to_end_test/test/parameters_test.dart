@@ -16,7 +16,7 @@ late MockHttpClient mockHttpClient;
 
 class MockHttpOverrides extends HttpOverrides {
   @override
-  HttpClient createHttpClient(final SecurityContext? context) => mockHttpClient;
+  HttpClient createHttpClient(SecurityContext? context) => mockHttpClient;
 }
 
 void main() {
@@ -29,17 +29,17 @@ void main() {
     mockHttpClient = MockHttpClient();
     HttpOverrides.global = MockHttpOverrides();
 
-    when(mockHttpClient.openUrl(any, any)).thenAnswer((final invocation) {
+    when(mockHttpClient.openUrl(any, any)).thenAnswer((invocation) {
       headers = MockHttpHeaders();
 
       response = MockHttpClientResponse();
       when(response.headers).thenReturn(headers);
-      when(response.transform<dynamic>(any)).thenAnswer((final _) => Stream.value('{}'));
+      when(response.transform<dynamic>(any)).thenAnswer((_) => Stream.value('{}'));
       when(response.statusCode).thenReturn(200);
 
       request = MockHttpClientRequest();
       when(request.headers).thenReturn(headers);
-      when(request.close()).thenAnswer((final _) async => response);
+      when(request.close()).thenAnswer((_) async => response);
       return Future.value(request);
     });
 
@@ -55,7 +55,7 @@ void main() {
 
     test('with contentString', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (final b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
 
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
@@ -73,7 +73,7 @@ void main() {
 
     test('with contentParameter', () async {
       final contentParameter = ContentString<BuiltMap<String, JsonObject>>(
-        (final b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
 
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));
@@ -103,7 +103,7 @@ void main() {
 
     test('with multiple query parameters', () async {
       final contentString = ContentString<BuiltMap<String, JsonObject>>(
-        (final b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
+        (b) => b..content = BuiltMap<String, JsonObject>({'key': JsonObject('value')}),
       );
 
       final queryComponent = Uri.encodeQueryComponent(json.encode({'key': 'value'}));

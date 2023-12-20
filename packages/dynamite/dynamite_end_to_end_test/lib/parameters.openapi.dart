@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -62,19 +62,19 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<JsonObject, void>> $get({
-    final ContentString<BuiltMap<String, JsonObject>>? contentString,
-    final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    final BuiltList<String>? array,
-    final bool? $bool,
-    final String? string,
-    final Uint8List? stringBinary,
-    final int? $int,
-    final double? $double,
-    final num? $num,
-    final JsonObject? object,
-    final GetOneOf? oneOf,
-    final GetAnyOf? anyOf,
-    final GetEnumPattern? enumPattern,
+    ContentString<BuiltMap<String, JsonObject>>? contentString,
+    ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    BuiltList<String>? array,
+    bool? $bool,
+    String? string,
+    Uint8List? stringBinary,
+    int? $int,
+    double? $double,
+    num? $num,
+    JsonObject? object,
+    GetOneOf? oneOf,
+    GetAnyOf? anyOf,
+    GetEnumPattern? enumPattern,
   }) async {
     final rawResponse = $getRaw(
       contentString: contentString,
@@ -122,19 +122,19 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<JsonObject, void> $getRaw({
-    final ContentString<BuiltMap<String, JsonObject>>? contentString,
-    final ContentString<BuiltMap<String, JsonObject>>? contentParameter,
-    final BuiltList<String>? array,
-    final bool? $bool,
-    final String? string,
-    final Uint8List? stringBinary,
-    final int? $int,
-    final double? $double,
-    final num? $num,
-    final JsonObject? object,
-    final GetOneOf? oneOf,
-    final GetAnyOf? anyOf,
-    final GetEnumPattern? enumPattern,
+    ContentString<BuiltMap<String, JsonObject>>? contentString,
+    ContentString<BuiltMap<String, JsonObject>>? contentParameter,
+    BuiltList<String>? array,
+    bool? $bool,
+    String? string,
+    Uint8List? stringBinary,
+    int? $int,
+    double? $double,
+    num? $num,
+    JsonObject? object,
+    GetOneOf? oneOf,
+    GetAnyOf? anyOf,
+    GetEnumPattern? enumPattern,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -226,12 +226,12 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [getHeadersRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<JsonObject, void>> getHeaders({
-    final BuiltList<String>? array,
-    final bool? $bool,
-    final String? string,
-    final int? $int,
-    final double? $double,
-    final num? $num,
+    BuiltList<String>? array,
+    bool? $bool,
+    String? string,
+    int? $int,
+    double? $double,
+    num? $num,
   }) async {
     final rawResponse = getHeadersRaw(
       array: array,
@@ -265,12 +265,12 @@ class Client extends DynamiteClient {
   ///  * [getHeaders] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<JsonObject, void> getHeadersRaw({
-    final BuiltList<String>? array,
-    final bool? $bool,
-    final String? string,
-    final int? $int,
-    final double? $double,
-    final num? $num,
+    BuiltList<String>? array,
+    bool? $bool,
+    String? string,
+    int? $int,
+    double? $double,
+    num? $num,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -280,7 +280,7 @@ class Client extends DynamiteClient {
 
     final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($array != null) {
-      headers['array'] = ($array as List).map<String>((final e) => e as String).join();
+      headers['array'] = ($array as List).map<String>((e) => e as String).join();
     }
 
     final $$bool = jsonSerializers.serialize($bool, specifiedType: const FullType(bool));
@@ -331,7 +331,7 @@ class Client extends DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameterRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
-  Future<DynamiteResponse<JsonObject, void>> getPathParameter({required final String pathParameter}) async {
+  Future<DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
     final rawResponse = getPathParameterRaw(
       pathParameter: pathParameter,
     );
@@ -350,7 +350,7 @@ class Client extends DynamiteClient {
   /// See:
   ///  * [getPathParameter] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
-  DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required final String pathParameter}) {
+  DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
       'Accept': 'application/json',
@@ -386,7 +386,7 @@ class GetEnumPattern extends EnumClass {
 
   static BuiltSet<GetEnumPattern> get values => _$getEnumPatternValues;
 
-  static GetEnumPattern valueOf(final String name) => _$valueOfGetEnumPattern(name);
+  static GetEnumPattern valueOf(String name) => _$valueOfGetEnumPattern(name);
 
   static Serializer<GetEnumPattern> get serializer => _$getEnumPatternSerializer;
 }
@@ -402,7 +402,7 @@ extension $BoolStringExtension on $BoolString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$BoolString> get serializer => const _$BoolStringSerializer();
-  static $BoolString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $BoolString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -417,9 +417,9 @@ class _$BoolStringSerializer implements PrimitiveSerializer<$BoolString> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $BoolString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $BoolString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.$bool;
@@ -436,9 +436,9 @@ class _$BoolStringSerializer implements PrimitiveSerializer<$BoolString> {
 
   @override
   $BoolString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     bool? $bool;
     try {

@@ -27,7 +27,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -86,7 +86,7 @@ class LogSettingsClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -127,16 +127,15 @@ abstract class LogSettingsLogSettingsDownloadHeaders
     implements
         $LogSettingsLogSettingsDownloadHeadersInterface,
         Built<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder> {
-  factory LogSettingsLogSettingsDownloadHeaders([
-    final void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b,
-  ]) = _$LogSettingsLogSettingsDownloadHeaders;
+  factory LogSettingsLogSettingsDownloadHeaders([void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b]) =
+      _$LogSettingsLogSettingsDownloadHeaders;
 
   // coverage:ignore-start
   const LogSettingsLogSettingsDownloadHeaders._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory LogSettingsLogSettingsDownloadHeaders.fromJson(final Map<String, dynamic> json) =>
+  factory LogSettingsLogSettingsDownloadHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

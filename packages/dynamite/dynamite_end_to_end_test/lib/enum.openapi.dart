@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -43,7 +43,7 @@ class EnumString extends EnumClass {
 
   static BuiltSet<EnumString> get values => _$enumStringValues;
 
-  static EnumString valueOf(final String name) => _$valueOfEnumString(name);
+  static EnumString valueOf(String name) => _$valueOfEnumString(name);
 
   static Serializer<EnumString> get serializer => _$enumStringSerializer;
 }

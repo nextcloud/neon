@@ -1,7 +1,7 @@
 import 'dart:io';
 
 void main() {
-  final props = File('lib/src/webdav/props.csv').readAsLinesSync().map((final line) => line.split(','));
+  final props = File('lib/src/webdav/props.csv').readAsLinesSync().map((line) => line.split(','));
   final valueProps = <String>[];
   final findProps = <String>[];
   final variables = <String>[];
@@ -58,33 +58,33 @@ void main() {
 }
 
 List<String> generateClass(
-  final String name,
-  final String elementName,
-  final String namespace,
-  final List<String> props,
-  final List<String> variables, {
-  required final bool isPropfind,
+  String name,
+  String elementName,
+  String namespace,
+  List<String> props,
+  List<String> variables, {
+  required bool isPropfind,
 }) =>
     [
       '@annotation.XmlSerializable(createMixin: true)',
       "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
       'class $name with _\$${name}XmlSerializableMixin {',
       '  $name({',
-      ...variables.map((final variable) => '    this.$variable,'),
+      ...variables.map((variable) => '    this.$variable,'),
       '  });',
       '',
       if (isPropfind) ...[
         '  $name.fromBools({',
-        ...variables.map((final variable) => '    final bool $variable = false,'),
-        '  }) : ${variables.map((final variable) => '$variable = $variable ? [null] : null').join(', ')};',
+        ...variables.map((variable) => '    bool $variable = false,'),
+        '  }) : ${variables.map((variable) => '$variable = $variable ? [null] : null').join(', ')};',
         '',
       ],
-      '  factory $name.fromXmlElement(final XmlElement element) => _\$${name}FromXmlElement(element);',
-      ...props.map((final prop) => '\n  $prop'),
+      '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',
+      ...props.map((prop) => '\n  $prop'),
       '}',
     ];
 
-String convertNamespace(final String namespacePrefix) {
+String convertNamespace(String namespacePrefix) {
   switch (namespacePrefix) {
     case 'dav':
       return 'namespaceDav';

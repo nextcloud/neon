@@ -11,7 +11,7 @@ export 'package:crypton/crypton.dart' show RSAKeypair, RSAPrivateKey, RSAPublicK
 part 'notifications.g.dart';
 
 /// Generates the push token hash which is just sha512
-String generatePushTokenHash(final String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
+String generatePushTokenHash(String pushToken) => sha512.convert(utf8.encode(pushToken)).toString();
 
 @JsonSerializable()
 // ignore: public_member_api_docs
@@ -28,7 +28,7 @@ class DecryptedSubject {
   });
 
   // ignore: public_member_api_docs
-  factory DecryptedSubject.fromJson(final Map<String, dynamic> json) => _$DecryptedSubjectFromJson(json);
+  factory DecryptedSubject.fromJson(Map<String, dynamic> json) => _$DecryptedSubjectFromJson(json);
 
   /// ID if the notification
   final int? nid;
@@ -58,8 +58,8 @@ class DecryptedSubject {
 
 /// Decrypts the subject of a push notification
 DecryptedSubject decryptPushNotificationSubject(
-  final RSAPrivateKey privateKey,
-  final String subject,
+  RSAPrivateKey privateKey,
+  String subject,
 ) =>
     DecryptedSubject.fromJson(
       json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,

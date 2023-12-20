@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -63,9 +63,9 @@ class ApiClient {
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiGetResponseApplicationJson, void>> $get({
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = $getRaw(
       version: version,
@@ -96,9 +96,9 @@ class ApiClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiGetResponseApplicationJson, void> $getRaw({
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -108,7 +108,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -170,10 +170,10 @@ class ApiClient {
   /// See:
   ///  * [$setRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiSetResponseApplicationJson, void>> $set({
-    required final String dueDate,
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String dueDate,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = $setRaw(
       dueDate: dueDate,
@@ -209,10 +209,10 @@ class ApiClient {
   ///  * [$set] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiSetResponseApplicationJson, void> $setRaw({
-    required final String dueDate,
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String dueDate,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -222,7 +222,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -284,9 +284,9 @@ class ApiClient {
   /// See:
   ///  * [removeRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ApiRemoveResponseApplicationJson, void>> remove({
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) async {
     final rawResponse = removeRaw(
       version: version,
@@ -318,9 +318,9 @@ class ApiClient {
   ///  * [remove] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<ApiRemoveResponseApplicationJson, void> removeRaw({
-    required final String version,
-    required final int fileId,
-    final bool? oCSAPIRequest,
+    required String version,
+    required int fileId,
+    bool? oCSAPIRequest,
   }) {
     final parameters = <String, dynamic>{};
     final headers = <String, String>{
@@ -330,7 +330,7 @@ class ApiClient {
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
-      (final auth) => switch (auth) {
+      (auth) => switch (auth) {
         DynamiteHttpBearerAuthentication() || DynamiteHttpBasicAuthentication() => true,
         _ => false,
       },
@@ -382,14 +382,14 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
-  factory OCSMeta([final void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
+  factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory OCSMeta.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   // coverage:ignore-start
@@ -408,16 +408,15 @@ abstract class ApiGetResponseApplicationJson_Ocs_Data
     implements
         $ApiGetResponseApplicationJson_Ocs_DataInterface,
         Built<ApiGetResponseApplicationJson_Ocs_Data, ApiGetResponseApplicationJson_Ocs_DataBuilder> {
-  factory ApiGetResponseApplicationJson_Ocs_Data([
-    final void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? b,
-  ]) = _$ApiGetResponseApplicationJson_Ocs_Data;
+  factory ApiGetResponseApplicationJson_Ocs_Data([void Function(ApiGetResponseApplicationJson_Ocs_DataBuilder)? b]) =
+      _$ApiGetResponseApplicationJson_Ocs_Data;
 
   // coverage:ignore-start
   const ApiGetResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetResponseApplicationJson_Ocs_Data.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -439,7 +438,7 @@ abstract class ApiGetResponseApplicationJson_Ocs
     implements
         $ApiGetResponseApplicationJson_OcsInterface,
         Built<ApiGetResponseApplicationJson_Ocs, ApiGetResponseApplicationJson_OcsBuilder> {
-  factory ApiGetResponseApplicationJson_Ocs([final void Function(ApiGetResponseApplicationJson_OcsBuilder)? b]) =
+  factory ApiGetResponseApplicationJson_Ocs([void Function(ApiGetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiGetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -447,7 +446,7 @@ abstract class ApiGetResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -467,7 +466,7 @@ abstract class ApiGetResponseApplicationJson
     implements
         $ApiGetResponseApplicationJsonInterface,
         Built<ApiGetResponseApplicationJson, ApiGetResponseApplicationJsonBuilder> {
-  factory ApiGetResponseApplicationJson([final void Function(ApiGetResponseApplicationJsonBuilder)? b]) =
+  factory ApiGetResponseApplicationJson([void Function(ApiGetResponseApplicationJsonBuilder)? b]) =
       _$ApiGetResponseApplicationJson;
 
   // coverage:ignore-start
@@ -475,7 +474,7 @@ abstract class ApiGetResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiGetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiGetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -496,7 +495,7 @@ abstract class ApiSetResponseApplicationJson_Ocs
     implements
         $ApiSetResponseApplicationJson_OcsInterface,
         Built<ApiSetResponseApplicationJson_Ocs, ApiSetResponseApplicationJson_OcsBuilder> {
-  factory ApiSetResponseApplicationJson_Ocs([final void Function(ApiSetResponseApplicationJson_OcsBuilder)? b]) =
+  factory ApiSetResponseApplicationJson_Ocs([void Function(ApiSetResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiSetResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -504,7 +503,7 @@ abstract class ApiSetResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiSetResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiSetResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -524,7 +523,7 @@ abstract class ApiSetResponseApplicationJson
     implements
         $ApiSetResponseApplicationJsonInterface,
         Built<ApiSetResponseApplicationJson, ApiSetResponseApplicationJsonBuilder> {
-  factory ApiSetResponseApplicationJson([final void Function(ApiSetResponseApplicationJsonBuilder)? b]) =
+  factory ApiSetResponseApplicationJson([void Function(ApiSetResponseApplicationJsonBuilder)? b]) =
       _$ApiSetResponseApplicationJson;
 
   // coverage:ignore-start
@@ -532,7 +531,7 @@ abstract class ApiSetResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiSetResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiSetResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -553,7 +552,7 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
     implements
         $ApiRemoveResponseApplicationJson_OcsInterface,
         Built<ApiRemoveResponseApplicationJson_Ocs, ApiRemoveResponseApplicationJson_OcsBuilder> {
-  factory ApiRemoveResponseApplicationJson_Ocs([final void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? b]) =
+  factory ApiRemoveResponseApplicationJson_Ocs([void Function(ApiRemoveResponseApplicationJson_OcsBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson_Ocs;
 
   // coverage:ignore-start
@@ -561,7 +560,7 @@ abstract class ApiRemoveResponseApplicationJson_Ocs
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiRemoveResponseApplicationJson_Ocs.fromJson(final Map<String, dynamic> json) =>
+  factory ApiRemoveResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
@@ -582,7 +581,7 @@ abstract class ApiRemoveResponseApplicationJson
     implements
         $ApiRemoveResponseApplicationJsonInterface,
         Built<ApiRemoveResponseApplicationJson, ApiRemoveResponseApplicationJsonBuilder> {
-  factory ApiRemoveResponseApplicationJson([final void Function(ApiRemoveResponseApplicationJsonBuilder)? b]) =
+  factory ApiRemoveResponseApplicationJson([void Function(ApiRemoveResponseApplicationJsonBuilder)? b]) =
       _$ApiRemoveResponseApplicationJson;
 
   // coverage:ignore-start
@@ -590,7 +589,7 @@ abstract class ApiRemoveResponseApplicationJson
   // coverage:ignore-end
 
   // coverage:ignore-start
-  factory ApiRemoveResponseApplicationJson.fromJson(final Map<String, dynamic> json) =>
+  factory ApiRemoveResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 

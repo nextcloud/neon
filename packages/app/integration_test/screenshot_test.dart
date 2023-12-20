@@ -18,9 +18,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_io/io.dart';
 
 Future<void> runTestApp(
-  final WidgetTester tester,
-  final IntegrationTestWidgetsFlutterBinding binding, {
-  final Account? account,
+  WidgetTester tester,
+  IntegrationTestWidgetsFlutterBinding binding, {
+  Account? account,
 }) async {
   await runNeon(
     appImplementations: appImplementations,
@@ -33,23 +33,23 @@ Future<void> runTestApp(
   await tester.pumpAndSettle();
 }
 
-Future<void> openDrawer(final WidgetTester tester) async {
+Future<void> openDrawer(WidgetTester tester) async {
   await tester.tap(find.byTooltip('Open navigation menu'));
   await tester.pumpAndSettle();
 }
 
-Future<void> switchPage(final WidgetTester tester, final String name) async {
+Future<void> switchPage(WidgetTester tester, String name) async {
   await openDrawer(tester);
   await tester.tap(find.text(name).last);
   await tester.pumpAndSettle();
 }
 
-Future<void> prepareScreenshot(final WidgetTester tester, final IntegrationTestWidgetsFlutterBinding binding) async {
+Future<void> prepareScreenshot(WidgetTester tester, IntegrationTestWidgetsFlutterBinding binding) async {
   await binding.convertFlutterSurfaceToImage();
   await tester.pumpAndSettle();
 }
 
-Future<Account> getAccount(final String username) async {
+Future<Account> getAccount(String username) async {
   final host = Uri(scheme: 'http', host: '10.0.2.2');
   final appPassword = (await NextcloudClient(
     host,
@@ -85,7 +85,7 @@ Future<void> main() async {
     SharedPreferences.setMockInitialValues({});
   });
 
-  testWidgets('login', (final tester) async {
+  testWidgets('login', (tester) async {
     await runTestApp(
       tester,
       binding,
@@ -94,7 +94,7 @@ Future<void> main() async {
     await binding.takeScreenshot('login_server_selection');
   });
 
-  testWidgets('home', (final tester) async {
+  testWidgets('home', (tester) async {
     await runTestApp(
       tester,
       binding,
@@ -107,7 +107,7 @@ Future<void> main() async {
     await binding.takeScreenshot('home_drawer');
   });
 
-  testWidgets('files', (final tester) async {
+  testWidgets('files', (tester) async {
     await runTestApp(
       tester,
       binding,
@@ -146,7 +146,7 @@ Future<void> main() async {
     await binding.takeScreenshot('files_create');
   });
 
-  testWidgets('news', (final tester) async {
+  testWidgets('news', (tester) async {
     const wikipediaFeedURL = 'https://en.wikipedia.org/w/api.php?action=featuredfeed&feed=featured&feedformat=atom';
     const nasaFeedURL = 'https://www.nasa.gov/rss/dyn/breaking_news.rss';
 
@@ -220,7 +220,7 @@ Future<void> main() async {
     await binding.takeScreenshot('news_articles_starred_list');
   });
 
-  testWidgets('notes', (final tester) async {
+  testWidgets('notes', (tester) async {
     await account.client.notes.createNote(
       title: 'Wishlist',
       category: 'Financial',
@@ -282,7 +282,7 @@ Future<void> main() async {
     await binding.takeScreenshot('notes_categories_list');
   });
 
-  testWidgets('notifications', (final tester) async {
+  testWidgets('notifications', (tester) async {
     await (await getAccount('admin')).client.notifications.api.generateNotification(
           userId: account.username,
           shortMessage: 'Notifications demo',
@@ -304,7 +304,7 @@ Future<void> main() async {
     await binding.takeScreenshot('notifications_list');
   });
 
-  testWidgets('settings', (final tester) async {
+  testWidgets('settings', (tester) async {
     await runTestApp(
       tester,
       binding,

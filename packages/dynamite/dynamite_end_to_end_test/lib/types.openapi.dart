@@ -26,7 +26,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -70,11 +70,11 @@ abstract interface class $BaseInterface {
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
-  factory Base([final void Function(BaseBuilder)? b]) = _$Base;
+  factory Base([void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
 
-  factory Base.fromJson(final Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
+  factory Base.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 

@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   test('ObjectAnyOf', () {
     ObjectAnyOf object = (
-      objectAnyOf0: ObjectAnyOf0((final b) => b..attribute1AnyOf = 'attribute1AnyOf'),
+      objectAnyOf0: ObjectAnyOf0((b) => b..attribute1AnyOf = 'attribute1AnyOf'),
       objectAnyOf1: null,
     );
 
@@ -15,7 +15,7 @@ void main() {
 
     object = (
       objectAnyOf0: null,
-      objectAnyOf1: ObjectAnyOf1((final b) => b..attribute2AnyOf = 'attribute2AnyOf'),
+      objectAnyOf1: ObjectAnyOf1((b) => b..attribute2AnyOf = 'attribute2AnyOf'),
     );
 
     json = {'attribute2-anyOf': 'attribute2AnyOf'};
@@ -26,7 +26,7 @@ void main() {
 
   test('MixedAnyOf', () {
     MixedAnyOf object = (
-      mixedAnyOf1: MixedAnyOf1((final b) => b..attributeAnyOf = 'attributeAnyOf'),
+      mixedAnyOf1: MixedAnyOf1((b) => b..attributeAnyOf = 'attributeAnyOf'),
       string: null,
     );
 
@@ -47,7 +47,7 @@ void main() {
   });
 
   test('OneObjectAnyOf', () {
-    final object = OneObjectAnyOf((final b) => b..attributeAnyOf = 'attributeAnyOf');
+    final object = OneObjectAnyOf((b) => b..attributeAnyOf = 'attributeAnyOf');
 
     final json = {'attribute-anyOf': 'attributeAnyOf'};
 

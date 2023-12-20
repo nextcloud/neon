@@ -138,7 +138,7 @@ void main() {
   presets(
     'server',
     'webdav',
-    (final preset) {
+    (preset) {
       late DockerContainer container;
       late NextcloudClient client;
 
@@ -166,7 +166,7 @@ void main() {
             .responses;
         expect(responses, isNotEmpty);
         final props =
-            responses.singleWhere((final response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
+            responses.singleWhere((response) => response.href!.endsWith('/Nextcloud.png')).propstats.first.prop;
         expect(props.nchaspreview, isTrue);
         expect(props.davgetcontenttype, 'image/png');
         expect(webdavDateFormat.parseUtc(props.davgetlastmodified!).isBefore(DateTime.now()), isTrue);
@@ -325,8 +325,7 @@ void main() {
         ))
             .responses;
         expect(responses, hasLength(1));
-        final props =
-            responses.singleWhere((final response) => response.href!.endsWith('/test.txt')).propstats.first.prop;
+        final props = responses.singleWhere((response) => response.href!.endsWith('/test.txt')).propstats.first.prop;
         expect(props.ocid, id);
         expect(props.ocfavorite, 1);
       });
@@ -472,7 +471,7 @@ void main() {
             await expectLater(
               () => client.webdav.put(Uint8List(0), PathUri.parse('409me/noparent.txt')),
               // https://github.com/nextcloud/server/issues/39625
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -486,7 +485,7 @@ void main() {
           test('delete_null', () async {
             await expectLater(
               () => client.webdav.delete(PathUri.parse('test.txt')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 404)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 404)),
             );
           });
 
@@ -502,7 +501,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.mkcol(PathUri.parse('test')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 405)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 405)),
             );
           });
 
@@ -516,7 +515,7 @@ void main() {
           test('mkcol_no_parent', () async {
             await expectLater(
               () => client.webdav.mkcol(PathUri.parse('409me/noparent')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -537,7 +536,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
             );
 
             final response = await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst'), overwrite: true);
@@ -549,7 +548,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('nonesuch/dst')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 409)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 409)),
             );
           });
 
@@ -564,7 +563,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst1')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
             );
 
             var response = await client.webdav.copy(PathUri.parse('src'), PathUri.parse('dst2'), overwrite: true);
@@ -594,7 +593,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('src2.txt'), PathUri.parse('dst.txt')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
             );
 
             response = await client.webdav.move(PathUri.parse('src2.txt'), PathUri.parse('dst.txt'), overwrite: true);
@@ -613,7 +612,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('dst1'), PathUri.parse('dst2')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
             );
 
             await client.webdav.move(PathUri.parse('dst2'), PathUri.parse('dst1'), overwrite: true);
@@ -629,7 +628,7 @@ void main() {
 
             await expectLater(
               () => client.webdav.move(PathUri.parse('dst2'), PathUri.parse('noncoll')),
-              throwsA(predicate<DynamiteApiException>((final e) => e.statusCode == 412)),
+              throwsA(predicate<DynamiteApiException>((e) => e.statusCode == 412)),
             );
           });
         });

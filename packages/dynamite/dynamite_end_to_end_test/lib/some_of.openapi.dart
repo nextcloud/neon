@@ -23,7 +23,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(final DynamiteClient client)
+  Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -45,11 +45,11 @@ abstract interface class $OneValueSomeOfInObjectInterface {
 
 abstract class OneValueSomeOfInObject
     implements $OneValueSomeOfInObjectInterface, Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
-  factory OneValueSomeOfInObject([final void Function(OneValueSomeOfInObjectBuilder)? b]) = _$OneValueSomeOfInObject;
+  factory OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? b]) = _$OneValueSomeOfInObject;
 
   const OneValueSomeOfInObject._();
 
-  factory OneValueSomeOfInObject.fromJson(final Map<String, dynamic> json) =>
+  factory OneValueSomeOfInObject.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
@@ -57,7 +57,7 @@ abstract class OneValueSomeOfInObject
   static Serializer<OneValueSomeOfInObject> get serializer => _$oneValueSomeOfInObjectSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)
-  static void _validate(final OneValueSomeOfInObjectBuilder b) {
+  static void _validate(OneValueSomeOfInObjectBuilder b) {
     b.intDoubleString?.validateOneOf();
   }
 }
@@ -75,7 +75,7 @@ extension $NumStringExtension on $NumString {
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(final Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  static $NumString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
   Object? toJson() => jsonSerializers.serializeWith(serializer, this);
 }
 
@@ -90,9 +90,9 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 
   @override
   Object serialize(
-    final Serializers serializers,
-    final $NumString object, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    $NumString object, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
     value = object.$num;
@@ -109,9 +109,9 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 
   @override
   $NumString deserialize(
-    final Serializers serializers,
-    final Object data, {
-    final FullType specifiedType = FullType.unspecified,
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
   }) {
     num? $num;
     try {
