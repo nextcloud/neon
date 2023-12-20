@@ -18,7 +18,6 @@ import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/utils/findable.dart';
-import 'package:neon_framework/src/utils/global.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/localizations.dart';
 import 'package:neon_framework/src/utils/provider.dart';
@@ -149,7 +148,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
       if (NeonPlatform.instance.canUsePushNotifications) {
         final localNotificationsPlugin = await PushUtils.initLocalNotifications();
-        Global.onPushNotificationReceived = (final accountID) async {
+        PushUtils.onPushNotificationReceived = (final accountID) async {
           final account = _accountsBloc.accounts.value.tryFind(accountID);
           if (account == null) {
             return;
@@ -164,7 +163,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
           await _accountsBloc.getAppsBlocFor(account).getAppBloc<NotificationsBlocInterface>(app).refresh();
         };
-        Global.onPushNotificationClicked = (final pushNotificationWithAccountID) async {
+        PushUtils.onLocalNotificationClicked = (final pushNotificationWithAccountID) async {
           final account = _accountsBloc.accounts.value.tryFind(pushNotificationWithAccountID.accountID);
           if (account == null) {
             return;
@@ -191,7 +190,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
 
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
         if (details != null && details.didNotificationLaunchApp && details.notificationResponse?.payload != null) {
-          await Global.onPushNotificationClicked!(
+          await PushUtils.onLocalNotificationClicked!(
             PushNotification.fromJson(
               json.decode(details.notificationResponse!.payload!) as Map<String, dynamic>,
             ),
