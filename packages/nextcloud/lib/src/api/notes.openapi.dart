@@ -107,7 +107,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -157,7 +156,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(BuiltList, [FullType(Note)]),
@@ -228,7 +227,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -274,7 +272,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -333,7 +331,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -370,7 +367,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -449,7 +446,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -498,7 +494,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Note),
@@ -539,7 +535,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -567,7 +562,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(String),
@@ -602,11 +597,9 @@ class Client extends DynamiteClient {
   ///  * [getSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> getSettingsRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -625,13 +618,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(_parameters);
+    const _path = '/index.php/apps/notes/api/v1/settings';
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Settings),
@@ -668,7 +661,6 @@ class Client extends DynamiteClient {
   ///  * [updateSettings] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -693,7 +685,7 @@ class Client extends DynamiteClient {
 // coverage:ignore-end
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(jsonSerializers.serialize(settings, specifiedType: const FullType(Settings))));
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/settings').expand(_parameters);
+    const _path = '/index.php/apps/notes/api/v1/settings';
     return DynamiteRawResponse<Settings, void>(
       response: executeRequest(
         'put',

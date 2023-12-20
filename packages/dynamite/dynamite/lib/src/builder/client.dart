@@ -17,6 +17,10 @@ Iterable<Class> generateClients(
   final openapi.OpenAPI spec,
   final State state,
 ) sync* {
+  if (spec.paths == null || spec.paths!.isEmpty) {
+    return;
+  }
+
   final tags = generateTags(spec);
   yield buildRootClient(spec, state, tags);
 
@@ -191,6 +195,25 @@ Iterable<Method> buildTags(
       ]..sort(sortRequiredParameters);
       final name = toDartName(filterMethodName(operationName, tag ?? ''));
 
+      final hasAuthentication = needsAuthCheck(pathEntry, operation, spec, client);
+      var hasUriParameters = false;
+      var hasHeaderParameters = false;
+      for (final parameter in parameters) {
+        switch (parameter.$in) {
+          case openapi.ParameterType.path:
+          case openapi.ParameterType.query:
+            hasUriParameters = true;
+          case openapi.ParameterType.header:
+            hasHeaderParameters = true;
+          default:
+        }
+
+        // No need to continue searching.
+        if (hasHeaderParameters && hasUriParameters) {
+          break;
+        }
+      }
+
       var responses = <openapi.Response, List<String>>{};
       if (operation.responses != null) {
         for (final responseEntry in operation.responses!.entries) {
@@ -215,18 +238,32 @@ Iterable<Method> buildTags(
           .toSet()
           .join(',');
 
-      code.writeln('''
-  final _parameters = <String, dynamic>{};
-  final _headers = <String, String>{${acceptHeader.isNotEmpty ? "'Accept': '$acceptHeader'," : ''}};
-  Uint8List? _body;
-  ''');
+      if (hasUriParameters) {
+        code.writeln('final _parameters = <String, dynamic>{};');
+      }
+      if (acceptHeader.isNotEmpty) {
+        if (hasHeaderParameters || hasAuthentication) {
+          code.writeln("final _headers = <String, String>{'Accept': '$acceptHeader',};");
+        } else {
+          code.writeln("const _headers = <String, String>{'Accept': '$acceptHeader',};");
+        }
+      } else if (acceptHeader.isEmpty) {
+        code.writeln('final _headers = <String, String>{};');
+      }
+      if (operation.requestBody != null) {
+        code.writeln('Uint8List? _body;');
+      }
+      // Separate the declarations from the assignments
+      code.writeln();
 
-      buildAuthCheck(
-        pathEntry,
-        operation,
-        spec,
-        client,
-      ).forEach(code.writeln);
+      if (hasAuthentication) {
+        buildAuthCheck(
+          pathEntry,
+          operation,
+          spec,
+          client,
+        ).forEach(code.writeln);
+      }
 
       final operationParameters = ListBuilder<Parameter>();
       final annotations = operation.deprecated ? refer('Deprecated').call([refer("''")]) : null;
@@ -315,35 +352,38 @@ Iterable<Method> buildTags(
           toDartName(identifierBuilder.toString(), uppercaseFirstCharacter: true),
         );
 
-        final queryParams = <String>[];
-        for (final parameter in parameters) {
-          if (parameter.$in != openapi.ParameterType.query) {
-            continue;
+        if (!hasUriParameters) {
+          code.writeln("const _path = '${pathEntry.key}';");
+        } else {
+          final queryParams = <String>[];
+          for (final parameter in parameters) {
+            if (parameter.$in != openapi.ParameterType.query) {
+              continue;
+            }
+
+            // Default to a plain parameter without exploding.
+            queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
           }
 
-          // Default to a plain parameter without exploding.
-          queryParams.add(parameter.uriTemplate(withPrefix: false) ?? parameter.pctEncodedName);
+          final pathBuilder = StringBuffer()..write(pathEntry.key);
+
+          if (queryParams.isNotEmpty) {
+            pathBuilder
+              ..write('{?')
+              ..writeAll(queryParams, ',')
+              ..write('}');
+          }
+
+          final path = pathBuilder.toString();
+          // Sanity check the uri at build time.
+          try {
+            UriTemplate(path);
+          } on ParseException catch (e) {
+            throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
+          }
+
+          code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
         }
-
-        final pathBuilder = StringBuffer()..write(pathEntry.key);
-
-        if (queryParams.isNotEmpty) {
-          pathBuilder
-            ..write('{?')
-            ..writeAll(queryParams, ',')
-            ..write('}');
-        }
-
-        final path = pathBuilder.toString();
-
-        // Sanity check the uri at build time.
-        try {
-          UriTemplate(path);
-        } on ParseException catch (e) {
-          throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
-        }
-
-        code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
 
         if (dataType != null) {
           returnDataType = dataType.name;
@@ -358,7 +398,7 @@ Iterable<Method> buildTags(
       '$httpMethod',
       _path,
       _headers,
-      _body,
+      ${operation.requestBody != null ? '_body' : 'null'},
 ''');
 
         if (responses.values.isNotEmpty) {
@@ -464,6 +504,18 @@ String buildParameterSerialization(
   }
 
   return buffer.toString();
+}
+
+bool needsAuthCheck(
+  final MapEntry<String, openapi.PathItem> pathEntry,
+  final openapi.Operation operation,
+  final openapi.OpenAPI spec,
+  final String client,
+) {
+  final security = operation.security ?? spec.security ?? BuiltList();
+  final securityRequirements = security.where((final requirement) => requirement.isNotEmpty);
+
+  return securityRequirements.isNotEmpty;
 }
 
 Iterable<String> buildAuthCheck(

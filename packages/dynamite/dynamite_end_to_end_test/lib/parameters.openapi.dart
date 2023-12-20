@@ -138,10 +138,9 @@ class Client extends DynamiteClient {
     GetEnumPattern? enumPattern,
   }) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $contentString = jsonSerializers.serialize(
       contentString,
@@ -201,7 +200,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -273,11 +272,9 @@ class Client extends DynamiteClient {
     double? $double,
     num? $num,
   }) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $array = jsonSerializers.serialize(array, specifiedType: const FullType(BuiltList, [FullType(String)]));
     if ($array != null) {
@@ -309,13 +306,13 @@ class Client extends DynamiteClient {
       _headers['num'] = $$num.toString();
     }
 
-    final _path = UriTemplate('/headers').expand(_parameters);
+    const _path = '/headers';
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),
@@ -353,10 +350,9 @@ class Client extends DynamiteClient {
   @experimental
   DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
     final $pathParameter = jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
@@ -367,7 +363,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(JsonObject),

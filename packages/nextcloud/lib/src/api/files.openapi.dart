@@ -116,7 +116,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': '*/*',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -151,7 +150,7 @@ class ApiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),
@@ -204,11 +203,9 @@ class DirectEditingClient {
   ///  * [info] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void> infoRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -231,13 +228,13 @@ class DirectEditingClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/directEditing').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/directEditing';
     return DynamiteRawResponse<DirectEditingInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
@@ -304,7 +301,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -340,7 +336,7 @@ class DirectEditingClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingTemplatesResponseApplicationJson),
@@ -414,7 +410,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -453,7 +448,7 @@ class DirectEditingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
@@ -532,7 +527,6 @@ class DirectEditingClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -575,7 +569,7 @@ class DirectEditingClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DirectEditingCreateResponseApplicationJson),
@@ -643,7 +637,6 @@ class OpenLocalEditorClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -675,7 +668,7 @@ class OpenLocalEditorClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorCreateResponseApplicationJson),
@@ -742,7 +735,6 @@ class OpenLocalEditorClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -777,7 +769,7 @@ class OpenLocalEditorClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(OpenLocalEditorValidateResponseApplicationJson),
@@ -830,11 +822,9 @@ class TemplateClient {
   ///  * [list] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<TemplateListResponseApplicationJson, void> listRaw({bool? oCSAPIRequest}) {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -857,13 +847,13 @@ class TemplateClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final _path = UriTemplate('/ocs/v2.php/apps/files/api/v1/templates').expand(_parameters);
+    const _path = '/ocs/v2.php/apps/files/api/v1/templates';
     return DynamiteRawResponse<TemplateListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplateListResponseApplicationJson),
@@ -935,7 +925,6 @@ class TemplateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -976,7 +965,7 @@ class TemplateClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplateCreateResponseApplicationJson),
@@ -1043,7 +1032,6 @@ class TemplateClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1081,7 +1069,7 @@ class TemplateClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(TemplatePathResponseApplicationJson),
@@ -1156,7 +1144,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1191,7 +1178,7 @@ class TransferOwnershipClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 400, 403},
       ),
       bodyType: const FullType(TransferOwnershipTransferResponseApplicationJson),
@@ -1255,7 +1242,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1287,7 +1273,7 @@ class TransferOwnershipClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipAcceptResponseApplicationJson),
@@ -1351,7 +1337,6 @@ class TransferOwnershipClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -1383,7 +1368,7 @@ class TransferOwnershipClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 403, 404},
       ),
       bodyType: const FullType(TransferOwnershipRejectResponseApplicationJson),

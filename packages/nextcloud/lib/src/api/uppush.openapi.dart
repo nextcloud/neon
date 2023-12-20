@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -68,11 +67,9 @@ class Client extends DynamiteClient {
   ///  * [check] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<CheckResponseApplicationJson, void> checkRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -91,13 +88,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush').expand(_parameters);
+    const _path = '/index.php/apps/uppush';
     return DynamiteRawResponse<CheckResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(CheckResponseApplicationJson),
@@ -152,7 +149,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -180,7 +176,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(SetKeepaliveResponseApplicationJson),
@@ -231,7 +227,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -259,7 +254,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(CreateDeviceResponseApplicationJson),
@@ -308,7 +303,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -336,7 +330,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {401},
       ),
       bodyType: const FullType(SyncDeviceResponseApplicationJson),
@@ -381,7 +375,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -409,7 +402,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DeleteDeviceResponseApplicationJson),
@@ -469,7 +462,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -500,7 +492,7 @@ class Client extends DynamiteClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(CreateAppResponseApplicationJson),
@@ -545,7 +537,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -573,7 +564,7 @@ class Client extends DynamiteClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(DeleteAppResponseApplicationJson),
@@ -622,7 +613,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -650,7 +640,7 @@ class Client extends DynamiteClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(UnifiedpushDiscoveryResponseApplicationJson),
@@ -695,7 +685,6 @@ class Client extends DynamiteClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -723,7 +712,7 @@ class Client extends DynamiteClient {
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {201},
       ),
       bodyType: const FullType(PushResponseApplicationJson),
@@ -762,11 +751,9 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrixDiscovery] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void> gatewayMatrixDiscoveryRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -785,13 +772,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
+    const _path = '/index.php/apps/uppush/gateway/matrix';
     return DynamiteRawResponse<GatewayMatrixDiscoveryResponseApplicationJson, void>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
@@ -830,11 +817,9 @@ class Client extends DynamiteClient {
   ///  * [gatewayMatrix] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void> gatewayMatrixRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = authentications.firstWhereOrNull(
@@ -853,13 +838,13 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final _path = UriTemplate('/index.php/apps/uppush/gateway/matrix').expand(_parameters);
+    const _path = '/index.php/apps/uppush/gateway/matrix';
     return DynamiteRawResponse<GatewayMatrixResponseApplicationJson, void>(
       response: executeRequest(
         'post',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(GatewayMatrixResponseApplicationJson),

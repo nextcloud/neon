@@ -29,6 +29,11 @@ void main() {
       exports.add("export 'src/helpers/$id.dart';");
     }
 
+    if (!file.readAsStringSync().contains('class Client extends DynamiteClient {')) {
+      File('lib/$id.dart').writeAsStringSync(exports.join('\n'));
+      continue;
+    }
+
     File('lib/$id.dart').writeAsStringSync('''
 // coverage:ignore-file
 import 'package:nextcloud/src/api/$id.openapi.dart';

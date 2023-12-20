@@ -13,7 +13,6 @@ import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
-import 'package:uri/uri.dart';
 
 part 'headers.openapi.g.dart';
 
@@ -61,17 +60,15 @@ class Client extends DynamiteClient {
   ///  * [$get] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, GetHeaders> $getRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
-    final _path = UriTemplate('/').expand(_parameters);
+    const _path = '/';
     return DynamiteRawResponse<void, GetHeaders>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -106,17 +103,15 @@ class Client extends DynamiteClient {
   ///  * [withContentOperationId] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<void, WithContentOperationIdHeaders> withContentOperationIdRaw() {
-    final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
-    Uint8List? _body;
 
-    final _path = UriTemplate('/with_content/operation_id').expand(_parameters);
+    const _path = '/with_content/operation_id';
     return DynamiteRawResponse<void, WithContentOperationIdHeaders>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: null,
@@ -151,19 +146,17 @@ class Client extends DynamiteClient {
   ///  * [getWithContent] for an operation that returns a [DynamiteResponse] with a stable API.
   @experimental
   DynamiteRawResponse<Uint8List, GetWithContentHeaders> getWithContentRaw() {
-    final _parameters = <String, dynamic>{};
-    final _headers = <String, String>{
+    const _headers = <String, String>{
       'Accept': 'application/octet-stream',
     };
-    Uint8List? _body;
 
-    final _path = UriTemplate('/with_content').expand(_parameters);
+    const _path = '/with_content';
     return DynamiteRawResponse<Uint8List, GetWithContentHeaders>(
       response: executeRequest(
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(Uint8List),

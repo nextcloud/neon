@@ -4,7 +4,6 @@
 // ignore_for_file: unreachable_switch_case
 // ignore_for_file: camel_case_extensions
 // ignore_for_file: no_leading_underscores_for_local_identifiers
-import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
@@ -105,7 +104,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -141,7 +139,7 @@ class ApiClient {
         'get',
         _path,
         _headers,
-        _body,
+        null,
         const {200},
       ),
       bodyType: const FullType(ApiGetResponseApplicationJson),
@@ -219,7 +217,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -259,7 +256,7 @@ class ApiClient {
         'put',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 201, 400, 401, 404},
       ),
       bodyType: const FullType(ApiSetResponseApplicationJson),
@@ -328,7 +325,6 @@ class ApiClient {
     final _headers = <String, String>{
       'Accept': 'application/json',
     };
-    Uint8List? _body;
 
 // coverage:ignore-start
     final authentication = _rootClient.authentications.firstWhereOrNull(
@@ -364,7 +360,7 @@ class ApiClient {
         'delete',
         _path,
         _headers,
-        _body,
+        null,
         const {200, 401, 404},
       ),
       bodyType: const FullType(ApiRemoveResponseApplicationJson),
