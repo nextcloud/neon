@@ -16,41 +16,43 @@ class DashboardMainPage extends StatelessWidget {
   Widget build(final BuildContext context) {
     final bloc = NeonProvider.of<DashboardBloc>(context);
 
-    return ResultBuilder.behaviorSubject(
-      subject: bloc.widgets,
-      builder: (final context, final snapshot) {
-        Widget? child;
-        if (snapshot.hasData) {
-          child = Wrap(
-            alignment: WrapAlignment.center,
-            spacing: 8,
-            runSpacing: 8,
-            children: snapshot.requireData.entries
-                .map(
-                  (final widget) => DashboardWidget(
-                    widget: widget.key,
-                    items: widget.value,
-                  ),
-                )
-                .toList(),
-          );
-        }
+    return NeonCustomBackground(
+      child: ResultBuilder.behaviorSubject(
+        subject: bloc.widgets,
+        builder: (final context, final snapshot) {
+          Widget? child;
+          if (snapshot.hasData) {
+            child = Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 8,
+              runSpacing: 8,
+              children: snapshot.requireData.entries
+                  .map(
+                    (final widget) => DashboardWidget(
+                      widget: widget.key,
+                      items: widget.value,
+                    ),
+                  )
+                  .toList(),
+            );
+          }
 
-        return Center(
-          child: NeonListView.custom(
-            scrollKey: 'dashboard',
-            isLoading: snapshot.isLoading,
-            error: snapshot.error,
-            onRefresh: bloc.refresh,
-            sliver: SliverFillRemaining(
-              hasScrollBody: false,
-              child: Center(
-                child: child,
+          return Center(
+            child: NeonListView.custom(
+              scrollKey: 'dashboard',
+              isLoading: snapshot.isLoading,
+              error: snapshot.error,
+              onRefresh: bloc.refresh,
+              sliver: SliverFillRemaining(
+                hasScrollBody: false,
+                child: Center(
+                  child: child,
+                ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
