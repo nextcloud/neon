@@ -13,7 +13,7 @@ import 'package:nextcloud/news.dart' as news;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
+class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   NewsApp();
 
   @override
@@ -26,7 +26,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsAppSpecificOptions> {
   final List<Locale> supportedLocales = NewsLocalizations.supportedLocales;
 
   @override
-  late final NewsAppSpecificOptions options = NewsAppSpecificOptions(storage);
+  late final NewsOptions options = NewsOptions(storage);
 
   @override
   NewsBloc buildBloc(final Account account) => NewsBloc(

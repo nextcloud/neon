@@ -2,8 +2,8 @@ import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 
-class NotesAppSpecificOptions extends NextcloudAppOptions {
-  NotesAppSpecificOptions(super.storage) {
+class NotesOptions extends AppImplementationOptions {
+  NotesOptions(super.storage) {
     super.categories = [
       generalCategory,
       notesCategory,

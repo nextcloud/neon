@@ -125,7 +125,7 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   final GlobalOptions _globalOptions;
   final Iterable<AppImplementation> _allAppImplementations;
 
-  final _accountsOptions = AccountCache<AccountSpecificOptions>();
+  final _accountsOptions = AccountCache<AccountOptions>();
   final _appsBlocs = AccountCache<AppsBloc>();
   final _capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
   final _userDetailsBlocs = AccountCache<UserDetailsBloc>();
@@ -228,12 +228,12 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
   /// The options for the [activeAccount].
   ///
   /// Convenience method for [getOptionsFor] with the currently active account.
-  AccountSpecificOptions get activeOptions => getOptionsFor(aa);
+  AccountOptions get activeOptions => getOptionsFor(aa);
 
   /// The options for the specified [account].
   ///
   /// Use [activeOptions] to get them for the [activeAccount].
-  AccountSpecificOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountSpecificOptions(
+  AccountOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountOptions(
         AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );

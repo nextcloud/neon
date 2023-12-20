@@ -53,7 +53,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     options.downloadQueueParallelism.addListener(_downloadParallelismListener);
   }
 
-  final FilesAppSpecificOptions options;
+  final FilesOptions options;
   final Account account;
   late final browser = getNewFilesBrowserBloc();
 

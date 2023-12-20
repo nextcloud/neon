@@ -9,10 +9,10 @@ import 'package:neon_notifications/src/routes.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsAppSpecificOptions>
+class NotificationsApp extends AppImplementation<NotificationsBloc, NotificationsOptions>
     implements
         // ignore: avoid_implementing_value_types
-        NotificationsAppInterface<NotificationsBloc, NotificationsAppSpecificOptions> {
+        NotificationsAppInterface<NotificationsBloc, NotificationsOptions> {
   NotificationsApp();
 
   @override
@@ -25,7 +25,7 @@ class NotificationsApp extends AppImplementation<NotificationsBloc, Notification
   final List<Locale> supportedLocales = NotificationsLocalizations.supportedLocales;
 
   @override
-  late final NotificationsAppSpecificOptions options = NotificationsAppSpecificOptions(storage);
+  late final NotificationsOptions options = NotificationsOptions(storage);
 
   @override
   NotificationsBloc buildBloc(final Account account) => NotificationsBloc(

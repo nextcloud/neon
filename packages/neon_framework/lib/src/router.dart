@@ -10,13 +10,13 @@ import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
 import 'package:neon_framework/src/pages/account_settings.dart';
+import 'package:neon_framework/src/pages/app_implementation_settings.dart';
 import 'package:neon_framework/src/pages/home.dart';
 import 'package:neon_framework/src/pages/login.dart';
 import 'package:neon_framework/src/pages/login_check_account.dart';
 import 'package:neon_framework/src/pages/login_check_server_status.dart';
 import 'package:neon_framework/src/pages/login_flow.dart';
 import 'package:neon_framework/src/pages/login_qr_code.dart';
-import 'package:neon_framework/src/pages/nextcloud_app_settings.dart';
 import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/utils/findable.dart';
@@ -109,9 +109,9 @@ class AccountSettingsRoute extends GoRouteData {
       path: 'settings',
       name: 'Settings',
       routes: [
-        TypedGoRoute<NextcloudAppSettingsRoute>(
+        TypedGoRoute<AppImplementationSettingsRoute>(
           path: 'apps/:appid',
-          name: 'NextcloudAppSettings',
+          name: 'AppImplementationSettings',
         ),
         TypedGoRoute<_AddAccountRoute>(
           path: 'account/add',
@@ -440,13 +440,13 @@ class _AddAccountCheckAccountRoute extends LoginCheckAccountRoute {
   String get password => super.password;
 }
 
-/// {@template AppRoutes.NextcloudAppSettingsRoute}
-/// Route for the the [NextcloudAppSettingsPage].
+/// {@template AppRoutes.AppImplementationSettingsRoute}
+/// Route for the the [AppImplementationSettingsPage].
 /// {@endtemplate}
 @immutable
-class NextcloudAppSettingsRoute extends GoRouteData {
-  /// {@macro AppRoutes.NextcloudAppSettingsRoute}
-  const NextcloudAppSettingsRoute({
+class AppImplementationSettingsRoute extends GoRouteData {
+  /// {@macro AppRoutes.AppImplementationSettingsRoute}
+  const AppImplementationSettingsRoute({
     required this.appid,
   });
 
@@ -458,7 +458,7 @@ class NextcloudAppSettingsRoute extends GoRouteData {
     final appImplementations = NeonProvider.of<Iterable<AppImplementation>>(context);
     final appImplementation = appImplementations.tryFind(appid)!;
 
-    return NextcloudAppSettingsPage(appImplementation: appImplementation);
+    return AppImplementationSettingsPage(appImplementation: appImplementation);
   }
 }
 

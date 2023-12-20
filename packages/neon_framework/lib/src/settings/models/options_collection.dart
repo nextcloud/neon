@@ -58,9 +58,9 @@ abstract class OptionsCollection implements Exportable, Disposable {
 }
 
 /// OptionsCollection primarily used by `AppImplementation`s.
-abstract class NextcloudAppOptions extends OptionsCollection {
-  /// Creates a new Nextcloud options collection.
-  NextcloudAppOptions(super.storage);
+abstract class AppImplementationOptions extends OptionsCollection {
+  /// Creates a new options collection.
+  AppImplementationOptions(super.storage);
 
   /// Collection of categories to display the options in the settings.
   late final Iterable<OptionsCategory> categories;

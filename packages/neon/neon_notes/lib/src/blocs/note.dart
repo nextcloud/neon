@@ -52,7 +52,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     });
   }
 
-  late final NotesAppSpecificOptions options = _notesBloc.options;
+  late final NotesOptions options = _notesBloc.options;
   final NotesBloc _notesBloc;
   final _updateQueue = Queue();
 

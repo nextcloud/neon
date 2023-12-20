@@ -200,7 +200,7 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
   BehaviorSubject<AppImplementation> activeApp = BehaviorSubject();
 
   @override
-  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, NextcloudAppOptions>>>> appImplementations =
+  BehaviorSubject<Result<Iterable<AppImplementation<Bloc, AppImplementationOptions>>>> appImplementations =
       BehaviorSubject();
 
   @override

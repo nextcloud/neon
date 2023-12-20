@@ -10,8 +10,8 @@ import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/confirmation_dialog.dart';
 
 @internal
-class NextcloudAppSettingsPage extends StatelessWidget {
-  const NextcloudAppSettingsPage({
+class AppImplementationSettingsPage extends StatelessWidget {
+  const AppImplementationSettingsPage({
     required this.appImplementation,
     super.key,
   });

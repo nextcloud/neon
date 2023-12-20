@@ -36,7 +36,7 @@ class NotificationsBloc extends InteractiveBloc
   }
 
   @override
-  final NotificationsAppSpecificOptions options;
+  final NotificationsOptions options;
   final Account _account;
   late final NeonTimer _timer;
 

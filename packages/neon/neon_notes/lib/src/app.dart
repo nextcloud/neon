@@ -10,7 +10,7 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/notes.dart' as notes;
 
-class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
+class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   NotesApp();
 
   @override
@@ -23,7 +23,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesAppSpecificOptions> {
   final LocalizationsDelegate<NotesLocalizations> localizationsDelegate = NotesLocalizations.delegate;
 
   @override
-  late final NotesAppSpecificOptions options = NotesAppSpecificOptions(storage);
+  late final NotesOptions options = NotesOptions(storage);
 
   @override
   NotesBloc buildBloc(final Account account) => NotesBloc(

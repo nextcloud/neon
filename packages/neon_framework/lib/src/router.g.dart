@@ -23,8 +23,8 @@ RouteBase get $homeRoute => GoRouteData.$route(
           routes: [
             GoRouteData.$route(
               path: 'apps/:appid',
-              name: 'NextcloudAppSettings',
-              factory: $NextcloudAppSettingsRouteExtension._fromState,
+              name: 'AppImplementationSettings',
+              factory: $AppImplementationSettingsRouteExtension._fromState,
             ),
             GoRouteData.$route(
               path: 'account/add',
@@ -108,8 +108,8 @@ const _$SettingsCategoriesEnumMap = {
   SettingsCategories.other: 'other',
 };
 
-extension $NextcloudAppSettingsRouteExtension on NextcloudAppSettingsRoute {
-  static NextcloudAppSettingsRoute _fromState(GoRouterState state) => NextcloudAppSettingsRoute(
+extension $AppImplementationSettingsRouteExtension on AppImplementationSettingsRoute {
+  static AppImplementationSettingsRoute _fromState(GoRouterState state) => AppImplementationSettingsRoute(
         appid: state.pathParameters['appid']!,
       );
 

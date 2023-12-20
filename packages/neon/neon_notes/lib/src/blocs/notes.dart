@@ -38,7 +38,7 @@ class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocSta
     unawaited(refresh());
   }
 
-  final NotesAppSpecificOptions options;
+  final NotesOptions options;
   final Account account;
 
   @override
