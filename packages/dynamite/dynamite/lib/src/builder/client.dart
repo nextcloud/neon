@@ -343,7 +343,7 @@ Iterable<Method> buildTags(
           throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
         }
 
-        code.writeln("final _uri = Uri.parse(UriTemplate('$path').expand(_parameters));");
+        code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
 
         if (dataType != null) {
           returnDataType = dataType.name;
@@ -356,7 +356,7 @@ Iterable<Method> buildTags(
   return DynamiteRawResponse<$returnDataType, $returnHeadersType>(
     response: $client.executeRequest(
       '$httpMethod',
-      _uri,
+      _path,
       _headers,
       _body,
 ''');

@@ -87,11 +87,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api').expand(parameters);
     return DynamiteRawResponse<SupportedAPIVersions, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -151,11 +151,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders').expand(parameters);
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -226,11 +226,11 @@ class Client extends DynamiteClient {
     final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
     parameters['name'] = $name;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders{?name*}').expand(parameters);
     return DynamiteRawResponse<ListFolders, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -309,11 +309,11 @@ class Client extends DynamiteClient {
     final $name = jsonSerializers.serialize(name, specifiedType: const FullType(String));
     parameters['name'] = $name;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}{?name*}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -376,11 +376,11 @@ class Client extends DynamiteClient {
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     parameters['folderId'] = $folderId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -459,13 +459,12 @@ class Client extends DynamiteClient {
     final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     parameters['newestItemId'] = $newestItemId;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/index.php/apps/news/api/v1-3/folders/{folderId}/read{?newestItemId*}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -525,11 +524,11 @@ class Client extends DynamiteClient {
     }
 
 // coverage:ignore-end
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds').expand(parameters);
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -612,11 +611,11 @@ class Client extends DynamiteClient {
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     parameters['folderId'] = $folderId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds{?url*,folderId*}').expand(parameters);
     return DynamiteRawResponse<ListFeeds, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -679,11 +678,11 @@ class Client extends DynamiteClient {
     final $feedId = jsonSerializers.serialize(feedId, specifiedType: const FullType(int));
     parameters['feedId'] = $feedId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -762,12 +761,11 @@ class Client extends DynamiteClient {
     final $folderId = jsonSerializers.serialize(folderId, specifiedType: const FullType(int));
     parameters['folderId'] = $folderId;
 
-    final uri =
-        Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/move{?folderId*}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -846,12 +844,11 @@ class Client extends DynamiteClient {
     final $feedTitle = jsonSerializers.serialize(feedTitle, specifiedType: const FullType(String));
     parameters['feedTitle'] = $feedTitle;
 
-    final uri =
-        Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/rename{?feedTitle*}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -930,12 +927,11 @@ class Client extends DynamiteClient {
     final $newestItemId = jsonSerializers.serialize(newestItemId, specifiedType: const FullType(int));
     parameters['newestItemId'] = $newestItemId;
 
-    final uri =
-        Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/feeds/{feedId}/read{?newestItemId*}').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1056,14 +1052,12 @@ class Client extends DynamiteClient {
     $oldestFirst ??= 0;
     parameters['oldestFirst'] = $oldestFirst;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/items{?type*,id*,getRead*,batchSize*,offset*,oldestFirst*}')
+        .expand(parameters);
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1157,13 +1151,12 @@ class Client extends DynamiteClient {
     $lastModified ??= 0;
     parameters['lastModified'] = $lastModified;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/index.php/apps/news/api/v1-3/items/updated{?type*,id*,lastModified*}').expand(parameters);
     return DynamiteRawResponse<ListArticles, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1226,11 +1219,11 @@ class Client extends DynamiteClient {
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     parameters['itemId'] = $itemId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/read').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1293,11 +1286,11 @@ class Client extends DynamiteClient {
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     parameters['itemId'] = $itemId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unread').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1360,11 +1353,11 @@ class Client extends DynamiteClient {
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     parameters['itemId'] = $itemId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/star').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1427,11 +1420,11 @@ class Client extends DynamiteClient {
     final $itemId = jsonSerializers.serialize(itemId, specifiedType: const FullType(int));
     parameters['itemId'] = $itemId;
 
-    final uri = Uri.parse(UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(parameters));
+    final path = UriTemplate('/index.php/apps/news/api/v1-3/items/{itemId}/unstar').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},

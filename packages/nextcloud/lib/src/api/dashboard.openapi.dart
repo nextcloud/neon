@@ -113,11 +113,11 @@ class DashboardApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widgets').expand(parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -228,14 +228,12 @@ class DashboardApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v1/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+        .expand(parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -350,14 +348,12 @@ class DashboardApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/dashboard/api/v2/widget-items{?sinceIds*,limit*,widgets%5B%5D*}')
+        .expand(parameters);
     return DynamiteRawResponse<DashboardApiGetWidgetItemsV2ResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

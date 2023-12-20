@@ -134,11 +134,11 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters);
     return DynamiteRawResponse<ApiGetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -251,13 +251,11 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}{?dueDate*}').expand(parameters);
     return DynamiteRawResponse<ApiSetResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 201, 400, 401, 404},
@@ -358,11 +356,11 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_reminders/api/v{version}/{fileId}').expand(parameters);
     return DynamiteRawResponse<ApiRemoveResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 401, 404},

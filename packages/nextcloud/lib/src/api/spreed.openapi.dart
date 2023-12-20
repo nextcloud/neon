@@ -180,13 +180,12 @@ class AvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar{?darkTheme*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -285,12 +284,11 @@ class AvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters);
     return DynamiteRawResponse<AvatarUploadAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -387,12 +385,11 @@ class AvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar').expand(parameters);
     return DynamiteRawResponse<AvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -506,14 +503,12 @@ class AvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/emoji{?emoji*,color*}')
+        .expand(parameters);
     return DynamiteRawResponse<AvatarEmojiAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -610,12 +605,11 @@ class AvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/avatar/dark').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -762,15 +756,13 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/message{?message*,referenceId*,replyTo*,silent*}',
+    ).expand(parameters);
     return DynamiteRawResponse<BotSendMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201, 400, 401, 413},
@@ -890,14 +882,12 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+        .expand(parameters);
     return DynamiteRawResponse<BotReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 201, 400, 401, 404},
@@ -1015,14 +1005,12 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/reaction/{messageId}{?reaction*}')
+        .expand(parameters);
     return DynamiteRawResponse<BotDeleteReactionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 404, 401},
@@ -1115,11 +1103,11 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/admin').expand(parameters);
     return DynamiteRawResponse<BotAdminListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1217,11 +1205,11 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}').expand(parameters);
     return DynamiteRawResponse<BotListBotsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1331,12 +1319,11 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters);
     return DynamiteRawResponse<BotEnableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -1444,12 +1431,11 @@ class BotClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bot/{token}/{botId}').expand(parameters);
     return DynamiteRawResponse<BotDisableBotResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1583,14 +1569,13 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}{?mode*,amount*,attendeeMap*}')
+            .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1689,12 +1674,11 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}').expand(parameters);
     return DynamiteRawResponse<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1807,14 +1791,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/broadcast{?message*}')
+        .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -1923,14 +1905,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/attendees{?attendeeMap*}')
+        .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomApplyAttendeeMapResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2031,14 +2011,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+        .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomRequestAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2142,14 +2120,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/request-assistance')
+        .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2250,13 +2226,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters);
     return DynamiteRawResponse<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2357,13 +2332,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/rooms').expand(parameters);
     return DynamiteRawResponse<BreakoutRoomStopBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2472,14 +2446,12 @@ class BreakoutRoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/breakout-rooms/{token}/switch{?target*}')
+        .expand(parameters);
     return DynamiteRawResponse<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2582,11 +2554,11 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}').expand(parameters);
     return DynamiteRawResponse<CallGetPeersForCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2695,12 +2667,11 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*}').expand(parameters);
     return DynamiteRawResponse<CallUpdateCallFlagsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 404},
@@ -2834,15 +2805,13 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?flags*,forcePermissions*,silent*,recordingConsent*}',
+    ).expand(parameters);
     return DynamiteRawResponse<CallJoinCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 404},
@@ -2949,12 +2918,11 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}{?all*}').expand(parameters);
     return DynamiteRawResponse<CallLeaveCallResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 404},
@@ -3060,13 +3028,12 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/ring/{attendeeId}').expand(parameters);
     return DynamiteRawResponse<CallRingAttendeeResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -3176,13 +3143,12 @@ class CallClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/call/{token}/dialout/{attendeeId}').expand(parameters);
     return DynamiteRawResponse<CallSipDialOutResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201, 400, 404, 501},
@@ -3294,13 +3260,12 @@ class CertificateClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/certificate/expiration{?host*}').expand(parameters);
     return DynamiteRawResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -3494,15 +3459,13 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?lookIntoFuture*,limit*,lastKnownMessageId*,lastCommonReadId*,timeout*,setReadMarker*,includeLastKnown*,noStatusUpdate*,markNotificationsAsRead*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200, 304},
@@ -3652,15 +3615,13 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}{?message*,actorDisplayName*,referenceId*,replyTo*,silent*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -3762,11 +3723,11 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}').expand(parameters);
     return DynamiteRawResponse<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 202},
@@ -3882,12 +3843,11 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}').expand(parameters);
     return DynamiteRawResponse<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 202},
@@ -4005,14 +3965,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/context{?limit*}')
+        .expand(parameters);
     return DynamiteRawResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200, 304},
@@ -4120,13 +4078,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters);
     return DynamiteRawResponse<ChatGetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4242,14 +4199,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder{?timestamp*}')
+        .expand(parameters);
     return DynamiteRawResponse<ChatSetReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -4358,13 +4313,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/{messageId}/reminder').expand(parameters);
     return DynamiteRawResponse<ChatDeleteReminderResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 404},
@@ -4470,13 +4424,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read{?lastReadMessage*}').expand(parameters);
     return DynamiteRawResponse<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4574,11 +4527,11 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/read').expand(parameters);
     return DynamiteRawResponse<ChatMarkUnreadResponseApplicationJson, ChatChatMarkUnreadHeaders>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4700,14 +4653,13 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/mentions{?search*,limit*,includeStatus*}')
+            .expand(parameters);
     return DynamiteRawResponse<ChatMentionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4832,16 +4784,14 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,lastKnownMessageId*,limit*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ChatGetObjectsSharedInRoomResponseApplicationJson,
         ChatChatGetObjectsSharedInRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -4993,15 +4943,13 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share{?objectType*,objectId*,metaData*,actorDisplayName*,referenceId*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -5111,13 +5059,12 @@ class ChatClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/chat/{token}/share/overview{?limit*}').expand(parameters);
     return DynamiteRawResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5223,13 +5170,11 @@ class FederationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters);
     return DynamiteRawResponse<FederationAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5329,13 +5274,11 @@ class FederationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation/{id}').expand(parameters);
     return DynamiteRawResponse<FederationRejectShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5425,12 +5368,11 @@ class FederationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/federation/invitation').expand(parameters);
     return DynamiteRawResponse<FederationGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5547,11 +5489,11 @@ class FilesIntegrationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/file/{fileId}').expand(parameters);
     return DynamiteRawResponse<FilesIntegrationGetRoomByFileIdResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5664,12 +5606,11 @@ class FilesIntegrationClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshare/{shareToken}').expand(parameters);
     return DynamiteRawResponse<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -5784,13 +5725,12 @@ class GuestClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/guest/{token}/name{?displayName*}').expand(parameters);
     return DynamiteRawResponse<GuestSetDisplayNameResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 403, 404},
@@ -5936,15 +5876,13 @@ class HostedSignalingServerClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/requesttrial{?url*,name*,email*,language*,country*}',
+    ).expand(parameters);
     return DynamiteRawResponse<HostedSignalingServerRequestTrialResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6044,13 +5982,12 @@ class HostedSignalingServerClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/hostedsignalingserver/delete').expand(parameters);
     return DynamiteRawResponse<HostedSignalingServerDeleteAccountResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {204},
@@ -6155,11 +6092,11 @@ class MatterbridgeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters);
     return DynamiteRawResponse<MatterbridgeGetBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6283,13 +6220,12 @@ class MatterbridgeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}{?enabled*,parts*}').expand(parameters);
     return DynamiteRawResponse<MatterbridgeEditBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6390,11 +6326,11 @@ class MatterbridgeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}').expand(parameters);
     return DynamiteRawResponse<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6495,12 +6431,11 @@ class MatterbridgeClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/{token}/process').expand(parameters);
     return DynamiteRawResponse<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6604,11 +6539,11 @@ class MatterbridgeSettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge').expand(parameters);
     return DynamiteRawResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6708,11 +6643,11 @@ class MatterbridgeSettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/bridge/version').expand(parameters);
     return DynamiteRawResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -6848,15 +6783,13 @@ class PollClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}{?question*,options%5B%5D*,resultMode*,maxVotes*}',
+    ).expand(parameters);
     return DynamiteRawResponse<PollCreatePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -6962,12 +6895,11 @@ class PollClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters);
     return DynamiteRawResponse<PollShowPollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7084,14 +7016,12 @@ class PollClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}{?optionIds%5B%5D*}')
+        .expand(parameters);
     return DynamiteRawResponse<PollVotePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7203,12 +7133,11 @@ class PollClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/poll/{token}/{pollId}').expand(parameters);
     return DynamiteRawResponse<PollClosePollResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7318,13 +7247,12 @@ class PublicShareAuthClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/publicshareauth{?shareToken*}').expand(parameters);
     return DynamiteRawResponse<PublicShareAuthCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {201},
@@ -7445,14 +7373,12 @@ class ReactionClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+        .expand(parameters);
     return DynamiteRawResponse<ReactionGetReactionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7570,14 +7496,12 @@ class ReactionClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+        .expand(parameters);
     return DynamiteRawResponse<ReactionReactResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -7693,14 +7617,12 @@ class ReactionClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/reaction/{token}/{messageId}{?reaction*}')
+        .expand(parameters);
     return DynamiteRawResponse<ReactionDeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7812,13 +7734,12 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/welcome/{serverId}').expand(parameters);
     return DynamiteRawResponse<RecordingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -7926,13 +7847,11 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}{?status*}').expand(parameters);
     return DynamiteRawResponse<RecordingStartResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8032,11 +7951,11 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}').expand(parameters);
     return DynamiteRawResponse<RecordingStopResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8144,13 +8063,12 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/store{?owner*}').expand(parameters);
     return DynamiteRawResponse<RecordingStoreResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8259,14 +8177,12 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/notification{?timestamp*}')
+        .expand(parameters);
     return DynamiteRawResponse<RecordingNotificationDismissResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8383,14 +8299,13 @@ class RecordingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/recording/{token}/share-chat{?fileId*,timestamp*}')
+            .expand(parameters);
     return DynamiteRawResponse<RecordingShareToChatResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8512,14 +8427,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?noStatusUpdate*,includeStatus*,modifiedSince*}')
+            .expand(parameters);
     return DynamiteRawResponse<RoomGetRoomsResponseApplicationJson, RoomRoomGetRoomsHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8669,15 +8583,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room{?roomType*,invite*,roomName*,source*,objectType*,objectId*}',
+    ).expand(parameters);
     return DynamiteRawResponse<RoomCreateRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -8776,13 +8688,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/listed-room{?searchTerm*}').expand(parameters);
     return DynamiteRawResponse<RoomGetListedRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8879,12 +8789,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/note-to-self').expand(parameters);
     return DynamiteRawResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
         RoomRoomGetNoteToSelfConversationHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -8984,11 +8894,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters);
     return DynamiteRawResponse<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -9094,12 +9004,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}{?roomName*}').expand(parameters);
     return DynamiteRawResponse<RoomRenameRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9197,11 +9106,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}').expand(parameters);
     return DynamiteRawResponse<RoomDeleteRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9302,13 +9211,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms').expand(parameters);
     return DynamiteRawResponse<RoomGetBreakoutRoomsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -9408,12 +9315,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters);
     return DynamiteRawResponse<RoomMakePublicResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9513,12 +9419,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/public').expand(parameters);
     return DynamiteRawResponse<RoomMakePrivateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9625,14 +9530,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/description{?description*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomSetDescriptionResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9740,13 +9643,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/read-only{?state*}').expand(parameters);
     return DynamiteRawResponse<RoomSetReadOnlyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9854,13 +9756,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/listable{?scope*}').expand(parameters);
     return DynamiteRawResponse<RoomSetListableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -9968,13 +9869,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/password{?password*}').expand(parameters);
     return DynamiteRawResponse<RoomSetPasswordResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 403},
@@ -10090,14 +9990,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/permissions/{mode}{?permissions*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomSetPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -10205,14 +10103,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?includeStatus*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -10334,14 +10230,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants{?newParticipant*,source*}')
+            .expand(parameters);
     return DynamiteRawResponse<RoomAddParticipantToRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -10454,16 +10349,14 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/breakout-rooms/participants{?includeStatus*}',
+    ).expand(parameters);
     return DynamiteRawResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
         RoomRoomGetBreakoutRoomParticipantsHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -10566,13 +10459,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/self').expand(parameters);
     return DynamiteRawResponse<RoomRemoveSelfFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 404},
@@ -10683,13 +10575,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees{?attendeeId*}').expand(parameters);
     return DynamiteRawResponse<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 403, 404},
@@ -10816,15 +10707,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions{?attendeeId*,method*,permissions*}',
+    ).expand(parameters);
     return DynamiteRawResponse<RoomSetAttendeePermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 403, 404},
@@ -10939,15 +10828,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/attendees/permissions/all{?method*,permissions*}',
+    ).expand(parameters);
     return DynamiteRawResponse<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11067,14 +10954,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active{?password*,force*}')
+            .expand(parameters);
     return DynamiteRawResponse<RoomJoinRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11170,13 +11056,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/active').expand(parameters);
     return DynamiteRawResponse<RoomLeaveRoomResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11285,15 +11170,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/resend-invitations{?attendeeId*}',
+    ).expand(parameters);
     return DynamiteRawResponse<RoomResendInvitationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 404},
@@ -11400,14 +11283,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/participants/state{?state*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomSetSessionStateResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11518,13 +11399,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomPromoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 403, 404},
@@ -11635,13 +11515,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/moderators{?attendeeId*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomDemoteModeratorResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400, 403, 404},
@@ -11740,12 +11619,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters);
     return DynamiteRawResponse<RoomAddToFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11844,12 +11722,11 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/favorite').expand(parameters);
     return DynamiteRawResponse<RoomRemoveFromFavoritesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -11958,13 +11835,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify{?level*}').expand(parameters);
     return DynamiteRawResponse<RoomSetNotificationLevelResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -12073,13 +11949,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/notify-calls{?level*}').expand(parameters);
     return DynamiteRawResponse<RoomSetNotificationCallsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -12195,14 +12070,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/lobby{?state*,timer*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomSetLobbyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -12316,13 +12189,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/webinar/sip{?state*}').expand(parameters);
     return DynamiteRawResponse<RoomSetsipEnabledResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -12433,14 +12305,13 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
-          .expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/recording-consent{?recordingConsent*}')
+            .expand(parameters);
     return DynamiteRawResponse<RoomSetRecordingConsentResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -12547,14 +12418,12 @@ class RoomClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/room/{token}/message-expiration{?seconds*}')
+        .expand(parameters);
     return DynamiteRawResponse<RoomSetMessageExpirationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -12681,15 +12550,13 @@ class SettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/sip{?sipGroups%5B%5D*,dialInInfo*,sharedSecret*}',
+    ).expand(parameters);
     return DynamiteRawResponse<SettingsSetsipSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -12800,13 +12667,11 @@ class SettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/settings/user{?key*,value*}').expand(parameters);
     return DynamiteRawResponse<SettingsSetUserSettingResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -12913,13 +12778,11 @@ class SignalingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/settings{?token*}').expand(parameters);
     return DynamiteRawResponse<SignalingGetSettingsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -13027,13 +12890,12 @@ class SignalingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/welcome/{serverId}').expand(parameters);
     return DynamiteRawResponse<SignalingGetWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -13136,11 +12998,11 @@ class SignalingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}').expand(parameters);
     return DynamiteRawResponse<SignalingPullMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200, 404, 409},
@@ -13247,13 +13109,12 @@ class SignalingClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/spreed/api/{apiVersion}/signaling/{token}{?messages*}').expand(parameters);
     return DynamiteRawResponse<SignalingSendMessagesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -13339,11 +13200,11 @@ class TempAvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters);
     return DynamiteRawResponse<TempAvatarPostAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -13425,11 +13286,11 @@ class TempAvatarClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/spreed/temp-user-avatar').expand(parameters);
     return DynamiteRawResponse<TempAvatarDeleteAvatarResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},

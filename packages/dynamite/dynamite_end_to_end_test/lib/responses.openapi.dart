@@ -63,11 +63,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         null,
@@ -112,11 +112,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -163,11 +163,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         null,
@@ -212,11 +212,11 @@ class Client extends DynamiteClient {
     };
     Uint8List? body;
 
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<String, void>(
       response: executeRequest(
         'patch',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},

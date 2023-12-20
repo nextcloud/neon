@@ -144,12 +144,11 @@ class PreviewClient {
     $version ??= '';
     parameters['version'] = $version;
 
-    final uri =
-        Uri.parse(UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(parameters));
+    final path = UriTemplate('/index.php/apps/files_versions/preview{?file*,x*,y*,version*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

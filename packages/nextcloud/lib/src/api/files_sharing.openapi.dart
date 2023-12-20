@@ -123,11 +123,11 @@ class DeletedShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares').expand(parameters);
     return DynamiteRawResponse<DeletedShareapiListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -217,11 +217,11 @@ class DeletedShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/deletedshares/{id}').expand(parameters);
     return DynamiteRawResponse<DeletedShareapiUndeleteResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -319,11 +319,11 @@ class PublicPreviewClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/index.php/s/{token}/preview').expand(parameters));
+    final path = UriTemplate('/index.php/s/{token}/preview').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -451,13 +451,11 @@ class PublicPreviewClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/files_sharing/publicpreview/{token}{?file*,x*,y*,a*}').expand(parameters);
     return DynamiteRawResponse<Uint8List, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -539,11 +537,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares').expand(parameters);
     return DynamiteRawResponse<RemoteGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -621,12 +619,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending').expand(parameters);
     return DynamiteRawResponse<RemoteGetOpenSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -716,12 +713,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters);
     return DynamiteRawResponse<RemoteAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -811,12 +807,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/pending/{id}').expand(parameters);
     return DynamiteRawResponse<RemoteDeclineShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -906,11 +901,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters);
     return DynamiteRawResponse<RemoteGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1002,11 +997,11 @@ class RemoteClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/remote_shares/{id}').expand(parameters);
     return DynamiteRawResponse<RemoteUnshareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1118,13 +1113,11 @@ class ShareInfoClient {
     $depth ??= -1;
     parameters['depth'] = $depth;
 
-    final uri = Uri.parse(
-      UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(parameters),
-    );
+    final path = UriTemplate('/index.php/apps/files_sharing/shareinfo{?t*,password*,dir*,depth*}').expand(parameters);
     return DynamiteRawResponse<ShareInfo, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1257,15 +1250,13 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
-      ).expand(parameters),
-    );
+    final path0 = UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/shares{?shared_with_me*,reshares*,subfiles*,path*,include_tags*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ShareapiGetSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -1445,15 +1436,13 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
-      ).expand(parameters),
-    );
+    final path0 = UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/shares{?path*,permissions*,shareType*,shareWith*,publicUpload*,password*,sendPasswordByTalk*,expireDate*,note*,label*,attributes*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ShareapiCreateShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -1545,12 +1534,11 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(parameters));
+    final path0 = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/inherited{?path*}').expand(parameters);
     return DynamiteRawResponse<ShareapiGetInheritedSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path0,
         headers,
         body,
         const {200},
@@ -1630,11 +1618,11 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending').expand(parameters);
     return DynamiteRawResponse<ShareapiPendingSharesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1733,12 +1721,11 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?include_tags*}').expand(parameters);
     return DynamiteRawResponse<ShareapiGetShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1904,15 +1891,13 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}{?permissions*,password*,sendPasswordByTalk*,publicUpload*,expireDate*,note*,label*,hideDownload*,attributes*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ShareapiUpdateShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2004,11 +1989,11 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/{id}').expand(parameters);
     return DynamiteRawResponse<ShareapiDeleteShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2100,11 +2085,11 @@ class ShareapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/shares/pending/{id}').expand(parameters);
     return DynamiteRawResponse<ShareapiAcceptShareResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2247,15 +2232,13 @@ class ShareesapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/files_sharing/api/v1/sharees{?search*,itemType*,page*,perPage*,shareType*,lookup*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -2354,14 +2337,12 @@ class ShareesapiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/files_sharing/api/v1/sharees_recommended{?itemType*,shareType*}')
+        .expand(parameters);
     return DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

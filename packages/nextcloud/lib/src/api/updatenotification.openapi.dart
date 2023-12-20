@@ -137,13 +137,12 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(parameters),
-    );
+    final path =
+        UriTemplate('/ocs/v2.php/apps/updatenotification/api/{apiVersion}/applist/{newVersion}').expand(parameters);
     return DynamiteRawResponse<ApiGetAppListResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

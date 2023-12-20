@@ -192,15 +192,13 @@ class Client extends DynamiteClient {
     dynamite_utils.checkPattern($enumPattern as String?, RegExp('[a-z]'), 'enumPattern');
     parameters['enum_pattern'] = $enumPattern;
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/{?content_string*,content_parameter*,array*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
+    ).expand(parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -310,11 +308,11 @@ class Client extends DynamiteClient {
       headers['num'] = $$num.toString();
     }
 
-    final uri = Uri.parse(UriTemplate('/headers').expand(parameters));
+    final path = UriTemplate('/headers').expand(parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -362,11 +360,11 @@ class Client extends DynamiteClient {
     final $pathParameter = jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     parameters['path_parameter'] = $pathParameter;
 
-    final uri = Uri.parse(UriTemplate('/{path_parameter}').expand(parameters));
+    final path = UriTemplate('/{path_parameter}').expand(parameters);
     return DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},

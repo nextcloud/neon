@@ -135,12 +135,11 @@ class DirectClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/dav/api/v1/direct{?fileId*,expirationTime*}').expand(parameters);
     return DynamiteRawResponse<DirectGetUrlResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},

@@ -166,15 +166,13 @@ class ApiClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/admin_notifications/{userId}{?shortMessage*,longMessage*}',
+    ).expand(parameters);
     return DynamiteRawResponse<ApiGenerateNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -274,13 +272,12 @@ class EndpointClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters);
     return DynamiteRawResponse<EndpointListNotificationsResponseApplicationJson,
         EndpointEndpointListNotificationsHeaders>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -372,12 +369,11 @@ class EndpointClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri =
-        Uri.parse(UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications').expand(parameters);
     return DynamiteRawResponse<EndpointDeleteAllNotificationsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -477,13 +473,11 @@ class EndpointClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters);
     return DynamiteRawResponse<EndpointGetNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -585,13 +579,11 @@ class EndpointClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/{id}').expand(parameters);
     return DynamiteRawResponse<EndpointDeleteNotificationResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -691,14 +683,12 @@ class EndpointClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
-          .expand(parameters),
-    );
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/notifications/exists{?ids%5B%5D*}')
+        .expand(parameters);
     return DynamiteRawResponse<EndpointConfirmIdsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 400},
@@ -824,15 +814,13 @@ class PushClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/push{?pushTokenHash*,devicePublicKey*,proxyServer*}',
+    ).expand(parameters);
     return DynamiteRawResponse<PushRegisterDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200, 201},
@@ -927,11 +915,11 @@ class PushClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(parameters));
+    final path = UriTemplate('/ocs/v2.php/apps/notifications/api/{apiVersion}/push').expand(parameters);
     return DynamiteRawResponse<PushRemoveDeviceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
-        uri,
+        path,
         headers,
         body,
         const {200, 202, 401},
@@ -1050,15 +1038,13 @@ class SettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings{?batchSetting*,soundNotification*,soundTalk*}',
+    ).expand(parameters);
     return DynamiteRawResponse<SettingsPersonalResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},
@@ -1175,15 +1161,13 @@ class SettingsClient {
     $oCSAPIRequest ??= true;
     headers['OCS-APIRequest'] = $oCSAPIRequest.toString();
 
-    final uri = Uri.parse(
-      UriTemplate(
-        '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
-      ).expand(parameters),
-    );
+    final path = UriTemplate(
+      '/ocs/v2.php/apps/notifications/api/{apiVersion}/settings/admin{?batchSetting*,soundNotification*,soundTalk*}',
+    ).expand(parameters);
     return DynamiteRawResponse<SettingsAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         const {200},

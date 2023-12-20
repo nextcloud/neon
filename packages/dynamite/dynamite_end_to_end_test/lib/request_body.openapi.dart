@@ -68,11 +68,11 @@ class Client extends DynamiteClient {
     if (uint8List != null) {
       body = uint8List;
     }
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'get',
-        uri,
+        path,
         headers,
         body,
         null,
@@ -119,11 +119,11 @@ class Client extends DynamiteClient {
     if (string != null) {
       body = utf8.encode(string);
     }
-    final uri = Uri.parse(UriTemplate('/').expand(parameters));
+    final path = UriTemplate('/').expand(parameters);
     return DynamiteRawResponse<void, void>(
       response: executeRequest(
         'post',
-        uri,
+        path,
         headers,
         body,
         null,
