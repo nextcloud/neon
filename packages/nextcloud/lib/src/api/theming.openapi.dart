@@ -21,8 +21,8 @@ import 'package:uri/uri.dart';
 
 part 'theming.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -40,17 +40,17 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  IconClient get icon => IconClient(this);
+  $IconClient get icon => $IconClient(this);
 
-  ThemingClient get theming => ThemingClient(this);
+  $ThemingClient get theming => $ThemingClient(this);
 
-  UserThemeClient get userTheme => UserThemeClient(this);
+  $UserThemeClient get userTheme => $UserThemeClient(this);
 }
 
-class IconClient {
-  IconClient(this._rootClient);
+class $IconClient {
+  $IconClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Return a 32x32 favicon as png.
   ///
@@ -310,10 +310,10 @@ class IconClient {
 
 /// Class ThemingController.
 /// handle ajax requests to update the theme.
-class ThemingClient {
-  ThemingClient(this._rootClient);
+class $ThemingClient {
+  $ThemingClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the CSS stylesheet for a theme.
   ///
@@ -586,10 +586,10 @@ class ThemingClient {
   }
 }
 
-class UserThemeClient {
-  UserThemeClient(this._rootClient);
+class $UserThemeClient {
+  $UserThemeClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the background image.
   ///

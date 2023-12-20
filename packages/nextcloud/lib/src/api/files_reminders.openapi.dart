@@ -19,8 +19,8 @@ import 'package:uri/uri.dart';
 
 part 'files_reminders.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -38,13 +38,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  ApiClient get api => ApiClient(this);
+  $ApiClient get api => $ApiClient(this);
 }
 
-class ApiClient {
-  ApiClient(this._rootClient);
+class $ApiClient {
+  $ApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a reminder.
   ///

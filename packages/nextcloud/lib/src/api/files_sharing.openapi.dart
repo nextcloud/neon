@@ -22,8 +22,8 @@ import 'package:uri/uri.dart';
 
 part 'files_sharing.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -32,7 +32,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -41,23 +41,23 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  DeletedShareapiClient get deletedShareapi => DeletedShareapiClient(this);
+  $DeletedShareapiClient get deletedShareapi => $DeletedShareapiClient(this);
 
-  PublicPreviewClient get publicPreview => PublicPreviewClient(this);
+  $PublicPreviewClient get publicPreview => $PublicPreviewClient(this);
 
-  RemoteClient get remote => RemoteClient(this);
+  $RemoteClient get remote => $RemoteClient(this);
 
-  ShareInfoClient get shareInfo => ShareInfoClient(this);
+  $ShareInfoClient get shareInfo => $ShareInfoClient(this);
 
-  ShareapiClient get shareapi => ShareapiClient(this);
+  $ShareapiClient get shareapi => $ShareapiClient(this);
 
-  ShareesapiClient get shareesapi => ShareesapiClient(this);
+  $ShareesapiClient get shareesapi => $ShareesapiClient(this);
 }
 
-class DeletedShareapiClient {
-  DeletedShareapiClient(this._rootClient);
+class $DeletedShareapiClient {
+  $DeletedShareapiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of all deleted shares.
   ///
@@ -231,10 +231,10 @@ class DeletedShareapiClient {
   }
 }
 
-class PublicPreviewClient {
-  PublicPreviewClient(this._rootClient);
+class $PublicPreviewClient {
+  $PublicPreviewClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a direct link preview for a shared file.
   ///
@@ -464,10 +464,10 @@ class PublicPreviewClient {
   }
 }
 
-class RemoteClient {
-  RemoteClient(this._rootClient);
+class $RemoteClient {
+  $RemoteClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of accepted remote shares.
   ///
@@ -1002,10 +1002,10 @@ class RemoteClient {
   }
 }
 
-class ShareInfoClient {
-  ShareInfoClient(this._rootClient);
+class $ShareInfoClient {
+  $ShareInfoClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the info about a share.
   ///
@@ -1117,10 +1117,10 @@ class ShareInfoClient {
   }
 }
 
-class ShareapiClient {
-  ShareapiClient(this._rootClient);
+class $ShareapiClient {
+  $ShareapiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get shares of the current user.
   ///
@@ -2078,10 +2078,10 @@ class ShareapiClient {
   }
 }
 
-class ShareesapiClient {
-  ShareesapiClient(this._rootClient);
+class $ShareesapiClient {
+  $ShareesapiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Search for sharees.
   ///

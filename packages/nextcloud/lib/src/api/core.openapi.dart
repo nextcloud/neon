@@ -22,8 +22,8 @@ import 'package:uri/uri.dart';
 
 part 'core.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -32,7 +32,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -41,45 +41,45 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  AppPasswordClient get appPassword => AppPasswordClient(this);
+  $AppPasswordClient get appPassword => $AppPasswordClient(this);
 
-  AutoCompleteClient get autoComplete => AutoCompleteClient(this);
+  $AutoCompleteClient get autoComplete => $AutoCompleteClient(this);
 
-  AvatarClient get avatar => AvatarClient(this);
+  $AvatarClient get avatar => $AvatarClient(this);
 
-  ClientFlowLoginV2Client get clientFlowLoginV2 => ClientFlowLoginV2Client(this);
+  $ClientFlowLoginV2Client get clientFlowLoginV2 => $ClientFlowLoginV2Client(this);
 
-  CollaborationResourcesClient get collaborationResources => CollaborationResourcesClient(this);
+  $CollaborationResourcesClient get collaborationResources => $CollaborationResourcesClient(this);
 
-  GuestAvatarClient get guestAvatar => GuestAvatarClient(this);
+  $GuestAvatarClient get guestAvatar => $GuestAvatarClient(this);
 
-  HoverCardClient get hoverCard => HoverCardClient(this);
+  $HoverCardClient get hoverCard => $HoverCardClient(this);
 
-  NavigationClient get navigation => NavigationClient(this);
+  $NavigationClient get navigation => $NavigationClient(this);
 
-  OcmClient get ocm => OcmClient(this);
+  $OcmClient get ocm => $OcmClient(this);
 
-  OcsClient get ocs => OcsClient(this);
+  $OcsClient get ocs => $OcsClient(this);
 
-  PreviewClient get preview => PreviewClient(this);
+  $PreviewClient get preview => $PreviewClient(this);
 
-  ProfileApiClient get profileApi => ProfileApiClient(this);
+  $ProfileApiClient get profileApi => $ProfileApiClient(this);
 
-  ReferenceClient get reference => ReferenceClient(this);
+  $ReferenceClient get reference => $ReferenceClient(this);
 
-  ReferenceApiClient get referenceApi => ReferenceApiClient(this);
+  $ReferenceApiClient get referenceApi => $ReferenceApiClient(this);
 
-  TextProcessingApiClient get textProcessingApi => TextProcessingApiClient(this);
+  $TextProcessingApiClient get textProcessingApi => $TextProcessingApiClient(this);
 
-  TextToImageApiClient get textToImageApi => TextToImageApiClient(this);
+  $TextToImageApiClient get textToImageApi => $TextToImageApiClient(this);
 
-  TranslationApiClient get translationApi => TranslationApiClient(this);
+  $TranslationApiClient get translationApi => $TranslationApiClient(this);
 
-  UnifiedSearchClient get unifiedSearch => UnifiedSearchClient(this);
+  $UnifiedSearchClient get unifiedSearch => $UnifiedSearchClient(this);
 
-  WhatsNewClient get whatsNew => WhatsNewClient(this);
+  $WhatsNewClient get whatsNew => $WhatsNewClient(this);
 
-  WipeClient get wipe => WipeClient(this);
+  $WipeClient get wipe => $WipeClient(this);
 
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -127,10 +127,10 @@ class Client extends DynamiteClient {
   }
 }
 
-class AppPasswordClient {
-  AppPasswordClient(this._rootClient);
+class $AppPasswordClient {
+  $AppPasswordClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Create app password.
   ///
@@ -383,10 +383,10 @@ class AppPasswordClient {
   }
 }
 
-class AutoCompleteClient {
-  AutoCompleteClient(this._rootClient);
+class $AutoCompleteClient {
+  $AutoCompleteClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Autocomplete a query.
   ///
@@ -525,10 +525,10 @@ class AutoCompleteClient {
 }
 
 /// Class AvatarController.
-class AvatarClient {
-  AvatarClient(this._rootClient);
+class $AvatarClient {
+  $AvatarClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the dark avatar.
   ///
@@ -711,10 +711,10 @@ class AvatarClient {
   }
 }
 
-class ClientFlowLoginV2Client {
-  ClientFlowLoginV2Client(this._rootClient);
+class $ClientFlowLoginV2Client {
+  $ClientFlowLoginV2Client(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Poll the login flow credentials.
   ///
@@ -859,10 +859,10 @@ class ClientFlowLoginV2Client {
   }
 }
 
-class CollaborationResourcesClient {
-  CollaborationResourcesClient(this._rootClient);
+class $CollaborationResourcesClient {
+  $CollaborationResourcesClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Search for collections.
   ///
@@ -1603,10 +1603,10 @@ class CollaborationResourcesClient {
 }
 
 /// This controller handles guest avatar requests.
-class GuestAvatarClient {
-  GuestAvatarClient(this._rootClient);
+class $GuestAvatarClient {
+  $GuestAvatarClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Returns a dark guest avatar image response.
   ///
@@ -1802,10 +1802,10 @@ class GuestAvatarClient {
   }
 }
 
-class HoverCardClient {
-  HoverCardClient(this._rootClient);
+class $HoverCardClient {
+  $HoverCardClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the user details for a hovercard.
   ///
@@ -1901,10 +1901,10 @@ class HoverCardClient {
   }
 }
 
-class NavigationClient {
-  NavigationClient(this._rootClient);
+class $NavigationClient {
+  $NavigationClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the apps navigation.
   ///
@@ -2096,10 +2096,10 @@ class NavigationClient {
 }
 
 /// Controller about the endpoint /ocm-provider/.
-class OcmClient {
-  OcmClient(this._rootClient);
+class $OcmClient {
+  $OcmClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// generate a OCMProvider with local data and send it as DataResponse. This replaces the old PHP file ocm-provider/index.php.
   ///
@@ -2168,10 +2168,10 @@ class OcmClient {
   }
 }
 
-class OcsClient {
-  OcsClient(this._rootClient);
+class $OcsClient {
+  $OcsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the capabilities.
   ///
@@ -2252,10 +2252,10 @@ class OcsClient {
   }
 }
 
-class PreviewClient {
-  PreviewClient(this._rootClient);
+class $PreviewClient {
+  $PreviewClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a preview by file ID.
   ///
@@ -2550,10 +2550,10 @@ class PreviewClient {
   }
 }
 
-class ProfileApiClient {
-  ProfileApiClient(this._rootClient);
+class $ProfileApiClient {
+  $ProfileApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Update the visibility of a parameter.
   ///
@@ -2669,10 +2669,10 @@ class ProfileApiClient {
   }
 }
 
-class ReferenceClient {
-  ReferenceClient(this._rootClient);
+class $ReferenceClient {
+  $ReferenceClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a preview for a reference.
   ///
@@ -2753,10 +2753,10 @@ class ReferenceClient {
   }
 }
 
-class ReferenceApiClient {
-  ReferenceApiClient(this._rootClient);
+class $ReferenceApiClient {
+  $ReferenceApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Resolve a reference.
   ///
@@ -3241,10 +3241,10 @@ class ReferenceApiClient {
   }
 }
 
-class TextProcessingApiClient {
-  TextProcessingApiClient(this._rootClient);
+class $TextProcessingApiClient {
+  $TextProcessingApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// This endpoint returns all available LanguageModel task types.
   ///
@@ -3733,10 +3733,10 @@ class TextProcessingApiClient {
   }
 }
 
-class TextToImageApiClient {
-  TextToImageApiClient(this._rootClient);
+class $TextToImageApiClient {
+  $TextToImageApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Check whether this feature is available.
   ///
@@ -4327,10 +4327,10 @@ class TextToImageApiClient {
   }
 }
 
-class TranslationApiClient {
-  TranslationApiClient(this._rootClient);
+class $TranslationApiClient {
+  $TranslationApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the list of supported languages.
   ///
@@ -4523,10 +4523,10 @@ class TranslationApiClient {
   }
 }
 
-class UnifiedSearchClient {
-  UnifiedSearchClient(this._rootClient);
+class $UnifiedSearchClient {
+  $UnifiedSearchClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the providers for unified search.
   ///
@@ -4761,10 +4761,10 @@ class UnifiedSearchClient {
   }
 }
 
-class WhatsNewClient {
-  WhatsNewClient(this._rootClient);
+class $WhatsNewClient {
+  $WhatsNewClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the changes.
   ///
@@ -4940,10 +4940,10 @@ class WhatsNewClient {
   }
 }
 
-class WipeClient {
-  WipeClient(this._rootClient);
+class $WipeClient {
+  $WipeClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Check if the device should be wiped.
   ///

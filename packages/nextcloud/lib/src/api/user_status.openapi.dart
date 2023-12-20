@@ -20,8 +20,8 @@ import 'package:uri/uri.dart';
 
 part 'user_status.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -39,19 +39,19 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  HeartbeatClient get heartbeat => HeartbeatClient(this);
+  $HeartbeatClient get heartbeat => $HeartbeatClient(this);
 
-  PredefinedStatusClient get predefinedStatus => PredefinedStatusClient(this);
+  $PredefinedStatusClient get predefinedStatus => $PredefinedStatusClient(this);
 
-  StatusesClient get statuses => StatusesClient(this);
+  $StatusesClient get statuses => $StatusesClient(this);
 
-  UserStatusClient get userStatus => UserStatusClient(this);
+  $UserStatusClient get userStatus => $UserStatusClient(this);
 }
 
-class HeartbeatClient {
-  HeartbeatClient(this._rootClient);
+class $HeartbeatClient {
+  $HeartbeatClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Keep the status alive.
   ///
@@ -151,10 +151,10 @@ class HeartbeatClient {
   }
 }
 
-class PredefinedStatusClient {
-  PredefinedStatusClient(this._rootClient);
+class $PredefinedStatusClient {
+  $PredefinedStatusClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get all predefined messages.
   ///
@@ -235,10 +235,10 @@ class PredefinedStatusClient {
   }
 }
 
-class StatusesClient {
-  StatusesClient(this._rootClient);
+class $StatusesClient {
+  $StatusesClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Find statuses of users.
   ///
@@ -433,10 +433,10 @@ class StatusesClient {
   }
 }
 
-class UserStatusClient {
-  UserStatusClient(this._rootClient);
+class $UserStatusClient {
+  $UserStatusClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the status of the current user.
   ///

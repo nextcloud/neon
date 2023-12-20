@@ -18,8 +18,8 @@ import 'package:uri/uri.dart';
 
 part 'files_versions.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -28,7 +28,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -37,13 +37,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  PreviewClient get preview => PreviewClient(this);
+  $PreviewClient get preview => $PreviewClient(this);
 }
 
-class PreviewClient {
-  PreviewClient(this._rootClient);
+class $PreviewClient {
+  $PreviewClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the preview for a file version.
   ///

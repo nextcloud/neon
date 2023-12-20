@@ -12,8 +12,8 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -21,7 +21,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,

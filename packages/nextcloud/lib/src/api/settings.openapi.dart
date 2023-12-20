@@ -17,8 +17,8 @@ import 'package:universal_io/io.dart';
 
 part 'settings.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -27,7 +27,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -36,13 +36,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  LogSettingsClient get logSettings => LogSettingsClient(this);
+  $LogSettingsClient get logSettings => $LogSettingsClient(this);
 }
 
-class LogSettingsClient {
-  LogSettingsClient(this._rootClient);
+class $LogSettingsClient {
+  $LogSettingsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// download logfile.
   ///
