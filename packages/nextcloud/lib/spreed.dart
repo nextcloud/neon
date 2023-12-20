@@ -7,8 +7,8 @@ export 'src/helpers/spreed.dart';
 
 // ignore: public_member_api_docs
 extension SpreedExtension on NextcloudClient {
-  static final _spreed = Expando<Client>();
+  static final _spreed = Expando<$Client>();
 
   /// Client for the spreed APIs
-  Client get spreed => _spreed[this] ??= Client.fromClient(this);
+  $Client get spreed => _spreed[this] ??= $Client.fromClient(this);
 }

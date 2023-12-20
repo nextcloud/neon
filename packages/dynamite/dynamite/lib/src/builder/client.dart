@@ -38,7 +38,7 @@ Class buildRootClient(
       (final b) {
         b
           ..extend = refer('DynamiteClient')
-          ..name = 'Client'
+          ..name = r'$Client'
           ..docs.addAll(spec.formattedTagsFor(null))
           ..constructors.addAll([
             Constructor(
@@ -154,7 +154,7 @@ Class buildClient(
             Field(
               (final b) => b
                 ..name = '_rootClient'
-                ..type = refer('Client')
+                ..type = refer(r'$Client')
                 ..modifier = FieldModifier.final$,
             ),
           );

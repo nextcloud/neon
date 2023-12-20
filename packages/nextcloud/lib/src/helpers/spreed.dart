@@ -10,7 +10,7 @@ final minVersion = Version(16, 0, 0);
 const maxMajor = 18;
 
 /// Extension for checking whether spreed is supported.
-extension SpreedVersionCheck on spreed.Client {
+extension SpreedVersionCheck on spreed.$Client {
   /// Checks whether the spreed app installed on the server is supported by this client.
   ///
   /// Also returns the supported version number.

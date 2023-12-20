@@ -21,8 +21,8 @@ import 'package:uri/uri.dart';
 
 part 'files.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -40,21 +40,21 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  ApiClient get api => ApiClient(this);
+  $ApiClient get api => $ApiClient(this);
 
-  DirectEditingClient get directEditing => DirectEditingClient(this);
+  $DirectEditingClient get directEditing => $DirectEditingClient(this);
 
-  OpenLocalEditorClient get openLocalEditor => OpenLocalEditorClient(this);
+  $OpenLocalEditorClient get openLocalEditor => $OpenLocalEditorClient(this);
 
-  TemplateClient get template => TemplateClient(this);
+  $TemplateClient get template => $TemplateClient(this);
 
-  TransferOwnershipClient get transferOwnership => TransferOwnershipClient(this);
+  $TransferOwnershipClient get transferOwnership => $TransferOwnershipClient(this);
 }
 
-class ApiClient {
-  ApiClient(this._rootClient);
+class $ApiClient {
+  $ApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Gets a thumbnail of the specified file.
   ///
@@ -160,10 +160,10 @@ class ApiClient {
   }
 }
 
-class DirectEditingClient {
-  DirectEditingClient(this._rootClient);
+class $DirectEditingClient {
+  $DirectEditingClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the direct editing capabilities.
   ///
@@ -579,10 +579,10 @@ class DirectEditingClient {
   }
 }
 
-class OpenLocalEditorClient {
-  OpenLocalEditorClient(this._rootClient);
+class $OpenLocalEditorClient {
+  $OpenLocalEditorClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Create a local editor.
   ///
@@ -779,10 +779,10 @@ class OpenLocalEditorClient {
   }
 }
 
-class TemplateClient {
-  TemplateClient(this._rootClient);
+class $TemplateClient {
+  $TemplateClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// List the available templates.
   ///
@@ -1079,10 +1079,10 @@ class TemplateClient {
   }
 }
 
-class TransferOwnershipClient {
-  TransferOwnershipClient(this._rootClient);
+class $TransferOwnershipClient {
+  $TransferOwnershipClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Transfer the ownership to another user.
   ///

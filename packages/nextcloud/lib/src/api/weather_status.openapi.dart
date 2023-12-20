@@ -19,8 +19,8 @@ import 'package:uri/uri.dart';
 
 part 'weather_status.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -29,7 +29,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -38,13 +38,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  WeatherStatusClient get weatherStatus => WeatherStatusClient(this);
+  $WeatherStatusClient get weatherStatus => $WeatherStatusClient(this);
 }
 
-class WeatherStatusClient {
-  WeatherStatusClient(this._rootClient);
+class $WeatherStatusClient {
+  $WeatherStatusClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Change the weather status mode. There are currently 2 modes: - ask the browser - use the user defined address.
   ///

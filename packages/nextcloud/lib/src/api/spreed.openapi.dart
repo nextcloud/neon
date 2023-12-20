@@ -22,8 +22,8 @@ import 'package:uri/uri.dart';
 
 part 'spreed.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -32,7 +32,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -41,51 +41,51 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  AvatarClient get avatar => AvatarClient(this);
+  $AvatarClient get avatar => $AvatarClient(this);
 
-  BotClient get bot => BotClient(this);
+  $BotClient get bot => $BotClient(this);
 
-  BreakoutRoomClient get breakoutRoom => BreakoutRoomClient(this);
+  $BreakoutRoomClient get breakoutRoom => $BreakoutRoomClient(this);
 
-  CallClient get call => CallClient(this);
+  $CallClient get call => $CallClient(this);
 
-  CertificateClient get certificate => CertificateClient(this);
+  $CertificateClient get certificate => $CertificateClient(this);
 
-  ChatClient get chat => ChatClient(this);
+  $ChatClient get chat => $ChatClient(this);
 
-  FederationClient get federation => FederationClient(this);
+  $FederationClient get federation => $FederationClient(this);
 
-  FilesIntegrationClient get filesIntegration => FilesIntegrationClient(this);
+  $FilesIntegrationClient get filesIntegration => $FilesIntegrationClient(this);
 
-  GuestClient get guest => GuestClient(this);
+  $GuestClient get guest => $GuestClient(this);
 
-  HostedSignalingServerClient get hostedSignalingServer => HostedSignalingServerClient(this);
+  $HostedSignalingServerClient get hostedSignalingServer => $HostedSignalingServerClient(this);
 
-  MatterbridgeClient get matterbridge => MatterbridgeClient(this);
+  $MatterbridgeClient get matterbridge => $MatterbridgeClient(this);
 
-  MatterbridgeSettingsClient get matterbridgeSettings => MatterbridgeSettingsClient(this);
+  $MatterbridgeSettingsClient get matterbridgeSettings => $MatterbridgeSettingsClient(this);
 
-  PollClient get poll => PollClient(this);
+  $PollClient get poll => $PollClient(this);
 
-  PublicShareAuthClient get publicShareAuth => PublicShareAuthClient(this);
+  $PublicShareAuthClient get publicShareAuth => $PublicShareAuthClient(this);
 
-  ReactionClient get reaction => ReactionClient(this);
+  $ReactionClient get reaction => $ReactionClient(this);
 
-  RecordingClient get recording => RecordingClient(this);
+  $RecordingClient get recording => $RecordingClient(this);
 
-  RoomClient get room => RoomClient(this);
+  $RoomClient get room => $RoomClient(this);
 
-  SettingsClient get settings => SettingsClient(this);
+  $SettingsClient get settings => $SettingsClient(this);
 
-  SignalingClient get signaling => SignalingClient(this);
+  $SignalingClient get signaling => $SignalingClient(this);
 
-  TempAvatarClient get tempAvatar => TempAvatarClient(this);
+  $TempAvatarClient get tempAvatar => $TempAvatarClient(this);
 }
 
-class AvatarClient {
-  AvatarClient(this._rootClient);
+class $AvatarClient {
+  $AvatarClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the avatar of a room.
   ///
@@ -617,10 +617,10 @@ class AvatarClient {
   }
 }
 
-class BotClient {
-  BotClient(this._rootClient);
+class $BotClient {
+  $BotClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Sends a new chat message to the given room.
   ///
@@ -1436,10 +1436,10 @@ class BotClient {
   }
 }
 
-class BreakoutRoomClient {
-  BreakoutRoomClient(this._rootClient);
+class $BreakoutRoomClient {
+  $BreakoutRoomClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Configure the breakout rooms.
   ///
@@ -2444,10 +2444,10 @@ class BreakoutRoomClient {
   }
 }
 
-class CallClient {
-  CallClient(this._rootClient);
+class $CallClient {
+  $CallClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the peers for a call.
   ///
@@ -3135,10 +3135,10 @@ class CallClient {
   }
 }
 
-class CertificateClient {
-  CertificateClient(this._rootClient);
+class $CertificateClient {
+  $CertificateClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the certificate expiration for a host.
   ///
@@ -3251,10 +3251,10 @@ class CertificateClient {
   }
 }
 
-class ChatClient {
-  ChatClient(this._rootClient);
+class $ChatClient {
+  $ChatClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Receives chat messages from the given room.
   ///
@@ -5036,10 +5036,10 @@ class ChatClient {
   }
 }
 
-class FederationClient {
-  FederationClient(this._rootClient);
+class $FederationClient {
+  $FederationClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Accept a federation invites.
   ///
@@ -5343,10 +5343,10 @@ class FederationClient {
   }
 }
 
-class FilesIntegrationClient {
-  FilesIntegrationClient(this._rootClient);
+class $FilesIntegrationClient {
+  $FilesIntegrationClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the token of the room associated to the given file id.
   ///
@@ -5579,10 +5579,10 @@ class FilesIntegrationClient {
   }
 }
 
-class GuestClient {
-  GuestClient(this._rootClient);
+class $GuestClient {
+  $GuestClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Set the display name as a guest.
   ///
@@ -5698,10 +5698,10 @@ class GuestClient {
   }
 }
 
-class HostedSignalingServerClient {
-  HostedSignalingServerClient(this._rootClient);
+class $HostedSignalingServerClient {
+  $HostedSignalingServerClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Request a trial account.
   ///
@@ -5953,10 +5953,10 @@ class HostedSignalingServerClient {
   }
 }
 
-class MatterbridgeClient {
-  MatterbridgeClient(this._rootClient);
+class $MatterbridgeClient {
+  $MatterbridgeClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get bridge information of one room.
   ///
@@ -6397,10 +6397,10 @@ class MatterbridgeClient {
   }
 }
 
-class MatterbridgeSettingsClient {
-  MatterbridgeSettingsClient(this._rootClient);
+class $MatterbridgeSettingsClient {
+  $MatterbridgeSettingsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Stop all bridges.
   ///
@@ -6607,10 +6607,10 @@ class MatterbridgeSettingsClient {
   }
 }
 
-class PollClient {
-  PollClient(this._rootClient);
+class $PollClient {
+  $PollClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Create a poll.
   ///
@@ -7093,10 +7093,10 @@ class PollClient {
   }
 }
 
-class PublicShareAuthClient {
-  PublicShareAuthClient(this._rootClient);
+class $PublicShareAuthClient {
+  $PublicShareAuthClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Creates a new room for requesting the password of a share.
   ///
@@ -7207,10 +7207,10 @@ class PublicShareAuthClient {
   }
 }
 
-class ReactionClient {
-  ReactionClient(this._rootClient);
+class $ReactionClient {
+  $ReactionClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of reactions for a message.
   ///
@@ -7574,10 +7574,10 @@ class ReactionClient {
   }
 }
 
-class RecordingClient {
-  RecordingClient(this._rootClient);
+class $RecordingClient {
+  $RecordingClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the welcome message of a recording server.
   ///
@@ -8252,10 +8252,10 @@ class RecordingClient {
   }
 }
 
-class RoomClient {
-  RoomClient(this._rootClient);
+class $RoomClient {
+  $RoomClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get all currently existent rooms which the user has joined.
   ///
@@ -12335,10 +12335,10 @@ class RoomClient {
   }
 }
 
-class SettingsClient {
-  SettingsClient(this._rootClient);
+class $SettingsClient {
+  $SettingsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Update SIP settings.
   ///
@@ -12582,10 +12582,10 @@ class SettingsClient {
   }
 }
 
-class SignalingClient {
-  SignalingClient(this._rootClient);
+class $SignalingClient {
+  $SignalingClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the signaling settings.
   ///
@@ -13022,10 +13022,10 @@ class SignalingClient {
   }
 }
 
-class TempAvatarClient {
-  TempAvatarClient(this._rootClient);
+class $TempAvatarClient {
+  $TempAvatarClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Upload a temporary avatar.
   ///

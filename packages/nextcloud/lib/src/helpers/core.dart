@@ -10,7 +10,7 @@ final minVersion = Version(26, 0, 0);
 /// Maximum major of core/Server supported
 const maxMajor = 28;
 
-extension CoreVersionCheck on core.Client {
+extension CoreVersionCheck on core.$Client {
   /// Check if the core/Server version is supported by this client
   ///
   /// Also returns the minimum supported version

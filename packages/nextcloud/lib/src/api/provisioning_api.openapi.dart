@@ -21,8 +21,8 @@ import 'package:uri/uri.dart';
 
 part 'provisioning_api.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -31,7 +31,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -40,21 +40,21 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  AppConfigClient get appConfig => AppConfigClient(this);
+  $AppConfigClient get appConfig => $AppConfigClient(this);
 
-  AppsClient get apps => AppsClient(this);
+  $AppsClient get apps => $AppsClient(this);
 
-  GroupsClient get groups => GroupsClient(this);
+  $GroupsClient get groups => $GroupsClient(this);
 
-  PreferencesClient get preferences => PreferencesClient(this);
+  $PreferencesClient get preferences => $PreferencesClient(this);
 
-  UsersClient get users => UsersClient(this);
+  $UsersClient get users => $UsersClient(this);
 }
 
-class AppConfigClient {
-  AppConfigClient(this._rootClient);
+class $AppConfigClient {
+  $AppConfigClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of apps.
   ///
@@ -566,10 +566,10 @@ class AppConfigClient {
   }
 }
 
-class AppsClient {
-  AppsClient(this._rootClient);
+class $AppsClient {
+  $AppsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of installed apps.
   ///
@@ -952,10 +952,10 @@ class AppsClient {
   }
 }
 
-class GroupsClient {
-  GroupsClient(this._rootClient);
+class $GroupsClient {
+  $GroupsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of groups.
   ///
@@ -1893,10 +1893,10 @@ class GroupsClient {
   }
 }
 
-class PreferencesClient {
-  PreferencesClient(this._rootClient);
+class $PreferencesClient {
+  $PreferencesClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Update a preference value of an app.
   ///
@@ -2322,10 +2322,10 @@ class PreferencesClient {
   }
 }
 
-class UsersClient {
-  UsersClient(this._rootClient);
+class $UsersClient {
+  $UsersClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a list of users.
   ///

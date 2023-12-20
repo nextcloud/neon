@@ -6,8 +6,8 @@ export 'src/api/provisioning_api.openapi.dart';
 
 // ignore: public_member_api_docs
 extension ProvisioningApiExtension on NextcloudClient {
-  static final _provisioningApi = Expando<Client>();
+  static final _provisioningApi = Expando<$Client>();
 
   /// Client for the provisioning_api APIs
-  Client get provisioningApi => _provisioningApi[this] ??= Client.fromClient(this);
+  $Client get provisioningApi => _provisioningApi[this] ??= $Client.fromClient(this);
 }

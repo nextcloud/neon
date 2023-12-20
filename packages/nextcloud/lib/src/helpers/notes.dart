@@ -7,7 +7,7 @@ import 'package:version/version.dart';
 final minVersion = Version(1, 3, 0);
 
 // ignore: public_member_api_docs
-extension NotesVersionCheck on notes.Client {
+extension NotesVersionCheck on notes.$Client {
   /// Check if the notes app version is supported by this client
   ///
   /// Also returns the supported API version number

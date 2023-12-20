@@ -18,8 +18,8 @@ import 'package:uri/uri.dart';
 
 part 'dav.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -28,7 +28,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -37,13 +37,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  DirectClient get direct => DirectClient(this);
+  $DirectClient get direct => $DirectClient(this);
 }
 
-class DirectClient {
-  DirectClient(this._rootClient);
+class $DirectClient {
+  $DirectClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get a direct link to a file.
   ///

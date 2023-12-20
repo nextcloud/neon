@@ -20,8 +20,8 @@ import 'package:uri/uri.dart';
 
 part 'notifications.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -39,19 +39,19 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  ApiClient get api => ApiClient(this);
+  $ApiClient get api => $ApiClient(this);
 
-  EndpointClient get endpoint => EndpointClient(this);
+  $EndpointClient get endpoint => $EndpointClient(this);
 
-  PushClient get push => PushClient(this);
+  $PushClient get push => $PushClient(this);
 
-  SettingsClient get settings => SettingsClient(this);
+  $SettingsClient get settings => $SettingsClient(this);
 }
 
-class ApiClient {
-  ApiClient(this._rootClient);
+class $ApiClient {
+  $ApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Generate a notification for a user.
   ///
@@ -184,10 +184,10 @@ class ApiClient {
   }
 }
 
-class EndpointClient {
-  EndpointClient(this._rootClient);
+class $EndpointClient {
+  $EndpointClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get all notifications.
   ///
@@ -695,10 +695,10 @@ class EndpointClient {
   }
 }
 
-class PushClient {
-  PushClient(this._rootClient);
+class $PushClient {
+  $PushClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Register device for push notifications.
   ///
@@ -924,10 +924,10 @@ class PushClient {
   }
 }
 
-class SettingsClient {
-  SettingsClient(this._rootClient);
+class $SettingsClient {
+  $SettingsClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Update personal notification settings.
   ///

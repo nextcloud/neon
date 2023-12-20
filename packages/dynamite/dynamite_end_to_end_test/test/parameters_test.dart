@@ -20,7 +20,7 @@ class MockHttpOverrides extends HttpOverrides {
 }
 
 void main() {
-  late Client client;
+  late $Client client;
   late MockHttpHeaders headers;
   late MockHttpClientResponse response;
   late MockHttpClientRequest request;
@@ -43,7 +43,7 @@ void main() {
       return Future.value(request);
     });
 
-    client = Client(Uri.parse('example.com'));
+    client = $Client(Uri.parse('example.com'));
   });
 
   group(r'$get', () {

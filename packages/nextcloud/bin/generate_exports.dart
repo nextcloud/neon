@@ -29,7 +29,7 @@ void main() {
       exports.add("export 'src/helpers/$id.dart';");
     }
 
-    if (!file.readAsStringSync().contains('class Client extends DynamiteClient {')) {
+    if (!file.readAsStringSync().contains(r'class $Client extends DynamiteClient {')) {
       File('lib/$id.dart').writeAsStringSync(exports.join('\n'));
       continue;
     }
@@ -43,10 +43,10 @@ ${exports.join('\n')}
 
 // ignore: public_member_api_docs
 extension ${classPrefix}Extension on NextcloudClient {
-  static final _$variablePrefix = Expando<Client>();
+  static final _$variablePrefix = Expando<\$Client>();
 
   /// Client for the $id APIs
-  Client get $variablePrefix => _$variablePrefix[this] ??= Client.fromClient(this);
+  \$Client get $variablePrefix => _$variablePrefix[this] ??= \$Client.fromClient(this);
 }
 ''');
   }

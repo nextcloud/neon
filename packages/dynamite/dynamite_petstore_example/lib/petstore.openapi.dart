@@ -18,8 +18,8 @@ import 'package:uri/uri.dart';
 
 part 'petstore.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -27,7 +27,7 @@ class Client extends DynamiteClient {
     super.cookieJar,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,

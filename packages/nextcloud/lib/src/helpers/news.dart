@@ -7,7 +7,7 @@ import 'package:version/version.dart';
 /// Minimum API version of the news app supported
 final minVersion = Version(1, 3, 0);
 
-extension NewsVersionCheck on news.Client {
+extension NewsVersionCheck on news.$Client {
   /// Check if the news app version is supported by this client
   ///
   /// Also returns the supported API version number

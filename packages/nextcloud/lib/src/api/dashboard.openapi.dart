@@ -20,8 +20,8 @@ import 'package:uri/uri.dart';
 
 part 'dashboard.openapi.g.dart';
 
-class Client extends DynamiteClient {
-  Client(
+class $Client extends DynamiteClient {
+  $Client(
     super.baseURL, {
     super.baseHeaders,
     super.userAgent,
@@ -30,7 +30,7 @@ class Client extends DynamiteClient {
     super.authentications,
   });
 
-  Client.fromClient(DynamiteClient client)
+  $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -39,13 +39,13 @@ class Client extends DynamiteClient {
           authentications: client.authentications,
         );
 
-  DashboardApiClient get dashboardApi => DashboardApiClient(this);
+  $DashboardApiClient get dashboardApi => $DashboardApiClient(this);
 }
 
-class DashboardApiClient {
-  DashboardApiClient(this._rootClient);
+class $DashboardApiClient {
+  $DashboardApiClient(this._rootClient);
 
-  final Client _rootClient;
+  final $Client _rootClient;
 
   /// Get the widgets.
   ///
