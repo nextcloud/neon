@@ -24,7 +24,10 @@ class _$DynamiteConfigSerializer implements StructuredSerializer<DynamiteConfig>
   @override
   Iterable<Object?> serialize(Serializers serializers, DynamiteConfig object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[];
+    final result = <Object?>[
+      'experimental',
+      serializers.serialize(object.experimental, specifiedType: const FullType(bool)),
+    ];
     Object? value;
     value = object.analyzerIgnores;
     if (value != null) {
@@ -80,6 +83,9 @@ class _$DynamiteConfigSerializer implements StructuredSerializer<DynamiteConfig>
           result.overrides.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, [FullType(String), FullType(DynamiteConfig)]))!);
           break;
+        case 'experimental':
+          result.experimental = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
+          break;
       }
     }
 
@@ -96,11 +102,17 @@ class _$DynamiteConfig extends DynamiteConfig {
   final int? pageWidth;
   @override
   final BuiltMap<String, DynamiteConfig>? overrides;
+  @override
+  final bool experimental;
 
   factory _$DynamiteConfig([void Function(DynamiteConfigBuilder)? updates]) =>
       (DynamiteConfigBuilder()..update(updates))._build();
 
-  _$DynamiteConfig._({this.analyzerIgnores, this.coverageIgnores, this.pageWidth, this.overrides}) : super._();
+  _$DynamiteConfig._(
+      {this.analyzerIgnores, this.coverageIgnores, this.pageWidth, this.overrides, required this.experimental})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(experimental, r'DynamiteConfig', 'experimental');
+  }
 
   @override
   DynamiteConfig rebuild(void Function(DynamiteConfigBuilder) updates) => (toBuilder()..update(updates)).build();
@@ -115,7 +127,8 @@ class _$DynamiteConfig extends DynamiteConfig {
         analyzerIgnores == other.analyzerIgnores &&
         coverageIgnores == other.coverageIgnores &&
         pageWidth == other.pageWidth &&
-        overrides == other.overrides;
+        overrides == other.overrides &&
+        experimental == other.experimental;
   }
 
   @override
@@ -125,6 +138,7 @@ class _$DynamiteConfig extends DynamiteConfig {
     _$hash = $jc(_$hash, coverageIgnores.hashCode);
     _$hash = $jc(_$hash, pageWidth.hashCode);
     _$hash = $jc(_$hash, overrides.hashCode);
+    _$hash = $jc(_$hash, experimental.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -135,7 +149,8 @@ class _$DynamiteConfig extends DynamiteConfig {
           ..add('analyzerIgnores', analyzerIgnores)
           ..add('coverageIgnores', coverageIgnores)
           ..add('pageWidth', pageWidth)
-          ..add('overrides', overrides))
+          ..add('overrides', overrides)
+          ..add('experimental', experimental))
         .toString();
   }
 }
@@ -159,7 +174,13 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
   MapBuilder<String, DynamiteConfig> get overrides => _$this._overrides ??= MapBuilder<String, DynamiteConfig>();
   set overrides(MapBuilder<String, DynamiteConfig>? overrides) => _$this._overrides = overrides;
 
-  DynamiteConfigBuilder();
+  bool? _experimental;
+  bool? get experimental => _$this._experimental;
+  set experimental(bool? experimental) => _$this._experimental = experimental;
+
+  DynamiteConfigBuilder() {
+    DynamiteConfig._defaults(this);
+  }
 
   DynamiteConfigBuilder get _$this {
     final $v = _$v;
@@ -168,6 +189,7 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
       _coverageIgnores = $v.coverageIgnores?.toBuilder();
       _pageWidth = $v.pageWidth;
       _overrides = $v.overrides?.toBuilder();
+      _experimental = $v.experimental;
       _$v = null;
     }
     return this;
@@ -195,7 +217,8 @@ class DynamiteConfigBuilder implements Builder<DynamiteConfig, DynamiteConfigBui
               analyzerIgnores: _analyzerIgnores?.build(),
               coverageIgnores: _coverageIgnores?.build(),
               pageWidth: pageWidth,
-              overrides: _overrides?.build());
+              overrides: _overrides?.build(),
+              experimental: BuiltValueNullFieldError.checkNotNull(experimental, r'DynamiteConfig', 'experimental'));
     } catch (_) {
       late String _$failedField;
       try {

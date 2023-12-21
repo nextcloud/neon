@@ -55,9 +55,11 @@ targets:
             - 'static BuiltSet<.*> get values => _\$.*Values;'
           overrides:
             # Tighten linting rules for specific specs
+            # Mark the generated library as experimental
             lib/my_spec.openapi.json:
               analyzer_ignores:
                 - camel_case_types
+              experimental: true
 
 ```
 

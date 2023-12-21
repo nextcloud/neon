@@ -115,6 +115,12 @@ class OpenAPIBuilder implements Builder {
             Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
           );
         }
+
+        if (state.buildConfig.experimental) {
+          b.annotations.add(
+            refer('experimental'),
+          );
+        }
       });
 
       var outputString = output.accept(emitter).toString();

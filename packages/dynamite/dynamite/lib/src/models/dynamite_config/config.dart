@@ -40,6 +40,14 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   // overrides is reserved in the build.yaml
   BuiltMap<String, DynamiteConfig>? get overrides;
 
+  /// Whether the generated library should be marked with the `@experimental` annotation.
+  bool get experimental;
+
+  @BuiltValueHook(initializeBuilder: true)
+  static void _defaults(final DynamiteConfigBuilder b) {
+    b.experimental ??= false;
+  }
+
   /// Gets the config for the given [uri].
   ///
   /// Returns this if no override is set.
@@ -81,6 +89,8 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
       if (coverageIgnores != null) {
         b.coverageIgnores.replace(coverageIgnores);
       }
+
+      b.experimental = other.experimental;
     });
   }
 }
