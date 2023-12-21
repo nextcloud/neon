@@ -113,7 +113,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
     if (value != null) {
       result
         ..add('enum')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(JsonObject)])));
     }
     value = object.properties;
     if (value != null) {
@@ -216,7 +216,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           break;
         case 'enum':
           result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))! as BuiltList<Object?>);
           break;
         case 'properties':
           result.properties.replace(serializers.deserialize(value,
@@ -298,7 +298,7 @@ class _$Schema extends Schema {
   @override
   final JsonObject? $default;
   @override
-  final BuiltList<String>? $enum;
+  final BuiltList<JsonObject>? $enum;
   @override
   final BuiltMap<String, Schema>? properties;
   @override
@@ -478,9 +478,9 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   JsonObject? get $default => _$this._$default;
   set $default(JsonObject? $default) => _$this._$default = $default;
 
-  ListBuilder<String>? _$enum;
-  ListBuilder<String> get $enum => _$this._$enum ??= ListBuilder<String>();
-  set $enum(ListBuilder<String>? $enum) => _$this._$enum = $enum;
+  ListBuilder<JsonObject>? _$enum;
+  ListBuilder<JsonObject> get $enum => _$this._$enum ??= ListBuilder<JsonObject>();
+  set $enum(ListBuilder<JsonObject>? $enum) => _$this._$enum = $enum;
 
   MapBuilder<String, Schema>? _properties;
   MapBuilder<String, Schema> get properties => _$this._properties ??= MapBuilder<String, Schema>();

@@ -62,7 +62,6 @@ Serializer<RemoteUnshareResponseApplicationJson_Ocs> _$remoteUnshareResponseAppl
 Serializer<RemoteUnshareResponseApplicationJson> _$remoteUnshareResponseApplicationJsonSerializer =
     _$RemoteUnshareResponseApplicationJsonSerializer();
 Serializer<ShareInfo> _$shareInfoSerializer = _$ShareInfoSerializer();
-Serializer<Share_ItemType> _$shareItemTypeSerializer = _$Share_ItemTypeSerializer();
 Serializer<Share_Status> _$shareStatusSerializer = _$Share_StatusSerializer();
 Serializer<Share> _$shareSerializer = _$ShareSerializer();
 Serializer<ShareapiGetSharesResponseApplicationJson_Ocs> _$shareapiGetSharesResponseApplicationJsonOcsSerializer =
@@ -1337,22 +1336,6 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
 
     return result.build();
   }
-}
-
-class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> {
-  @override
-  final Iterable<Type> types = const <Type>[Share_ItemType];
-  @override
-  final String wireName = 'Share_ItemType';
-
-  @override
-  Object serialize(Serializers serializers, Share_ItemType object, {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  Share_ItemType deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      Share_ItemType.valueOf(serialized as String);
 }
 
 class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {

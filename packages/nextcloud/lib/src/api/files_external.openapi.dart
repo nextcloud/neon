@@ -163,7 +163,44 @@ class Mount_Type extends EnumClass {
 
   static Mount_Type valueOf(String name) => _$valueOfMount_Type(name);
 
-  static Serializer<Mount_Type> get serializer => _$mountTypeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Mount_Type> get serializer => const _$Mount_TypeSerializer();
+}
+
+class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
+  const _$Mount_TypeSerializer();
+
+  static const Map<Mount_Type, Object> _toWire = <Mount_Type, Object>{
+    Mount_Type.dir: 'dir',
+  };
+
+  static const Map<Object, Mount_Type> _fromWire = <Object, Mount_Type>{
+    'dir': Mount_Type.dir,
+  };
+
+  @override
+  Iterable<Type> get types => const [Mount_Type];
+
+  @override
+  String get wireName => 'Mount_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Mount_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Mount_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class Mount_Scope extends EnumClass {
@@ -179,7 +216,46 @@ class Mount_Scope extends EnumClass {
 
   static Mount_Scope valueOf(String name) => _$valueOfMount_Scope(name);
 
-  static Serializer<Mount_Scope> get serializer => _$mountScopeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Mount_Scope> get serializer => const _$Mount_ScopeSerializer();
+}
+
+class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
+  const _$Mount_ScopeSerializer();
+
+  static const Map<Mount_Scope, Object> _toWire = <Mount_Scope, Object>{
+    Mount_Scope.system: 'system',
+    Mount_Scope.personal: 'personal',
+  };
+
+  static const Map<Object, Mount_Scope> _fromWire = <Object, Mount_Scope>{
+    'system': Mount_Scope.system,
+    'personal': Mount_Scope.personal,
+  };
+
+  @override
+  Iterable<Type> get types => const [Mount_Scope];
+
+  @override
+  String get wireName => 'Mount_Scope';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Mount_Scope object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Mount_Scope deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class StorageConfig_Type extends EnumClass {
@@ -195,7 +271,46 @@ class StorageConfig_Type extends EnumClass {
 
   static StorageConfig_Type valueOf(String name) => _$valueOfStorageConfig_Type(name);
 
-  static Serializer<StorageConfig_Type> get serializer => _$storageConfigTypeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<StorageConfig_Type> get serializer => const _$StorageConfig_TypeSerializer();
+}
+
+class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfig_Type> {
+  const _$StorageConfig_TypeSerializer();
+
+  static const Map<StorageConfig_Type, Object> _toWire = <StorageConfig_Type, Object>{
+    StorageConfig_Type.personal: 'personal',
+    StorageConfig_Type.system: 'system',
+  };
+
+  static const Map<Object, StorageConfig_Type> _fromWire = <Object, StorageConfig_Type>{
+    'personal': StorageConfig_Type.personal,
+    'system': StorageConfig_Type.system,
+  };
+
+  @override
+  Iterable<Type> get types => const [StorageConfig_Type];
+
+  @override
+  String get wireName => 'StorageConfig_Type';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    StorageConfig_Type object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  StorageConfig_Type deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

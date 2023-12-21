@@ -2984,7 +2984,46 @@ class Share_ItemType extends EnumClass {
 
   static Share_ItemType valueOf(String name) => _$valueOfShare_ItemType(name);
 
-  static Serializer<Share_ItemType> get serializer => _$shareItemTypeSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Share_ItemType> get serializer => const _$Share_ItemTypeSerializer();
+}
+
+class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> {
+  const _$Share_ItemTypeSerializer();
+
+  static const Map<Share_ItemType, Object> _toWire = <Share_ItemType, Object>{
+    Share_ItemType.file: 'file',
+    Share_ItemType.folder: 'folder',
+  };
+
+  static const Map<Object, Share_ItemType> _fromWire = <Object, Share_ItemType>{
+    'file': Share_ItemType.file,
+    'folder': Share_ItemType.folder,
+  };
+
+  @override
+  Iterable<Type> get types => const [Share_ItemType];
+
+  @override
+  String get wireName => 'Share_ItemType';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Share_ItemType object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Share_ItemType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)

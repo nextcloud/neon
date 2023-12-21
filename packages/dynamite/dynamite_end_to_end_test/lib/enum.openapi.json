@@ -10,8 +10,50 @@
                 "type": "string",
                 "enum": [
                     "test",
-                    "default"
+                    "default",
+                    "$dollar$"
                 ]
+            },
+            "enum-int": {
+                "type": "integer",
+                "enum": [
+                    0,
+                    1,
+                    2
+                ]
+            },
+            "enum-dynamic": {
+                "type": "object",
+                "enum": [
+                    0,
+                    "string",
+                    false
+                ]
+            },
+            "wrapped-enum": {
+                "description": "Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.",
+                "type": "object",
+                "required": [
+                    "custom-string",
+                    "integer"
+                ],
+                "properties": {
+                    "custom-string": {
+                        "type": "string",
+                        "enum": [
+                            "test",
+                            "default"
+                        ]
+                    },
+                    "integer": {
+                        "type": "integer",
+                        "enum": [
+                            0,
+                            1,
+                            2
+                        ]
+                    }
+                }
             }
         }
     },

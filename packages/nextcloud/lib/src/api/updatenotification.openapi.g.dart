@@ -22,7 +22,6 @@ final BuiltSet<ApiGetAppListApiVersion> _$apiGetAppListApiVersionValues =
   _$apiGetAppListApiVersionV1,
 ]);
 
-Serializer<ApiGetAppListApiVersion> _$apiGetAppListApiVersionSerializer = _$ApiGetAppListApiVersionSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<App> _$appSerializer = _$AppSerializer();
 Serializer<ApiGetAppListResponseApplicationJson_Ocs_Data> _$apiGetAppListResponseApplicationJsonOcsDataSerializer =
@@ -31,23 +30,6 @@ Serializer<ApiGetAppListResponseApplicationJson_Ocs> _$apiGetAppListResponseAppl
     _$ApiGetAppListResponseApplicationJson_OcsSerializer();
 Serializer<ApiGetAppListResponseApplicationJson> _$apiGetAppListResponseApplicationJsonSerializer =
     _$ApiGetAppListResponseApplicationJsonSerializer();
-
-class _$ApiGetAppListApiVersionSerializer implements PrimitiveSerializer<ApiGetAppListApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ApiGetAppListApiVersion];
-  @override
-  final String wireName = 'ApiGetAppListApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ApiGetAppListApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ApiGetAppListApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ApiGetAppListApiVersion.valueOf(serialized as String);
-}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override

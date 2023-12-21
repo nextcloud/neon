@@ -60,9 +60,6 @@ final BuiltSet<StorageConfig_Type> _$storageConfigTypeValues = BuiltSet<StorageC
 ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
-Serializer<Mount_Type> _$mountTypeSerializer = _$Mount_TypeSerializer();
-Serializer<Mount_Scope> _$mountScopeSerializer = _$Mount_ScopeSerializer();
-Serializer<StorageConfig_Type> _$storageConfigTypeSerializer = _$StorageConfig_TypeSerializer();
 Serializer<StorageConfig> _$storageConfigSerializer = _$StorageConfigSerializer();
 Serializer<Mount> _$mountSerializer = _$MountSerializer();
 Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> _$apiGetUserMountsResponseApplicationJsonOcsSerializer =
@@ -138,54 +135,6 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
 
     return result.build();
   }
-}
-
-class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
-  @override
-  final Iterable<Type> types = const <Type>[Mount_Type];
-  @override
-  final String wireName = 'Mount_Type';
-
-  @override
-  Object serialize(Serializers serializers, Mount_Type object, {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  Mount_Type deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) =>
-      Mount_Type.valueOf(serialized as String);
-}
-
-class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
-  @override
-  final Iterable<Type> types = const <Type>[Mount_Scope];
-  @override
-  final String wireName = 'Mount_Scope';
-
-  @override
-  Object serialize(Serializers serializers, Mount_Scope object, {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  Mount_Scope deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      Mount_Scope.valueOf(serialized as String);
-}
-
-class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfig_Type> {
-  @override
-  final Iterable<Type> types = const <Type>[StorageConfig_Type];
-  @override
-  final String wireName = 'StorageConfig_Type';
-
-  @override
-  Object serialize(Serializers serializers, StorageConfig_Type object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  StorageConfig_Type deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      StorageConfig_Type.valueOf(serialized as String);
 }
 
 class _$StorageConfigSerializer implements StructuredSerializer<StorageConfig> {

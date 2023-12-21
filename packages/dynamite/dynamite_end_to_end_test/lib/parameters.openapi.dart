@@ -486,7 +486,46 @@ class GetEnumPattern extends EnumClass {
 
   static GetEnumPattern valueOf(String name) => _$valueOfGetEnumPattern(name);
 
-  static Serializer<GetEnumPattern> get serializer => _$getEnumPatternSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GetEnumPattern> get serializer => const _$GetEnumPatternSerializer();
+}
+
+class _$GetEnumPatternSerializer implements PrimitiveSerializer<GetEnumPattern> {
+  const _$GetEnumPatternSerializer();
+
+  static const Map<GetEnumPattern, Object> _toWire = <GetEnumPattern, Object>{
+    GetEnumPattern.a: 'a',
+    GetEnumPattern.$0: '0',
+  };
+
+  static const Map<Object, GetEnumPattern> _fromWire = <Object, GetEnumPattern>{
+    'a': GetEnumPattern.a,
+    '0': GetEnumPattern.$0,
+  };
+
+  @override
+  Iterable<Type> get types => const [GetEnumPattern];
+
+  @override
+  String get wireName => 'GetEnumPattern';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GetEnumPattern object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GetEnumPattern deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 class GetHeadersEnumPattern extends EnumClass {
@@ -501,7 +540,46 @@ class GetHeadersEnumPattern extends EnumClass {
 
   static GetHeadersEnumPattern valueOf(String name) => _$valueOfGetHeadersEnumPattern(name);
 
-  static Serializer<GetHeadersEnumPattern> get serializer => _$getHeadersEnumPatternSerializer;
+  String get value => jsonSerializers.serializeWith(serializer, this)! as String;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<GetHeadersEnumPattern> get serializer => const _$GetHeadersEnumPatternSerializer();
+}
+
+class _$GetHeadersEnumPatternSerializer implements PrimitiveSerializer<GetHeadersEnumPattern> {
+  const _$GetHeadersEnumPatternSerializer();
+
+  static const Map<GetHeadersEnumPattern, Object> _toWire = <GetHeadersEnumPattern, Object>{
+    GetHeadersEnumPattern.a: 'a',
+    GetHeadersEnumPattern.$0: '0',
+  };
+
+  static const Map<Object, GetHeadersEnumPattern> _fromWire = <Object, GetHeadersEnumPattern>{
+    'a': GetHeadersEnumPattern.a,
+    '0': GetHeadersEnumPattern.$0,
+  };
+
+  @override
+  Iterable<Type> get types => const [GetHeadersEnumPattern];
+
+  @override
+  String get wireName => 'GetHeadersEnumPattern';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    GetHeadersEnumPattern object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  GetHeadersEnumPattern deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
 }
 
 typedef GetOneOf = ({bool? $bool, String? string});

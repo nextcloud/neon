@@ -1837,9 +1837,6 @@ final BuiltSet<SignalingSendMessagesApiVersion> _$signalingSendMessagesApiVersio
   _$signalingSendMessagesApiVersionV3,
 ]);
 
-Serializer<AvatarGetAvatarApiVersion> _$avatarGetAvatarApiVersionSerializer = _$AvatarGetAvatarApiVersionSerializer();
-Serializer<AvatarUploadAvatarApiVersion> _$avatarUploadAvatarApiVersionSerializer =
-    _$AvatarUploadAvatarApiVersionSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ChatMessage> _$chatMessageSerializer = _$ChatMessageSerializer();
 Serializer<Room> _$roomSerializer = _$RoomSerializer();
@@ -1847,170 +1844,125 @@ Serializer<AvatarUploadAvatarResponseApplicationJson_Ocs> _$avatarUploadAvatarRe
     _$AvatarUploadAvatarResponseApplicationJson_OcsSerializer();
 Serializer<AvatarUploadAvatarResponseApplicationJson> _$avatarUploadAvatarResponseApplicationJsonSerializer =
     _$AvatarUploadAvatarResponseApplicationJsonSerializer();
-Serializer<AvatarDeleteAvatarApiVersion> _$avatarDeleteAvatarApiVersionSerializer =
-    _$AvatarDeleteAvatarApiVersionSerializer();
 Serializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> _$avatarDeleteAvatarResponseApplicationJsonOcsSerializer =
     _$AvatarDeleteAvatarResponseApplicationJson_OcsSerializer();
 Serializer<AvatarDeleteAvatarResponseApplicationJson> _$avatarDeleteAvatarResponseApplicationJsonSerializer =
     _$AvatarDeleteAvatarResponseApplicationJsonSerializer();
-Serializer<AvatarEmojiAvatarApiVersion> _$avatarEmojiAvatarApiVersionSerializer =
-    _$AvatarEmojiAvatarApiVersionSerializer();
 Serializer<AvatarEmojiAvatarResponseApplicationJson_Ocs> _$avatarEmojiAvatarResponseApplicationJsonOcsSerializer =
     _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer();
 Serializer<AvatarEmojiAvatarResponseApplicationJson> _$avatarEmojiAvatarResponseApplicationJsonSerializer =
     _$AvatarEmojiAvatarResponseApplicationJsonSerializer();
-Serializer<AvatarGetAvatarDarkApiVersion> _$avatarGetAvatarDarkApiVersionSerializer =
-    _$AvatarGetAvatarDarkApiVersionSerializer();
-Serializer<BotSendMessageApiVersion> _$botSendMessageApiVersionSerializer = _$BotSendMessageApiVersionSerializer();
 Serializer<BotSendMessageResponseApplicationJson_Ocs> _$botSendMessageResponseApplicationJsonOcsSerializer =
     _$BotSendMessageResponseApplicationJson_OcsSerializer();
 Serializer<BotSendMessageResponseApplicationJson> _$botSendMessageResponseApplicationJsonSerializer =
     _$BotSendMessageResponseApplicationJsonSerializer();
-Serializer<BotReactApiVersion> _$botReactApiVersionSerializer = _$BotReactApiVersionSerializer();
 Serializer<BotReactResponseApplicationJson_Ocs> _$botReactResponseApplicationJsonOcsSerializer =
     _$BotReactResponseApplicationJson_OcsSerializer();
 Serializer<BotReactResponseApplicationJson> _$botReactResponseApplicationJsonSerializer =
     _$BotReactResponseApplicationJsonSerializer();
-Serializer<BotDeleteReactionApiVersion> _$botDeleteReactionApiVersionSerializer =
-    _$BotDeleteReactionApiVersionSerializer();
 Serializer<BotDeleteReactionResponseApplicationJson_Ocs> _$botDeleteReactionResponseApplicationJsonOcsSerializer =
     _$BotDeleteReactionResponseApplicationJson_OcsSerializer();
 Serializer<BotDeleteReactionResponseApplicationJson> _$botDeleteReactionResponseApplicationJsonSerializer =
     _$BotDeleteReactionResponseApplicationJsonSerializer();
-Serializer<BotAdminListBotsApiVersion> _$botAdminListBotsApiVersionSerializer =
-    _$BotAdminListBotsApiVersionSerializer();
 Serializer<Bot> _$botSerializer = _$BotSerializer();
 Serializer<BotWithDetails> _$botWithDetailsSerializer = _$BotWithDetailsSerializer();
 Serializer<BotAdminListBotsResponseApplicationJson_Ocs> _$botAdminListBotsResponseApplicationJsonOcsSerializer =
     _$BotAdminListBotsResponseApplicationJson_OcsSerializer();
 Serializer<BotAdminListBotsResponseApplicationJson> _$botAdminListBotsResponseApplicationJsonSerializer =
     _$BotAdminListBotsResponseApplicationJsonSerializer();
-Serializer<BotListBotsApiVersion> _$botListBotsApiVersionSerializer = _$BotListBotsApiVersionSerializer();
 Serializer<BotListBotsResponseApplicationJson_Ocs> _$botListBotsResponseApplicationJsonOcsSerializer =
     _$BotListBotsResponseApplicationJson_OcsSerializer();
 Serializer<BotListBotsResponseApplicationJson> _$botListBotsResponseApplicationJsonSerializer =
     _$BotListBotsResponseApplicationJsonSerializer();
-Serializer<BotEnableBotApiVersion> _$botEnableBotApiVersionSerializer = _$BotEnableBotApiVersionSerializer();
 Serializer<BotEnableBotResponseApplicationJson_Ocs> _$botEnableBotResponseApplicationJsonOcsSerializer =
     _$BotEnableBotResponseApplicationJson_OcsSerializer();
 Serializer<BotEnableBotResponseApplicationJson> _$botEnableBotResponseApplicationJsonSerializer =
     _$BotEnableBotResponseApplicationJsonSerializer();
-Serializer<BotDisableBotApiVersion> _$botDisableBotApiVersionSerializer = _$BotDisableBotApiVersionSerializer();
 Serializer<BotDisableBotResponseApplicationJson_Ocs> _$botDisableBotResponseApplicationJsonOcsSerializer =
     _$BotDisableBotResponseApplicationJson_OcsSerializer();
 Serializer<BotDisableBotResponseApplicationJson> _$botDisableBotResponseApplicationJsonSerializer =
     _$BotDisableBotResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> _$breakoutRoomConfigureBreakoutRoomsApiVersionSerializer =
-    _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer();
 Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs>
     _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson>
     _$breakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer =
     _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> _$breakoutRoomRemoveBreakoutRoomsApiVersionSerializer =
-    _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer();
 Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs>
     _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson>
     _$breakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer =
     _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomBroadcastChatMessageApiVersion> _$breakoutRoomBroadcastChatMessageApiVersionSerializer =
-    _$BreakoutRoomBroadcastChatMessageApiVersionSerializer();
 Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs>
     _$breakoutRoomBroadcastChatMessageResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson>
     _$breakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer =
     _$BreakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomApplyAttendeeMapApiVersion> _$breakoutRoomApplyAttendeeMapApiVersionSerializer =
-    _$BreakoutRoomApplyAttendeeMapApiVersionSerializer();
 Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs>
     _$breakoutRoomApplyAttendeeMapResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson>
     _$breakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer =
     _$BreakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomRequestAssistanceApiVersion> _$breakoutRoomRequestAssistanceApiVersionSerializer =
-    _$BreakoutRoomRequestAssistanceApiVersionSerializer();
 Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs>
     _$breakoutRoomRequestAssistanceResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomRequestAssistanceResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomRequestAssistanceResponseApplicationJson>
     _$breakoutRoomRequestAssistanceResponseApplicationJsonSerializer =
     _$BreakoutRoomRequestAssistanceResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomResetRequestForAssistanceApiVersion>
-    _$breakoutRoomResetRequestForAssistanceApiVersionSerializer =
-    _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer();
 Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs>
     _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson>
     _$breakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer =
     _$BreakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomStartBreakoutRoomsApiVersion> _$breakoutRoomStartBreakoutRoomsApiVersionSerializer =
-    _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer();
 Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs>
     _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson>
     _$breakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer =
     _$BreakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomStopBreakoutRoomsApiVersion> _$breakoutRoomStopBreakoutRoomsApiVersionSerializer =
-    _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer();
 Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs>
     _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomStopBreakoutRoomsResponseApplicationJson>
     _$breakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer =
     _$BreakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer();
-Serializer<BreakoutRoomSwitchBreakoutRoomApiVersion> _$breakoutRoomSwitchBreakoutRoomApiVersionSerializer =
-    _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer();
 Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs>
     _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonOcsSerializer =
     _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsSerializer();
 Serializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson>
     _$breakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer =
     _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer();
-Serializer<CallGetPeersForCallApiVersion> _$callGetPeersForCallApiVersionSerializer =
-    _$CallGetPeersForCallApiVersionSerializer();
 Serializer<CallPeer> _$callPeerSerializer = _$CallPeerSerializer();
 Serializer<CallGetPeersForCallResponseApplicationJson_Ocs> _$callGetPeersForCallResponseApplicationJsonOcsSerializer =
     _$CallGetPeersForCallResponseApplicationJson_OcsSerializer();
 Serializer<CallGetPeersForCallResponseApplicationJson> _$callGetPeersForCallResponseApplicationJsonSerializer =
     _$CallGetPeersForCallResponseApplicationJsonSerializer();
-Serializer<CallUpdateCallFlagsApiVersion> _$callUpdateCallFlagsApiVersionSerializer =
-    _$CallUpdateCallFlagsApiVersionSerializer();
 Serializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> _$callUpdateCallFlagsResponseApplicationJsonOcsSerializer =
     _$CallUpdateCallFlagsResponseApplicationJson_OcsSerializer();
 Serializer<CallUpdateCallFlagsResponseApplicationJson> _$callUpdateCallFlagsResponseApplicationJsonSerializer =
     _$CallUpdateCallFlagsResponseApplicationJsonSerializer();
-Serializer<CallJoinCallApiVersion> _$callJoinCallApiVersionSerializer = _$CallJoinCallApiVersionSerializer();
 Serializer<CallJoinCallResponseApplicationJson_Ocs> _$callJoinCallResponseApplicationJsonOcsSerializer =
     _$CallJoinCallResponseApplicationJson_OcsSerializer();
 Serializer<CallJoinCallResponseApplicationJson> _$callJoinCallResponseApplicationJsonSerializer =
     _$CallJoinCallResponseApplicationJsonSerializer();
-Serializer<CallLeaveCallApiVersion> _$callLeaveCallApiVersionSerializer = _$CallLeaveCallApiVersionSerializer();
 Serializer<CallLeaveCallResponseApplicationJson_Ocs> _$callLeaveCallResponseApplicationJsonOcsSerializer =
     _$CallLeaveCallResponseApplicationJson_OcsSerializer();
 Serializer<CallLeaveCallResponseApplicationJson> _$callLeaveCallResponseApplicationJsonSerializer =
     _$CallLeaveCallResponseApplicationJsonSerializer();
-Serializer<CallRingAttendeeApiVersion> _$callRingAttendeeApiVersionSerializer =
-    _$CallRingAttendeeApiVersionSerializer();
 Serializer<CallRingAttendeeResponseApplicationJson_Ocs> _$callRingAttendeeResponseApplicationJsonOcsSerializer =
     _$CallRingAttendeeResponseApplicationJson_OcsSerializer();
 Serializer<CallRingAttendeeResponseApplicationJson> _$callRingAttendeeResponseApplicationJsonSerializer =
     _$CallRingAttendeeResponseApplicationJsonSerializer();
-Serializer<CallSipDialOutApiVersion> _$callSipDialOutApiVersionSerializer = _$CallSipDialOutApiVersionSerializer();
 Serializer<CallSipDialOutResponseApplicationJson_Ocs_Data> _$callSipDialOutResponseApplicationJsonOcsDataSerializer =
     _$CallSipDialOutResponseApplicationJson_Ocs_DataSerializer();
 Serializer<CallSipDialOutResponseApplicationJson_Ocs> _$callSipDialOutResponseApplicationJsonOcsSerializer =
     _$CallSipDialOutResponseApplicationJson_OcsSerializer();
 Serializer<CallSipDialOutResponseApplicationJson> _$callSipDialOutResponseApplicationJsonSerializer =
     _$CallSipDialOutResponseApplicationJsonSerializer();
-Serializer<CertificateGetCertificateExpirationApiVersion> _$certificateGetCertificateExpirationApiVersionSerializer =
-    _$CertificateGetCertificateExpirationApiVersionSerializer();
 Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data>
     _$certificateGetCertificateExpirationResponseApplicationJsonOcsDataSerializer =
     _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer();
@@ -2020,8 +1972,6 @@ Serializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs>
 Serializer<CertificateGetCertificateExpirationResponseApplicationJson>
     _$certificateGetCertificateExpirationResponseApplicationJsonSerializer =
     _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer();
-Serializer<ChatReceiveMessagesApiVersion> _$chatReceiveMessagesApiVersionSerializer =
-    _$ChatReceiveMessagesApiVersionSerializer();
 Serializer<ChatChatReceiveMessagesHeaders> _$chatChatReceiveMessagesHeadersSerializer =
     _$ChatChatReceiveMessagesHeadersSerializer();
 Serializer<ChatMessageWithParent> _$chatMessageWithParentSerializer = _$ChatMessageWithParentSerializer();
@@ -2029,31 +1979,24 @@ Serializer<ChatReceiveMessagesResponseApplicationJson_Ocs> _$chatReceiveMessages
     _$ChatReceiveMessagesResponseApplicationJson_OcsSerializer();
 Serializer<ChatReceiveMessagesResponseApplicationJson> _$chatReceiveMessagesResponseApplicationJsonSerializer =
     _$ChatReceiveMessagesResponseApplicationJsonSerializer();
-Serializer<ChatSendMessageApiVersion> _$chatSendMessageApiVersionSerializer = _$ChatSendMessageApiVersionSerializer();
 Serializer<ChatChatSendMessageHeaders> _$chatChatSendMessageHeadersSerializer =
     _$ChatChatSendMessageHeadersSerializer();
 Serializer<ChatSendMessageResponseApplicationJson_Ocs> _$chatSendMessageResponseApplicationJsonOcsSerializer =
     _$ChatSendMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatSendMessageResponseApplicationJson> _$chatSendMessageResponseApplicationJsonSerializer =
     _$ChatSendMessageResponseApplicationJsonSerializer();
-Serializer<ChatClearHistoryApiVersion> _$chatClearHistoryApiVersionSerializer =
-    _$ChatClearHistoryApiVersionSerializer();
 Serializer<ChatChatClearHistoryHeaders> _$chatChatClearHistoryHeadersSerializer =
     _$ChatChatClearHistoryHeadersSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson_Ocs> _$chatClearHistoryResponseApplicationJsonOcsSerializer =
     _$ChatClearHistoryResponseApplicationJson_OcsSerializer();
 Serializer<ChatClearHistoryResponseApplicationJson> _$chatClearHistoryResponseApplicationJsonSerializer =
     _$ChatClearHistoryResponseApplicationJsonSerializer();
-Serializer<ChatDeleteMessageApiVersion> _$chatDeleteMessageApiVersionSerializer =
-    _$ChatDeleteMessageApiVersionSerializer();
 Serializer<ChatChatDeleteMessageHeaders> _$chatChatDeleteMessageHeadersSerializer =
     _$ChatChatDeleteMessageHeadersSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson_Ocs> _$chatDeleteMessageResponseApplicationJsonOcsSerializer =
     _$ChatDeleteMessageResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteMessageResponseApplicationJson> _$chatDeleteMessageResponseApplicationJsonSerializer =
     _$ChatDeleteMessageResponseApplicationJsonSerializer();
-Serializer<ChatGetMessageContextApiVersion> _$chatGetMessageContextApiVersionSerializer =
-    _$ChatGetMessageContextApiVersionSerializer();
 Serializer<ChatChatGetMessageContextHeaders> _$chatChatGetMessageContextHeadersSerializer =
     _$ChatChatGetMessageContextHeadersSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson_Ocs>
@@ -2061,45 +2004,35 @@ Serializer<ChatGetMessageContextResponseApplicationJson_Ocs>
     _$ChatGetMessageContextResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetMessageContextResponseApplicationJson> _$chatGetMessageContextResponseApplicationJsonSerializer =
     _$ChatGetMessageContextResponseApplicationJsonSerializer();
-Serializer<ChatGetReminderApiVersion> _$chatGetReminderApiVersionSerializer = _$ChatGetReminderApiVersionSerializer();
 Serializer<ChatReminder> _$chatReminderSerializer = _$ChatReminderSerializer();
 Serializer<ChatGetReminderResponseApplicationJson_Ocs> _$chatGetReminderResponseApplicationJsonOcsSerializer =
     _$ChatGetReminderResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetReminderResponseApplicationJson> _$chatGetReminderResponseApplicationJsonSerializer =
     _$ChatGetReminderResponseApplicationJsonSerializer();
-Serializer<ChatSetReminderApiVersion> _$chatSetReminderApiVersionSerializer = _$ChatSetReminderApiVersionSerializer();
 Serializer<ChatSetReminderResponseApplicationJson_Ocs> _$chatSetReminderResponseApplicationJsonOcsSerializer =
     _$ChatSetReminderResponseApplicationJson_OcsSerializer();
 Serializer<ChatSetReminderResponseApplicationJson> _$chatSetReminderResponseApplicationJsonSerializer =
     _$ChatSetReminderResponseApplicationJsonSerializer();
-Serializer<ChatDeleteReminderApiVersion> _$chatDeleteReminderApiVersionSerializer =
-    _$ChatDeleteReminderApiVersionSerializer();
 Serializer<ChatDeleteReminderResponseApplicationJson_Ocs> _$chatDeleteReminderResponseApplicationJsonOcsSerializer =
     _$ChatDeleteReminderResponseApplicationJson_OcsSerializer();
 Serializer<ChatDeleteReminderResponseApplicationJson> _$chatDeleteReminderResponseApplicationJsonSerializer =
     _$ChatDeleteReminderResponseApplicationJsonSerializer();
-Serializer<ChatSetReadMarkerApiVersion> _$chatSetReadMarkerApiVersionSerializer =
-    _$ChatSetReadMarkerApiVersionSerializer();
 Serializer<ChatChatSetReadMarkerHeaders> _$chatChatSetReadMarkerHeadersSerializer =
     _$ChatChatSetReadMarkerHeadersSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson_Ocs> _$chatSetReadMarkerResponseApplicationJsonOcsSerializer =
     _$ChatSetReadMarkerResponseApplicationJson_OcsSerializer();
 Serializer<ChatSetReadMarkerResponseApplicationJson> _$chatSetReadMarkerResponseApplicationJsonSerializer =
     _$ChatSetReadMarkerResponseApplicationJsonSerializer();
-Serializer<ChatMarkUnreadApiVersion> _$chatMarkUnreadApiVersionSerializer = _$ChatMarkUnreadApiVersionSerializer();
 Serializer<ChatChatMarkUnreadHeaders> _$chatChatMarkUnreadHeadersSerializer = _$ChatChatMarkUnreadHeadersSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson_Ocs> _$chatMarkUnreadResponseApplicationJsonOcsSerializer =
     _$ChatMarkUnreadResponseApplicationJson_OcsSerializer();
 Serializer<ChatMarkUnreadResponseApplicationJson> _$chatMarkUnreadResponseApplicationJsonSerializer =
     _$ChatMarkUnreadResponseApplicationJsonSerializer();
-Serializer<ChatMentionsApiVersion> _$chatMentionsApiVersionSerializer = _$ChatMentionsApiVersionSerializer();
 Serializer<ChatMentionSuggestion> _$chatMentionSuggestionSerializer = _$ChatMentionSuggestionSerializer();
 Serializer<ChatMentionsResponseApplicationJson_Ocs> _$chatMentionsResponseApplicationJsonOcsSerializer =
     _$ChatMentionsResponseApplicationJson_OcsSerializer();
 Serializer<ChatMentionsResponseApplicationJson> _$chatMentionsResponseApplicationJsonSerializer =
     _$ChatMentionsResponseApplicationJsonSerializer();
-Serializer<ChatGetObjectsSharedInRoomApiVersion> _$chatGetObjectsSharedInRoomApiVersionSerializer =
-    _$ChatGetObjectsSharedInRoomApiVersionSerializer();
 Serializer<ChatChatGetObjectsSharedInRoomHeaders> _$chatChatGetObjectsSharedInRoomHeadersSerializer =
     _$ChatChatGetObjectsSharedInRoomHeadersSerializer();
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs>
@@ -2108,8 +2041,6 @@ Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs>
 Serializer<ChatGetObjectsSharedInRoomResponseApplicationJson>
     _$chatGetObjectsSharedInRoomResponseApplicationJsonSerializer =
     _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer();
-Serializer<ChatShareObjectToChatApiVersion> _$chatShareObjectToChatApiVersionSerializer =
-    _$ChatShareObjectToChatApiVersionSerializer();
 Serializer<ChatChatShareObjectToChatHeaders> _$chatChatShareObjectToChatHeadersSerializer =
     _$ChatChatShareObjectToChatHeadersSerializer();
 Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs>
@@ -2117,37 +2048,27 @@ Serializer<ChatShareObjectToChatResponseApplicationJson_Ocs>
     _$ChatShareObjectToChatResponseApplicationJson_OcsSerializer();
 Serializer<ChatShareObjectToChatResponseApplicationJson> _$chatShareObjectToChatResponseApplicationJsonSerializer =
     _$ChatShareObjectToChatResponseApplicationJsonSerializer();
-Serializer<ChatGetObjectsSharedInRoomOverviewApiVersion> _$chatGetObjectsSharedInRoomOverviewApiVersionSerializer =
-    _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer();
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonOcsSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer();
 Serializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson>
     _$chatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer =
     _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer();
-Serializer<FederationAcceptShareApiVersion> _$federationAcceptShareApiVersionSerializer =
-    _$FederationAcceptShareApiVersionSerializer();
 Serializer<FederationAcceptShareResponseApplicationJson_Ocs>
     _$federationAcceptShareResponseApplicationJsonOcsSerializer =
     _$FederationAcceptShareResponseApplicationJson_OcsSerializer();
 Serializer<FederationAcceptShareResponseApplicationJson> _$federationAcceptShareResponseApplicationJsonSerializer =
     _$FederationAcceptShareResponseApplicationJsonSerializer();
-Serializer<FederationRejectShareApiVersion> _$federationRejectShareApiVersionSerializer =
-    _$FederationRejectShareApiVersionSerializer();
 Serializer<FederationRejectShareResponseApplicationJson_Ocs>
     _$federationRejectShareResponseApplicationJsonOcsSerializer =
     _$FederationRejectShareResponseApplicationJson_OcsSerializer();
 Serializer<FederationRejectShareResponseApplicationJson> _$federationRejectShareResponseApplicationJsonSerializer =
     _$FederationRejectShareResponseApplicationJsonSerializer();
-Serializer<FederationGetSharesApiVersion> _$federationGetSharesApiVersionSerializer =
-    _$FederationGetSharesApiVersionSerializer();
 Serializer<FederationInvite> _$federationInviteSerializer = _$FederationInviteSerializer();
 Serializer<FederationGetSharesResponseApplicationJson_Ocs> _$federationGetSharesResponseApplicationJsonOcsSerializer =
     _$FederationGetSharesResponseApplicationJson_OcsSerializer();
 Serializer<FederationGetSharesResponseApplicationJson> _$federationGetSharesResponseApplicationJsonSerializer =
     _$FederationGetSharesResponseApplicationJsonSerializer();
-Serializer<FilesIntegrationGetRoomByFileIdApiVersion> _$filesIntegrationGetRoomByFileIdApiVersionSerializer =
-    _$FilesIntegrationGetRoomByFileIdApiVersionSerializer();
 Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data>
     _$filesIntegrationGetRoomByFileIdResponseApplicationJsonOcsDataSerializer =
     _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer();
@@ -2157,8 +2078,6 @@ Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs>
 Serializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson>
     _$filesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer =
     _$FilesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer();
-Serializer<FilesIntegrationGetRoomByShareTokenApiVersion> _$filesIntegrationGetRoomByShareTokenApiVersionSerializer =
-    _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer();
 Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data>
     _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonOcsDataSerializer =
     _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataSerializer();
@@ -2168,30 +2087,22 @@ Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs>
 Serializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson>
     _$filesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer =
     _$FilesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer();
-Serializer<GuestSetDisplayNameApiVersion> _$guestSetDisplayNameApiVersionSerializer =
-    _$GuestSetDisplayNameApiVersionSerializer();
 Serializer<GuestSetDisplayNameResponseApplicationJson_Ocs> _$guestSetDisplayNameResponseApplicationJsonOcsSerializer =
     _$GuestSetDisplayNameResponseApplicationJson_OcsSerializer();
 Serializer<GuestSetDisplayNameResponseApplicationJson> _$guestSetDisplayNameResponseApplicationJsonSerializer =
     _$GuestSetDisplayNameResponseApplicationJsonSerializer();
-Serializer<HostedSignalingServerRequestTrialApiVersion> _$hostedSignalingServerRequestTrialApiVersionSerializer =
-    _$HostedSignalingServerRequestTrialApiVersionSerializer();
 Serializer<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs>
     _$hostedSignalingServerRequestTrialResponseApplicationJsonOcsSerializer =
     _$HostedSignalingServerRequestTrialResponseApplicationJson_OcsSerializer();
 Serializer<HostedSignalingServerRequestTrialResponseApplicationJson>
     _$hostedSignalingServerRequestTrialResponseApplicationJsonSerializer =
     _$HostedSignalingServerRequestTrialResponseApplicationJsonSerializer();
-Serializer<HostedSignalingServerDeleteAccountApiVersion> _$hostedSignalingServerDeleteAccountApiVersionSerializer =
-    _$HostedSignalingServerDeleteAccountApiVersionSerializer();
 Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs>
     _$hostedSignalingServerDeleteAccountResponseApplicationJsonOcsSerializer =
     _$HostedSignalingServerDeleteAccountResponseApplicationJson_OcsSerializer();
 Serializer<HostedSignalingServerDeleteAccountResponseApplicationJson>
     _$hostedSignalingServerDeleteAccountResponseApplicationJsonSerializer =
     _$HostedSignalingServerDeleteAccountResponseApplicationJsonSerializer();
-Serializer<MatterbridgeGetBridgeOfRoomApiVersion> _$matterbridgeGetBridgeOfRoomApiVersionSerializer =
-    _$MatterbridgeGetBridgeOfRoomApiVersionSerializer();
 Serializer<Matterbridge> _$matterbridgeSerializer = _$MatterbridgeSerializer();
 Serializer<MatterbridgeProcessState> _$matterbridgeProcessStateSerializer = _$MatterbridgeProcessStateSerializer();
 Serializer<MatterbridgeWithProcessState> _$matterbridgeWithProcessStateSerializer =
@@ -2202,41 +2113,30 @@ Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs>
 Serializer<MatterbridgeGetBridgeOfRoomResponseApplicationJson>
     _$matterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer =
     _$MatterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer();
-Serializer<MatterbridgeEditBridgeOfRoomApiVersion> _$matterbridgeEditBridgeOfRoomApiVersionSerializer =
-    _$MatterbridgeEditBridgeOfRoomApiVersionSerializer();
 Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs>
     _$matterbridgeEditBridgeOfRoomResponseApplicationJsonOcsSerializer =
     _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsSerializer();
 Serializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson>
     _$matterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer =
     _$MatterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer();
-Serializer<MatterbridgeDeleteBridgeOfRoomApiVersion> _$matterbridgeDeleteBridgeOfRoomApiVersionSerializer =
-    _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer();
 Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs>
     _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonOcsSerializer =
     _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsSerializer();
 Serializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson>
     _$matterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer =
     _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer();
-Serializer<MatterbridgeGetBridgeProcessStateApiVersion> _$matterbridgeGetBridgeProcessStateApiVersionSerializer =
-    _$MatterbridgeGetBridgeProcessStateApiVersionSerializer();
 Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs>
     _$matterbridgeGetBridgeProcessStateResponseApplicationJsonOcsSerializer =
     _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsSerializer();
 Serializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson>
     _$matterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer =
     _$MatterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer();
-Serializer<MatterbridgeSettingsStopAllBridgesApiVersion> _$matterbridgeSettingsStopAllBridgesApiVersionSerializer =
-    _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer();
 Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs>
     _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonOcsSerializer =
     _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsSerializer();
 Serializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson>
     _$matterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer =
     _$MatterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer();
-Serializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion>
-    _$matterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer =
-    _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer();
 Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data>
     _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonOcsDataSerializer =
     _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataSerializer();
@@ -2246,30 +2146,24 @@ Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs
 Serializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson>
     _$matterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer =
     _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSerializer();
-Serializer<PollCreatePollApiVersion> _$pollCreatePollApiVersionSerializer = _$PollCreatePollApiVersionSerializer();
 Serializer<PollVote> _$pollVoteSerializer = _$PollVoteSerializer();
 Serializer<Poll> _$pollSerializer = _$PollSerializer();
 Serializer<PollCreatePollResponseApplicationJson_Ocs> _$pollCreatePollResponseApplicationJsonOcsSerializer =
     _$PollCreatePollResponseApplicationJson_OcsSerializer();
 Serializer<PollCreatePollResponseApplicationJson> _$pollCreatePollResponseApplicationJsonSerializer =
     _$PollCreatePollResponseApplicationJsonSerializer();
-Serializer<PollShowPollApiVersion> _$pollShowPollApiVersionSerializer = _$PollShowPollApiVersionSerializer();
 Serializer<PollShowPollResponseApplicationJson_Ocs> _$pollShowPollResponseApplicationJsonOcsSerializer =
     _$PollShowPollResponseApplicationJson_OcsSerializer();
 Serializer<PollShowPollResponseApplicationJson> _$pollShowPollResponseApplicationJsonSerializer =
     _$PollShowPollResponseApplicationJsonSerializer();
-Serializer<PollVotePollApiVersion> _$pollVotePollApiVersionSerializer = _$PollVotePollApiVersionSerializer();
 Serializer<PollVotePollResponseApplicationJson_Ocs> _$pollVotePollResponseApplicationJsonOcsSerializer =
     _$PollVotePollResponseApplicationJson_OcsSerializer();
 Serializer<PollVotePollResponseApplicationJson> _$pollVotePollResponseApplicationJsonSerializer =
     _$PollVotePollResponseApplicationJsonSerializer();
-Serializer<PollClosePollApiVersion> _$pollClosePollApiVersionSerializer = _$PollClosePollApiVersionSerializer();
 Serializer<PollClosePollResponseApplicationJson_Ocs> _$pollClosePollResponseApplicationJsonOcsSerializer =
     _$PollClosePollResponseApplicationJson_OcsSerializer();
 Serializer<PollClosePollResponseApplicationJson> _$pollClosePollResponseApplicationJsonSerializer =
     _$PollClosePollResponseApplicationJsonSerializer();
-Serializer<PublicShareAuthCreateRoomApiVersion> _$publicShareAuthCreateRoomApiVersionSerializer =
-    _$PublicShareAuthCreateRoomApiVersionSerializer();
 Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data>
     _$publicShareAuthCreateRoomResponseApplicationJsonOcsDataSerializer =
     _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataSerializer();
@@ -2279,25 +2173,19 @@ Serializer<PublicShareAuthCreateRoomResponseApplicationJson_Ocs>
 Serializer<PublicShareAuthCreateRoomResponseApplicationJson>
     _$publicShareAuthCreateRoomResponseApplicationJsonSerializer =
     _$PublicShareAuthCreateRoomResponseApplicationJsonSerializer();
-Serializer<ReactionGetReactionsApiVersion> _$reactionGetReactionsApiVersionSerializer =
-    _$ReactionGetReactionsApiVersionSerializer();
 Serializer<Reaction> _$reactionSerializer = _$ReactionSerializer();
 Serializer<ReactionGetReactionsResponseApplicationJson_Ocs> _$reactionGetReactionsResponseApplicationJsonOcsSerializer =
     _$ReactionGetReactionsResponseApplicationJson_OcsSerializer();
 Serializer<ReactionGetReactionsResponseApplicationJson> _$reactionGetReactionsResponseApplicationJsonSerializer =
     _$ReactionGetReactionsResponseApplicationJsonSerializer();
-Serializer<ReactionReactApiVersion> _$reactionReactApiVersionSerializer = _$ReactionReactApiVersionSerializer();
 Serializer<ReactionReactResponseApplicationJson_Ocs> _$reactionReactResponseApplicationJsonOcsSerializer =
     _$ReactionReactResponseApplicationJson_OcsSerializer();
 Serializer<ReactionReactResponseApplicationJson> _$reactionReactResponseApplicationJsonSerializer =
     _$ReactionReactResponseApplicationJsonSerializer();
-Serializer<ReactionDeleteApiVersion> _$reactionDeleteApiVersionSerializer = _$ReactionDeleteApiVersionSerializer();
 Serializer<ReactionDeleteResponseApplicationJson_Ocs> _$reactionDeleteResponseApplicationJsonOcsSerializer =
     _$ReactionDeleteResponseApplicationJson_OcsSerializer();
 Serializer<ReactionDeleteResponseApplicationJson> _$reactionDeleteResponseApplicationJsonSerializer =
     _$ReactionDeleteResponseApplicationJsonSerializer();
-Serializer<RecordingGetWelcomeMessageApiVersion> _$recordingGetWelcomeMessageApiVersionSerializer =
-    _$RecordingGetWelcomeMessageApiVersionSerializer();
 Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data>
     _$recordingGetWelcomeMessageResponseApplicationJsonOcsDataSerializer =
     _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer();
@@ -2307,54 +2195,41 @@ Serializer<RecordingGetWelcomeMessageResponseApplicationJson_Ocs>
 Serializer<RecordingGetWelcomeMessageResponseApplicationJson>
     _$recordingGetWelcomeMessageResponseApplicationJsonSerializer =
     _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer();
-Serializer<RecordingStartApiVersion> _$recordingStartApiVersionSerializer = _$RecordingStartApiVersionSerializer();
 Serializer<RecordingStartResponseApplicationJson_Ocs> _$recordingStartResponseApplicationJsonOcsSerializer =
     _$RecordingStartResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStartResponseApplicationJson> _$recordingStartResponseApplicationJsonSerializer =
     _$RecordingStartResponseApplicationJsonSerializer();
-Serializer<RecordingStopApiVersion> _$recordingStopApiVersionSerializer = _$RecordingStopApiVersionSerializer();
 Serializer<RecordingStopResponseApplicationJson_Ocs> _$recordingStopResponseApplicationJsonOcsSerializer =
     _$RecordingStopResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStopResponseApplicationJson> _$recordingStopResponseApplicationJsonSerializer =
     _$RecordingStopResponseApplicationJsonSerializer();
-Serializer<RecordingStoreApiVersion> _$recordingStoreApiVersionSerializer = _$RecordingStoreApiVersionSerializer();
 Serializer<RecordingStoreResponseApplicationJson_Ocs> _$recordingStoreResponseApplicationJsonOcsSerializer =
     _$RecordingStoreResponseApplicationJson_OcsSerializer();
 Serializer<RecordingStoreResponseApplicationJson> _$recordingStoreResponseApplicationJsonSerializer =
     _$RecordingStoreResponseApplicationJsonSerializer();
-Serializer<RecordingNotificationDismissApiVersion> _$recordingNotificationDismissApiVersionSerializer =
-    _$RecordingNotificationDismissApiVersionSerializer();
 Serializer<RecordingNotificationDismissResponseApplicationJson_Ocs>
     _$recordingNotificationDismissResponseApplicationJsonOcsSerializer =
     _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer();
 Serializer<RecordingNotificationDismissResponseApplicationJson>
     _$recordingNotificationDismissResponseApplicationJsonSerializer =
     _$RecordingNotificationDismissResponseApplicationJsonSerializer();
-Serializer<RecordingShareToChatApiVersion> _$recordingShareToChatApiVersionSerializer =
-    _$RecordingShareToChatApiVersionSerializer();
 Serializer<RecordingShareToChatResponseApplicationJson_Ocs> _$recordingShareToChatResponseApplicationJsonOcsSerializer =
     _$RecordingShareToChatResponseApplicationJson_OcsSerializer();
 Serializer<RecordingShareToChatResponseApplicationJson> _$recordingShareToChatResponseApplicationJsonSerializer =
     _$RecordingShareToChatResponseApplicationJsonSerializer();
-Serializer<RoomGetRoomsApiVersion> _$roomGetRoomsApiVersionSerializer = _$RoomGetRoomsApiVersionSerializer();
 Serializer<RoomRoomGetRoomsHeaders> _$roomRoomGetRoomsHeadersSerializer = _$RoomRoomGetRoomsHeadersSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson_Ocs> _$roomGetRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetRoomsResponseApplicationJson> _$roomGetRoomsResponseApplicationJsonSerializer =
     _$RoomGetRoomsResponseApplicationJsonSerializer();
-Serializer<RoomCreateRoomApiVersion> _$roomCreateRoomApiVersionSerializer = _$RoomCreateRoomApiVersionSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson_Ocs> _$roomCreateRoomResponseApplicationJsonOcsSerializer =
     _$RoomCreateRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomCreateRoomResponseApplicationJson> _$roomCreateRoomResponseApplicationJsonSerializer =
     _$RoomCreateRoomResponseApplicationJsonSerializer();
-Serializer<RoomGetListedRoomsApiVersion> _$roomGetListedRoomsApiVersionSerializer =
-    _$RoomGetListedRoomsApiVersionSerializer();
 Serializer<RoomGetListedRoomsResponseApplicationJson_Ocs> _$roomGetListedRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetListedRoomsResponseApplicationJson> _$roomGetListedRoomsResponseApplicationJsonSerializer =
     _$RoomGetListedRoomsResponseApplicationJsonSerializer();
-Serializer<RoomGetNoteToSelfConversationApiVersion> _$roomGetNoteToSelfConversationApiVersionSerializer =
-    _$RoomGetNoteToSelfConversationApiVersionSerializer();
 Serializer<RoomRoomGetNoteToSelfConversationHeaders> _$roomRoomGetNoteToSelfConversationHeadersSerializer =
     _$RoomRoomGetNoteToSelfConversationHeadersSerializer();
 Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs>
@@ -2363,69 +2238,52 @@ Serializer<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs>
 Serializer<RoomGetNoteToSelfConversationResponseApplicationJson>
     _$roomGetNoteToSelfConversationResponseApplicationJsonSerializer =
     _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer();
-Serializer<RoomGetSingleRoomApiVersion> _$roomGetSingleRoomApiVersionSerializer =
-    _$RoomGetSingleRoomApiVersionSerializer();
 Serializer<RoomRoomGetSingleRoomHeaders> _$roomRoomGetSingleRoomHeadersSerializer =
     _$RoomRoomGetSingleRoomHeadersSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson_Ocs> _$roomGetSingleRoomResponseApplicationJsonOcsSerializer =
     _$RoomGetSingleRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetSingleRoomResponseApplicationJson> _$roomGetSingleRoomResponseApplicationJsonSerializer =
     _$RoomGetSingleRoomResponseApplicationJsonSerializer();
-Serializer<RoomRenameRoomApiVersion> _$roomRenameRoomApiVersionSerializer = _$RoomRenameRoomApiVersionSerializer();
 Serializer<RoomRenameRoomResponseApplicationJson_Ocs> _$roomRenameRoomResponseApplicationJsonOcsSerializer =
     _$RoomRenameRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomRenameRoomResponseApplicationJson> _$roomRenameRoomResponseApplicationJsonSerializer =
     _$RoomRenameRoomResponseApplicationJsonSerializer();
-Serializer<RoomDeleteRoomApiVersion> _$roomDeleteRoomApiVersionSerializer = _$RoomDeleteRoomApiVersionSerializer();
 Serializer<RoomDeleteRoomResponseApplicationJson_Ocs> _$roomDeleteRoomResponseApplicationJsonOcsSerializer =
     _$RoomDeleteRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomDeleteRoomResponseApplicationJson> _$roomDeleteRoomResponseApplicationJsonSerializer =
     _$RoomDeleteRoomResponseApplicationJsonSerializer();
-Serializer<RoomGetBreakoutRoomsApiVersion> _$roomGetBreakoutRoomsApiVersionSerializer =
-    _$RoomGetBreakoutRoomsApiVersionSerializer();
 Serializer<RoomGetBreakoutRoomsResponseApplicationJson_Ocs> _$roomGetBreakoutRoomsResponseApplicationJsonOcsSerializer =
     _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetBreakoutRoomsResponseApplicationJson> _$roomGetBreakoutRoomsResponseApplicationJsonSerializer =
     _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer();
-Serializer<RoomMakePublicApiVersion> _$roomMakePublicApiVersionSerializer = _$RoomMakePublicApiVersionSerializer();
 Serializer<RoomMakePublicResponseApplicationJson_Ocs> _$roomMakePublicResponseApplicationJsonOcsSerializer =
     _$RoomMakePublicResponseApplicationJson_OcsSerializer();
 Serializer<RoomMakePublicResponseApplicationJson> _$roomMakePublicResponseApplicationJsonSerializer =
     _$RoomMakePublicResponseApplicationJsonSerializer();
-Serializer<RoomMakePrivateApiVersion> _$roomMakePrivateApiVersionSerializer = _$RoomMakePrivateApiVersionSerializer();
 Serializer<RoomMakePrivateResponseApplicationJson_Ocs> _$roomMakePrivateResponseApplicationJsonOcsSerializer =
     _$RoomMakePrivateResponseApplicationJson_OcsSerializer();
 Serializer<RoomMakePrivateResponseApplicationJson> _$roomMakePrivateResponseApplicationJsonSerializer =
     _$RoomMakePrivateResponseApplicationJsonSerializer();
-Serializer<RoomSetDescriptionApiVersion> _$roomSetDescriptionApiVersionSerializer =
-    _$RoomSetDescriptionApiVersionSerializer();
 Serializer<RoomSetDescriptionResponseApplicationJson_Ocs> _$roomSetDescriptionResponseApplicationJsonOcsSerializer =
     _$RoomSetDescriptionResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetDescriptionResponseApplicationJson> _$roomSetDescriptionResponseApplicationJsonSerializer =
     _$RoomSetDescriptionResponseApplicationJsonSerializer();
-Serializer<RoomSetReadOnlyApiVersion> _$roomSetReadOnlyApiVersionSerializer = _$RoomSetReadOnlyApiVersionSerializer();
 Serializer<RoomSetReadOnlyResponseApplicationJson_Ocs> _$roomSetReadOnlyResponseApplicationJsonOcsSerializer =
     _$RoomSetReadOnlyResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetReadOnlyResponseApplicationJson> _$roomSetReadOnlyResponseApplicationJsonSerializer =
     _$RoomSetReadOnlyResponseApplicationJsonSerializer();
-Serializer<RoomSetListableApiVersion> _$roomSetListableApiVersionSerializer = _$RoomSetListableApiVersionSerializer();
 Serializer<RoomSetListableResponseApplicationJson_Ocs> _$roomSetListableResponseApplicationJsonOcsSerializer =
     _$RoomSetListableResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetListableResponseApplicationJson> _$roomSetListableResponseApplicationJsonSerializer =
     _$RoomSetListableResponseApplicationJsonSerializer();
-Serializer<RoomSetPasswordApiVersion> _$roomSetPasswordApiVersionSerializer = _$RoomSetPasswordApiVersionSerializer();
 Serializer<RoomSetPasswordResponseApplicationJson_Ocs> _$roomSetPasswordResponseApplicationJsonOcsSerializer =
     _$RoomSetPasswordResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetPasswordResponseApplicationJson> _$roomSetPasswordResponseApplicationJsonSerializer =
     _$RoomSetPasswordResponseApplicationJsonSerializer();
-Serializer<RoomSetPermissionsApiVersion> _$roomSetPermissionsApiVersionSerializer =
-    _$RoomSetPermissionsApiVersionSerializer();
 Serializer<RoomSetPermissionsResponseApplicationJson_Ocs> _$roomSetPermissionsResponseApplicationJsonOcsSerializer =
     _$RoomSetPermissionsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetPermissionsResponseApplicationJson> _$roomSetPermissionsResponseApplicationJsonSerializer =
     _$RoomSetPermissionsResponseApplicationJsonSerializer();
-Serializer<RoomGetParticipantsApiVersion> _$roomGetParticipantsApiVersionSerializer =
-    _$RoomGetParticipantsApiVersionSerializer();
 Serializer<RoomRoomGetParticipantsHeaders> _$roomRoomGetParticipantsHeadersSerializer =
     _$RoomRoomGetParticipantsHeadersSerializer();
 Serializer<Participant> _$participantSerializer = _$ParticipantSerializer();
@@ -2433,8 +2291,6 @@ Serializer<RoomGetParticipantsResponseApplicationJson_Ocs> _$roomGetParticipants
     _$RoomGetParticipantsResponseApplicationJson_OcsSerializer();
 Serializer<RoomGetParticipantsResponseApplicationJson> _$roomGetParticipantsResponseApplicationJsonSerializer =
     _$RoomGetParticipantsResponseApplicationJsonSerializer();
-Serializer<RoomAddParticipantToRoomApiVersion> _$roomAddParticipantToRoomApiVersionSerializer =
-    _$RoomAddParticipantToRoomApiVersionSerializer();
 Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0>
     _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer =
     _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer();
@@ -2444,8 +2300,6 @@ Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs>
 Serializer<RoomAddParticipantToRoomResponseApplicationJson>
     _$roomAddParticipantToRoomResponseApplicationJsonSerializer =
     _$RoomAddParticipantToRoomResponseApplicationJsonSerializer();
-Serializer<RoomGetBreakoutRoomParticipantsApiVersion> _$roomGetBreakoutRoomParticipantsApiVersionSerializer =
-    _$RoomGetBreakoutRoomParticipantsApiVersionSerializer();
 Serializer<RoomRoomGetBreakoutRoomParticipantsHeaders> _$roomRoomGetBreakoutRoomParticipantsHeadersSerializer =
     _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer();
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs>
@@ -2454,143 +2308,104 @@ Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs>
 Serializer<RoomGetBreakoutRoomParticipantsResponseApplicationJson>
     _$roomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer =
     _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer();
-Serializer<RoomRemoveSelfFromRoomApiVersion> _$roomRemoveSelfFromRoomApiVersionSerializer =
-    _$RoomRemoveSelfFromRoomApiVersionSerializer();
 Serializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs>
     _$roomRemoveSelfFromRoomResponseApplicationJsonOcsSerializer =
     _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomRemoveSelfFromRoomResponseApplicationJson> _$roomRemoveSelfFromRoomResponseApplicationJsonSerializer =
     _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer();
-Serializer<RoomRemoveAttendeeFromRoomApiVersion> _$roomRemoveAttendeeFromRoomApiVersionSerializer =
-    _$RoomRemoveAttendeeFromRoomApiVersionSerializer();
 Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs>
     _$roomRemoveAttendeeFromRoomResponseApplicationJsonOcsSerializer =
     _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomRemoveAttendeeFromRoomResponseApplicationJson>
     _$roomRemoveAttendeeFromRoomResponseApplicationJsonSerializer =
     _$RoomRemoveAttendeeFromRoomResponseApplicationJsonSerializer();
-Serializer<RoomSetAttendeePermissionsApiVersion> _$roomSetAttendeePermissionsApiVersionSerializer =
-    _$RoomSetAttendeePermissionsApiVersionSerializer();
 Serializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs>
     _$roomSetAttendeePermissionsResponseApplicationJsonOcsSerializer =
     _$RoomSetAttendeePermissionsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetAttendeePermissionsResponseApplicationJson>
     _$roomSetAttendeePermissionsResponseApplicationJsonSerializer =
     _$RoomSetAttendeePermissionsResponseApplicationJsonSerializer();
-Serializer<RoomSetAllAttendeesPermissionsApiVersion> _$roomSetAllAttendeesPermissionsApiVersionSerializer =
-    _$RoomSetAllAttendeesPermissionsApiVersionSerializer();
 Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs>
     _$roomSetAllAttendeesPermissionsResponseApplicationJsonOcsSerializer =
     _$RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetAllAttendeesPermissionsResponseApplicationJson>
     _$roomSetAllAttendeesPermissionsResponseApplicationJsonSerializer =
     _$RoomSetAllAttendeesPermissionsResponseApplicationJsonSerializer();
-Serializer<RoomJoinRoomApiVersion> _$roomJoinRoomApiVersionSerializer = _$RoomJoinRoomApiVersionSerializer();
 Serializer<RoomJoinRoomResponseApplicationJson_Ocs> _$roomJoinRoomResponseApplicationJsonOcsSerializer =
     _$RoomJoinRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomJoinRoomResponseApplicationJson> _$roomJoinRoomResponseApplicationJsonSerializer =
     _$RoomJoinRoomResponseApplicationJsonSerializer();
-Serializer<RoomLeaveRoomApiVersion> _$roomLeaveRoomApiVersionSerializer = _$RoomLeaveRoomApiVersionSerializer();
 Serializer<RoomLeaveRoomResponseApplicationJson_Ocs> _$roomLeaveRoomResponseApplicationJsonOcsSerializer =
     _$RoomLeaveRoomResponseApplicationJson_OcsSerializer();
 Serializer<RoomLeaveRoomResponseApplicationJson> _$roomLeaveRoomResponseApplicationJsonSerializer =
     _$RoomLeaveRoomResponseApplicationJsonSerializer();
-Serializer<RoomResendInvitationsApiVersion> _$roomResendInvitationsApiVersionSerializer =
-    _$RoomResendInvitationsApiVersionSerializer();
 Serializer<RoomResendInvitationsResponseApplicationJson_Ocs>
     _$roomResendInvitationsResponseApplicationJsonOcsSerializer =
     _$RoomResendInvitationsResponseApplicationJson_OcsSerializer();
 Serializer<RoomResendInvitationsResponseApplicationJson> _$roomResendInvitationsResponseApplicationJsonSerializer =
     _$RoomResendInvitationsResponseApplicationJsonSerializer();
-Serializer<RoomSetSessionStateApiVersion> _$roomSetSessionStateApiVersionSerializer =
-    _$RoomSetSessionStateApiVersionSerializer();
 Serializer<RoomSetSessionStateResponseApplicationJson_Ocs> _$roomSetSessionStateResponseApplicationJsonOcsSerializer =
     _$RoomSetSessionStateResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetSessionStateResponseApplicationJson> _$roomSetSessionStateResponseApplicationJsonSerializer =
     _$RoomSetSessionStateResponseApplicationJsonSerializer();
-Serializer<RoomPromoteModeratorApiVersion> _$roomPromoteModeratorApiVersionSerializer =
-    _$RoomPromoteModeratorApiVersionSerializer();
 Serializer<RoomPromoteModeratorResponseApplicationJson_Ocs> _$roomPromoteModeratorResponseApplicationJsonOcsSerializer =
     _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer();
 Serializer<RoomPromoteModeratorResponseApplicationJson> _$roomPromoteModeratorResponseApplicationJsonSerializer =
     _$RoomPromoteModeratorResponseApplicationJsonSerializer();
-Serializer<RoomDemoteModeratorApiVersion> _$roomDemoteModeratorApiVersionSerializer =
-    _$RoomDemoteModeratorApiVersionSerializer();
 Serializer<RoomDemoteModeratorResponseApplicationJson_Ocs> _$roomDemoteModeratorResponseApplicationJsonOcsSerializer =
     _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer();
 Serializer<RoomDemoteModeratorResponseApplicationJson> _$roomDemoteModeratorResponseApplicationJsonSerializer =
     _$RoomDemoteModeratorResponseApplicationJsonSerializer();
-Serializer<RoomAddToFavoritesApiVersion> _$roomAddToFavoritesApiVersionSerializer =
-    _$RoomAddToFavoritesApiVersionSerializer();
 Serializer<RoomAddToFavoritesResponseApplicationJson_Ocs> _$roomAddToFavoritesResponseApplicationJsonOcsSerializer =
     _$RoomAddToFavoritesResponseApplicationJson_OcsSerializer();
 Serializer<RoomAddToFavoritesResponseApplicationJson> _$roomAddToFavoritesResponseApplicationJsonSerializer =
     _$RoomAddToFavoritesResponseApplicationJsonSerializer();
-Serializer<RoomRemoveFromFavoritesApiVersion> _$roomRemoveFromFavoritesApiVersionSerializer =
-    _$RoomRemoveFromFavoritesApiVersionSerializer();
 Serializer<RoomRemoveFromFavoritesResponseApplicationJson_Ocs>
     _$roomRemoveFromFavoritesResponseApplicationJsonOcsSerializer =
     _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer();
 Serializer<RoomRemoveFromFavoritesResponseApplicationJson> _$roomRemoveFromFavoritesResponseApplicationJsonSerializer =
     _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer();
-Serializer<RoomSetNotificationLevelApiVersion> _$roomSetNotificationLevelApiVersionSerializer =
-    _$RoomSetNotificationLevelApiVersionSerializer();
 Serializer<RoomSetNotificationLevelResponseApplicationJson_Ocs>
     _$roomSetNotificationLevelResponseApplicationJsonOcsSerializer =
     _$RoomSetNotificationLevelResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetNotificationLevelResponseApplicationJson>
     _$roomSetNotificationLevelResponseApplicationJsonSerializer =
     _$RoomSetNotificationLevelResponseApplicationJsonSerializer();
-Serializer<RoomSetNotificationCallsApiVersion> _$roomSetNotificationCallsApiVersionSerializer =
-    _$RoomSetNotificationCallsApiVersionSerializer();
 Serializer<RoomSetNotificationCallsResponseApplicationJson_Ocs>
     _$roomSetNotificationCallsResponseApplicationJsonOcsSerializer =
     _$RoomSetNotificationCallsResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetNotificationCallsResponseApplicationJson>
     _$roomSetNotificationCallsResponseApplicationJsonSerializer =
     _$RoomSetNotificationCallsResponseApplicationJsonSerializer();
-Serializer<RoomSetLobbyApiVersion> _$roomSetLobbyApiVersionSerializer = _$RoomSetLobbyApiVersionSerializer();
 Serializer<RoomSetLobbyResponseApplicationJson_Ocs> _$roomSetLobbyResponseApplicationJsonOcsSerializer =
     _$RoomSetLobbyResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetLobbyResponseApplicationJson> _$roomSetLobbyResponseApplicationJsonSerializer =
     _$RoomSetLobbyResponseApplicationJsonSerializer();
-Serializer<RoomSetsipEnabledApiVersion> _$roomSetsipEnabledApiVersionSerializer =
-    _$RoomSetsipEnabledApiVersionSerializer();
 Serializer<RoomSetsipEnabledResponseApplicationJson_Ocs> _$roomSetsipEnabledResponseApplicationJsonOcsSerializer =
     _$RoomSetsipEnabledResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetsipEnabledResponseApplicationJson> _$roomSetsipEnabledResponseApplicationJsonSerializer =
     _$RoomSetsipEnabledResponseApplicationJsonSerializer();
-Serializer<RoomSetRecordingConsentApiVersion> _$roomSetRecordingConsentApiVersionSerializer =
-    _$RoomSetRecordingConsentApiVersionSerializer();
 Serializer<RoomSetRecordingConsentResponseApplicationJson_Ocs>
     _$roomSetRecordingConsentResponseApplicationJsonOcsSerializer =
     _$RoomSetRecordingConsentResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetRecordingConsentResponseApplicationJson> _$roomSetRecordingConsentResponseApplicationJsonSerializer =
     _$RoomSetRecordingConsentResponseApplicationJsonSerializer();
-Serializer<RoomSetMessageExpirationApiVersion> _$roomSetMessageExpirationApiVersionSerializer =
-    _$RoomSetMessageExpirationApiVersionSerializer();
 Serializer<RoomSetMessageExpirationResponseApplicationJson_Ocs>
     _$roomSetMessageExpirationResponseApplicationJsonOcsSerializer =
     _$RoomSetMessageExpirationResponseApplicationJson_OcsSerializer();
 Serializer<RoomSetMessageExpirationResponseApplicationJson>
     _$roomSetMessageExpirationResponseApplicationJsonSerializer =
     _$RoomSetMessageExpirationResponseApplicationJsonSerializer();
-Serializer<SettingsSetsipSettingsApiVersion> _$settingsSetsipSettingsApiVersionSerializer =
-    _$SettingsSetsipSettingsApiVersionSerializer();
 Serializer<SettingsSetsipSettingsResponseApplicationJson_Ocs>
     _$settingsSetsipSettingsResponseApplicationJsonOcsSerializer =
     _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer();
 Serializer<SettingsSetsipSettingsResponseApplicationJson> _$settingsSetsipSettingsResponseApplicationJsonSerializer =
     _$SettingsSetsipSettingsResponseApplicationJsonSerializer();
-Serializer<SettingsSetUserSettingApiVersion> _$settingsSetUserSettingApiVersionSerializer =
-    _$SettingsSetUserSettingApiVersionSerializer();
 Serializer<SettingsSetUserSettingResponseApplicationJson_Ocs>
     _$settingsSetUserSettingResponseApplicationJsonOcsSerializer =
     _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer();
 Serializer<SettingsSetUserSettingResponseApplicationJson> _$settingsSetUserSettingResponseApplicationJsonSerializer =
     _$SettingsSetUserSettingResponseApplicationJsonSerializer();
-Serializer<SignalingGetSettingsApiVersion> _$signalingGetSettingsApiVersionSerializer =
-    _$SignalingGetSettingsApiVersionSerializer();
 Serializer<SignalingSettings_HelloAuthParams_$10> _$signalingSettingsHelloAuthParams$10Serializer =
     _$SignalingSettings_HelloAuthParams_$10Serializer();
 Serializer<SignalingSettings_HelloAuthParams_$20> _$signalingSettingsHelloAuthParams$20Serializer =
@@ -2606,16 +2421,12 @@ Serializer<SignalingGetSettingsResponseApplicationJson_Ocs> _$signalingGetSettin
     _$SignalingGetSettingsResponseApplicationJson_OcsSerializer();
 Serializer<SignalingGetSettingsResponseApplicationJson> _$signalingGetSettingsResponseApplicationJsonSerializer =
     _$SignalingGetSettingsResponseApplicationJsonSerializer();
-Serializer<SignalingGetWelcomeMessageApiVersion> _$signalingGetWelcomeMessageApiVersionSerializer =
-    _$SignalingGetWelcomeMessageApiVersionSerializer();
 Serializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs>
     _$signalingGetWelcomeMessageResponseApplicationJsonOcsSerializer =
     _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer();
 Serializer<SignalingGetWelcomeMessageResponseApplicationJson>
     _$signalingGetWelcomeMessageResponseApplicationJsonSerializer =
     _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer();
-Serializer<SignalingPullMessagesApiVersion> _$signalingPullMessagesApiVersionSerializer =
-    _$SignalingPullMessagesApiVersionSerializer();
 Serializer<SignalingSession> _$signalingSessionSerializer = _$SignalingSessionSerializer();
 Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data>
     _$signalingPullMessagesResponseApplicationJsonOcsDataSerializer =
@@ -2625,8 +2436,6 @@ Serializer<SignalingPullMessagesResponseApplicationJson_Ocs>
     _$SignalingPullMessagesResponseApplicationJson_OcsSerializer();
 Serializer<SignalingPullMessagesResponseApplicationJson> _$signalingPullMessagesResponseApplicationJsonSerializer =
     _$SignalingPullMessagesResponseApplicationJsonSerializer();
-Serializer<SignalingSendMessagesApiVersion> _$signalingSendMessagesApiVersionSerializer =
-    _$SignalingSendMessagesApiVersionSerializer();
 Serializer<SignalingSendMessagesResponseApplicationJson_Ocs>
     _$signalingSendMessagesResponseApplicationJsonOcsSerializer =
     _$SignalingSendMessagesResponseApplicationJson_OcsSerializer();
@@ -2658,40 +2467,6 @@ Serializer<PublicCapabilities0_Spreed_Config> _$publicCapabilities0SpreedConfigS
     _$PublicCapabilities0_Spreed_ConfigSerializer();
 Serializer<PublicCapabilities0_Spreed> _$publicCapabilities0SpreedSerializer = _$PublicCapabilities0_SpreedSerializer();
 Serializer<PublicCapabilities0> _$publicCapabilities0Serializer = _$PublicCapabilities0Serializer();
-
-class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarGetAvatarApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[AvatarGetAvatarApiVersion];
-  @override
-  final String wireName = 'AvatarGetAvatarApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, AvatarGetAvatarApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  AvatarGetAvatarApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      AvatarGetAvatarApiVersion.valueOf(serialized as String);
-}
-
-class _$AvatarUploadAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarUploadAvatarApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[AvatarUploadAvatarApiVersion];
-  @override
-  final String wireName = 'AvatarUploadAvatarApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, AvatarUploadAvatarApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  AvatarUploadAvatarApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      AvatarUploadAvatarApiVersion.valueOf(serialized as String);
-}
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   @override
@@ -3316,23 +3091,6 @@ class _$AvatarUploadAvatarResponseApplicationJsonSerializer
   }
 }
 
-class _$AvatarDeleteAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarDeleteAvatarApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[AvatarDeleteAvatarApiVersion];
-  @override
-  final String wireName = 'AvatarDeleteAvatarApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, AvatarDeleteAvatarApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  AvatarDeleteAvatarApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      AvatarDeleteAvatarApiVersion.valueOf(serialized as String);
-}
-
 class _$AvatarDeleteAvatarResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<AvatarDeleteAvatarResponseApplicationJson_Ocs> {
   @override
@@ -3422,23 +3180,6 @@ class _$AvatarDeleteAvatarResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$AvatarEmojiAvatarApiVersionSerializer implements PrimitiveSerializer<AvatarEmojiAvatarApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[AvatarEmojiAvatarApiVersion];
-  @override
-  final String wireName = 'AvatarEmojiAvatarApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, AvatarEmojiAvatarApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  AvatarEmojiAvatarApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      AvatarEmojiAvatarApiVersion.valueOf(serialized as String);
 }
 
 class _$AvatarEmojiAvatarResponseApplicationJson_OcsSerializer
@@ -3532,40 +3273,6 @@ class _$AvatarEmojiAvatarResponseApplicationJsonSerializer
   }
 }
 
-class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<AvatarGetAvatarDarkApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[AvatarGetAvatarDarkApiVersion];
-  @override
-  final String wireName = 'AvatarGetAvatarDarkApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, AvatarGetAvatarDarkApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  AvatarGetAvatarDarkApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      AvatarGetAvatarDarkApiVersion.valueOf(serialized as String);
-}
-
-class _$BotSendMessageApiVersionSerializer implements PrimitiveSerializer<BotSendMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotSendMessageApiVersion];
-  @override
-  final String wireName = 'BotSendMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotSendMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotSendMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotSendMessageApiVersion.valueOf(serialized as String);
-}
-
 class _$BotSendMessageResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BotSendMessageResponseApplicationJson_Ocs> {
   @override
@@ -3654,23 +3361,6 @@ class _$BotSendMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$BotReactApiVersionSerializer implements PrimitiveSerializer<BotReactApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotReactApiVersion];
-  @override
-  final String wireName = 'BotReactApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotReactApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotReactApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotReactApiVersion.valueOf(serialized as String);
-}
-
 class _$BotReactResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BotReactResponseApplicationJson_Ocs> {
   @override
@@ -3753,23 +3443,6 @@ class _$BotReactResponseApplicationJsonSerializer implements StructuredSerialize
 
     return result.build();
   }
-}
-
-class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<BotDeleteReactionApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotDeleteReactionApiVersion];
-  @override
-  final String wireName = 'BotDeleteReactionApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotDeleteReactionApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotDeleteReactionApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotDeleteReactionApiVersion.valueOf(serialized as String);
 }
 
 class _$BotDeleteReactionResponseApplicationJson_OcsSerializer
@@ -3861,23 +3534,6 @@ class _$BotDeleteReactionResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotAdminListBotsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotAdminListBotsApiVersion];
-  @override
-  final String wireName = 'BotAdminListBotsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotAdminListBotsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotAdminListBotsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotAdminListBotsApiVersion.valueOf(serialized as String);
 }
 
 class _$BotSerializer implements StructuredSerializer<Bot> {
@@ -4115,23 +3771,6 @@ class _$BotAdminListBotsResponseApplicationJsonSerializer
   }
 }
 
-class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBotsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotListBotsApiVersion];
-  @override
-  final String wireName = 'BotListBotsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotListBotsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotListBotsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotListBotsApiVersion.valueOf(serialized as String);
-}
-
 class _$BotListBotsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BotListBotsResponseApplicationJson_Ocs> {
   @override
@@ -4216,23 +3855,6 @@ class _$BotListBotsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnableBotApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotEnableBotApiVersion];
-  @override
-  final String wireName = 'BotEnableBotApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotEnableBotApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotEnableBotApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotEnableBotApiVersion.valueOf(serialized as String);
 }
 
 class _$BotEnableBotResponseApplicationJson_OcsSerializer
@@ -4327,23 +3949,6 @@ class _$BotEnableBotResponseApplicationJsonSerializer
   }
 }
 
-class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisableBotApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BotDisableBotApiVersion];
-  @override
-  final String wireName = 'BotDisableBotApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BotDisableBotApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BotDisableBotApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BotDisableBotApiVersion.valueOf(serialized as String);
-}
-
 class _$BotDisableBotResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BotDisableBotResponseApplicationJson_Ocs> {
   @override
@@ -4434,24 +4039,6 @@ class _$BotDisableBotResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomConfigureBreakoutRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomConfigureBreakoutRoomsApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomConfigureBreakoutRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomConfigureBreakoutRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomConfigureBreakoutRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomConfigureBreakoutRoomsApiVersion.valueOf(serialized as String);
 }
 
 class _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsSerializer
@@ -4550,24 +4137,6 @@ class _$BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonSerializer
   }
 }
 
-class _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomRemoveBreakoutRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomRemoveBreakoutRoomsApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomRemoveBreakoutRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomRemoveBreakoutRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomRemoveBreakoutRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomRemoveBreakoutRoomsApiVersion.valueOf(serialized as String);
-}
-
 class _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs> {
   @override
@@ -4661,24 +4230,6 @@ class _$BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BreakoutRoomBroadcastChatMessageApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomBroadcastChatMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomBroadcastChatMessageApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomBroadcastChatMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomBroadcastChatMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomBroadcastChatMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomBroadcastChatMessageApiVersion.valueOf(serialized as String);
 }
 
 class _$BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsSerializer
@@ -4777,24 +4328,6 @@ class _$BreakoutRoomBroadcastChatMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$BreakoutRoomApplyAttendeeMapApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomApplyAttendeeMapApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomApplyAttendeeMapApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomApplyAttendeeMapApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomApplyAttendeeMapApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomApplyAttendeeMapApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomApplyAttendeeMapApiVersion.valueOf(serialized as String);
-}
-
 class _$BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs> {
   @override
@@ -4889,24 +4422,6 @@ class _$BreakoutRoomApplyAttendeeMapResponseApplicationJsonSerializer
   }
 }
 
-class _$BreakoutRoomRequestAssistanceApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomRequestAssistanceApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomRequestAssistanceApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomRequestAssistanceApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomRequestAssistanceApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomRequestAssistanceApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomRequestAssistanceApiVersion.valueOf(serialized as String);
-}
-
 class _$BreakoutRoomRequestAssistanceResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs> {
   @override
@@ -4999,24 +4514,6 @@ class _$BreakoutRoomRequestAssistanceResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomResetRequestForAssistanceApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomResetRequestForAssistanceApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomResetRequestForAssistanceApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomResetRequestForAssistanceApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomResetRequestForAssistanceApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomResetRequestForAssistanceApiVersion.valueOf(serialized as String);
 }
 
 class _$BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsSerializer
@@ -5115,24 +4612,6 @@ class _$BreakoutRoomResetRequestForAssistanceResponseApplicationJsonSerializer
   }
 }
 
-class _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomStartBreakoutRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomStartBreakoutRoomsApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomStartBreakoutRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomStartBreakoutRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomStartBreakoutRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomStartBreakoutRoomsApiVersion.valueOf(serialized as String);
-}
-
 class _$BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs> {
   @override
@@ -5226,24 +4705,6 @@ class _$BreakoutRoomStartBreakoutRoomsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomStopBreakoutRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomStopBreakoutRoomsApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomStopBreakoutRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomStopBreakoutRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomStopBreakoutRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomStopBreakoutRoomsApiVersion.valueOf(serialized as String);
 }
 
 class _$BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsSerializer
@@ -5341,24 +4802,6 @@ class _$BreakoutRoomStopBreakoutRoomsResponseApplicationJsonSerializer
   }
 }
 
-class _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer
-    implements PrimitiveSerializer<BreakoutRoomSwitchBreakoutRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[BreakoutRoomSwitchBreakoutRoomApiVersion];
-  @override
-  final String wireName = 'BreakoutRoomSwitchBreakoutRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, BreakoutRoomSwitchBreakoutRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  BreakoutRoomSwitchBreakoutRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      BreakoutRoomSwitchBreakoutRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs> {
   @override
@@ -5451,23 +4894,6 @@ class _$BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<CallGetPeersForCallApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallGetPeersForCallApiVersion];
-  @override
-  final String wireName = 'CallGetPeersForCallApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallGetPeersForCallApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallGetPeersForCallApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallGetPeersForCallApiVersion.valueOf(serialized as String);
 }
 
 class _$CallPeerSerializer implements StructuredSerializer<CallPeer> {
@@ -5625,23 +5051,6 @@ class _$CallGetPeersForCallResponseApplicationJsonSerializer
   }
 }
 
-class _$CallUpdateCallFlagsApiVersionSerializer implements PrimitiveSerializer<CallUpdateCallFlagsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallUpdateCallFlagsApiVersion];
-  @override
-  final String wireName = 'CallUpdateCallFlagsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallUpdateCallFlagsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallUpdateCallFlagsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallUpdateCallFlagsApiVersion.valueOf(serialized as String);
-}
-
 class _$CallUpdateCallFlagsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CallUpdateCallFlagsResponseApplicationJson_Ocs> {
   @override
@@ -5733,23 +5142,6 @@ class _$CallUpdateCallFlagsResponseApplicationJsonSerializer
   }
 }
 
-class _$CallJoinCallApiVersionSerializer implements PrimitiveSerializer<CallJoinCallApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallJoinCallApiVersion];
-  @override
-  final String wireName = 'CallJoinCallApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallJoinCallApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallJoinCallApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallJoinCallApiVersion.valueOf(serialized as String);
-}
-
 class _$CallJoinCallResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CallJoinCallResponseApplicationJson_Ocs> {
   @override
@@ -5838,23 +5230,6 @@ class _$CallJoinCallResponseApplicationJsonSerializer
   }
 }
 
-class _$CallLeaveCallApiVersionSerializer implements PrimitiveSerializer<CallLeaveCallApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallLeaveCallApiVersion];
-  @override
-  final String wireName = 'CallLeaveCallApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallLeaveCallApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallLeaveCallApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallLeaveCallApiVersion.valueOf(serialized as String);
-}
-
 class _$CallLeaveCallResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<CallLeaveCallResponseApplicationJson_Ocs> {
   @override
@@ -5941,23 +5316,6 @@ class _$CallLeaveCallResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$CallRingAttendeeApiVersionSerializer implements PrimitiveSerializer<CallRingAttendeeApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallRingAttendeeApiVersion];
-  @override
-  final String wireName = 'CallRingAttendeeApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallRingAttendeeApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallRingAttendeeApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallRingAttendeeApiVersion.valueOf(serialized as String);
 }
 
 class _$CallRingAttendeeResponseApplicationJson_OcsSerializer
@@ -6049,23 +5407,6 @@ class _$CallRingAttendeeResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$CallSipDialOutApiVersionSerializer implements PrimitiveSerializer<CallSipDialOutApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CallSipDialOutApiVersion];
-  @override
-  final String wireName = 'CallSipDialOutApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CallSipDialOutApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CallSipDialOutApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CallSipDialOutApiVersion.valueOf(serialized as String);
 }
 
 class _$CallSipDialOutResponseApplicationJson_Ocs_DataSerializer
@@ -6212,24 +5553,6 @@ class _$CallSipDialOutResponseApplicationJsonSerializer
   }
 }
 
-class _$CertificateGetCertificateExpirationApiVersionSerializer
-    implements PrimitiveSerializer<CertificateGetCertificateExpirationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[CertificateGetCertificateExpirationApiVersion];
-  @override
-  final String wireName = 'CertificateGetCertificateExpirationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, CertificateGetCertificateExpirationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  CertificateGetCertificateExpirationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      CertificateGetCertificateExpirationApiVersion.valueOf(serialized as String);
-}
-
 class _$CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data> {
   @override
@@ -6374,23 +5697,6 @@ class _$CertificateGetCertificateExpirationResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<ChatReceiveMessagesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatReceiveMessagesApiVersion];
-  @override
-  final String wireName = 'ChatReceiveMessagesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatReceiveMessagesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatReceiveMessagesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatReceiveMessagesApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatChatReceiveMessagesHeadersSerializer implements StructuredSerializer<ChatChatReceiveMessagesHeaders> {
@@ -6676,23 +5982,6 @@ class _$ChatReceiveMessagesResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatSendMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatSendMessageApiVersion];
-  @override
-  final String wireName = 'ChatSendMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatSendMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatSendMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatSendMessageApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatChatSendMessageHeadersSerializer implements StructuredSerializer<ChatChatSendMessageHeaders> {
   @override
   final Iterable<Type> types = const [ChatChatSendMessageHeaders, _$ChatChatSendMessageHeaders];
@@ -6825,23 +6114,6 @@ class _$ChatSendMessageResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<ChatClearHistoryApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatClearHistoryApiVersion];
-  @override
-  final String wireName = 'ChatClearHistoryApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatClearHistoryApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatClearHistoryApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatClearHistoryApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatChatClearHistoryHeadersSerializer implements StructuredSerializer<ChatChatClearHistoryHeaders> {
@@ -6977,23 +6249,6 @@ class _$ChatClearHistoryResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<ChatDeleteMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatDeleteMessageApiVersion];
-  @override
-  final String wireName = 'ChatDeleteMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatDeleteMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatDeleteMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatDeleteMessageApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatChatDeleteMessageHeadersSerializer implements StructuredSerializer<ChatChatDeleteMessageHeaders> {
   @override
   final Iterable<Type> types = const [ChatChatDeleteMessageHeaders, _$ChatChatDeleteMessageHeaders];
@@ -7125,23 +6380,6 @@ class _$ChatDeleteMessageResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer<ChatGetMessageContextApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatGetMessageContextApiVersion];
-  @override
-  final String wireName = 'ChatGetMessageContextApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatGetMessageContextApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatGetMessageContextApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatGetMessageContextApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatChatGetMessageContextHeadersSerializer implements StructuredSerializer<ChatChatGetMessageContextHeaders> {
@@ -7287,23 +6525,6 @@ class _$ChatGetMessageContextResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatGetReminderApiVersionSerializer implements PrimitiveSerializer<ChatGetReminderApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatGetReminderApiVersion];
-  @override
-  final String wireName = 'ChatGetReminderApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatGetReminderApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatGetReminderApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatGetReminderApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatReminderSerializer implements StructuredSerializer<ChatReminder> {
   @override
   final Iterable<Type> types = const [ChatReminder, _$ChatReminder];
@@ -7446,23 +6667,6 @@ class _$ChatGetReminderResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatSetReminderApiVersionSerializer implements PrimitiveSerializer<ChatSetReminderApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatSetReminderApiVersion];
-  @override
-  final String wireName = 'ChatSetReminderApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatSetReminderApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatSetReminderApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatSetReminderApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatSetReminderResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatSetReminderResponseApplicationJson_Ocs> {
   @override
@@ -7550,23 +6754,6 @@ class _$ChatSetReminderResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatDeleteReminderApiVersionSerializer implements PrimitiveSerializer<ChatDeleteReminderApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatDeleteReminderApiVersion];
-  @override
-  final String wireName = 'ChatDeleteReminderApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatDeleteReminderApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatDeleteReminderApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatDeleteReminderApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatDeleteReminderResponseApplicationJson_OcsSerializer
@@ -7658,23 +6845,6 @@ class _$ChatDeleteReminderResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<ChatSetReadMarkerApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatSetReadMarkerApiVersion];
-  @override
-  final String wireName = 'ChatSetReadMarkerApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatSetReadMarkerApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatSetReadMarkerApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatSetReadMarkerApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatChatSetReadMarkerHeadersSerializer implements StructuredSerializer<ChatChatSetReadMarkerHeaders> {
@@ -7809,23 +6979,6 @@ class _$ChatSetReadMarkerResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMarkUnreadApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatMarkUnreadApiVersion];
-  @override
-  final String wireName = 'ChatMarkUnreadApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatMarkUnreadApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatMarkUnreadApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatMarkUnreadApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatChatMarkUnreadHeadersSerializer implements StructuredSerializer<ChatChatMarkUnreadHeaders> {
   @override
   final Iterable<Type> types = const [ChatChatMarkUnreadHeaders, _$ChatChatMarkUnreadHeaders];
@@ -7953,23 +7106,6 @@ class _$ChatMarkUnreadResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatMentionsApiVersionSerializer implements PrimitiveSerializer<ChatMentionsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatMentionsApiVersion];
-  @override
-  final String wireName = 'ChatMentionsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatMentionsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatMentionsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatMentionsApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatMentionSuggestionSerializer implements StructuredSerializer<ChatMentionSuggestion> {
@@ -8145,24 +7281,6 @@ class _$ChatMentionsResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatGetObjectsSharedInRoomApiVersionSerializer
-    implements PrimitiveSerializer<ChatGetObjectsSharedInRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatGetObjectsSharedInRoomApiVersion];
-  @override
-  final String wireName = 'ChatGetObjectsSharedInRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatGetObjectsSharedInRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatGetObjectsSharedInRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatGetObjectsSharedInRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatChatGetObjectsSharedInRoomHeadersSerializer
     implements StructuredSerializer<ChatChatGetObjectsSharedInRoomHeaders> {
   @override
@@ -8297,23 +7415,6 @@ class _$ChatGetObjectsSharedInRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer<ChatShareObjectToChatApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatShareObjectToChatApiVersion];
-  @override
-  final String wireName = 'ChatShareObjectToChatApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatShareObjectToChatApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatShareObjectToChatApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatShareObjectToChatApiVersion.valueOf(serialized as String);
 }
 
 class _$ChatChatShareObjectToChatHeadersSerializer implements StructuredSerializer<ChatChatShareObjectToChatHeaders> {
@@ -8454,24 +7555,6 @@ class _$ChatShareObjectToChatResponseApplicationJsonSerializer
   }
 }
 
-class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
-    implements PrimitiveSerializer<ChatGetObjectsSharedInRoomOverviewApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ChatGetObjectsSharedInRoomOverviewApiVersion];
-  @override
-  final String wireName = 'ChatGetObjectsSharedInRoomOverviewApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ChatGetObjectsSharedInRoomOverviewApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ChatGetObjectsSharedInRoomOverviewApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ChatGetObjectsSharedInRoomOverviewApiVersion.valueOf(serialized as String);
-}
-
 class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs> {
   @override
@@ -8575,23 +7658,6 @@ class _$ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonSerializer
   }
 }
 
-class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer<FederationAcceptShareApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[FederationAcceptShareApiVersion];
-  @override
-  final String wireName = 'FederationAcceptShareApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, FederationAcceptShareApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FederationAcceptShareApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FederationAcceptShareApiVersion.valueOf(serialized as String);
-}
-
 class _$FederationAcceptShareResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<FederationAcceptShareResponseApplicationJson_Ocs> {
   @override
@@ -8684,23 +7750,6 @@ class _$FederationAcceptShareResponseApplicationJsonSerializer
   }
 }
 
-class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer<FederationRejectShareApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[FederationRejectShareApiVersion];
-  @override
-  final String wireName = 'FederationRejectShareApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, FederationRejectShareApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FederationRejectShareApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FederationRejectShareApiVersion.valueOf(serialized as String);
-}
-
 class _$FederationRejectShareResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<FederationRejectShareResponseApplicationJson_Ocs> {
   @override
@@ -8791,23 +7840,6 @@ class _$FederationRejectShareResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<FederationGetSharesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[FederationGetSharesApiVersion];
-  @override
-  final String wireName = 'FederationGetSharesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, FederationGetSharesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FederationGetSharesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FederationGetSharesApiVersion.valueOf(serialized as String);
 }
 
 class _$FederationInviteSerializer implements StructuredSerializer<FederationInvite> {
@@ -8970,24 +8002,6 @@ class _$FederationGetSharesResponseApplicationJsonSerializer
   }
 }
 
-class _$FilesIntegrationGetRoomByFileIdApiVersionSerializer
-    implements PrimitiveSerializer<FilesIntegrationGetRoomByFileIdApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[FilesIntegrationGetRoomByFileIdApiVersion];
-  @override
-  final String wireName = 'FilesIntegrationGetRoomByFileIdApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, FilesIntegrationGetRoomByFileIdApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FilesIntegrationGetRoomByFileIdApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FilesIntegrationGetRoomByFileIdApiVersion.valueOf(serialized as String);
-}
-
 class _$FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataSerializer
     implements StructuredSerializer<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data> {
   @override
@@ -9128,24 +8142,6 @@ class _$FilesIntegrationGetRoomByFileIdResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer
-    implements PrimitiveSerializer<FilesIntegrationGetRoomByShareTokenApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[FilesIntegrationGetRoomByShareTokenApiVersion];
-  @override
-  final String wireName = 'FilesIntegrationGetRoomByShareTokenApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, FilesIntegrationGetRoomByShareTokenApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  FilesIntegrationGetRoomByShareTokenApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      FilesIntegrationGetRoomByShareTokenApiVersion.valueOf(serialized as String);
 }
 
 class _$FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataSerializer
@@ -9301,23 +8297,6 @@ class _$FilesIntegrationGetRoomByShareTokenResponseApplicationJsonSerializer
   }
 }
 
-class _$GuestSetDisplayNameApiVersionSerializer implements PrimitiveSerializer<GuestSetDisplayNameApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[GuestSetDisplayNameApiVersion];
-  @override
-  final String wireName = 'GuestSetDisplayNameApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, GuestSetDisplayNameApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  GuestSetDisplayNameApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      GuestSetDisplayNameApiVersion.valueOf(serialized as String);
-}
-
 class _$GuestSetDisplayNameResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<GuestSetDisplayNameResponseApplicationJson_Ocs> {
   @override
@@ -9407,24 +8386,6 @@ class _$GuestSetDisplayNameResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$HostedSignalingServerRequestTrialApiVersionSerializer
-    implements PrimitiveSerializer<HostedSignalingServerRequestTrialApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[HostedSignalingServerRequestTrialApiVersion];
-  @override
-  final String wireName = 'HostedSignalingServerRequestTrialApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, HostedSignalingServerRequestTrialApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  HostedSignalingServerRequestTrialApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      HostedSignalingServerRequestTrialApiVersion.valueOf(serialized as String);
 }
 
 class _$HostedSignalingServerRequestTrialResponseApplicationJson_OcsSerializer
@@ -9524,24 +8485,6 @@ class _$HostedSignalingServerRequestTrialResponseApplicationJsonSerializer
   }
 }
 
-class _$HostedSignalingServerDeleteAccountApiVersionSerializer
-    implements PrimitiveSerializer<HostedSignalingServerDeleteAccountApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[HostedSignalingServerDeleteAccountApiVersion];
-  @override
-  final String wireName = 'HostedSignalingServerDeleteAccountApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, HostedSignalingServerDeleteAccountApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  HostedSignalingServerDeleteAccountApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      HostedSignalingServerDeleteAccountApiVersion.valueOf(serialized as String);
-}
-
 class _$HostedSignalingServerDeleteAccountResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<HostedSignalingServerDeleteAccountResponseApplicationJson_Ocs> {
   @override
@@ -9635,24 +8578,6 @@ class _$HostedSignalingServerDeleteAccountResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$MatterbridgeGetBridgeOfRoomApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeGetBridgeOfRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeGetBridgeOfRoomApiVersion];
-  @override
-  final String wireName = 'MatterbridgeGetBridgeOfRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeGetBridgeOfRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeGetBridgeOfRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeGetBridgeOfRoomApiVersion.valueOf(serialized as String);
 }
 
 class _$MatterbridgeSerializer implements StructuredSerializer<Matterbridge> {
@@ -9910,24 +8835,6 @@ class _$MatterbridgeGetBridgeOfRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$MatterbridgeEditBridgeOfRoomApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeEditBridgeOfRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeEditBridgeOfRoomApiVersion];
-  @override
-  final String wireName = 'MatterbridgeEditBridgeOfRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeEditBridgeOfRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeEditBridgeOfRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeEditBridgeOfRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs> {
   @override
@@ -10022,24 +8929,6 @@ class _$MatterbridgeEditBridgeOfRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeDeleteBridgeOfRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeDeleteBridgeOfRoomApiVersion];
-  @override
-  final String wireName = 'MatterbridgeDeleteBridgeOfRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeDeleteBridgeOfRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeDeleteBridgeOfRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeDeleteBridgeOfRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs> {
   @override
@@ -10132,24 +9021,6 @@ class _$MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$MatterbridgeGetBridgeProcessStateApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeGetBridgeProcessStateApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeGetBridgeProcessStateApiVersion];
-  @override
-  final String wireName = 'MatterbridgeGetBridgeProcessStateApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeGetBridgeProcessStateApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeGetBridgeProcessStateApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeGetBridgeProcessStateApiVersion.valueOf(serialized as String);
 }
 
 class _$MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsSerializer
@@ -10248,24 +9119,6 @@ class _$MatterbridgeGetBridgeProcessStateResponseApplicationJsonSerializer
   }
 }
 
-class _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeSettingsStopAllBridgesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeSettingsStopAllBridgesApiVersion];
-  @override
-  final String wireName = 'MatterbridgeSettingsStopAllBridgesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeSettingsStopAllBridgesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeSettingsStopAllBridgesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeSettingsStopAllBridgesApiVersion.valueOf(serialized as String);
-}
-
 class _$MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs> {
   @override
@@ -10359,24 +9212,6 @@ class _$MatterbridgeSettingsStopAllBridgesResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer
-    implements PrimitiveSerializer<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[MatterbridgeSettingsGetMatterbridgeVersionApiVersion];
-  @override
-  final String wireName = 'MatterbridgeSettingsGetMatterbridgeVersionApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, MatterbridgeSettingsGetMatterbridgeVersionApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  MatterbridgeSettingsGetMatterbridgeVersionApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      MatterbridgeSettingsGetMatterbridgeVersionApiVersion.valueOf(serialized as String);
 }
 
 class _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataSerializer
@@ -10521,23 +9356,6 @@ class _$MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonSeriali
 
     return result.build();
   }
-}
-
-class _$PollCreatePollApiVersionSerializer implements PrimitiveSerializer<PollCreatePollApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PollCreatePollApiVersion];
-  @override
-  final String wireName = 'PollCreatePollApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PollCreatePollApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PollCreatePollApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PollCreatePollApiVersion.valueOf(serialized as String);
 }
 
 class _$PollVoteSerializer implements StructuredSerializer<PollVote> {
@@ -10798,23 +9616,6 @@ class _$PollCreatePollResponseApplicationJsonSerializer
   }
 }
 
-class _$PollShowPollApiVersionSerializer implements PrimitiveSerializer<PollShowPollApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PollShowPollApiVersion];
-  @override
-  final String wireName = 'PollShowPollApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PollShowPollApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PollShowPollApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PollShowPollApiVersion.valueOf(serialized as String);
-}
-
 class _$PollShowPollResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<PollShowPollResponseApplicationJson_Ocs> {
   @override
@@ -10901,23 +9702,6 @@ class _$PollShowPollResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$PollVotePollApiVersionSerializer implements PrimitiveSerializer<PollVotePollApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PollVotePollApiVersion];
-  @override
-  final String wireName = 'PollVotePollApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PollVotePollApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PollVotePollApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PollVotePollApiVersion.valueOf(serialized as String);
 }
 
 class _$PollVotePollResponseApplicationJson_OcsSerializer
@@ -11008,23 +9792,6 @@ class _$PollVotePollResponseApplicationJsonSerializer
   }
 }
 
-class _$PollClosePollApiVersionSerializer implements PrimitiveSerializer<PollClosePollApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PollClosePollApiVersion];
-  @override
-  final String wireName = 'PollClosePollApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PollClosePollApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PollClosePollApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PollClosePollApiVersion.valueOf(serialized as String);
-}
-
 class _$PollClosePollResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<PollClosePollResponseApplicationJson_Ocs> {
   @override
@@ -11111,24 +9878,6 @@ class _$PollClosePollResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$PublicShareAuthCreateRoomApiVersionSerializer
-    implements PrimitiveSerializer<PublicShareAuthCreateRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[PublicShareAuthCreateRoomApiVersion];
-  @override
-  final String wireName = 'PublicShareAuthCreateRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, PublicShareAuthCreateRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  PublicShareAuthCreateRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      PublicShareAuthCreateRoomApiVersion.valueOf(serialized as String);
 }
 
 class _$PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataSerializer
@@ -11278,23 +10027,6 @@ class _$PublicShareAuthCreateRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<ReactionGetReactionsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ReactionGetReactionsApiVersion];
-  @override
-  final String wireName = 'ReactionGetReactionsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ReactionGetReactionsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ReactionGetReactionsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ReactionGetReactionsApiVersion.valueOf(serialized as String);
 }
 
 class _$ReactionSerializer implements StructuredSerializer<Reaction> {
@@ -11449,23 +10181,6 @@ class _$ReactionGetReactionsResponseApplicationJsonSerializer
   }
 }
 
-class _$ReactionReactApiVersionSerializer implements PrimitiveSerializer<ReactionReactApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ReactionReactApiVersion];
-  @override
-  final String wireName = 'ReactionReactApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ReactionReactApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ReactionReactApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ReactionReactApiVersion.valueOf(serialized as String);
-}
-
 class _$ReactionReactResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ReactionReactResponseApplicationJson_Ocs> {
   @override
@@ -11562,23 +10277,6 @@ class _$ReactionReactResponseApplicationJsonSerializer
   }
 }
 
-class _$ReactionDeleteApiVersionSerializer implements PrimitiveSerializer<ReactionDeleteApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[ReactionDeleteApiVersion];
-  @override
-  final String wireName = 'ReactionDeleteApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, ReactionDeleteApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  ReactionDeleteApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ReactionDeleteApiVersion.valueOf(serialized as String);
-}
-
 class _$ReactionDeleteResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<ReactionDeleteResponseApplicationJson_Ocs> {
   @override
@@ -11673,24 +10371,6 @@ class _$ReactionDeleteResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RecordingGetWelcomeMessageApiVersionSerializer
-    implements PrimitiveSerializer<RecordingGetWelcomeMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingGetWelcomeMessageApiVersion];
-  @override
-  final String wireName = 'RecordingGetWelcomeMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingGetWelcomeMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingGetWelcomeMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingGetWelcomeMessageApiVersion.valueOf(serialized as String);
 }
 
 class _$RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataSerializer
@@ -11833,23 +10513,6 @@ class _$RecordingGetWelcomeMessageResponseApplicationJsonSerializer
   }
 }
 
-class _$RecordingStartApiVersionSerializer implements PrimitiveSerializer<RecordingStartApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingStartApiVersion];
-  @override
-  final String wireName = 'RecordingStartApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingStartApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingStartApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingStartApiVersion.valueOf(serialized as String);
-}
-
 class _$RecordingStartResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RecordingStartResponseApplicationJson_Ocs> {
   @override
@@ -11936,23 +10599,6 @@ class _$RecordingStartResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RecordingStopApiVersionSerializer implements PrimitiveSerializer<RecordingStopApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingStopApiVersion];
-  @override
-  final String wireName = 'RecordingStopApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingStopApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingStopApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingStopApiVersion.valueOf(serialized as String);
 }
 
 class _$RecordingStopResponseApplicationJson_OcsSerializer
@@ -12043,23 +10689,6 @@ class _$RecordingStopResponseApplicationJsonSerializer
   }
 }
 
-class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<RecordingStoreApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingStoreApiVersion];
-  @override
-  final String wireName = 'RecordingStoreApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingStoreApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingStoreApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingStoreApiVersion.valueOf(serialized as String);
-}
-
 class _$RecordingStoreResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RecordingStoreResponseApplicationJson_Ocs> {
   @override
@@ -12146,24 +10775,6 @@ class _$RecordingStoreResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RecordingNotificationDismissApiVersionSerializer
-    implements PrimitiveSerializer<RecordingNotificationDismissApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingNotificationDismissApiVersion];
-  @override
-  final String wireName = 'RecordingNotificationDismissApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingNotificationDismissApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingNotificationDismissApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingNotificationDismissApiVersion.valueOf(serialized as String);
 }
 
 class _$RecordingNotificationDismissResponseApplicationJson_OcsSerializer
@@ -12259,23 +10870,6 @@ class _$RecordingNotificationDismissResponseApplicationJsonSerializer
   }
 }
 
-class _$RecordingShareToChatApiVersionSerializer implements PrimitiveSerializer<RecordingShareToChatApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RecordingShareToChatApiVersion];
-  @override
-  final String wireName = 'RecordingShareToChatApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RecordingShareToChatApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RecordingShareToChatApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RecordingShareToChatApiVersion.valueOf(serialized as String);
-}
-
 class _$RecordingShareToChatResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RecordingShareToChatResponseApplicationJson_Ocs> {
   @override
@@ -12365,23 +10959,6 @@ class _$RecordingShareToChatResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetRoomsApiVersion];
-  @override
-  final String wireName = 'RoomGetRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetRoomsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRoomGetRoomsHeadersSerializer implements StructuredSerializer<RoomRoomGetRoomsHeaders> {
@@ -12524,23 +11101,6 @@ class _$RoomGetRoomsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomCreateRoomApiVersionSerializer implements PrimitiveSerializer<RoomCreateRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomCreateRoomApiVersion];
-  @override
-  final String wireName = 'RoomCreateRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomCreateRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomCreateRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomCreateRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomCreateRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomCreateRoomResponseApplicationJson_Ocs> {
   @override
@@ -12627,23 +11187,6 @@ class _$RoomCreateRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetListedRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetListedRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetListedRoomsApiVersion];
-  @override
-  final String wireName = 'RoomGetListedRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetListedRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetListedRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetListedRoomsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomGetListedRoomsResponseApplicationJson_OcsSerializer
@@ -12736,24 +11279,6 @@ class _$RoomGetListedRoomsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetNoteToSelfConversationApiVersionSerializer
-    implements PrimitiveSerializer<RoomGetNoteToSelfConversationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetNoteToSelfConversationApiVersion];
-  @override
-  final String wireName = 'RoomGetNoteToSelfConversationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetNoteToSelfConversationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetNoteToSelfConversationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetNoteToSelfConversationApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRoomGetNoteToSelfConversationHeadersSerializer
@@ -12895,23 +11420,6 @@ class _$RoomGetNoteToSelfConversationResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<RoomGetSingleRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetSingleRoomApiVersion];
-  @override
-  final String wireName = 'RoomGetSingleRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetSingleRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetSingleRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetSingleRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomRoomGetSingleRoomHeadersSerializer implements StructuredSerializer<RoomRoomGetSingleRoomHeaders> {
   @override
   final Iterable<Type> types = const [RoomRoomGetSingleRoomHeaders, _$RoomRoomGetSingleRoomHeaders];
@@ -13044,23 +11552,6 @@ class _$RoomGetSingleRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRenameRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomRenameRoomApiVersion];
-  @override
-  final String wireName = 'RoomRenameRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomRenameRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomRenameRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomRenameRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomRenameRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomRenameRoomResponseApplicationJson_Ocs> {
   @override
@@ -13149,23 +11640,6 @@ class _$RoomRenameRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDeleteRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomDeleteRoomApiVersion];
-  @override
-  final String wireName = 'RoomDeleteRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomDeleteRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomDeleteRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomDeleteRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomDeleteRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomDeleteRoomResponseApplicationJson_Ocs> {
   @override
@@ -13252,23 +11726,6 @@ class _$RoomDeleteRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetBreakoutRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetBreakoutRoomsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetBreakoutRoomsApiVersion];
-  @override
-  final String wireName = 'RoomGetBreakoutRoomsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetBreakoutRoomsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetBreakoutRoomsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetBreakoutRoomsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomGetBreakoutRoomsResponseApplicationJson_OcsSerializer
@@ -13363,23 +11820,6 @@ class _$RoomGetBreakoutRoomsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomMakePublicApiVersionSerializer implements PrimitiveSerializer<RoomMakePublicApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomMakePublicApiVersion];
-  @override
-  final String wireName = 'RoomMakePublicApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomMakePublicApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomMakePublicApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomMakePublicApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomMakePublicResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomMakePublicResponseApplicationJson_Ocs> {
   @override
@@ -13468,23 +11908,6 @@ class _$RoomMakePublicResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomMakePrivateApiVersionSerializer implements PrimitiveSerializer<RoomMakePrivateApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomMakePrivateApiVersion];
-  @override
-  final String wireName = 'RoomMakePrivateApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomMakePrivateApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomMakePrivateApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomMakePrivateApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomMakePrivateResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomMakePrivateResponseApplicationJson_Ocs> {
   @override
@@ -13571,23 +11994,6 @@ class _$RoomMakePrivateResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetDescriptionApiVersionSerializer implements PrimitiveSerializer<RoomSetDescriptionApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetDescriptionApiVersion];
-  @override
-  final String wireName = 'RoomSetDescriptionApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetDescriptionApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetDescriptionApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetDescriptionApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetDescriptionResponseApplicationJson_OcsSerializer
@@ -13681,23 +12087,6 @@ class _$RoomSetDescriptionResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetReadOnlyApiVersionSerializer implements PrimitiveSerializer<RoomSetReadOnlyApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetReadOnlyApiVersion];
-  @override
-  final String wireName = 'RoomSetReadOnlyApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetReadOnlyApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetReadOnlyApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetReadOnlyApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetReadOnlyResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetReadOnlyResponseApplicationJson_Ocs> {
   @override
@@ -13784,23 +12173,6 @@ class _$RoomSetReadOnlyResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetListableApiVersionSerializer implements PrimitiveSerializer<RoomSetListableApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetListableApiVersion];
-  @override
-  final String wireName = 'RoomSetListableApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetListableApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetListableApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetListableApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetListableResponseApplicationJson_OcsSerializer
@@ -13891,23 +12263,6 @@ class _$RoomSetListableResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetPasswordApiVersionSerializer implements PrimitiveSerializer<RoomSetPasswordApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetPasswordApiVersion];
-  @override
-  final String wireName = 'RoomSetPasswordApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetPasswordApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetPasswordApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetPasswordApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetPasswordResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetPasswordResponseApplicationJson_Ocs> {
   @override
@@ -13994,23 +12349,6 @@ class _$RoomSetPasswordResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetPermissionsApiVersionSerializer implements PrimitiveSerializer<RoomSetPermissionsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetPermissionsApiVersion];
-  @override
-  final String wireName = 'RoomSetPermissionsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetPermissionsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetPermissionsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetPermissionsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetPermissionsResponseApplicationJson_OcsSerializer
@@ -14102,23 +12440,6 @@ class _$RoomSetPermissionsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<RoomGetParticipantsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetParticipantsApiVersion];
-  @override
-  final String wireName = 'RoomGetParticipantsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetParticipantsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetParticipantsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetParticipantsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRoomGetParticipantsHeadersSerializer implements StructuredSerializer<RoomRoomGetParticipantsHeaders> {
@@ -14403,24 +12724,6 @@ class _$RoomGetParticipantsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomAddParticipantToRoomApiVersionSerializer
-    implements PrimitiveSerializer<RoomAddParticipantToRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomAddParticipantToRoomApiVersion];
-  @override
-  final String wireName = 'RoomAddParticipantToRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomAddParticipantToRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomAddParticipantToRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomAddParticipantToRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Serializer
     implements StructuredSerializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0> {
   @override
@@ -14557,24 +12860,6 @@ class _$RoomAddParticipantToRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
-    implements PrimitiveSerializer<RoomGetBreakoutRoomParticipantsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomGetBreakoutRoomParticipantsApiVersion];
-  @override
-  final String wireName = 'RoomGetBreakoutRoomParticipantsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomGetBreakoutRoomParticipantsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomGetBreakoutRoomParticipantsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomGetBreakoutRoomParticipantsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRoomGetBreakoutRoomParticipantsHeadersSerializer
@@ -14719,23 +13004,6 @@ class _$RoomGetBreakoutRoomParticipantsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomRemoveSelfFromRoomApiVersionSerializer implements PrimitiveSerializer<RoomRemoveSelfFromRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomRemoveSelfFromRoomApiVersion];
-  @override
-  final String wireName = 'RoomRemoveSelfFromRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomRemoveSelfFromRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomRemoveSelfFromRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomRemoveSelfFromRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomRemoveSelfFromRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs> {
   @override
@@ -14826,24 +13094,6 @@ class _$RoomRemoveSelfFromRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
-    implements PrimitiveSerializer<RoomRemoveAttendeeFromRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomRemoveAttendeeFromRoomApiVersion];
-  @override
-  final String wireName = 'RoomRemoveAttendeeFromRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomRemoveAttendeeFromRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomRemoveAttendeeFromRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomRemoveAttendeeFromRoomApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsSerializer
@@ -14939,24 +13189,6 @@ class _$RoomRemoveAttendeeFromRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetAttendeePermissionsApiVersionSerializer
-    implements PrimitiveSerializer<RoomSetAttendeePermissionsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetAttendeePermissionsApiVersion];
-  @override
-  final String wireName = 'RoomSetAttendeePermissionsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetAttendeePermissionsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetAttendeePermissionsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetAttendeePermissionsApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetAttendeePermissionsResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetAttendeePermissionsResponseApplicationJson_Ocs> {
   @override
@@ -15048,24 +13280,6 @@ class _$RoomSetAttendeePermissionsResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetAllAttendeesPermissionsApiVersionSerializer
-    implements PrimitiveSerializer<RoomSetAllAttendeesPermissionsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetAllAttendeesPermissionsApiVersion];
-  @override
-  final String wireName = 'RoomSetAllAttendeesPermissionsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetAllAttendeesPermissionsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetAllAttendeesPermissionsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetAllAttendeesPermissionsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsSerializer
@@ -15162,23 +13376,6 @@ class _$RoomSetAllAttendeesPermissionsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomJoinRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoinRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomJoinRoomApiVersion];
-  @override
-  final String wireName = 'RoomJoinRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomJoinRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomJoinRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomJoinRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomJoinRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomJoinRoomResponseApplicationJson_Ocs> {
   @override
@@ -15267,23 +13464,6 @@ class _$RoomJoinRoomResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomLeaveRoomApiVersionSerializer implements PrimitiveSerializer<RoomLeaveRoomApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomLeaveRoomApiVersion];
-  @override
-  final String wireName = 'RoomLeaveRoomApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomLeaveRoomApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomLeaveRoomApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomLeaveRoomApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomLeaveRoomResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomLeaveRoomResponseApplicationJson_Ocs> {
   @override
@@ -15370,23 +13550,6 @@ class _$RoomLeaveRoomResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomResendInvitationsApiVersionSerializer implements PrimitiveSerializer<RoomResendInvitationsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomResendInvitationsApiVersion];
-  @override
-  final String wireName = 'RoomResendInvitationsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomResendInvitationsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomResendInvitationsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomResendInvitationsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomResendInvitationsResponseApplicationJson_OcsSerializer
@@ -15481,23 +13644,6 @@ class _$RoomResendInvitationsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetSessionStateApiVersionSerializer implements PrimitiveSerializer<RoomSetSessionStateApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetSessionStateApiVersion];
-  @override
-  final String wireName = 'RoomSetSessionStateApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetSessionStateApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetSessionStateApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetSessionStateApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetSessionStateResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetSessionStateResponseApplicationJson_Ocs> {
   @override
@@ -15587,23 +13733,6 @@ class _$RoomSetSessionStateResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomPromoteModeratorApiVersionSerializer implements PrimitiveSerializer<RoomPromoteModeratorApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomPromoteModeratorApiVersion];
-  @override
-  final String wireName = 'RoomPromoteModeratorApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomPromoteModeratorApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomPromoteModeratorApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomPromoteModeratorApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomPromoteModeratorResponseApplicationJson_OcsSerializer
@@ -15697,23 +13826,6 @@ class _$RoomPromoteModeratorResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<RoomDemoteModeratorApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomDemoteModeratorApiVersion];
-  @override
-  final String wireName = 'RoomDemoteModeratorApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomDemoteModeratorApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomDemoteModeratorApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomDemoteModeratorApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomDemoteModeratorResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomDemoteModeratorResponseApplicationJson_Ocs> {
   @override
@@ -15805,23 +13917,6 @@ class _$RoomDemoteModeratorResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomAddToFavoritesApiVersionSerializer implements PrimitiveSerializer<RoomAddToFavoritesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomAddToFavoritesApiVersion];
-  @override
-  final String wireName = 'RoomAddToFavoritesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomAddToFavoritesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomAddToFavoritesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomAddToFavoritesApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomAddToFavoritesResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomAddToFavoritesResponseApplicationJson_Ocs> {
   @override
@@ -15911,23 +14006,6 @@ class _$RoomAddToFavoritesResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomRemoveFromFavoritesApiVersionSerializer implements PrimitiveSerializer<RoomRemoveFromFavoritesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomRemoveFromFavoritesApiVersion];
-  @override
-  final String wireName = 'RoomRemoveFromFavoritesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomRemoveFromFavoritesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomRemoveFromFavoritesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomRemoveFromFavoritesApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomRemoveFromFavoritesResponseApplicationJson_OcsSerializer
@@ -16022,24 +14100,6 @@ class _$RoomRemoveFromFavoritesResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetNotificationLevelApiVersionSerializer
-    implements PrimitiveSerializer<RoomSetNotificationLevelApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetNotificationLevelApiVersion];
-  @override
-  final String wireName = 'RoomSetNotificationLevelApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetNotificationLevelApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetNotificationLevelApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetNotificationLevelApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetNotificationLevelResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetNotificationLevelResponseApplicationJson_Ocs> {
   @override
@@ -16130,24 +14190,6 @@ class _$RoomSetNotificationLevelResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetNotificationCallsApiVersionSerializer
-    implements PrimitiveSerializer<RoomSetNotificationCallsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetNotificationCallsApiVersion];
-  @override
-  final String wireName = 'RoomSetNotificationCallsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetNotificationCallsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetNotificationCallsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetNotificationCallsApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetNotificationCallsResponseApplicationJson_OcsSerializer
@@ -16242,23 +14284,6 @@ class _$RoomSetNotificationCallsResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetLobbyApiVersionSerializer implements PrimitiveSerializer<RoomSetLobbyApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetLobbyApiVersion];
-  @override
-  final String wireName = 'RoomSetLobbyApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetLobbyApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetLobbyApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetLobbyApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetLobbyResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetLobbyResponseApplicationJson_Ocs> {
   @override
@@ -16345,23 +14370,6 @@ class _$RoomSetLobbyResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetsipEnabledApiVersionSerializer implements PrimitiveSerializer<RoomSetsipEnabledApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetsipEnabledApiVersion];
-  @override
-  final String wireName = 'RoomSetsipEnabledApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetsipEnabledApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetsipEnabledApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetsipEnabledApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetsipEnabledResponseApplicationJson_OcsSerializer
@@ -16453,23 +14461,6 @@ class _$RoomSetsipEnabledResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$RoomSetRecordingConsentApiVersionSerializer implements PrimitiveSerializer<RoomSetRecordingConsentApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetRecordingConsentApiVersion];
-  @override
-  final String wireName = 'RoomSetRecordingConsentApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetRecordingConsentApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetRecordingConsentApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetRecordingConsentApiVersion.valueOf(serialized as String);
 }
 
 class _$RoomSetRecordingConsentResponseApplicationJson_OcsSerializer
@@ -16564,24 +14555,6 @@ class _$RoomSetRecordingConsentResponseApplicationJsonSerializer
   }
 }
 
-class _$RoomSetMessageExpirationApiVersionSerializer
-    implements PrimitiveSerializer<RoomSetMessageExpirationApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[RoomSetMessageExpirationApiVersion];
-  @override
-  final String wireName = 'RoomSetMessageExpirationApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, RoomSetMessageExpirationApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  RoomSetMessageExpirationApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      RoomSetMessageExpirationApiVersion.valueOf(serialized as String);
-}
-
 class _$RoomSetMessageExpirationResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<RoomSetMessageExpirationResponseApplicationJson_Ocs> {
   @override
@@ -16672,23 +14645,6 @@ class _$RoomSetMessageExpirationResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerializer<SettingsSetsipSettingsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SettingsSetsipSettingsApiVersion];
-  @override
-  final String wireName = 'SettingsSetsipSettingsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SettingsSetsipSettingsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SettingsSetsipSettingsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SettingsSetsipSettingsApiVersion.valueOf(serialized as String);
 }
 
 class _$SettingsSetsipSettingsResponseApplicationJson_OcsSerializer
@@ -16783,23 +14739,6 @@ class _$SettingsSetsipSettingsResponseApplicationJsonSerializer
   }
 }
 
-class _$SettingsSetUserSettingApiVersionSerializer implements PrimitiveSerializer<SettingsSetUserSettingApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SettingsSetUserSettingApiVersion];
-  @override
-  final String wireName = 'SettingsSetUserSettingApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SettingsSetUserSettingApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SettingsSetUserSettingApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SettingsSetUserSettingApiVersion.valueOf(serialized as String);
-}
-
 class _$SettingsSetUserSettingResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SettingsSetUserSettingResponseApplicationJson_Ocs> {
   @override
@@ -16890,23 +14829,6 @@ class _$SettingsSetUserSettingResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<SignalingGetSettingsApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SignalingGetSettingsApiVersion];
-  @override
-  final String wireName = 'SignalingGetSettingsApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SignalingGetSettingsApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SignalingGetSettingsApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SignalingGetSettingsApiVersion.valueOf(serialized as String);
 }
 
 class _$SignalingSettings_HelloAuthParams_$10Serializer
@@ -17312,24 +15234,6 @@ class _$SignalingGetSettingsResponseApplicationJsonSerializer
   }
 }
 
-class _$SignalingGetWelcomeMessageApiVersionSerializer
-    implements PrimitiveSerializer<SignalingGetWelcomeMessageApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SignalingGetWelcomeMessageApiVersion];
-  @override
-  final String wireName = 'SignalingGetWelcomeMessageApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SignalingGetWelcomeMessageApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SignalingGetWelcomeMessageApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SignalingGetWelcomeMessageApiVersion.valueOf(serialized as String);
-}
-
 class _$SignalingGetWelcomeMessageResponseApplicationJson_OcsSerializer
     implements StructuredSerializer<SignalingGetWelcomeMessageResponseApplicationJson_Ocs> {
   @override
@@ -17423,23 +15327,6 @@ class _$SignalingGetWelcomeMessageResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingPullMessagesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SignalingPullMessagesApiVersion];
-  @override
-  final String wireName = 'SignalingPullMessagesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SignalingPullMessagesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SignalingPullMessagesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SignalingPullMessagesApiVersion.valueOf(serialized as String);
 }
 
 class _$SignalingSessionSerializer implements StructuredSerializer<SignalingSession> {
@@ -17650,23 +15537,6 @@ class _$SignalingPullMessagesResponseApplicationJsonSerializer
 
     return result.build();
   }
-}
-
-class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer<SignalingSendMessagesApiVersion> {
-  @override
-  final Iterable<Type> types = const <Type>[SignalingSendMessagesApiVersion];
-  @override
-  final String wireName = 'SignalingSendMessagesApiVersion';
-
-  @override
-  Object serialize(Serializers serializers, SignalingSendMessagesApiVersion object,
-          {FullType specifiedType = FullType.unspecified}) =>
-      object.name;
-
-  @override
-  SignalingSendMessagesApiVersion deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      SignalingSendMessagesApiVersion.valueOf(serialized as String);
 }
 
 class _$SignalingSendMessagesResponseApplicationJson_OcsSerializer

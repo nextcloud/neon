@@ -12,7 +12,6 @@ TypeResult resolveType(
   final State state,
   final String identifier,
   final openapi.Schema schema, {
-  final bool ignoreEnum = false,
   final bool nullable = false,
 }) {
   TypeResult? result;
@@ -178,7 +177,7 @@ TypeResult resolveType(
   }
 
   if (result != null) {
-    if (!ignoreEnum && schema.$enum != null) {
+    if (schema.$enum != null) {
       result = resolveEnum(
         spec,
         state,
