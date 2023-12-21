@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: camel_case_extensions
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+
+library core_openapi;
+
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -10758,19 +10758,15 @@ abstract class WipeCheckWipeResponseApplicationJson
 }
 
 typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
-
 typedef NavigationEntry_Order = ({int? $int, String? string});
-
 typedef SharebymailCapabilities = ({
   BuiltList<Never>? builtListNever,
   SharebymailCapabilities0? sharebymailCapabilities0
 });
-
 typedef SpreedPublicCapabilities = ({
   BuiltList<Never>? builtListNever,
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
-
 typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
@@ -10787,11 +10783,8 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
 });
-
 typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
-
 typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
-
 typedef $AutocompleteResultStatus0String = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
 
 extension $AutocompleteResultStatus0StringExtension on $AutocompleteResultStatus0String {
@@ -12111,7 +12104,6 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(WipeCheckWipeResponseApplicationJson.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

@@ -1,9 +1,8 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: camel_case_extensions
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+
+library provisioning_api_openapi;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -8058,26 +8057,20 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
-
 typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
-
 typedef UserDetailsQuota_Quota = ({num? $num, String? string});
-
 typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
   UserDetails? userDetails
 });
-
 typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   UserDetails? userDetails,
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
-
 typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   UserDetails? userDetails,
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
-
 typedef $BoolInt = ({bool? $bool, int? $int});
 
 extension $BoolIntExtension on $BoolInt {
@@ -9016,7 +9009,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities_ProvisioningApi), Capabilities_ProvisioningApiBuilder.new)
       ..add(Capabilities_ProvisioningApi.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

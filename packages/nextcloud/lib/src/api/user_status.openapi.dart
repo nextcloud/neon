@@ -1,9 +1,8 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: camel_case_extensions
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+
+library user_status_openapi;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -1919,9 +1918,7 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
-
 typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
-
 typedef $ClearAtTimeTypeInt = ({ClearAtTimeType? clearAtTimeType, int? $int});
 
 extension $ClearAtTimeTypeIntExtension on $ClearAtTimeTypeInt {
@@ -2163,7 +2160,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)
       ..add(Capabilities_UserStatus.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

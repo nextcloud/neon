@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: unused_element
+
+library some_of_openapi;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -44,11 +44,8 @@ abstract class OneValueSomeOfInObject
 }
 
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
-
 typedef AnyOfIntDoubleOther = ({num? $num, String? string});
-
 typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
-
 typedef $NumString = ({num? $num, String? string});
 
 extension $NumStringExtension on $NumString {
@@ -113,7 +110,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(OneValueSomeOfInObject), OneValueSomeOfInObjectBuilder.new)
       ..add(OneValueSomeOfInObject.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

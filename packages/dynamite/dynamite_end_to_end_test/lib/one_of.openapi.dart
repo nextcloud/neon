@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: unused_element
+
+library one_of_openapi;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,11 +15,8 @@ import 'package:meta/meta.dart';
 part 'one_of.openapi.g.dart';
 
 typedef OneObjectOneOf = OneObjectOneOf0;
-
 typedef OneValueOneOf = String;
-
 typedef OneOfIntDouble = num;
-
 typedef OneOfIntDoubleNum = num;
 
 @BuiltValue(instantiable: false)
@@ -95,11 +92,8 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 }
 
 typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
-
 typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
-
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
-
 typedef $ObjectOneOf0ObjectOneOf1 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
 
 extension $ObjectOneOf0ObjectOneOf1Extension on $ObjectOneOf0ObjectOneOf1 {
@@ -286,7 +280,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(OneObjectOneOf0.serializer)
       ..add($NumStringExtension.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
