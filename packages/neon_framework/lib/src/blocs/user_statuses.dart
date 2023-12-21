@@ -7,24 +7,23 @@ import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/timer.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/models/disposable.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
 @internal
-abstract interface class UserStatusesBlocEvents {
-  void load(final String username, {final bool force = false});
-}
+sealed class UserStatusesBloc implements Disposable {
+  factory UserStatusesBloc(final Account account) => _UserStatusesBloc(account);
 
-@internal
-abstract interface class UserStatusesBlocStates {
+  void load(final String username, {final bool force = false});
+
   BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> get statuses;
 }
 
-@internal
-class UserStatusesBloc extends InteractiveBloc implements UserStatusesBlocEvents, UserStatusesBlocStates {
-  UserStatusesBloc(
+class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
+  _UserStatusesBloc(
     this._account,
   ) {
     unawaited(refresh());

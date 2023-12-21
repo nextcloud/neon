@@ -2,21 +2,23 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
+import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class FirstLaunchBlocEvents {}
+sealed class FirstLaunchBloc implements Disposable {
+  factory FirstLaunchBloc({
+    final bool disabled = false,
+  }) =>
+      _FirstLaunchBloc(disabled: disabled);
 
-@internal
-abstract interface class FirstLaunchBlocStates {
   BehaviorSubject<void> get onFirstLaunch;
 }
 
 @immutable
-@internal
-class FirstLaunchBloc extends Bloc implements FirstLaunchBlocEvents, FirstLaunchBlocStates {
-  FirstLaunchBloc({
+class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
+  _FirstLaunchBloc({
     final bool disabled = false,
   }) {
     const storage = SingleValueStorage(StorageKeys.firstLaunch);

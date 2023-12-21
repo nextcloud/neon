@@ -11,18 +11,24 @@ import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class LoginCheckAccountBlocEvents {}
+sealed class LoginCheckAccountBloc implements InteractiveBloc {
+  factory LoginCheckAccountBloc(
+    final Uri serverURL,
+    final String loginName,
+    final String password,
+  ) =>
+      _LoginCheckAccountBloc(
+        serverURL,
+        loginName,
+        password,
+      );
 
-@internal
-abstract interface class LoginCheckAccountBlocStates {
   /// Contains the account for the user
   BehaviorSubject<Result<Account>> get state;
 }
 
-@internal
-class LoginCheckAccountBloc extends InteractiveBloc
-    implements LoginCheckAccountBlocEvents, LoginCheckAccountBlocStates {
-  LoginCheckAccountBloc(
+class _LoginCheckAccountBloc extends InteractiveBloc implements LoginCheckAccountBloc {
+  _LoginCheckAccountBloc(
     this.serverURL,
     this.loginName,
     this.password,

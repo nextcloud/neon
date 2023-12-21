@@ -7,21 +7,25 @@ import 'package:neon_notifications/src/options.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class NotificationsBlocEvents {
+sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
+  factory NotificationsBloc(
+    final NotificationsOptions options,
+    final Account account,
+  ) =>
+      _NotificationsBloc(options, account);
+
+  @override
   void deleteNotification(final int id);
 
   void deleteAllNotifications();
-}
 
-abstract interface class NotificationsBlocStates {
   BehaviorSubject<Result<List<notifications.Notification>>> get notificationsList;
 
   BehaviorSubject<int> get unreadCounter;
 }
 
-class NotificationsBloc extends InteractiveBloc
-    implements NotificationsBlocInterface, NotificationsBlocEvents, NotificationsBlocStates {
-  NotificationsBloc(
+class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInterface, NotificationsBloc {
+  _NotificationsBloc(
     this.options,
     this._account,
   ) {
@@ -35,7 +39,6 @@ class NotificationsBloc extends InteractiveBloc
     _timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
-  @override
   final NotificationsOptions options;
   final Account _account;
   late final NeonTimer _timer;

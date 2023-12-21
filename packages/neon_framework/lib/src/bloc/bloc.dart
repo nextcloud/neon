@@ -35,7 +35,7 @@ abstract class InteractiveBloc extends Bloc {
   /// Refreshes the state of the bloc.
   ///
   /// Commonly involves re-fetching data from the server.
-  FutureOr<void> refresh();
+  Future<void> refresh();
 
   /// Adds an error to the [errors] state.
   @protected

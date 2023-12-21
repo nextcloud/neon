@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
@@ -88,7 +86,7 @@ class __NeonDrawerState extends State<_NeonDrawer> {
       _activeApp = index;
     });
 
-    unawaited(_appsBloc.setActiveApp(_apps[index].id));
+    _appsBloc.setActiveApp(_apps[index].id);
     //context.goNamed(apps[index].routeName);
   }
 

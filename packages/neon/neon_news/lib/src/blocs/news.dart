@@ -8,7 +8,16 @@ import 'package:neon_news/src/options.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class NewsBlocEvents {
+sealed class NewsBloc implements InteractiveBloc {
+  factory NewsBloc(
+    final NewsOptions options,
+    final Account account,
+  ) =>
+      _NewsBloc(
+        options,
+        account,
+      );
+
   void addFeed(final String url, final int? folderId);
 
   void removeFeed(final int feedId);
@@ -26,18 +35,20 @@ abstract interface class NewsBlocEvents {
   void renameFolder(final int folderId, final String name);
 
   void markFolderAsRead(final int folderId);
-}
 
-abstract interface class NewsBlocStates {
   BehaviorSubject<Result<List<news.Folder>>> get folders;
 
   BehaviorSubject<Result<List<news.Feed>>> get feeds;
 
   BehaviorSubject<int> get unreadCounter;
+
+  NewsOptions get options;
+
+  NewsMainArticlesBloc get mainArticlesBloc;
 }
 
-class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates, NewsMainArticlesBloc {
-  NewsBloc(
+class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBloc {
+  _NewsBloc(
     this.options,
     this.account,
   ) {
@@ -55,8 +66,8 @@ class NewsBloc extends InteractiveBloc implements NewsBlocEvents, NewsBlocStates
   @override
   final NewsOptions options;
   @override
-  @override
   final Account account;
+  @override
   late final mainArticlesBloc = NewsMainArticlesBloc(
     this,
     options,

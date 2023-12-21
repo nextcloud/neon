@@ -2,11 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_news/src/blocs/articles.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class NewsArticleBlocEvents {
+sealed class NewsArticleBloc implements InteractiveBloc {
+  factory NewsArticleBloc(
+    final NewsArticlesBloc articlesBloc,
+    final Account account,
+    final news.Article article,
+  ) =>
+      _NewsArticleBloc(
+        articlesBloc,
+        account,
+        article,
+      );
+
   void markArticleAsRead();
 
   void markArticleAsUnread();
@@ -14,17 +26,16 @@ abstract interface class NewsArticleBlocEvents {
   void starArticle();
 
   void unstarArticle();
-}
 
-abstract interface class NewsArticleBlocStates {
   BehaviorSubject<bool> get unread;
 
   BehaviorSubject<bool> get starred;
 }
 
-class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, NewsArticleBlocStates {
-  NewsArticleBloc(
+class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
+  _NewsArticleBloc(
     this._newsArticlesBloc,
+    this.account,
     final news.Article article,
   ) {
     _id = article.id;
@@ -33,6 +44,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   }
 
   final NewsArticlesBloc _newsArticlesBloc;
+  final Account account;
 
   late final int _id;
 
@@ -50,12 +62,12 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   BehaviorSubject<bool> unread = BehaviorSubject<bool>();
 
   @override
-  void refresh() {}
+  Future<void> refresh() async {}
 
   @override
   void markArticleAsRead() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.account.client.news.markArticleAsRead(itemId: _id);
+      await account.client.news.markArticleAsRead(itemId: _id);
       unread.add(false);
     });
   }
@@ -63,7 +75,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void markArticleAsUnread() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.account.client.news.markArticleAsUnread(itemId: _id);
+      await account.client.news.markArticleAsUnread(itemId: _id);
       unread.add(true);
     });
   }
@@ -71,7 +83,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void starArticle() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.account.client.news.starArticle(itemId: _id);
+      await account.client.news.starArticle(itemId: _id);
       starred.add(true);
     });
   }
@@ -79,7 +91,7 @@ class NewsArticleBloc extends InteractiveBloc implements NewsArticleBlocEvents, 
   @override
   void unstarArticle() {
     _wrapArticleAction(() async {
-      await _newsArticlesBloc.account.client.news.unstarArticle(itemId: _id);
+      await account.client.news.unstarArticle(itemId: _id);
       starred.add(false);
     });
   }

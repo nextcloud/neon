@@ -7,20 +7,31 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class FilesBrowserBlocEvents {
+sealed class FilesBrowserBloc implements InteractiveBloc {
+  factory FilesBrowserBloc(
+    final FilesOptions options,
+    final Account account, {
+    final PathUri? initialPath,
+  }) =>
+      _FilesBrowserBloc(
+        options,
+        account,
+        initialPath: initialPath,
+      );
+
   void setPath(final PathUri uri);
 
   void createFolder(final PathUri uri);
-}
 
-abstract interface class FilesBrowserBlocStates {
   BehaviorSubject<Result<List<WebDavFile>>> get files;
 
   BehaviorSubject<PathUri> get uri;
+
+  FilesOptions get options;
 }
 
-class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents, FilesBrowserBlocStates {
-  FilesBrowserBloc(
+class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
+  _FilesBrowserBloc(
     this.options,
     this.account, {
     final PathUri? initialPath,
@@ -32,6 +43,7 @@ class FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBlocEvents
     unawaited(refresh());
   }
 
+  @override
   final FilesOptions options;
   final Account account;
 

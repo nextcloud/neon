@@ -5,21 +5,29 @@ import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
 import 'package:neon_framework/src/models/account.dart';
+import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:nextcloud/uppush.dart' as uppush;
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class NextPushBlocEvents {}
+sealed class NextPushBloc implements Disposable {
+  factory NextPushBloc(
+    final AccountsBloc accountsBloc,
+    final GlobalOptions globalOptions, {
+    final bool disabled = false,
+  }) =>
+      _NextPushBloc(
+        accountsBloc,
+        globalOptions,
+        disabled: disabled,
+      );
 
-@internal
-abstract interface class NextPushBlocStates {
   BehaviorSubject<void> get onNextPushSupported;
 }
 
-@internal
-class NextPushBloc extends Bloc implements NextPushBlocEvents, NextPushBlocStates {
-  NextPushBloc(
+class _NextPushBloc extends Bloc implements NextPushBloc {
+  _NextPushBloc(
     this._accountsBloc,
     this._globalOptions, {
     final bool disabled = false,

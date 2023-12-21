@@ -245,7 +245,7 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   Future<void> _openAppFromExternal(final Account account, final String id) async {
-    await _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
+    _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
     _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
     await _showAndRestoreWindow();
   }

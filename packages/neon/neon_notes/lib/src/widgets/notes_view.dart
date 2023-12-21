@@ -95,6 +95,7 @@ class NotesView extends StatelessWidget {
               builder: (final context) => NotesNotePage(
                 bloc: NotesNoteBloc(
                   bloc,
+                  NeonProvider.of<AccountsBloc>(context).activeAccount.value!,
                   note,
                 ),
                 notesBloc: bloc,

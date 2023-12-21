@@ -11,24 +11,29 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class UnifiedSearchBlocEvents {
+sealed class UnifiedSearchBloc implements InteractiveBloc {
+  factory UnifiedSearchBloc(
+    final AppsBloc appsBloc,
+    final Account account,
+  ) =>
+      _UnifiedSearchBloc(
+        appsBloc,
+        account,
+      );
+
   void search(final String term);
 
   void enable();
 
   void disable();
-}
 
-@internal
-abstract interface class UnifiedSearchBlocStates {
   BehaviorSubject<bool> get enabled;
 
   BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> get results;
 }
 
-@internal
-class UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBlocEvents, UnifiedSearchBlocStates {
-  UnifiedSearchBloc(
+class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
+  _UnifiedSearchBloc(
     this._appsBloc,
     this._account,
   ) {

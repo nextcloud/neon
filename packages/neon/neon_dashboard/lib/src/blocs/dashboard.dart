@@ -8,21 +8,20 @@ import 'package:neon_framework/models.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
-/// Events for [DashboardBloc].
-abstract class DashboardBlocEvents {}
+/// Bloc for fetching dashboard widgets and their items.
+sealed class DashboardBloc implements InteractiveBloc {
+  /// Creates a new Dashboard Bloc instance.
+  factory DashboardBloc(final Account account) => _DashboardBloc(account);
 
-/// States for [DashboardBloc].
-abstract class DashboardBlocStates {
   /// Dashboard widgets that are displayed.
   BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> get widgets;
 }
 
-/// Implements the business logic for fetching dashboard widgets and their items.
-class DashboardBloc extends InteractiveBloc implements DashboardBlocEvents, DashboardBlocStates {
-  /// Creates a new Dashboard Bloc instance.
-  ///
-  /// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
-  DashboardBloc(this._account) {
+/// Implementation of [DashboardBloc].
+///
+/// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
+class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
+  _DashboardBloc(this._account) {
     unawaited(refresh());
 
     _timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
