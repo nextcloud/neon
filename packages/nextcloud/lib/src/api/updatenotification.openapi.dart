@@ -1,9 +1,8 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: camel_case_extensions
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+
+library updatenotification_openapi;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -372,7 +371,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(App.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
