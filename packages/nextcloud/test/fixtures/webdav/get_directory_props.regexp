@@ -1,17 +1,17 @@
-MKCOL http://localhost/remote\.php/webdav/test
+MKCOL http://localhost/remote\.php/webdav/dir-props
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked
 accept-encoding: gzip
 authorization: Bearer mock
-PUT http://localhost/remote\.php/webdav/test/test\.txt
+PUT http://localhost/remote\.php/webdav/dir-props/test\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip
 content-length: 4
 authorization: Bearer mock
 test
-PROPFIND http://localhost/remote\.php/webdav/test
+PROPFIND http://localhost/remote\.php/webdav/dir-props
 user-agent: Dart/3\.2 \(dart:io\)
 transfer-encoding: chunked
 accept-encoding: gzip

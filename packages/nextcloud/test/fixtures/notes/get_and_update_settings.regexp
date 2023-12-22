@@ -1,3 +1,9 @@
+GET http://localhost/index\.php/apps/notes/api/v1/settings
+user-agent: Dart/3\.2 \(dart:io\)
+accept: application/json
+accept-encoding: gzip
+content-length: 0
+authorization: Basic mock
 PUT http://localhost/index\.php/apps/notes/api/v1/settings
 user-agent: Dart/3\.2 \(dart:io\)
 accept: application/json

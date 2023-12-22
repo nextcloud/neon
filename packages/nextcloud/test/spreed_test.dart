@@ -16,11 +16,11 @@ void main() {
     (preset) {
       late DockerContainer container;
       late NextcloudClient client1;
-      setUp(() async {
+      setUpAll(() async {
         container = await DockerContainer.create(preset);
         client1 = await TestNextcloudClient.create(container);
       });
-      tearDown(() async {
+      tearDownAll(() async {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
@@ -72,13 +72,14 @@ void main() {
         test('Get rooms', () async {
           final response = await client1.spreed.room.getRooms();
           expect(response.body.ocs.data, isNotEmpty);
-          expect(response.body.ocs.data[0].id, 1);
-          expect(response.body.ocs.data[0].token, isNotEmpty);
-          expect(response.body.ocs.data[0].type, spreed.RoomType.changelog.value);
-          expect(response.body.ocs.data[0].name, 'user1');
-          expect(response.body.ocs.data[0].displayName, 'Talk updates ✅');
-          expect(response.body.ocs.data[0].participantType, spreed.ParticipantType.user.value);
-          expect(spreed.ParticipantPermission.values.byBinary(response.body.ocs.data[0].permissions), {
+          final room = response.body.ocs.data.singleWhere((room) => room.type == spreed.RoomType.changelog.value);
+          expect(room.id, isPositive);
+          expect(room.token, isNotEmpty);
+          expect(room.type, spreed.RoomType.changelog.value);
+          expect(room.name, 'user1');
+          expect(room.displayName, 'Talk updates ✅');
+          expect(room.participantType, spreed.ParticipantType.user.value);
+          expect(spreed.ParticipantPermission.values.byBinary(room.permissions), {
             spreed.ParticipantPermission.startCall,
             spreed.ParticipantPermission.joinCall,
             spreed.ParticipantPermission.canPublishAudio,
@@ -110,7 +111,7 @@ void main() {
               roomType: spreed.RoomType.oneToOne.value,
               invite: 'user2',
             );
-            expect(response.body.ocs.data.id, 1);
+            expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
             expect(response.body.ocs.data.type, spreed.RoomType.oneToOne.value);
             expect(response.body.ocs.data.name, 'user2');
@@ -132,7 +133,7 @@ void main() {
               roomType: spreed.RoomType.group.value,
               invite: 'admin',
             );
-            expect(response.body.ocs.data.id, 1);
+            expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
             expect(response.body.ocs.data.type, spreed.RoomType.group.value);
             expect(response.body.ocs.data.name, 'admin');
@@ -154,7 +155,7 @@ void main() {
               roomType: spreed.RoomType.public.value,
               roomName: 'abc',
             );
-            expect(response.body.ocs.data.id, 1);
+            expect(response.body.ocs.data.id, isPositive);
             expect(response.body.ocs.data.token, isNotEmpty);
             expect(response.body.ocs.data.type, spreed.RoomType.public.value);
             expect(response.body.ocs.data.name, 'abc');
@@ -176,19 +177,13 @@ void main() {
       group('Chat', () {
         test('Send message', () async {
           final startTime = DateTime.now();
-          final room = (await client1.spreed.room.createRoom(
-            roomType: spreed.RoomType.oneToOne.value,
-            invite: 'user2',
-          ))
-              .body
-              .ocs
-              .data;
+          final room = await createTestRoom();
 
           final response = await client1.spreed.chat.sendMessage(
             token: room.token,
             message: 'bla',
           );
-          expect(response.body.ocs.data!.id, 2);
+          expect(response.body.ocs.data!.id, isPositive);
           expect(response.body.ocs.data!.actorType, spreed.ActorType.users.name);
           expect(response.body.ocs.data!.actorId, 'user1');
           expect(response.body.ocs.data!.actorDisplayName, 'User One');
@@ -200,13 +195,7 @@ void main() {
         group('Get messages', () {
           test('Directly', () async {
             final startTime = DateTime.now();
-            final room = (await client1.spreed.room.createRoom(
-              roomType: spreed.RoomType.oneToOne.value,
-              invite: 'user2',
-            ))
-                .body
-                .ocs
-                .data;
+            final room = await createTestRoom();
             await client1.spreed.chat.sendMessage(
               token: room.token,
               message: '123',
@@ -224,12 +213,12 @@ void main() {
               token: room.token,
               lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
             );
-            expect(response.headers.xChatLastGiven, '1');
-            expect(response.headers.xChatLastCommonRead, '1');
+            expect(response.headers.xChatLastGiven, isNotEmpty);
+            expect(response.headers.xChatLastCommonRead, isNotEmpty);
 
             expect(response.body.ocs.data, hasLength(3));
 
-            expect(response.body.ocs.data[0].id, 3);
+            expect(response.body.ocs.data[0].id, isPositive);
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
@@ -237,7 +226,7 @@ void main() {
             expect(response.body.ocs.data[0].message, '123');
             expect(response.body.ocs.data[0].messageType, spreed.MessageType.comment.name);
 
-            expect(response.body.ocs.data[0].parent!.id, 2);
+            expect(response.body.ocs.data[0].parent!.id, isPositive);
             expect(response.body.ocs.data[0].parent!.actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].parent!.actorId, 'user1');
             expect(response.body.ocs.data[0].parent!.actorDisplayName, 'User One');
@@ -248,7 +237,7 @@ void main() {
             expect(response.body.ocs.data[0].parent!.message, 'bla');
             expect(response.body.ocs.data[0].parent!.messageType, spreed.MessageType.comment.name);
 
-            expect(response.body.ocs.data[1].id, 2);
+            expect(response.body.ocs.data[1].id, isPositive);
             expect(response.body.ocs.data[1].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[1].actorId, 'user1');
             expect(response.body.ocs.data[1].actorDisplayName, 'User One');
@@ -256,7 +245,7 @@ void main() {
             expect(response.body.ocs.data[1].message, 'bla');
             expect(response.body.ocs.data[1].messageType, spreed.MessageType.comment.name);
 
-            expect(response.body.ocs.data[2].id, 1);
+            expect(response.body.ocs.data[2].id, isPositive);
             expect(response.body.ocs.data[2].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[2].actorId, 'user1');
             expect(response.body.ocs.data[2].actorDisplayName, 'User One');
@@ -293,7 +282,7 @@ void main() {
               lastKnownMessageId: message.id,
             );
             expect(response.body.ocs.data, hasLength(1));
-            expect(response.body.ocs.data[0].id, 3);
+            expect(response.body.ocs.data[0].id, isPositive);
             expect(response.body.ocs.data[0].actorType, spreed.ActorType.users.name);
             expect(response.body.ocs.data[0].actorId, 'user1');
             expect(response.body.ocs.data[0].actorDisplayName, 'User One');
@@ -363,13 +352,7 @@ void main() {
         });
 
         test('Send and receive messages', () async {
-          final room = (await client1.spreed.room.createRoom(
-            roomType: spreed.RoomType.oneToOne.value,
-            invite: 'user2',
-          ))
-              .body
-              .ocs
-              .data;
+          final room = await createTestRoom();
 
           final room1 = (await client1.spreed.room.joinRoom(token: room.token)).body.ocs.data;
           await client1.spreed.call.joinCall(token: room.token);

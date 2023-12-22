@@ -12,11 +12,11 @@ void main() {
     (preset) {
       late DockerContainer container;
       late NextcloudClient client;
-      setUp(() async {
+      setUpAll(() async {
         container = await DockerContainer.create(preset);
         client = await TestNextcloudClient.create(container);
       });
-      tearDown(() async {
+      tearDownAll(() async {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }

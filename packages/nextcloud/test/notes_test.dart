@@ -12,16 +12,23 @@ void main() {
     (preset) {
       late DockerContainer container;
       late NextcloudClient client;
-      setUp(() async {
+      setUpAll(() async {
         container = await DockerContainer.create(preset);
         client = await TestNextcloudClient.create(container);
       });
-      tearDown(() async {
+      tearDownAll(() async {
         if (Invoker.current!.liveTest.errors.isNotEmpty) {
           print(await container.allLogs());
         }
         container.destroy();
       });
+
+      Future<void> deleteAllNotes() async {
+        final response = await client.notes.getNotes();
+        for (final note in response.body) {
+          await client.notes.deleteNote(id: note.id);
+        }
+      }
 
       test('Is supported', () async {
         final response = await client.core.ocs.getCapabilities();
@@ -35,6 +42,7 @@ void main() {
       });
 
       test('Create note favorite', () async {
+        await deleteAllNotes();
         final response = await client.notes.createNote(
           title: 'a',
           content: 'b',
@@ -55,6 +63,7 @@ void main() {
       });
 
       test('Create note not favorite', () async {
+        await deleteAllNotes();
         final response = await client.notes.createNote(
           title: 'a',
           content: 'b',
@@ -74,6 +83,7 @@ void main() {
       });
 
       test('Get notes', () async {
+        await deleteAllNotes();
         await client.notes.createNote(title: 'a');
         await client.notes.createNote(title: 'b');
 
@@ -87,6 +97,7 @@ void main() {
       });
 
       test('Get note', () async {
+        await deleteAllNotes();
         final response = await client.notes.getNote(
           id: (await client.notes.createNote(title: 'a')).body.id,
         );
@@ -97,6 +108,7 @@ void main() {
       });
 
       test('Update note', () async {
+        await deleteAllNotes();
         final id = (await client.notes.createNote(title: 'a')).body.id;
         await client.notes.updateNote(
           id: id,
@@ -111,6 +123,7 @@ void main() {
       });
 
       test('Update note fail changed on server', () async {
+        await deleteAllNotes();
         final response = await client.notes.createNote(title: 'a');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
@@ -131,6 +144,7 @@ void main() {
       });
 
       test('Delete note', () async {
+        await deleteAllNotes();
         final id = (await client.notes.createNote(title: 'a')).body.id;
 
         var response = await client.notes.getNotes();
@@ -148,18 +162,16 @@ void main() {
         expect(response.body, hasLength(0));
       });
 
-      test('Get settings', () async {
-        final response = await client.notes.getSettings();
+      test('Get and update settings', () async {
+        var response = await client.notes.getSettings();
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
         expect(response.body.notesPath, 'Notes');
         expect(response.body.fileSuffix, '.md');
         expect(response.body.noteMode, notes.Settings_NoteMode.rich);
-      });
 
-      test('Update settings', () async {
-        var response = await client.notes.updateSettings(
+        response = await client.notes.updateSettings(
           settings: notes.Settings(
             (b) => b
               ..notesPath = 'Test Notes'

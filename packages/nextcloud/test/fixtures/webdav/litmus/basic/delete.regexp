@@ -1,10 +1,10 @@
-PUT http://localhost/remote\.php/webdav/test\.txt
+PUT http://localhost/remote\.php/webdav/delete\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 accept-encoding: gzip
 content-length: 0
 authorization: Bearer mock
-DELETE http://localhost/remote\.php/webdav/test\.txt
+DELETE http://localhost/remote\.php/webdav/delete\.txt
 user-agent: Dart/3\.2 \(dart:io\)
 content-type: application/xml
 transfer-encoding: chunked
