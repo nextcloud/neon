@@ -13,6 +13,8 @@ dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite_runtime
+  meta: ^1.0.0
+  universal_io: ^2.0.0
   uri: ^1.0.0
 
 dev_dependencies:
@@ -22,3 +24,7 @@ dev_dependencies:
     git:
       url: https://github.com/nextcloud/neon
       path: packages/dynamite/dynamite
+  neon_lints:
+    git:
+      url: https://github.com/nextcloud/neon
+      path: packages/neon_lints
