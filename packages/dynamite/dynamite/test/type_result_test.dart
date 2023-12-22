@@ -9,10 +9,10 @@ void main() {
       final type = TypeResultList('BuiltList', subType);
 
       expect(type.name, 'BuiltList<String>');
-      expect(type.fullType, 'FullType(BuiltList, [FullType(String)])');
+      expect(type.fullType, 'const FullType(BuiltList, [FullType(String)])');
       expect(
         type.serializers.toList(),
-        const ['..addBuilderFactory(FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)'],
+        const ['..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)'],
       );
       expect(
         type.serialize('value'),
@@ -30,12 +30,12 @@ void main() {
       type = TypeResultList('BuiltList', type);
 
       expect(type.name, 'BuiltList<BuiltList<String>>');
-      expect(type.fullType, 'FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])');
+      expect(type.fullType, 'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])');
       expect(
         type.serializers.toList(),
         const [
-          '..addBuilderFactory(FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
-          '..addBuilderFactory(FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]), ListBuilder<BuiltList<String>>.new)',
+          '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
+          '..addBuilderFactory(const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]), ListBuilder<BuiltList<String>>.new)',
         ],
       );
       expect(
@@ -66,11 +66,11 @@ void main() {
       final type = TypeResultMap('BuiltMap', subType);
 
       expect(type.name, 'BuiltMap<String, int>');
-      expect(type.fullType, 'FullType(BuiltMap, [FullType(String), FullType(int)])');
+      expect(type.fullType, 'const FullType(BuiltMap, [FullType(String), FullType(int)])');
       expect(
         type.serializers.toList(),
         const [
-          '..addBuilderFactory(FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
+          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
         ],
       );
       expect(
@@ -91,13 +91,13 @@ void main() {
       expect(type.name, 'BuiltMap<String, BuiltMap<String, int>>');
       expect(
         type.fullType,
-        'FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])])',
+        'const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])])',
       );
       expect(
         type.serializers.toList(),
         const [
-          '..addBuilderFactory(FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
-          '..addBuilderFactory(FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]), MapBuilder<String, BuiltMap<String, int>>.new)',
+          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
+          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]), MapBuilder<String, BuiltMap<String, int>>.new)',
         ],
       );
       expect(
@@ -128,11 +128,11 @@ void main() {
       final type = TypeResultObject('CustomType', generics: BuiltList([subType]));
 
       expect(type.name, 'CustomType<String>');
-      expect(type.fullType, 'FullType(CustomType, [FullType(String)])');
+      expect(type.fullType, 'const FullType(CustomType, [FullType(String)])');
       expect(
         type.serializers.toList(),
         const [
-          '..addBuilderFactory(FullType(CustomType, [FullType(String)]), CustomTypeBuilder<String>.new)',
+          '..addBuilderFactory(const FullType(CustomType, [FullType(String)]), CustomTypeBuilder<String>.new)',
           '..add(CustomType.serializer)',
         ],
       );
@@ -151,9 +151,9 @@ void main() {
       final type = TypeResultObject('ContentString', generics: BuiltList([subType]));
 
       expect(type.name, 'ContentString<int>');
-      expect(type.fullType, 'FullType(ContentString, [FullType(int)])');
+      expect(type.fullType, 'const FullType(ContentString, [FullType(int)])');
       expect(type.serializers.toList(), const [
-        '..addBuilderFactory(FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)',
+        '..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)',
         '..add(ContentString.serializer)',
       ]);
       expect(
@@ -183,7 +183,7 @@ void main() {
       final type = TypeResultBase('String');
 
       expect(type.name, 'String');
-      expect(type.fullType, 'FullType(String)');
+      expect(type.fullType, 'const FullType(String)');
       expect(type.serializers.toList(), const <String>[]);
       expect(
         type.serialize('value'),

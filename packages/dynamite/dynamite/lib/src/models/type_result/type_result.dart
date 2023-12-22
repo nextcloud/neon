@@ -58,10 +58,12 @@ sealed class TypeResult {
   }
 
   @nonVirtual
-  String get fullType {
+  String get fullType => 'const $_fullType';
+
+  String get _fullType {
     if (generics.isNotEmpty) {
       final buffer = StringBuffer('FullType($className, [')
-        ..writeAll(generics.map((final c) => c.fullType), ', ')
+        ..writeAll(generics.map((final c) => c._fullType), ', ')
         ..write('])');
 
       return buffer.toString();
@@ -96,7 +98,7 @@ sealed class TypeResult {
   /// The serialized result is an [Object]?
   @mustCallSuper
   String serialize(final String object, [final String? serializerName]) =>
-      '${serializerName ?? 'jsonSerializers'}.serialize($object, specifiedType: const $fullType)';
+      '${serializerName ?? 'jsonSerializers'}.serialize($object, specifiedType: $fullType)';
 
   /// Deserializes the variable named [object].
   ///
@@ -107,7 +109,7 @@ sealed class TypeResult {
       ..write(serializerName ?? 'jsonSerializers')
       ..write('.deserialize(')
       ..write(object)
-      ..write(', specifiedType: const $fullType)');
+      ..write(', specifiedType: $fullType)');
 
     if (!nullable) {
       buffer.write('!');
