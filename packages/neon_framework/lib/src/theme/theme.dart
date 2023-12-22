@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/theme/neon.dart';
+import 'package:neon_framework/src/theme/server.dart';
 import 'package:neon_framework/src/utils/hex_color.dart';
-import 'package:nextcloud/core.dart' as core;
 
 /// Custom theme used for the Neon app.
 @internal
@@ -12,17 +12,17 @@ import 'package:nextcloud/core.dart' as core;
 class AppTheme {
   /// Creates a new Neon app theme.
   const AppTheme({
-    required this.nextcloudTheme,
+    required this.serverTheme,
     required this.deviceThemeLight,
     required this.deviceThemeDark,
     required this.neonTheme,
-    final bool useNextcloudTheme = false,
+    this.useNextcloudTheme = false,
     this.oledAsDark = false,
     this.appThemes,
-  }) : useNextcloudTheme = nextcloudTheme == null || useNextcloudTheme;
+  });
 
   /// The theme provided by the Nextcloud server.
-  final core.ThemingPublicCapabilities_Theming? nextcloudTheme;
+  final ServerTheme serverTheme;
 
   /// Whether to use of the Nextcloud theme.
   final bool useNextcloudTheme;
@@ -45,9 +45,9 @@ class AppTheme {
   ColorScheme _buildColorScheme(final Brightness brightness) {
     ColorScheme? colorScheme;
 
-    if (nextcloudTheme != null && useNextcloudTheme) {
-      final primaryColor = HexColor(nextcloudTheme!.color);
-      final onPrimaryColor = HexColor(nextcloudTheme!.colorText);
+    if (serverTheme.nextcloudTheme != null && useNextcloudTheme) {
+      final primaryColor = HexColor(serverTheme.nextcloudTheme!.color);
+      final onPrimaryColor = HexColor(serverTheme.nextcloudTheme!.colorText);
 
       colorScheme = ColorScheme.fromSeed(
         seedColor: primaryColor,
@@ -96,6 +96,7 @@ class AppTheme {
         textTheme: const CupertinoTextThemeData(),
       ),
       extensions: [
+        serverTheme,
         neonTheme,
         ...?appThemes,
       ],

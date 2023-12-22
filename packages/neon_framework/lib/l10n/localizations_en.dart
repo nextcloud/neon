@@ -255,6 +255,9 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get globalOptionsThemeUseNextcloudTheme => 'Use Nextcloud theme';
 
   @override
+  String get globalOptionsThemeCustomBackground => 'Custom background';
+
+  @override
   String get globalOptionsPushNotificationsEnabled => 'Enabled';
 
   @override

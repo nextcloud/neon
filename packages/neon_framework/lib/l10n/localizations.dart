@@ -515,6 +515,12 @@ abstract class NeonLocalizations {
   /// **'Use Nextcloud theme'**
   String get globalOptionsThemeUseNextcloudTheme;
 
+  /// No description provided for @globalOptionsThemeCustomBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom background'**
+  String get globalOptionsThemeCustomBackground;
+
   /// No description provided for @globalOptionsPushNotificationsEnabled.
   ///
   /// In en, this message translates to:

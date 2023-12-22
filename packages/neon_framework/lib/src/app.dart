@@ -16,6 +16,7 @@ import 'package:neon_framework/src/models/push_notification.dart';
 import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/theme/neon.dart';
+import 'package:neon_framework/src/theme/server.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
@@ -298,7 +299,9 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
                     : null,
                 builder: (final context, final capabilitiesSnapshot) {
                   final appTheme = AppTheme(
-                    nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                    serverTheme: ServerTheme(
+                      nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                    ),
                     useNextcloudTheme: options.themeUseNextcloudTheme.value,
                     deviceThemeLight: deviceThemeLight,
                     deviceThemeDark: deviceThemeDark,

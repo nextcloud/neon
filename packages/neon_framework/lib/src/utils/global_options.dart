@@ -73,6 +73,7 @@ class GlobalOptions extends OptionsCollection {
     themeMode,
     themeOLEDAsDark,
     themeUseNextcloudTheme,
+    themeCustomBackground,
     pushNotificationsEnabled,
     pushNotificationsDistributor,
     startupMinimized,
@@ -149,6 +150,18 @@ class GlobalOptions extends OptionsCollection {
     key: GlobalOptionKeys.themeUseNextcloudTheme,
     label: (final context) => NeonLocalizations.of(context).globalOptionsThemeUseNextcloudTheme,
     defaultValue: true,
+  );
+
+  /// Whether to enable custom backgrounds provided by the Nextcloud server.
+  ///
+  /// Defaults to `true`.
+  /// Depends on [themeUseNextcloudTheme] to be enabled.
+  late final themeCustomBackground = ToggleOption.depend(
+    storage: storage,
+    key: GlobalOptionKeys.themeCustomBackground,
+    label: (final context) => NeonLocalizations.of(context).globalOptionsThemeCustomBackground,
+    defaultValue: true,
+    enabled: themeUseNextcloudTheme,
   );
 
   /// Whether to enable the push notifications plugin.
@@ -279,6 +292,9 @@ enum GlobalOptionKeys implements Storable {
 
   /// The storage key for [GlobalOptions.themeUseNextcloudTheme]
   themeUseNextcloudTheme._('theme-use-nextcloud-theme'),
+
+  /// The storage key for [GlobalOptions.themeCustomBackground]
+  themeCustomBackground._('theme-custom-background'),
 
   /// The storage key for [GlobalOptions.pushNotificationsEnabled]
   pushNotificationsEnabled._('push-notifications-enabled'),
