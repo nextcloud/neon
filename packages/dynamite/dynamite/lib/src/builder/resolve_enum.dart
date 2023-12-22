@@ -6,6 +6,7 @@ import 'package:dynamite/src/helpers/built_value.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:source_helper/source_helper.dart';
 
 TypeResult resolveEnum(
   final openapi.OpenAPI spec,
@@ -22,7 +23,7 @@ TypeResult resolveEnum(
       final dartName = toDartName(name);
       var value = jsonEncode(enumValue.value);
       if (enumValue.isString) {
-        value = 'r$value';
+        value = escapeDartString(enumValue.asString);
       }
 
       values.add((dartName: dartName, value: value, name: name));
@@ -62,7 +63,7 @@ TypeResult resolveEnum(
                 if (enumValue.name != enumValue.dartName) {
                   b.annotations.add(
                     refer('BuiltValueEnumConst').call([], {
-                      'wireName': refer("r'${enumValue.name}'"),
+                      'wireName': refer(escapeDartString(enumValue.name)),
                     }),
                   );
                 }
@@ -169,7 +170,7 @@ TypeResult resolveEnum(
               ..type = MethodType.getter
               ..returns = refer('String')
               ..annotations.add(refer('override'))
-              ..body = Code("r'$identifier'"),
+              ..body = Code(escapeDartString(identifier)),
           ),
           Method((final b) {
             b
