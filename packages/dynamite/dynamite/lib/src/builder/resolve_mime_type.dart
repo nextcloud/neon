@@ -92,7 +92,7 @@ Iterable<String> resolveMimeTypeEncode(
           if (dartParameterNullable) {
             yield 'if ($parameterName != null) {';
           }
-          yield '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)}) as Uint8List;';
+          yield '_body = utf8.encode(${result.encode(parameterName, mimeType: mimeType)});';
           if (dartParameterNullable) {
             yield '}';
           }
