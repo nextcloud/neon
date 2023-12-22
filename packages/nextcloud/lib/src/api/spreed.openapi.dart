@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: camel_case_extensions
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+
+library spreed_openapi;
+
 import 'dart:typed_data';
 
 import 'package:built_collection/built_collection.dart';
@@ -33629,21 +33629,16 @@ abstract class PublicCapabilities0
 }
 
 typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
-
 typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
   BuiltList<Never>? builtListNever,
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
 });
-
 typedef SettingsSetUserSettingValue = ({int? $int, String? string});
-
 typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
   BuiltList<SignalingSession>? builtListSignalingSession,
   String? string
 });
-
 typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
-
 typedef $BuiltListChatMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 extension $BuiltListChatMessageExtension on $BuiltListChatMessage {
@@ -35434,7 +35429,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer)
       ..add($BuiltListPublicCapabilities0Extension.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: unused_element
+
+library pattern_check_openapi;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -54,7 +54,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
       ..add(TestObject.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

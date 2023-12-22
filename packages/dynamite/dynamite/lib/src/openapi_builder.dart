@@ -2,19 +2,19 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:build/build.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:checked_yaml/checked_yaml.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:dynamite/src/builder/client.dart';
 import 'package:dynamite/src/builder/generate_ofs.dart';
 import 'package:dynamite/src/builder/generate_schemas.dart';
-import 'package:dynamite/src/builder/imports.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
+import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/version_checker.dart';
 import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
+import 'package:path/path.dart' as p;
 import 'package:version/version.dart';
 
 class OpenAPIBuilder implements Builder {
@@ -78,16 +78,45 @@ class OpenAPIBuilder implements Builder {
 
       final state = State(buildConfig);
 
-      // Imports need to be generated after everything else so we know if we need the local part directive,
-      // but they need to be added to the beginning of the output.
-      final output = ListBuilder<Spec>()
-        ..addAll(generateClients(spec, state))
-        ..addAll(generateSchemas(spec, state))
-        ..addAll(buildOfsExtensions(spec, state))
-        ..addAll(buildSerializer(state))
-        ..insertAll(0, generateImports(outputId, state));
+      final output = Library((final b) {
+        final analyzerIgnores = state.buildConfig.analyzerIgnores;
+        if (analyzerIgnores != null) {
+          b.ignoreForFile.addAll(analyzerIgnores);
+        }
 
-      var outputString = output.build().map((final e) => e.accept(emitter)).join('\n');
+        b
+          ..name = toLibraryName(p.basenameWithoutExtension(inputId.path))
+          ..directives.addAll([
+            Directive.import('dart:convert'),
+            Directive.import('dart:typed_data'),
+            Directive.import('package:built_collection/built_collection.dart'),
+            Directive.import('package:built_value/built_value.dart'),
+            Directive.import('package:built_value/json_object.dart'),
+            Directive.import('package:built_value/serializer.dart'),
+            Directive.import('package:built_value/standard_json_plugin.dart'),
+            Directive.import('package:collection/collection.dart'),
+            Directive.import('package:dynamite_runtime/built_value.dart'),
+            Directive.import('package:dynamite_runtime/http_client.dart'),
+            Directive.import('package:dynamite_runtime/models.dart'),
+            Directive.import('package:dynamite_runtime/utils.dart', as: 'dynamite_utils'),
+            Directive.import('package:meta/meta.dart'),
+            Directive.import('package:universal_io/io.dart'),
+            Directive.import('package:uri/uri.dart'),
+          ])
+          ..body.addAll(generateClients(spec, state))
+          ..body.addAll(generateSchemas(spec, state))
+          ..body.addAll(buildOfsExtensions(spec, state))
+          ..body.addAll(buildSerializer(state));
+
+        // Part directive need to be generated after everything else so we know if we need it.
+        if (state.hasResolvedBuiltTypes) {
+          b.directives.add(
+            Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
+          );
+        }
+      });
+
+      var outputString = output.accept(emitter).toString();
 
       final coverageIgnores = state.buildConfig.coverageIgnores;
       if (coverageIgnores != null) {

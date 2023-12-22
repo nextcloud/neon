@@ -1,3 +1,5 @@
+import 'package:source_helper/source_helper.dart';
+
 String toDartName(
   final String name, {
   final bool uppercaseFirstCharacter = false,
@@ -21,6 +23,8 @@ String toDartName(
 
   return result;
 }
+
+String toLibraryName(final String name) => toDartName(name).snake;
 
 /// Helper methods to work with strings.
 extension StringUtils on String {

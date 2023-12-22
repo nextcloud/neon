@@ -1,9 +1,9 @@
-// ignore_for_file: camel_case_types
-// ignore_for_file: discarded_futures
-// ignore_for_file: public_member_api_docs
-// ignore_for_file: unreachable_switch_case
-// ignore_for_file: unused_element
+// ignore_for_file: camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
+// ignore_for_file: public_member_api_docs, unreachable_switch_case
+// ignore_for_file: unused_element
+
+library nested_ofs_openapi;
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -139,9 +139,7 @@ abstract class BaseNestedAnyOf3
 }
 
 typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
-
 typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
-
 typedef BaseNestedOneOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf? baseAnyOf,
@@ -149,7 +147,6 @@ typedef BaseNestedOneOf = ({
   BaseOneOf1? baseOneOf1,
   double? $double
 });
-
 typedef BaseNestedAnyOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf1? baseAnyOf1,
@@ -157,9 +154,7 @@ typedef BaseNestedAnyOf = ({
   BaseOneOf? baseOneOf,
   int? $int
 });
-
 typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
-
 typedef $BaseOneOf1Double = ({BaseOneOf1? baseOneOf1, double? $double});
 
 extension $BaseOneOf1DoubleExtension on $BaseOneOf1Double {
@@ -550,7 +545,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.serializer)
       ..add($BaseOneOf1NumExtension.serializer))
     .build();
-
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
