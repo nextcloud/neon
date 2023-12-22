@@ -222,7 +222,7 @@ void main() {
 
             final response = await client1.spreed.chat.receiveMessages(
               token: room.token,
-              lookIntoFuture: 0,
+              lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
             );
             expect(response.headers.xChatLastGiven, '1');
             expect(response.headers.xChatLastCommonRead, '1');
@@ -288,7 +288,7 @@ void main() {
 
             final response = await client1.spreed.chat.receiveMessages(
               token: room.token,
-              lookIntoFuture: 1,
+              lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$1,
               timeout: 3,
               lastKnownMessageId: message.id,
             );

@@ -14,7 +14,6 @@ import 'package:built_value/standard_json_plugin.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamite_runtime/built_value.dart';
 import 'package:dynamite_runtime/http_client.dart';
-import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as dynamite_utils;
 import 'package:meta/meta.dart';
 import 'package:universal_io/io.dart';
@@ -2108,7 +2107,7 @@ class $ShareesapiClient {
     String? itemType,
     int? page,
     int? perPage,
-    ContentString<ShareesapiSearchShareType>? shareType,
+    ShareesapiSearchShareType? shareType,
     int? lookup,
     bool? oCSAPIRequest,
   }) async {
@@ -2153,7 +2152,7 @@ class $ShareesapiClient {
     String? itemType,
     int? page,
     int? perPage,
-    ContentString<ShareesapiSearchShareType>? shareType,
+    ShareesapiSearchShareType? shareType,
     int? lookup,
     bool? oCSAPIRequest,
   }) {
@@ -2194,10 +2193,7 @@ class $ShareesapiClient {
     $perPage ??= 200;
     _parameters['perPage'] = $perPage;
 
-    final $shareType = jsonSerializers.serialize(
-      shareType,
-      specifiedType: const FullType(ContentString, [FullType(ShareesapiSearchShareType)]),
-    );
+    final $shareType = jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiSearchShareType));
     _parameters['shareType'] = $shareType;
 
     var $lookup = jsonSerializers.serialize(lookup, specifiedType: const FullType(int));
@@ -2242,7 +2238,7 @@ class $ShareesapiClient {
   ///  * [findRecommendedRaw] for an experimental operation that returns a [DynamiteRawResponse] that can be serialized.
   Future<DynamiteResponse<ShareesapiFindRecommendedResponseApplicationJson, void>> findRecommended({
     required String itemType,
-    ContentString<ShareesapiFindRecommendedShareType>? shareType,
+    ShareesapiFindRecommendedShareType? shareType,
     bool? oCSAPIRequest,
   }) async {
     final rawResponse = findRecommendedRaw(
@@ -2274,7 +2270,7 @@ class $ShareesapiClient {
   @experimental
   DynamiteRawResponse<ShareesapiFindRecommendedResponseApplicationJson, void> findRecommendedRaw({
     required String itemType,
-    ContentString<ShareesapiFindRecommendedShareType>? shareType,
+    ShareesapiFindRecommendedShareType? shareType,
     bool? oCSAPIRequest,
   }) {
     final _parameters = <String, dynamic>{};
@@ -2302,10 +2298,8 @@ class $ShareesapiClient {
     final $itemType = jsonSerializers.serialize(itemType, specifiedType: const FullType(String));
     _parameters['itemType'] = $itemType;
 
-    final $shareType = jsonSerializers.serialize(
-      shareType,
-      specifiedType: const FullType(ContentString, [FullType(ShareesapiFindRecommendedShareType)]),
-    );
+    final $shareType =
+        jsonSerializers.serialize(shareType, specifiedType: const FullType(ShareesapiFindRecommendedShareType));
     _parameters['shareType'] = $shareType;
 
     var $oCSAPIRequest = jsonSerializers.serialize(oCSAPIRequest, specifiedType: const FullType(bool));
@@ -2971,6 +2965,63 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
 }
 
+class Share_HideDownload extends EnumClass {
+  const Share_HideDownload._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const Share_HideDownload $0 = _$shareHideDownload$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const Share_HideDownload $1 = _$shareHideDownload$1;
+
+  // coverage:ignore-start
+  static BuiltSet<Share_HideDownload> get values => _$shareHideDownloadValues;
+  // coverage:ignore-end
+
+  static Share_HideDownload valueOf(String name) => _$valueOfShare_HideDownload(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Share_HideDownload> get serializer => const _$Share_HideDownloadSerializer();
+}
+
+class _$Share_HideDownloadSerializer implements PrimitiveSerializer<Share_HideDownload> {
+  const _$Share_HideDownloadSerializer();
+
+  static const Map<Share_HideDownload, Object> _toWire = <Share_HideDownload, Object>{
+    Share_HideDownload.$0: 0,
+    Share_HideDownload.$1: 1,
+  };
+
+  static const Map<Object, Share_HideDownload> _fromWire = <Object, Share_HideDownload>{
+    0: Share_HideDownload.$0,
+    1: Share_HideDownload.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [Share_HideDownload];
+
+  @override
+  String get wireName => 'Share_HideDownload';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Share_HideDownload object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Share_HideDownload deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 class Share_ItemType extends EnumClass {
   const Share_ItemType._(super.name);
 
@@ -3026,6 +3077,63 @@ class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> 
       _fromWire[serialized]!;
 }
 
+class Share_MailSend extends EnumClass {
+  const Share_MailSend._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const Share_MailSend $0 = _$shareMailSend$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const Share_MailSend $1 = _$shareMailSend$1;
+
+  // coverage:ignore-start
+  static BuiltSet<Share_MailSend> get values => _$shareMailSendValues;
+  // coverage:ignore-end
+
+  static Share_MailSend valueOf(String name) => _$valueOfShare_MailSend(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<Share_MailSend> get serializer => const _$Share_MailSendSerializer();
+}
+
+class _$Share_MailSendSerializer implements PrimitiveSerializer<Share_MailSend> {
+  const _$Share_MailSendSerializer();
+
+  static const Map<Share_MailSend, Object> _toWire = <Share_MailSend, Object>{
+    Share_MailSend.$0: 0,
+    Share_MailSend.$1: 1,
+  };
+
+  static const Map<Object, Share_MailSend> _fromWire = <Object, Share_MailSend>{
+    0: Share_MailSend.$0,
+    1: Share_MailSend.$1,
+  };
+
+  @override
+  Iterable<Type> get types => const [Share_MailSend];
+
+  @override
+  String get wireName => 'Share_MailSend';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    Share_MailSend object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  Share_MailSend deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $Share_StatusInterface {
   int? get clearAt;
@@ -3073,7 +3181,7 @@ abstract interface class $ShareInterface {
   @BuiltValueField(wireName: 'has_preview')
   bool get hasPreview;
   @BuiltValueField(wireName: 'hide_download')
-  int get hideDownload;
+  Share_HideDownload get hideDownload;
   String get id;
   @BuiltValueField(wireName: 'item_mtime')
   int get itemMtime;
@@ -3087,7 +3195,7 @@ abstract interface class $ShareInterface {
   Share_ItemType get itemType;
   String get label;
   @BuiltValueField(wireName: 'mail_send')
-  int get mailSend;
+  Share_MailSend get mailSend;
   String get mimetype;
   String get note;
   JsonObject? get parent;
@@ -4990,7 +5098,9 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(ShareapiGetSharesResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
       ..add(Share.serializer)
+      ..add(Share_HideDownload.serializer)
       ..add(Share_ItemType.serializer)
+      ..add(Share_MailSend.serializer)
       ..addBuilderFactory(const FullType(Share_Status), Share_StatusBuilder.new)
       ..add(Share_Status.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
@@ -5067,11 +5177,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
       ..add($BuiltListIntExtension.serializer)
       ..addBuilderFactory(
-        const FullType(ContentString, [FullType(ShareesapiSearchShareType)]),
-        ContentStringBuilder<ShareesapiSearchShareType>.new,
-      )
-      ..add(ContentString.serializer)
-      ..addBuilderFactory(
         const FullType(ShareesapiShareesapiSearchHeaders),
         ShareesapiShareesapiSearchHeadersBuilder.new,
       )
@@ -5127,10 +5232,6 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(ShareeLookup_1_Value), ShareeLookup_1_ValueBuilder.new)
       ..add(ShareeLookup_1_Value.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
-      ..addBuilderFactory(
-        const FullType(ContentString, [FullType(ShareesapiFindRecommendedShareType)]),
-        ContentStringBuilder<ShareesapiFindRecommendedShareType>.new,
-      )
       ..addBuilderFactory(
         const FullType(ShareesapiFindRecommendedResponseApplicationJson),
         ShareesapiFindRecommendedResponseApplicationJsonBuilder.new,

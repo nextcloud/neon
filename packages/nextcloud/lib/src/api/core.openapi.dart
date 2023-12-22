@@ -3338,6 +3338,7 @@ class $TextProcessingApiClient {
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
+  ///   * 500
   ///   * 400: Scheduling task is not possible
   ///   * 412: Scheduling task is not possible
   ///
@@ -3377,6 +3378,7 @@ class $TextProcessingApiClient {
   ///
   /// Status codes:
   ///   * 200: Task scheduled successfully
+  ///   * 500
   ///   * 400: Scheduling task is not possible
   ///   * 412: Scheduling task is not possible
   ///
@@ -4620,7 +4622,9 @@ class $UnifiedSearchClient {
     );
   }
 
-  /// Search.
+  /// Launch a search for a specific search provider.
+  ///
+  /// Additional filters are available for each provider. Send a request to /providers endpoint to list providers with their available filters.
   ///
   /// Returns a [Future] containing a [DynamiteResponse] with the status code, deserialized body and headers.
   /// Throws a [DynamiteApiException] if the API call does not return an expected status code.
@@ -4645,7 +4649,7 @@ class $UnifiedSearchClient {
     String? term,
     int? sortOrder,
     int? limit,
-    ContentString<UnifiedSearchSearchCursor>? cursor,
+    UnifiedSearchSearchCursor? cursor,
     String? from,
     bool? oCSAPIRequest,
   }) async {
@@ -4662,7 +4666,9 @@ class $UnifiedSearchClient {
     return rawResponse.future;
   }
 
-  /// Search.
+  /// Launch a search for a specific search provider.
+  ///
+  /// Additional filters are available for each provider. Send a request to /providers endpoint to list providers with their available filters.
   ///
   /// This method and the response it returns is experimental. The API might change without a major version bump.
   ///
@@ -4690,7 +4696,7 @@ class $UnifiedSearchClient {
     String? term,
     int? sortOrder,
     int? limit,
-    ContentString<UnifiedSearchSearchCursor>? cursor,
+    UnifiedSearchSearchCursor? cursor,
     String? from,
     bool? oCSAPIRequest,
   }) {
@@ -4729,10 +4735,7 @@ class $UnifiedSearchClient {
     final $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
-    final $cursor = jsonSerializers.serialize(
-      cursor,
-      specifiedType: const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
-    );
+    final $cursor = jsonSerializers.serialize(cursor, specifiedType: const FullType(UnifiedSearchSearchCursor));
     _parameters['cursor'] = $cursor;
 
     var $from = jsonSerializers.serialize(from, specifiedType: const FullType(String));
@@ -9052,16 +9055,89 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson
       _$textProcessingApiTaskTypesResponseApplicationJsonSerializer;
 }
 
+class TextProcessingTask_Status extends EnumClass {
+  const TextProcessingTask_Status._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const TextProcessingTask_Status $0 = _$textProcessingTaskStatus$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const TextProcessingTask_Status $1 = _$textProcessingTaskStatus$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const TextProcessingTask_Status $2 = _$textProcessingTaskStatus$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const TextProcessingTask_Status $3 = _$textProcessingTaskStatus$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const TextProcessingTask_Status $4 = _$textProcessingTaskStatus$4;
+
+  // coverage:ignore-start
+  static BuiltSet<TextProcessingTask_Status> get values => _$textProcessingTaskStatusValues;
+  // coverage:ignore-end
+
+  static TextProcessingTask_Status valueOf(String name) => _$valueOfTextProcessingTask_Status(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TextProcessingTask_Status> get serializer => const _$TextProcessingTask_StatusSerializer();
+}
+
+class _$TextProcessingTask_StatusSerializer implements PrimitiveSerializer<TextProcessingTask_Status> {
+  const _$TextProcessingTask_StatusSerializer();
+
+  static const Map<TextProcessingTask_Status, Object> _toWire = <TextProcessingTask_Status, Object>{
+    TextProcessingTask_Status.$0: 0,
+    TextProcessingTask_Status.$1: 1,
+    TextProcessingTask_Status.$2: 2,
+    TextProcessingTask_Status.$3: 3,
+    TextProcessingTask_Status.$4: 4,
+  };
+
+  static const Map<Object, TextProcessingTask_Status> _fromWire = <Object, TextProcessingTask_Status>{
+    0: TextProcessingTask_Status.$0,
+    1: TextProcessingTask_Status.$1,
+    2: TextProcessingTask_Status.$2,
+    3: TextProcessingTask_Status.$3,
+    4: TextProcessingTask_Status.$4,
+  };
+
+  @override
+  Iterable<Type> get types => const [TextProcessingTask_Status];
+
+  @override
+  String get wireName => 'TextProcessingTask_Status';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TextProcessingTask_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TextProcessingTask_Status deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $TextProcessingTaskInterface {
   int? get id;
   String get type;
-  int get status;
+  TextProcessingTask_Status get status;
   String? get userId;
   String get appId;
   String get input;
   String? get output;
   String get identifier;
+  int? get completionExpectedAt;
 }
 
 abstract class TextProcessingTask
@@ -9552,10 +9628,82 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson
       _$textToImageApiIsAvailableResponseApplicationJsonSerializer;
 }
 
+class TextToImageTask_Status extends EnumClass {
+  const TextToImageTask_Status._(super.name);
+
+  @BuiltValueEnumConst(wireName: '0')
+  static const TextToImageTask_Status $0 = _$textToImageTaskStatus$0;
+
+  @BuiltValueEnumConst(wireName: '1')
+  static const TextToImageTask_Status $1 = _$textToImageTaskStatus$1;
+
+  @BuiltValueEnumConst(wireName: '2')
+  static const TextToImageTask_Status $2 = _$textToImageTaskStatus$2;
+
+  @BuiltValueEnumConst(wireName: '3')
+  static const TextToImageTask_Status $3 = _$textToImageTaskStatus$3;
+
+  @BuiltValueEnumConst(wireName: '4')
+  static const TextToImageTask_Status $4 = _$textToImageTaskStatus$4;
+
+  // coverage:ignore-start
+  static BuiltSet<TextToImageTask_Status> get values => _$textToImageTaskStatusValues;
+  // coverage:ignore-end
+
+  static TextToImageTask_Status valueOf(String name) => _$valueOfTextToImageTask_Status(name);
+
+  int get value => jsonSerializers.serializeWith(serializer, this)! as int;
+
+  @BuiltValueSerializer(custom: true)
+  static Serializer<TextToImageTask_Status> get serializer => const _$TextToImageTask_StatusSerializer();
+}
+
+class _$TextToImageTask_StatusSerializer implements PrimitiveSerializer<TextToImageTask_Status> {
+  const _$TextToImageTask_StatusSerializer();
+
+  static const Map<TextToImageTask_Status, Object> _toWire = <TextToImageTask_Status, Object>{
+    TextToImageTask_Status.$0: 0,
+    TextToImageTask_Status.$1: 1,
+    TextToImageTask_Status.$2: 2,
+    TextToImageTask_Status.$3: 3,
+    TextToImageTask_Status.$4: 4,
+  };
+
+  static const Map<Object, TextToImageTask_Status> _fromWire = <Object, TextToImageTask_Status>{
+    0: TextToImageTask_Status.$0,
+    1: TextToImageTask_Status.$1,
+    2: TextToImageTask_Status.$2,
+    3: TextToImageTask_Status.$3,
+    4: TextToImageTask_Status.$4,
+  };
+
+  @override
+  Iterable<Type> get types => const [TextToImageTask_Status];
+
+  @override
+  String get wireName => 'TextToImageTask_Status';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    TextToImageTask_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _toWire[object]!;
+
+  @override
+  TextToImageTask_Status deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) =>
+      _fromWire[serialized]!;
+}
+
 @BuiltValue(instantiable: false)
 abstract interface class $TextToImageTaskInterface {
   int? get id;
-  int get status;
+  TextToImageTask_Status get status;
   String? get userId;
   String get appId;
   String get input;
@@ -10180,8 +10328,13 @@ abstract class TranslationApiTranslateResponseApplicationJson
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchProviderInterface {
   String get id;
+  String? get appId;
   String get name;
+  String? get icon;
   int get order;
+  BuiltList<String>? get triggers;
+  BuiltMap<String, String>? get filters;
+  bool? get inAppSearch;
 }
 
 abstract class UnifiedSearchProvider
@@ -11716,6 +11869,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTaskBuilder.new)
       ..add(TextProcessingTask.serializer)
+      ..add(TextProcessingTask_Status.serializer)
       ..addBuilderFactory(
         const FullType(TextProcessingApiGetTaskResponseApplicationJson),
         TextProcessingApiGetTaskResponseApplicationJsonBuilder.new,
@@ -11797,6 +11951,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(TextToImageApiScheduleResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTaskBuilder.new)
       ..add(TextToImageTask.serializer)
+      ..add(TextToImageTask_Status.serializer)
       ..addBuilderFactory(
         const FullType(TextToImageApiGetTaskResponseApplicationJson),
         TextToImageApiGetTaskResponseApplicationJsonBuilder.new,
@@ -11895,14 +12050,13 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProviderBuilder.new)
       ..add(UnifiedSearchProvider.serializer)
       ..addBuilderFactory(
+        const FullType(BuiltMap, [FullType(String), FullType(String)]),
+        MapBuilder<String, String>.new,
+      )
+      ..addBuilderFactory(
         const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
         ListBuilder<UnifiedSearchProvider>.new,
       )
-      ..addBuilderFactory(
-        const FullType(ContentString, [FullType(UnifiedSearchSearchCursor)]),
-        ContentStringBuilder<UnifiedSearchSearchCursor>.new,
-      )
-      ..add(ContentString.serializer)
       ..addBuilderFactory(
         const FullType(UnifiedSearchSearchResponseApplicationJson),
         UnifiedSearchSearchResponseApplicationJsonBuilder.new,

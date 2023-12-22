@@ -13,6 +13,33 @@ Serializer<DirectGetUrlResponseApplicationJson_Ocs> _$directGetUrlResponseApplic
     _$DirectGetUrlResponseApplicationJson_OcsSerializer();
 Serializer<DirectGetUrlResponseApplicationJson> _$directGetUrlResponseApplicationJsonSerializer =
     _$DirectGetUrlResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeDataCommon> _$outOfOfficeDataCommonSerializer = _$OutOfOfficeDataCommonSerializer();
+Serializer<CurrentOutOfOfficeData> _$currentOutOfOfficeDataSerializer = _$CurrentOutOfOfficeDataSerializer();
+Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs>
+    _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonOcsSerializer =
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer();
+Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson>
+    _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer =
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeData> _$outOfOfficeDataSerializer = _$OutOfOfficeDataSerializer();
+Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs>
+    _$outOfOfficeGetOutOfOfficeResponseApplicationJsonOcsSerializer =
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer();
+Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson>
+    _$outOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer =
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs>
+    _$outOfOfficeSetOutOfOfficeResponseApplicationJsonOcsSerializer =
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer();
+Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson>
+    _$outOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer =
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer();
+Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs>
+    _$outOfOfficeClearOutOfOfficeResponseApplicationJsonOcsSerializer =
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer();
+Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson>
+    _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer =
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer();
 Serializer<Capabilities_Dav> _$capabilitiesDavSerializer = _$Capabilities_DavSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
 
@@ -210,6 +237,557 @@ class _$DirectGetUrlResponseApplicationJsonSerializer
           result.ocs.replace(
               serializers.deserialize(value, specifiedType: const FullType(DirectGetUrlResponseApplicationJson_Ocs))!
                   as DirectGetUrlResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeDataCommonSerializer implements StructuredSerializer<OutOfOfficeDataCommon> {
+  @override
+  final Iterable<Type> types = const [OutOfOfficeDataCommon, _$OutOfOfficeDataCommon];
+  @override
+  final String wireName = 'OutOfOfficeDataCommon';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeDataCommon object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeDataCommon deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeDataCommonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CurrentOutOfOfficeDataSerializer implements StructuredSerializer<CurrentOutOfOfficeData> {
+  @override
+  final Iterable<Type> types = const [CurrentOutOfOfficeData, _$CurrentOutOfOfficeData];
+  @override
+  final String wireName = 'CurrentOutOfOfficeData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, CurrentOutOfOfficeData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'startDate',
+      serializers.serialize(object.startDate, specifiedType: const FullType(int)),
+      'endDate',
+      serializers.serialize(object.endDate, specifiedType: const FullType(int)),
+      'shortMessage',
+      serializers.serialize(object.shortMessage, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CurrentOutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = CurrentOutOfOfficeDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'startDate':
+          result.startDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'endDate':
+          result.endDate = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'shortMessage':
+          result.shortMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(CurrentOutOfOfficeData)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(CurrentOutOfOfficeData))!
+              as CurrentOutOfOfficeData);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer
+    implements StructuredSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs))!
+              as OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeDataSerializer implements StructuredSerializer<OutOfOfficeData> {
+  @override
+  final Iterable<Type> types = const [OutOfOfficeData, _$OutOfOfficeData];
+  @override
+  final String wireName = 'OutOfOfficeData';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeData object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'userId',
+      serializers.serialize(object.userId, specifiedType: const FullType(String)),
+      'message',
+      serializers.serialize(object.message, specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'firstDay',
+      serializers.serialize(object.firstDay, specifiedType: const FullType(String)),
+      'lastDay',
+      serializers.serialize(object.lastDay, specifiedType: const FullType(String)),
+      'status',
+      serializers.serialize(object.status, specifiedType: const FullType(String)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeData deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeDataBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'userId':
+          result.userId = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'message':
+          result.message = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
+          break;
+        case 'firstDay':
+          result.firstDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'lastDay':
+          result.lastDay = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+        case 'status':
+          result.status = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(OutOfOfficeData)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(OutOfOfficeData))! as OutOfOfficeData);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer
+    implements StructuredSerializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeGetOutOfOfficeResponseApplicationJson,
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'OutOfOfficeGetOutOfOfficeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeGetOutOfOfficeResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs))!
+              as OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+      'data',
+      serializers.serialize(object.data, specifiedType: const FullType(OutOfOfficeData)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data.replace(
+              serializers.deserialize(value, specifiedType: const FullType(OutOfOfficeData))! as OutOfOfficeData);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer
+    implements StructuredSerializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeSetOutOfOfficeResponseApplicationJson,
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'OutOfOfficeSetOutOfOfficeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeSetOutOfOfficeResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs))!
+              as OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsSerializer
+    implements StructuredSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
+  ];
+  @override
+  final String wireName = 'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'meta',
+      serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
+    ];
+    Object? value;
+    value = object.data;
+    if (value != null) {
+      result
+        ..add('data')
+        ..add(serializers.serialize(value, specifiedType: const FullType(JsonObject)));
+    }
+    return result;
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'meta':
+          result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
+          break;
+        case 'data':
+          result.data = serializers.deserialize(value, specifiedType: const FullType(JsonObject)) as JsonObject?;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$OutOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer
+    implements StructuredSerializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson> {
+  @override
+  final Iterable<Type> types = const [
+    OutOfOfficeClearOutOfOfficeResponseApplicationJson,
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson
+  ];
+  @override
+  final String wireName = 'OutOfOfficeClearOutOfOfficeResponseApplicationJson';
+
+  @override
+  Iterable<Object?> serialize(Serializers serializers, OutOfOfficeClearOutOfOfficeResponseApplicationJson object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      'ocs',
+      serializers.serialize(object.ocs,
+          specifiedType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs)),
+    ];
+
+    return result;
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case 'ocs':
+          result.ocs.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs))!
+              as OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs);
           break;
       }
     }
@@ -753,6 +1331,1406 @@ class DirectGetUrlResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(r'DirectGetUrlResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeDataCommonInterfaceBuilder {
+  void replace($OutOfOfficeDataCommonInterface other);
+  void update(void Function($OutOfOfficeDataCommonInterfaceBuilder) updates);
+  String? get userId;
+  set userId(String? userId);
+
+  String? get message;
+  set message(String? message);
+}
+
+class _$OutOfOfficeDataCommon extends OutOfOfficeDataCommon {
+  @override
+  final String userId;
+  @override
+  final String message;
+
+  factory _$OutOfOfficeDataCommon([void Function(OutOfOfficeDataCommonBuilder)? updates]) =>
+      (OutOfOfficeDataCommonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeDataCommon._({required this.userId, required this.message}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId');
+    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message');
+  }
+
+  @override
+  OutOfOfficeDataCommon rebuild(void Function(OutOfOfficeDataCommonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeDataCommonBuilder toBuilder() => OutOfOfficeDataCommonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeDataCommon && userId == other.userId && message == other.message;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeDataCommon')
+          ..add('userId', userId)
+          ..add('message', message))
+        .toString();
+  }
+}
+
+class OutOfOfficeDataCommonBuilder
+    implements Builder<OutOfOfficeDataCommon, OutOfOfficeDataCommonBuilder>, $OutOfOfficeDataCommonInterfaceBuilder {
+  _$OutOfOfficeDataCommon? _$v;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  OutOfOfficeDataCommonBuilder();
+
+  OutOfOfficeDataCommonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId;
+      _message = $v.message;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeDataCommon other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeDataCommon;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeDataCommonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeDataCommon build() => _build();
+
+  _$OutOfOfficeDataCommon _build() {
+    final _$result = _$v ??
+        _$OutOfOfficeDataCommon._(
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeDataCommon', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeDataCommon', 'message'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $CurrentOutOfOfficeData_1InterfaceBuilder {
+  void replace($CurrentOutOfOfficeData_1Interface other);
+  void update(void Function($CurrentOutOfOfficeData_1InterfaceBuilder) updates);
+  String? get id;
+  set id(String? id);
+
+  int? get startDate;
+  set startDate(int? startDate);
+
+  int? get endDate;
+  set endDate(int? endDate);
+
+  String? get shortMessage;
+  set shortMessage(String? shortMessage);
+}
+
+abstract mixin class $CurrentOutOfOfficeDataInterfaceBuilder
+    implements $OutOfOfficeDataCommonInterfaceBuilder, $CurrentOutOfOfficeData_1InterfaceBuilder {
+  void replace(covariant $CurrentOutOfOfficeDataInterface other);
+  void update(void Function($CurrentOutOfOfficeDataInterfaceBuilder) updates);
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get message;
+  set message(covariant String? message);
+
+  String? get id;
+  set id(covariant String? id);
+
+  int? get startDate;
+  set startDate(covariant int? startDate);
+
+  int? get endDate;
+  set endDate(covariant int? endDate);
+
+  String? get shortMessage;
+  set shortMessage(covariant String? shortMessage);
+}
+
+class _$CurrentOutOfOfficeData extends CurrentOutOfOfficeData {
+  @override
+  final String userId;
+  @override
+  final String message;
+  @override
+  final String id;
+  @override
+  final int startDate;
+  @override
+  final int endDate;
+  @override
+  final String shortMessage;
+
+  factory _$CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? updates]) =>
+      (CurrentOutOfOfficeDataBuilder()..update(updates))._build();
+
+  _$CurrentOutOfOfficeData._(
+      {required this.userId,
+      required this.message,
+      required this.id,
+      required this.startDate,
+      required this.endDate,
+      required this.shortMessage})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message');
+    BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id');
+    BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate');
+    BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate');
+    BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage');
+  }
+
+  @override
+  CurrentOutOfOfficeData rebuild(void Function(CurrentOutOfOfficeDataBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CurrentOutOfOfficeDataBuilder toBuilder() => CurrentOutOfOfficeDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CurrentOutOfOfficeData &&
+        userId == other.userId &&
+        message == other.message &&
+        id == other.id &&
+        startDate == other.startDate &&
+        endDate == other.endDate &&
+        shortMessage == other.shortMessage;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, startDate.hashCode);
+    _$hash = $jc(_$hash, endDate.hashCode);
+    _$hash = $jc(_$hash, shortMessage.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'CurrentOutOfOfficeData')
+          ..add('userId', userId)
+          ..add('message', message)
+          ..add('id', id)
+          ..add('startDate', startDate)
+          ..add('endDate', endDate)
+          ..add('shortMessage', shortMessage))
+        .toString();
+  }
+}
+
+class CurrentOutOfOfficeDataBuilder
+    implements Builder<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder>, $CurrentOutOfOfficeDataInterfaceBuilder {
+  _$CurrentOutOfOfficeData? _$v;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  String? _id;
+  String? get id => _$this._id;
+  set id(covariant String? id) => _$this._id = id;
+
+  int? _startDate;
+  int? get startDate => _$this._startDate;
+  set startDate(covariant int? startDate) => _$this._startDate = startDate;
+
+  int? _endDate;
+  int? get endDate => _$this._endDate;
+  set endDate(covariant int? endDate) => _$this._endDate = endDate;
+
+  String? _shortMessage;
+  String? get shortMessage => _$this._shortMessage;
+  set shortMessage(covariant String? shortMessage) => _$this._shortMessage = shortMessage;
+
+  CurrentOutOfOfficeDataBuilder();
+
+  CurrentOutOfOfficeDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId;
+      _message = $v.message;
+      _id = $v.id;
+      _startDate = $v.startDate;
+      _endDate = $v.endDate;
+      _shortMessage = $v.shortMessage;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant CurrentOutOfOfficeData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CurrentOutOfOfficeData;
+  }
+
+  @override
+  void update(void Function(CurrentOutOfOfficeDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CurrentOutOfOfficeData build() => _build();
+
+  _$CurrentOutOfOfficeData _build() {
+    final _$result = _$v ??
+        _$CurrentOutOfOfficeData._(
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'CurrentOutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'CurrentOutOfOfficeData', 'message'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'CurrentOutOfOfficeData', 'id'),
+            startDate: BuiltValueNullFieldError.checkNotNull(startDate, r'CurrentOutOfOfficeData', 'startDate'),
+            endDate: BuiltValueNullFieldError.checkNotNull(endDate, r'CurrentOutOfOfficeData', 'endDate'),
+            shortMessage:
+                BuiltValueNullFieldError.checkNotNull(shortMessage, r'CurrentOutOfOfficeData', 'shortMessage'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface other);
+  void update(void Function($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  CurrentOutOfOfficeDataBuilder get data;
+  set data(CurrentOutOfOfficeDataBuilder? data);
+}
+
+class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
+    extends OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final CurrentOutOfOfficeData data;
+
+  factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs(
+          [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._({required this.meta, required this.data})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        meta, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(
+        data, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs rebuild(
+          void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder toBuilder() =>
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs &&
+        meta == other.meta &&
+        data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+    implements
+        Builder<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder>,
+        $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterfaceBuilder {
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  CurrentOutOfOfficeDataBuilder? _data;
+  CurrentOutOfOfficeDataBuilder get data => _$this._data ??= CurrentOutOfOfficeDataBuilder();
+  set data(covariant CurrentOutOfOfficeDataBuilder? data) => _$this._data = data;
+
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs build() => _build();
+
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _build() {
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ??
+          _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder {
+  void replace($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface other);
+  void update(void Function($OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder) updates);
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
+    extends OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson {
+  @override
+  final OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs ocs;
+
+  factory _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson(
+          [void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? updates]) =>
+      (OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson rebuild(
+          void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder toBuilder() =>
+      OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson')
+          ..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
+    implements
+        Builder<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder>,
+        $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfaceBuilder {
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson? _$v;
+
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? _ocs;
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder();
+
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson build() => _build();
+
+  _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _build() {
+    _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeData_1InterfaceBuilder {
+  void replace($OutOfOfficeData_1Interface other);
+  void update(void Function($OutOfOfficeData_1InterfaceBuilder) updates);
+  int? get id;
+  set id(int? id);
+
+  String? get firstDay;
+  set firstDay(String? firstDay);
+
+  String? get lastDay;
+  set lastDay(String? lastDay);
+
+  String? get status;
+  set status(String? status);
+}
+
+abstract mixin class $OutOfOfficeDataInterfaceBuilder
+    implements $OutOfOfficeDataCommonInterfaceBuilder, $OutOfOfficeData_1InterfaceBuilder {
+  void replace(covariant $OutOfOfficeDataInterface other);
+  void update(void Function($OutOfOfficeDataInterfaceBuilder) updates);
+  String? get userId;
+  set userId(covariant String? userId);
+
+  String? get message;
+  set message(covariant String? message);
+
+  int? get id;
+  set id(covariant int? id);
+
+  String? get firstDay;
+  set firstDay(covariant String? firstDay);
+
+  String? get lastDay;
+  set lastDay(covariant String? lastDay);
+
+  String? get status;
+  set status(covariant String? status);
+}
+
+class _$OutOfOfficeData extends OutOfOfficeData {
+  @override
+  final String userId;
+  @override
+  final String message;
+  @override
+  final int id;
+  @override
+  final String firstDay;
+  @override
+  final String lastDay;
+  @override
+  final String status;
+
+  factory _$OutOfOfficeData([void Function(OutOfOfficeDataBuilder)? updates]) =>
+      (OutOfOfficeDataBuilder()..update(updates))._build();
+
+  _$OutOfOfficeData._(
+      {required this.userId,
+      required this.message,
+      required this.id,
+      required this.firstDay,
+      required this.lastDay,
+      required this.status})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId');
+    BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message');
+    BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id');
+    BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay');
+    BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay');
+    BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status');
+  }
+
+  @override
+  OutOfOfficeData rebuild(void Function(OutOfOfficeDataBuilder) updates) => (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeDataBuilder toBuilder() => OutOfOfficeDataBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeData &&
+        userId == other.userId &&
+        message == other.message &&
+        id == other.id &&
+        firstDay == other.firstDay &&
+        lastDay == other.lastDay &&
+        status == other.status;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, userId.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, firstDay.hashCode);
+    _$hash = $jc(_$hash, lastDay.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeData')
+          ..add('userId', userId)
+          ..add('message', message)
+          ..add('id', id)
+          ..add('firstDay', firstDay)
+          ..add('lastDay', lastDay)
+          ..add('status', status))
+        .toString();
+  }
+}
+
+class OutOfOfficeDataBuilder
+    implements Builder<OutOfOfficeData, OutOfOfficeDataBuilder>, $OutOfOfficeDataInterfaceBuilder {
+  _$OutOfOfficeData? _$v;
+
+  String? _userId;
+  String? get userId => _$this._userId;
+  set userId(covariant String? userId) => _$this._userId = userId;
+
+  String? _message;
+  String? get message => _$this._message;
+  set message(covariant String? message) => _$this._message = message;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(covariant int? id) => _$this._id = id;
+
+  String? _firstDay;
+  String? get firstDay => _$this._firstDay;
+  set firstDay(covariant String? firstDay) => _$this._firstDay = firstDay;
+
+  String? _lastDay;
+  String? get lastDay => _$this._lastDay;
+  set lastDay(covariant String? lastDay) => _$this._lastDay = lastDay;
+
+  String? _status;
+  String? get status => _$this._status;
+  set status(covariant String? status) => _$this._status = status;
+
+  OutOfOfficeDataBuilder();
+
+  OutOfOfficeDataBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _userId = $v.userId;
+      _message = $v.message;
+      _id = $v.id;
+      _firstDay = $v.firstDay;
+      _lastDay = $v.lastDay;
+      _status = $v.status;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeData other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeData;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeDataBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeData build() => _build();
+
+  _$OutOfOfficeData _build() {
+    final _$result = _$v ??
+        _$OutOfOfficeData._(
+            userId: BuiltValueNullFieldError.checkNotNull(userId, r'OutOfOfficeData', 'userId'),
+            message: BuiltValueNullFieldError.checkNotNull(message, r'OutOfOfficeData', 'message'),
+            id: BuiltValueNullFieldError.checkNotNull(id, r'OutOfOfficeData', 'id'),
+            firstDay: BuiltValueNullFieldError.checkNotNull(firstDay, r'OutOfOfficeData', 'firstDay'),
+            lastDay: BuiltValueNullFieldError.checkNotNull(lastDay, r'OutOfOfficeData', 'lastDay'),
+            status: BuiltValueNullFieldError.checkNotNull(status, r'OutOfOfficeData', 'status'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(void Function($OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  OutOfOfficeDataBuilder get data;
+  set data(OutOfOfficeDataBuilder? data);
+}
+
+class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
+    extends OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final OutOfOfficeData data;
+
+  factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs(
+          [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs rebuild(
+          void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
+      OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
+    implements
+        Builder<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
+            OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder>,
+        $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  OutOfOfficeDataBuilder? _data;
+  OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
+  set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
+
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs build() => _build();
+
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _build() {
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  void replace($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface other);
+  void update(void Function($OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$OutOfOfficeGetOutOfOfficeResponseApplicationJson extends OutOfOfficeGetOutOfOfficeResponseApplicationJson {
+  @override
+  final OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs ocs;
+
+  factory _$OutOfOfficeGetOutOfOfficeResponseApplicationJson(
+          [void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
+      (OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson rebuild(
+          void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
+      OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeGetOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeGetOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
+    implements
+        Builder<OutOfOfficeGetOutOfOfficeResponseApplicationJson,
+            OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder>,
+        $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson? _$v;
+
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder();
+
+  OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeGetOutOfOfficeResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeGetOutOfOfficeResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeGetOutOfOfficeResponseApplicationJson build() => _build();
+
+  _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _build() {
+    _$OutOfOfficeGetOutOfOfficeResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$OutOfOfficeGetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeGetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(void Function($OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  OutOfOfficeDataBuilder get data;
+  set data(OutOfOfficeDataBuilder? data);
+}
+
+class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
+    extends OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final OutOfOfficeData data;
+
+  factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs(
+          [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+    BuiltValueNullFieldError.checkNotNull(data, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', 'data');
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs rebuild(
+          void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
+      OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
+    implements
+        Builder<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
+            OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder>,
+        $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  OutOfOfficeDataBuilder? _data;
+  OutOfOfficeDataBuilder get data => _$this._data ??= OutOfOfficeDataBuilder();
+  set data(covariant OutOfOfficeDataBuilder? data) => _$this._data = data;
+
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs build() => _build();
+
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _build() {
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs _$result;
+    try {
+      _$result =
+          _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+        _$failedField = 'data';
+        data.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  void replace($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface other);
+  void update(void Function($OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$OutOfOfficeSetOutOfOfficeResponseApplicationJson extends OutOfOfficeSetOutOfOfficeResponseApplicationJson {
+  @override
+  final OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs ocs;
+
+  factory _$OutOfOfficeSetOutOfOfficeResponseApplicationJson(
+          [void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
+      (OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson rebuild(
+          void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
+      OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeSetOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeSetOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
+    implements
+        Builder<OutOfOfficeSetOutOfOfficeResponseApplicationJson,
+            OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder>,
+        $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson? _$v;
+
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder();
+
+  OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeSetOutOfOfficeResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeSetOutOfOfficeResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeSetOutOfOfficeResponseApplicationJson build() => _build();
+
+  _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _build() {
+    _$OutOfOfficeSetOutOfOfficeResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$OutOfOfficeSetOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeSetOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  void replace($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface other);
+  void update(void Function($OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder) updates);
+  OCSMetaBuilder get meta;
+  set meta(OCSMetaBuilder? meta);
+
+  JsonObject? get data;
+  set data(JsonObject? data);
+}
+
+class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
+    extends OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs {
+  @override
+  final OCSMeta meta;
+  @override
+  final JsonObject? data;
+
+  factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs(
+          [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? updates]) =>
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._({required this.meta, this.data}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(meta, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', 'meta');
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs rebuild(
+          void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder toBuilder() =>
+      OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs && meta == other.meta && data == other.data;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, meta.hashCode);
+    _$hash = $jc(_$hash, data.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs')
+          ..add('meta', meta)
+          ..add('data', data))
+        .toString();
+  }
+}
+
+class OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
+    implements
+        Builder<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
+            OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder>,
+        $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterfaceBuilder {
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs? _$v;
+
+  OCSMetaBuilder? _meta;
+  OCSMetaBuilder get meta => _$this._meta ??= OCSMetaBuilder();
+  set meta(covariant OCSMetaBuilder? meta) => _$this._meta = meta;
+
+  JsonObject? _data;
+  JsonObject? get data => _$this._data;
+  set data(covariant JsonObject? data) => _$this._data = data;
+
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _meta = $v.meta.toBuilder();
+      _data = $v.data;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs build() => _build();
+
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _build() {
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs _$result;
+    try {
+      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._(meta: meta.build(), data: data);
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'meta';
+        meta.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+abstract mixin class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  void replace($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface other);
+  void update(void Function($OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder) updates);
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get ocs;
+  set ocs(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs);
+}
+
+class _$OutOfOfficeClearOutOfOfficeResponseApplicationJson extends OutOfOfficeClearOutOfOfficeResponseApplicationJson {
+  @override
+  final OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs ocs;
+
+  factory _$OutOfOfficeClearOutOfOfficeResponseApplicationJson(
+          [void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? updates]) =>
+      (OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..update(updates))._build();
+
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._({required this.ocs}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(ocs, r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', 'ocs');
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson rebuild(
+          void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder toBuilder() =>
+      OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is OutOfOfficeClearOutOfOfficeResponseApplicationJson && ocs == other.ocs;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, ocs.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'OutOfOfficeClearOutOfOfficeResponseApplicationJson')..add('ocs', ocs))
+        .toString();
+  }
+}
+
+class OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
+    implements
+        Builder<OutOfOfficeClearOutOfOfficeResponseApplicationJson,
+            OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder>,
+        $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterfaceBuilder {
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson? _$v;
+
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? _ocs;
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder get ocs =>
+      _$this._ocs ??= OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder();
+  set ocs(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder? ocs) => _$this._ocs = ocs;
+
+  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder();
+
+  OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _ocs = $v.ocs.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(covariant OutOfOfficeClearOutOfOfficeResponseApplicationJson other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$OutOfOfficeClearOutOfOfficeResponseApplicationJson;
+  }
+
+  @override
+  void update(void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  OutOfOfficeClearOutOfOfficeResponseApplicationJson build() => _build();
+
+  _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _build() {
+    _$OutOfOfficeClearOutOfOfficeResponseApplicationJson _$result;
+    try {
+      _$result = _$v ?? _$OutOfOfficeClearOutOfOfficeResponseApplicationJson._(ocs: ocs.build());
+    } catch (_) {
+      late String _$failedField;
+      try {
+        _$failedField = 'ocs';
+        ocs.build();
+      } catch (e) {
+        throw BuiltValueNestedFieldError(
+            r'OutOfOfficeClearOutOfOfficeResponseApplicationJson', _$failedField, e.toString());
       }
       rethrow;
     }
