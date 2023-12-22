@@ -50,15 +50,15 @@ class OpenAPIBuilder implements Builder {
       }
     }
 
+    final inputId = buildStep.inputId;
+    final outputId = inputId.changeExtension('.dart');
+
+    final emitter = DartEmitter(
+      orderDirectives: true,
+      useNullSafetySyntax: true,
+    );
+
     try {
-      final inputId = buildStep.inputId;
-      final outputId = inputId.changeExtension('.dart');
-
-      final emitter = DartEmitter(
-        orderDirectives: true,
-        useNullSafetySyntax: true,
-      );
-
       final spec = switch (inputId.extension) {
         '.json' => openapi.serializers.deserializeWith(
             openapi.OpenAPI.serializer,
@@ -76,7 +76,8 @@ class OpenAPIBuilder implements Builder {
         throw Exception('Only OpenAPI between $minSupportedVersion and $maxSupportedVersion are supported.');
       }
 
-      final state = State(buildConfig);
+      final config = buildConfig.configFor(inputId.path);
+      final state = State(config);
 
       final output = Library((final b) {
         final analyzerIgnores = state.buildConfig.analyzerIgnores;
@@ -112,6 +113,12 @@ class OpenAPIBuilder implements Builder {
         if (state.hasResolvedBuiltTypes) {
           b.directives.add(
             Directive.part(p.basename(outputId.changeExtension('.g.dart').path)),
+          );
+        }
+
+        if (state.buildConfig.experimental) {
+          b.annotations.add(
+            refer('experimental'),
           );
         }
       });
