@@ -11273,17 +11273,17 @@ class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerialize
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = ((serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
+      sharebymailCapabilities = (serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
           as SharebymailCapabilities)
-        ..validateOneOf());
+        ..validateOneOf();
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = ((serializers.deserialize(
+      spreedPublicCapabilities = (serializers.deserialize(
         data,
         specifiedType: const FullType(SpreedPublicCapabilities),
       )! as SpreedPublicCapabilities)
-        ..validateOneOf());
+        ..validateOneOf();
     } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {

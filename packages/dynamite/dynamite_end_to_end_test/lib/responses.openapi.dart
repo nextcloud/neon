@@ -219,7 +219,7 @@ class $Client extends DynamiteClient {
 
 // coverage:ignore-start
 @visibleForTesting
-final Serializers serializers = Serializers().toBuilder().build();
+final Serializers serializers = Serializers();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

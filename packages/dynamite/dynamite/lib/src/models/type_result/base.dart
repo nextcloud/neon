@@ -34,7 +34,7 @@ class TypeResultBase extends TypeResult {
           case 'Uint8List':
             return object;
           case 'String':
-            return '(utf8.encode($object) as Uint8List)';
+            return 'utf8.encode($object)';
           default:
             throw Exception('"$mimeType" can only be Uint8List or String');
         }

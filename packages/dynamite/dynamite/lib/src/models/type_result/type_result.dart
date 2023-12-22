@@ -115,7 +115,7 @@ sealed class TypeResult {
       buffer.write('!');
     }
 
-    return '($buffer as $name)';
+    return '$buffer as $name';
   }
 
   /// Decodes the variable named [object].
