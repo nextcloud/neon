@@ -117,6 +117,20 @@
                         "type": "string"
                     }
                 ]
+            },
+            "OneOfIntArrayInt": {
+                "description": "One of with an integer and an array of integer.",
+                "oneOf": [
+                    {
+                        "type": "integer"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    }
+                ]
             }
         }
     },

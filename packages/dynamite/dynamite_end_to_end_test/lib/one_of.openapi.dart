@@ -5,6 +5,7 @@
 // ignore_for_file: unused_element
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
@@ -99,6 +100,8 @@ typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1})
 typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
 
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
+
+typedef OneOfIntArrayInt = ({BuiltList<int>? builtListInt, int? $int});
 
 typedef $ObjectOneOf0ObjectOneOf1 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
 
@@ -271,6 +274,64 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }
 }
 
+typedef $BuiltListInt = ({BuiltList<int>? builtListInt, int? $int});
+
+extension $BuiltListIntExtension on $BuiltListInt {
+  List<dynamic> get _values => [builtListInt, $int];
+  void validateOneOf() => dynamite_utils.validateOneOf(_values);
+  void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
+  static Serializer<$BuiltListInt> get serializer => const _$BuiltListIntSerializer();
+  static $BuiltListInt fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+}
+
+class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
+  const _$BuiltListIntSerializer();
+
+  @override
+  Iterable<Type> get types => const [$BuiltListInt];
+
+  @override
+  String get wireName => r'$BuiltListInt';
+
+  @override
+  Object serialize(
+    Serializers serializers,
+    $BuiltListInt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    dynamic value;
+    value = object.builtListInt;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(int)]))!;
+    }
+    value = object.$int;
+    if (value != null) {
+      return serializers.serialize(value, specifiedType: const FullType(int))!;
+    }
+// Should not be possible after validation.
+    throw StateError('Tried to serialize without any value.');
+  }
+
+  @override
+  $BuiltListInt deserialize(
+    Serializers serializers,
+    Object data, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    BuiltList<int>? builtListInt;
+    try {
+      builtListInt =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+    } catch (_) {}
+    int? $int;
+    try {
+      $int = serializers.deserialize(data, specifiedType: const FullType(int))! as int;
+    } catch (_) {}
+    return (builtListInt: builtListInt, $int: $int);
+  }
+}
+
 // coverage:ignore-start
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
@@ -284,7 +345,9 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add($MixedOneOf1StringExtension.serializer)
       ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
       ..add(OneObjectOneOf0.serializer)
-      ..add($NumStringExtension.serializer))
+      ..add($NumStringExtension.serializer)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+      ..add($BuiltListIntExtension.serializer))
     .build();
 
 @visibleForTesting

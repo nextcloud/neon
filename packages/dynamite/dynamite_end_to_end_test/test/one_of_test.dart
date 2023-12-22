@@ -1,3 +1,4 @@
+import 'package:built_collection/built_collection.dart';
 import 'package:dynamite_end_to_end_test/one_of.openapi.dart';
 import 'package:test/test.dart';
 
@@ -109,5 +110,27 @@ void main() {
 
     expect(object.toJson(), equals(json));
     expect($NumStringExtension.fromJson(json), equals(object));
+  });
+
+  test('OneOfIntArrayInt', () {
+    OneOfIntArrayInt object = (
+      builtListInt: null,
+      $int: 2,
+    );
+
+    Object? json = 2;
+
+    expect(object.toJson(), equals(json));
+    expect($BuiltListIntExtension.fromJson(json), equals(object));
+
+    object = (
+      builtListInt: BuiltList.from([2]),
+      $int: null,
+    );
+
+    json = [2];
+
+    expect(object.toJson(), equals(json));
+    expect($BuiltListIntExtension.fromJson(json), equals(object));
   });
 }
