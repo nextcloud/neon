@@ -98,22 +98,22 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    var $tags = jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
+    final $tags = jsonSerializers.serialize(tags, specifiedType: const FullType(BuiltList, [FullType(String)]));
     _parameters['tags'] = $tags;
 
-    var $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
+    final $limit = jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
     final _path = UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
     return DynamiteRawResponse<BuiltList<Pet>, void>(
-      response: this.executeRequest(
+      response: executeRequest(
         'get',
         _path,
         _headers,
         null,
         const {200},
       ),
-      bodyType: FullType(BuiltList, [FullType(Pet)]),
+      bodyType: const FullType(BuiltList, [FullType(Pet)]),
       headersType: null,
       serializers: jsonSerializers,
     );
@@ -162,14 +162,14 @@ class $Client extends DynamiteClient {
     _body = utf8.encode(json.encode(jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
     const _path = '/pets';
     return DynamiteRawResponse<Pet, void>(
-      response: this.executeRequest(
+      response: executeRequest(
         'post',
         _path,
         _headers,
         _body,
         const {200},
       ),
-      bodyType: FullType(Pet),
+      bodyType: const FullType(Pet),
       headersType: null,
       serializers: jsonSerializers,
     );
@@ -220,19 +220,19 @@ class $Client extends DynamiteClient {
       'Accept': 'application/json',
     };
 
-    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = UriTemplate('/pets/{id}').expand(_parameters);
     return DynamiteRawResponse<Pet, void>(
-      response: this.executeRequest(
+      response: executeRequest(
         'get',
         _path,
         _headers,
         null,
         const {200},
       ),
-      bodyType: FullType(Pet),
+      bodyType: const FullType(Pet),
       headersType: null,
       serializers: jsonSerializers,
     );
@@ -281,12 +281,12 @@ class $Client extends DynamiteClient {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
-    var $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
+    final $id = jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
     final _path = UriTemplate('/pets/{id}').expand(_parameters);
     return DynamiteRawResponse<void, void>(
-      response: this.executeRequest(
+      response: executeRequest(
         'delete',
         _path,
         _headers,
@@ -377,13 +377,13 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 // coverage:ignore-start
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(FullType(Pet), PetBuilder.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+      ..addBuilderFactory(const FullType(Pet), PetBuilder.new)
       ..add(Pet.serializer)
-      ..addBuilderFactory(FullType(NewPet), NewPetBuilder.new)
+      ..addBuilderFactory(const FullType(NewPet), NewPetBuilder.new)
       ..add(NewPet.serializer)
-      ..addBuilderFactory(FullType(BuiltList, [FullType(Pet)]), ListBuilder<Pet>.new)
-      ..addBuilderFactory(FullType(Error), ErrorBuilder.new)
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Pet)]), ListBuilder<Pet>.new)
+      ..addBuilderFactory(const FullType(Error), ErrorBuilder.new)
       ..add(Error.serializer))
     .build();
 
