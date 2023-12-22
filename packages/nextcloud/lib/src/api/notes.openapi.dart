@@ -2,6 +2,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+@experimental
 library notes_openapi;
 
 import 'dart:convert';

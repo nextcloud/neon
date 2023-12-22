@@ -18,3 +18,10 @@ targets:
             - 'factory .*\.fromJson\(Map<String, dynamic> json\) => jsonSerializers\.deserializeWith\(serializer, json\)!;'
             - 'Map<String, dynamic> toJson\(\) => jsonSerializers\.serializeWith\(serializer, this\)! as Map<String, dynamic>;'
             - 'static BuiltSet<.*> get values => _\$.*Values;'
+          overrides:
+            lib/src/api/news.openapi.json:
+              experimental: true
+            lib/src/api/notes.openapi.json:
+              experimental: true
+            lib/src/api/uppush.openapi.json:
+              experimental: true

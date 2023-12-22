@@ -2,6 +2,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
+@experimental
 library uppush_openapi;
 
 import 'package:built_collection/built_collection.dart';
