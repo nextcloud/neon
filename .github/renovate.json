@@ -28,6 +28,7 @@
         "minor",
         "patch"
       ],
+      "matchCurrentVersion": "!/^0/",
       "excludeDepNames": [
         "app",
         "dynamite_end_to_end_test",
@@ -35,6 +36,15 @@
         "neon_lints",
         "nextcloud_test"
       ],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["pub"],
+      "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "matchCurrentVersion": "/^0/",
       "enabled": false
     },
     {
