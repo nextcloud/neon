@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, discarded_futures
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
@@ -44,32 +44,56 @@ abstract class OneValueSomeOfInObject
 }
 
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
-typedef AnyOfIntDoubleOther = ({num? $num, String? string});
-typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
-typedef $NumString = ({num? $num, String? string});
 
-extension $NumStringExtension on $NumString {
+extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
+  static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+typedef AnyOfIntDoubleOther = ({num? $num, String? string});
+
+extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
+  static Serializer<AnyOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
+
+extension $OneValueSomeOfInObject_IntDoubleStringExtension on OneValueSomeOfInObject_IntDoubleString {
+  static Serializer<OneValueSomeOfInObject_IntDoubleString> get serializer =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static OneValueSomeOfInObject_IntDoubleString fromJson(Object? json) =>
+      $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
+      const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+  static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
-  const _$NumStringSerializer();
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+  const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
 
   @override
-  Iterable<Type> get types => const [$NumString];
+  Iterable<Type> get types => const [_$b6d67dc2a96424d2f407f8e51557f3de];
 
   @override
-  String get wireName => r'$NumString';
+  String get wireName => r'_$b6d67dc2a96424d2f407f8e51557f3de';
 
   @override
   Object serialize(
     Serializers serializers,
-    $NumString object, {
+    _$b6d67dc2a96424d2f407f8e51557f3de object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -86,7 +110,7 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }
 
   @override
-  $NumString deserialize(
+  _$b6d67dc2a96424d2f407f8e51557f3de deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -106,7 +130,7 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
 // coverage:ignore-start
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
-      ..add($NumStringExtension.serializer)
+      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
       ..addBuilderFactory(const FullType(OneValueSomeOfInObject), OneValueSomeOfInObjectBuilder.new)
       ..add(OneValueSomeOfInObject.serializer))
     .build();

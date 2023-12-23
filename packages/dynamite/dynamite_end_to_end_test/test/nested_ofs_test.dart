@@ -49,7 +49,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -64,7 +64,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -77,7 +77,7 @@ void main() {
     json = 0.368966614163742;
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -95,7 +95,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -111,7 +111,7 @@ void main() {
     json = 838;
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -128,7 +128,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.fromJson(json), equals(object));
+    expect($BaseNestedOneOfExtension.fromJson(json), equals(object));
   });
 
   test('BaseNestedAnyOf', () {
@@ -150,7 +150,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -168,7 +168,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -184,7 +184,7 @@ void main() {
     json = 0.6945631603643333;
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -199,7 +199,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -212,7 +212,7 @@ void main() {
     json = 659;
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       baseAllOf: null,
@@ -229,7 +229,7 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.fromJson(json), equals(object));
+    expect($BaseNestedAnyOfExtension.fromJson(json), equals(object));
   });
 
   test('NestedOptimizedOneOf', () {
@@ -241,7 +241,7 @@ void main() {
     Object? json = 770;
 
     expect(object.toJson(), equals(json));
-    expect($BaseOneOf1NumExtension.fromJson(json), equals(object));
+    expect($NestedOptimizedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       $num: 0.8345761329689448,
@@ -251,7 +251,7 @@ void main() {
     json = 0.8345761329689448;
 
     expect(object.toJson(), equals(json));
-    expect($BaseOneOf1NumExtension.fromJson(json), equals(object));
+    expect($NestedOptimizedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       $num: null,
@@ -265,6 +265,6 @@ void main() {
     };
 
     expect(object.toJson(), equals(json));
-    expect($BaseOneOf1NumExtension.fromJson(json), equals(object));
+    expect($NestedOptimizedOneOfExtension.fromJson(json), equals(object));
   });
 }

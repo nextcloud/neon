@@ -3,6 +3,7 @@ import 'package:dynamite/src/builder/state.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:source_helper/source_helper.dart';
 
 Iterable<Spec> buildOfsExtensions(
   final openapi.OpenAPI spec,
@@ -20,6 +21,42 @@ Iterable<Spec> buildOfsExtensions(
         ..name = result.className
         ..definition = refer(result.dartType.name);
     });
+
+    final serializerMethod = Method(
+      (final b) => b
+        ..static = true
+        ..returns = refer('Serializer<${result.className}>')
+        ..type = MethodType.getter
+        ..name = 'serializer'
+        ..lambda = true
+        ..body = Code('${result.typeName}Extension._serializer'),
+    );
+
+    final toJson = Method(
+      (final b) => b
+        ..static = true
+        ..returns = refer(result.className)
+        ..name = 'fromJson'
+        ..requiredParameters.add(
+          Parameter(
+            (final b) => b
+              ..name = 'json'
+              ..type = refer('Object?'),
+          ),
+        )
+        ..lambda = true
+        ..body = Code('${result.typeName}Extension._fromJson(json)'),
+    );
+
+    yield Extension(
+      (final b) => b
+        ..name = '\$${result.className}Extension'
+        ..on = refer(result.className)
+        ..methods.addAll([
+          serializerMethod,
+          toJson,
+        ]),
+    );
   }
 
   for (final result in state.uniqueSomeOfTypes) {
@@ -29,7 +66,7 @@ Iterable<Spec> buildOfsExtensions(
 
     yield TypeDef((final b) {
       b
-        ..name = result.typeName
+        ..name = '_${result.typeName}'
         ..definition = refer(result.dartType.name);
     });
 
@@ -40,9 +77,9 @@ Iterable<Spec> buildOfsExtensions(
 Iterable<Spec> generateSomeOf(
   final TypeResultSomeOf result,
 ) sync* {
-  final identifier = result.typeName;
+  final identifier = '_${result.typeName}';
   final results = result.optimizedSubTypes;
-  final serializerName = '_${identifier}Serializer';
+  final serializerName = '${identifier}Serializer';
 
   final fields = <TypeResult, String>{};
   for (final result in results) {
@@ -81,7 +118,7 @@ Iterable<Spec> generateSomeOf(
       ..static = true
       ..returns = refer('Serializer<$identifier>')
       ..type = MethodType.getter
-      ..name = 'serializer'
+      ..name = '_serializer'
       ..lambda = true
       ..body = Code('const $serializerName()'),
   );
@@ -90,7 +127,7 @@ Iterable<Spec> generateSomeOf(
     (final b) => b
       ..static = true
       ..returns = refer(identifier)
-      ..name = 'fromJson'
+      ..name = '_fromJson'
       ..requiredParameters.add(
         Parameter(
           (final b) => b
@@ -99,7 +136,7 @@ Iterable<Spec> generateSomeOf(
         ),
       )
       ..lambda = true
-      ..body = const Code('jsonSerializers.deserializeWith(serializer, json)!'),
+      ..body = const Code('jsonSerializers.deserializeWith(_serializer, json)!'),
   );
 
   final toJson = Method(
@@ -107,13 +144,17 @@ Iterable<Spec> generateSomeOf(
       ..name = 'toJson'
       ..returns = refer('Object?')
       ..lambda = true
-      ..body = const Code('jsonSerializers.serializeWith(serializer, this)'),
+      ..body = const Code('jsonSerializers.serializeWith(_serializer, this)'),
   );
 
   yield Extension(
     (final b) => b
-      ..name = '${identifier}Extension'
+      ..name = '${identifier}Extension'.nonPrivate
       ..on = refer(identifier)
+      ..docs.addAll([
+        '/// @nodoc',
+        '// ignore: library_private_types_in_public_api',
+      ])
       ..methods.addAll([
         values,
         oneOfValidator,

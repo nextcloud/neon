@@ -8057,44 +8057,93 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
+
+extension $GroupDetails_UsercountExtension on GroupDetails_Usercount {
+  static Serializer<GroupDetails_Usercount> get serializer => $c4bc4131e74e61dae681408e87e2e2bdExtension._serializer;
+  static GroupDetails_Usercount fromJson(Object? json) => $c4bc4131e74e61dae681408e87e2e2bdExtension._fromJson(json);
+}
+
 typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
+
+extension $GroupDetails_DisabledExtension on GroupDetails_Disabled {
+  static Serializer<GroupDetails_Disabled> get serializer => $c4bc4131e74e61dae681408e87e2e2bdExtension._serializer;
+  static GroupDetails_Disabled fromJson(Object? json) => $c4bc4131e74e61dae681408e87e2e2bdExtension._fromJson(json);
+}
+
 typedef UserDetailsQuota_Quota = ({num? $num, String? string});
+
+extension $UserDetailsQuota_QuotaExtension on UserDetailsQuota_Quota {
+  static Serializer<UserDetailsQuota_Quota> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static UserDetailsQuota_Quota fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
 typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
   UserDetails? userDetails
 });
+
+extension $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
+    on GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users {
+  static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
+      $b20d370ea28764b414e70ac5df151f1bExtension._serializer;
+  static GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users fromJson(Object? json) =>
+      $b20d370ea28764b414e70ac5df151f1bExtension._fromJson(json);
+}
+
 typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   UserDetails? userDetails,
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
+
+extension $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
+    on UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users {
+  static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
+      $1e1cd5e43e0a1022a23a294e58225d74Extension._serializer;
+  static UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users fromJson(Object? json) =>
+      $1e1cd5e43e0a1022a23a294e58225d74Extension._fromJson(json);
+}
+
 typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
   UserDetails? userDetails,
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
-typedef $BoolInt = ({bool? $bool, int? $int});
 
-extension $BoolIntExtension on $BoolInt {
+extension $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
+    on UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users {
+  static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
+      $f9d75e948689049b3f3e23e024d4be73Extension._serializer;
+  static UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users fromJson(Object? json) =>
+      $f9d75e948689049b3f3e23e024d4be73Extension._fromJson(json);
+}
+
+typedef _$c4bc4131e74e61dae681408e87e2e2bd = ({bool? $bool, int? $int});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $c4bc4131e74e61dae681408e87e2e2bdExtension on _$c4bc4131e74e61dae681408e87e2e2bd {
   List<dynamic> get _values => [$bool, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BoolInt> get serializer => const _$BoolIntSerializer();
-  static $BoolInt fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$c4bc4131e74e61dae681408e87e2e2bd> get _serializer =>
+      const _$c4bc4131e74e61dae681408e87e2e2bdSerializer();
+  static _$c4bc4131e74e61dae681408e87e2e2bd _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
-  const _$BoolIntSerializer();
+class _$c4bc4131e74e61dae681408e87e2e2bdSerializer implements PrimitiveSerializer<_$c4bc4131e74e61dae681408e87e2e2bd> {
+  const _$c4bc4131e74e61dae681408e87e2e2bdSerializer();
 
   @override
-  Iterable<Type> get types => const [$BoolInt];
+  Iterable<Type> get types => const [_$c4bc4131e74e61dae681408e87e2e2bd];
 
   @override
-  String get wireName => r'$BoolInt';
+  String get wireName => r'_$c4bc4131e74e61dae681408e87e2e2bd';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BoolInt object, {
+    _$c4bc4131e74e61dae681408e87e2e2bd object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -8111,7 +8160,7 @@ class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
   }
 
   @override
-  $BoolInt deserialize(
+  _$c4bc4131e74e61dae681408e87e2e2bd deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -8128,30 +8177,34 @@ class _$BoolIntSerializer implements PrimitiveSerializer<$BoolInt> {
   }
 }
 
-typedef $NumString = ({num? $num, String? string});
+typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 
-extension $NumStringExtension on $NumString {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
+      const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+  static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
-  const _$NumStringSerializer();
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+  const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
 
   @override
-  Iterable<Type> get types => const [$NumString];
+  Iterable<Type> get types => const [_$b6d67dc2a96424d2f407f8e51557f3de];
 
   @override
-  String get wireName => r'$NumString';
+  String get wireName => r'_$b6d67dc2a96424d2f407f8e51557f3de';
 
   @override
   Object serialize(
     Serializers serializers,
-    $NumString object, {
+    _$b6d67dc2a96424d2f407f8e51557f3de object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -8168,7 +8221,7 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }
 
   @override
-  $NumString deserialize(
+  _$b6d67dc2a96424d2f407f8e51557f3de deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -8185,37 +8238,37 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }
 }
 
-typedef $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails = ({
+typedef _$b20d370ea28764b414e70ac5df151f1b = ({
   GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
   UserDetails? userDetails
 });
 
-extension $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsExtension
-    on $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b20d370ea28764b414e70ac5df151f1bExtension on _$b20d370ea28764b414e70ac5df151f1b {
   List<dynamic> get _values => [groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1, userDetails];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails> get serializer =>
-      const _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer();
-  static $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b20d370ea28764b414e70ac5df151f1b> get _serializer =>
+      const _$b20d370ea28764b414e70ac5df151f1bSerializer();
+  static _$b20d370ea28764b414e70ac5df151f1b _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer
-    implements PrimitiveSerializer<$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails> {
-  const _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsSerializer();
+class _$b20d370ea28764b414e70ac5df151f1bSerializer implements PrimitiveSerializer<_$b20d370ea28764b414e70ac5df151f1b> {
+  const _$b20d370ea28764b414e70ac5df151f1bSerializer();
 
   @override
-  Iterable<Type> get types => const [$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails];
+  Iterable<Type> get types => const [_$b20d370ea28764b414e70ac5df151f1b];
 
   @override
-  String get wireName => r'$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails';
+  String get wireName => r'_$b20d370ea28764b414e70ac5df151f1b';
 
   @override
   Object serialize(
     Serializers serializers,
-    $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails object, {
+    _$b20d370ea28764b414e70ac5df151f1b object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -8235,7 +8288,7 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetail
   }
 
   @override
-  $GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetails deserialize(
+  _$b20d370ea28764b414e70ac5df151f1b deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -8260,37 +8313,37 @@ class _$GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetail
   }
 }
 
-typedef $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 = ({
+typedef _$1e1cd5e43e0a1022a23a294e58225d74 = ({
   UserDetails? userDetails,
   UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
 
-extension $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Extension
-    on $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $1e1cd5e43e0a1022a23a294e58225d74Extension on _$1e1cd5e43e0a1022a23a294e58225d74 {
   List<dynamic> get _values => [userDetails, usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
-      const _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
-  static $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$1e1cd5e43e0a1022a23a294e58225d74> get _serializer =>
+      const _$1e1cd5e43e0a1022a23a294e58225d74Serializer();
+  static _$1e1cd5e43e0a1022a23a294e58225d74 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
-    implements PrimitiveSerializer<$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1> {
-  const _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+class _$1e1cd5e43e0a1022a23a294e58225d74Serializer implements PrimitiveSerializer<_$1e1cd5e43e0a1022a23a294e58225d74> {
+  const _$1e1cd5e43e0a1022a23a294e58225d74Serializer();
 
   @override
-  Iterable<Type> get types => const [$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1];
+  Iterable<Type> get types => const [_$1e1cd5e43e0a1022a23a294e58225d74];
 
   @override
-  String get wireName => r'$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1';
+  String get wireName => r'_$1e1cd5e43e0a1022a23a294e58225d74';
 
   @override
   Object serialize(
     Serializers serializers,
-    $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 object, {
+    _$1e1cd5e43e0a1022a23a294e58225d74 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -8310,7 +8363,7 @@ class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Seria
   }
 
   @override
-  $UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1 deserialize(
+  _$1e1cd5e43e0a1022a23a294e58225d74 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -8334,37 +8387,37 @@ class _$UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Seria
   }
 }
 
-typedef $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 = ({
+typedef _$f9d75e948689049b3f3e23e024d4be73 = ({
   UserDetails? userDetails,
   UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
 });
 
-extension $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Extension
-    on $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $f9d75e948689049b3f3e23e024d4be73Extension on _$f9d75e948689049b3f3e23e024d4be73 {
   List<dynamic> get _values => [userDetails, usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1> get serializer =>
-      const _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
-  static $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$f9d75e948689049b3f3e23e024d4be73> get _serializer =>
+      const _$f9d75e948689049b3f3e23e024d4be73Serializer();
+  static _$f9d75e948689049b3f3e23e024d4be73 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer
-    implements PrimitiveSerializer<$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1> {
-  const _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer();
+class _$f9d75e948689049b3f3e23e024d4be73Serializer implements PrimitiveSerializer<_$f9d75e948689049b3f3e23e024d4be73> {
+  const _$f9d75e948689049b3f3e23e024d4be73Serializer();
 
   @override
-  Iterable<Type> get types => const [$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1];
+  Iterable<Type> get types => const [_$f9d75e948689049b3f3e23e024d4be73];
 
   @override
-  String get wireName => r'$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1';
+  String get wireName => r'_$f9d75e948689049b3f3e23e024d4be73';
 
   @override
   Object serialize(
     Serializers serializers,
-    $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 object, {
+    _$f9d75e948689049b3f3e23e024d4be73 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -8384,7 +8437,7 @@ class _$UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUse
   }
 
   @override
-  $UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1 deserialize(
+  _$f9d75e948689049b3f3e23e024d4be73 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -8569,7 +8622,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(GroupsGetGroupsDetailsResponseApplicationJson_Ocs_Data.serializer)
       ..addBuilderFactory(const FullType(GroupDetails), GroupDetailsBuilder.new)
       ..add(GroupDetails.serializer)
-      ..add($BoolIntExtension.serializer)
+      ..add($c4bc4131e74e61dae681408e87e2e2bdExtension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(GroupDetails)]), ListBuilder<GroupDetails>.new)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersResponseApplicationJson),
@@ -8607,13 +8660,13 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(UserDetails_BackendCapabilities.serializer)
       ..addBuilderFactory(const FullType(UserDetailsQuota), UserDetailsQuotaBuilder.new)
       ..add(UserDetailsQuota.serializer)
-      ..add($NumStringExtension.serializer)
+      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
       ..addBuilderFactory(
         const FullType(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1),
         GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
-      ..add($GroupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1UserDetailsExtension.serializer)
+      ..add($b20d370ea28764b414e70ac5df151f1bExtension._serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,
@@ -8767,7 +8820,7 @@ final Serializers serializers = (Serializers().toBuilder()
         UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
-      ..add($UserDetailsUsersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Extension.serializer)
+      ..add($1e1cd5e43e0a1022a23a294e58225d74Extension._serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,
@@ -8795,7 +8848,7 @@ final Serializers serializers = (Serializers().toBuilder()
         UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1Builder.new,
       )
       ..add(UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1.serializer)
-      ..add($UserDetailsUsersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Extension.serializer)
+      ..add($f9d75e948689049b3f3e23e024d4be73Extension._serializer)
       ..addBuilderFactory(
         const FullType(
           BuiltMap,

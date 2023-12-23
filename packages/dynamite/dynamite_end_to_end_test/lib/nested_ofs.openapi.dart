@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, discarded_futures
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
@@ -139,7 +139,19 @@ abstract class BaseNestedAnyOf3
 }
 
 typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
+
+extension $BaseOneOfExtension on BaseOneOf {
+  static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
+  static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
+}
+
 typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
+
+extension $BaseAnyOfExtension on BaseAnyOf {
+  static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
+  static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
+}
+
 typedef BaseNestedOneOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf? baseAnyOf,
@@ -147,6 +159,12 @@ typedef BaseNestedOneOf = ({
   BaseOneOf1? baseOneOf1,
   double? $double
 });
+
+extension $BaseNestedOneOfExtension on BaseNestedOneOf {
+  static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
+  static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
+}
+
 typedef BaseNestedAnyOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf1? baseAnyOf1,
@@ -154,31 +172,47 @@ typedef BaseNestedAnyOf = ({
   BaseOneOf? baseOneOf,
   int? $int
 });
-typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
-typedef $BaseOneOf1Double = ({BaseOneOf1? baseOneOf1, double? $double});
 
-extension $BaseOneOf1DoubleExtension on $BaseOneOf1Double {
+extension $BaseNestedAnyOfExtension on BaseNestedAnyOf {
+  static Serializer<BaseNestedAnyOf> get serializer => $523892e2348458a2bdb28f9f942dca37Extension._serializer;
+  static BaseNestedAnyOf fromJson(Object? json) => $523892e2348458a2bdb28f9f942dca37Extension._fromJson(json);
+}
+
+typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
+
+extension $NestedOptimizedOneOfExtension on NestedOptimizedOneOf {
+  static Serializer<NestedOptimizedOneOf> get serializer => $abe6d27882a5771a98ede04cd64de567Extension._serializer;
+  static NestedOptimizedOneOf fromJson(Object? json) => $abe6d27882a5771a98ede04cd64de567Extension._fromJson(json);
+}
+
+typedef _$fc0451dbdd462718bd075afd2e3ce0ec = ({BaseOneOf1? baseOneOf1, double? $double});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075afd2e3ce0ec {
   List<dynamic> get _values => [baseOneOf1, $double];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseOneOf1Double> get serializer => const _$BaseOneOf1DoubleSerializer();
-  static $BaseOneOf1Double fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$fc0451dbdd462718bd075afd2e3ce0ec> get _serializer =>
+      const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
+  static _$fc0451dbdd462718bd075afd2e3ce0ec _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Double> {
-  const _$BaseOneOf1DoubleSerializer();
+class _$fc0451dbdd462718bd075afd2e3ce0ecSerializer implements PrimitiveSerializer<_$fc0451dbdd462718bd075afd2e3ce0ec> {
+  const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
 
   @override
-  Iterable<Type> get types => const [$BaseOneOf1Double];
+  Iterable<Type> get types => const [_$fc0451dbdd462718bd075afd2e3ce0ec];
 
   @override
-  String get wireName => r'$BaseOneOf1Double';
+  String get wireName => r'_$fc0451dbdd462718bd075afd2e3ce0ec';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseOneOf1Double object, {
+    _$fc0451dbdd462718bd075afd2e3ce0ec object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -195,7 +229,7 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
   }
 
   @override
-  $BaseOneOf1Double deserialize(
+  _$fc0451dbdd462718bd075afd2e3ce0ec deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -212,30 +246,34 @@ class _$BaseOneOf1DoubleSerializer implements PrimitiveSerializer<$BaseOneOf1Dou
   }
 }
 
-typedef $BaseAnyOf1Int = ({BaseAnyOf1? baseAnyOf1, int? $int});
+typedef _$ce3c7b262d1c503446a436c461be5be9 = ({BaseAnyOf1? baseAnyOf1, int? $int});
 
-extension $BaseAnyOf1IntExtension on $BaseAnyOf1Int {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436c461be5be9 {
   List<dynamic> get _values => [baseAnyOf1, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseAnyOf1Int> get serializer => const _$BaseAnyOf1IntSerializer();
-  static $BaseAnyOf1Int fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$ce3c7b262d1c503446a436c461be5be9> get _serializer =>
+      const _$ce3c7b262d1c503446a436c461be5be9Serializer();
+  static _$ce3c7b262d1c503446a436c461be5be9 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
-  const _$BaseAnyOf1IntSerializer();
+class _$ce3c7b262d1c503446a436c461be5be9Serializer implements PrimitiveSerializer<_$ce3c7b262d1c503446a436c461be5be9> {
+  const _$ce3c7b262d1c503446a436c461be5be9Serializer();
 
   @override
-  Iterable<Type> get types => const [$BaseAnyOf1Int];
+  Iterable<Type> get types => const [_$ce3c7b262d1c503446a436c461be5be9];
 
   @override
-  String get wireName => r'$BaseAnyOf1Int';
+  String get wireName => r'_$ce3c7b262d1c503446a436c461be5be9';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseAnyOf1Int object, {
+    _$ce3c7b262d1c503446a436c461be5be9 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -252,7 +290,7 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
   }
 
   @override
-  $BaseAnyOf1Int deserialize(
+  _$ce3c7b262d1c503446a436c461be5be9 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -269,7 +307,7 @@ class _$BaseAnyOf1IntSerializer implements PrimitiveSerializer<$BaseAnyOf1Int> {
   }
 }
 
-typedef $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double = ({
+typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf? baseAnyOf,
   BaseNestedOneOf3? baseNestedOneOf3,
@@ -277,32 +315,32 @@ typedef $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double = ({
   double? $double
 });
 
-extension $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension
-    on $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d453af8ad19 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> get serializer =>
-      const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
-  static $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$8da5087c0b3f2cce06998d453af8ad19> get _serializer =>
+      const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
+  static _$8da5087c0b3f2cce06998d453af8ad19 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
-    implements PrimitiveSerializer<$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double> {
-  const _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer();
+class _$8da5087c0b3f2cce06998d453af8ad19Serializer implements PrimitiveSerializer<_$8da5087c0b3f2cce06998d453af8ad19> {
+  const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
 
   @override
-  Iterable<Type> get types => const [$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double];
+  Iterable<Type> get types => const [_$8da5087c0b3f2cce06998d453af8ad19];
 
   @override
-  String get wireName => r'$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double';
+  String get wireName => r'_$8da5087c0b3f2cce06998d453af8ad19';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double object, {
+    _$8da5087c0b3f2cce06998d453af8ad19 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -331,7 +369,7 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
   }
 
   @override
-  $BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1Double deserialize(
+  _$8da5087c0b3f2cce06998d453af8ad19 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -368,7 +406,7 @@ class _$BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleSerializer
   }
 }
 
-typedef $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt = ({
+typedef _$523892e2348458a2bdb28f9f942dca37 = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf1? baseAnyOf1,
   BaseNestedAnyOf3? baseNestedAnyOf3,
@@ -376,32 +414,32 @@ typedef $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt = ({
   int? $int
 });
 
-extension $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension
-    on $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f9f942dca37 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> get serializer =>
-      const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
-  static $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$523892e2348458a2bdb28f9f942dca37> get _serializer =>
+      const _$523892e2348458a2bdb28f9f942dca37Serializer();
+  static _$523892e2348458a2bdb28f9f942dca37 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
-    implements PrimitiveSerializer<$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt> {
-  const _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer();
+class _$523892e2348458a2bdb28f9f942dca37Serializer implements PrimitiveSerializer<_$523892e2348458a2bdb28f9f942dca37> {
+  const _$523892e2348458a2bdb28f9f942dca37Serializer();
 
   @override
-  Iterable<Type> get types => const [$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt];
+  Iterable<Type> get types => const [_$523892e2348458a2bdb28f9f942dca37];
 
   @override
-  String get wireName => r'$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt';
+  String get wireName => r'_$523892e2348458a2bdb28f9f942dca37';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt object, {
+    _$523892e2348458a2bdb28f9f942dca37 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -430,7 +468,7 @@ class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
   }
 
   @override
-  $BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfInt deserialize(
+  _$523892e2348458a2bdb28f9f942dca37 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -467,30 +505,34 @@ class _$BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntSerializer
   }
 }
 
-typedef $BaseOneOf1Num = ({BaseOneOf1? baseOneOf1, num? $num});
+typedef _$abe6d27882a5771a98ede04cd64de567 = ({BaseOneOf1? baseOneOf1, num? $num});
 
-extension $BaseOneOf1NumExtension on $BaseOneOf1Num {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede04cd64de567 {
   List<dynamic> get _values => [baseOneOf1, $num];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseOneOf1Num> get serializer => const _$BaseOneOf1NumSerializer();
-  static $BaseOneOf1Num fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$abe6d27882a5771a98ede04cd64de567> get _serializer =>
+      const _$abe6d27882a5771a98ede04cd64de567Serializer();
+  static _$abe6d27882a5771a98ede04cd64de567 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
-  const _$BaseOneOf1NumSerializer();
+class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerializer<_$abe6d27882a5771a98ede04cd64de567> {
+  const _$abe6d27882a5771a98ede04cd64de567Serializer();
 
   @override
-  Iterable<Type> get types => const [$BaseOneOf1Num];
+  Iterable<Type> get types => const [_$abe6d27882a5771a98ede04cd64de567];
 
   @override
-  String get wireName => r'$BaseOneOf1Num';
+  String get wireName => r'_$abe6d27882a5771a98ede04cd64de567';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseOneOf1Num object, {
+    _$abe6d27882a5771a98ede04cd64de567 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -507,7 +549,7 @@ class _$BaseOneOf1NumSerializer implements PrimitiveSerializer<$BaseOneOf1Num> {
   }
 
   @override
-  $BaseOneOf1Num deserialize(
+  _$abe6d27882a5771a98ede04cd64de567 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -531,19 +573,19 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(BaseAllOf.serializer)
       ..addBuilderFactory(const FullType(BaseOneOf1), BaseOneOf1Builder.new)
       ..add(BaseOneOf1.serializer)
-      ..add($BaseOneOf1DoubleExtension.serializer)
+      ..add($fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer)
       ..addBuilderFactory(const FullType(BaseAnyOf1), BaseAnyOf1Builder.new)
       ..add(BaseAnyOf1.serializer)
-      ..add($BaseAnyOf1IntExtension.serializer)
+      ..add($ce3c7b262d1c503446a436c461be5be9Extension._serializer)
       ..addBuilderFactory(const FullType(BaseNestedAllOf), BaseNestedAllOfBuilder.new)
       ..add(BaseNestedAllOf.serializer)
       ..addBuilderFactory(const FullType(BaseNestedOneOf3), BaseNestedOneOf3Builder.new)
       ..add(BaseNestedOneOf3.serializer)
-      ..add($BaseAllOfBaseAnyOfBaseNestedOneOf3BaseOneOf1DoubleExtension.serializer)
+      ..add($8da5087c0b3f2cce06998d453af8ad19Extension._serializer)
       ..addBuilderFactory(const FullType(BaseNestedAnyOf3), BaseNestedAnyOf3Builder.new)
       ..add(BaseNestedAnyOf3.serializer)
-      ..add($BaseAllOfBaseAnyOf1BaseNestedAnyOf3BaseOneOfIntExtension.serializer)
-      ..add($BaseOneOf1NumExtension.serializer))
+      ..add($523892e2348458a2bdb28f9f942dca37Extension._serializer)
+      ..add($abe6d27882a5771a98ede04cd64de567Extension._serializer))
     .build();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()

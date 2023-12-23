@@ -11,7 +11,7 @@ void main() {
     Object? json = {'attribute1-oneOf': 'attribute1OneOf'};
 
     expect(object.toJson(), equals(json));
-    expect($ObjectOneOf0ObjectOneOf1Extension.fromJson(json), equals(object));
+    expect($ObjectOneOfExtension.fromJson(json), equals(object));
 
     object = (
       objectOneOf0: null,
@@ -21,7 +21,7 @@ void main() {
     json = {'attribute2-oneOf': 'attribute2OneOf'};
 
     expect(object.toJson(), equals(json));
-    expect($ObjectOneOf0ObjectOneOf1Extension.fromJson(json), equals(object));
+    expect($ObjectOneOfExtension.fromJson(json), equals(object));
   });
 
   test('MixedOneOf', () {
@@ -33,7 +33,7 @@ void main() {
     Object? json = {'attribute-oneOf': 'attributeOneOf'};
 
     expect(object.toJson(), equals(json));
-    expect($MixedOneOf1StringExtension.fromJson(json), equals(object));
+    expect($MixedOneOfExtension.fromJson(json), equals(object));
 
     object = (
       mixedOneOf1: null,
@@ -43,7 +43,7 @@ void main() {
     json = 'string';
 
     expect(object.toJson(), equals(json));
-    expect($MixedOneOf1StringExtension.fromJson(json), equals(object));
+    expect($MixedOneOfExtension.fromJson(json), equals(object));
   });
 
   test('OneObjectOneOf', () {
@@ -88,7 +88,7 @@ void main() {
     Object? json = 0.5971645863260784;
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json), equals(object));
+    expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
     object = (
       $num: 361,
@@ -98,7 +98,7 @@ void main() {
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json), equals(object));
+    expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
     object = (
       $num: null,
@@ -108,6 +108,6 @@ void main() {
     json = 'string';
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json), equals(object));
+    expect($OneOfIntDoubleOtherExtension.fromJson(json), equals(object));
   });
 }

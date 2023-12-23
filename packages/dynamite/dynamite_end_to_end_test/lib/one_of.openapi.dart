@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, discarded_futures
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
@@ -92,32 +92,54 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 }
 
 typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
-typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
-typedef OneOfIntDoubleOther = ({num? $num, String? string});
-typedef $ObjectOneOf0ObjectOneOf1 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
 
-extension $ObjectOneOf0ObjectOneOf1Extension on $ObjectOneOf0ObjectOneOf1 {
+extension $ObjectOneOfExtension on ObjectOneOf {
+  static Serializer<ObjectOneOf> get serializer => $6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer;
+  static ObjectOneOf fromJson(Object? json) => $6c828020e1dac1d58ded0a29ef8b0c41Extension._fromJson(json);
+}
+
+typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
+
+extension $MixedOneOfExtension on MixedOneOf {
+  static Serializer<MixedOneOf> get serializer => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer;
+  static MixedOneOf fromJson(Object? json) => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._fromJson(json);
+}
+
+typedef OneOfIntDoubleOther = ({num? $num, String? string});
+
+extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
+  static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+  static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
+}
+
+typedef _$6c828020e1dac1d58ded0a29ef8b0c41 = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $6c828020e1dac1d58ded0a29ef8b0c41Extension on _$6c828020e1dac1d58ded0a29ef8b0c41 {
   List<dynamic> get _values => [objectOneOf0, objectOneOf1];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$ObjectOneOf0ObjectOneOf1> get serializer => const _$ObjectOneOf0ObjectOneOf1Serializer();
-  static $ObjectOneOf0ObjectOneOf1 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$6c828020e1dac1d58ded0a29ef8b0c41> get _serializer =>
+      const _$6c828020e1dac1d58ded0a29ef8b0c41Serializer();
+  static _$6c828020e1dac1d58ded0a29ef8b0c41 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$ObjectOneOf0ObjectOneOf1Serializer implements PrimitiveSerializer<$ObjectOneOf0ObjectOneOf1> {
-  const _$ObjectOneOf0ObjectOneOf1Serializer();
+class _$6c828020e1dac1d58ded0a29ef8b0c41Serializer implements PrimitiveSerializer<_$6c828020e1dac1d58ded0a29ef8b0c41> {
+  const _$6c828020e1dac1d58ded0a29ef8b0c41Serializer();
 
   @override
-  Iterable<Type> get types => const [$ObjectOneOf0ObjectOneOf1];
+  Iterable<Type> get types => const [_$6c828020e1dac1d58ded0a29ef8b0c41];
 
   @override
-  String get wireName => r'$ObjectOneOf0ObjectOneOf1';
+  String get wireName => r'_$6c828020e1dac1d58ded0a29ef8b0c41';
 
   @override
   Object serialize(
     Serializers serializers,
-    $ObjectOneOf0ObjectOneOf1 object, {
+    _$6c828020e1dac1d58ded0a29ef8b0c41 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -134,7 +156,7 @@ class _$ObjectOneOf0ObjectOneOf1Serializer implements PrimitiveSerializer<$Objec
   }
 
   @override
-  $ObjectOneOf0ObjectOneOf1 deserialize(
+  _$6c828020e1dac1d58ded0a29ef8b0c41 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -151,30 +173,34 @@ class _$ObjectOneOf0ObjectOneOf1Serializer implements PrimitiveSerializer<$Objec
   }
 }
 
-typedef $MixedOneOf1String = ({MixedOneOf1? mixedOneOf1, String? string});
+typedef _$d1b40dfcebdca2dfa1f3e52ac98462a5 = ({MixedOneOf1? mixedOneOf1, String? string});
 
-extension $MixedOneOf1StringExtension on $MixedOneOf1String {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $d1b40dfcebdca2dfa1f3e52ac98462a5Extension on _$d1b40dfcebdca2dfa1f3e52ac98462a5 {
   List<dynamic> get _values => [mixedOneOf1, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$MixedOneOf1String> get serializer => const _$MixedOneOf1StringSerializer();
-  static $MixedOneOf1String fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$d1b40dfcebdca2dfa1f3e52ac98462a5> get _serializer =>
+      const _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer();
+  static _$d1b40dfcebdca2dfa1f3e52ac98462a5 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$MixedOneOf1StringSerializer implements PrimitiveSerializer<$MixedOneOf1String> {
-  const _$MixedOneOf1StringSerializer();
+class _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer implements PrimitiveSerializer<_$d1b40dfcebdca2dfa1f3e52ac98462a5> {
+  const _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer();
 
   @override
-  Iterable<Type> get types => const [$MixedOneOf1String];
+  Iterable<Type> get types => const [_$d1b40dfcebdca2dfa1f3e52ac98462a5];
 
   @override
-  String get wireName => r'$MixedOneOf1String';
+  String get wireName => r'_$d1b40dfcebdca2dfa1f3e52ac98462a5';
 
   @override
   Object serialize(
     Serializers serializers,
-    $MixedOneOf1String object, {
+    _$d1b40dfcebdca2dfa1f3e52ac98462a5 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -191,7 +217,7 @@ class _$MixedOneOf1StringSerializer implements PrimitiveSerializer<$MixedOneOf1S
   }
 
   @override
-  $MixedOneOf1String deserialize(
+  _$d1b40dfcebdca2dfa1f3e52ac98462a5 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -208,30 +234,34 @@ class _$MixedOneOf1StringSerializer implements PrimitiveSerializer<$MixedOneOf1S
   }
 }
 
-typedef $NumString = ({num? $num, String? string});
+typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 
-extension $NumStringExtension on $NumString {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$NumString> get serializer => const _$NumStringSerializer();
-  static $NumString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
+      const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+  static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
-  const _$NumStringSerializer();
+class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerializer<_$b6d67dc2a96424d2f407f8e51557f3de> {
+  const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
 
   @override
-  Iterable<Type> get types => const [$NumString];
+  Iterable<Type> get types => const [_$b6d67dc2a96424d2f407f8e51557f3de];
 
   @override
-  String get wireName => r'$NumString';
+  String get wireName => r'_$b6d67dc2a96424d2f407f8e51557f3de';
 
   @override
   Object serialize(
     Serializers serializers,
-    $NumString object, {
+    _$b6d67dc2a96424d2f407f8e51557f3de object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -248,7 +278,7 @@ class _$NumStringSerializer implements PrimitiveSerializer<$NumString> {
   }
 
   @override
-  $NumString deserialize(
+  _$b6d67dc2a96424d2f407f8e51557f3de deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -272,13 +302,13 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(ObjectOneOf0.serializer)
       ..addBuilderFactory(const FullType(ObjectOneOf1), ObjectOneOf1Builder.new)
       ..add(ObjectOneOf1.serializer)
-      ..add($ObjectOneOf0ObjectOneOf1Extension.serializer)
+      ..add($6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer)
       ..addBuilderFactory(const FullType(MixedOneOf1), MixedOneOf1Builder.new)
       ..add(MixedOneOf1.serializer)
-      ..add($MixedOneOf1StringExtension.serializer)
+      ..add($d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer)
       ..addBuilderFactory(const FullType(OneObjectOneOf0), OneObjectOneOf0Builder.new)
       ..add(OneObjectOneOf0.serializer)
-      ..add($NumStringExtension.serializer))
+      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer))
     .build();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()

@@ -1918,31 +1918,50 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
-typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
-typedef $ClearAtTimeTypeInt = ({ClearAtTimeType? clearAtTimeType, int? $int});
 
-extension $ClearAtTimeTypeIntExtension on $ClearAtTimeTypeInt {
+extension $ClearAt_TimeExtension on ClearAt_Time {
+  static Serializer<ClearAt_Time> get serializer => $557344b3ba734aacc7109e5420fcb6c5Extension._serializer;
+  static ClearAt_Time fromJson(Object? json) => $557344b3ba734aacc7109e5420fcb6c5Extension._fromJson(json);
+}
+
+typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
+
+extension $UserStatusRevertStatusResponseApplicationJson_Ocs_DataExtension
+    on UserStatusRevertStatusResponseApplicationJson_Ocs_Data {
+  static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
+      $d77829de8b7590d2e16cdb714800f5beExtension._serializer;
+  static UserStatusRevertStatusResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $d77829de8b7590d2e16cdb714800f5beExtension._fromJson(json);
+}
+
+typedef _$557344b3ba734aacc7109e5420fcb6c5 = ({ClearAtTimeType? clearAtTimeType, int? $int});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e5420fcb6c5 {
   List<dynamic> get _values => [clearAtTimeType, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$ClearAtTimeTypeInt> get serializer => const _$ClearAtTimeTypeIntSerializer();
-  static $ClearAtTimeTypeInt fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$557344b3ba734aacc7109e5420fcb6c5> get _serializer =>
+      const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
+  static _$557344b3ba734aacc7109e5420fcb6c5 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTimeTypeInt> {
-  const _$ClearAtTimeTypeIntSerializer();
+class _$557344b3ba734aacc7109e5420fcb6c5Serializer implements PrimitiveSerializer<_$557344b3ba734aacc7109e5420fcb6c5> {
+  const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
 
   @override
-  Iterable<Type> get types => const [$ClearAtTimeTypeInt];
+  Iterable<Type> get types => const [_$557344b3ba734aacc7109e5420fcb6c5];
 
   @override
-  String get wireName => r'$ClearAtTimeTypeInt';
+  String get wireName => r'_$557344b3ba734aacc7109e5420fcb6c5';
 
   @override
   Object serialize(
     Serializers serializers,
-    $ClearAtTimeTypeInt object, {
+    _$557344b3ba734aacc7109e5420fcb6c5 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -1959,7 +1978,7 @@ class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTime
   }
 
   @override
-  $ClearAtTimeTypeInt deserialize(
+  _$557344b3ba734aacc7109e5420fcb6c5 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -1977,30 +1996,34 @@ class _$ClearAtTimeTypeIntSerializer implements PrimitiveSerializer<$ClearAtTime
   }
 }
 
-typedef $BuiltListPrivate = ({BuiltList<Never>? builtListNever, Private? private});
+typedef _$d77829de8b7590d2e16cdb714800f5be = ({BuiltList<Never>? builtListNever, Private? private});
 
-extension $BuiltListPrivateExtension on $BuiltListPrivate {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb714800f5be {
   List<dynamic> get _values => [builtListNever, private];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListPrivate> get serializer => const _$BuiltListPrivateSerializer();
-  static $BuiltListPrivate fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$d77829de8b7590d2e16cdb714800f5be> get _serializer =>
+      const _$d77829de8b7590d2e16cdb714800f5beSerializer();
+  static _$d77829de8b7590d2e16cdb714800f5be _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPrivate> {
-  const _$BuiltListPrivateSerializer();
+class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerializer<_$d77829de8b7590d2e16cdb714800f5be> {
+  const _$d77829de8b7590d2e16cdb714800f5beSerializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListPrivate];
+  Iterable<Type> get types => const [_$d77829de8b7590d2e16cdb714800f5be];
 
   @override
-  String get wireName => r'$BuiltListPrivate';
+  String get wireName => r'_$d77829de8b7590d2e16cdb714800f5be';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListPrivate object, {
+    _$d77829de8b7590d2e16cdb714800f5be object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -2017,7 +2040,7 @@ class _$BuiltListPrivateSerializer implements PrimitiveSerializer<$BuiltListPriv
   }
 
   @override
-  $BuiltListPrivate deserialize(
+  _$d77829de8b7590d2e16cdb714800f5be deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -2070,7 +2093,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(ClearAt.serializer)
       ..add(ClearAt_Type.serializer)
       ..add(ClearAtTimeType.serializer)
-      ..add($ClearAtTimeTypeIntExtension.serializer)
+      ..add($557344b3ba734aacc7109e5420fcb6c5Extension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
       ..addBuilderFactory(
         const FullType(StatusesFindAllResponseApplicationJson),
@@ -2154,7 +2177,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(UserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($BuiltListPrivateExtension.serializer)
+      ..add($d77829de8b7590d2e16cdb714800f5beExtension._serializer)
       ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
       ..add(Capabilities.serializer)
       ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)

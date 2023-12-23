@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, discarded_futures
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
@@ -584,33 +584,61 @@ class _$GetHeadersEnumPatternSerializer implements PrimitiveSerializer<GetHeader
 }
 
 typedef GetOneOf = ({bool? $bool, String? string});
-typedef GetAnyOf = ({bool? $bool, String? string});
-typedef GetHeadersOneOf = ({bool? $bool, String? string});
-typedef GetHeadersAnyOf = ({bool? $bool, String? string});
-typedef $BoolString = ({bool? $bool, String? string});
 
-extension $BoolStringExtension on $BoolString {
+extension $GetOneOfExtension on GetOneOf {
+  static Serializer<GetOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+  static GetOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
+}
+
+typedef GetAnyOf = ({bool? $bool, String? string});
+
+extension $GetAnyOfExtension on GetAnyOf {
+  static Serializer<GetAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+  static GetAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
+}
+
+typedef GetHeadersOneOf = ({bool? $bool, String? string});
+
+extension $GetHeadersOneOfExtension on GetHeadersOneOf {
+  static Serializer<GetHeadersOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+  static GetHeadersOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
+}
+
+typedef GetHeadersAnyOf = ({bool? $bool, String? string});
+
+extension $GetHeadersAnyOfExtension on GetHeadersAnyOf {
+  static Serializer<GetHeadersAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+  static GetHeadersAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
+}
+
+typedef _$93403da1a64cb6a7b1597c7a05e9b2be = ({bool? $bool, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c7a05e9b2be {
   List<dynamic> get _values => [$bool, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BoolString> get serializer => const _$BoolStringSerializer();
-  static $BoolString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
+      const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
+  static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BoolStringSerializer implements PrimitiveSerializer<$BoolString> {
-  const _$BoolStringSerializer();
+class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerializer<_$93403da1a64cb6a7b1597c7a05e9b2be> {
+  const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
 
   @override
-  Iterable<Type> get types => const [$BoolString];
+  Iterable<Type> get types => const [_$93403da1a64cb6a7b1597c7a05e9b2be];
 
   @override
-  String get wireName => r'$BoolString';
+  String get wireName => r'_$93403da1a64cb6a7b1597c7a05e9b2be';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BoolString object, {
+    _$93403da1a64cb6a7b1597c7a05e9b2be object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -627,7 +655,7 @@ class _$BoolStringSerializer implements PrimitiveSerializer<$BoolString> {
   }
 
   @override
-  $BoolString deserialize(
+  _$93403da1a64cb6a7b1597c7a05e9b2be deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -660,7 +688,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(ContentString.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..add($BoolStringExtension.serializer)
+      ..add($93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer)
       ..add(GetEnumPattern.serializer)
       ..add(GetHeadersEnumPattern.serializer))
     .build();
