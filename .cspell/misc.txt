@@ -1,5 +1,6 @@
 browsable
 cleartext
+codegen
 deeplinking
 flathub
 foss
