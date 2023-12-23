@@ -1,5 +1,6 @@
 name: file_icons
 version: 1.0.0
+publish_to: none
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
