@@ -1,6 +1,13 @@
 name: nextcloud
-version: 1.0.0
+version: 4.0.0-dev.0
 publish_to: none
+description: A Nextcloud API client written in Dart supporting all maintained Nextcloud server versions.
+homepage: https://github.com/nextcloud/neon
+repository: https://github.com/nextcloud/neon/tree/main/packages/nextcloud
+topics:
+  - Nextcloud
+  - OpenAPI
+  - WebDAV
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -46,3 +53,11 @@ dev_dependencies:
   test: ^1.24.9
   test_api: ^0.6.1
   xml_serializable: ^2.4.1
+
+platforms:
+  windows:
+  linux:
+  macos:
+  android:
+  ios:
+  web:
