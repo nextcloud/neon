@@ -8,6 +8,7 @@ targets:
           pageWidth: 120
           analyzer_ignores:
             - camel_case_types
+            - camel_case_extensions
             - discarded_futures
             - public_member_api_docs
             - unreachable_switch_case

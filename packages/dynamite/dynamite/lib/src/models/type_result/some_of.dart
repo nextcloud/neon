@@ -25,7 +25,7 @@ abstract class TypeResultSomeOf extends TypeResult {
       return null;
     }
 
-    return '..add(${typeName}Extension.serializer)';
+    return '..add(${typeName}Extension._serializer)';
   }
 
   late final BuiltSet<TypeResult> optimizedSubTypes = _optimizedSubTypes.toBuiltSet();
@@ -50,7 +50,7 @@ abstract class TypeResultSomeOf extends TypeResult {
     );
   }
 
-  late final String typeName = _typeName;
+  late final String typeName = '\$${md5.convert(utf8.encode(_typeName))}';
 
   String get _typeName {
     final buffer = StringBuffer();
@@ -58,7 +58,7 @@ abstract class TypeResultSomeOf extends TypeResult {
       buffer.write(type.className.capitalize());
     }
 
-    return '\$${toDartName(buffer.toString(), uppercaseFirstCharacter: true)}';
+    return buffer.toString();
   }
 
   BuiltList<TypeResult> get _optimizedSubTypes {

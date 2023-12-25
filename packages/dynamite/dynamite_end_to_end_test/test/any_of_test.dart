@@ -11,7 +11,7 @@ void main() {
     Object? json = {'attribute1-anyOf': 'attribute1AnyOf'};
 
     expect(object.toJson(), equals(json));
-    expect($ObjectAnyOf0ObjectAnyOf1Extension.fromJson(json), equals(object));
+    expect($ObjectAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       objectAnyOf0: null,
@@ -21,7 +21,7 @@ void main() {
     json = {'attribute2-anyOf': 'attribute2AnyOf'};
 
     expect(object.toJson(), equals(json));
-    expect($ObjectAnyOf0ObjectAnyOf1Extension.fromJson(json), equals(object));
+    expect($ObjectAnyOfExtension.fromJson(json), equals(object));
   });
 
   test('MixedAnyOf', () {
@@ -33,7 +33,7 @@ void main() {
     Object? json = {'attribute-anyOf': 'attributeAnyOf'};
 
     expect(object.toJson(), equals(json));
-    expect($MixedAnyOf1StringExtension.fromJson(json), equals(object));
+    expect($MixedAnyOfExtension.fromJson(json), equals(object));
 
     object = (
       mixedAnyOf1: null,
@@ -43,7 +43,7 @@ void main() {
     json = 'string';
 
     expect(object.toJson(), equals(json));
-    expect($MixedAnyOf1StringExtension.fromJson(json), equals(object));
+    expect($MixedAnyOfExtension.fromJson(json), equals(object));
   });
 
   test('OneObjectAnyOf', () {
@@ -86,7 +86,7 @@ void main() {
     Object? json = 0.5971645863260784;
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json), equals(object));
+    expect($AnyOfIntDoubleOtherExtension.fromJson(json), equals(object));
 
     object = (
       $num: 361,
@@ -96,7 +96,7 @@ void main() {
     json = 361;
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json)..validateAnyOf(), equals(object));
+    expect($AnyOfIntDoubleOtherExtension.fromJson(json)..validateAnyOf(), equals(object));
 
     object = (
       $num: null,
@@ -106,6 +106,6 @@ void main() {
     json = 'string';
 
     expect(object.toJson(), equals(json));
-    expect($NumStringExtension.fromJson(json), equals(object));
+    expect($AnyOfIntDoubleOtherExtension.fromJson(json), equals(object));
   });
 }

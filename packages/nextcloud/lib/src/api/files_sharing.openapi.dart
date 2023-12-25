@@ -4922,31 +4922,49 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 }
 
 typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
-typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
-typedef $BuiltListInt = ({BuiltList<int>? builtListInt, int? $int});
 
-extension $BuiltListIntExtension on $BuiltListInt {
+extension $ShareesapiSearchShareTypeExtension on ShareesapiSearchShareType {
+  static Serializer<ShareesapiSearchShareType> get serializer => $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
+  static ShareesapiSearchShareType fromJson(Object? json) => $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
+}
+
+typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
+
+extension $ShareesapiFindRecommendedShareTypeExtension on ShareesapiFindRecommendedShareType {
+  static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
+      $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
+  static ShareesapiFindRecommendedShareType fromJson(Object? json) =>
+      $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
+}
+
+typedef _$07eaa0304017ba8abe7f9f20d6a736f3 = ({BuiltList<int>? builtListInt, int? $int});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f20d6a736f3 {
   List<dynamic> get _values => [builtListInt, $int];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListInt> get serializer => const _$BuiltListIntSerializer();
-  static $BuiltListInt fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$07eaa0304017ba8abe7f9f20d6a736f3> get _serializer =>
+      const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
+  static _$07eaa0304017ba8abe7f9f20d6a736f3 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
-  const _$BuiltListIntSerializer();
+class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerializer<_$07eaa0304017ba8abe7f9f20d6a736f3> {
+  const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListInt];
+  Iterable<Type> get types => const [_$07eaa0304017ba8abe7f9f20d6a736f3];
 
   @override
-  String get wireName => r'$BuiltListInt';
+  String get wireName => r'_$07eaa0304017ba8abe7f9f20d6a736f3';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListInt object, {
+    _$07eaa0304017ba8abe7f9f20d6a736f3 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -4963,7 +4981,7 @@ class _$BuiltListIntSerializer implements PrimitiveSerializer<$BuiltListInt> {
   }
 
   @override
-  $BuiltListInt deserialize(
+  _$07eaa0304017ba8abe7f9f20d6a736f3 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -5173,7 +5191,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..add($BuiltListIntExtension.serializer)
+      ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
       ..addBuilderFactory(
         const FullType(ShareesapiShareesapiSearchHeaders),
         ShareesapiShareesapiSearchHeadersBuilder.new,

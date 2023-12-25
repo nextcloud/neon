@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:built_collection/built_collection.dart';
+import 'package:crypto/crypto.dart';
 import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:meta/meta.dart';
 

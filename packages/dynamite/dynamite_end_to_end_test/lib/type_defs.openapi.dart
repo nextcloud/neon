@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, discarded_futures
+// ignore_for_file: camel_case_extensions, camel_case_types, discarded_futures
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
@@ -58,30 +58,40 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
 }
 
 typedef SomeOfRedirect = ({Base? base, int? $int, JsonObject? jsonObject});
-typedef $BaseIntJsonObject = ({Base? base, int? $int, JsonObject? jsonObject});
 
-extension $BaseIntJsonObjectExtension on $BaseIntJsonObject {
+extension $SomeOfRedirectExtension on SomeOfRedirect {
+  static Serializer<SomeOfRedirect> get serializer => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer;
+  static SomeOfRedirect fromJson(Object? json) => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._fromJson(json);
+}
+
+typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({Base? base, int? $int, JsonObject? jsonObject});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
   List<dynamic> get _values => [base, $int, jsonObject];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BaseIntJsonObject> get serializer => const _$BaseIntJsonObjectSerializer();
-  static $BaseIntJsonObject fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> get _serializer =>
+      const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
+  static _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonObject> {
-  const _$BaseIntJsonObjectSerializer();
+class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> {
+  const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
 
   @override
-  Iterable<Type> get types => const [$BaseIntJsonObject];
+  Iterable<Type> get types => const [_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba];
 
   @override
-  String get wireName => r'$BaseIntJsonObject';
+  String get wireName => r'_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BaseIntJsonObject object, {
+    _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -102,7 +112,7 @@ class _$BaseIntJsonObjectSerializer implements PrimitiveSerializer<$BaseIntJsonO
   }
 
   @override
-  $BaseIntJsonObject deserialize(
+  _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -130,7 +140,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(Base.serializer)
       ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
       ..add(NestedRedirect.serializer)
-      ..add($BaseIntJsonObjectExtension.serializer))
+      ..add($e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer))
     .build();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()

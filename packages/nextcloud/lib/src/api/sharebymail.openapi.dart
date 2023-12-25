@@ -197,30 +197,40 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
 }
 
 typedef Capabilities = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
-typedef $BuiltListCapabilities0 = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
 
-extension $BuiltListCapabilities0Extension on $BuiltListCapabilities0 {
+extension $CapabilitiesExtension on Capabilities {
+  static Serializer<Capabilities> get serializer => $7f1b9936cf688676379074249fff891bExtension._serializer;
+  static Capabilities fromJson(Object? json) => $7f1b9936cf688676379074249fff891bExtension._fromJson(json);
+}
+
+typedef _$7f1b9936cf688676379074249fff891b = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $7f1b9936cf688676379074249fff891bExtension on _$7f1b9936cf688676379074249fff891b {
   List<dynamic> get _values => [builtListNever, capabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListCapabilities0> get serializer => const _$BuiltListCapabilities0Serializer();
-  static $BuiltListCapabilities0 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$7f1b9936cf688676379074249fff891b> get _serializer =>
+      const _$7f1b9936cf688676379074249fff891bSerializer();
+  static _$7f1b9936cf688676379074249fff891b _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltListCapabilities0> {
-  const _$BuiltListCapabilities0Serializer();
+class _$7f1b9936cf688676379074249fff891bSerializer implements PrimitiveSerializer<_$7f1b9936cf688676379074249fff891b> {
+  const _$7f1b9936cf688676379074249fff891bSerializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListCapabilities0];
+  Iterable<Type> get types => const [_$7f1b9936cf688676379074249fff891b];
 
   @override
-  String get wireName => r'$BuiltListCapabilities0';
+  String get wireName => r'_$7f1b9936cf688676379074249fff891b';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListCapabilities0 object, {
+    _$7f1b9936cf688676379074249fff891b object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -237,7 +247,7 @@ class _$BuiltListCapabilities0Serializer implements PrimitiveSerializer<$BuiltLi
   }
 
   @override
-  $BuiltListCapabilities0 deserialize(
+  _$7f1b9936cf688676379074249fff891b deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -283,7 +293,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(Capabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($BuiltListCapabilities0Extension.serializer))
+      ..add($7f1b9936cf688676379074249fff891bExtension._serializer))
     .build();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()

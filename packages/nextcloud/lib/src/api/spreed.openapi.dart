@@ -33629,40 +33629,82 @@ abstract class PublicCapabilities0
 }
 
 typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+
+extension $Room_LastMessageExtension on Room_LastMessage {
+  static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
+  static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
+}
+
 typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
   BuiltList<Never>? builtListNever,
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
 });
+
+extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
+    on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
+  static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
+      $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+  static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
+      $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
+}
+
 typedef SettingsSetUserSettingValue = ({int? $int, String? string});
+
+extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
+  static Serializer<SettingsSetUserSettingValue> get serializer =>
+      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static SettingsSetUserSettingValue fromJson(Object? json) =>
+      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
 typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
   BuiltList<SignalingSession>? builtListSignalingSession,
   String? string
 });
-typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
-typedef $BuiltListChatMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
-extension $BuiltListChatMessageExtension on $BuiltListChatMessage {
+extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
+    on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
+  static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
+      $1df642f5035aea3b22543ab331c3fb01Extension._serializer;
+  static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
+      $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
+}
+
+typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
+
+extension $PublicCapabilitiesExtension on PublicCapabilities {
+  static Serializer<PublicCapabilities> get serializer => $bc4aac45771b11649d372f39a92b1cf3Extension._serializer;
+  static PublicCapabilities fromJson(Object? json) => $bc4aac45771b11649d372f39a92b1cf3Extension._fromJson(json);
+}
+
+typedef _$e620970959f428e934829e52f32b7089 = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e52f32b7089 {
   List<dynamic> get _values => [builtListNever, chatMessage];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListChatMessage> get serializer => const _$BuiltListChatMessageSerializer();
-  static $BuiltListChatMessage fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
+      const _$e620970959f428e934829e52f32b7089Serializer();
+  static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltListChatMessage> {
-  const _$BuiltListChatMessageSerializer();
+class _$e620970959f428e934829e52f32b7089Serializer implements PrimitiveSerializer<_$e620970959f428e934829e52f32b7089> {
+  const _$e620970959f428e934829e52f32b7089Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListChatMessage];
+  Iterable<Type> get types => const [_$e620970959f428e934829e52f32b7089];
 
   @override
-  String get wireName => r'$BuiltListChatMessage';
+  String get wireName => r'_$e620970959f428e934829e52f32b7089';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListChatMessage object, {
+    _$e620970959f428e934829e52f32b7089 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -33679,7 +33721,7 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
   }
 
   @override
-  $BuiltListChatMessage deserialize(
+  _$e620970959f428e934829e52f32b7089 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -33697,37 +33739,37 @@ class _$BuiltListChatMessageSerializer implements PrimitiveSerializer<$BuiltList
   }
 }
 
-typedef $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 = ({
+typedef _$bd993fb3f40af33e8594d0d698208560 = ({
   BuiltList<Never>? builtListNever,
   RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
 });
 
-extension $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Extension
-    on $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0d698208560 {
   List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> get serializer =>
-      const _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer();
-  static $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
+      const _$bd993fb3f40af33e8594d0d698208560Serializer();
+  static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer
-    implements PrimitiveSerializer<$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0> {
-  const _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer();
+class _$bd993fb3f40af33e8594d0d698208560Serializer implements PrimitiveSerializer<_$bd993fb3f40af33e8594d0d698208560> {
+  const _$bd993fb3f40af33e8594d0d698208560Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0];
+  Iterable<Type> get types => const [_$bd993fb3f40af33e8594d0d698208560];
 
   @override
-  String get wireName => r'$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0';
+  String get wireName => r'_$bd993fb3f40af33e8594d0d698208560';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 object, {
+    _$bd993fb3f40af33e8594d0d698208560 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -33747,7 +33789,7 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
   }
 
   @override
-  $BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0 deserialize(
+  _$bd993fb3f40af33e8594d0d698208560 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -33771,30 +33813,34 @@ class _$BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Serializ
   }
 }
 
-typedef $IntString = ({int? $int, String? string});
+typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 
-extension $IntStringExtension on $IntString {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$IntString> get serializer => const _$IntStringSerializer();
-  static $IntString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
+      const _$b2c4857c0136baea42828d89c87c757dSerializer();
+  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
-  const _$IntStringSerializer();
+class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
+  const _$b2c4857c0136baea42828d89c87c757dSerializer();
 
   @override
-  Iterable<Type> get types => const [$IntString];
+  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
 
   @override
-  String get wireName => r'$IntString';
+  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
 
   @override
   Object serialize(
     Serializers serializers,
-    $IntString object, {
+    _$b2c4857c0136baea42828d89c87c757d object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -33811,7 +33857,7 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }
 
   @override
-  $IntString deserialize(
+  _$b2c4857c0136baea42828d89c87c757d deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -33828,30 +33874,34 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }
 }
 
-typedef $BuiltListString = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
+typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
 
-extension $BuiltListStringExtension on $BuiltListString {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
   List<dynamic> get _values => [builtListSignalingSession, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListString> get serializer => const _$BuiltListStringSerializer();
-  static $BuiltListString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
+      const _$1df642f5035aea3b22543ab331c3fb01Serializer();
+  static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListString> {
-  const _$BuiltListStringSerializer();
+class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerializer<_$1df642f5035aea3b22543ab331c3fb01> {
+  const _$1df642f5035aea3b22543ab331c3fb01Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListString];
+  Iterable<Type> get types => const [_$1df642f5035aea3b22543ab331c3fb01];
 
   @override
-  String get wireName => r'$BuiltListString';
+  String get wireName => r'_$1df642f5035aea3b22543ab331c3fb01';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListString object, {
+    _$1df642f5035aea3b22543ab331c3fb01 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -33868,7 +33918,7 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
   }
 
   @override
-  $BuiltListString deserialize(
+  _$1df642f5035aea3b22543ab331c3fb01 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -33888,30 +33938,37 @@ class _$BuiltListStringSerializer implements PrimitiveSerializer<$BuiltListStrin
   }
 }
 
-typedef $BuiltListPublicCapabilities0 = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
+typedef _$bc4aac45771b11649d372f39a92b1cf3 = ({
+  BuiltList<Never>? builtListNever,
+  PublicCapabilities0? publicCapabilities0
+});
 
-extension $BuiltListPublicCapabilities0Extension on $BuiltListPublicCapabilities0 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f39a92b1cf3 {
   List<dynamic> get _values => [builtListNever, publicCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListPublicCapabilities0> get serializer => const _$BuiltListPublicCapabilities0Serializer();
-  static $BuiltListPublicCapabilities0 fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
+      const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
+  static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$BuiltListPublicCapabilities0> {
-  const _$BuiltListPublicCapabilities0Serializer();
+class _$bc4aac45771b11649d372f39a92b1cf3Serializer implements PrimitiveSerializer<_$bc4aac45771b11649d372f39a92b1cf3> {
+  const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListPublicCapabilities0];
+  Iterable<Type> get types => const [_$bc4aac45771b11649d372f39a92b1cf3];
 
   @override
-  String get wireName => r'$BuiltListPublicCapabilities0';
+  String get wireName => r'_$bc4aac45771b11649d372f39a92b1cf3';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListPublicCapabilities0 object, {
+    _$bc4aac45771b11649d372f39a92b1cf3 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -33928,7 +33985,7 @@ class _$BuiltListPublicCapabilities0Serializer implements PrimitiveSerializer<$B
   }
 
   @override
-  $BuiltListPublicCapabilities0 deserialize(
+  _$bc4aac45771b11649d372f39a92b1cf3 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -33981,7 +34038,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($BuiltListChatMessageExtension.serializer)
+      ..add($e620970959f428e934829e52f32b7089Extension._serializer)
       ..add(AvatarDeleteAvatarApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(AvatarDeleteAvatarResponseApplicationJson),
@@ -35033,7 +35090,7 @@ final Serializers serializers = (Serializers().toBuilder()
         RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0Builder.new,
       )
       ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0.serializer)
-      ..add($BuiltListRoomAddParticipantToRoomResponseApplicationJsonOcsData0Extension.serializer)
+      ..add($bd993fb3f40af33e8594d0d698208560Extension._serializer)
       ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
@@ -35266,7 +35323,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
       ..add(SettingsSetUserSettingKey.serializer)
-      ..add($IntStringExtension.serializer)
+      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..add(SettingsSetUserSettingApiVersion.serializer)
       ..addBuilderFactory(
         const FullType(SettingsSetUserSettingResponseApplicationJson),
@@ -35348,7 +35405,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
       ..add(SignalingSession.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(SignalingSession)]), ListBuilder<SignalingSession>.new)
-      ..add($BuiltListStringExtension.serializer)
+      ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
         ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
@@ -35427,7 +35484,7 @@ final Serializers serializers = (Serializers().toBuilder()
         PublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
       ..add(PublicCapabilities0_Spreed_Config_Signaling.serializer)
-      ..add($BuiltListPublicCapabilities0Extension.serializer))
+      ..add($bc4aac45771b11649d372f39a92b1cf3Extension._serializer))
     .build();
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()

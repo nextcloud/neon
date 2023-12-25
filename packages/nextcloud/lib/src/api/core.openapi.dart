@@ -10758,15 +10758,39 @@ abstract class WipeCheckWipeResponseApplicationJson
 }
 
 typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
+
+extension $AutocompleteResult_StatusExtension on AutocompleteResult_Status {
+  static Serializer<AutocompleteResult_Status> get serializer => $87e48e5649cd72b4d2947aaaea13ccd8Extension._serializer;
+  static AutocompleteResult_Status fromJson(Object? json) => $87e48e5649cd72b4d2947aaaea13ccd8Extension._fromJson(json);
+}
+
 typedef NavigationEntry_Order = ({int? $int, String? string});
+
+extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
+  static Serializer<NavigationEntry_Order> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
 typedef SharebymailCapabilities = ({
   BuiltList<Never>? builtListNever,
   SharebymailCapabilities0? sharebymailCapabilities0
 });
+
+extension $SharebymailCapabilitiesExtension on SharebymailCapabilities {
+  static Serializer<SharebymailCapabilities> get serializer => $46564992d3ed3482aa6c1162698aac99Extension._serializer;
+  static SharebymailCapabilities fromJson(Object? json) => $46564992d3ed3482aa6c1162698aac99Extension._fromJson(json);
+}
+
 typedef SpreedPublicCapabilities = ({
   BuiltList<Never>? builtListNever,
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
+
+extension $SpreedPublicCapabilitiesExtension on SpreedPublicCapabilities {
+  static Serializer<SpreedPublicCapabilities> get serializer => $06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer;
+  static SpreedPublicCapabilities fromJson(Object? json) => $06c2e47196a84ebc3718dccf9eb4b29dExtension._fromJson(json);
+}
+
 typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
@@ -10783,33 +10807,59 @@ typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
   UserStatusCapabilities? userStatusCapabilities,
   WeatherStatusCapabilities? weatherStatusCapabilities
 });
-typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
-typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
-typedef $AutocompleteResultStatus0String = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
 
-extension $AutocompleteResultStatus0StringExtension on $AutocompleteResultStatus0String {
+extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
+    on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
+  static Serializer<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities> get serializer =>
+      $3dc1754764311166375258bea55197c8Extension._serializer;
+  static OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities fromJson(Object? json) =>
+      $3dc1754764311166375258bea55197c8Extension._fromJson(json);
+}
+
+typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
+
+extension $UnifiedSearchSearchCursorExtension on UnifiedSearchSearchCursor {
+  static Serializer<UnifiedSearchSearchCursor> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static UnifiedSearchSearchCursor fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
+typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
+
+extension $UnifiedSearchResult_CursorExtension on UnifiedSearchResult_Cursor {
+  static Serializer<UnifiedSearchResult_Cursor> get serializer =>
+      $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+  static UnifiedSearchResult_Cursor fromJson(Object? json) =>
+      $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
+}
+
+typedef _$87e48e5649cd72b4d2947aaaea13ccd8 = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
+
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $87e48e5649cd72b4d2947aaaea13ccd8Extension on _$87e48e5649cd72b4d2947aaaea13ccd8 {
   List<dynamic> get _values => [autocompleteResultStatus0, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$AutocompleteResultStatus0String> get serializer =>
-      const _$AutocompleteResultStatus0StringSerializer();
-  static $AutocompleteResultStatus0String fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$87e48e5649cd72b4d2947aaaea13ccd8> get _serializer =>
+      const _$87e48e5649cd72b4d2947aaaea13ccd8Serializer();
+  static _$87e48e5649cd72b4d2947aaaea13ccd8 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer<$AutocompleteResultStatus0String> {
-  const _$AutocompleteResultStatus0StringSerializer();
+class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerializer<_$87e48e5649cd72b4d2947aaaea13ccd8> {
+  const _$87e48e5649cd72b4d2947aaaea13ccd8Serializer();
 
   @override
-  Iterable<Type> get types => const [$AutocompleteResultStatus0String];
+  Iterable<Type> get types => const [_$87e48e5649cd72b4d2947aaaea13ccd8];
 
   @override
-  String get wireName => r'$AutocompleteResultStatus0String';
+  String get wireName => r'_$87e48e5649cd72b4d2947aaaea13ccd8';
 
   @override
   Object serialize(
     Serializers serializers,
-    $AutocompleteResultStatus0String object, {
+    _$87e48e5649cd72b4d2947aaaea13ccd8 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -10826,7 +10876,7 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
   }
 
   @override
-  $AutocompleteResultStatus0String deserialize(
+  _$87e48e5649cd72b4d2947aaaea13ccd8 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -10846,30 +10896,34 @@ class _$AutocompleteResultStatus0StringSerializer implements PrimitiveSerializer
   }
 }
 
-typedef $IntString = ({int? $int, String? string});
+typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 
-extension $IntStringExtension on $IntString {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$IntString> get serializer => const _$IntStringSerializer();
-  static $IntString fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
+      const _$b2c4857c0136baea42828d89c87c757dSerializer();
+  static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
-  const _$IntStringSerializer();
+class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerializer<_$b2c4857c0136baea42828d89c87c757d> {
+  const _$b2c4857c0136baea42828d89c87c757dSerializer();
 
   @override
-  Iterable<Type> get types => const [$IntString];
+  Iterable<Type> get types => const [_$b2c4857c0136baea42828d89c87c757d];
 
   @override
-  String get wireName => r'$IntString';
+  String get wireName => r'_$b2c4857c0136baea42828d89c87c757d';
 
   @override
   Object serialize(
     Serializers serializers,
-    $IntString object, {
+    _$b2c4857c0136baea42828d89c87c757d object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -10886,7 +10940,7 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }
 
   @override
-  $IntString deserialize(
+  _$b2c4857c0136baea42828d89c87c757d deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -10903,35 +10957,37 @@ class _$IntStringSerializer implements PrimitiveSerializer<$IntString> {
   }
 }
 
-typedef $BuiltListSharebymailCapabilities0 = ({
+typedef _$46564992d3ed3482aa6c1162698aac99 = ({
   BuiltList<Never>? builtListNever,
   SharebymailCapabilities0? sharebymailCapabilities0
 });
 
-extension $BuiltListSharebymailCapabilities0Extension on $BuiltListSharebymailCapabilities0 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $46564992d3ed3482aa6c1162698aac99Extension on _$46564992d3ed3482aa6c1162698aac99 {
   List<dynamic> get _values => [builtListNever, sharebymailCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListSharebymailCapabilities0> get serializer =>
-      const _$BuiltListSharebymailCapabilities0Serializer();
-  static $BuiltListSharebymailCapabilities0 fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$46564992d3ed3482aa6c1162698aac99> get _serializer =>
+      const _$46564992d3ed3482aa6c1162698aac99Serializer();
+  static _$46564992d3ed3482aa6c1162698aac99 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializer<$BuiltListSharebymailCapabilities0> {
-  const _$BuiltListSharebymailCapabilities0Serializer();
+class _$46564992d3ed3482aa6c1162698aac99Serializer implements PrimitiveSerializer<_$46564992d3ed3482aa6c1162698aac99> {
+  const _$46564992d3ed3482aa6c1162698aac99Serializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListSharebymailCapabilities0];
+  Iterable<Type> get types => const [_$46564992d3ed3482aa6c1162698aac99];
 
   @override
-  String get wireName => r'$BuiltListSharebymailCapabilities0';
+  String get wireName => r'_$46564992d3ed3482aa6c1162698aac99';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListSharebymailCapabilities0 object, {
+    _$46564992d3ed3482aa6c1162698aac99 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -10948,7 +11004,7 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
   }
 
   @override
-  $BuiltListSharebymailCapabilities0 deserialize(
+  _$46564992d3ed3482aa6c1162698aac99 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -10967,36 +11023,37 @@ class _$BuiltListSharebymailCapabilities0Serializer implements PrimitiveSerializ
   }
 }
 
-typedef $BuiltListSpreedPublicCapabilities0 = ({
+typedef _$06c2e47196a84ebc3718dccf9eb4b29d = ({
   BuiltList<Never>? builtListNever,
   SpreedPublicCapabilities0? spreedPublicCapabilities0
 });
 
-extension $BuiltListSpreedPublicCapabilities0Extension on $BuiltListSpreedPublicCapabilities0 {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $06c2e47196a84ebc3718dccf9eb4b29dExtension on _$06c2e47196a84ebc3718dccf9eb4b29d {
   List<dynamic> get _values => [builtListNever, spreedPublicCapabilities0];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<$BuiltListSpreedPublicCapabilities0> get serializer =>
-      const _$BuiltListSpreedPublicCapabilities0Serializer();
-  static $BuiltListSpreedPublicCapabilities0 fromJson(Object? json) =>
-      jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$06c2e47196a84ebc3718dccf9eb4b29d> get _serializer =>
+      const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
+  static _$06c2e47196a84ebc3718dccf9eb4b29d _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$BuiltListSpreedPublicCapabilities0Serializer
-    implements PrimitiveSerializer<$BuiltListSpreedPublicCapabilities0> {
-  const _$BuiltListSpreedPublicCapabilities0Serializer();
+class _$06c2e47196a84ebc3718dccf9eb4b29dSerializer implements PrimitiveSerializer<_$06c2e47196a84ebc3718dccf9eb4b29d> {
+  const _$06c2e47196a84ebc3718dccf9eb4b29dSerializer();
 
   @override
-  Iterable<Type> get types => const [$BuiltListSpreedPublicCapabilities0];
+  Iterable<Type> get types => const [_$06c2e47196a84ebc3718dccf9eb4b29d];
 
   @override
-  String get wireName => r'$BuiltListSpreedPublicCapabilities0';
+  String get wireName => r'_$06c2e47196a84ebc3718dccf9eb4b29d';
 
   @override
   Object serialize(
     Serializers serializers,
-    $BuiltListSpreedPublicCapabilities0 object, {
+    _$06c2e47196a84ebc3718dccf9eb4b29d object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -11013,7 +11070,7 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
   }
 
   @override
-  $BuiltListSpreedPublicCapabilities0 deserialize(
+  _$06c2e47196a84ebc3718dccf9eb4b29d deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -11034,8 +11091,7 @@ class _$BuiltListSpreedPublicCapabilities0Serializer
   }
 }
 
-typedef $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
-    = ({
+typedef _$3dc1754764311166375258bea55197c8 = ({
   CommentsCapabilities? commentsCapabilities,
   DavCapabilities? davCapabilities,
   FilesCapabilities? filesCapabilities,
@@ -11052,8 +11108,9 @@ typedef $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabil
   WeatherStatusCapabilities? weatherStatusCapabilities
 });
 
-extension $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesExtension
-    on $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities {
+/// @nodoc
+// ignore: library_private_types_in_public_api
+extension $3dc1754764311166375258bea55197c8Extension on _$3dc1754764311166375258bea55197c8 {
   List<dynamic> get _values => [
         commentsCapabilities,
         davCapabilities,
@@ -11072,35 +11129,26 @@ extension $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapab
       ];
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
-  static Serializer<
-          $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities>
-      get serializer =>
-          const _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer();
-  static $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
-      fromJson(Object? json) => jsonSerializers.deserializeWith(serializer, json)!;
-  Object? toJson() => jsonSerializers.serializeWith(serializer, this);
+  static Serializer<_$3dc1754764311166375258bea55197c8> get _serializer =>
+      const _$3dc1754764311166375258bea55197c8Serializer();
+  static _$3dc1754764311166375258bea55197c8 _fromJson(Object? json) =>
+      jsonSerializers.deserializeWith(_serializer, json)!;
+  Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
-class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer
-    implements
-        PrimitiveSerializer<
-            $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities> {
-  const _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesSerializer();
+class _$3dc1754764311166375258bea55197c8Serializer implements PrimitiveSerializer<_$3dc1754764311166375258bea55197c8> {
+  const _$3dc1754764311166375258bea55197c8Serializer();
 
   @override
-  Iterable<Type> get types => const [
-        $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities,
-      ];
+  Iterable<Type> get types => const [_$3dc1754764311166375258bea55197c8];
 
   @override
-  String get wireName =>
-      r'$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities';
+  String get wireName => r'_$3dc1754764311166375258bea55197c8';
 
   @override
   Object serialize(
     Serializers serializers,
-    $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
-        object, {
+    _$3dc1754764311166375258bea55197c8 object, {
     FullType specifiedType = FullType.unspecified,
   }) {
     dynamic value;
@@ -11165,8 +11213,7 @@ class _$CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabili
   }
 
   @override
-  $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilities
-      deserialize(
+  _$3dc1754764311166375258bea55197c8 deserialize(
     Serializers serializers,
     Object data, {
     FullType specifiedType = FullType.unspecified,
@@ -11338,7 +11385,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(AutocompleteResult.serializer)
       ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0Builder.new)
       ..add(AutocompleteResult_Status0.serializer)
-      ..add($AutocompleteResultStatus0StringExtension.serializer)
+      ..add($87e48e5649cd72b4d2947aaaea13ccd8Extension._serializer)
       ..addBuilderFactory(
         const FullType(BuiltList, [FullType(AutocompleteResult)]),
         ListBuilder<AutocompleteResult>.new,
@@ -11467,7 +11514,7 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
       ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
       ..add(NavigationEntry.serializer)
-      ..add($IntStringExtension.serializer)
+      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
       ..addBuilderFactory(
         const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
@@ -11666,7 +11713,7 @@ final Serializers serializers = (Serializers().toBuilder()
       )
       ..add(SharebymailCapabilities0_FilesSharing_Sharebymail_ExpireDate.serializer)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($BuiltListSharebymailCapabilities0Extension.serializer)
+      ..add($46564992d3ed3482aa6c1162698aac99Extension._serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0), SpreedPublicCapabilities0Builder.new)
       ..add(SpreedPublicCapabilities0.serializer)
       ..addBuilderFactory(const FullType(SpreedPublicCapabilities0_Spreed), SpreedPublicCapabilities0_SpreedBuilder.new)
@@ -11706,7 +11753,7 @@ final Serializers serializers = (Serializers().toBuilder()
         SpreedPublicCapabilities0_Spreed_Config_SignalingBuilder.new,
       )
       ..add(SpreedPublicCapabilities0_Spreed_Config_Signaling.serializer)
-      ..add($BuiltListSpreedPublicCapabilities0Extension.serializer)
+      ..add($06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer)
       ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
       ..add(ThemingPublicCapabilities.serializer)
       ..addBuilderFactory(
@@ -11728,10 +11775,7 @@ final Serializers serializers = (Serializers().toBuilder()
         WeatherStatusCapabilities_WeatherStatusBuilder.new,
       )
       ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
-      ..add(
-        $CommentsCapabilitiesDavCapabilitiesFilesCapabilitiesFilesSharingCapabilitiesFilesTrashbinCapabilitiesFilesVersionsCapabilitiesNotesCapabilitiesNotificationsCapabilitiesProvisioningApiCapabilitiesSharebymailCapabilitiesSpreedPublicCapabilitiesThemingPublicCapabilitiesUserStatusCapabilitiesWeatherStatusCapabilitiesExtension
-            .serializer,
-      )
+      ..add($3dc1754764311166375258bea55197c8Extension._serializer)
       ..addBuilderFactory(
         const FullType(ProfileApiSetVisibilityResponseApplicationJson),
         ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
