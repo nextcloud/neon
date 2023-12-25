@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 
+/// Shows a dialog asking the user to confirm the question posed in the [title].
 Future<bool> showConfirmationDialog(final BuildContext context, final String title) async =>
     await showDialog<bool>(
       context: context,

@@ -3,9 +3,6 @@ import 'package:meta/meta.dart';
 import 'package:rxdart/subjects.dart';
 
 @internal
-typedef DestinationIconBuilder = Widget Function({double? size, Color color});
-
-@internal
 class NeonNavigationDestination {
   const NeonNavigationDestination({
     required this.label,
@@ -15,7 +12,7 @@ class NeonNavigationDestination {
   });
 
   final String label;
-  final DestinationIconBuilder icon;
+  final Widget Function({double? size, Color color}) icon;
   final Widget? selectedIcon;
   final BehaviorSubject<int>? notificationCount;
 }

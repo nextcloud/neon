@@ -64,8 +64,10 @@ class _LoginQRcodePageState extends State<LoginQRcodePage> {
       );
 }
 
+/// Exception which is thrown when an invalid QR code is encountered.
 @immutable
 class InvalidQRcodeException extends NeonException {
+  /// Creates a new [InvalidQRcodeException].
   const InvalidQRcodeException();
 
   @override

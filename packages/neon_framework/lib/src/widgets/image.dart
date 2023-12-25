@@ -127,6 +127,7 @@ class NeonCachedImage extends StatefulWidget {
     );
   }
 
+  /// The [CacheManager] instance.
   @visibleForTesting
   static DefaultCacheManager cacheManager = DefaultCacheManager();
 
