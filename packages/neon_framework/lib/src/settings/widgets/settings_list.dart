@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
