@@ -11,6 +11,7 @@ import 'package:neon_framework/src/widgets/options_collection_builder.dart';
 /// The background will be loaded from the server.
 /// It might be a single color or a full image.
 class NeonCustomBackground extends StatelessWidget {
+  /// Creates a new custom background.
   const NeonCustomBackground({
     required this.child,
     super.key,

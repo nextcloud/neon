@@ -6,6 +6,7 @@ abstract interface class Findable {
   String get id;
 }
 
+/// An extension to find [Findable]s in an iterable.
 extension FindExtension<T extends Findable> on Iterable<T> {
   /// Returns the first element matching [id] by [Findable.id].
   ///

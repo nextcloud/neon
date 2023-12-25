@@ -36,6 +36,7 @@ class SettingsCategory extends StatelessWidget {
   }
 }
 
+@internal
 class MaterialSettingsCategory extends StatelessWidget {
   const MaterialSettingsCategory({
     required this.children,

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/src/utils/validators.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
 
+/// Shows a dialog asking the user to rename the thing stated in the [title].
+///
+/// [value] describes the current name of the thing before renaming.
 Future<String?> showRenameDialog({
   required final BuildContext context,
   required final String title,

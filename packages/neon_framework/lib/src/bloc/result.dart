@@ -107,6 +107,7 @@ class Result<T> {
   /// Copies this Result in a loading state.
   Result<T> asLoading() => copyWith(isLoading: true);
 
+  /// Copies this Result and optionally replaces the [data], [error], [isLoading] and [isCached].
   Result<T> copyWith({
     final T? data,
     final Object? error,
