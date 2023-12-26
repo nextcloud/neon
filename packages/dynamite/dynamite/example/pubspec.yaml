@@ -9,10 +9,7 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   built_value: ^8.0.1
-  dynamite_runtime:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/dynamite/dynamite_runtime
+  dynamite_runtime: ^0.1.0
   meta: ^1.0.0
   universal_io: ^2.0.0
   uri: ^1.0.0
@@ -20,10 +17,7 @@ dependencies:
 dev_dependencies:
   build_runner: ^2.4.7
   built_value_generator: ^8.8.1
-  dynamite:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/dynamite/dynamite
+  dynamite: ^0.1.0
   neon_lints:
     git:
       url: https://github.com/nextcloud/neon

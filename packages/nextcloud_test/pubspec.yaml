@@ -7,10 +7,7 @@ environment:
 
 dependencies:
   built_collection: ^5.0.0
-  dynamite_runtime:
-    git:
-      url: https://github.com/nextcloud/neon
-      path: packages/dynamite/dynamite_runtime
+  dynamite_runtime: ^0.1.0
   meta: ^1.0.0
   mocktail: ^1.0.0
   nextcloud:
