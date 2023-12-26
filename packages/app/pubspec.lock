@@ -729,7 +729,7 @@ packages:
       path: "../nextcloud"
       relative: true
     source: path
-    version: "4.0.0-dev.0"
+    version: "4.0.0"
   open_file:
     dependency: transitive
     description:
