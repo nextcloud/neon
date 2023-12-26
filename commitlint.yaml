@@ -25,5 +25,6 @@ rules:
       - neon_notifications
       - nextcloud
       - nextcloud_test
+      - release
       - sort_box
       - tool
