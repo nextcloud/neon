@@ -7,23 +7,23 @@ rules:
   scope-enum:
     - 2
     - always
-    - - ci
+    - - app
+      - ci
       - deps
       - docs
-      - tool
-      - app
       - dynamite
+      - dynamite_end_to_end_test
       - dynamite_petstore_example
       - dynamite_runtime
-      - dynamite_end_to_end_test
       - file_icons
-      - neon_framework
       - neon_dashboard
       - neon_files
+      - neon_framework
+      - neon_lints
       - neon_news
       - neon_notes
       - neon_notifications
-      - neon_lints
       - nextcloud
       - nextcloud_test
       - sort_box
+      - tool
