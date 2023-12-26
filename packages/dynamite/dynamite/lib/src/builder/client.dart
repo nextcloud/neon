@@ -477,11 +477,14 @@ String buildParameterSerialization(
   }
   final dartName = toDartName(parameter.name);
   final serializedName = '\$$dartName';
-
-  final buffer = StringBuffer()..write('var $serializedName = ${result.serialize(dartName)};');
+  final buffer = StringBuffer();
 
   if ($default != null) {
-    buffer.writeln('$serializedName ??= $defaultValueCode;');
+    buffer
+      ..write('var $serializedName = ${result.serialize(dartName)};')
+      ..writeln('$serializedName ??= $defaultValueCode;');
+  } else {
+    buffer.write('final $serializedName = ${result.serialize(dartName)};');
   }
 
   if (parameter.schema != null) {
