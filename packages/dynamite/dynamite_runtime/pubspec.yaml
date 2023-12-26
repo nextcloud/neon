@@ -4,7 +4,7 @@ version: 0.1.0
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite_runtime
 topics:
-  - OpenAPI
+  - openapi
   - codegen
   - build-runner
 
