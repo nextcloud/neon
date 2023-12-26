@@ -4,7 +4,7 @@ description: The helper package used at runtime by code generated with the OpenA
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite
 topics:
-  - OpenAPI
+  - openapi
   - codegen
   - build-runner
 

@@ -5,9 +5,9 @@ description: A Nextcloud API client written in Dart supporting all maintained Ne
 homepage: https://github.com/nextcloud/neon
 repository: https://github.com/nextcloud/neon/tree/main/packages/nextcloud
 topics:
-  - Nextcloud
-  - OpenAPI
-  - WebDAV
+  - nextcloud
+  - openapi
+  - webdav
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
