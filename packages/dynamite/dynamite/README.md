@@ -26,7 +26,7 @@ To generate code you need to invoke the `build_runner` with the following comman
 dart run build_runner build
 ``` 
 The builder will look for any files ending with either `.openapi.json` or `.openapi.yaml` and place the generated code next to the specifications in a file ending with `.openapi.dart`.
-For a full example checkout the [example package](https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite_petstore_example) using the OpenAPI petstore specification.
+For a full example checkout the [example package](https://github.com/nextcloud/neon/tree/main/packages/dynamite/dynamite/example) using the OpenAPI petstore specification.
 
 
 # Build configuration
