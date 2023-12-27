@@ -33,7 +33,7 @@ Some endpoints do not need any authentication at all or provide extended informa
 It is not guaranteed that an API request will work unless the app is installed and enabled on the server (and has a supported version).  
 
 To get an easier overview of the available endpoints you can browse the [server OpenAPI documentation](https://docs.nextcloud.com/server/latest/developer_manual/_static/openapi.html), but be aware that the package might not be in sync with it.  
-Alternatively you can also go to https://pub.dev/documentation/nextcloud/latest (once the package has been republished at https://pub.dev/packages/nextcloud).
+Alternatively you can also go to https://pub.dev/documentation/nextcloud/latest.
 
 The endpoints are grouped by app and most apps also group their endpoints again.
 They can be accessed using getters on the `NextcloudClient`.
