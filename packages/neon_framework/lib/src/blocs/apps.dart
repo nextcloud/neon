@@ -61,27 +61,10 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     _apps.listen((final result) {
       appImplementations
           .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
-    });
 
-    appImplementations.listen((final result) async {
-      if (!result.hasData) {
-        return;
+      if (result.hasData) {
+        unawaited(_updateApps());
       }
-
-      // dispose unsupported apps
-      for (final app in _allAppImplementations) {
-        if (result.requireData.tryFind(app.id) == null) {
-          app.blocsCache.remove(_account);
-        }
-      }
-
-      final options = _accountsBloc.getOptionsFor(_account);
-      final initialApp = options.initialApp.value ?? _getInitialAppFallback();
-      if (initialApp != null) {
-        await setActiveApp(initialApp, skipAlreadySet: true);
-      }
-
-      unawaited(_checkCompatibility());
     });
 
     _capabilitiesBloc.capabilities.listen((final result) {
@@ -93,24 +76,58 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
         ),
       );
 
-      unawaited(_checkCompatibility());
+      if (result.hasData) {
+        unawaited(_updateApps());
+      }
     });
 
     unawaited(refresh());
   }
 
+  /// Disposes all unsupported apps, sets the active app and checks the app compatibility.
+  ///
+  /// Blocs of apps that are no longer present on the server are disposed.
+  /// The notifications app is handled separately because it does not appear in the list of apps.
+  Future<void> _updateApps() async {
+    // dispose unsupported apps
+    for (final app in _allAppImplementations) {
+      if (app.id == AppIDs.notifications) {
+        if (notificationsAppImplementation.hasValue &&
+            !notificationsAppImplementation.value.isCached &&
+            notificationsAppImplementation.value.data == null) {
+          app.blocsCache.remove(_account);
+        }
+        continue;
+      }
+
+      if (appImplementations.hasValue &&
+          !appImplementations.value.isCached &&
+          appImplementations.value.data?.tryFind(app.id) == null) {
+        app.blocsCache.remove(_account);
+      }
+    }
+
+    final initialApp = _getInitialAppFallback();
+    if (initialApp != null) {
+      await setActiveApp(initialApp);
+    }
+
+    await _checkCompatibility();
+  }
+
   /// Determines the appid of initial app.
   ///
-  /// It requires [appImplementations] to have both a value and data.
-  ///
-  /// The files app is always installed and can not be removed so it will be used, but in the
-  /// case this changes at a later point the first supported app will be returned.
-  ///
+  /// First the user selected initial app is checked, then the dashboard app and as the last one the files app.
+  /// If none of those apps are installed, the first supported one will be returned.
   /// Returns null when no app is supported by the server.
   String? _getInitialAppFallback() {
-    final supportedApps = appImplementations.value.requireData;
+    final supportedApps = appImplementations.valueOrNull?.data;
+    if (supportedApps == null) {
+      return null;
+    }
 
-    for (final fallback in {AppIDs.dashboard, AppIDs.files}) {
+    final options = _accountsBloc.getOptionsFor(_account);
+    for (final fallback in {options.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
       if (supportedApps.tryFind(fallback) != null) {
         return fallback;
       }
