@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/src/theme/branding.dart';
 import 'package:neon_framework/src/theme/colors.dart';
 import 'package:neon_framework/src/theme/neon.dart';
 import 'package:neon_framework/src/theme/server.dart';
@@ -19,7 +20,23 @@ class AppTheme {
     this.useNextcloudTheme = false,
     this.oledAsDark = false,
     this.appThemes,
-  });
+  }) : platform = null;
+
+  @visibleForTesting
+  const AppTheme.test({
+    this.serverTheme = const ServerTheme(nextcloudTheme: null),
+    this.deviceThemeLight,
+    this.deviceThemeDark,
+    this.neonTheme = const NeonTheme(
+      branding: Branding(
+        name: 'Test App',
+        logo: Placeholder(),
+      ),
+    ),
+    this.useNextcloudTheme = false,
+    this.oledAsDark = false,
+    this.platform,
+  }) : appThemes = null;
 
   /// The theme provided by the Nextcloud server.
   final ServerTheme serverTheme;
@@ -41,6 +58,10 @@ class AppTheme {
 
   /// The base theme for the Neon app.
   final NeonTheme neonTheme;
+
+  /// The platform the material widgets should adapt to target.
+  @visibleForTesting
+  final TargetPlatform? platform;
 
   ColorScheme _buildColorScheme(final Brightness brightness) {
     ColorScheme? colorScheme;
@@ -83,6 +104,7 @@ class AppTheme {
 
     return ThemeData(
       useMaterial3: true,
+      platform: platform,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: colorScheme.background,
       cardColor: colorScheme.background,
