@@ -69,5 +69,5 @@ flutter {
 }
 
 dependencies {
-    implementation('com.github.UnifiedPush:android-foss_embedded_fcm_distributor:1.0.0-beta3')
+    implementation('com.github.UnifiedPush:android-foss_embedded_fcm_distributor:1.0.0-beta4')
 }
