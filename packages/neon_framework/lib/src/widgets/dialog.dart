@@ -291,6 +291,7 @@ class NeonConfirmationDialog extends StatelessWidget {
 /// Use `showRenameDialog` to display this dialog.
 ///
 /// When submitted the new value will be popped as a `String`.
+/// If the new value is equal to the provided one `null` will be popped.
 class NeonRenameDialog extends StatefulWidget {
   /// Creates a new Neon rename dialog.
   const NeonRenameDialog({
@@ -328,8 +329,14 @@ class _NeonRenameDialogState extends State<NeonRenameDialog> {
   }
 
   void submit() {
-    if (formKey.currentState!.validate()) {
+    if (!formKey.currentState!.validate()) {
+      return;
+    }
+
+    if (controller.text != widget.value) {
       Navigator.of(context).pop(controller.text);
+    } else {
+      Navigator.of(context).pop();
     }
   }
 
