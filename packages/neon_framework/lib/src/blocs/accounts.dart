@@ -138,15 +138,15 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   /// The last state will be loaded from storage and all necessary listeners
   /// will be set up.
   _AccountsBloc(
-    this._globalOptions,
-    this._allAppImplementations,
+    this.globalOptions,
+    this.allAppImplementations,
   ) {
     const lastUsedStorage = SingleValueStorage(StorageKeys.lastUsedAccount);
 
     accounts
       ..add(loadAccounts())
       ..listen((final as) async {
-        _globalOptions.updateAccounts(as);
+        globalOptions.updateAccounts(as);
         await saveAccounts(as);
       });
     activeAccount.listen((final aa) async {
@@ -159,7 +159,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
     final as = accounts.value;
 
-    if (_globalOptions.rememberLastUsedAccount.value && lastUsedStorage.hasValue()) {
+    if (globalOptions.rememberLastUsedAccount.value && lastUsedStorage.hasValue()) {
       final lastUsedAccountID = lastUsedStorage.getString();
       if (lastUsedAccountID != null) {
         final aa = as.tryFind(lastUsedAccountID);
@@ -169,7 +169,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       }
     }
 
-    final account = as.tryFind(_globalOptions.initialAccount.value);
+    final account = as.tryFind(globalOptions.initialAccount.value);
     if (activeAccount.valueOrNull == null) {
       if (account != null) {
         setActiveAccount(account);
@@ -179,38 +179,38 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     }
 
     accounts.listen((final accounts) {
-      _accountsOptions.pruneAgainst(accounts);
-      _appsBlocs.pruneAgainst(accounts);
-      _capabilitiesBlocs.pruneAgainst(accounts);
-      _userDetailsBlocs.pruneAgainst(accounts);
-      _userStatusesBlocs.pruneAgainst(accounts);
-      _unifiedSearchBlocs.pruneAgainst(accounts);
-      for (final app in _allAppImplementations) {
+      accountsOptions.pruneAgainst(accounts);
+      appsBlocs.pruneAgainst(accounts);
+      capabilitiesBlocs.pruneAgainst(accounts);
+      userDetailsBlocs.pruneAgainst(accounts);
+      userStatusesBlocs.pruneAgainst(accounts);
+      unifiedSearchBlocs.pruneAgainst(accounts);
+      for (final app in allAppImplementations) {
         app.blocsCache.pruneAgainst(accounts);
       }
     });
   }
 
-  final GlobalOptions _globalOptions;
-  final Iterable<AppImplementation> _allAppImplementations;
+  final GlobalOptions globalOptions;
+  final Iterable<AppImplementation> allAppImplementations;
 
-  final _accountsOptions = AccountCache<AccountOptions>();
-  final _appsBlocs = AccountCache<AppsBloc>();
-  final _capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
-  final _userDetailsBlocs = AccountCache<UserDetailsBloc>();
-  final _userStatusesBlocs = AccountCache<UserStatusesBloc>();
-  final _unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
+  final accountsOptions = AccountCache<AccountOptions>();
+  final appsBlocs = AccountCache<AppsBloc>();
+  final capabilitiesBlocs = AccountCache<CapabilitiesBloc>();
+  final userDetailsBlocs = AccountCache<UserDetailsBloc>();
+  final userStatusesBlocs = AccountCache<UserStatusesBloc>();
+  final unifiedSearchBlocs = AccountCache<UnifiedSearchBloc>();
 
   @override
   void dispose() {
     unawaited(activeAccount.close());
     unawaited(accounts.close());
-    _appsBlocs.dispose();
-    _capabilitiesBlocs.dispose();
-    _userDetailsBlocs.dispose();
-    _userStatusesBlocs.dispose();
-    _unifiedSearchBlocs.dispose();
-    _accountsOptions.dispose();
+    appsBlocs.dispose();
+    capabilitiesBlocs.dispose();
+    userDetailsBlocs.dispose();
+    userStatusesBlocs.dispose();
+    unifiedSearchBlocs.dispose();
+    accountsOptions.dispose();
   }
 
   @override
@@ -298,7 +298,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   AccountOptions get activeOptions => getOptionsFor(aa);
 
   @override
-  AccountOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountOptions(
+  AccountOptions getOptionsFor(final Account account) => accountsOptions[account] ??= AccountOptions(
         AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );
@@ -307,11 +307,11 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
 
   @override
-  AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account] ??= AppsBloc(
+  AppsBloc getAppsBlocFor(final Account account) => appsBlocs[account] ??= AppsBloc(
         getCapabilitiesBlocFor(account),
         this,
         account,
-        _allAppImplementations,
+        allAppImplementations,
       );
 
   @override
@@ -319,28 +319,27 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
 
   @override
   CapabilitiesBloc getCapabilitiesBlocFor(final Account account) =>
-      _capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
+      capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
 
   @override
   UserDetailsBloc get activeUserDetailsBloc => getUserDetailsBlocFor(aa);
 
   @override
   UserDetailsBloc getUserDetailsBlocFor(final Account account) =>
-      _userDetailsBlocs[account] ??= UserDetailsBloc(account);
+      userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
   @override
   UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
 
   @override
   UserStatusesBloc getUserStatusesBlocFor(final Account account) =>
-      _userStatusesBlocs[account] ??= UserStatusesBloc(account);
+      userStatusesBlocs[account] ??= UserStatusesBloc(account);
 
   @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
 
   @override
-  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) =>
-      _unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
+  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),
         account,
       );

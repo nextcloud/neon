@@ -69,31 +69,30 @@ sealed class AppsBloc implements InteractiveBloc {
 class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// Creates a new apps bloc.
   _AppsBloc(
-    this._capabilitiesBloc,
-    this._accountsBloc,
-    this._account,
-    this._allAppImplementations,
+    this.capabilitiesBloc,
+    this.accountsBloc,
+    this.account,
+    this.allAppImplementations,
   ) {
-    _apps.listen((final result) {
-      appImplementations
-          .add(result.transform((final data) => _filteredAppImplementations(data.map((final a) => a.id))));
+    apps.listen((final result) {
+      appImplementations.add(result.transform((final data) => filteredAppImplementations(data.map((final a) => a.id))));
 
       if (result.hasData) {
-        unawaited(_updateApps());
+        unawaited(updateApps());
       }
     });
 
-    _capabilitiesBloc.capabilities.listen((final result) {
+    capabilitiesBloc.capabilities.listen((final result) {
       notificationsAppImplementation.add(
         result.transform(
           (final data) => data.capabilities.notificationsCapabilities?.notifications != null
-              ? _findAppImplementation(AppIDs.notifications)
+              ? findAppImplementation(AppIDs.notifications)
               : null,
         ),
       );
 
       if (result.hasData) {
-        unawaited(_updateApps());
+        unawaited(updateApps());
       }
     });
 
@@ -104,14 +103,14 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   ///
   /// Blocs of apps that are no longer present on the server are disposed.
   /// The notifications app is handled separately because it does not appear in the list of apps.
-  Future<void> _updateApps() async {
+  Future<void> updateApps() async {
     // dispose unsupported apps
-    for (final app in _allAppImplementations) {
+    for (final app in allAppImplementations) {
       if (app.id == AppIDs.notifications) {
         if (notificationsAppImplementation.hasValue &&
             !notificationsAppImplementation.value.isCached &&
             notificationsAppImplementation.value.data == null) {
-          app.blocsCache.remove(_account);
+          app.blocsCache.remove(account);
         }
         continue;
       }
@@ -119,16 +118,16 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       if (appImplementations.hasValue &&
           !appImplementations.value.isCached &&
           appImplementations.value.data?.tryFind(app.id) == null) {
-        app.blocsCache.remove(_account);
+        app.blocsCache.remove(account);
       }
     }
 
-    final initialApp = _getInitialAppFallback();
+    final initialApp = getInitialAppFallback();
     if (initialApp != null) {
       await setActiveApp(initialApp);
     }
 
-    await _checkCompatibility();
+    await checkCompatibility();
   }
 
   /// Determines the appid of initial app.
@@ -136,13 +135,13 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// First the user selected initial app is checked, then the dashboard app and as the last one the files app.
   /// If none of those apps are installed, the first supported one will be returned.
   /// Returns null when no app is supported by the server.
-  String? _getInitialAppFallback() {
+  String? getInitialAppFallback() {
     final supportedApps = appImplementations.valueOrNull?.data;
     if (supportedApps == null) {
       return null;
     }
 
-    final options = _accountsBloc.getOptionsFor(_account);
+    final options = accountsBloc.getOptionsFor(account);
     for (final fallback in {options.initialApp.value, AppIDs.dashboard, AppIDs.files}) {
       if (supportedApps.tryFind(fallback) != null) {
         return fallback;
@@ -156,9 +155,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  Future<void> _checkCompatibility() async {
+  Future<void> checkCompatibility() async {
     final apps = appImplementations.valueOrNull;
-    final capabilities = _capabilitiesBloc.capabilities.valueOrNull;
+    final capabilities = capabilitiesBloc.capabilities.valueOrNull;
 
     // ignore cached data
     if (capabilities == null || apps == null || !capabilities.hasUncachedData || !apps.hasUncachedData) {
@@ -168,7 +167,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     final notSupported = <String, VersionCheck>{};
 
     try {
-      final coreCheck = _account.client.core.getVersionCheck(capabilities.requireData);
+      final coreCheck = account.client.core.getVersionCheck(capabilities.requireData);
       if (!coreCheck.isSupported && !capabilities.requireData.version.string.contains('dev')) {
         notSupported['core'] = coreCheck;
       }
@@ -179,7 +178,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
     for (final app in apps.requireData) {
       try {
-        final check = await app.getVersionCheck(_account, capabilities.requireData);
+        final check = await app.getVersionCheck(account, capabilities.requireData);
 
         if (check == null) {
           continue;
@@ -199,8 +198,8 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     }
   }
 
-  T? _findAppImplementation<T extends AppImplementation>(final String id) {
-    final matches = _filteredAppImplementations([id]);
+  T? findAppImplementation<T extends AppImplementation>(final String id) {
+    final matches = filteredAppImplementations([id]);
     if (matches.isNotEmpty) {
       return matches.single as T;
     }
@@ -208,18 +207,18 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
     return null;
   }
 
-  Iterable<AppImplementation> _filteredAppImplementations(final Iterable<String> appIds) =>
-      _allAppImplementations.where((final a) => appIds.contains(a.id));
+  Iterable<AppImplementation> filteredAppImplementations(final Iterable<String> appIds) =>
+      allAppImplementations.where((final a) => appIds.contains(a.id));
 
-  final CapabilitiesBloc _capabilitiesBloc;
-  final AccountsBloc _accountsBloc;
-  final Account _account;
-  final Iterable<AppImplementation> _allAppImplementations;
-  final _apps = BehaviorSubject<Result<List<core.NavigationEntry>>>();
+  final CapabilitiesBloc capabilitiesBloc;
+  final AccountsBloc accountsBloc;
+  final Account account;
+  final Iterable<AppImplementation> allAppImplementations;
+  final apps = BehaviorSubject<Result<List<core.NavigationEntry>>>();
 
   @override
   void dispose() {
-    unawaited(_apps.close());
+    unawaited(apps.close());
     unawaited(appImplementations.close());
     unawaited(notificationsAppImplementation.close());
     unawaited(activeApp.close());
@@ -248,10 +247,10 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      _account.id,
+      account.id,
       'apps-apps',
-      _apps,
-      _account.client.core.navigation.getAppsNavigationRaw(),
+      apps,
+      account.client.core.navigation.getAppsNavigationRaw(),
       (final response) => response.body.ocs.data.toList(),
     );
   }
@@ -276,9 +275,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   @override
   T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
-      appImplementation.getBloc(_account);
+      appImplementation.getBloc(account);
 
   @override
   List<Provider<Bloc>> get appBlocProviders =>
-      _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
+      allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
 }

@@ -62,8 +62,8 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
     this.options,
     this.account,
   ) {
-    options.uploadQueueParallelism.addListener(_uploadParallelismListener);
-    options.downloadQueueParallelism.addListener(_downloadParallelismListener);
+    options.uploadQueueParallelism.addListener(uploadParallelismListener);
+    options.downloadQueueParallelism.addListener(downloadParallelismListener);
   }
 
   @override
@@ -72,17 +72,17 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   @override
   late final browser = getNewFilesBrowserBloc();
 
-  final _uploadQueue = Queue();
-  final _downloadQueue = Queue();
+  final uploadQueue = Queue();
+  final downloadQueue = Queue();
 
   @override
   void dispose() {
-    _uploadQueue.dispose();
-    _downloadQueue.dispose();
+    uploadQueue.dispose();
+    downloadQueue.dispose();
     unawaited(tasks.close());
 
-    options.uploadQueueParallelism.removeListener(_uploadParallelismListener);
-    options.downloadQueueParallelism.removeListener(_downloadParallelismListener);
+    options.uploadQueueParallelism.removeListener(uploadParallelismListener);
+    options.downloadQueueParallelism.removeListener(downloadParallelismListener);
 
     super.dispose();
   }
@@ -119,7 +119,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   void openFile(final PathUri uri, final String etag, final String? mimeType) {
     wrapAction(
       () async {
-        final file = await _cacheFile(uri, etag);
+        final file = await cacheFile(uri, etag);
 
         final result = await OpenFile.open(file.path, type: mimeType);
         if (result.type != ResultType.done) {
@@ -134,7 +134,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   void shareFileNative(final PathUri uri, final String etag) {
     wrapAction(
       () async {
-        final file = await _cacheFile(uri, etag);
+        final file = await cacheFile(uri, etag);
 
         await Share.shareXFiles([XFile(file.path)]);
       },
@@ -182,7 +182,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
         if (!file.parent.existsSync()) {
           file.parent.createSync(recursive: true);
         }
-        await _downloadFile(uri, file);
+        await downloadFile(uri, file);
       },
       disableTimeout: true,
     );
@@ -197,14 +197,14 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
           file: File(localPath),
         );
         tasks.add(tasks.value..add(task));
-        await _uploadQueue.add(() => task.execute(account.client));
+        await uploadQueue.add(() => task.execute(account.client));
         tasks.add(tasks.value..remove(task));
       },
       disableTimeout: true,
     );
   }
 
-  Future<File> _cacheFile(final PathUri uri, final String etag) async {
+  Future<File> cacheFile(final PathUri uri, final String etag) async {
     final cacheDir = await getApplicationCacheDirectory();
     final file = File(p.join(cacheDir.path, 'files', etag.replaceAll('"', ''), uri.name));
 
@@ -213,13 +213,13 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       if (!file.parent.existsSync()) {
         await file.parent.create(recursive: true);
       }
-      await _downloadFile(uri, file);
+      await downloadFile(uri, file);
     }
 
     return file;
   }
 
-  Future<void> _downloadFile(
+  Future<void> downloadFile(
     final PathUri uri,
     final File file,
   ) async {
@@ -228,7 +228,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
       file: file,
     );
     tasks.add(tasks.value..add(task));
-    await _downloadQueue.add(() => task.execute(account.client));
+    await downloadQueue.add(() => task.execute(account.client));
     tasks.add(tasks.value..remove(task));
   }
 
@@ -242,12 +242,12 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
         initialPath: initialUri,
       );
 
-  void _downloadParallelismListener() {
-    _downloadQueue.parallel = options.downloadQueueParallelism.value;
+  void downloadParallelismListener() {
+    downloadQueue.parallel = options.downloadQueueParallelism.value;
   }
 
-  void _uploadParallelismListener() {
-    _uploadQueue.parallel = options.uploadQueueParallelism.value;
+  void uploadParallelismListener() {
+    uploadQueue.parallel = options.uploadQueueParallelism.value;
   }
 }
 

@@ -24,19 +24,19 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
   }
 
   final Uri serverURL;
-  late final _client = NextcloudClient(
+  late final client = NextcloudClient(
     serverURL,
     userAgentOverride: neonUserAgent,
   );
-  final _resultController = StreamController<core.LoginFlowV2Credentials>();
+  final resultController = StreamController<core.LoginFlowV2Credentials>();
 
-  Timer? _pollTimer;
+  Timer? pollTimer;
 
   @override
   void dispose() {
-    _cancelPollTimer();
+    cancelPollTimer();
     unawaited(init.close());
-    unawaited(_resultController.close());
+    unawaited(resultController.close());
 
     super.dispose();
   }
@@ -45,22 +45,22 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
   BehaviorSubject<Result<core.LoginFlowV2>> init = BehaviorSubject();
 
   @override
-  late Stream<core.LoginFlowV2Credentials> result = _resultController.stream.asBroadcastStream();
+  late Stream<core.LoginFlowV2Credentials> result = resultController.stream.asBroadcastStream();
 
   @override
   Future<void> refresh() async {
     try {
       init.add(Result.loading());
 
-      final initResponse = await _client.core.clientFlowLoginV2.init();
+      final initResponse = await client.core.clientFlowLoginV2.init();
       init.add(Result.success(initResponse.body));
 
-      _cancelPollTimer();
-      _pollTimer = Timer.periodic(const Duration(seconds: 1), (final _) async {
+      cancelPollTimer();
+      pollTimer = Timer.periodic(const Duration(seconds: 1), (final _) async {
         try {
-          final resultResponse = await _client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
-          _cancelPollTimer();
-          _resultController.add(resultResponse.body);
+          final resultResponse = await client.core.clientFlowLoginV2.poll(token: initResponse.body.poll.token);
+          cancelPollTimer();
+          resultController.add(resultResponse.body);
         } catch (e, s) {
           debugPrint(e.toString());
           debugPrint(s.toString());
@@ -73,10 +73,10 @@ class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
     }
   }
 
-  void _cancelPollTimer() {
-    if (_pollTimer != null) {
-      _pollTimer!.cancel();
-      _pollTimer = null;
+  void cancelPollTimer() {
+    if (pollTimer != null) {
+      pollTimer!.cancel();
+      pollTimer = null;
     }
   }
 }

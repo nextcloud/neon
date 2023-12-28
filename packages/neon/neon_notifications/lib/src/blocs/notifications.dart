@@ -27,7 +27,7 @@ sealed class NotificationsBloc implements NotificationsBlocInterface, Interactiv
 class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInterface, NotificationsBloc {
   _NotificationsBloc(
     this.options,
-    this._account,
+    this.account,
   ) {
     notificationsList.listen((final result) {
       if (result.hasData) {
@@ -36,16 +36,16 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
     });
 
     unawaited(refresh());
-    _timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
+    timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
   final NotificationsOptions options;
-  final Account _account;
-  late final NeonTimer _timer;
+  final Account account;
+  late final NeonTimer timer;
 
   @override
   void dispose() {
-    _timer.cancel();
+    timer.cancel();
     unawaited(notificationsList.close());
     unawaited(unreadCounter.close());
     super.dispose();
@@ -62,21 +62,21 @@ class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInt
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud<List<notifications.Notification>,
         notifications.EndpointListNotificationsResponseApplicationJson, void>(
-      _account.id,
+      account.id,
       'notifications-notifications',
       notificationsList,
-      _account.client.notifications.endpoint.listNotificationsRaw(),
+      account.client.notifications.endpoint.listNotificationsRaw(),
       (final response) => response.body.ocs.data.toList(),
     );
   }
 
   @override
   void deleteAllNotifications() {
-    wrapAction(() async => _account.client.notifications.endpoint.deleteAllNotifications());
+    wrapAction(() async => account.client.notifications.endpoint.deleteAllNotifications());
   }
 
   @override
   void deleteNotification(final int id) {
-    wrapAction(() async => _account.client.notifications.endpoint.deleteNotification(id: id));
+    wrapAction(() async => account.client.notifications.endpoint.deleteNotification(id: id));
   }
 }
