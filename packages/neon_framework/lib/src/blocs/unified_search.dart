@@ -64,28 +64,6 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   Future<void> refresh() async {
-    await _search();
-  }
-
-  @override
-  Future<void> search(final String term) async {
-    _term = term.trim();
-    await _search();
-  }
-
-  @override
-  void enable() {
-    enabled.add(true);
-  }
-
-  @override
-  void disable() {
-    enabled.add(false);
-    results.add(Result.success(null));
-    _term = '';
-  }
-
-  Future<void> _search() async {
     if (_term.isEmpty) {
       results.add(Result.success(null));
       return;
@@ -106,6 +84,24 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
       debugPrint(s.toString());
       results.add(Result.error(e));
     }
+  }
+
+  @override
+  Future<void> search(final String term) async {
+    _term = term.trim();
+    await refresh();
+  }
+
+  @override
+  void enable() {
+    enabled.add(true);
+  }
+
+  @override
+  void disable() {
+    enabled.add(false);
+    results.add(Result.success(null));
+    _term = '';
   }
 
   Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _getLoadingProviders(
