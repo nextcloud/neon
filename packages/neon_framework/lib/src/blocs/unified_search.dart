@@ -34,19 +34,19 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
 
 class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   _UnifiedSearchBloc(
-    this._appsBloc,
-    this._account,
+    this.appsBloc,
+    this.account,
   ) {
-    _appsBloc.activeApp.listen((final _) {
+    appsBloc.activeApp.listen((final _) {
       if (enabled.value) {
         disable();
       }
     });
   }
 
-  final AppsBloc _appsBloc;
-  final Account _account;
-  String _term = '';
+  final AppsBloc appsBloc;
+  final Account account;
+  String term = '';
 
   @override
   BehaviorSubject<bool> enabled = BehaviorSubject.seeded(false);
@@ -64,20 +64,20 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   Future<void> refresh() async {
-    if (_term.isEmpty) {
+    if (term.isEmpty) {
       results.add(Result.success(null));
       return;
     }
 
     try {
       results.add(results.value.asLoading());
-      final response = await _account.client.core.unifiedSearch.getProviders();
+      final response = await account.client.core.unifiedSearch.getProviders();
       final providers = response.body.ocs.data;
       results.add(
-        Result.success(Map.fromEntries(_getLoadingProviders(providers))),
+        Result.success(Map.fromEntries(getLoadingProviders(providers))),
       );
       for (final provider in providers) {
-        unawaited(_searchProvider(provider));
+        unawaited(searchProvider(provider));
       }
     } catch (e, s) {
       debugPrint(e.toString());
@@ -88,7 +88,7 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
 
   @override
   Future<void> search(final String term) async {
-    _term = term.trim();
+    this.term = term.trim();
     await refresh();
   }
 
@@ -101,10 +101,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
   void disable() {
     enabled.add(false);
     results.add(Result.success(null));
-    _term = '';
+    term = '';
   }
 
-  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _getLoadingProviders(
+  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> getLoadingProviders(
     final Iterable<core.UnifiedSearchProvider> providers,
   ) sync* {
     for (final provider in providers) {
@@ -112,26 +112,26 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     }
   }
 
-  Future<void> _searchProvider(final core.UnifiedSearchProvider provider) async {
-    _updateResults(provider, Result.loading());
+  Future<void> searchProvider(final core.UnifiedSearchProvider provider) async {
+    updateResults(provider, Result.loading());
     try {
-      final response = await _account.client.core.unifiedSearch.search(
+      final response = await account.client.core.unifiedSearch.search(
         providerId: provider.id,
-        term: _term,
+        term: term,
       );
-      _updateResults(provider, Result.success(response.body.ocs.data));
+      updateResults(provider, Result.success(response.body.ocs.data));
     } catch (e, s) {
       debugPrint(e.toString());
       debugPrint(s.toString());
-      _updateResults(provider, Result.error(e));
+      updateResults(provider, Result.error(e));
     }
   }
 
-  void _updateResults(final core.UnifiedSearchProvider provider, final Result<core.UnifiedSearchResult> result) =>
+  void updateResults(final core.UnifiedSearchProvider provider, final Result<core.UnifiedSearchResult> result) =>
       results.add(
         Result.success(
           Map.fromEntries(
-            _sortResults({
+            sortResults({
               ...?results.value.data,
               provider: result,
             }),
@@ -139,26 +139,26 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
         ),
       );
 
-  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> _sortResults(
+  Iterable<MapEntry<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>> sortResults(
     final Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>> results,
   ) sync* {
-    final activeApp = _appsBloc.activeApp.value;
+    final activeApp = appsBloc.activeApp.value;
 
     yield* results.entries
-        .where((final entry) => _providerMatchesApp(entry.key, activeApp))
-        .sorted((final a, final b) => _sortEntriesCount(a.value, b.value));
+        .where((final entry) => providerMatchesApp(entry.key, activeApp))
+        .sorted((final a, final b) => sortEntriesCount(a.value, b.value));
     yield* results.entries
-        .whereNot((final entry) => _providerMatchesApp(entry.key, activeApp))
-        .where((final entry) => _hasEntries(entry.value))
-        .sorted((final a, final b) => _sortEntriesCount(a.value, b.value));
+        .whereNot((final entry) => providerMatchesApp(entry.key, activeApp))
+        .where((final entry) => hasEntries(entry.value))
+        .sorted((final a, final b) => sortEntriesCount(a.value, b.value));
   }
 
-  bool _providerMatchesApp(final core.UnifiedSearchProvider provider, final AppImplementation app) =>
+  bool providerMatchesApp(final core.UnifiedSearchProvider provider, final AppImplementation app) =>
       provider.id == app.id || provider.id.startsWith('${app.id}_');
 
-  bool _hasEntries(final Result<core.UnifiedSearchResult> result) =>
+  bool hasEntries(final Result<core.UnifiedSearchResult> result) =>
       !result.hasData || result.requireData.entries.isNotEmpty;
 
-  int _sortEntriesCount(final Result<core.UnifiedSearchResult> a, final Result<core.UnifiedSearchResult> b) =>
+  int sortEntriesCount(final Result<core.UnifiedSearchResult> a, final Result<core.UnifiedSearchResult> b) =>
       (b.data?.entries.length ?? 0).compareTo(a.data?.entries.length ?? 0);
 }

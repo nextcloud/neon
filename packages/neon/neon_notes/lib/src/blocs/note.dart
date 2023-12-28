@@ -39,28 +39,28 @@ sealed class NotesNoteBloc implements InteractiveBloc {
 
 class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   _NotesNoteBloc(
-    this._notesBloc,
+    this.notesBloc,
     this.account,
     final notes.Note note,
   ) {
-    _emitNote(note);
+    emitNote(note);
     id = note.id;
     initialContent = note.content;
     initialTitle = note.title;
   }
 
-  void _emitNote(final notes.Note note) {
+  void emitNote(final notes.Note note) {
     category.add(note.category);
-    _etag = note.etag;
+    etag = note.etag;
   }
 
   // ignore: avoid_void_async
-  void _wrapAction(final Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
-    await _updateQueue.add(() async {
+  void wrapNoteAction(final Future<DynamiteResponse<notes.Note, dynamic>> Function(String etag) call) async {
+    await updateQueue.add(() async {
       try {
-        final response = await call(_etag);
-        _emitNote(response.body);
-        await _notesBloc.refresh();
+        final response = await call(etag);
+        emitNote(response.body);
+        await notesBloc.refresh();
       } catch (e, s) {
         debugPrint(e.toString());
         debugPrint(s.toString());
@@ -70,18 +70,18 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   }
 
   @override
-  NotesOptions get options => _notesBloc.options;
+  NotesOptions get options => notesBloc.options;
 
-  final NotesBloc _notesBloc;
+  final NotesBloc notesBloc;
   final Account account;
-  final _updateQueue = Queue();
+  final updateQueue = Queue();
 
   late final int id;
   @override
   late final String initialContent;
   @override
   late final String initialTitle;
-  late String _etag;
+  late String etag;
 
   @override
   void dispose() {
@@ -97,7 +97,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
 
   @override
   void updateCategory(final String category) {
-    _wrapAction(
+    wrapNoteAction(
       (final etag) async => account.client.notes.updateNote(
         id: id,
         category: category,
@@ -108,7 +108,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
 
   @override
   void updateContent(final String content) {
-    _wrapAction(
+    wrapNoteAction(
       (final etag) async => account.client.notes.updateNote(
         id: id,
         content: content,
@@ -119,7 +119,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
 
   @override
   void updateTitle(final String title) {
-    _wrapAction(
+    wrapNoteAction(
       (final etag) async => account.client.notes.updateNote(
         id: id,
         title: title,

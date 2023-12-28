@@ -28,55 +28,55 @@ sealed class PushNotificationsBloc {
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
   _PushNotificationsBloc(
-    this._accountsBloc,
-    this._globalOptions,
+    this.accountsBloc,
+    this.globalOptions,
   ) {
     if (NeonPlatform.instance.canUsePushNotifications) {
-      unawaited(UnifiedPush.getDistributors().then(_globalOptions.updateDistributors));
+      unawaited(UnifiedPush.getDistributors().then(globalOptions.updateDistributors));
 
-      _globalOptions.pushNotificationsEnabled.addListener(_pushNotificationsEnabledListener);
+      globalOptions.pushNotificationsEnabled.addListener(pushNotificationsEnabledListener);
       // Call the listener to update everything
-      unawaited(_pushNotificationsEnabledListener());
+      unawaited(pushNotificationsEnabledListener());
     }
   }
 
-  final AccountsBloc _accountsBloc;
-  late final _storage = const AppStorage(StorageKeys.lastEndpoint);
-  final GlobalOptions _globalOptions;
+  final AccountsBloc accountsBloc;
+  late final storage = const AppStorage(StorageKeys.lastEndpoint);
+  final GlobalOptions globalOptions;
 
-  StreamSubscription<List<Account>>? _accountsListener;
+  StreamSubscription<List<Account>>? accountsListener;
 
   @override
   void dispose() {
-    unawaited(_accountsListener?.cancel());
-    _globalOptions.pushNotificationsEnabled.removeListener(_pushNotificationsEnabledListener);
+    unawaited(accountsListener?.cancel());
+    globalOptions.pushNotificationsEnabled.removeListener(pushNotificationsEnabledListener);
   }
 
-  Future<void> _pushNotificationsEnabledListener() async {
-    if (_globalOptions.pushNotificationsEnabled.value) {
-      await _setupUnifiedPush();
+  Future<void> pushNotificationsEnabledListener() async {
+    if (globalOptions.pushNotificationsEnabled.value) {
+      await setupUnifiedPush();
 
-      _globalOptions.pushNotificationsDistributor.addListener(_distributorListener);
-      _accountsListener = _accountsBloc.accounts.listen(_registerUnifiedPushInstances);
+      globalOptions.pushNotificationsDistributor.addListener(distributorListener);
+      accountsListener = accountsBloc.accounts.listen(registerUnifiedPushInstances);
     } else {
-      _globalOptions.pushNotificationsDistributor.removeListener(_distributorListener);
-      unawaited(_accountsListener?.cancel());
+      globalOptions.pushNotificationsDistributor.removeListener(distributorListener);
+      unawaited(accountsListener?.cancel());
     }
   }
 
-  Future<void> _setupUnifiedPush() async {
+  Future<void> setupUnifiedPush() async {
     // We just use a single RSA keypair for all accounts
     final keypair = PushUtils.loadRSAKeypair();
 
     await UnifiedPush.initialize(
       onNewEndpoint: (final endpoint, final instance) async {
-        final account = _accountsBloc.accounts.value.tryFind(instance);
+        final account = accountsBloc.accounts.value.tryFind(instance);
         if (account == null) {
           debugPrint('Account for $instance not found, can not process endpoint');
           return;
         }
 
-        if (_storage.getString(account.id) == endpoint) {
+        if (storage.getString(account.id) == endpoint) {
           debugPrint('Endpoint not changed');
           return;
         }
@@ -89,7 +89,7 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
           proxyServer: '$endpoint#', // This is a hack to make the Nextcloud server directly push to the endpoint
         );
 
-        await _storage.setString(account.id, endpoint);
+        await storage.setString(account.id, endpoint);
 
         debugPrint(
           'Account $instance registered for push notifications ${json.encode(subscription.body.ocs.data.toJson())}',
@@ -99,36 +99,36 @@ class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
     );
   }
 
-  Future<void> _distributorListener() async {
-    final distributor = _globalOptions.pushNotificationsDistributor.value;
+  Future<void> distributorListener() async {
+    final distributor = globalOptions.pushNotificationsDistributor.value;
     final disabled = distributor == null;
     final sameDistributor = distributor == await UnifiedPush.getDistributor();
-    final accounts = _accountsBloc.accounts.value;
+    final accounts = accountsBloc.accounts.value;
     if (disabled || !sameDistributor) {
-      await _unregisterUnifiedPushInstances(accounts);
+      await unregisterUnifiedPushInstances(accounts);
     }
     if (!disabled && !sameDistributor) {
       debugPrint('UnifiedPush distributor changed to $distributor');
       await UnifiedPush.saveDistributor(distributor);
     }
     if (!disabled) {
-      await _registerUnifiedPushInstances(accounts);
+      await registerUnifiedPushInstances(accounts);
     }
   }
 
-  Future<void> _unregisterUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> unregisterUnifiedPushInstances(final List<Account> accounts) async {
     for (final account in accounts) {
       try {
         await account.client.notifications.push.removeDevice();
         await UnifiedPush.unregister(account.id);
-        await _storage.remove(account.id);
+        await storage.remove(account.id);
       } catch (e) {
         debugPrint('Failed to unregister device: $e');
       }
     }
   }
 
-  Future<void> _registerUnifiedPushInstances(final List<Account> accounts) async {
+  Future<void> registerUnifiedPushInstances(final List<Account> accounts) async {
     // Notifications will only work on accounts with app password
     for (final account in accounts.where((final a) => a.password != null)) {
       await UnifiedPush.registerApp(account.id);

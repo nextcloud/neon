@@ -21,22 +21,22 @@ sealed class DashboardBloc implements InteractiveBloc {
 ///
 /// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
 class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
-  _DashboardBloc(this._account) {
+  _DashboardBloc(this.account) {
     unawaited(refresh());
 
-    _timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
+    timer = TimerBloc().registerTimer(const Duration(seconds: 30), refresh);
   }
 
-  final Account _account;
-  late final NeonTimer _timer;
-  static const int _maxItems = 7;
+  final Account account;
+  late final NeonTimer timer;
+  static const int maxItems = 7;
 
   @override
   BehaviorSubject<Result<Map<dashboard.Widget, dashboard.WidgetItems?>>> widgets = BehaviorSubject();
 
   @override
   void dispose() {
-    _timer.cancel();
+    timer.cancel();
     unawaited(widgets.close());
     super.dispose();
   }
@@ -50,7 +50,7 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
       final v1WidgetIDs = ListBuilder<String>();
       final v2WidgetIDs = ListBuilder<String>();
 
-      final response = await _account.client.dashboard.dashboardApi.getWidgets();
+      final response = await account.client.dashboard.dashboardApi.getWidgets();
 
       for (final widget in response.body.ocs.data.values) {
         final itemApiVersions = widget.itemApiVersions;
@@ -68,14 +68,14 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         final widgetsIDs = v1WidgetIDs.build();
         debugPrint('Loading v1 widgets: ${widgetsIDs.join(', ')}');
 
-        final response = await _account.client.dashboard.dashboardApi.getWidgetItems(
+        final response = await account.client.dashboard.dashboardApi.getWidgetItems(
           widgets: widgetsIDs,
-          limit: _maxItems,
+          limit: maxItems,
         );
         for (final entry in response.body.ocs.data.entries) {
           widgets[entry.key] = dashboard.WidgetItems(
             (final b) => b
-              ..items = entry.value.sublist(0, min(entry.value.length, _maxItems)).toBuilder()
+              ..items = entry.value.sublist(0, min(entry.value.length, maxItems)).toBuilder()
               ..emptyContentMessage = ''
               ..halfEmptyContentMessage = '',
           );
@@ -86,17 +86,17 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         final widgetsIDs = v2WidgetIDs.build();
         debugPrint('Loading v2 widgets: ${widgetsIDs.join(', ')}');
 
-        final response = await _account.client.dashboard.dashboardApi.getWidgetItemsV2(
+        final response = await account.client.dashboard.dashboardApi.getWidgetItemsV2(
           widgets: widgetsIDs,
-          limit: _maxItems,
+          limit: maxItems,
         );
         widgets.addEntries(
           response.body.ocs.data.entries.map(
             (final entry) => MapEntry(
               entry.key,
               entry.value.rebuild((final b) {
-                if (b.items.length > _maxItems) {
-                  b.items.removeRange(_maxItems, b.items.length);
+                if (b.items.length > maxItems) {
+                  b.items.removeRange(maxItems, b.items.length);
                 }
               }),
             ),

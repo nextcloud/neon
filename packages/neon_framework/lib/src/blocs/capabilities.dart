@@ -18,12 +18,12 @@ sealed class CapabilitiesBloc implements InteractiveBloc {
 
 class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   _CapabilitiesBloc(
-    this._account,
+    this.account,
   ) {
     unawaited(refresh());
   }
 
-  final Account _account;
+  final Account account;
 
   @override
   void dispose() {
@@ -37,10 +37,10 @@ class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      _account.id,
+      account.id,
       'capabilities',
       capabilities,
-      _account.client.core.ocs.getCapabilitiesRaw(),
+      account.client.core.ocs.getCapabilitiesRaw(),
       (final response) => response.body.ocs.data,
     );
   }

@@ -34,19 +34,19 @@ sealed class NewsArticleBloc implements InteractiveBloc {
 
 class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
   _NewsArticleBloc(
-    this._newsArticlesBloc,
+    this.newsArticlesBloc,
     this.account,
     final news.Article article,
   ) {
-    _id = article.id;
+    id = article.id;
     unread.add(article.unread);
     starred.add(article.starred);
   }
 
-  final NewsArticlesBloc _newsArticlesBloc;
+  final NewsArticlesBloc newsArticlesBloc;
   final Account account;
 
-  late final int _id;
+  late final int id;
 
   @override
   void dispose() {
@@ -66,40 +66,40 @@ class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
 
   @override
   void markArticleAsRead() {
-    _wrapArticleAction(() async {
-      await account.client.news.markArticleAsRead(itemId: _id);
+    wrapArticleAction(() async {
+      await account.client.news.markArticleAsRead(itemId: id);
       unread.add(false);
     });
   }
 
   @override
   void markArticleAsUnread() {
-    _wrapArticleAction(() async {
-      await account.client.news.markArticleAsUnread(itemId: _id);
+    wrapArticleAction(() async {
+      await account.client.news.markArticleAsUnread(itemId: id);
       unread.add(true);
     });
   }
 
   @override
   void starArticle() {
-    _wrapArticleAction(() async {
-      await account.client.news.starArticle(itemId: _id);
+    wrapArticleAction(() async {
+      await account.client.news.starArticle(itemId: id);
       starred.add(true);
     });
   }
 
   @override
   void unstarArticle() {
-    _wrapArticleAction(() async {
-      await account.client.news.unstarArticle(itemId: _id);
+    wrapArticleAction(() async {
+      await account.client.news.unstarArticle(itemId: id);
       starred.add(false);
     });
   }
 
-  void _wrapArticleAction(final AsyncCallback call) => wrapAction(
+  void wrapArticleAction(final AsyncCallback call) => wrapAction(
         call,
         refresh: () async {
-          await _newsArticlesBloc.refresh();
+          await newsArticlesBloc.refresh();
         },
       );
 }

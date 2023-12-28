@@ -17,12 +17,12 @@ sealed class UserDetailsBloc implements InteractiveBloc {
 
 class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   _UserDetailsBloc(
-    this._account,
+    this.account,
   ) {
     unawaited(refresh());
   }
 
-  final Account _account;
+  final Account account;
 
   @override
   void dispose() {
@@ -36,10 +36,10 @@ class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
   @override
   Future<void> refresh() async {
     await RequestManager.instance.wrapNextcloud(
-      _account.id,
+      account.id,
       'user-details',
       userDetails,
-      _account.client.provisioningApi.users.getCurrentUserRaw(),
+      account.client.provisioningApi.users.getCurrentUserRaw(),
       (final response) => response.body.ocs.data,
     );
   }

@@ -24,44 +24,44 @@ sealed class UserStatusesBloc implements Disposable {
 
 class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
   _UserStatusesBloc(
-    this._account,
+    this.account,
   ) {
     unawaited(refresh());
-    _timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
+    timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
   }
 
-  final Account _account;
-  late final NeonTimer _timer;
+  final Account account;
+  late final NeonTimer timer;
 
   @override
   void dispose() {
-    _timer.cancel();
+    timer.cancel();
     unawaited(statuses.close());
     super.dispose();
   }
 
   @override
-  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> statuses = BehaviorSubject();
+  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> statuses = BehaviorSubject.seeded({});
 
   @override
   Future<void> refresh() async {
-    for (final username in _statuses.keys) {
+    for (final username in statuses.value.keys) {
       await load(username, force: true);
     }
   }
 
   @override
   Future<void> load(final String username, {final bool force = false}) async {
-    if (!force && _statuses.containsKey(username)) {
+    if (!force && statuses.value.containsKey(username)) {
       return;
     }
 
     try {
-      _updateStatus(username, Result.loading());
+      updateStatus(username, Result.loading());
 
       user_status.$PublicInterface? data;
 
-      if (_account.username == username) {
+      if (account.username == username) {
         var isAway = false;
         if (NeonPlatform.instance.canUseWindowManager) {
           final focused = await windowManager.isFocused();
@@ -69,7 +69,7 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
           isAway = !focused || !visible;
         }
         try {
-          final response = await _account.client.userStatus.heartbeat.heartbeat(
+          final response = await account.client.userStatus.heartbeat.heartbeat(
             status: isAway ? 'away' : 'online',
           );
           data = response.body.ocs.data;
@@ -82,28 +82,25 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
       }
 
       if (data == null) {
-        final response = await _account.client.userStatus.statuses.find(userId: username);
+        final response = await account.client.userStatus.statuses.find(userId: username);
         data = response.body.ocs.data;
       }
 
-      _updateStatus(username, Result.success(data));
+      updateStatus(username, Result.success(data));
     } catch (e, s) {
       if (e is DynamiteApiException && e.statusCode == 404) {
-        _updateStatus(username, Result.success(null));
+        updateStatus(username, Result.success(null));
         return;
       }
       debugPrint(e.toString());
       debugPrint(s.toString());
-      _updateStatus(username, Result.error(e));
+      updateStatus(username, Result.error(e));
     }
   }
 
-  Map<String, Result<user_status.$PublicInterface?>> get _statuses =>
-      statuses.valueOrNull ?? <String, Result<user_status.$PublicInterface?>>{};
-
-  void _updateStatus(final String username, final Result<user_status.$PublicInterface?> result) {
+  void updateStatus(final String username, final Result<user_status.$PublicInterface?> result) {
     statuses.add({
-      ..._statuses,
+      ...statuses.value,
       username: result,
     });
   }

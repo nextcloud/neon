@@ -74,7 +74,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
     account,
   );
 
-  late int _newestItemId;
+  late int newestItemId;
   @override
   int? id;
   @override
@@ -123,7 +123,7 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
         account.client.news.listFeedsRaw(),
         (final response) {
           if (response.body.newestItemId != null) {
-            _newestItemId = response.body.newestItemId!;
+            newestItemId = response.body.newestItemId!;
           }
           return response.body.feeds.toList();
         },
@@ -149,12 +149,12 @@ class _NewsBloc extends InteractiveBloc implements NewsBloc, NewsMainArticlesBlo
 
   @override
   void markFeedAsRead(final int feedId) {
-    wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: _newestItemId));
+    wrapAction(() async => account.client.news.markFeedAsRead(feedId: feedId, newestItemId: newestItemId));
   }
 
   @override
   void markFolderAsRead(final int folderId) {
-    wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: _newestItemId));
+    wrapAction(() async => account.client.news.markFolderAsRead(folderId: folderId, newestItemId: newestItemId));
   }
 
   @override

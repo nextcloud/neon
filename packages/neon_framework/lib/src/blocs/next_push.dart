@@ -28,48 +28,48 @@ sealed class NextPushBloc implements Disposable {
 
 class _NextPushBloc extends Bloc implements NextPushBloc {
   _NextPushBloc(
-    this._accountsBloc,
-    this._globalOptions, {
+    this.accountsBloc,
+    this.globalOptions, {
     final bool disabled = false,
   }) {
     if (disabled) {
       return;
     }
     Rx.merge([
-      _globalOptions.pushNotificationsEnabled.stream,
-      _globalOptions.pushNotificationsDistributor.stream,
-      _accountsBloc.accounts,
+      globalOptions.pushNotificationsEnabled.stream,
+      globalOptions.pushNotificationsDistributor.stream,
+      accountsBloc.accounts,
     ]).debounceTime(const Duration(milliseconds: 100)).listen((final _) async {
-      if (!_globalOptions.pushNotificationsEnabled.enabled || !_globalOptions.pushNotificationsEnabled.value) {
+      if (!globalOptions.pushNotificationsEnabled.enabled || !globalOptions.pushNotificationsEnabled.value) {
         return;
       }
-      if (_globalOptions.pushNotificationsDistributor.value != null) {
+      if (globalOptions.pushNotificationsDistributor.value != null) {
         return;
       }
-      if (_globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {
+      if (globalOptions.pushNotificationsDistributor.values.containsKey(unifiedPushNextPushID)) {
         // NextPush is already installed
         return;
       }
 
-      var supported = false;
-      for (final account in _accountsBloc.accounts.value) {
-        if (!_supported.containsKey(account)) {
+      var isSupported = false;
+      for (final account in accountsBloc.accounts.value) {
+        if (!supported.containsKey(account)) {
           try {
             final response = await account.client.uppush.check();
-            _supported[account] = response.body.success;
+            supported[account] = response.body.success;
           } catch (e, s) {
             debugPrint(e.toString());
             debugPrint(s.toString());
-            _supported[account] = false;
+            supported[account] = false;
           }
         }
-        if (_supported[account]!) {
-          supported = true;
+        if (supported[account]!) {
+          isSupported = true;
           break;
         }
       }
 
-      if (!supported) {
+      if (!isSupported) {
         return;
       }
 
@@ -80,9 +80,9 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
     });
   }
 
-  final AccountsBloc _accountsBloc;
-  final GlobalOptions _globalOptions;
-  final _supported = <Account, bool>{};
+  final AccountsBloc accountsBloc;
+  final GlobalOptions globalOptions;
+  final supported = <Account, bool>{};
 
   @override
   void dispose() {
