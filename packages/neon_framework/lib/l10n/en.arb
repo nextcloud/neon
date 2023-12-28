@@ -233,5 +233,19 @@
         "type": "int"
       }
     }
-  }
+  },
+  "userStatusSetStatus": "Set status",
+  "userStatusOnline": "Online",
+  "userStatusAway": "Away",
+  "userStatusDoNotDisturb": "Do not disturb",
+  "userStatusDoNotDisturbDescription": "Mute all notifications",
+  "userStatusInvisible": "Invisible",
+  "userStatusInvisibleDescription": "Appear offline",
+  "userStatusClearAfter": "Clear status after",
+  "userStatusClearAtDoNotClear": "Do not clear",
+  "userStatusClearAtToday": "Today",
+  "userStatusClearAtThisWeek": "This week",
+  "userStatusActionClear": "Clear status",
+  "userStatusStatusMessage": "Status message",
+  "userStatusOnlineStatus": "Online status"
 }

@@ -415,4 +415,46 @@ class NeonLocalizationsEn extends NeonLocalizations {
     );
     return '$time $_temp0';
   }
+
+  @override
+  String get userStatusSetStatus => 'Set status';
+
+  @override
+  String get userStatusOnline => 'Online';
+
+  @override
+  String get userStatusAway => 'Away';
+
+  @override
+  String get userStatusDoNotDisturb => 'Do not disturb';
+
+  @override
+  String get userStatusDoNotDisturbDescription => 'Mute all notifications';
+
+  @override
+  String get userStatusInvisible => 'Invisible';
+
+  @override
+  String get userStatusInvisibleDescription => 'Appear offline';
+
+  @override
+  String get userStatusClearAfter => 'Clear status after';
+
+  @override
+  String get userStatusClearAtDoNotClear => 'Do not clear';
+
+  @override
+  String get userStatusClearAtToday => 'Today';
+
+  @override
+  String get userStatusClearAtThisWeek => 'This week';
+
+  @override
+  String get userStatusActionClear => 'Clear status';
+
+  @override
+  String get userStatusStatusMessage => 'Status message';
+
+  @override
+  String get userStatusOnlineStatus => 'Online status';
 }
