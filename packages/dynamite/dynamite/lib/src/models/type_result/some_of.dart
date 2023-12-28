@@ -121,7 +121,7 @@ class TypeResultAnyOf extends TypeResultSomeOf {
 
   @override
   String deserialize(final String object, [final String? serializerName]) =>
-      '(${super.deserialize(object, serializerName)}..validateAnyOf())';
+      '(${super.deserialize(object, serializerName)})..validateAnyOf()';
 
   @override
   bool operator ==(final Object other) =>
@@ -143,7 +143,7 @@ class TypeResultOneOf extends TypeResultSomeOf {
 
   @override
   String deserialize(final String object, [final String? serializerName]) =>
-      '(${super.deserialize(object, serializerName)}..validateOneOf())';
+      '(${super.deserialize(object, serializerName)})..validateOneOf()';
 
   @override
   bool operator ==(final Object other) =>

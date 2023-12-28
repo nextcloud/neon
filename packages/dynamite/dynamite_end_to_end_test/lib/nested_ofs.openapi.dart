@@ -380,8 +380,8 @@ class _$8da5087c0b3f2cce06998d453af8ad19Serializer implements PrimitiveSerialize
     } catch (_) {}
     BaseAnyOf? baseAnyOf;
     try {
-      baseAnyOf =
-          ((serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)..validateAnyOf());
+      baseAnyOf = (serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)
+        ..validateAnyOf();
     } catch (_) {}
     BaseNestedOneOf3? baseNestedOneOf3;
     try {
@@ -488,8 +488,8 @@ class _$523892e2348458a2bdb28f9f942dca37Serializer implements PrimitiveSerialize
     } catch (_) {}
     BaseOneOf? baseOneOf;
     try {
-      baseOneOf =
-          ((serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf());
+      baseOneOf = (serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)
+        ..validateOneOf();
     } catch (_) {}
     int? $int;
     try {

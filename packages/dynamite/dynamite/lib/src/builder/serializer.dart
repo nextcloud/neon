@@ -13,12 +13,16 @@ List<Spec> buildSerializer(final State state) => [
         final serializers =
             state.resolvedTypes.map((final type) => type.serializers).expand((final element) => element).toSet();
 
-        final bodyBuilder = StringBuffer()
-          ..writeln('(Serializers().toBuilder()')
-          ..writeAll(serializers, '\n')
-          ..writeln(').build()');
+        if (serializers.isEmpty) {
+          b.assignment = const Code('Serializers()');
+        } else {
+          final bodyBuilder = StringBuffer()
+            ..writeln('(Serializers().toBuilder()')
+            ..writeAll(serializers, '\n')
+            ..writeln(').build()');
 
-        b.assignment = Code(bodyBuilder.toString());
+          b.assignment = Code(bodyBuilder.toString());
+        }
       }),
       Field((final b) {
         b

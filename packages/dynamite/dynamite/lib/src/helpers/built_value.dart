@@ -100,6 +100,10 @@ Method get toJsonMethod => Method(
         ..body = const Code('jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>'),
     );
 
+/// Builds the serializer getter for a built class.
+///
+/// If the serializer [isCustom] the getter is annotated to signal this to the built_value_generator.
+/// It is assumed that custom serializers have a const constructor.
 Method buildSerializer(final String className, {final bool isCustom = false}) => Method((final b) {
       b
         ..name = 'serializer'
@@ -107,7 +111,7 @@ Method buildSerializer(final String className, {final bool isCustom = false}) =>
         ..lambda = true
         ..static = true
         ..body = Code(
-          isCustom ? '_\$${className}Serializer()' : '_\$${toCamelCase(className)}Serializer',
+          isCustom ? 'const _\$${className}Serializer()' : '_\$${toCamelCase(className)}Serializer',
         )
         ..type = MethodType.getter;
       if (isCustom) {

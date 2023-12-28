@@ -5,6 +5,7 @@ import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/dynamite.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
+import 'package:source_helper/source_helper.dart';
 
 Spec buildBuiltClassSerializer(
   final State state,
@@ -38,7 +39,7 @@ Spec buildBuiltClassSerializer(
               ..lambda = true
               ..returns = refer('String')
               ..annotations.add(refer('override'))
-              ..body = Code("r'$identifier'"),
+              ..body = Code(escapeDartString(identifier)),
           ),
           Method((final b) {
             b

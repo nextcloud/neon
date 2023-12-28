@@ -187,7 +187,7 @@ Iterable<Spec> generateSomeOf(
             ..type = MethodType.getter
             ..name = 'wireName'
             ..lambda = true
-            ..body = Code("r'$identifier'"),
+            ..body = Code(escapeDartString(identifier)),
         ),
         Method((final b) {
           b
