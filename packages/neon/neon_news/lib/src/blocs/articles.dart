@@ -19,7 +19,22 @@ enum ListType {
   folder,
 }
 
-abstract interface class NewsArticlesBlocEvents {
+sealed class NewsArticlesBloc implements InteractiveBloc {
+  factory NewsArticlesBloc(
+    final NewsBloc newsBloc,
+    final NewsOptions options,
+    final Account account, {
+    final int? id,
+    final ListType? listType,
+  }) =>
+      _NewsArticlesBloc(
+        newsBloc,
+        options,
+        account,
+        id: id,
+        listType: listType,
+      );
+
   void setFilterType(final FilterType type);
 
   void markArticleAsRead(final news.Article article);
@@ -29,15 +44,17 @@ abstract interface class NewsArticlesBlocEvents {
   void starArticle(final news.Article article);
 
   void unstarArticle(final news.Article article);
-}
 
-abstract interface class NewsArticlesBlocStates {
   BehaviorSubject<Result<List<news.Article>>> get articles;
 
   BehaviorSubject<FilterType> get filterType;
+
+  NewsOptions get options;
+
+  ListType? get listType;
 }
 
-class NewsMainArticlesBloc extends NewsArticlesBloc {
+class NewsMainArticlesBloc extends _NewsArticlesBloc {
   NewsMainArticlesBloc(
     super._newsBloc,
     super.options,
@@ -45,8 +62,8 @@ class NewsMainArticlesBloc extends NewsArticlesBloc {
   );
 }
 
-class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents, NewsArticlesBlocStates {
-  NewsArticlesBloc(
+class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
+  _NewsArticlesBloc(
     this._newsBloc,
     this.options,
     this.account, {
@@ -64,9 +81,11 @@ class NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBlocEvents
   }
 
   final NewsBloc _newsBloc;
+  @override
   final NewsOptions options;
   final Account account;
   final int? id;
+  @override
   final ListType? listType;
 
   @override

@@ -104,7 +104,7 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
         if (app != null) {
           // TODO: use go_router once implemented
           final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-          await accountsBloc.activeAppsBloc.setActiveApp(app.id);
+          accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {
           final colorScheme = Theme.of(context).colorScheme;
 

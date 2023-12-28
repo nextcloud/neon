@@ -10,18 +10,16 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class LoginFlowBlocEvents {}
+sealed class LoginFlowBloc implements InteractiveBloc {
+  factory LoginFlowBloc(final Uri serverURL) => _LoginFlowBloc(serverURL);
 
-@internal
-abstract interface class LoginFlowBlocStates {
   BehaviorSubject<Result<core.LoginFlowV2>> get init;
 
   Stream<core.LoginFlowV2Credentials> get result;
 }
 
-@internal
-class LoginFlowBloc extends InteractiveBloc implements LoginFlowBlocEvents, LoginFlowBlocStates {
-  LoginFlowBloc(this.serverURL) {
+class _LoginFlowBloc extends InteractiveBloc implements LoginFlowBloc {
+  _LoginFlowBloc(this.serverURL) {
     unawaited(refresh());
   }
 

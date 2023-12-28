@@ -5,6 +5,7 @@ import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/platform.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
+import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/article.dart';
@@ -207,12 +208,15 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
             debugPrint(s.toString());
           }
 
+          final account = NeonProvider.of<AccountsBloc>(context).activeAccount.value!;
+
           if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
             await Navigator.of(context).push(
               MaterialPageRoute<void>(
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,
+                    account,
                     article,
                   ),
                   articlesBloc: widget.bloc,
@@ -230,6 +234,7 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
                 builder: (final context) => NewsArticlePage(
                   bloc: NewsArticleBloc(
                     widget.bloc,
+                    account,
                     article,
                   ),
                   articlesBloc: widget.bloc,

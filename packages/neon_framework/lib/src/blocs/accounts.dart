@@ -13,6 +13,7 @@ import 'package:neon_framework/src/blocs/user_statuses.dart';
 import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/app_implementation.dart';
+import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:neon_framework/src/utils/account_options.dart';
 import 'package:neon_framework/src/utils/findable.dart';
@@ -22,34 +23,39 @@ import 'package:rxdart/rxdart.dart';
 
 const _keyAccounts = 'accounts';
 
-/// Events for the [AccountsBloc].
-@internal
-abstract interface class AccountsBlocEvents {
+/// The Bloc responsible for managing the [Account]s
+@sealed
+abstract interface class AccountsBloc implements Disposable {
+  factory AccountsBloc(
+    final GlobalOptions globalOptions,
+    final Iterable<AppImplementation> allAppImplementations,
+  ) =>
+      _AccountsBloc(
+        globalOptions,
+        allAppImplementations,
+      );
+
   /// Logs in the given [account].
   ///
-  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBlocStates.accounts].
+  /// It will also call [setActiveAccount] when no other accounts are registered in [AccountsBloc.accounts].
   void addAccount(final Account account);
 
   /// Logs out the given [account].
   ///
-  /// If [account] is the current [AccountsBlocStates.activeAccount] it will automatically activate the first one in [AccountsBlocStates.accounts].
-  /// It is not defined whether listeners of [AccountsBlocStates.accounts] or [AccountsBlocStates.activeAccount] are informed first.
+  /// If [account] is the current [AccountsBloc.activeAccount] it will automatically activate the first one in [AccountsBloc.accounts].
+  /// It is not defined whether listeners of [AccountsBloc.accounts] or [AccountsBloc.activeAccount] are informed first.
   void removeAccount(final Account account);
 
   /// Updates the given [account].
   ///
-  /// It triggers an event in both [AccountsBlocStates.accounts] and [AccountsBlocStates.activeAccount] to inform all listeners.
+  /// It triggers an event in both [AccountsBloc.accounts] and [AccountsBloc.activeAccount] to inform all listeners.
   void updateAccount(final Account account);
 
   /// Sets the active [account].
   ///
-  /// It triggers an event in [AccountsBlocStates.activeAccount] to inform all listeners.
+  /// It triggers an event in [AccountsBloc.activeAccount] to inform all listeners.
   void setActiveAccount(final Account account);
-}
 
-/// States for the [AccountsBloc].
-@internal
-abstract interface class AccountsBlocStates {
   /// All registered accounts.
   ///
   /// An empty value represents a state where no account is logged in.
@@ -60,15 +66,78 @@ abstract interface class AccountsBlocStates {
   /// It should be ensured to only emit an event when it's value changes.
   /// A null value represents a state where no user is logged in.
   BehaviorSubject<Account?> get activeAccount;
+
+  /// Whether accounts are logged in.
+  bool get hasAccounts;
+
+  /// The options for the [activeAccount].
+  ///
+  /// Convenience method for [getOptionsFor] with the currently active account.
+  AccountOptions get activeOptions;
+
+  /// The options for the specified [account].
+  ///
+  /// Use [activeOptions] to get them for the [activeAccount].
+  AccountOptions getOptionsFor(final Account account);
+
+  /// The appsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getAppsBlocFor] with the currently active account.
+  AppsBloc get activeAppsBloc;
+
+  /// The appsBloc for the specified [account].
+  ///
+  /// Use [activeAppsBloc] to get them for the [activeAccount].
+  AppsBloc getAppsBlocFor(final Account account);
+
+  /// The capabilitiesBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getCapabilitiesBlocFor] with the currently active account.
+  CapabilitiesBloc get activeCapabilitiesBloc;
+
+  /// The capabilitiesBloc for the specified [account].
+  ///
+  /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
+  CapabilitiesBloc getCapabilitiesBlocFor(final Account account);
+
+  /// The userDetailsBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserDetailsBlocFor] with the currently active account.
+  UserDetailsBloc get activeUserDetailsBloc;
+
+  /// The userDetailsBloc for the specified [account].
+  ///
+  /// Use [activeUserDetailsBloc] to get them for the [activeAccount].
+  UserDetailsBloc getUserDetailsBlocFor(final Account account);
+
+  /// The userStatusBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUserStatusesBlocFor] with the currently active account.
+  UserStatusesBloc get activeUserStatusesBloc;
+
+  /// The userStatusBloc for the specified [account].
+  ///
+  /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
+  UserStatusesBloc getUserStatusesBlocFor(final Account account);
+
+  /// The UnifiedSearchBloc for the [activeAccount].
+  ///
+  /// Convenience method for [getUnifiedSearchBlocFor] with the currently active account.
+  UnifiedSearchBloc get activeUnifiedSearchBloc;
+
+  /// The UnifiedSearchBloc for the specified [account].
+  ///
+  /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
+  UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account);
 }
 
-/// The Bloc responsible for managing the [Account]s
-class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocStates {
+/// Implementation of [AccountsBloc].
+class _AccountsBloc extends Bloc implements AccountsBloc {
   /// Creates a new account bloc.
   ///
   /// The last state will be loaded from storage and all necessary listeners
   /// will be set up.
-  AccountsBloc(
+  _AccountsBloc(
     this._globalOptions,
     this._allAppImplementations,
   ) {
@@ -222,30 +291,22 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
     return aa;
   }
 
-  /// Whether accounts are logged in.
+  @override
   bool get hasAccounts => activeAccount.valueOrNull != null;
 
-  /// The options for the [activeAccount].
-  ///
-  /// Convenience method for [getOptionsFor] with the currently active account.
+  @override
   AccountOptions get activeOptions => getOptionsFor(aa);
 
-  /// The options for the specified [account].
-  ///
-  /// Use [activeOptions] to get them for the [activeAccount].
+  @override
   AccountOptions getOptionsFor(final Account account) => _accountsOptions[account] ??= AccountOptions(
         AppStorage(StorageKeys.accounts, account.id),
         getAppsBlocFor(account),
       );
 
-  /// The appsBloc for the [activeAccount].
-  ///
-  /// Convenience method for [getAppsBlocFor] with the currently active account.
+  @override
   AppsBloc get activeAppsBloc => getAppsBlocFor(aa);
 
-  /// The appsBloc for the specified [account].
-  ///
-  /// Use [activeAppsBloc] to get them for the [activeAccount].
+  @override
   AppsBloc getAppsBlocFor(final Account account) => _appsBlocs[account] ??= AppsBloc(
         getCapabilitiesBlocFor(account),
         this,
@@ -253,47 +314,31 @@ class AccountsBloc extends Bloc implements AccountsBlocEvents, AccountsBlocState
         _allAppImplementations,
       );
 
-  /// The capabilitiesBloc for the [activeAccount].
-  ///
-  /// Convenience method for [getCapabilitiesBlocFor] with the currently active account.
+  @override
   CapabilitiesBloc get activeCapabilitiesBloc => getCapabilitiesBlocFor(aa);
 
-  /// The capabilitiesBloc for the specified [account].
-  ///
-  /// Use [activeCapabilitiesBloc] to get them for the [activeAccount].
+  @override
   CapabilitiesBloc getCapabilitiesBlocFor(final Account account) =>
       _capabilitiesBlocs[account] ??= CapabilitiesBloc(account);
 
-  /// The userDetailsBloc for the [activeAccount].
-  ///
-  /// Convenience method for [getUserDetailsBlocFor] with the currently active account.
-  UserDetailsBloc get activeUerDetailsBloc => getUserDetailsBlocFor(aa);
+  @override
+  UserDetailsBloc get activeUserDetailsBloc => getUserDetailsBlocFor(aa);
 
-  /// The userDetailsBloc for the specified [account].
-  ///
-  /// Use [activeUerDetailsBloc] to get them for the [activeAccount].
+  @override
   UserDetailsBloc getUserDetailsBlocFor(final Account account) =>
       _userDetailsBlocs[account] ??= UserDetailsBloc(account);
 
-  /// The userStatusBloc for the [activeAccount].
-  ///
-  /// Convenience method for [getUserStatusesBlocFor] with the currently active account.
+  @override
   UserStatusesBloc get activeUserStatusesBloc => getUserStatusesBlocFor(aa);
 
-  /// The userStatusBloc for the specified [account].
-  ///
-  /// Use [activeUserStatusesBloc] to get them for the [activeAccount].
+  @override
   UserStatusesBloc getUserStatusesBlocFor(final Account account) =>
       _userStatusesBlocs[account] ??= UserStatusesBloc(account);
 
-  /// The UnifiedSearchBloc for the [activeAccount].
-  ///
-  /// Convenience method for [getUnifiedSearchBlocFor] with the currently active account.
+  @override
   UnifiedSearchBloc get activeUnifiedSearchBloc => getUnifiedSearchBlocFor(aa);
 
-  /// The UnifiedSearchBloc for the specified [account].
-  ///
-  /// Use [activeUnifiedSearchBloc] to get them for the [activeAccount].
+  @override
   UnifiedSearchBloc getUnifiedSearchBlocFor(final Account account) =>
       _unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         getAppsBlocFor(account),

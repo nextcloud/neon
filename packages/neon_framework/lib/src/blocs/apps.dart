@@ -17,19 +17,28 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
-/// Events for the [AppsBloc].
+/// The Bloc responsible for managing the [AppImplementation]s.
 @internal
-abstract interface class AppsBlocEvents {
+sealed class AppsBloc implements InteractiveBloc {
+  factory AppsBloc(
+    final CapabilitiesBloc capabilitiesBloc,
+    final AccountsBloc accountsBloc,
+    final Account account,
+    final Iterable<AppImplementation> allAppImplementations,
+  ) =>
+      _AppsBloc(
+        capabilitiesBloc,
+        accountsBloc,
+        account,
+        allAppImplementations,
+      );
+
   /// Sets the active app using the [appID].
   ///
   /// If the app is already the active app nothing will happen.
   /// When using [skipAlreadySet] nothing will be done if there already is an active app.
   void setActiveApp(final String appID, {final bool skipAlreadySet = false});
-}
 
-/// States for the [AppsBloc].
-@internal
-abstract interface class AppsBlocStates {
   /// A collection of clients used in the app drawer.
   ///
   /// It does not contain clients for that are specially handled like for the notifications.
@@ -46,13 +55,20 @@ abstract interface class AppsBlocStates {
 
   /// A collection of unsupported apps and their minimum required version.
   BehaviorSubject<Map<String, VersionCheck>> get appVersionChecks;
+
+  /// Returns the active [Bloc] for the given [appImplementation].
+  ///
+  /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
+  T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation);
+
+  /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
+  List<Provider<Bloc>> get appBlocProviders;
 }
 
-/// The Bloc responsible for managing the [AppImplementation]s.
-@internal
-class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates {
+/// Implementation of [AppsBloc].
+class _AppsBloc extends InteractiveBloc implements AppsBloc {
   /// Creates a new apps bloc.
-  AppsBloc(
+  _AppsBloc(
     this._capabilitiesBloc,
     this._accountsBloc,
     this._account,
@@ -258,13 +274,11 @@ class AppsBloc extends InteractiveBloc implements AppsBlocEvents, AppsBlocStates
     }
   }
 
-  /// Returns the active [Bloc] for the given [appImplementation].
-  ///
-  /// If no bloc exists yet a new one will be instantiated and cached in [AppImplementation.blocsCache].
+  @override
   T getAppBloc<T extends Bloc>(final AppImplementation<T, dynamic> appImplementation) =>
       appImplementation.getBloc(_account);
 
-  /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
+  @override
   List<Provider<Bloc>> get appBlocProviders =>
       _allAppImplementations.map((final appImplementation) => appImplementation.blocProvider).toList();
 }

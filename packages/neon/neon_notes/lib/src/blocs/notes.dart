@@ -8,7 +8,16 @@ import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/notes.dart' as notes;
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class NotesBlocEvents {
+sealed class NotesBloc implements InteractiveBloc {
+  factory NotesBloc(
+    final NotesOptions options,
+    final Account account,
+  ) =>
+      _NotesBloc(
+        options,
+        account,
+      );
+
   void createNote({
     final String title = '',
     final String category = '',
@@ -24,20 +33,21 @@ abstract interface class NotesBlocEvents {
   });
 
   void deleteNote(final int id);
-}
 
-abstract interface class NotesBlocStates {
   BehaviorSubject<Result<List<notes.Note>>> get notesList;
+
+  NotesOptions get options;
 }
 
-class NotesBloc extends InteractiveBloc implements NotesBlocEvents, NotesBlocStates {
-  NotesBloc(
+class _NotesBloc extends InteractiveBloc implements NotesBloc {
+  _NotesBloc(
     this.options,
     this.account,
   ) {
     unawaited(refresh());
   }
 
+  @override
   final NotesOptions options;
   final Account account;
 

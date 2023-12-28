@@ -9,17 +9,15 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class CapabilitiesBlocEvents {}
+sealed class CapabilitiesBloc implements InteractiveBloc {
+  /// Creates a new capabilities bloc.
+  factory CapabilitiesBloc(final Account account) => _CapabilitiesBloc(account);
 
-@internal
-abstract interface class CapabilitiesBlocStates {
   BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 
-@internal
-class CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBlocEvents, CapabilitiesBlocStates {
-  /// Creates a new capabilities bloc.
-  CapabilitiesBloc(
+class _CapabilitiesBloc extends InteractiveBloc implements CapabilitiesBloc {
+  _CapabilitiesBloc(
     this._account,
   ) {
     unawaited(refresh());

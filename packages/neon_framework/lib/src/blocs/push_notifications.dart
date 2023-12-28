@@ -15,14 +15,19 @@ import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:unifiedpush/unifiedpush.dart';
 
 @internal
-abstract interface class PushNotificationsBlocEvents {}
+sealed class PushNotificationsBloc {
+  factory PushNotificationsBloc(
+    final AccountsBloc accountsBloc,
+    final GlobalOptions globalOptions,
+  ) =>
+      _PushNotificationsBloc(
+        accountsBloc,
+        globalOptions,
+      );
+}
 
-@internal
-abstract interface class PushNotificationsBlocStates {}
-
-@internal
-class PushNotificationsBloc extends Bloc implements PushNotificationsBlocEvents, PushNotificationsBlocStates {
-  PushNotificationsBloc(
+class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
+  _PushNotificationsBloc(
     this._accountsBloc,
     this._globalOptions,
   ) {

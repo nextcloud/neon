@@ -15,6 +15,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/dashboard.dart' as dashboard;
 import 'package:rxdart/rxdart.dart';
 
+// ignore: subtype_of_sealed_class
 class MockAccountsBloc extends Mock implements AccountsBloc {}
 
 class MockCacheManager extends Mock implements DefaultCacheManager {}

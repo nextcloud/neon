@@ -9,16 +9,14 @@ import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class UserDetailsBlocEvents {}
+sealed class UserDetailsBloc implements InteractiveBloc {
+  factory UserDetailsBloc(final Account account) => _UserDetailsBloc(account);
 
-@internal
-abstract interface class UserDetailsBlocStates {
   BehaviorSubject<Result<provisioning_api.UserDetails>> get userDetails;
 }
 
-@internal
-class UserDetailsBloc extends InteractiveBloc implements UserDetailsBlocEvents, UserDetailsBlocStates {
-  UserDetailsBloc(
+class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
+  _UserDetailsBloc(
     this._account,
   ) {
     unawaited(refresh());

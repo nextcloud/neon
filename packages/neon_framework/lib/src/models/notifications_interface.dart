@@ -7,7 +7,7 @@ import 'package:neon_framework/src/settings/models/options_collection.dart';
 ///
 /// Use this to access the notifications client from other Neon clients.
 abstract interface class NotificationsAppInterface<T extends NotificationsBlocInterface,
-    R extends NotificationsOptionsInterface> extends AppImplementation<T, R> {
+    R extends AppImplementationOptions> extends AppImplementation<T, R> {
   /// Creates a new notifications client.
   NotificationsAppInterface();
 
@@ -18,18 +18,6 @@ abstract interface class NotificationsAppInterface<T extends NotificationsBlocIn
 
 /// The interface of the bloc used by the notifications client.
 abstract interface class NotificationsBlocInterface extends InteractiveBloc {
-  /// Creates a new notifications bloc.
-  NotificationsBlocInterface(this.options);
-
-  /// The options for the notifications client.
-  final NotificationsOptionsInterface options;
-
   /// Deletes the notification with the given [id].
   void deleteNotification(final int id);
-}
-
-/// The interface of the app options used by the notifications client.
-abstract interface class NotificationsOptionsInterface extends AppImplementationOptions {
-  /// Creates the nextcloud app options for the notifications client.
-  NotificationsOptionsInterface(super.storage);
 }

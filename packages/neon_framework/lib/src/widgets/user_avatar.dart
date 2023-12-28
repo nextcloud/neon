@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
@@ -57,7 +55,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
     super.initState();
 
     if (widget.showStatus) {
-      unawaited(_userStatusBloc.load(widget.username));
+      _userStatusBloc.load(widget.username);
     }
   }
 

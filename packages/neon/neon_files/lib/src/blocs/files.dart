@@ -18,7 +18,16 @@ import 'package:rxdart/rxdart.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:universal_io/io.dart';
 
-abstract interface class FilesBlocEvents {
+sealed class FilesBloc implements InteractiveBloc {
+  factory FilesBloc(
+    final FilesOptions options,
+    final Account account,
+  ) =>
+      _FilesBloc(
+        options,
+        account,
+      );
+
   void uploadFile(final PathUri uri, final String localPath);
 
   void syncFile(final PathUri uri);
@@ -38,14 +47,18 @@ abstract interface class FilesBlocEvents {
   void addFavorite(final PathUri uri);
 
   void removeFavorite(final PathUri uri);
-}
 
-abstract interface class FilesBlocStates {
   BehaviorSubject<List<FilesTask>> get tasks;
+
+  FilesOptions get options;
+
+  FilesBrowserBloc get browser;
+
+  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri});
 }
 
-class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocStates {
-  FilesBloc(
+class _FilesBloc extends InteractiveBloc implements FilesBloc {
+  _FilesBloc(
     this.options,
     this.account,
   ) {
@@ -53,8 +66,10 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     options.downloadQueueParallelism.addListener(_downloadParallelismListener);
   }
 
+  @override
   final FilesOptions options;
   final Account account;
+  @override
   late final browser = getNewFilesBrowserBloc();
 
   final _uploadQueue = Queue();
@@ -217,6 +232,7 @@ class FilesBloc extends InteractiveBloc implements FilesBlocEvents, FilesBlocSta
     tasks.add(tasks.value..remove(task));
   }
 
+  @override
   FilesBrowserBloc getNewFilesBrowserBloc({
     final PathUri? initialUri,
   }) =>

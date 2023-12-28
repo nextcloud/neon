@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:neon_framework/blocs.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
 import 'package:neon_notes/src/options.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -9,21 +10,37 @@ import 'package:nextcloud/notes.dart' as notes;
 import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 
-abstract interface class NotesNoteBlocEvents {
+sealed class NotesNoteBloc implements InteractiveBloc {
+  factory NotesNoteBloc(
+    final NotesBloc notesBloc,
+    final Account account,
+    final notes.Note note,
+  ) =>
+      _NotesNoteBloc(
+        notesBloc,
+        account,
+        note,
+      );
+
   void updateContent(final String content);
 
   void updateTitle(final String title);
 
   void updateCategory(final String category);
-}
 
-abstract interface class NotesNoteBlocStates {
   BehaviorSubject<String> get category;
+
+  NotesOptions get options;
+
+  String get initialContent;
+
+  String get initialTitle;
 }
 
-class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, NotesNoteBlocStates {
-  NotesNoteBloc(
+class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
+  _NotesNoteBloc(
     this._notesBloc,
+    this.account,
     final notes.Note note,
   ) {
     _emitNote(note);
@@ -52,12 +69,17 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
     });
   }
 
-  late final NotesOptions options = _notesBloc.options;
+  @override
+  NotesOptions get options => _notesBloc.options;
+
   final NotesBloc _notesBloc;
+  final Account account;
   final _updateQueue = Queue();
 
   late final int id;
+  @override
   late final String initialContent;
+  @override
   late final String initialTitle;
   late String _etag;
 
@@ -71,12 +93,12 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   BehaviorSubject<String> category = BehaviorSubject<String>();
 
   @override
-  void refresh() {}
+  Future<void> refresh() async {}
 
   @override
   void updateCategory(final String category) {
     _wrapAction(
-      (final etag) async => _notesBloc.account.client.notes.updateNote(
+      (final etag) async => account.client.notes.updateNote(
         id: id,
         category: category,
         ifMatch: '"$etag"',
@@ -87,7 +109,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   @override
   void updateContent(final String content) {
     _wrapAction(
-      (final etag) async => _notesBloc.account.client.notes.updateNote(
+      (final etag) async => account.client.notes.updateNote(
         id: id,
         content: content,
         ifMatch: '"$etag"',
@@ -98,7 +120,7 @@ class NotesNoteBloc extends InteractiveBloc implements NotesNoteBlocEvents, Note
   @override
   void updateTitle(final String title) {
     _wrapAction(
-      (final etag) async => _notesBloc.account.client.notes.updateNote(
+      (final etag) async => account.client.notes.updateNote(
         id: id,
         title: title,
         ifMatch: '"$etag"',

@@ -10,18 +10,15 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 @internal
-abstract interface class LoginCheckServerStatusBlocEvents {}
+sealed class LoginCheckServerStatusBloc implements InteractiveBloc {
+  factory LoginCheckServerStatusBloc(final Uri serverURL) => _LoginCheckServerStatusBloc(serverURL);
 
-@internal
-abstract interface class LoginCheckServerStatusBlocStates {
   /// Contains the current server connection state
   BehaviorSubject<Result<core.Status>> get state;
 }
 
-@internal
-class LoginCheckServerStatusBloc extends InteractiveBloc
-    implements LoginCheckServerStatusBlocEvents, LoginCheckServerStatusBlocStates {
-  LoginCheckServerStatusBloc(this.serverURL) {
+class _LoginCheckServerStatusBloc extends InteractiveBloc implements LoginCheckServerStatusBloc {
+  _LoginCheckServerStatusBloc(this.serverURL) {
     unawaited(refresh());
   }
 
