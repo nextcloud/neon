@@ -3,7 +3,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:neon_framework/l10n/localizations_en.dart';
 import 'package:neon_framework/src/theme/theme.dart';
 import 'package:neon_framework/src/widgets/dialog.dart';
+import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Widget wrapDialog(Widget dialog, [TargetPlatform platform = TargetPlatform.android]) {
   final theme = AppTheme.test(platform: platform);
@@ -191,6 +193,41 @@ void main() {
       );
       await widgetTester.pumpWidget(wrapDialog(dialog, TargetPlatform.macOS));
       expect(find.byType(NeonDialogAction), findsNothing);
+    });
+
+    testWidgets('NeonEmojiPickerDialog', (tester) async {
+      SharedPreferences.setMockInitialValues({});
+
+      await tester.pumpWidget(
+        MaterialApp(
+          localizationsDelegates: NeonLocalizations.localizationsDelegates,
+          supportedLocales: NeonLocalizations.supportedLocales,
+          theme: ThemeData(
+            extensions: const [
+              NeonTheme(
+                branding: Branding(
+                  name: '',
+                  logo: SizedBox.shrink(),
+                ),
+              ),
+            ],
+          ),
+          home: const SizedBox.shrink(),
+        ),
+      );
+      final BuildContext context = tester.element(find.byType(SizedBox));
+
+      final future = showDialog<String>(
+        context: context,
+        builder: (context) => const NeonEmojiPickerDialog(),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.tag_faces));
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.text('😀'));
+      expect(await future, '😀');
     });
   });
 }

@@ -1,3 +1,4 @@
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -522,4 +523,39 @@ class NeonUnifiedPushDialog extends StatelessWidget {
           ),
         ],
       );
+}
+
+/// Shows an emoji picker.
+///
+/// When the user selects an emoji the dialog will pop and return the emoji as a `String`.
+class NeonEmojiPickerDialog extends StatelessWidget {
+  /// Creates a new emoji picker dialog.
+  const NeonEmojiPickerDialog({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return NeonDialog(
+      content: SizedBox(
+        width: NeonDialogTheme.of(context).constraints.maxWidth,
+        child: EmojiPicker(
+          config: Config(
+            emojiSizeMax: 25,
+            columns: 10,
+            bgColor: Colors.transparent,
+            indicatorColor: theme.colorScheme.primary,
+            iconColorSelected: theme.colorScheme.primary,
+            skinToneDialogBgColor: theme.dialogBackgroundColor,
+            skinToneIndicatorColor: theme.colorScheme.primary,
+          ),
+          onEmojiSelected: (category, emoji) {
+            Navigator.of(context).pop(emoji.emoji);
+          },
+        ),
+      ),
+    );
+  }
 }
