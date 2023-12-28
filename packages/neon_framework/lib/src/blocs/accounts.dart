@@ -26,6 +26,7 @@ const _keyAccounts = 'accounts';
 /// The Bloc responsible for managing the [Account]s
 @sealed
 abstract interface class AccountsBloc implements Disposable {
+  @internal
   factory AccountsBloc(
     final GlobalOptions globalOptions,
     final Iterable<AppImplementation> allAppImplementations,

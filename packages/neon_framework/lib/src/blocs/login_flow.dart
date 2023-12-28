@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -9,8 +11,8 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
-@internal
 sealed class LoginFlowBloc implements InteractiveBloc {
+  @internal
   factory LoginFlowBloc(final Uri serverURL) => _LoginFlowBloc(serverURL);
 
   BehaviorSubject<Result<core.LoginFlowV2>> get init;

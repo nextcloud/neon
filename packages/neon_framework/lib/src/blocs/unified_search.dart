@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:collection/collection.dart';
@@ -10,8 +12,8 @@ import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
-@internal
 sealed class UnifiedSearchBloc implements InteractiveBloc {
+  @internal
   factory UnifiedSearchBloc(
     final AppsBloc appsBloc,
     final Account account,

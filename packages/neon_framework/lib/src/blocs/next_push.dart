@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -10,8 +12,8 @@ import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:nextcloud/uppush.dart' as uppush;
 import 'package:rxdart/rxdart.dart';
 
-@internal
 sealed class NextPushBloc implements Disposable {
+  @internal
   factory NextPushBloc(
     final AccountsBloc accountsBloc,
     final GlobalOptions globalOptions, {

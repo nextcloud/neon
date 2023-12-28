@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -8,6 +9,7 @@ import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
+  @internal
   factory NotificationsBloc(
     final NotificationsOptions options,
     final Account account,

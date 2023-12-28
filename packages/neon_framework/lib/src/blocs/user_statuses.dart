@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -13,8 +15,8 @@ import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
-@internal
 sealed class UserStatusesBloc implements Disposable {
+  @internal
   factory UserStatusesBloc(final Account account) => _UserStatusesBloc(account);
 
   void load(final String username, {final bool force = false});

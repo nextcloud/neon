@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -9,6 +10,7 @@ import 'package:nextcloud/news.dart' as news;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NewsBloc implements InteractiveBloc {
+  @internal
   factory NewsBloc(
     final NewsOptions options,
     final Account account,

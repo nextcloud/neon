@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_news/src/blocs/articles.dart';
@@ -8,6 +9,7 @@ import 'package:nextcloud/news.dart' as news;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NewsArticleBloc implements InteractiveBloc {
+  @internal
   factory NewsArticleBloc(
     final NewsArticlesBloc articlesBloc,
     final Account account,
