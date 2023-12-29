@@ -55,12 +55,4 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
       }
     }
   }
-
-  Iterable<String> formattedTagsFor(final String? tag) sync* {
-    final matchedTags = tags?.where((final t) => t.name == tag);
-
-    if (matchedTags != null && matchedTags.isNotEmpty) {
-      yield* matchedTags.single.formattedDescription;
-    }
-  }
 }

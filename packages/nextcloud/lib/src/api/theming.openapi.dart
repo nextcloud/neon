@@ -22,6 +22,7 @@ import 'package:uri/uri.dart';
 part 'theming.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -31,6 +32,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -42,12 +44,15 @@ class $Client extends DynamiteClient {
 
   $IconClient get icon => $IconClient(this);
 
+  /// Class ThemingController.
+  /// handle ajax requests to update the theme.
   $ThemingClient get theming => $ThemingClient(this);
 
   $UserThemeClient get userTheme => $UserThemeClient(this);
 }
 
 class $IconClient {
+  /// Creates a new [DynamiteClient] for icon requests.
   $IconClient(this._rootClient);
 
   final $Client _rootClient;
@@ -311,6 +316,7 @@ class $IconClient {
 /// Class ThemingController.
 /// handle ajax requests to update the theme.
 class $ThemingClient {
+  /// Creates a new [DynamiteClient] for theming requests.
   $ThemingClient(this._rootClient);
 
   final $Client _rootClient;
@@ -588,6 +594,7 @@ class $ThemingClient {
 }
 
 class $UserThemeClient {
+  /// Creates a new [DynamiteClient] for user_theme requests.
   $UserThemeClient(this._rootClient);
 
   final $Client _rootClient;

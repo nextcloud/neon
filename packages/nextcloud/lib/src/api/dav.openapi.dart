@@ -19,6 +19,7 @@ import 'package:uri/uri.dart';
 part 'dav.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -28,6 +29,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -43,6 +45,7 @@ class $Client extends DynamiteClient {
 }
 
 class $DirectClient {
+  /// Creates a new [DynamiteClient] for direct requests.
   $DirectClient(this._rootClient);
 
   final $Client _rootClient;
@@ -154,6 +157,7 @@ class $DirectClient {
 }
 
 class $OutOfOfficeClient {
+  /// Creates a new [DynamiteClient] for out_of_office requests.
   $OutOfOfficeClient(this._rootClient);
 
   final $Client _rootClient;

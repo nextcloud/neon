@@ -37,13 +37,18 @@ Class buildRootClient(
 ) =>
     Class(
       (final b) {
+        final rootTag = spec.tags?.firstWhereOrNull((final tag) => tag.name.isEmpty);
+        if (rootTag != null) {
+          b.docs.addAll(rootTag.formattedDescription);
+        }
+
         b
           ..extend = refer('DynamiteClient')
           ..name = r'$Client'
-          ..docs.addAll(spec.formattedTagsFor(null))
           ..constructors.addAll([
             Constructor(
               (final b) => b
+                ..docs.add('/// Creates a new [DynamiteClient] for untagged requests.')
                 ..requiredParameters.add(
                   Parameter(
                     (final b) => b
@@ -88,6 +93,7 @@ Class buildRootClient(
             ),
             Constructor(
               (final b) => b
+                ..docs.add(r'/// Creates a new [$Client] from another [client].')
                 ..name = 'fromClient'
                 ..requiredParameters.add(
                   Parameter(
@@ -110,12 +116,13 @@ super(
             ),
           ]);
 
-        for (final tag in tags.where((final tag) => tag.name.isNotEmpty)) {
+        for (final tag in tags) {
           final client = clientName(tag.name);
 
           b.methods.add(
             Method(
               (final b) => b
+                ..docs.addAll(tag.formattedDescription)
                 ..name = toDartName(tag.name)
                 ..lambda = true
                 ..type = MethodType.getter
@@ -138,17 +145,19 @@ Class buildClient(
       (final b) {
         final name = clientName(tag.name);
         b
+          ..docs.addAll(tag.formattedDescription)
           ..name = name
-          ..docs.addAll(spec.formattedTagsFor(tag.name))
           ..constructors.add(
             Constructor(
-              (final b) => b.requiredParameters.add(
-                Parameter(
-                  (final b) => b
-                    ..name = '_rootClient'
-                    ..toThis = true,
+              (final b) => b
+                ..docs.add('/// Creates a new [DynamiteClient] for ${tag.name} requests.')
+                ..requiredParameters.add(
+                  Parameter(
+                    (final b) => b
+                      ..name = '_rootClient'
+                      ..toThis = true,
+                  ),
                 ),
-              ),
             ),
           )
           ..fields.add(
