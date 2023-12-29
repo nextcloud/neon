@@ -27,7 +27,7 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
 
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
-  BuiltList<Tag>? get tags;
+  BuiltSet<Tag>? get tags;
 
   Components? get components;
 

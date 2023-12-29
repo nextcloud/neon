@@ -44,7 +44,7 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(String)])));
     }
     value = object.parameters;
     if (value != null) {
@@ -105,7 +105,7 @@ class _$OperationSerializer implements StructuredSerializer<Operation> {
           break;
         case 'tags':
           result.tags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+              specifiedType: const FullType(BuiltSet, [FullType(String)]))! as BuiltSet<Object?>);
           break;
         case 'parameters':
           result.parameters.replace(serializers.deserialize(value,
@@ -145,7 +145,7 @@ class _$Operation extends Operation {
   @override
   final bool deprecated;
   @override
-  final BuiltList<String>? tags;
+  final BuiltSet<String>? tags;
   @override
   final BuiltList<Parameter>? parameters;
   @override
@@ -239,9 +239,9 @@ class OperationBuilder implements Builder<Operation, OperationBuilder> {
   bool? get deprecated => _$this._deprecated;
   set deprecated(bool? deprecated) => _$this._deprecated = deprecated;
 
-  ListBuilder<String>? _tags;
-  ListBuilder<String> get tags => _$this._tags ??= ListBuilder<String>();
-  set tags(ListBuilder<String>? tags) => _$this._tags = tags;
+  SetBuilder<String>? _tags;
+  SetBuilder<String> get tags => _$this._tags ??= SetBuilder<String>();
+  set tags(SetBuilder<String>? tags) => _$this._tags = tags;
 
   ListBuilder<Parameter>? _parameters;
   ListBuilder<Parameter> get parameters => _$this._parameters ??= ListBuilder<Parameter>();
