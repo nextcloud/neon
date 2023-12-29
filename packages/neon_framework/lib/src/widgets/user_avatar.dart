@@ -8,7 +8,6 @@ import 'package:neon_framework/src/widgets/image.dart';
 import 'package:neon_framework/src/widgets/server_icon.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/user_status.dart' as user_status;
-import 'package:rxdart/rxdart.dart';
 
 /// A circle that contains the user profile image and status.
 class NeonUserAvatar extends StatefulWidget {
@@ -95,7 +94,9 @@ class _UserAvatarState extends State<NeonUserAvatar> {
             children: [
               avatar,
               ResultBuilder(
-                stream: _userStatusBloc.statuses.mapNotNull((final statuses) => statuses[widget.username]),
+                stream: _userStatusBloc.statuses.map(
+                  (final statuses) => statuses[widget.username] ?? Result<user_status.$PublicInterface>.loading(),
+                ),
                 builder: _userStatusIconBuilder,
               ),
             ],
@@ -103,7 +104,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         },
       );
 
-  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.$PublicInterface?> result) {
+  Widget _userStatusIconBuilder(final BuildContext context, final Result<user_status.$PublicInterface> result) {
     final hasEmoji = result.data?.icon != null;
     final scaledSize = size / (hasEmoji ? 2 : 2.5);
 

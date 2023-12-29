@@ -24,7 +24,7 @@ sealed class UserStatusesBloc implements Disposable {
   void load(final String username, {final bool force = false});
 
   /// All user status mapped by username.
-  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> get statuses;
+  BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>> get statuses;
 }
 
 class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
@@ -46,23 +46,21 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
   }
 
   @override
-  BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> statuses = BehaviorSubject.seeded({});
+  final statuses = BehaviorSubject<Map<String, Result<user_status.$PublicInterface>>>.seeded({});
 
   @override
   Future<void> refresh() async {
-    for (final username in statuses.value.keys) {
-      await load(username, force: true);
-    }
+    await Future.wait(statuses.value.keys.map((final username) => load(username, force: true)));
   }
 
   @override
   Future<void> load(final String username, {final bool force = false}) async {
-    if (!force && statuses.value.containsKey(username)) {
+    if (!force && statuses.value.containsKey(username) && !statuses.value[username]!.hasError) {
       return;
     }
 
     try {
-      updateStatus(username, Result.loading());
+      updateStatus(username, statuses.value[username]?.asLoading() ?? Result.loading());
 
       user_status.$PublicInterface? data;
 
@@ -93,17 +91,13 @@ class _UserStatusesBloc extends InteractiveBloc implements UserStatusesBloc {
 
       updateStatus(username, Result.success(data));
     } catch (e, s) {
-      if (e is DynamiteApiException && e.statusCode == 404) {
-        updateStatus(username, Result.success(null));
-        return;
-      }
       debugPrint(e.toString());
       debugPrint(s.toString());
       updateStatus(username, Result.error(e));
     }
   }
 
-  void updateStatus(final String username, final Result<user_status.$PublicInterface?> result) {
+  void updateStatus(final String username, final Result<user_status.$PublicInterface> result) {
     statuses.add({
       ...statuses.value,
       username: result,
