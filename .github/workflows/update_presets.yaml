@@ -1,0 +1,31 @@
+name: 'Update test presets'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 0 * * *'
+
+jobs:
+  update:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+        with:
+          fetch-depth: 0
+      - name: Install dart
+        uses: dart-lang/setup-dart@b64355ae6ca0b5d484f0106a033dd1388965d06d # v1
+      - name: Setup
+        run: ./tool/setup.sh
+
+      - name: Update presets
+        run: ./tool/generate-nextcloud-test-presets.sh
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore(nextcloud_test): Update presets"
+          signoff: true
+          branch: chore/nextcloud_test/update-presets
+          delete-branch: true
+          title: "chore(nextcloud_test): Update presets"
+          body: ""
