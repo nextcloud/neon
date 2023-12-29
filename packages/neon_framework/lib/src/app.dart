@@ -27,7 +27,6 @@ import 'package:neon_framework/src/widgets/options_collection_builder.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:quick_actions/quick_actions.dart';
-import 'package:tray_manager/tray_manager.dart' as tray;
 import 'package:universal_io/io.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -53,7 +52,7 @@ class NeonApp extends StatefulWidget {
 }
 
 // ignore: prefer_mixin
-class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.TrayListener, WindowListener {
+class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowListener {
   final _appRegex = RegExp(r'^app_([a-z]+)$', multiLine: true);
   final _navigatorKey = GlobalKey<NavigatorState>();
   late final Iterable<AppImplementation> _appImplementations;
@@ -64,8 +63,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     accountsBloc: _accountsBloc,
   );
 
-  Rect? _lastBounds;
-
   @override
   void initState() {
     super.initState();
@@ -75,9 +72,6 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
     _accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
     WidgetsBinding.instance.addObserver(this);
-    if (NeonPlatform.instance.canUseSystemTray) {
-      tray.trayManager.addListener(this);
-    }
     if (NeonPlatform.instance.canUseWindowManager) {
       windowManager.addListener(this);
     }
@@ -108,43 +102,8 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
         await windowManager.setPreventClose(true);
 
         if (_globalOptions.startupMinimized.value) {
-          await _saveAndMinimizeWindow();
+          await windowManager.minimize();
         }
-      }
-
-      if (NeonPlatform.instance.canUseSystemTray) {
-        _globalOptions.systemTrayEnabled.addListener(() async {
-          if (_globalOptions.systemTrayEnabled.value) {
-            // TODO: This works on Linux, but maybe not on macOS or Windows
-            await tray.trayManager.setIcon('assets/logo.svg');
-            if (mounted) {
-              await tray.trayManager.setContextMenu(
-                tray.Menu(
-                  items: [
-                    for (final app in _appImplementations) ...[
-                      tray.MenuItem(
-                        key: 'app_${app.id}',
-                        label: app.nameFromLocalization(localizations),
-                        // TODO: Add icons which should work on macOS and Windows
-                      ),
-                    ],
-                    tray.MenuItem.separator(),
-                    tray.MenuItem(
-                      key: 'show_hide',
-                      label: localizations.actionShowSlashHide,
-                    ),
-                    tray.MenuItem(
-                      key: 'exit',
-                      label: localizations.actionExit,
-                    ),
-                  ],
-                ),
-              );
-            }
-          } else {
-            await tray.trayManager.destroy();
-          }
-        });
       }
 
       if (NeonPlatform.instance.canUsePushNotifications) {
@@ -202,41 +161,18 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   }
 
   @override
-  void onTrayMenuItemClick(final tray.MenuItem menuItem) {
-    if (menuItem.key != null) {
-      unawaited(_handleShortcut(menuItem.key!));
-    }
-  }
-
-  @override
   Future<void> onWindowClose() async {
     if (_globalOptions.startupMinimizeInsteadOfExit.value) {
-      await _saveAndMinimizeWindow();
+      await windowManager.minimize();
     } else {
-      await windowManager.destroy();
+      exit(0);
     }
   }
 
   @override
-  Future<void> onWindowMinimize() async {
-    await _saveAndMinimizeWindow();
-  }
+  Future<void> onWindowMinimize() async {}
 
   Future<void> _handleShortcut(final String shortcutType) async {
-    if (shortcutType == 'show_hide') {
-      if (NeonPlatform.instance.canUseWindowManager) {
-        if (await windowManager.isVisible()) {
-          await _saveAndMinimizeWindow();
-        } else {
-          await _showAndRestoreWindow();
-        }
-      }
-      return;
-    }
-    if (shortcutType == 'exit') {
-      exit(0);
-    }
-
     final matches = _appRegex.allMatches(shortcutType);
     final activeAccount = await _accountsBloc.activeAccount.first;
     if (matches.isNotEmpty && activeAccount != null) {
@@ -247,37 +183,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, tray.Tra
   Future<void> _openAppFromExternal(final Account account, final String id) async {
     _accountsBloc.getAppsBlocFor(account).setActiveApp(id);
     _navigatorKey.currentState!.popUntil((final route) => route.settings.name == 'home');
-    await _showAndRestoreWindow();
-  }
-
-  Future<void> _saveAndMinimizeWindow() async {
-    _lastBounds = await windowManager.getBounds();
-    if (_globalOptions.systemTrayEnabled.value && _globalOptions.systemTrayHideToTrayWhenMinimized.value) {
-      await windowManager.hide();
-    } else {
-      await windowManager.minimize();
-    }
-  }
-
-  Future<void> _showAndRestoreWindow() async {
-    if (!NeonPlatform.instance.canUseWindowManager) {
-      return;
-    }
-
-    final wasVisible = await windowManager.isVisible();
-    await windowManager.show();
-    await windowManager.focus();
-    if (_lastBounds != null && !wasVisible) {
-      await windowManager.setBounds(_lastBounds);
-    }
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    if (NeonPlatform.instance.canUseSystemTray) {
-      tray.trayManager.removeListener(this);
-    }
     if (NeonPlatform.instance.canUseWindowManager) {
       windowManager.removeListener(this);
     }

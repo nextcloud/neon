@@ -455,12 +455,6 @@ abstract class NeonLocalizations {
   /// **'Startup'**
   String get optionsCategoryStartup;
 
-  /// No description provided for @optionsCategorySystemTray.
-  ///
-  /// In en, this message translates to:
-  /// **'System tray'**
-  String get optionsCategorySystemTray;
-
   /// No description provided for @optionsCategoryNavigation.
   ///
   /// In en, this message translates to:
@@ -592,18 +586,6 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Minimize instead of exit'**
   String get globalOptionsStartupMinimizeInsteadOfExit;
-
-  /// No description provided for @globalOptionsSystemTrayEnabled.
-  ///
-  /// In en, this message translates to:
-  /// **'Enable system tray'**
-  String get globalOptionsSystemTrayEnabled;
-
-  /// No description provided for @globalOptionsSystemTrayHideToTrayWhenMinimized.
-  ///
-  /// In en, this message translates to:
-  /// **'Hide to system tray when minimized'**
-  String get globalOptionsSystemTrayHideToTrayWhenMinimized;
 
   /// No description provided for @globalOptionsAccountsRememberLastUsedAccount.
   ///

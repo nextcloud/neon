@@ -27,9 +27,6 @@ class AndroidNeonPlatform implements NeonPlatform {
   bool get canUseQuickActions => true;
 
   @override
-  bool get canUseSystemTray => false;
-
-  @override
   bool get canUseWebView => true;
 
   @override

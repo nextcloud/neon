@@ -23,9 +23,6 @@ class LinuxNeonPlatform implements NeonPlatform {
   bool get canUseQuickActions => false;
 
   @override
-  bool get canUseSystemTray => true;
-
-  @override
   bool get canUseWindowManager => true;
 
   @override

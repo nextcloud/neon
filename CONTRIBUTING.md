@@ -14,7 +14,6 @@ Note that you need to have Dart installed and [`~/.pub-cache/bin/` needs to be i
 You will need to have the following dependencies installed to get the app running:
 - [yq](https://github.com/kislyuk/yq)
 - [sqlite3](https://pub.dev/packages/sqflite_common_ffi#getting-started)
-- [appindicator3](https://pub.dev/packages/tray_manager#quick-start)
 
 For working with lower levels like generating the OpenAPI specifications a few more dependencies are required:
 - [jsonpatch](https://pypi.org/project/jsonpatch)
