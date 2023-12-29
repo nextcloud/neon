@@ -21,7 +21,7 @@ jobs:
       - name: Update presets
         run: ./tool/generate-nextcloud-test-presets.sh
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # v5
         with:
           commit-message: "chore(nextcloud_test): Update presets"
           signoff: true
