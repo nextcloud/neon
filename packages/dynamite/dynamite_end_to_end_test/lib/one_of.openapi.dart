@@ -132,18 +132,39 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
 /// One of with an integer, double and other value.
 typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
+/// Serialization extension for `ObjectOneOf`.
 extension $ObjectOneOfExtension on ObjectOneOf {
+  /// Serializer for ObjectOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<ObjectOneOf> get serializer => $6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static ObjectOneOf fromJson(Object? json) => $6c828020e1dac1d58ded0a29ef8b0c41Extension._fromJson(json);
 }
 
+/// Serialization extension for `MixedOneOf`.
 extension $MixedOneOfExtension on MixedOneOf {
+  /// Serializer for MixedOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<MixedOneOf> get serializer => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static MixedOneOf fromJson(Object? json) => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._fromJson(json);
 }
 
+/// Serialization extension for `OneOfIntDoubleOther`.
 extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
+  /// Serializer for OneOfIntDoubleOther.
+  @BuiltValueSerializer(custom: true)
   static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
@@ -153,12 +174,20 @@ typedef _$6c828020e1dac1d58ded0a29ef8b0c41 = ({ObjectOneOf0? objectOneOf0, Objec
 // ignore: library_private_types_in_public_api
 extension $6c828020e1dac1d58ded0a29ef8b0c41Extension on _$6c828020e1dac1d58ded0a29ef8b0c41 {
   List<dynamic> get _values => [objectOneOf0, objectOneOf1];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$6c828020e1dac1d58ded0a29ef8b0c41> get _serializer =>
       const _$6c828020e1dac1d58ded0a29ef8b0c41Serializer();
   static _$6c828020e1dac1d58ded0a29ef8b0c41 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -214,12 +243,20 @@ typedef _$d1b40dfcebdca2dfa1f3e52ac98462a5 = ({MixedOneOf1? mixedOneOf1, String?
 // ignore: library_private_types_in_public_api
 extension $d1b40dfcebdca2dfa1f3e52ac98462a5Extension on _$d1b40dfcebdca2dfa1f3e52ac98462a5 {
   List<dynamic> get _values => [mixedOneOf1, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$d1b40dfcebdca2dfa1f3e52ac98462a5> get _serializer =>
       const _$d1b40dfcebdca2dfa1f3e52ac98462a5Serializer();
   static _$d1b40dfcebdca2dfa1f3e52ac98462a5 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -275,12 +312,20 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

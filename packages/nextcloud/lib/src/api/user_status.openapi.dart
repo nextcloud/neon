@@ -2155,15 +2155,29 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+/// Serialization extension for `ClearAt_Time`.
 extension $ClearAt_TimeExtension on ClearAt_Time {
+  /// Serializer for ClearAt_Time.
+  @BuiltValueSerializer(custom: true)
   static Serializer<ClearAt_Time> get serializer => $557344b3ba734aacc7109e5420fcb6c5Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static ClearAt_Time fromJson(Object? json) => $557344b3ba734aacc7109e5420fcb6c5Extension._fromJson(json);
 }
 
+/// Serialization extension for `UserStatusRevertStatusResponseApplicationJson_Ocs_Data`.
 extension $UserStatusRevertStatusResponseApplicationJson_Ocs_DataExtension
     on UserStatusRevertStatusResponseApplicationJson_Ocs_Data {
+  /// Serializer for UserStatusRevertStatusResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
   static Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs_Data> get serializer =>
       $d77829de8b7590d2e16cdb714800f5beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static UserStatusRevertStatusResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
       $d77829de8b7590d2e16cdb714800f5beExtension._fromJson(json);
 }
@@ -2174,12 +2188,20 @@ typedef _$557344b3ba734aacc7109e5420fcb6c5 = ({ClearAtTimeType? clearAtTimeType,
 // ignore: library_private_types_in_public_api
 extension $557344b3ba734aacc7109e5420fcb6c5Extension on _$557344b3ba734aacc7109e5420fcb6c5 {
   List<dynamic> get _values => [clearAtTimeType, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$557344b3ba734aacc7109e5420fcb6c5> get _serializer =>
       const _$557344b3ba734aacc7109e5420fcb6c5Serializer();
   static _$557344b3ba734aacc7109e5420fcb6c5 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -2236,12 +2258,20 @@ typedef _$d77829de8b7590d2e16cdb714800f5be = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $d77829de8b7590d2e16cdb714800f5beExtension on _$d77829de8b7590d2e16cdb714800f5be {
   List<dynamic> get _values => [builtListNever, private];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$d77829de8b7590d2e16cdb714800f5be> get _serializer =>
       const _$d77829de8b7590d2e16cdb714800f5beSerializer();
   static _$d77829de8b7590d2e16cdb714800f5be _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

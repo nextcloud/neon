@@ -75,8 +75,15 @@ abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedR
 
 typedef SomeOfRedirect = ({Base? base, int? $int, JsonObject? jsonObject});
 
+/// Serialization extension for `SomeOfRedirect`.
 extension $SomeOfRedirectExtension on SomeOfRedirect {
+  /// Serializer for SomeOfRedirect.
+  @BuiltValueSerializer(custom: true)
   static Serializer<SomeOfRedirect> get serializer => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static SomeOfRedirect fromJson(Object? json) => $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._fromJson(json);
 }
 
@@ -86,12 +93,20 @@ typedef _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba = ({Base? base, int? $int, JsonObject
 // ignore: library_private_types_in_public_api
 extension $e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension on _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba {
   List<dynamic> get _values => [base, $int, jsonObject];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba> get _serializer =>
       const _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer();
   static _$e1c7ecea8e5fdae7b94cd86c0dc4f1ba _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

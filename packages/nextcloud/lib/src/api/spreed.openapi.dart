@@ -37584,36 +37584,71 @@ abstract class PublicCapabilities0
 
 typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
+/// Serialization extension for `Room_LastMessage`.
 extension $Room_LastMessageExtension on Room_LastMessage {
+  /// Serializer for Room_LastMessage.
+  @BuiltValueSerializer(custom: true)
   static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
 }
 
+/// Serialization extension for `RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data`.
 extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
     on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
+  /// Serializer for RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.
+  @BuiltValueSerializer(custom: true)
   static Serializer<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data> get serializer =>
       $bd993fb3f40af33e8594d0d698208560Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data fromJson(Object? json) =>
       $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
 }
 
+/// Serialization extension for `SettingsSetUserSettingValue`.
 extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
+  /// Serializer for SettingsSetUserSettingValue.
+  @BuiltValueSerializer(custom: true)
   static Serializer<SettingsSetUserSettingValue> get serializer =>
       $b2c4857c0136baea42828d89c87c757dExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static SettingsSetUserSettingValue fromJson(Object? json) =>
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
+/// Serialization extension for `SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data`.
 extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
     on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
+  /// Serializer for SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data.
+  @BuiltValueSerializer(custom: true)
   static Serializer<SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data> get serializer =>
       $1df642f5035aea3b22543ab331c3fb01Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
       $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
 }
 
+/// Serialization extension for `PublicCapabilities`.
 extension $PublicCapabilitiesExtension on PublicCapabilities {
+  /// Serializer for PublicCapabilities.
+  @BuiltValueSerializer(custom: true)
   static Serializer<PublicCapabilities> get serializer => $bc4aac45771b11649d372f39a92b1cf3Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static PublicCapabilities fromJson(Object? json) => $bc4aac45771b11649d372f39a92b1cf3Extension._fromJson(json);
 }
 
@@ -37623,12 +37658,20 @@ typedef _$e620970959f428e934829e52f32b7089 = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $e620970959f428e934829e52f32b7089Extension on _$e620970959f428e934829e52f32b7089 {
   List<dynamic> get _values => [builtListNever, chatMessage];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$e620970959f428e934829e52f32b7089> get _serializer =>
       const _$e620970959f428e934829e52f32b7089Serializer();
   static _$e620970959f428e934829e52f32b7089 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -37688,12 +37731,20 @@ typedef _$bd993fb3f40af33e8594d0d698208560 = ({
 // ignore: library_private_types_in_public_api
 extension $bd993fb3f40af33e8594d0d698208560Extension on _$bd993fb3f40af33e8594d0d698208560 {
   List<dynamic> get _values => [builtListNever, roomAddParticipantToRoomResponseApplicationJsonOcsData0];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$bd993fb3f40af33e8594d0d698208560> get _serializer =>
       const _$bd993fb3f40af33e8594d0d698208560Serializer();
   static _$bd993fb3f40af33e8594d0d698208560 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -37759,12 +37810,20 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -37820,12 +37879,20 @@ typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? buil
 // ignore: library_private_types_in_public_api
 extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
   List<dynamic> get _values => [builtListSignalingSession, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -37887,12 +37954,20 @@ typedef _$bc4aac45771b11649d372f39a92b1cf3 = ({
 // ignore: library_private_types_in_public_api
 extension $bc4aac45771b11649d372f39a92b1cf3Extension on _$bc4aac45771b11649d372f39a92b1cf3 {
   List<dynamic> get _values => [builtListNever, publicCapabilities0];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$bc4aac45771b11649d372f39a92b1cf3> get _serializer =>
       const _$bc4aac45771b11649d372f39a92b1cf3Serializer();
   static _$bc4aac45771b11649d372f39a92b1cf3 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

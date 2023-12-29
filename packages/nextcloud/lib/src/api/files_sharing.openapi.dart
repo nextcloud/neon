@@ -5567,14 +5567,28 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
+/// Serialization extension for `ShareesapiSearchShareType`.
 extension $ShareesapiSearchShareTypeExtension on ShareesapiSearchShareType {
+  /// Serializer for ShareesapiSearchShareType.
+  @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiSearchShareType> get serializer => $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static ShareesapiSearchShareType fromJson(Object? json) => $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
 }
 
+/// Serialization extension for `ShareesapiFindRecommendedShareType`.
 extension $ShareesapiFindRecommendedShareTypeExtension on ShareesapiFindRecommendedShareType {
+  /// Serializer for ShareesapiFindRecommendedShareType.
+  @BuiltValueSerializer(custom: true)
   static Serializer<ShareesapiFindRecommendedShareType> get serializer =>
       $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static ShareesapiFindRecommendedShareType fromJson(Object? json) =>
       $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
 }
@@ -5585,12 +5599,20 @@ typedef _$07eaa0304017ba8abe7f9f20d6a736f3 = ({BuiltList<int>? builtListInt, int
 // ignore: library_private_types_in_public_api
 extension $07eaa0304017ba8abe7f9f20d6a736f3Extension on _$07eaa0304017ba8abe7f9f20d6a736f3 {
   List<dynamic> get _values => [builtListInt, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$07eaa0304017ba8abe7f9f20d6a736f3> get _serializer =>
       const _$07eaa0304017ba8abe7f9f20d6a736f3Serializer();
   static _$07eaa0304017ba8abe7f9f20d6a736f3 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

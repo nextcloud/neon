@@ -207,28 +207,63 @@ typedef BaseNestedAnyOf = ({
 });
 typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
 
+/// Serialization extension for `BaseOneOf`.
 extension $BaseOneOfExtension on BaseOneOf {
+  /// Serializer for BaseOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
 }
 
+/// Serialization extension for `BaseAnyOf`.
 extension $BaseAnyOfExtension on BaseAnyOf {
+  /// Serializer for BaseAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
 }
 
+/// Serialization extension for `BaseNestedOneOf`.
 extension $BaseNestedOneOfExtension on BaseNestedOneOf {
+  /// Serializer for BaseNestedOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
 }
 
+/// Serialization extension for `BaseNestedAnyOf`.
 extension $BaseNestedAnyOfExtension on BaseNestedAnyOf {
+  /// Serializer for BaseNestedAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<BaseNestedAnyOf> get serializer => $523892e2348458a2bdb28f9f942dca37Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static BaseNestedAnyOf fromJson(Object? json) => $523892e2348458a2bdb28f9f942dca37Extension._fromJson(json);
 }
 
+/// Serialization extension for `NestedOptimizedOneOf`.
 extension $NestedOptimizedOneOfExtension on NestedOptimizedOneOf {
+  /// Serializer for NestedOptimizedOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<NestedOptimizedOneOf> get serializer => $abe6d27882a5771a98ede04cd64de567Extension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static NestedOptimizedOneOf fromJson(Object? json) => $abe6d27882a5771a98ede04cd64de567Extension._fromJson(json);
 }
 
@@ -238,12 +273,20 @@ typedef _$fc0451dbdd462718bd075afd2e3ce0ec = ({BaseOneOf1? baseOneOf1, double? $
 // ignore: library_private_types_in_public_api
 extension $fc0451dbdd462718bd075afd2e3ce0ecExtension on _$fc0451dbdd462718bd075afd2e3ce0ec {
   List<dynamic> get _values => [baseOneOf1, $double];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$fc0451dbdd462718bd075afd2e3ce0ec> get _serializer =>
       const _$fc0451dbdd462718bd075afd2e3ce0ecSerializer();
   static _$fc0451dbdd462718bd075afd2e3ce0ec _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -299,12 +342,20 @@ typedef _$ce3c7b262d1c503446a436c461be5be9 = ({BaseAnyOf1? baseAnyOf1, int? $int
 // ignore: library_private_types_in_public_api
 extension $ce3c7b262d1c503446a436c461be5be9Extension on _$ce3c7b262d1c503446a436c461be5be9 {
   List<dynamic> get _values => [baseAnyOf1, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$ce3c7b262d1c503446a436c461be5be9> get _serializer =>
       const _$ce3c7b262d1c503446a436c461be5be9Serializer();
   static _$ce3c7b262d1c503446a436c461be5be9 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -366,12 +417,20 @@ typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
 // ignore: library_private_types_in_public_api
 extension $8da5087c0b3f2cce06998d453af8ad19Extension on _$8da5087c0b3f2cce06998d453af8ad19 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf, baseNestedOneOf3, baseOneOf1, $double];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$8da5087c0b3f2cce06998d453af8ad19> get _serializer =>
       const _$8da5087c0b3f2cce06998d453af8ad19Serializer();
   static _$8da5087c0b3f2cce06998d453af8ad19 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -465,12 +524,20 @@ typedef _$523892e2348458a2bdb28f9f942dca37 = ({
 // ignore: library_private_types_in_public_api
 extension $523892e2348458a2bdb28f9f942dca37Extension on _$523892e2348458a2bdb28f9f942dca37 {
   List<dynamic> get _values => [baseAllOf, baseAnyOf1, baseNestedAnyOf3, baseOneOf, $int];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$523892e2348458a2bdb28f9f942dca37> get _serializer =>
       const _$523892e2348458a2bdb28f9f942dca37Serializer();
   static _$523892e2348458a2bdb28f9f942dca37 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
@@ -558,12 +625,20 @@ typedef _$abe6d27882a5771a98ede04cd64de567 = ({BaseOneOf1? baseOneOf1, num? $num
 // ignore: library_private_types_in_public_api
 extension $abe6d27882a5771a98ede04cd64de567Extension on _$abe6d27882a5771a98ede04cd64de567 {
   List<dynamic> get _values => [baseOneOf1, $num];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$abe6d27882a5771a98ede04cd64de567> get _serializer =>
       const _$abe6d27882a5771a98ede04cd64de567Serializer();
   static _$abe6d27882a5771a98ede04cd64de567 _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

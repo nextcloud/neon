@@ -246,8 +246,15 @@ abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilit
 
 typedef Capabilities = ({BuiltList<Never>? builtListNever, Capabilities0? capabilities0});
 
+/// Serialization extension for `Capabilities`.
 extension $CapabilitiesExtension on Capabilities {
+  /// Serializer for Capabilities.
+  @BuiltValueSerializer(custom: true)
   static Serializer<Capabilities> get serializer => $7f1b9936cf688676379074249fff891bExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static Capabilities fromJson(Object? json) => $7f1b9936cf688676379074249fff891bExtension._fromJson(json);
 }
 
@@ -257,12 +264,20 @@ typedef _$7f1b9936cf688676379074249fff891b = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $7f1b9936cf688676379074249fff891bExtension on _$7f1b9936cf688676379074249fff891b {
   List<dynamic> get _values => [builtListNever, capabilities0];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$7f1b9936cf688676379074249fff891b> get _serializer =>
       const _$7f1b9936cf688676379074249fff891bSerializer();
   static _$7f1b9936cf688676379074249fff891b _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

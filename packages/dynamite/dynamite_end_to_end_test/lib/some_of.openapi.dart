@@ -60,19 +60,40 @@ abstract class OneValueSomeOfInObject
   }
 }
 
+/// Serialization extension for `OneOfIntDoubleOther`.
 extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
+  /// Serializer for OneOfIntDoubleOther.
+  @BuiltValueSerializer(custom: true)
   static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
+/// Serialization extension for `AnyOfIntDoubleOther`.
 extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
+  /// Serializer for AnyOfIntDoubleOther.
+  @BuiltValueSerializer(custom: true)
   static Serializer<AnyOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
+/// Serialization extension for `OneValueSomeOfInObject_IntDoubleString`.
 extension $OneValueSomeOfInObject_IntDoubleStringExtension on OneValueSomeOfInObject_IntDoubleString {
+  /// Serializer for OneValueSomeOfInObject_IntDoubleString.
+  @BuiltValueSerializer(custom: true)
   static Serializer<OneValueSomeOfInObject_IntDoubleString> get serializer =>
       $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static OneValueSomeOfInObject_IntDoubleString fromJson(Object? json) =>
       $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
@@ -83,12 +104,20 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 

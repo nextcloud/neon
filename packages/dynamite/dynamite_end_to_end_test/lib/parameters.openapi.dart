@@ -603,23 +603,51 @@ class _$GetHeadersEnumPatternSerializer implements PrimitiveSerializer<GetHeader
       _fromWire[serialized]!;
 }
 
+/// Serialization extension for `GetOneOf`.
 extension $GetOneOfExtension on GetOneOf {
+  /// Serializer for GetOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
+/// Serialization extension for `GetAnyOf`.
 extension $GetAnyOfExtension on GetAnyOf {
+  /// Serializer for GetAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
+/// Serialization extension for `GetHeadersOneOf`.
 extension $GetHeadersOneOfExtension on GetHeadersOneOf {
+  /// Serializer for GetHeadersOneOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetHeadersOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
+/// Serialization extension for `GetHeadersAnyOf`.
 extension $GetHeadersAnyOfExtension on GetHeadersAnyOf {
+  /// Serializer for GetHeadersAnyOf.
+  @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
+
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use `toJson` to serialize it back into json.
   static GetHeadersAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
@@ -629,12 +657,20 @@ typedef _$93403da1a64cb6a7b1597c7a05e9b2be = ({bool? $bool, String? string});
 // ignore: library_private_types_in_public_api
 extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c7a05e9b2be {
   List<dynamic> get _values => [$bool, string];
+
+  /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => dynamite_utils.validateOneOf(_values);
+
+  /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => dynamite_utils.validateAnyOf(_values);
   static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
       const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
   static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
       jsonSerializers.deserializeWith(_serializer, json)!;
+
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Object? toJson() => jsonSerializers.serializeWith(_serializer, this);
 }
 
