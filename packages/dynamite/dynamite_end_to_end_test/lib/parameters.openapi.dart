@@ -477,6 +477,9 @@ class $Client extends DynamiteClient {
   }
 }
 
+typedef GetOneOf = ({bool? $bool, String? string});
+typedef GetAnyOf = ({bool? $bool, String? string});
+
 class GetEnumPattern extends EnumClass {
   const GetEnumPattern._(super.name);
 
@@ -530,6 +533,9 @@ class _$GetEnumPatternSerializer implements PrimitiveSerializer<GetEnumPattern> 
   }) =>
       _fromWire[serialized]!;
 }
+
+typedef GetHeadersOneOf = ({bool? $bool, String? string});
+typedef GetHeadersAnyOf = ({bool? $bool, String? string});
 
 class GetHeadersEnumPattern extends EnumClass {
   const GetHeadersEnumPattern._(super.name);
@@ -585,28 +591,20 @@ class _$GetHeadersEnumPatternSerializer implements PrimitiveSerializer<GetHeader
       _fromWire[serialized]!;
 }
 
-typedef GetOneOf = ({bool? $bool, String? string});
-
 extension $GetOneOfExtension on GetOneOf {
   static Serializer<GetOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
   static GetOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
-
-typedef GetAnyOf = ({bool? $bool, String? string});
 
 extension $GetAnyOfExtension on GetAnyOf {
   static Serializer<GetAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
   static GetAnyOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
 
-typedef GetHeadersOneOf = ({bool? $bool, String? string});
-
 extension $GetHeadersOneOfExtension on GetHeadersOneOf {
   static Serializer<GetHeadersOneOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;
   static GetHeadersOneOf fromJson(Object? json) => $93403da1a64cb6a7b1597c7a05e9b2beExtension._fromJson(json);
 }
-
-typedef GetHeadersAnyOf = ({bool? $bool, String? string});
 
 extension $GetHeadersAnyOfExtension on GetHeadersAnyOf {
   static Serializer<GetHeadersAnyOf> get serializer => $93403da1a64cb6a7b1597c7a05e9b2beExtension._serializer;

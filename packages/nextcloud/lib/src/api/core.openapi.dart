@@ -5469,6 +5469,8 @@ abstract class AutocompleteResult_Status0
   static Serializer<AutocompleteResult_Status0> get serializer => _$autocompleteResultStatus0Serializer;
 }
 
+typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
+
 @BuiltValue(instantiable: false)
 abstract interface class $AutocompleteResultInterface {
   String get id;
@@ -6339,6 +6341,8 @@ abstract class HoverCardGetUserResponseApplicationJson
   static Serializer<HoverCardGetUserResponseApplicationJson> get serializer =>
       _$hoverCardGetUserResponseApplicationJsonSerializer;
 }
+
+typedef NavigationEntry_Order = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
 abstract interface class $NavigationEntryInterface {
@@ -7815,6 +7819,11 @@ abstract class SharebymailCapabilities0
   static Serializer<SharebymailCapabilities0> get serializer => _$sharebymailCapabilities0Serializer;
 }
 
+typedef SharebymailCapabilities = ({
+  BuiltList<Never>? builtListNever,
+  SharebymailCapabilities0? sharebymailCapabilities0
+});
+
 @BuiltValue(instantiable: false)
 abstract interface class $SpreedPublicCapabilities0_Spreed_Config_AttachmentsInterface {
   bool get allowed;
@@ -8119,6 +8128,11 @@ abstract class SpreedPublicCapabilities0
   static Serializer<SpreedPublicCapabilities0> get serializer => _$spreedPublicCapabilities0Serializer;
 }
 
+typedef SpreedPublicCapabilities = ({
+  BuiltList<Never>? builtListNever,
+  SpreedPublicCapabilities0? spreedPublicCapabilities0
+});
+
 @BuiltValue(instantiable: false)
 abstract interface class $ThemingPublicCapabilities_ThemingInterface {
   String get name;
@@ -8302,6 +8316,23 @@ abstract class WeatherStatusCapabilities
 
   static Serializer<WeatherStatusCapabilities> get serializer => _$weatherStatusCapabilitiesSerializer;
 }
+
+typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
+  CommentsCapabilities? commentsCapabilities,
+  DavCapabilities? davCapabilities,
+  FilesCapabilities? filesCapabilities,
+  FilesSharingCapabilities? filesSharingCapabilities,
+  FilesTrashbinCapabilities? filesTrashbinCapabilities,
+  FilesVersionsCapabilities? filesVersionsCapabilities,
+  NotesCapabilities? notesCapabilities,
+  NotificationsCapabilities? notificationsCapabilities,
+  ProvisioningApiCapabilities? provisioningApiCapabilities,
+  SharebymailCapabilities? sharebymailCapabilities,
+  SpreedPublicCapabilities? spreedPublicCapabilities,
+  ThemingPublicCapabilities? themingPublicCapabilities,
+  UserStatusCapabilities? userStatusCapabilities,
+  WeatherStatusCapabilities? weatherStatusCapabilities
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
@@ -10445,6 +10476,8 @@ abstract class UnifiedSearchGetProvidersResponseApplicationJson
       _$unifiedSearchGetProvidersResponseApplicationJsonSerializer;
 }
 
+typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
+
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchResultEntryInterface {
   String get thumbnailUrl;
@@ -10475,6 +10508,8 @@ abstract class UnifiedSearchResultEntry
 
   static Serializer<UnifiedSearchResultEntry> get serializer => _$unifiedSearchResultEntrySerializer;
 }
+
+typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
 
 @BuiltValue(instantiable: false)
 abstract interface class $UnifiedSearchResultInterface {
@@ -10782,56 +10817,25 @@ abstract class WipeCheckWipeResponseApplicationJson
       _$wipeCheckWipeResponseApplicationJsonSerializer;
 }
 
-typedef AutocompleteResult_Status = ({AutocompleteResult_Status0? autocompleteResultStatus0, String? string});
-
 extension $AutocompleteResult_StatusExtension on AutocompleteResult_Status {
   static Serializer<AutocompleteResult_Status> get serializer => $87e48e5649cd72b4d2947aaaea13ccd8Extension._serializer;
   static AutocompleteResult_Status fromJson(Object? json) => $87e48e5649cd72b4d2947aaaea13ccd8Extension._fromJson(json);
 }
-
-typedef NavigationEntry_Order = ({int? $int, String? string});
 
 extension $NavigationEntry_OrderExtension on NavigationEntry_Order {
   static Serializer<NavigationEntry_Order> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
   static NavigationEntry_Order fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-typedef SharebymailCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SharebymailCapabilities0? sharebymailCapabilities0
-});
-
 extension $SharebymailCapabilitiesExtension on SharebymailCapabilities {
   static Serializer<SharebymailCapabilities> get serializer => $46564992d3ed3482aa6c1162698aac99Extension._serializer;
   static SharebymailCapabilities fromJson(Object? json) => $46564992d3ed3482aa6c1162698aac99Extension._fromJson(json);
 }
 
-typedef SpreedPublicCapabilities = ({
-  BuiltList<Never>? builtListNever,
-  SpreedPublicCapabilities0? spreedPublicCapabilities0
-});
-
 extension $SpreedPublicCapabilitiesExtension on SpreedPublicCapabilities {
   static Serializer<SpreedPublicCapabilities> get serializer => $06c2e47196a84ebc3718dccf9eb4b29dExtension._serializer;
   static SpreedPublicCapabilities fromJson(Object? json) => $06c2e47196a84ebc3718dccf9eb4b29dExtension._fromJson(json);
 }
-
-typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
-  CommentsCapabilities? commentsCapabilities,
-  DavCapabilities? davCapabilities,
-  FilesCapabilities? filesCapabilities,
-  FilesSharingCapabilities? filesSharingCapabilities,
-  FilesTrashbinCapabilities? filesTrashbinCapabilities,
-  FilesVersionsCapabilities? filesVersionsCapabilities,
-  NotesCapabilities? notesCapabilities,
-  NotificationsCapabilities? notificationsCapabilities,
-  ProvisioningApiCapabilities? provisioningApiCapabilities,
-  SharebymailCapabilities? sharebymailCapabilities,
-  SpreedPublicCapabilities? spreedPublicCapabilities,
-  ThemingPublicCapabilities? themingPublicCapabilities,
-  UserStatusCapabilities? userStatusCapabilities,
-  WeatherStatusCapabilities? weatherStatusCapabilities
-});
 
 extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtension
     on OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities {
@@ -10841,14 +10845,10 @@ extension $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_CapabilitiesExtens
       $3dc1754764311166375258bea55197c8Extension._fromJson(json);
 }
 
-typedef UnifiedSearchSearchCursor = ({int? $int, String? string});
-
 extension $UnifiedSearchSearchCursorExtension on UnifiedSearchSearchCursor {
   static Serializer<UnifiedSearchSearchCursor> get serializer => $b2c4857c0136baea42828d89c87c757dExtension._serializer;
   static UnifiedSearchSearchCursor fromJson(Object? json) => $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
-
-typedef UnifiedSearchResult_Cursor = ({int? $int, String? string});
 
 extension $UnifiedSearchResult_CursorExtension on UnifiedSearchResult_Cursor {
   static Serializer<UnifiedSearchResult_Cursor> get serializer =>

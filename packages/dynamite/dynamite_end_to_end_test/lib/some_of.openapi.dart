@@ -14,6 +14,13 @@ import 'package:meta/meta.dart';
 
 part 'some_of.openapi.g.dart';
 
+/// One of with an integer, double and other value.
+typedef OneOfIntDoubleOther = ({num? $num, String? string});
+
+/// One of with an integer, double and other value.
+typedef AnyOfIntDoubleOther = ({num? $num, String? string});
+typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
+
 @BuiltValue(instantiable: false)
 abstract interface class $OneValueSomeOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')
@@ -43,21 +50,15 @@ abstract class OneValueSomeOfInObject
   }
 }
 
-typedef OneOfIntDoubleOther = ({num? $num, String? string});
-
 extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
   static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
   static OneOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
 
-typedef AnyOfIntDoubleOther = ({num? $num, String? string});
-
 extension $AnyOfIntDoubleOtherExtension on AnyOfIntDoubleOther {
   static Serializer<AnyOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
   static AnyOfIntDoubleOther fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
-
-typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
 
 extension $OneValueSomeOfInObject_IntDoubleStringExtension on OneValueSomeOfInObject_IntDoubleString {
   static Serializer<OneValueSomeOfInObject_IntDoubleString> get serializer =>

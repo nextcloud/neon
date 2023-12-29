@@ -56,6 +56,8 @@ abstract class BaseOneOf1 implements $BaseOneOf1Interface, Built<BaseOneOf1, Bas
   static Serializer<BaseOneOf1> get serializer => _$baseOneOf1Serializer;
 }
 
+typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
+
 @BuiltValue(instantiable: false)
 abstract interface class $BaseAnyOf1Interface {
   @BuiltValueField(wireName: 'attribute-anyOf')
@@ -73,6 +75,8 @@ abstract class BaseAnyOf1 implements $BaseAnyOf1Interface, Built<BaseAnyOf1, Bas
 
   static Serializer<BaseAnyOf1> get serializer => _$baseAnyOf1Serializer;
 }
+
+typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
 
 @BuiltValue(instantiable: false)
 abstract interface class $BaseNestedAllOf_3Interface {
@@ -119,6 +123,14 @@ abstract class BaseNestedOneOf3
   static Serializer<BaseNestedOneOf3> get serializer => _$baseNestedOneOf3Serializer;
 }
 
+typedef BaseNestedOneOf = ({
+  BaseAllOf? baseAllOf,
+  BaseAnyOf? baseAnyOf,
+  BaseNestedOneOf3? baseNestedOneOf3,
+  BaseOneOf1? baseOneOf1,
+  double? $double
+});
+
 @BuiltValue(instantiable: false)
 abstract interface class $BaseNestedAnyOf3Interface {
   @BuiltValueField(wireName: 'attribute-nested-anyOf')
@@ -138,33 +150,6 @@ abstract class BaseNestedAnyOf3
   static Serializer<BaseNestedAnyOf3> get serializer => _$baseNestedAnyOf3Serializer;
 }
 
-typedef BaseOneOf = ({BaseOneOf1? baseOneOf1, double? $double});
-
-extension $BaseOneOfExtension on BaseOneOf {
-  static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
-  static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
-}
-
-typedef BaseAnyOf = ({BaseAnyOf1? baseAnyOf1, int? $int});
-
-extension $BaseAnyOfExtension on BaseAnyOf {
-  static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
-  static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
-}
-
-typedef BaseNestedOneOf = ({
-  BaseAllOf? baseAllOf,
-  BaseAnyOf? baseAnyOf,
-  BaseNestedOneOf3? baseNestedOneOf3,
-  BaseOneOf1? baseOneOf1,
-  double? $double
-});
-
-extension $BaseNestedOneOfExtension on BaseNestedOneOf {
-  static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
-  static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
-}
-
 typedef BaseNestedAnyOf = ({
   BaseAllOf? baseAllOf,
   BaseAnyOf1? baseAnyOf1,
@@ -172,13 +157,27 @@ typedef BaseNestedAnyOf = ({
   BaseOneOf? baseOneOf,
   int? $int
 });
+typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
+
+extension $BaseOneOfExtension on BaseOneOf {
+  static Serializer<BaseOneOf> get serializer => $fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer;
+  static BaseOneOf fromJson(Object? json) => $fc0451dbdd462718bd075afd2e3ce0ecExtension._fromJson(json);
+}
+
+extension $BaseAnyOfExtension on BaseAnyOf {
+  static Serializer<BaseAnyOf> get serializer => $ce3c7b262d1c503446a436c461be5be9Extension._serializer;
+  static BaseAnyOf fromJson(Object? json) => $ce3c7b262d1c503446a436c461be5be9Extension._fromJson(json);
+}
+
+extension $BaseNestedOneOfExtension on BaseNestedOneOf {
+  static Serializer<BaseNestedOneOf> get serializer => $8da5087c0b3f2cce06998d453af8ad19Extension._serializer;
+  static BaseNestedOneOf fromJson(Object? json) => $8da5087c0b3f2cce06998d453af8ad19Extension._fromJson(json);
+}
 
 extension $BaseNestedAnyOfExtension on BaseNestedAnyOf {
   static Serializer<BaseNestedAnyOf> get serializer => $523892e2348458a2bdb28f9f942dca37Extension._serializer;
   static BaseNestedAnyOf fromJson(Object? json) => $523892e2348458a2bdb28f9f942dca37Extension._fromJson(json);
 }
-
-typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
 
 extension $NestedOptimizedOneOfExtension on NestedOptimizedOneOf {
   static Serializer<NestedOptimizedOneOf> get serializer => $abe6d27882a5771a98ede04cd64de567Extension._serializer;

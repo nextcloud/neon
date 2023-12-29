@@ -3747,6 +3747,8 @@ abstract class ShareapiAcceptShareResponseApplicationJson
       _$shareapiAcceptShareResponseApplicationJsonSerializer;
 }
 
+typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
+
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesapiShareesapiSearchHeadersInterface {
   String? get link;
@@ -4323,6 +4325,8 @@ abstract class ShareesapiSearchResponseApplicationJson
   static Serializer<ShareesapiSearchResponseApplicationJson> get serializer =>
       _$shareesapiSearchResponseApplicationJsonSerializer;
 }
+
+typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
 
 @BuiltValue(instantiable: false)
 abstract interface class $ShareesRecommendedResult_ExactInterface {
@@ -4929,14 +4933,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-typedef ShareesapiSearchShareType = ({BuiltList<int>? builtListInt, int? $int});
-
 extension $ShareesapiSearchShareTypeExtension on ShareesapiSearchShareType {
   static Serializer<ShareesapiSearchShareType> get serializer => $07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer;
   static ShareesapiSearchShareType fromJson(Object? json) => $07eaa0304017ba8abe7f9f20d6a736f3Extension._fromJson(json);
 }
-
-typedef ShareesapiFindRecommendedShareType = ({BuiltList<int>? builtListInt, int? $int});
 
 extension $ShareesapiFindRecommendedShareTypeExtension on ShareesapiFindRecommendedShareType {
   static Serializer<ShareesapiFindRecommendedShareType> get serializer =>

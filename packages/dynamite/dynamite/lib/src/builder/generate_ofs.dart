@@ -16,12 +16,6 @@ Iterable<Spec> buildOfsExtensions(
       continue;
     }
 
-    yield TypeDef((final b) {
-      b
-        ..name = result.className
-        ..definition = refer(result.dartType.name);
-    });
-
     final serializerMethod = Method(
       (final b) => b
         ..static = true

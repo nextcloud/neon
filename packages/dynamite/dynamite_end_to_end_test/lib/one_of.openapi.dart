@@ -55,6 +55,9 @@ abstract class ObjectOneOf1 implements $ObjectOneOf1Interface, Built<ObjectOneOf
   static Serializer<ObjectOneOf1> get serializer => _$objectOneOf1Serializer;
 }
 
+/// One of with objects only.
+typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
+
 @BuiltValue(instantiable: false)
 abstract interface class $MixedOneOf1Interface {
   @BuiltValueField(wireName: 'attribute-oneOf')
@@ -72,6 +75,9 @@ abstract class MixedOneOf1 implements $MixedOneOf1Interface, Built<MixedOneOf1, 
 
   static Serializer<MixedOneOf1> get serializer => _$mixedOneOf1Serializer;
 }
+
+/// One of with object and primitive value.
+typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
 
 @BuiltValue(instantiable: false)
 abstract interface class $OneObjectOneOf0Interface {
@@ -91,21 +97,18 @@ abstract class OneObjectOneOf0 implements $OneObjectOneOf0Interface, Built<OneOb
   static Serializer<OneObjectOneOf0> get serializer => _$oneObjectOneOf0Serializer;
 }
 
-typedef ObjectOneOf = ({ObjectOneOf0? objectOneOf0, ObjectOneOf1? objectOneOf1});
+/// One of with an integer, double and other value.
+typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
 extension $ObjectOneOfExtension on ObjectOneOf {
   static Serializer<ObjectOneOf> get serializer => $6c828020e1dac1d58ded0a29ef8b0c41Extension._serializer;
   static ObjectOneOf fromJson(Object? json) => $6c828020e1dac1d58ded0a29ef8b0c41Extension._fromJson(json);
 }
 
-typedef MixedOneOf = ({MixedOneOf1? mixedOneOf1, String? string});
-
 extension $MixedOneOfExtension on MixedOneOf {
   static Serializer<MixedOneOf> get serializer => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._serializer;
   static MixedOneOf fromJson(Object? json) => $d1b40dfcebdca2dfa1f3e52ac98462a5Extension._fromJson(json);
 }
-
-typedef OneOfIntDoubleOther = ({num? $num, String? string});
 
 extension $OneOfIntDoubleOtherExtension on OneOfIntDoubleOther {
   static Serializer<OneOfIntDoubleOther> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;

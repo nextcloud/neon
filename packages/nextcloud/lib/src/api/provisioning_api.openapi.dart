@@ -5446,6 +5446,9 @@ abstract class GroupsAddGroupResponseApplicationJson
       _$groupsAddGroupResponseApplicationJsonSerializer;
 }
 
+typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
+typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
+
 @BuiltValue(instantiable: false)
 abstract interface class $GroupDetailsInterface {
   String get id;
@@ -5694,6 +5697,8 @@ abstract class UserDetails_BackendCapabilities
   static Serializer<UserDetails_BackendCapabilities> get serializer => _$userDetailsBackendCapabilitiesSerializer;
 }
 
+typedef UserDetailsQuota_Quota = ({num? $num, String? string});
+
 @BuiltValue(instantiable: false)
 abstract interface class $UserDetailsQuotaInterface {
   num get free;
@@ -5826,6 +5831,11 @@ abstract class GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1
   static Serializer<GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
+
+typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
+  UserDetails? userDetails
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_DataInterface {
@@ -6657,6 +6667,11 @@ abstract class UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1
       _$usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
 
+typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  UserDetails? userDetails,
+  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
+
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetUsersDetailsResponseApplicationJson_Ocs_DataInterface {
   BuiltMap<String, UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get users;
@@ -6779,6 +6794,11 @@ abstract class UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_User
   static Serializer<UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1> get serializer =>
       _$usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1Serializer;
 }
+
+typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
+  UserDetails? userDetails,
+  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_DataInterface {
@@ -8063,31 +8083,20 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-typedef GroupDetails_Usercount = ({bool? $bool, int? $int});
-
 extension $GroupDetails_UsercountExtension on GroupDetails_Usercount {
   static Serializer<GroupDetails_Usercount> get serializer => $c4bc4131e74e61dae681408e87e2e2bdExtension._serializer;
   static GroupDetails_Usercount fromJson(Object? json) => $c4bc4131e74e61dae681408e87e2e2bdExtension._fromJson(json);
 }
-
-typedef GroupDetails_Disabled = ({bool? $bool, int? $int});
 
 extension $GroupDetails_DisabledExtension on GroupDetails_Disabled {
   static Serializer<GroupDetails_Disabled> get serializer => $c4bc4131e74e61dae681408e87e2e2bdExtension._serializer;
   static GroupDetails_Disabled fromJson(Object? json) => $c4bc4131e74e61dae681408e87e2e2bdExtension._fromJson(json);
 }
 
-typedef UserDetailsQuota_Quota = ({num? $num, String? string});
-
 extension $UserDetailsQuota_QuotaExtension on UserDetailsQuota_Quota {
   static Serializer<UserDetailsQuota_Quota> get serializer => $b6d67dc2a96424d2f407f8e51557f3deExtension._serializer;
   static UserDetailsQuota_Quota fromJson(Object? json) => $b6d67dc2a96424d2f407f8e51557f3deExtension._fromJson(json);
 }
-
-typedef GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
-  GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users1? groupsGetGroupUsersDetailsResponseApplicationJsonOcsDataUsers1,
-  UserDetails? userDetails
-});
 
 extension $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
     on GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_Users {
@@ -8097,11 +8106,6 @@ extension $GroupsGetGroupUsersDetailsResponseApplicationJson_Ocs_Data_UsersExten
       $b20d370ea28764b414e70ac5df151f1bExtension._fromJson(json);
 }
 
-typedef UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
-  UserDetails? userDetails,
-  UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetUsersDetailsResponseApplicationJsonOcsDataUsers1
-});
-
 extension $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
     on UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users {
   static Serializer<UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users> get serializer =>
@@ -8109,11 +8113,6 @@ extension $UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
   static UsersGetUsersDetailsResponseApplicationJson_Ocs_Data_Users fromJson(Object? json) =>
       $1e1cd5e43e0a1022a23a294e58225d74Extension._fromJson(json);
 }
-
-typedef UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users = ({
-  UserDetails? userDetails,
-  UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users1? usersGetDisabledUsersDetailsResponseApplicationJsonOcsDataUsers1
-});
 
 extension $UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_UsersExtension
     on UsersGetDisabledUsersDetailsResponseApplicationJson_Ocs_Data_Users {

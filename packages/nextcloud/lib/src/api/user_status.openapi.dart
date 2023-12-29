@@ -1257,6 +1257,8 @@ class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType
       _fromWire[serialized]!;
 }
 
+typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
+
 @BuiltValue(instantiable: false)
 abstract interface class $ClearAtInterface {
   ClearAt_Type get type;
@@ -1804,6 +1806,8 @@ abstract class UserStatusClearMessageResponseApplicationJson
       _$userStatusClearMessageResponseApplicationJsonSerializer;
 }
 
+typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
+
 @BuiltValue(instantiable: false)
 abstract interface class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -1923,14 +1927,10 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 
-typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
-
 extension $ClearAt_TimeExtension on ClearAt_Time {
   static Serializer<ClearAt_Time> get serializer => $557344b3ba734aacc7109e5420fcb6c5Extension._serializer;
   static ClearAt_Time fromJson(Object? json) => $557344b3ba734aacc7109e5420fcb6c5Extension._fromJson(json);
 }
-
-typedef UserStatusRevertStatusResponseApplicationJson_Ocs_Data = ({BuiltList<Never>? builtListNever, Private? private});
 
 extension $UserStatusRevertStatusResponseApplicationJson_Ocs_DataExtension
     on UserStatusRevertStatusResponseApplicationJson_Ocs_Data {

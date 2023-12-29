@@ -13089,6 +13089,8 @@ abstract class ChatMessage implements $ChatMessageInterface, Built<ChatMessage, 
   static Serializer<ChatMessage> get serializer => _$chatMessageSerializer;
 }
 
+typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+
 @BuiltValue(instantiable: false)
 abstract interface class $RoomInterface {
   String get actorId;
@@ -26985,6 +26987,11 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0
       _$roomAddParticipantToRoomResponseApplicationJsonOcsData0Serializer;
 }
 
+typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
+  BuiltList<Never>? builtListNever,
+  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
+});
+
 @BuiltValue(instantiable: false)
 abstract interface class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
   OCSMeta get meta;
@@ -32345,6 +32352,8 @@ class _$SettingsSetUserSettingKeySerializer implements PrimitiveSerializer<Setti
       _fromWire[serialized]!;
 }
 
+typedef SettingsSetUserSettingValue = ({int? $int, String? string});
+
 class SettingsSetUserSettingApiVersion extends EnumClass {
   const SettingsSetUserSettingApiVersion._(super.name);
 
@@ -32951,6 +32960,11 @@ abstract class SignalingSession
 
   static Serializer<SignalingSession> get serializer => _$signalingSessionSerializer;
 }
+
+typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
+  BuiltList<SignalingSession>? builtListSignalingSession,
+  String? string
+});
 
 @BuiltValue(instantiable: false)
 abstract interface class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
@@ -33649,17 +33663,12 @@ abstract class PublicCapabilities0
   static Serializer<PublicCapabilities0> get serializer => _$publicCapabilities0Serializer;
 }
 
-typedef Room_LastMessage = ({BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
+typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
 extension $Room_LastMessageExtension on Room_LastMessage {
   static Serializer<Room_LastMessage> get serializer => $e620970959f428e934829e52f32b7089Extension._serializer;
   static Room_LastMessage fromJson(Object? json) => $e620970959f428e934829e52f32b7089Extension._fromJson(json);
 }
-
-typedef RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data = ({
-  BuiltList<Never>? builtListNever,
-  RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data0? roomAddParticipantToRoomResponseApplicationJsonOcsData0
-});
 
 extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
     on RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data {
@@ -33669,19 +33678,12 @@ extension $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataExtension
       $bd993fb3f40af33e8594d0d698208560Extension._fromJson(json);
 }
 
-typedef SettingsSetUserSettingValue = ({int? $int, String? string});
-
 extension $SettingsSetUserSettingValueExtension on SettingsSetUserSettingValue {
   static Serializer<SettingsSetUserSettingValue> get serializer =>
       $b2c4857c0136baea42828d89c87c757dExtension._serializer;
   static SettingsSetUserSettingValue fromJson(Object? json) =>
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
-
-typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
-  BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string
-});
 
 extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
     on SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data {
@@ -33690,8 +33692,6 @@ extension $SignalingPullMessagesResponseApplicationJson_Ocs_Data_DataExtension
   static SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data fromJson(Object? json) =>
       $1df642f5035aea3b22543ab331c3fb01Extension._fromJson(json);
 }
-
-typedef PublicCapabilities = ({BuiltList<Never>? builtListNever, PublicCapabilities0? publicCapabilities0});
 
 extension $PublicCapabilitiesExtension on PublicCapabilities {
   static Serializer<PublicCapabilities> get serializer => $bc4aac45771b11649d372f39a92b1cf3Extension._serializer;
