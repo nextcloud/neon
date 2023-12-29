@@ -5008,6 +5008,10 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -5328,6 +5332,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Capabilities_FilesSharing_Sharee), Capabilities_FilesSharing_ShareeBuilder.new)
       ..add(Capabilities_FilesSharing_Sharee.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

@@ -326,6 +326,10 @@ abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, 
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..add(EnumString.serializer)
@@ -336,6 +340,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add(WrappedEnum_CustomString.serializer)
       ..add(WrappedEnum_Integer.serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

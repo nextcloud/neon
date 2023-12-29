@@ -59,6 +59,10 @@ abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
@@ -69,6 +73,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())

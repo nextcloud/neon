@@ -5,6 +5,11 @@ List<Spec> buildSerializer(final State state) => [
       const Code('// coverage:ignore-start\n'),
       Field((final b) {
         b
+          ..docs.add('''
+/// Serializer for all values in this library.
+/// 
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.''')
           ..annotations.add(refer('visibleForTesting'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')
@@ -26,6 +31,11 @@ List<Spec> buildSerializer(final State state) => [
       }),
       Field((final b) {
         b
+          ..docs.add('''
+/// Serializer for all values in this library.
+/// 
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.''')
           ..annotations.add(refer('visibleForTesting'))
           ..modifier = FieldModifier.final$
           ..type = refer('Serializers')

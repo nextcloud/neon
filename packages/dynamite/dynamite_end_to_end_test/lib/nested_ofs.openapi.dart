@@ -567,6 +567,10 @@ class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerialize
 }
 
 // coverage:ignore-start
+/// Serializer for all values in this library.
+///
+/// Serializes values into the `built_value` wire format.
+/// See: [jsonSerializers] for serializing into json.
 @visibleForTesting
 final Serializers serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
@@ -587,6 +591,11 @@ final Serializers serializers = (Serializers().toBuilder()
       ..add($523892e2348458a2bdb28f9f942dca37Extension._serializer)
       ..add($abe6d27882a5771a98ede04cd64de567Extension._serializer))
     .build();
+
+/// Serializer for all values in this library.
+///
+/// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
+/// See: [serializers] for serializing into the `built_value` wire format.
 @visibleForTesting
 final Serializers jsonSerializers = (serializers.toBuilder()
       ..add(DynamiteDoubleSerializer())
