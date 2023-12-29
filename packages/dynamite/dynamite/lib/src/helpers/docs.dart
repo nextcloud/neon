@@ -5,7 +5,7 @@ Iterable<String> descriptionToDocs(final String? description) sync* {
     for (final line in description.split('\n')) {
       final buffer = StringBuffer('$docsSeparator ')..write(line);
 
-      if (!line.endsWith('.')) {
+      if (!line.endsWith('.') && line.isNotEmpty) {
         buffer.write('.');
       }
 
