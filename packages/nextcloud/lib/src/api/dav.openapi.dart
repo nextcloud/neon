@@ -581,20 +581,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -607,6 +615,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
     implements
         $DirectGetUrlResponseApplicationJson_Ocs_DataInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs_Data, DirectGetUrlResponseApplicationJson_Ocs_DataBuilder> {
+  /// Creates a new DirectGetUrlResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectGetUrlResponseApplicationJson_Ocs_Data([
     void Function(DirectGetUrlResponseApplicationJson_Ocs_DataBuilder)? b,
   ]) = _$DirectGetUrlResponseApplicationJson_Ocs_Data;
@@ -615,15 +624,22 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs_Data
   const DirectGetUrlResponseApplicationJson_Ocs_Data._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectGetUrlResponseApplicationJson_Ocs_Data.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectGetUrlResponseApplicationJson_Ocs_Data.
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs_Data> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsDataSerializer;
 }
@@ -638,6 +654,7 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
     implements
         $DirectGetUrlResponseApplicationJson_OcsInterface,
         Built<DirectGetUrlResponseApplicationJson_Ocs, DirectGetUrlResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DirectGetUrlResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectGetUrlResponseApplicationJson_Ocs([void Function(DirectGetUrlResponseApplicationJson_OcsBuilder)? b]) =
       _$DirectGetUrlResponseApplicationJson_Ocs;
 
@@ -645,15 +662,22 @@ abstract class DirectGetUrlResponseApplicationJson_Ocs
   const DirectGetUrlResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectGetUrlResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectGetUrlResponseApplicationJson_Ocs.
   static Serializer<DirectGetUrlResponseApplicationJson_Ocs> get serializer =>
       _$directGetUrlResponseApplicationJsonOcsSerializer;
 }
@@ -667,6 +691,7 @@ abstract class DirectGetUrlResponseApplicationJson
     implements
         $DirectGetUrlResponseApplicationJsonInterface,
         Built<DirectGetUrlResponseApplicationJson, DirectGetUrlResponseApplicationJsonBuilder> {
+  /// Creates a new DirectGetUrlResponseApplicationJson object using the builder pattern.
   factory DirectGetUrlResponseApplicationJson([void Function(DirectGetUrlResponseApplicationJsonBuilder)? b]) =
       _$DirectGetUrlResponseApplicationJson;
 
@@ -674,15 +699,22 @@ abstract class DirectGetUrlResponseApplicationJson
   const DirectGetUrlResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DirectGetUrlResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DirectGetUrlResponseApplicationJson.
   static Serializer<DirectGetUrlResponseApplicationJson> get serializer =>
       _$directGetUrlResponseApplicationJsonSerializer;
 }
@@ -695,21 +727,29 @@ abstract interface class $OutOfOfficeDataCommonInterface {
 
 abstract class OutOfOfficeDataCommon
     implements $OutOfOfficeDataCommonInterface, Built<OutOfOfficeDataCommon, OutOfOfficeDataCommonBuilder> {
+  /// Creates a new OutOfOfficeDataCommon object using the builder pattern.
   factory OutOfOfficeDataCommon([void Function(OutOfOfficeDataCommonBuilder)? b]) = _$OutOfOfficeDataCommon;
 
   // coverage:ignore-start
   const OutOfOfficeDataCommon._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeDataCommon.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeDataCommon.
   static Serializer<OutOfOfficeDataCommon> get serializer => _$outOfOfficeDataCommonSerializer;
 }
 
@@ -727,21 +767,29 @@ abstract interface class $CurrentOutOfOfficeDataInterface
 
 abstract class CurrentOutOfOfficeData
     implements $CurrentOutOfOfficeDataInterface, Built<CurrentOutOfOfficeData, CurrentOutOfOfficeDataBuilder> {
+  /// Creates a new CurrentOutOfOfficeData object using the builder pattern.
   factory CurrentOutOfOfficeData([void Function(CurrentOutOfOfficeDataBuilder)? b]) = _$CurrentOutOfOfficeData;
 
   // coverage:ignore-start
   const CurrentOutOfOfficeData._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory CurrentOutOfOfficeData.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for CurrentOutOfOfficeData.
   static Serializer<CurrentOutOfOfficeData> get serializer => _$currentOutOfOfficeDataSerializer;
 }
 
@@ -756,6 +804,7 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
         $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface,
         Built<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
             OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs([
     void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs;
@@ -764,15 +813,22 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
   const OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonOcsSerializer;
 }
@@ -787,6 +843,7 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
         $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface,
         Built<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
             OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder> {
+  /// Creates a new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson([
     void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? b,
   ]) = _$OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson;
@@ -795,15 +852,22 @@ abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
   const OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson.
   static Serializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson> get serializer =>
       _$outOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonSerializer;
 }
@@ -821,20 +885,28 @@ abstract interface class $OutOfOfficeDataInterface
     implements $OutOfOfficeDataCommonInterface, $OutOfOfficeData_1Interface {}
 
 abstract class OutOfOfficeData implements $OutOfOfficeDataInterface, Built<OutOfOfficeData, OutOfOfficeDataBuilder> {
+  /// Creates a new OutOfOfficeData object using the builder pattern.
   factory OutOfOfficeData([void Function(OutOfOfficeDataBuilder)? b]) = _$OutOfOfficeData;
 
   // coverage:ignore-start
   const OutOfOfficeData._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeData.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeData.
   static Serializer<OutOfOfficeData> get serializer => _$outOfOfficeDataSerializer;
 }
 
@@ -849,6 +921,7 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
         $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface,
         Built<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
             OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs;
@@ -857,15 +930,22 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
   const OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeGetOutOfOfficeResponseApplicationJsonOcsSerializer;
 }
@@ -880,6 +960,7 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
         $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface,
         Built<OutOfOfficeGetOutOfOfficeResponseApplicationJson,
             OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder> {
+  /// Creates a new OutOfOfficeGetOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? b,
   ]) = _$OutOfOfficeGetOutOfOfficeResponseApplicationJson;
@@ -888,15 +969,22 @@ abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
   const OutOfOfficeGetOutOfOfficeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeGetOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeGetOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeGetOutOfOfficeResponseApplicationJsonSerializer;
 }
@@ -912,6 +1000,7 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
         $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface,
         Built<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
             OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs;
@@ -920,15 +1009,22 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
   const OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeSetOutOfOfficeResponseApplicationJsonOcsSerializer;
 }
@@ -943,6 +1039,7 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
         $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface,
         Built<OutOfOfficeSetOutOfOfficeResponseApplicationJson,
             OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder> {
+  /// Creates a new OutOfOfficeSetOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? b,
   ]) = _$OutOfOfficeSetOutOfOfficeResponseApplicationJson;
@@ -951,15 +1048,22 @@ abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
   const OutOfOfficeSetOutOfOfficeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeSetOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeSetOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeSetOutOfOfficeResponseApplicationJsonSerializer;
 }
@@ -975,6 +1079,7 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
         $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface,
         Built<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
             OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs;
@@ -983,15 +1088,22 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
   const OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.
   static Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs> get serializer =>
       _$outOfOfficeClearOutOfOfficeResponseApplicationJsonOcsSerializer;
 }
@@ -1006,6 +1118,7 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
         $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface,
         Built<OutOfOfficeClearOutOfOfficeResponseApplicationJson,
             OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder> {
+  /// Creates a new OutOfOfficeClearOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? b,
   ]) = _$OutOfOfficeClearOutOfOfficeResponseApplicationJson;
@@ -1014,15 +1127,22 @@ abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
   const OutOfOfficeClearOutOfOfficeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OutOfOfficeClearOutOfOfficeResponseApplicationJson.
   static Serializer<OutOfOfficeClearOutOfOfficeResponseApplicationJson> get serializer =>
       _$outOfOfficeClearOutOfOfficeResponseApplicationJsonSerializer;
 }
@@ -1035,20 +1155,28 @@ abstract interface class $Capabilities_DavInterface {
 
 abstract class Capabilities_Dav
     implements $Capabilities_DavInterface, Built<Capabilities_Dav, Capabilities_DavBuilder> {
+  /// Creates a new Capabilities_Dav object using the builder pattern.
   factory Capabilities_Dav([void Function(Capabilities_DavBuilder)? b]) = _$Capabilities_Dav;
 
   // coverage:ignore-start
   const Capabilities_Dav._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_Dav.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_Dav.
   static Serializer<Capabilities_Dav> get serializer => _$capabilitiesDavSerializer;
 }
 
@@ -1058,20 +1186,28 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
   factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 

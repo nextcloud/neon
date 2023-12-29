@@ -88,6 +88,7 @@ TypeResultObject resolveObject(
     );
     final $class = buildBuiltClass(
       identifier,
+      documentation: schema.formattedDescription,
       defaults: defaults.build(),
       validators: validators.build(),
     );

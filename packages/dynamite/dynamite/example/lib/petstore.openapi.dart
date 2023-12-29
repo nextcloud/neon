@@ -310,20 +310,28 @@ abstract interface class $NewPetInterface {
 }
 
 abstract class NewPet implements $NewPetInterface, Built<NewPet, NewPetBuilder> {
+  /// Creates a new NewPet object using the builder pattern.
   factory NewPet([void Function(NewPetBuilder)? b]) = _$NewPet;
 
   // coverage:ignore-start
   const NewPet._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory NewPet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for NewPet.
   static Serializer<NewPet> get serializer => _$newPetSerializer;
 }
 
@@ -336,20 +344,28 @@ abstract interface class $Pet_1Interface {
 abstract interface class $PetInterface implements $NewPetInterface, $Pet_1Interface {}
 
 abstract class Pet implements $PetInterface, Built<Pet, PetBuilder> {
+  /// Creates a new Pet object using the builder pattern.
   factory Pet([void Function(PetBuilder)? b]) = _$Pet;
 
   // coverage:ignore-start
   const Pet._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Pet.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Pet.
   static Serializer<Pet> get serializer => _$petSerializer;
 }
 
@@ -360,20 +376,28 @@ abstract interface class $ErrorInterface {
 }
 
 abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
+  /// Creates a new Error object using the builder pattern.
   factory Error([void Function(ErrorBuilder)? b]) = _$Error;
 
   // coverage:ignore-start
   const Error._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Error.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Error.
   static Serializer<Error> get serializer => _$errorSerializer;
 }
 

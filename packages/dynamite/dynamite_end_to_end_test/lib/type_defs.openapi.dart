@@ -27,14 +27,22 @@ abstract interface class $BaseInterface {
 }
 
 abstract class Base implements $BaseInterface, Built<Base, BaseBuilder> {
+  /// Creates a new Base object using the builder pattern.
   factory Base([void Function(BaseBuilder)? b]) = _$Base;
 
   const Base._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory Base.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for Base.
   static Serializer<Base> get serializer => _$baseSerializer;
 }
 
@@ -46,14 +54,22 @@ abstract interface class $NestedRedirectInterface {
 }
 
 abstract class NestedRedirect implements $NestedRedirectInterface, Built<NestedRedirect, NestedRedirectBuilder> {
+  /// Creates a new NestedRedirect object using the builder pattern.
   factory NestedRedirect([void Function(NestedRedirectBuilder)? b]) = _$NestedRedirect;
 
   const NestedRedirect._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory NestedRedirect.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for NestedRedirect.
   static Serializer<NestedRedirect> get serializer => _$nestedRedirectSerializer;
 }
 

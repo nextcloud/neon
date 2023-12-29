@@ -1071,6 +1071,7 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
     implements
         $ThemingGetManifestResponseApplicationJson_IconsInterface,
         Built<ThemingGetManifestResponseApplicationJson_Icons, ThemingGetManifestResponseApplicationJson_IconsBuilder> {
+  /// Creates a new ThemingGetManifestResponseApplicationJson_Icons object using the builder pattern.
   factory ThemingGetManifestResponseApplicationJson_Icons([
     void Function(ThemingGetManifestResponseApplicationJson_IconsBuilder)? b,
   ]) = _$ThemingGetManifestResponseApplicationJson_Icons;
@@ -1079,15 +1080,22 @@ abstract class ThemingGetManifestResponseApplicationJson_Icons
   const ThemingGetManifestResponseApplicationJson_Icons._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ThemingGetManifestResponseApplicationJson_Icons.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ThemingGetManifestResponseApplicationJson_Icons.
   static Serializer<ThemingGetManifestResponseApplicationJson_Icons> get serializer =>
       _$themingGetManifestResponseApplicationJsonIconsSerializer;
 
@@ -1117,6 +1125,7 @@ abstract class ThemingGetManifestResponseApplicationJson
     implements
         $ThemingGetManifestResponseApplicationJsonInterface,
         Built<ThemingGetManifestResponseApplicationJson, ThemingGetManifestResponseApplicationJsonBuilder> {
+  /// Creates a new ThemingGetManifestResponseApplicationJson object using the builder pattern.
   factory ThemingGetManifestResponseApplicationJson([
     void Function(ThemingGetManifestResponseApplicationJsonBuilder)? b,
   ]) = _$ThemingGetManifestResponseApplicationJson;
@@ -1125,15 +1134,22 @@ abstract class ThemingGetManifestResponseApplicationJson
   const ThemingGetManifestResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ThemingGetManifestResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ThemingGetManifestResponseApplicationJson.
   static Serializer<ThemingGetManifestResponseApplicationJson> get serializer =>
       _$themingGetManifestResponseApplicationJsonSerializer;
 }
@@ -1146,20 +1162,28 @@ abstract interface class $BackgroundInterface {
 }
 
 abstract class Background implements $BackgroundInterface, Built<Background, BackgroundBuilder> {
+  /// Creates a new Background object using the builder pattern.
   factory Background([void Function(BackgroundBuilder)? b]) = _$Background;
 
   // coverage:ignore-start
   const Background._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Background.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Background.
   static Serializer<Background> get serializer => _$backgroundSerializer;
 }
 
@@ -1173,20 +1197,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -1200,6 +1232,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
     implements
         $UserThemeEnableThemeResponseApplicationJson_OcsInterface,
         Built<UserThemeEnableThemeResponseApplicationJson_Ocs, UserThemeEnableThemeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserThemeEnableThemeResponseApplicationJson_Ocs object using the builder pattern.
   factory UserThemeEnableThemeResponseApplicationJson_Ocs([
     void Function(UserThemeEnableThemeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserThemeEnableThemeResponseApplicationJson_Ocs;
@@ -1208,15 +1241,22 @@ abstract class UserThemeEnableThemeResponseApplicationJson_Ocs
   const UserThemeEnableThemeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeEnableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserThemeEnableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeEnableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -1230,6 +1270,7 @@ abstract class UserThemeEnableThemeResponseApplicationJson
     implements
         $UserThemeEnableThemeResponseApplicationJsonInterface,
         Built<UserThemeEnableThemeResponseApplicationJson, UserThemeEnableThemeResponseApplicationJsonBuilder> {
+  /// Creates a new UserThemeEnableThemeResponseApplicationJson object using the builder pattern.
   factory UserThemeEnableThemeResponseApplicationJson([
     void Function(UserThemeEnableThemeResponseApplicationJsonBuilder)? b,
   ]) = _$UserThemeEnableThemeResponseApplicationJson;
@@ -1238,15 +1279,22 @@ abstract class UserThemeEnableThemeResponseApplicationJson
   const UserThemeEnableThemeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeEnableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserThemeEnableThemeResponseApplicationJson.
   static Serializer<UserThemeEnableThemeResponseApplicationJson> get serializer =>
       _$userThemeEnableThemeResponseApplicationJsonSerializer;
 }
@@ -1262,6 +1310,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
         $UserThemeDisableThemeResponseApplicationJson_OcsInterface,
         Built<UserThemeDisableThemeResponseApplicationJson_Ocs,
             UserThemeDisableThemeResponseApplicationJson_OcsBuilder> {
+  /// Creates a new UserThemeDisableThemeResponseApplicationJson_Ocs object using the builder pattern.
   factory UserThemeDisableThemeResponseApplicationJson_Ocs([
     void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? b,
   ]) = _$UserThemeDisableThemeResponseApplicationJson_Ocs;
@@ -1270,15 +1319,22 @@ abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
   const UserThemeDisableThemeResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeDisableThemeResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserThemeDisableThemeResponseApplicationJson_Ocs.
   static Serializer<UserThemeDisableThemeResponseApplicationJson_Ocs> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonOcsSerializer;
 }
@@ -1292,6 +1348,7 @@ abstract class UserThemeDisableThemeResponseApplicationJson
     implements
         $UserThemeDisableThemeResponseApplicationJsonInterface,
         Built<UserThemeDisableThemeResponseApplicationJson, UserThemeDisableThemeResponseApplicationJsonBuilder> {
+  /// Creates a new UserThemeDisableThemeResponseApplicationJson object using the builder pattern.
   factory UserThemeDisableThemeResponseApplicationJson([
     void Function(UserThemeDisableThemeResponseApplicationJsonBuilder)? b,
   ]) = _$UserThemeDisableThemeResponseApplicationJson;
@@ -1300,15 +1357,22 @@ abstract class UserThemeDisableThemeResponseApplicationJson
   const UserThemeDisableThemeResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory UserThemeDisableThemeResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for UserThemeDisableThemeResponseApplicationJson.
   static Serializer<UserThemeDisableThemeResponseApplicationJson> get serializer =>
       _$userThemeDisableThemeResponseApplicationJsonSerializer;
 }
@@ -1341,6 +1405,7 @@ abstract class PublicCapabilities_Theming
     implements
         $PublicCapabilities_ThemingInterface,
         Built<PublicCapabilities_Theming, PublicCapabilities_ThemingBuilder> {
+  /// Creates a new PublicCapabilities_Theming object using the builder pattern.
   factory PublicCapabilities_Theming([void Function(PublicCapabilities_ThemingBuilder)? b]) =
       _$PublicCapabilities_Theming;
 
@@ -1348,15 +1413,22 @@ abstract class PublicCapabilities_Theming
   const PublicCapabilities_Theming._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities_Theming.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities_Theming.
   static Serializer<PublicCapabilities_Theming> get serializer => _$publicCapabilitiesThemingSerializer;
 }
 
@@ -1367,20 +1439,28 @@ abstract interface class $PublicCapabilitiesInterface {
 
 abstract class PublicCapabilities
     implements $PublicCapabilitiesInterface, Built<PublicCapabilities, PublicCapabilitiesBuilder> {
+  /// Creates a new PublicCapabilities object using the builder pattern.
   factory PublicCapabilities([void Function(PublicCapabilitiesBuilder)? b]) = _$PublicCapabilities;
 
   // coverage:ignore-start
   const PublicCapabilities._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory PublicCapabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for PublicCapabilities.
   static Serializer<PublicCapabilities> get serializer => _$publicCapabilitiesSerializer;
 }
 

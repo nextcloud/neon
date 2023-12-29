@@ -176,14 +176,22 @@ abstract interface class $GetHeadersInterface {
 }
 
 abstract class GetHeaders implements $GetHeadersInterface, Built<GetHeaders, GetHeadersBuilder> {
+  /// Creates a new GetHeaders object using the builder pattern.
   factory GetHeaders([void Function(GetHeadersBuilder)? b]) = _$GetHeaders;
 
   const GetHeaders._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory GetHeaders.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for GetHeaders.
   static Serializer<GetHeaders> get serializer => _$getHeadersSerializer;
 }
 
@@ -197,16 +205,24 @@ abstract class WithContentOperationIdHeaders
     implements
         $WithContentOperationIdHeadersInterface,
         Built<WithContentOperationIdHeaders, WithContentOperationIdHeadersBuilder> {
+  /// Creates a new WithContentOperationIdHeaders object using the builder pattern.
   factory WithContentOperationIdHeaders([void Function(WithContentOperationIdHeadersBuilder)? b]) =
       _$WithContentOperationIdHeaders;
 
   const WithContentOperationIdHeaders._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory WithContentOperationIdHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for WithContentOperationIdHeaders.
   static Serializer<WithContentOperationIdHeaders> get serializer => _$withContentOperationIdHeadersSerializer;
 }
 
@@ -218,15 +234,23 @@ abstract interface class $GetWithContentHeadersInterface {
 
 abstract class GetWithContentHeaders
     implements $GetWithContentHeadersInterface, Built<GetWithContentHeaders, GetWithContentHeadersBuilder> {
+  /// Creates a new GetWithContentHeaders object using the builder pattern.
   factory GetWithContentHeaders([void Function(GetWithContentHeadersBuilder)? b]) = _$GetWithContentHeaders;
 
   const GetWithContentHeaders._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory GetWithContentHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for GetWithContentHeaders.
   static Serializer<GetWithContentHeaders> get serializer => _$getWithContentHeadersSerializer;
 }
 

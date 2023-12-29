@@ -104,7 +104,7 @@ TypeResult resolveEnum(
               ..lambda = true
               ..body = Code('jsonSerializers.serializeWith(serializer, this)! as ${subResult.dartType.className}'),
           ),
-          buildSerializer(identifier, isCustom: true),
+          buildSerializer(identifier, 'const _\$${identifier}Serializer()'),
         ]),
     );
 

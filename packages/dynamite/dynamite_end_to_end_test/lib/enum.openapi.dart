@@ -31,6 +31,7 @@ class EnumString extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for EnumString.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumString> get serializer => const _$EnumStringSerializer();
 }
@@ -91,6 +92,7 @@ class EnumInt extends EnumClass {
 
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for EnumInt.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumInt> get serializer => const _$EnumIntSerializer();
 }
@@ -150,6 +152,7 @@ class EnumDynamic extends EnumClass {
 
   dynamic get value => jsonSerializers.serializeWith(serializer, this)! as dynamic;
 
+  /// Serializer for EnumDynamic.
   @BuiltValueSerializer(custom: true)
   static Serializer<EnumDynamic> get serializer => const _$EnumDynamicSerializer();
 }
@@ -206,6 +209,7 @@ class WrappedEnum_CustomString extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for WrappedEnum_CustomString.
   @BuiltValueSerializer(custom: true)
   static Serializer<WrappedEnum_CustomString> get serializer => const _$WrappedEnum_CustomStringSerializer();
 }
@@ -264,6 +268,7 @@ class WrappedEnum_Integer extends EnumClass {
 
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for WrappedEnum_Integer.
   @BuiltValueSerializer(custom: true)
   static Serializer<WrappedEnum_Integer> get serializer => const _$WrappedEnum_IntegerSerializer();
 }
@@ -313,15 +318,24 @@ abstract interface class $WrappedEnumInterface {
   WrappedEnum_Integer get integer;
 }
 
+/// Due to limitations in built_value we can not call the class String. See https://github.com/google/built_value.dart/issues/1292.
 abstract class WrappedEnum implements $WrappedEnumInterface, Built<WrappedEnum, WrappedEnumBuilder> {
+  /// Creates a new WrappedEnum object using the builder pattern.
   factory WrappedEnum([void Function(WrappedEnumBuilder)? b]) = _$WrappedEnum;
 
   const WrappedEnum._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory WrappedEnum.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for WrappedEnum.
   static Serializer<WrappedEnum> get serializer => _$wrappedEnumSerializer;
 }
 

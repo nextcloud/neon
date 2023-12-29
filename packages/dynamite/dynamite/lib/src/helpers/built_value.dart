@@ -8,10 +8,10 @@ const interfaceSuffix = 'Interface';
 /// Attributes must be defined in a separate interface called `\$$className$interfaceSuffix`.
 Spec buildBuiltClass(
   final String className, {
+  final Iterable<String>? documentation,
   final Iterable<String>? defaults,
   final Iterable<String>? validators,
   final Iterable<Method>? methods,
-  final bool customSerializer = false,
 }) =>
     Class(
       (final b) {
@@ -31,11 +31,15 @@ Spec buildBuiltClass(
           ])
           ..methods.addAll([
             toJsonMethod,
-            buildSerializer(className, isCustom: customSerializer),
+            buildSerializer(className),
           ]);
 
         if (methods != null) {
           b.methods.addAll(methods);
+        }
+
+        if (documentation != null) {
+          b.docs.addAll(documentation);
         }
 
         if (defaults != null && defaults.isNotEmpty) {
@@ -94,6 +98,11 @@ Spec buildBuiltClass(
 
 Method get toJsonMethod => Method(
       (final b) => b
+        ..docs.addAll([
+          '/// Parses this object into a json like map.',
+          '///',
+          '/// Use the fromJson factory to revive it again.',
+        ])
         ..name = 'toJson'
         ..returns = refer('Map<String, dynamic>')
         ..lambda = true
@@ -101,26 +110,25 @@ Method get toJsonMethod => Method(
     );
 
 /// Builds the serializer getter for a built class.
-///
-/// If the serializer [isCustom] the getter is annotated to signal this to the built_value_generator.
-/// It is assumed that custom serializers have a const constructor.
-Method buildSerializer(final String className, {final bool isCustom = false}) => Method((final b) {
+Method buildSerializer(final String className, [final String? serializerName]) => Method((final b) {
       b
+        ..docs.add('/// Serializer for $className.')
         ..name = 'serializer'
         ..returns = refer('Serializer<$className>')
         ..lambda = true
         ..static = true
         ..body = Code(
-          isCustom ? 'const _\$${className}Serializer()' : '_\$${toCamelCase(className)}Serializer',
+          serializerName ?? '_\$${toCamelCase(className)}Serializer',
         )
         ..type = MethodType.getter;
-      if (isCustom) {
+      if (serializerName != null) {
         b.annotations.add(refer('BuiltValueSerializer').call([], {'custom': literalTrue}));
       }
     });
 
 Constructor builtValueConstructor(final String className) => Constructor(
       (final b) => b
+        ..docs.add('/// Creates a new $className object using the builder pattern.')
         ..factory = true
         ..lambda = true
         ..optionalParameters.add(
@@ -141,6 +149,11 @@ Constructor get hiddenConstructor => Constructor(
 
 Constructor get fromJsonConstructor => Constructor(
       (final b) => b
+        ..docs.addAll([
+          '/// Creates a new object from the given [json] data.',
+          '///',
+          '/// Use [toJson] to serialize it back into json.',
+        ])
         ..factory = true
         ..name = 'fromJson'
         ..lambda = true

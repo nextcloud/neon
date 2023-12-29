@@ -2341,20 +2341,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -2396,20 +2404,28 @@ abstract interface class $DeletedShareInterface {
 }
 
 abstract class DeletedShare implements $DeletedShareInterface, Built<DeletedShare, DeletedShareBuilder> {
+  /// Creates a new DeletedShare object using the builder pattern.
   factory DeletedShare([void Function(DeletedShareBuilder)? b]) = _$DeletedShare;
 
   // coverage:ignore-start
   const DeletedShare._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DeletedShare.
   static Serializer<DeletedShare> get serializer => _$deletedShareSerializer;
 }
 
@@ -2423,6 +2439,7 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
     implements
         $DeletedShareapiListResponseApplicationJson_OcsInterface,
         Built<DeletedShareapiListResponseApplicationJson_Ocs, DeletedShareapiListResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DeletedShareapiListResponseApplicationJson_Ocs object using the builder pattern.
   factory DeletedShareapiListResponseApplicationJson_Ocs([
     void Function(DeletedShareapiListResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DeletedShareapiListResponseApplicationJson_Ocs;
@@ -2431,15 +2448,22 @@ abstract class DeletedShareapiListResponseApplicationJson_Ocs
   const DeletedShareapiListResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiListResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DeletedShareapiListResponseApplicationJson_Ocs.
   static Serializer<DeletedShareapiListResponseApplicationJson_Ocs> get serializer =>
       _$deletedShareapiListResponseApplicationJsonOcsSerializer;
 }
@@ -2453,6 +2477,7 @@ abstract class DeletedShareapiListResponseApplicationJson
     implements
         $DeletedShareapiListResponseApplicationJsonInterface,
         Built<DeletedShareapiListResponseApplicationJson, DeletedShareapiListResponseApplicationJsonBuilder> {
+  /// Creates a new DeletedShareapiListResponseApplicationJson object using the builder pattern.
   factory DeletedShareapiListResponseApplicationJson([
     void Function(DeletedShareapiListResponseApplicationJsonBuilder)? b,
   ]) = _$DeletedShareapiListResponseApplicationJson;
@@ -2461,15 +2486,22 @@ abstract class DeletedShareapiListResponseApplicationJson
   const DeletedShareapiListResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiListResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DeletedShareapiListResponseApplicationJson.
   static Serializer<DeletedShareapiListResponseApplicationJson> get serializer =>
       _$deletedShareapiListResponseApplicationJsonSerializer;
 }
@@ -2485,6 +2517,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
         $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface,
         Built<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
             DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder> {
+  /// Creates a new DeletedShareapiUndeleteResponseApplicationJson_Ocs object using the builder pattern.
   factory DeletedShareapiUndeleteResponseApplicationJson_Ocs([
     void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? b,
   ]) = _$DeletedShareapiUndeleteResponseApplicationJson_Ocs;
@@ -2493,15 +2526,22 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
   const DeletedShareapiUndeleteResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiUndeleteResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DeletedShareapiUndeleteResponseApplicationJson_Ocs.
   static Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs> get serializer =>
       _$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer;
 }
@@ -2515,6 +2555,7 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
     implements
         $DeletedShareapiUndeleteResponseApplicationJsonInterface,
         Built<DeletedShareapiUndeleteResponseApplicationJson, DeletedShareapiUndeleteResponseApplicationJsonBuilder> {
+  /// Creates a new DeletedShareapiUndeleteResponseApplicationJson object using the builder pattern.
   factory DeletedShareapiUndeleteResponseApplicationJson([
     void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? b,
   ]) = _$DeletedShareapiUndeleteResponseApplicationJson;
@@ -2523,15 +2564,22 @@ abstract class DeletedShareapiUndeleteResponseApplicationJson
   const DeletedShareapiUndeleteResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory DeletedShareapiUndeleteResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for DeletedShareapiUndeleteResponseApplicationJson.
   static Serializer<DeletedShareapiUndeleteResponseApplicationJson> get serializer =>
       _$deletedShareapiUndeleteResponseApplicationJsonSerializer;
 }
@@ -2561,20 +2609,28 @@ abstract interface class $RemoteShareInterface {
 }
 
 abstract class RemoteShare implements $RemoteShareInterface, Built<RemoteShare, RemoteShareBuilder> {
+  /// Creates a new RemoteShare object using the builder pattern.
   factory RemoteShare([void Function(RemoteShareBuilder)? b]) = _$RemoteShare;
 
   // coverage:ignore-start
   const RemoteShare._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteShare.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteShare.
   static Serializer<RemoteShare> get serializer => _$remoteShareSerializer;
 }
 
@@ -2588,6 +2644,7 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
     implements
         $RemoteGetSharesResponseApplicationJson_OcsInterface,
         Built<RemoteGetSharesResponseApplicationJson_Ocs, RemoteGetSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteGetSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteGetSharesResponseApplicationJson_Ocs([
     void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetSharesResponseApplicationJson_Ocs;
@@ -2596,15 +2653,22 @@ abstract class RemoteGetSharesResponseApplicationJson_Ocs
   const RemoteGetSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetSharesResponseApplicationJson_Ocs.
   static Serializer<RemoteGetSharesResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetSharesResponseApplicationJsonOcsSerializer;
 }
@@ -2618,6 +2682,7 @@ abstract class RemoteGetSharesResponseApplicationJson
     implements
         $RemoteGetSharesResponseApplicationJsonInterface,
         Built<RemoteGetSharesResponseApplicationJson, RemoteGetSharesResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteGetSharesResponseApplicationJson object using the builder pattern.
   factory RemoteGetSharesResponseApplicationJson([void Function(RemoteGetSharesResponseApplicationJsonBuilder)? b]) =
       _$RemoteGetSharesResponseApplicationJson;
 
@@ -2625,15 +2690,22 @@ abstract class RemoteGetSharesResponseApplicationJson
   const RemoteGetSharesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetSharesResponseApplicationJson.
   static Serializer<RemoteGetSharesResponseApplicationJson> get serializer =>
       _$remoteGetSharesResponseApplicationJsonSerializer;
 }
@@ -2648,6 +2720,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
     implements
         $RemoteGetOpenSharesResponseApplicationJson_OcsInterface,
         Built<RemoteGetOpenSharesResponseApplicationJson_Ocs, RemoteGetOpenSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteGetOpenSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteGetOpenSharesResponseApplicationJson_Ocs([
     void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetOpenSharesResponseApplicationJson_Ocs;
@@ -2656,15 +2729,22 @@ abstract class RemoteGetOpenSharesResponseApplicationJson_Ocs
   const RemoteGetOpenSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetOpenSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetOpenSharesResponseApplicationJson_Ocs.
   static Serializer<RemoteGetOpenSharesResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetOpenSharesResponseApplicationJsonOcsSerializer;
 }
@@ -2678,6 +2758,7 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
     implements
         $RemoteGetOpenSharesResponseApplicationJsonInterface,
         Built<RemoteGetOpenSharesResponseApplicationJson, RemoteGetOpenSharesResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteGetOpenSharesResponseApplicationJson object using the builder pattern.
   factory RemoteGetOpenSharesResponseApplicationJson([
     void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteGetOpenSharesResponseApplicationJson;
@@ -2686,15 +2767,22 @@ abstract class RemoteGetOpenSharesResponseApplicationJson
   const RemoteGetOpenSharesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetOpenSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetOpenSharesResponseApplicationJson.
   static Serializer<RemoteGetOpenSharesResponseApplicationJson> get serializer =>
       _$remoteGetOpenSharesResponseApplicationJsonSerializer;
 }
@@ -2709,6 +2797,7 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
     implements
         $RemoteAcceptShareResponseApplicationJson_OcsInterface,
         Built<RemoteAcceptShareResponseApplicationJson_Ocs, RemoteAcceptShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteAcceptShareResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteAcceptShareResponseApplicationJson_Ocs([
     void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteAcceptShareResponseApplicationJson_Ocs;
@@ -2717,15 +2806,22 @@ abstract class RemoteAcceptShareResponseApplicationJson_Ocs
   const RemoteAcceptShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteAcceptShareResponseApplicationJson_Ocs.
   static Serializer<RemoteAcceptShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteAcceptShareResponseApplicationJsonOcsSerializer;
 }
@@ -2739,6 +2835,7 @@ abstract class RemoteAcceptShareResponseApplicationJson
     implements
         $RemoteAcceptShareResponseApplicationJsonInterface,
         Built<RemoteAcceptShareResponseApplicationJson, RemoteAcceptShareResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteAcceptShareResponseApplicationJson object using the builder pattern.
   factory RemoteAcceptShareResponseApplicationJson([
     void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteAcceptShareResponseApplicationJson;
@@ -2747,15 +2844,22 @@ abstract class RemoteAcceptShareResponseApplicationJson
   const RemoteAcceptShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteAcceptShareResponseApplicationJson.
   static Serializer<RemoteAcceptShareResponseApplicationJson> get serializer =>
       _$remoteAcceptShareResponseApplicationJsonSerializer;
 }
@@ -2770,6 +2874,7 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
     implements
         $RemoteDeclineShareResponseApplicationJson_OcsInterface,
         Built<RemoteDeclineShareResponseApplicationJson_Ocs, RemoteDeclineShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteDeclineShareResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteDeclineShareResponseApplicationJson_Ocs([
     void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteDeclineShareResponseApplicationJson_Ocs;
@@ -2778,15 +2883,22 @@ abstract class RemoteDeclineShareResponseApplicationJson_Ocs
   const RemoteDeclineShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteDeclineShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteDeclineShareResponseApplicationJson_Ocs.
   static Serializer<RemoteDeclineShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteDeclineShareResponseApplicationJsonOcsSerializer;
 }
@@ -2800,6 +2912,7 @@ abstract class RemoteDeclineShareResponseApplicationJson
     implements
         $RemoteDeclineShareResponseApplicationJsonInterface,
         Built<RemoteDeclineShareResponseApplicationJson, RemoteDeclineShareResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteDeclineShareResponseApplicationJson object using the builder pattern.
   factory RemoteDeclineShareResponseApplicationJson([
     void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? b,
   ]) = _$RemoteDeclineShareResponseApplicationJson;
@@ -2808,15 +2921,22 @@ abstract class RemoteDeclineShareResponseApplicationJson
   const RemoteDeclineShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteDeclineShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteDeclineShareResponseApplicationJson.
   static Serializer<RemoteDeclineShareResponseApplicationJson> get serializer =>
       _$remoteDeclineShareResponseApplicationJsonSerializer;
 }
@@ -2831,6 +2951,7 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
     implements
         $RemoteGetShareResponseApplicationJson_OcsInterface,
         Built<RemoteGetShareResponseApplicationJson_Ocs, RemoteGetShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteGetShareResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteGetShareResponseApplicationJson_Ocs([
     void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteGetShareResponseApplicationJson_Ocs;
@@ -2839,15 +2960,22 @@ abstract class RemoteGetShareResponseApplicationJson_Ocs
   const RemoteGetShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetShareResponseApplicationJson_Ocs.
   static Serializer<RemoteGetShareResponseApplicationJson_Ocs> get serializer =>
       _$remoteGetShareResponseApplicationJsonOcsSerializer;
 }
@@ -2861,6 +2989,7 @@ abstract class RemoteGetShareResponseApplicationJson
     implements
         $RemoteGetShareResponseApplicationJsonInterface,
         Built<RemoteGetShareResponseApplicationJson, RemoteGetShareResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteGetShareResponseApplicationJson object using the builder pattern.
   factory RemoteGetShareResponseApplicationJson([void Function(RemoteGetShareResponseApplicationJsonBuilder)? b]) =
       _$RemoteGetShareResponseApplicationJson;
 
@@ -2868,15 +2997,22 @@ abstract class RemoteGetShareResponseApplicationJson
   const RemoteGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteGetShareResponseApplicationJson.
   static Serializer<RemoteGetShareResponseApplicationJson> get serializer =>
       _$remoteGetShareResponseApplicationJsonSerializer;
 }
@@ -2891,6 +3027,7 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
     implements
         $RemoteUnshareResponseApplicationJson_OcsInterface,
         Built<RemoteUnshareResponseApplicationJson_Ocs, RemoteUnshareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new RemoteUnshareResponseApplicationJson_Ocs object using the builder pattern.
   factory RemoteUnshareResponseApplicationJson_Ocs([
     void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$RemoteUnshareResponseApplicationJson_Ocs;
@@ -2899,15 +3036,22 @@ abstract class RemoteUnshareResponseApplicationJson_Ocs
   const RemoteUnshareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteUnshareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteUnshareResponseApplicationJson_Ocs.
   static Serializer<RemoteUnshareResponseApplicationJson_Ocs> get serializer =>
       _$remoteUnshareResponseApplicationJsonOcsSerializer;
 }
@@ -2921,6 +3065,7 @@ abstract class RemoteUnshareResponseApplicationJson
     implements
         $RemoteUnshareResponseApplicationJsonInterface,
         Built<RemoteUnshareResponseApplicationJson, RemoteUnshareResponseApplicationJsonBuilder> {
+  /// Creates a new RemoteUnshareResponseApplicationJson object using the builder pattern.
   factory RemoteUnshareResponseApplicationJson([void Function(RemoteUnshareResponseApplicationJsonBuilder)? b]) =
       _$RemoteUnshareResponseApplicationJson;
 
@@ -2928,15 +3073,22 @@ abstract class RemoteUnshareResponseApplicationJson
   const RemoteUnshareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory RemoteUnshareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for RemoteUnshareResponseApplicationJson.
   static Serializer<RemoteUnshareResponseApplicationJson> get serializer =>
       _$remoteUnshareResponseApplicationJsonSerializer;
 }
@@ -2956,20 +3108,28 @@ abstract interface class $ShareInfoInterface {
 }
 
 abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareInfoBuilder> {
+  /// Creates a new ShareInfo object using the builder pattern.
   factory ShareInfo([void Function(ShareInfoBuilder)? b]) = _$ShareInfo;
 
   // coverage:ignore-start
   const ShareInfo._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareInfo.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareInfo.
   static Serializer<ShareInfo> get serializer => _$shareInfoSerializer;
 }
 
@@ -2990,6 +3150,7 @@ class Share_HideDownload extends EnumClass {
 
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for Share_HideDownload.
   @BuiltValueSerializer(custom: true)
   static Serializer<Share_HideDownload> get serializer => const _$Share_HideDownloadSerializer();
 }
@@ -3045,6 +3206,7 @@ class Share_ItemType extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for Share_ItemType.
   @BuiltValueSerializer(custom: true)
   static Serializer<Share_ItemType> get serializer => const _$Share_ItemTypeSerializer();
 }
@@ -3102,6 +3264,7 @@ class Share_MailSend extends EnumClass {
 
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
+  /// Serializer for Share_MailSend.
   @BuiltValueSerializer(custom: true)
   static Serializer<Share_MailSend> get serializer => const _$Share_MailSendSerializer();
 }
@@ -3151,20 +3314,28 @@ abstract interface class $Share_StatusInterface {
 }
 
 abstract class Share_Status implements $Share_StatusInterface, Built<Share_Status, Share_StatusBuilder> {
+  /// Creates a new Share_Status object using the builder pattern.
   factory Share_Status([void Function(Share_StatusBuilder)? b]) = _$Share_Status;
 
   // coverage:ignore-start
   const Share_Status._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Share_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Share_Status.
   static Serializer<Share_Status> get serializer => _$shareStatusSerializer;
 }
 
@@ -3240,20 +3411,28 @@ abstract interface class $ShareInterface {
 }
 
 abstract class Share implements $ShareInterface, Built<Share, ShareBuilder> {
+  /// Creates a new Share object using the builder pattern.
   factory Share([void Function(ShareBuilder)? b]) = _$Share;
 
   // coverage:ignore-start
   const Share._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Share.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Share.
   static Serializer<Share> get serializer => _$shareSerializer;
 }
 
@@ -3267,6 +3446,7 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
     implements
         $ShareapiGetSharesResponseApplicationJson_OcsInterface,
         Built<ShareapiGetSharesResponseApplicationJson_Ocs, ShareapiGetSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiGetSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiGetSharesResponseApplicationJson_Ocs([
     void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetSharesResponseApplicationJson_Ocs;
@@ -3275,15 +3455,22 @@ abstract class ShareapiGetSharesResponseApplicationJson_Ocs
   const ShareapiGetSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetSharesResponseApplicationJsonOcsSerializer;
 }
@@ -3297,6 +3484,7 @@ abstract class ShareapiGetSharesResponseApplicationJson
     implements
         $ShareapiGetSharesResponseApplicationJsonInterface,
         Built<ShareapiGetSharesResponseApplicationJson, ShareapiGetSharesResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetSharesResponseApplicationJson object using the builder pattern.
   factory ShareapiGetSharesResponseApplicationJson([
     void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiGetSharesResponseApplicationJson;
@@ -3305,15 +3493,22 @@ abstract class ShareapiGetSharesResponseApplicationJson
   const ShareapiGetSharesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetSharesResponseApplicationJson.
   static Serializer<ShareapiGetSharesResponseApplicationJson> get serializer =>
       _$shareapiGetSharesResponseApplicationJsonSerializer;
 }
@@ -3328,6 +3523,7 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
     implements
         $ShareapiCreateShareResponseApplicationJson_OcsInterface,
         Built<ShareapiCreateShareResponseApplicationJson_Ocs, ShareapiCreateShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiCreateShareResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiCreateShareResponseApplicationJson_Ocs([
     void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiCreateShareResponseApplicationJson_Ocs;
@@ -3336,15 +3532,22 @@ abstract class ShareapiCreateShareResponseApplicationJson_Ocs
   const ShareapiCreateShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiCreateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiCreateShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiCreateShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiCreateShareResponseApplicationJsonOcsSerializer;
 }
@@ -3358,6 +3561,7 @@ abstract class ShareapiCreateShareResponseApplicationJson
     implements
         $ShareapiCreateShareResponseApplicationJsonInterface,
         Built<ShareapiCreateShareResponseApplicationJson, ShareapiCreateShareResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiCreateShareResponseApplicationJson object using the builder pattern.
   factory ShareapiCreateShareResponseApplicationJson([
     void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiCreateShareResponseApplicationJson;
@@ -3366,15 +3570,22 @@ abstract class ShareapiCreateShareResponseApplicationJson
   const ShareapiCreateShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiCreateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiCreateShareResponseApplicationJson.
   static Serializer<ShareapiCreateShareResponseApplicationJson> get serializer =>
       _$shareapiCreateShareResponseApplicationJsonSerializer;
 }
@@ -3390,6 +3601,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
         $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface,
         Built<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
             ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiGetInheritedSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs([
     void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs;
@@ -3398,15 +3610,22 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   const ShareapiGetInheritedSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer;
 }
@@ -3421,6 +3640,7 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
         $ShareapiGetInheritedSharesResponseApplicationJsonInterface,
         Built<ShareapiGetInheritedSharesResponseApplicationJson,
             ShareapiGetInheritedSharesResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetInheritedSharesResponseApplicationJson object using the builder pattern.
   factory ShareapiGetInheritedSharesResponseApplicationJson([
     void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiGetInheritedSharesResponseApplicationJson;
@@ -3429,15 +3649,22 @@ abstract class ShareapiGetInheritedSharesResponseApplicationJson
   const ShareapiGetInheritedSharesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetInheritedSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetInheritedSharesResponseApplicationJson.
   static Serializer<ShareapiGetInheritedSharesResponseApplicationJson> get serializer =>
       _$shareapiGetInheritedSharesResponseApplicationJsonSerializer;
 }
@@ -3453,6 +3680,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
         $ShareapiPendingSharesResponseApplicationJson_OcsInterface,
         Built<ShareapiPendingSharesResponseApplicationJson_Ocs,
             ShareapiPendingSharesResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiPendingSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiPendingSharesResponseApplicationJson_Ocs([
     void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiPendingSharesResponseApplicationJson_Ocs;
@@ -3461,15 +3689,22 @@ abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
   const ShareapiPendingSharesResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiPendingSharesResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiPendingSharesResponseApplicationJson_Ocs.
   static Serializer<ShareapiPendingSharesResponseApplicationJson_Ocs> get serializer =>
       _$shareapiPendingSharesResponseApplicationJsonOcsSerializer;
 }
@@ -3483,6 +3718,7 @@ abstract class ShareapiPendingSharesResponseApplicationJson
     implements
         $ShareapiPendingSharesResponseApplicationJsonInterface,
         Built<ShareapiPendingSharesResponseApplicationJson, ShareapiPendingSharesResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiPendingSharesResponseApplicationJson object using the builder pattern.
   factory ShareapiPendingSharesResponseApplicationJson([
     void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiPendingSharesResponseApplicationJson;
@@ -3491,15 +3727,22 @@ abstract class ShareapiPendingSharesResponseApplicationJson
   const ShareapiPendingSharesResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiPendingSharesResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiPendingSharesResponseApplicationJson.
   static Serializer<ShareapiPendingSharesResponseApplicationJson> get serializer =>
       _$shareapiPendingSharesResponseApplicationJsonSerializer;
 }
@@ -3514,6 +3757,7 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
     implements
         $ShareapiGetShareResponseApplicationJson_OcsInterface,
         Built<ShareapiGetShareResponseApplicationJson_Ocs, ShareapiGetShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiGetShareResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiGetShareResponseApplicationJson_Ocs([
     void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiGetShareResponseApplicationJson_Ocs;
@@ -3522,15 +3766,22 @@ abstract class ShareapiGetShareResponseApplicationJson_Ocs
   const ShareapiGetShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiGetShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiGetShareResponseApplicationJsonOcsSerializer;
 }
@@ -3544,6 +3795,7 @@ abstract class ShareapiGetShareResponseApplicationJson
     implements
         $ShareapiGetShareResponseApplicationJsonInterface,
         Built<ShareapiGetShareResponseApplicationJson, ShareapiGetShareResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiGetShareResponseApplicationJson object using the builder pattern.
   factory ShareapiGetShareResponseApplicationJson([void Function(ShareapiGetShareResponseApplicationJsonBuilder)? b]) =
       _$ShareapiGetShareResponseApplicationJson;
 
@@ -3551,15 +3803,22 @@ abstract class ShareapiGetShareResponseApplicationJson
   const ShareapiGetShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiGetShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiGetShareResponseApplicationJson.
   static Serializer<ShareapiGetShareResponseApplicationJson> get serializer =>
       _$shareapiGetShareResponseApplicationJsonSerializer;
 }
@@ -3574,6 +3833,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
     implements
         $ShareapiUpdateShareResponseApplicationJson_OcsInterface,
         Built<ShareapiUpdateShareResponseApplicationJson_Ocs, ShareapiUpdateShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiUpdateShareResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiUpdateShareResponseApplicationJson_Ocs([
     void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiUpdateShareResponseApplicationJson_Ocs;
@@ -3582,15 +3842,22 @@ abstract class ShareapiUpdateShareResponseApplicationJson_Ocs
   const ShareapiUpdateShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiUpdateShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiUpdateShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiUpdateShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiUpdateShareResponseApplicationJsonOcsSerializer;
 }
@@ -3604,6 +3871,7 @@ abstract class ShareapiUpdateShareResponseApplicationJson
     implements
         $ShareapiUpdateShareResponseApplicationJsonInterface,
         Built<ShareapiUpdateShareResponseApplicationJson, ShareapiUpdateShareResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiUpdateShareResponseApplicationJson object using the builder pattern.
   factory ShareapiUpdateShareResponseApplicationJson([
     void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiUpdateShareResponseApplicationJson;
@@ -3612,15 +3880,22 @@ abstract class ShareapiUpdateShareResponseApplicationJson
   const ShareapiUpdateShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiUpdateShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiUpdateShareResponseApplicationJson.
   static Serializer<ShareapiUpdateShareResponseApplicationJson> get serializer =>
       _$shareapiUpdateShareResponseApplicationJsonSerializer;
 }
@@ -3635,6 +3910,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
     implements
         $ShareapiDeleteShareResponseApplicationJson_OcsInterface,
         Built<ShareapiDeleteShareResponseApplicationJson_Ocs, ShareapiDeleteShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiDeleteShareResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiDeleteShareResponseApplicationJson_Ocs([
     void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiDeleteShareResponseApplicationJson_Ocs;
@@ -3643,15 +3919,22 @@ abstract class ShareapiDeleteShareResponseApplicationJson_Ocs
   const ShareapiDeleteShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiDeleteShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiDeleteShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiDeleteShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiDeleteShareResponseApplicationJsonOcsSerializer;
 }
@@ -3665,6 +3948,7 @@ abstract class ShareapiDeleteShareResponseApplicationJson
     implements
         $ShareapiDeleteShareResponseApplicationJsonInterface,
         Built<ShareapiDeleteShareResponseApplicationJson, ShareapiDeleteShareResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiDeleteShareResponseApplicationJson object using the builder pattern.
   factory ShareapiDeleteShareResponseApplicationJson([
     void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiDeleteShareResponseApplicationJson;
@@ -3673,15 +3957,22 @@ abstract class ShareapiDeleteShareResponseApplicationJson
   const ShareapiDeleteShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiDeleteShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiDeleteShareResponseApplicationJson.
   static Serializer<ShareapiDeleteShareResponseApplicationJson> get serializer =>
       _$shareapiDeleteShareResponseApplicationJsonSerializer;
 }
@@ -3696,6 +3987,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
     implements
         $ShareapiAcceptShareResponseApplicationJson_OcsInterface,
         Built<ShareapiAcceptShareResponseApplicationJson_Ocs, ShareapiAcceptShareResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareapiAcceptShareResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiAcceptShareResponseApplicationJson_Ocs([
     void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareapiAcceptShareResponseApplicationJson_Ocs;
@@ -3704,15 +3996,22 @@ abstract class ShareapiAcceptShareResponseApplicationJson_Ocs
   const ShareapiAcceptShareResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiAcceptShareResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiAcceptShareResponseApplicationJson_Ocs.
   static Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> get serializer =>
       _$shareapiAcceptShareResponseApplicationJsonOcsSerializer;
 }
@@ -3726,6 +4025,7 @@ abstract class ShareapiAcceptShareResponseApplicationJson
     implements
         $ShareapiAcceptShareResponseApplicationJsonInterface,
         Built<ShareapiAcceptShareResponseApplicationJson, ShareapiAcceptShareResponseApplicationJsonBuilder> {
+  /// Creates a new ShareapiAcceptShareResponseApplicationJson object using the builder pattern.
   factory ShareapiAcceptShareResponseApplicationJson([
     void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? b,
   ]) = _$ShareapiAcceptShareResponseApplicationJson;
@@ -3734,15 +4034,22 @@ abstract class ShareapiAcceptShareResponseApplicationJson
   const ShareapiAcceptShareResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareapiAcceptShareResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareapiAcceptShareResponseApplicationJson.
   static Serializer<ShareapiAcceptShareResponseApplicationJson> get serializer =>
       _$shareapiAcceptShareResponseApplicationJsonSerializer;
 }
@@ -3758,6 +4065,7 @@ abstract class ShareesapiShareesapiSearchHeaders
     implements
         $ShareesapiShareesapiSearchHeadersInterface,
         Built<ShareesapiShareesapiSearchHeaders, ShareesapiShareesapiSearchHeadersBuilder> {
+  /// Creates a new ShareesapiShareesapiSearchHeaders object using the builder pattern.
   factory ShareesapiShareesapiSearchHeaders([void Function(ShareesapiShareesapiSearchHeadersBuilder)? b]) =
       _$ShareesapiShareesapiSearchHeaders;
 
@@ -3765,15 +4073,22 @@ abstract class ShareesapiShareesapiSearchHeaders
   const ShareesapiShareesapiSearchHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiShareesapiSearchHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesapiShareesapiSearchHeaders.
   static Serializer<ShareesapiShareesapiSearchHeaders> get serializer => _$shareesapiShareesapiSearchHeadersSerializer;
 }
 
@@ -3784,20 +4099,28 @@ abstract interface class $ShareeInterface {
 }
 
 abstract class Sharee implements $ShareeInterface, Built<Sharee, ShareeBuilder> {
+  /// Creates a new Sharee object using the builder pattern.
   factory Sharee([void Function(ShareeBuilder)? b]) = _$Sharee;
 
   // coverage:ignore-start
   const Sharee._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Sharee.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Sharee.
   static Serializer<Sharee> get serializer => _$shareeSerializer;
 }
 
@@ -3808,20 +4131,28 @@ abstract interface class $ShareeValueInterface {
 }
 
 abstract class ShareeValue implements $ShareeValueInterface, Built<ShareeValue, ShareeValueBuilder> {
+  /// Creates a new ShareeValue object using the builder pattern.
   factory ShareeValue([void Function(ShareeValueBuilder)? b]) = _$ShareeValue;
 
   // coverage:ignore-start
   const ShareeValue._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeValue.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeValue.
   static Serializer<ShareeValue> get serializer => _$shareeValueSerializer;
 }
 
@@ -3836,21 +4167,29 @@ abstract interface class $ShareeCircle_1_ValueInterface
 
 abstract class ShareeCircle_1_Value
     implements $ShareeCircle_1_ValueInterface, Built<ShareeCircle_1_Value, ShareeCircle_1_ValueBuilder> {
+  /// Creates a new ShareeCircle_1_Value object using the builder pattern.
   factory ShareeCircle_1_Value([void Function(ShareeCircle_1_ValueBuilder)? b]) = _$ShareeCircle_1_Value;
 
   // coverage:ignore-start
   const ShareeCircle_1_Value._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeCircle_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeCircle_1_Value.
   static Serializer<ShareeCircle_1_Value> get serializer => _$shareeCircle1ValueSerializer;
 }
 
@@ -3864,20 +4203,28 @@ abstract interface class $ShareeCircle_1Interface {
 abstract interface class $ShareeCircleInterface implements $ShareeInterface, $ShareeCircle_1Interface {}
 
 abstract class ShareeCircle implements $ShareeCircleInterface, Built<ShareeCircle, ShareeCircleBuilder> {
+  /// Creates a new ShareeCircle object using the builder pattern.
   factory ShareeCircle([void Function(ShareeCircleBuilder)? b]) = _$ShareeCircle;
 
   // coverage:ignore-start
   const ShareeCircle._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeCircle.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeCircle.
   static Serializer<ShareeCircle> get serializer => _$shareeCircleSerializer;
 }
 
@@ -3894,20 +4241,28 @@ abstract interface class $ShareeEmail_1Interface {
 abstract interface class $ShareeEmailInterface implements $ShareeInterface, $ShareeEmail_1Interface {}
 
 abstract class ShareeEmail implements $ShareeEmailInterface, Built<ShareeEmail, ShareeEmailBuilder> {
+  /// Creates a new ShareeEmail object using the builder pattern.
   factory ShareeEmail([void Function(ShareeEmailBuilder)? b]) = _$ShareeEmail;
 
   // coverage:ignore-start
   const ShareeEmail._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeEmail.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeEmail.
   static Serializer<ShareeEmail> get serializer => _$shareeEmailSerializer;
 }
 
@@ -3922,21 +4277,29 @@ abstract interface class $ShareeRemoteGroup_1_ValueInterface
 
 abstract class ShareeRemoteGroup_1_Value
     implements $ShareeRemoteGroup_1_ValueInterface, Built<ShareeRemoteGroup_1_Value, ShareeRemoteGroup_1_ValueBuilder> {
+  /// Creates a new ShareeRemoteGroup_1_Value object using the builder pattern.
   factory ShareeRemoteGroup_1_Value([void Function(ShareeRemoteGroup_1_ValueBuilder)? b]) = _$ShareeRemoteGroup_1_Value;
 
   // coverage:ignore-start
   const ShareeRemoteGroup_1_Value._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemoteGroup_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeRemoteGroup_1_Value.
   static Serializer<ShareeRemoteGroup_1_Value> get serializer => _$shareeRemoteGroup1ValueSerializer;
 }
 
@@ -3952,20 +4315,28 @@ abstract interface class $ShareeRemoteGroupInterface implements $ShareeInterface
 
 abstract class ShareeRemoteGroup
     implements $ShareeRemoteGroupInterface, Built<ShareeRemoteGroup, ShareeRemoteGroupBuilder> {
+  /// Creates a new ShareeRemoteGroup object using the builder pattern.
   factory ShareeRemoteGroup([void Function(ShareeRemoteGroupBuilder)? b]) = _$ShareeRemoteGroup;
 
   // coverage:ignore-start
   const ShareeRemoteGroup._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemoteGroup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeRemoteGroup.
   static Serializer<ShareeRemoteGroup> get serializer => _$shareeRemoteGroupSerializer;
 }
 
@@ -3980,21 +4351,29 @@ abstract interface class $ShareeRemote_1_ValueInterface
 
 abstract class ShareeRemote_1_Value
     implements $ShareeRemote_1_ValueInterface, Built<ShareeRemote_1_Value, ShareeRemote_1_ValueBuilder> {
+  /// Creates a new ShareeRemote_1_Value object using the builder pattern.
   factory ShareeRemote_1_Value([void Function(ShareeRemote_1_ValueBuilder)? b]) = _$ShareeRemote_1_Value;
 
   // coverage:ignore-start
   const ShareeRemote_1_Value._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemote_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeRemote_1_Value.
   static Serializer<ShareeRemote_1_Value> get serializer => _$shareeRemote1ValueSerializer;
 }
 
@@ -4010,20 +4389,28 @@ abstract interface class $ShareeRemote_1Interface {
 abstract interface class $ShareeRemoteInterface implements $ShareeInterface, $ShareeRemote_1Interface {}
 
 abstract class ShareeRemote implements $ShareeRemoteInterface, Built<ShareeRemote, ShareeRemoteBuilder> {
+  /// Creates a new ShareeRemote object using the builder pattern.
   factory ShareeRemote([void Function(ShareeRemoteBuilder)? b]) = _$ShareeRemote;
 
   // coverage:ignore-start
   const ShareeRemote._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeRemote.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeRemote.
   static Serializer<ShareeRemote> get serializer => _$shareeRemoteSerializer;
 }
 
@@ -4037,20 +4424,28 @@ abstract interface class $ShareeUser_1_StatusInterface {
 
 abstract class ShareeUser_1_Status
     implements $ShareeUser_1_StatusInterface, Built<ShareeUser_1_Status, ShareeUser_1_StatusBuilder> {
+  /// Creates a new ShareeUser_1_Status object using the builder pattern.
   factory ShareeUser_1_Status([void Function(ShareeUser_1_StatusBuilder)? b]) = _$ShareeUser_1_Status;
 
   // coverage:ignore-start
   const ShareeUser_1_Status._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeUser_1_Status.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeUser_1_Status.
   static Serializer<ShareeUser_1_Status> get serializer => _$shareeUser1StatusSerializer;
 }
 
@@ -4067,20 +4462,28 @@ abstract interface class $ShareeUser_1Interface {
 abstract interface class $ShareeUserInterface implements $ShareeInterface, $ShareeUser_1Interface {}
 
 abstract class ShareeUser implements $ShareeUserInterface, Built<ShareeUser, ShareeUserBuilder> {
+  /// Creates a new ShareeUser object using the builder pattern.
   factory ShareeUser([void Function(ShareeUserBuilder)? b]) = _$ShareeUser;
 
   // coverage:ignore-start
   const ShareeUser._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeUser.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeUser.
   static Serializer<ShareeUser> get serializer => _$shareeUserSerializer;
 }
 
@@ -4098,21 +4501,29 @@ abstract interface class $ShareesSearchResult_ExactInterface {
 
 abstract class ShareesSearchResult_Exact
     implements $ShareesSearchResult_ExactInterface, Built<ShareesSearchResult_Exact, ShareesSearchResult_ExactBuilder> {
+  /// Creates a new ShareesSearchResult_Exact object using the builder pattern.
   factory ShareesSearchResult_Exact([void Function(ShareesSearchResult_ExactBuilder)? b]) = _$ShareesSearchResult_Exact;
 
   // coverage:ignore-start
   const ShareesSearchResult_Exact._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesSearchResult_Exact.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesSearchResult_Exact.
   static Serializer<ShareesSearchResult_Exact> get serializer => _$shareesSearchResultExactSerializer;
 }
 
@@ -4123,20 +4534,28 @@ abstract interface class $LookupInterface {
 }
 
 abstract class Lookup implements $LookupInterface, Built<Lookup, LookupBuilder> {
+  /// Creates a new Lookup object using the builder pattern.
   factory Lookup([void Function(LookupBuilder)? b]) = _$Lookup;
 
   // coverage:ignore-start
   const Lookup._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Lookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Lookup.
   static Serializer<Lookup> get serializer => _$lookupSerializer;
 }
 
@@ -4158,21 +4577,29 @@ abstract interface class $ShareeLookup_1_ExtraInterface {
 
 abstract class ShareeLookup_1_Extra
     implements $ShareeLookup_1_ExtraInterface, Built<ShareeLookup_1_Extra, ShareeLookup_1_ExtraBuilder> {
+  /// Creates a new ShareeLookup_1_Extra object using the builder pattern.
   factory ShareeLookup_1_Extra([void Function(ShareeLookup_1_ExtraBuilder)? b]) = _$ShareeLookup_1_Extra;
 
   // coverage:ignore-start
   const ShareeLookup_1_Extra._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeLookup_1_Extra.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeLookup_1_Extra.
   static Serializer<ShareeLookup_1_Extra> get serializer => _$shareeLookup1ExtraSerializer;
 }
 
@@ -4187,21 +4614,29 @@ abstract interface class $ShareeLookup_1_ValueInterface
 
 abstract class ShareeLookup_1_Value
     implements $ShareeLookup_1_ValueInterface, Built<ShareeLookup_1_Value, ShareeLookup_1_ValueBuilder> {
+  /// Creates a new ShareeLookup_1_Value object using the builder pattern.
   factory ShareeLookup_1_Value([void Function(ShareeLookup_1_ValueBuilder)? b]) = _$ShareeLookup_1_Value;
 
   // coverage:ignore-start
   const ShareeLookup_1_Value._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeLookup_1_Value.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeLookup_1_Value.
   static Serializer<ShareeLookup_1_Value> get serializer => _$shareeLookup1ValueSerializer;
 }
 
@@ -4215,20 +4650,28 @@ abstract interface class $ShareeLookup_1Interface {
 abstract interface class $ShareeLookupInterface implements $ShareeInterface, $ShareeLookup_1Interface {}
 
 abstract class ShareeLookup implements $ShareeLookupInterface, Built<ShareeLookup, ShareeLookupBuilder> {
+  /// Creates a new ShareeLookup object using the builder pattern.
   factory ShareeLookup([void Function(ShareeLookupBuilder)? b]) = _$ShareeLookup;
 
   // coverage:ignore-start
   const ShareeLookup._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareeLookup.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareeLookup.
   static Serializer<ShareeLookup> get serializer => _$shareeLookupSerializer;
 }
 
@@ -4249,20 +4692,28 @@ abstract interface class $ShareesSearchResultInterface {
 
 abstract class ShareesSearchResult
     implements $ShareesSearchResultInterface, Built<ShareesSearchResult, ShareesSearchResultBuilder> {
+  /// Creates a new ShareesSearchResult object using the builder pattern.
   factory ShareesSearchResult([void Function(ShareesSearchResultBuilder)? b]) = _$ShareesSearchResult;
 
   // coverage:ignore-start
   const ShareesSearchResult._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesSearchResult.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesSearchResult.
   static Serializer<ShareesSearchResult> get serializer => _$shareesSearchResultSerializer;
 }
 
@@ -4276,6 +4727,7 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
     implements
         $ShareesapiSearchResponseApplicationJson_OcsInterface,
         Built<ShareesapiSearchResponseApplicationJson_Ocs, ShareesapiSearchResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareesapiSearchResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareesapiSearchResponseApplicationJson_Ocs([
     void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareesapiSearchResponseApplicationJson_Ocs;
@@ -4284,15 +4736,22 @@ abstract class ShareesapiSearchResponseApplicationJson_Ocs
   const ShareesapiSearchResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiSearchResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesapiSearchResponseApplicationJson_Ocs.
   static Serializer<ShareesapiSearchResponseApplicationJson_Ocs> get serializer =>
       _$shareesapiSearchResponseApplicationJsonOcsSerializer;
 }
@@ -4306,6 +4765,7 @@ abstract class ShareesapiSearchResponseApplicationJson
     implements
         $ShareesapiSearchResponseApplicationJsonInterface,
         Built<ShareesapiSearchResponseApplicationJson, ShareesapiSearchResponseApplicationJsonBuilder> {
+  /// Creates a new ShareesapiSearchResponseApplicationJson object using the builder pattern.
   factory ShareesapiSearchResponseApplicationJson([void Function(ShareesapiSearchResponseApplicationJsonBuilder)? b]) =
       _$ShareesapiSearchResponseApplicationJson;
 
@@ -4313,15 +4773,22 @@ abstract class ShareesapiSearchResponseApplicationJson
   const ShareesapiSearchResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiSearchResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesapiSearchResponseApplicationJson.
   static Serializer<ShareesapiSearchResponseApplicationJson> get serializer =>
       _$shareesapiSearchResponseApplicationJsonSerializer;
 }
@@ -4342,6 +4809,7 @@ abstract class ShareesRecommendedResult_Exact
     implements
         $ShareesRecommendedResult_ExactInterface,
         Built<ShareesRecommendedResult_Exact, ShareesRecommendedResult_ExactBuilder> {
+  /// Creates a new ShareesRecommendedResult_Exact object using the builder pattern.
   factory ShareesRecommendedResult_Exact([void Function(ShareesRecommendedResult_ExactBuilder)? b]) =
       _$ShareesRecommendedResult_Exact;
 
@@ -4349,15 +4817,22 @@ abstract class ShareesRecommendedResult_Exact
   const ShareesRecommendedResult_Exact._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesRecommendedResult_Exact.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesRecommendedResult_Exact.
   static Serializer<ShareesRecommendedResult_Exact> get serializer => _$shareesRecommendedResultExactSerializer;
 }
 
@@ -4374,21 +4849,29 @@ abstract interface class $ShareesRecommendedResultInterface {
 
 abstract class ShareesRecommendedResult
     implements $ShareesRecommendedResultInterface, Built<ShareesRecommendedResult, ShareesRecommendedResultBuilder> {
+  /// Creates a new ShareesRecommendedResult object using the builder pattern.
   factory ShareesRecommendedResult([void Function(ShareesRecommendedResultBuilder)? b]) = _$ShareesRecommendedResult;
 
   // coverage:ignore-start
   const ShareesRecommendedResult._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesRecommendedResult.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesRecommendedResult.
   static Serializer<ShareesRecommendedResult> get serializer => _$shareesRecommendedResultSerializer;
 }
 
@@ -4403,6 +4886,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
         $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface,
         Built<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
             ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ShareesapiFindRecommendedResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareesapiFindRecommendedResponseApplicationJson_Ocs([
     void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ShareesapiFindRecommendedResponseApplicationJson_Ocs;
@@ -4411,15 +4895,22 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
   const ShareesapiFindRecommendedResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiFindRecommendedResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesapiFindRecommendedResponseApplicationJson_Ocs.
   static Serializer<ShareesapiFindRecommendedResponseApplicationJson_Ocs> get serializer =>
       _$shareesapiFindRecommendedResponseApplicationJsonOcsSerializer;
 }
@@ -4434,6 +4925,7 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
         $ShareesapiFindRecommendedResponseApplicationJsonInterface,
         Built<ShareesapiFindRecommendedResponseApplicationJson,
             ShareesapiFindRecommendedResponseApplicationJsonBuilder> {
+  /// Creates a new ShareesapiFindRecommendedResponseApplicationJson object using the builder pattern.
   factory ShareesapiFindRecommendedResponseApplicationJson([
     void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? b,
   ]) = _$ShareesapiFindRecommendedResponseApplicationJson;
@@ -4442,15 +4934,22 @@ abstract class ShareesapiFindRecommendedResponseApplicationJson
   const ShareesapiFindRecommendedResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ShareesapiFindRecommendedResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ShareesapiFindRecommendedResponseApplicationJson.
   static Serializer<ShareesapiFindRecommendedResponseApplicationJson> get serializer =>
       _$shareesapiFindRecommendedResponseApplicationJsonSerializer;
 }
@@ -4465,6 +4964,7 @@ abstract class Capabilities_FilesSharing_Public_Password
     implements
         $Capabilities_FilesSharing_Public_PasswordInterface,
         Built<Capabilities_FilesSharing_Public_Password, Capabilities_FilesSharing_Public_PasswordBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Public_Password object using the builder pattern.
   factory Capabilities_FilesSharing_Public_Password([
     void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_Password;
@@ -4473,15 +4973,22 @@ abstract class Capabilities_FilesSharing_Public_Password
   const Capabilities_FilesSharing_Public_Password._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Public_Password.
   static Serializer<Capabilities_FilesSharing_Public_Password> get serializer =>
       _$capabilitiesFilesSharingPublicPasswordSerializer;
 }
@@ -4497,6 +5004,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
     implements
         $Capabilities_FilesSharing_Public_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Public_ExpireDate, Capabilities_FilesSharing_Public_ExpireDateBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Public_ExpireDate object using the builder pattern.
   factory Capabilities_FilesSharing_Public_ExpireDate([
     void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDate;
@@ -4505,15 +5013,22 @@ abstract class Capabilities_FilesSharing_Public_ExpireDate
   const Capabilities_FilesSharing_Public_ExpireDate._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Public_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateSerializer;
 }
@@ -4530,6 +5045,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
         $Capabilities_FilesSharing_Public_ExpireDateInternalInterface,
         Built<Capabilities_FilesSharing_Public_ExpireDateInternal,
             Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Public_ExpireDateInternal object using the builder pattern.
   factory Capabilities_FilesSharing_Public_ExpireDateInternal([
     void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDateInternal;
@@ -4538,15 +5054,22 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
   const Capabilities_FilesSharing_Public_ExpireDateInternal._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDateInternal.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Public_ExpireDateInternal.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDateInternal> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateInternalSerializer;
 }
@@ -4563,6 +5086,7 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
         $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface,
         Built<Capabilities_FilesSharing_Public_ExpireDateRemote,
             Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Public_ExpireDateRemote object using the builder pattern.
   factory Capabilities_FilesSharing_Public_ExpireDateRemote([
     void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Public_ExpireDateRemote;
@@ -4571,15 +5095,22 @@ abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
   const Capabilities_FilesSharing_Public_ExpireDateRemote._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public_ExpireDateRemote.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Public_ExpireDateRemote.
   static Serializer<Capabilities_FilesSharing_Public_ExpireDateRemote> get serializer =>
       _$capabilitiesFilesSharingPublicExpireDateRemoteSerializer;
 }
@@ -4607,6 +5138,7 @@ abstract class Capabilities_FilesSharing_Public
     implements
         $Capabilities_FilesSharing_PublicInterface,
         Built<Capabilities_FilesSharing_Public, Capabilities_FilesSharing_PublicBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Public object using the builder pattern.
   factory Capabilities_FilesSharing_Public([void Function(Capabilities_FilesSharing_PublicBuilder)? b]) =
       _$Capabilities_FilesSharing_Public;
 
@@ -4614,15 +5146,22 @@ abstract class Capabilities_FilesSharing_Public
   const Capabilities_FilesSharing_Public._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Public.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Public.
   static Serializer<Capabilities_FilesSharing_Public> get serializer => _$capabilitiesFilesSharingPublicSerializer;
 }
 
@@ -4635,6 +5174,7 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
     implements
         $Capabilities_FilesSharing_User_ExpireDateInterface,
         Built<Capabilities_FilesSharing_User_ExpireDate, Capabilities_FilesSharing_User_ExpireDateBuilder> {
+  /// Creates a new Capabilities_FilesSharing_User_ExpireDate object using the builder pattern.
   factory Capabilities_FilesSharing_User_ExpireDate([
     void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_User_ExpireDate;
@@ -4643,15 +5183,22 @@ abstract class Capabilities_FilesSharing_User_ExpireDate
   const Capabilities_FilesSharing_User_ExpireDate._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_User_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_User_ExpireDate.
   static Serializer<Capabilities_FilesSharing_User_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingUserExpireDateSerializer;
 }
@@ -4668,6 +5215,7 @@ abstract class Capabilities_FilesSharing_User
     implements
         $Capabilities_FilesSharing_UserInterface,
         Built<Capabilities_FilesSharing_User, Capabilities_FilesSharing_UserBuilder> {
+  /// Creates a new Capabilities_FilesSharing_User object using the builder pattern.
   factory Capabilities_FilesSharing_User([void Function(Capabilities_FilesSharing_UserBuilder)? b]) =
       _$Capabilities_FilesSharing_User;
 
@@ -4675,15 +5223,22 @@ abstract class Capabilities_FilesSharing_User
   const Capabilities_FilesSharing_User._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_User.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_User.
   static Serializer<Capabilities_FilesSharing_User> get serializer => _$capabilitiesFilesSharingUserSerializer;
 }
 
@@ -4696,6 +5251,7 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
     implements
         $Capabilities_FilesSharing_Group_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Group_ExpireDate, Capabilities_FilesSharing_Group_ExpireDateBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Group_ExpireDate object using the builder pattern.
   factory Capabilities_FilesSharing_Group_ExpireDate([
     void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Group_ExpireDate;
@@ -4704,15 +5260,22 @@ abstract class Capabilities_FilesSharing_Group_ExpireDate
   const Capabilities_FilesSharing_Group_ExpireDate._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Group_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Group_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Group_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingGroupExpireDateSerializer;
 }
@@ -4728,6 +5291,7 @@ abstract class Capabilities_FilesSharing_Group
     implements
         $Capabilities_FilesSharing_GroupInterface,
         Built<Capabilities_FilesSharing_Group, Capabilities_FilesSharing_GroupBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Group object using the builder pattern.
   factory Capabilities_FilesSharing_Group([void Function(Capabilities_FilesSharing_GroupBuilder)? b]) =
       _$Capabilities_FilesSharing_Group;
 
@@ -4735,15 +5299,22 @@ abstract class Capabilities_FilesSharing_Group
   const Capabilities_FilesSharing_Group._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Group.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Group.
   static Serializer<Capabilities_FilesSharing_Group> get serializer => _$capabilitiesFilesSharingGroupSerializer;
 }
 
@@ -4756,6 +5327,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
     implements
         $Capabilities_FilesSharing_Federation_ExpireDateInterface,
         Built<Capabilities_FilesSharing_Federation_ExpireDate, Capabilities_FilesSharing_Federation_ExpireDateBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Federation_ExpireDate object using the builder pattern.
   factory Capabilities_FilesSharing_Federation_ExpireDate([
     void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Federation_ExpireDate;
@@ -4764,15 +5336,22 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDate
   const Capabilities_FilesSharing_Federation_ExpireDate._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Federation_ExpireDate.
   static Serializer<Capabilities_FilesSharing_Federation_ExpireDate> get serializer =>
       _$capabilitiesFilesSharingFederationExpireDateSerializer;
 }
@@ -4787,6 +5366,7 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
         $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
         Built<Capabilities_FilesSharing_Federation_ExpireDateSupported,
             Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Federation_ExpireDateSupported object using the builder pattern.
   factory Capabilities_FilesSharing_Federation_ExpireDateSupported([
     void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
   ]) = _$Capabilities_FilesSharing_Federation_ExpireDateSupported;
@@ -4795,15 +5375,22 @@ abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
   const Capabilities_FilesSharing_Federation_ExpireDateSupported._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation_ExpireDateSupported.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Federation_ExpireDateSupported.
   static Serializer<Capabilities_FilesSharing_Federation_ExpireDateSupported> get serializer =>
       _$capabilitiesFilesSharingFederationExpireDateSupportedSerializer;
 }
@@ -4822,6 +5409,7 @@ abstract class Capabilities_FilesSharing_Federation
     implements
         $Capabilities_FilesSharing_FederationInterface,
         Built<Capabilities_FilesSharing_Federation, Capabilities_FilesSharing_FederationBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Federation object using the builder pattern.
   factory Capabilities_FilesSharing_Federation([void Function(Capabilities_FilesSharing_FederationBuilder)? b]) =
       _$Capabilities_FilesSharing_Federation;
 
@@ -4829,15 +5417,22 @@ abstract class Capabilities_FilesSharing_Federation
   const Capabilities_FilesSharing_Federation._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Federation.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Federation.
   static Serializer<Capabilities_FilesSharing_Federation> get serializer =>
       _$capabilitiesFilesSharingFederationSerializer;
 }
@@ -4854,6 +5449,7 @@ abstract class Capabilities_FilesSharing_Sharee
     implements
         $Capabilities_FilesSharing_ShareeInterface,
         Built<Capabilities_FilesSharing_Sharee, Capabilities_FilesSharing_ShareeBuilder> {
+  /// Creates a new Capabilities_FilesSharing_Sharee object using the builder pattern.
   factory Capabilities_FilesSharing_Sharee([void Function(Capabilities_FilesSharing_ShareeBuilder)? b]) =
       _$Capabilities_FilesSharing_Sharee;
 
@@ -4861,15 +5457,22 @@ abstract class Capabilities_FilesSharing_Sharee
   const Capabilities_FilesSharing_Sharee._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing_Sharee.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing_Sharee.
   static Serializer<Capabilities_FilesSharing_Sharee> get serializer => _$capabilitiesFilesSharingShareeSerializer;
 }
 
@@ -4891,21 +5494,29 @@ abstract interface class $Capabilities_FilesSharingInterface {
 
 abstract class Capabilities_FilesSharing
     implements $Capabilities_FilesSharingInterface, Built<Capabilities_FilesSharing, Capabilities_FilesSharingBuilder> {
+  /// Creates a new Capabilities_FilesSharing object using the builder pattern.
   factory Capabilities_FilesSharing([void Function(Capabilities_FilesSharingBuilder)? b]) = _$Capabilities_FilesSharing;
 
   // coverage:ignore-start
   const Capabilities_FilesSharing._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities_FilesSharing.
   static Serializer<Capabilities_FilesSharing> get serializer => _$capabilitiesFilesSharingSerializer;
 }
 
@@ -4916,20 +5527,28 @@ abstract interface class $CapabilitiesInterface {
 }
 
 abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilities, CapabilitiesBuilder> {
+  /// Creates a new Capabilities object using the builder pattern.
   factory Capabilities([void Function(CapabilitiesBuilder)? b]) = _$Capabilities;
 
   // coverage:ignore-start
   const Capabilities._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities.
   static Serializer<Capabilities> get serializer => _$capabilitiesSerializer;
 }
 

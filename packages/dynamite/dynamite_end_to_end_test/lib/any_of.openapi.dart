@@ -26,14 +26,22 @@ abstract interface class $ObjectAnyOf0Interface {
 }
 
 abstract class ObjectAnyOf0 implements $ObjectAnyOf0Interface, Built<ObjectAnyOf0, ObjectAnyOf0Builder> {
+  /// Creates a new ObjectAnyOf0 object using the builder pattern.
   factory ObjectAnyOf0([void Function(ObjectAnyOf0Builder)? b]) = _$ObjectAnyOf0;
 
   const ObjectAnyOf0._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory ObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for ObjectAnyOf0.
   static Serializer<ObjectAnyOf0> get serializer => _$objectAnyOf0Serializer;
 }
 
@@ -44,14 +52,22 @@ abstract interface class $ObjectAnyOf1Interface {
 }
 
 abstract class ObjectAnyOf1 implements $ObjectAnyOf1Interface, Built<ObjectAnyOf1, ObjectAnyOf1Builder> {
+  /// Creates a new ObjectAnyOf1 object using the builder pattern.
   factory ObjectAnyOf1([void Function(ObjectAnyOf1Builder)? b]) = _$ObjectAnyOf1;
 
   const ObjectAnyOf1._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory ObjectAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for ObjectAnyOf1.
   static Serializer<ObjectAnyOf1> get serializer => _$objectAnyOf1Serializer;
 }
 
@@ -65,14 +81,22 @@ abstract interface class $MixedAnyOf1Interface {
 }
 
 abstract class MixedAnyOf1 implements $MixedAnyOf1Interface, Built<MixedAnyOf1, MixedAnyOf1Builder> {
+  /// Creates a new MixedAnyOf1 object using the builder pattern.
   factory MixedAnyOf1([void Function(MixedAnyOf1Builder)? b]) = _$MixedAnyOf1;
 
   const MixedAnyOf1._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory MixedAnyOf1.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for MixedAnyOf1.
   static Serializer<MixedAnyOf1> get serializer => _$mixedAnyOf1Serializer;
 }
 
@@ -86,14 +110,22 @@ abstract interface class $OneObjectAnyOf0Interface {
 }
 
 abstract class OneObjectAnyOf0 implements $OneObjectAnyOf0Interface, Built<OneObjectAnyOf0, OneObjectAnyOf0Builder> {
+  /// Creates a new OneObjectAnyOf0 object using the builder pattern.
   factory OneObjectAnyOf0([void Function(OneObjectAnyOf0Builder)? b]) = _$OneObjectAnyOf0;
 
   const OneObjectAnyOf0._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory OneObjectAnyOf0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for OneObjectAnyOf0.
   static Serializer<OneObjectAnyOf0> get serializer => _$oneObjectAnyOf0Serializer;
 }
 

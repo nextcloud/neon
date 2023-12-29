@@ -137,20 +137,28 @@ abstract interface class $OCSMetaInterface {
 }
 
 abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuilder> {
+  /// Creates a new OCSMeta object using the builder pattern.
   factory OCSMeta([void Function(OCSMetaBuilder)? b]) = _$OCSMeta;
 
   // coverage:ignore-start
   const OCSMeta._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory OCSMeta.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for OCSMeta.
   static Serializer<OCSMeta> get serializer => _$oCSMetaSerializer;
 }
 
@@ -167,6 +175,7 @@ class Mount_Type extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for Mount_Type.
   @BuiltValueSerializer(custom: true)
   static Serializer<Mount_Type> get serializer => const _$Mount_TypeSerializer();
 }
@@ -220,6 +229,7 @@ class Mount_Scope extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for Mount_Scope.
   @BuiltValueSerializer(custom: true)
   static Serializer<Mount_Scope> get serializer => const _$Mount_ScopeSerializer();
 }
@@ -275,6 +285,7 @@ class StorageConfig_Type extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for StorageConfig_Type.
   @BuiltValueSerializer(custom: true)
   static Serializer<StorageConfig_Type> get serializer => const _$StorageConfig_TypeSerializer();
 }
@@ -333,20 +344,28 @@ abstract interface class $StorageConfigInterface {
 }
 
 abstract class StorageConfig implements $StorageConfigInterface, Built<StorageConfig, StorageConfigBuilder> {
+  /// Creates a new StorageConfig object using the builder pattern.
   factory StorageConfig([void Function(StorageConfigBuilder)? b]) = _$StorageConfig;
 
   // coverage:ignore-start
   const StorageConfig._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory StorageConfig.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for StorageConfig.
   static Serializer<StorageConfig> get serializer => _$storageConfigSerializer;
 }
 
@@ -365,20 +384,28 @@ abstract interface class $MountInterface {
 }
 
 abstract class Mount implements $MountInterface, Built<Mount, MountBuilder> {
+  /// Creates a new Mount object using the builder pattern.
   factory Mount([void Function(MountBuilder)? b]) = _$Mount;
 
   // coverage:ignore-start
   const Mount._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Mount.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Mount.
   static Serializer<Mount> get serializer => _$mountSerializer;
 }
 
@@ -392,6 +419,7 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
     implements
         $ApiGetUserMountsResponseApplicationJson_OcsInterface,
         Built<ApiGetUserMountsResponseApplicationJson_Ocs, ApiGetUserMountsResponseApplicationJson_OcsBuilder> {
+  /// Creates a new ApiGetUserMountsResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiGetUserMountsResponseApplicationJson_Ocs([
     void Function(ApiGetUserMountsResponseApplicationJson_OcsBuilder)? b,
   ]) = _$ApiGetUserMountsResponseApplicationJson_Ocs;
@@ -400,15 +428,22 @@ abstract class ApiGetUserMountsResponseApplicationJson_Ocs
   const ApiGetUserMountsResponseApplicationJson_Ocs._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetUserMountsResponseApplicationJson_Ocs.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiGetUserMountsResponseApplicationJson_Ocs.
   static Serializer<ApiGetUserMountsResponseApplicationJson_Ocs> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonOcsSerializer;
 }
@@ -422,6 +457,7 @@ abstract class ApiGetUserMountsResponseApplicationJson
     implements
         $ApiGetUserMountsResponseApplicationJsonInterface,
         Built<ApiGetUserMountsResponseApplicationJson, ApiGetUserMountsResponseApplicationJsonBuilder> {
+  /// Creates a new ApiGetUserMountsResponseApplicationJson object using the builder pattern.
   factory ApiGetUserMountsResponseApplicationJson([void Function(ApiGetUserMountsResponseApplicationJsonBuilder)? b]) =
       _$ApiGetUserMountsResponseApplicationJson;
 
@@ -429,15 +465,22 @@ abstract class ApiGetUserMountsResponseApplicationJson
   const ApiGetUserMountsResponseApplicationJson._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory ApiGetUserMountsResponseApplicationJson.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for ApiGetUserMountsResponseApplicationJson.
   static Serializer<ApiGetUserMountsResponseApplicationJson> get serializer =>
       _$apiGetUserMountsResponseApplicationJsonSerializer;
 }

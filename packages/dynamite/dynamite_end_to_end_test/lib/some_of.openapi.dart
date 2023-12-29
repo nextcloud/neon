@@ -31,17 +31,27 @@ abstract interface class $OneValueSomeOfInObjectInterface {
   OneValueSomeOfInObject_IntDoubleString? get intDoubleString;
 }
 
+/// Object with someOfs that only contain a single value (or are optimized to such).
+///  Should use the single member directly.
 abstract class OneValueSomeOfInObject
     implements $OneValueSomeOfInObjectInterface, Built<OneValueSomeOfInObject, OneValueSomeOfInObjectBuilder> {
+  /// Creates a new OneValueSomeOfInObject object using the builder pattern.
   factory OneValueSomeOfInObject([void Function(OneValueSomeOfInObjectBuilder)? b]) = _$OneValueSomeOfInObject;
 
   const OneValueSomeOfInObject._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory OneValueSomeOfInObject.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for OneValueSomeOfInObject.
   static Serializer<OneValueSomeOfInObject> get serializer => _$oneValueSomeOfInObjectSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)

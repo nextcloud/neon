@@ -27,14 +27,22 @@ abstract interface class $TestObjectInterface {
 }
 
 abstract class TestObject implements $TestObjectInterface, Built<TestObject, TestObjectBuilder> {
+  /// Creates a new TestObject object using the builder pattern.
   factory TestObject([void Function(TestObjectBuilder)? b]) = _$TestObject;
 
   const TestObject._();
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   factory TestObject.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
 
+  /// Serializer for TestObject.
   static Serializer<TestObject> get serializer => _$testObjectSerializer;
 
   @BuiltValueHook(finalizeBuilder: true)

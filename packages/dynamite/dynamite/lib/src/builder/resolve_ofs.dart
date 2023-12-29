@@ -112,7 +112,10 @@ TypeResult resolveAllOf(
       methods: methods.build(),
     );
 
-    final $class = buildBuiltClass(identifier);
+    final $class = buildBuiltClass(
+      identifier,
+      documentation: schema.formattedDescription,
+    );
 
     state.output.addAll([
       $interface,

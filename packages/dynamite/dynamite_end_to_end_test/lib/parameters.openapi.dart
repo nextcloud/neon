@@ -494,6 +494,7 @@ class GetEnumPattern extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for GetEnumPattern.
   @BuiltValueSerializer(custom: true)
   static Serializer<GetEnumPattern> get serializer => const _$GetEnumPatternSerializer();
 }
@@ -551,6 +552,7 @@ class GetHeadersEnumPattern extends EnumClass {
 
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
+  /// Serializer for GetHeadersEnumPattern.
   @BuiltValueSerializer(custom: true)
   static Serializer<GetHeadersEnumPattern> get serializer => const _$GetHeadersEnumPatternSerializer();
 }

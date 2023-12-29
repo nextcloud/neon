@@ -24,6 +24,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
         $Capabilities0_FilesSharing_Sharebymail_UploadFilesDropInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop,
             Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+  /// Creates a new Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
   factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop([
     void Function(Capabilities0_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop;
@@ -32,15 +33,22 @@ abstract class Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop
   const Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_UploadFilesDrop> get serializer =>
       _$capabilities0FilesSharingSharebymailUploadFilesDropSerializer;
 }
@@ -55,6 +63,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
     implements
         $Capabilities0_FilesSharing_Sharebymail_PasswordInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_Password, Capabilities0_FilesSharing_Sharebymail_PasswordBuilder> {
+  /// Creates a new Capabilities0_FilesSharing_Sharebymail_Password object using the builder pattern.
   factory Capabilities0_FilesSharing_Sharebymail_Password([
     void Function(Capabilities0_FilesSharing_Sharebymail_PasswordBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_Password;
@@ -63,15 +72,22 @@ abstract class Capabilities0_FilesSharing_Sharebymail_Password
   const Capabilities0_FilesSharing_Sharebymail_Password._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_Password.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0_FilesSharing_Sharebymail_Password.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_Password> get serializer =>
       _$capabilities0FilesSharingSharebymailPasswordSerializer;
 }
@@ -87,6 +103,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
         $Capabilities0_FilesSharing_Sharebymail_ExpireDateInterface,
         Built<Capabilities0_FilesSharing_Sharebymail_ExpireDate,
             Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder> {
+  /// Creates a new Capabilities0_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
   factory Capabilities0_FilesSharing_Sharebymail_ExpireDate([
     void Function(Capabilities0_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
   ]) = _$Capabilities0_FilesSharing_Sharebymail_ExpireDate;
@@ -95,15 +112,22 @@ abstract class Capabilities0_FilesSharing_Sharebymail_ExpireDate
   const Capabilities0_FilesSharing_Sharebymail_ExpireDate._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail_ExpireDate.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0_FilesSharing_Sharebymail_ExpireDate.
   static Serializer<Capabilities0_FilesSharing_Sharebymail_ExpireDate> get serializer =>
       _$capabilities0FilesSharingSharebymailExpireDateSerializer;
 }
@@ -124,6 +148,7 @@ abstract class Capabilities0_FilesSharing_Sharebymail
     implements
         $Capabilities0_FilesSharing_SharebymailInterface,
         Built<Capabilities0_FilesSharing_Sharebymail, Capabilities0_FilesSharing_SharebymailBuilder> {
+  /// Creates a new Capabilities0_FilesSharing_Sharebymail object using the builder pattern.
   factory Capabilities0_FilesSharing_Sharebymail([void Function(Capabilities0_FilesSharing_SharebymailBuilder)? b]) =
       _$Capabilities0_FilesSharing_Sharebymail;
 
@@ -131,15 +156,22 @@ abstract class Capabilities0_FilesSharing_Sharebymail
   const Capabilities0_FilesSharing_Sharebymail._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0_FilesSharing_Sharebymail.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0_FilesSharing_Sharebymail.
   static Serializer<Capabilities0_FilesSharing_Sharebymail> get serializer =>
       _$capabilities0FilesSharingSharebymailSerializer;
 }
@@ -153,6 +185,7 @@ abstract class Capabilities0_FilesSharing
     implements
         $Capabilities0_FilesSharingInterface,
         Built<Capabilities0_FilesSharing, Capabilities0_FilesSharingBuilder> {
+  /// Creates a new Capabilities0_FilesSharing object using the builder pattern.
   factory Capabilities0_FilesSharing([void Function(Capabilities0_FilesSharingBuilder)? b]) =
       _$Capabilities0_FilesSharing;
 
@@ -160,15 +193,22 @@ abstract class Capabilities0_FilesSharing
   const Capabilities0_FilesSharing._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0_FilesSharing.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0_FilesSharing.
   static Serializer<Capabilities0_FilesSharing> get serializer => _$capabilities0FilesSharingSerializer;
 }
 
@@ -179,20 +219,28 @@ abstract interface class $Capabilities0Interface {
 }
 
 abstract class Capabilities0 implements $Capabilities0Interface, Built<Capabilities0, Capabilities0Builder> {
+  /// Creates a new Capabilities0 object using the builder pattern.
   factory Capabilities0([void Function(Capabilities0Builder)? b]) = _$Capabilities0;
 
   // coverage:ignore-start
   const Capabilities0._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory Capabilities0.fromJson(Map<String, dynamic> json) => jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for Capabilities0.
   static Serializer<Capabilities0> get serializer => _$capabilities0Serializer;
 }
 

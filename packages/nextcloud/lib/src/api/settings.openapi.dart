@@ -128,6 +128,7 @@ abstract class LogSettingsLogSettingsDownloadHeaders
     implements
         $LogSettingsLogSettingsDownloadHeadersInterface,
         Built<LogSettingsLogSettingsDownloadHeaders, LogSettingsLogSettingsDownloadHeadersBuilder> {
+  /// Creates a new LogSettingsLogSettingsDownloadHeaders object using the builder pattern.
   factory LogSettingsLogSettingsDownloadHeaders([void Function(LogSettingsLogSettingsDownloadHeadersBuilder)? b]) =
       _$LogSettingsLogSettingsDownloadHeaders;
 
@@ -135,15 +136,22 @@ abstract class LogSettingsLogSettingsDownloadHeaders
   const LogSettingsLogSettingsDownloadHeaders._();
   // coverage:ignore-end
 
+  /// Creates a new object from the given [json] data.
+  ///
+  /// Use [toJson] to serialize it back into json.
   // coverage:ignore-start
   factory LogSettingsLogSettingsDownloadHeaders.fromJson(Map<String, dynamic> json) =>
       jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
+  /// Parses this object into a json like map.
+  ///
+  /// Use the fromJson factory to revive it again.
   // coverage:ignore-start
   Map<String, dynamic> toJson() => jsonSerializers.serializeWith(serializer, this)! as Map<String, dynamic>;
   // coverage:ignore-end
 
+  /// Serializer for LogSettingsLogSettingsDownloadHeaders.
   static Serializer<LogSettingsLogSettingsDownloadHeaders> get serializer =>
       _$logSettingsLogSettingsDownloadHeadersSerializer;
 }
