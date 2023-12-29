@@ -3,7 +3,7 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
 @experimental
-library notes_openapi;
+library;
 
 import 'dart:convert';
 import 'dart:typed_data';

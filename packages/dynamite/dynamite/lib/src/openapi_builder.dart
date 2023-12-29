@@ -10,7 +10,6 @@ import 'package:dynamite/src/builder/generate_ofs.dart';
 import 'package:dynamite/src/builder/generate_schemas.dart';
 import 'package:dynamite/src/builder/serializer.dart';
 import 'package:dynamite/src/builder/state.dart';
-import 'package:dynamite/src/helpers/dart_helpers.dart';
 import 'package:dynamite/src/helpers/version_checker.dart';
 import 'package:dynamite/src/models/config.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
@@ -86,7 +85,6 @@ class OpenAPIBuilder implements Builder {
         }
 
         b
-          ..name = toLibraryName(p.basenameWithoutExtension(inputId.path))
           ..directives.addAll([
             Directive.import('dart:convert'),
             Directive.import('dart:typed_data'),

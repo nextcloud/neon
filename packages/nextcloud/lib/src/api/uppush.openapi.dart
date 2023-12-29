@@ -3,7 +3,7 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
 @experimental
-library uppush_openapi;
+library;
 
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';

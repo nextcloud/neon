@@ -2,8 +2,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
-library files_trashbin_openapi;
-
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';

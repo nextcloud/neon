@@ -3,8 +3,6 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-library some_of_openapi;
-
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';

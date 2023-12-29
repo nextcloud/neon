@@ -3,8 +3,6 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-library headers_openapi;
-
 import 'dart:typed_data';
 
 import 'package:built_value/built_value.dart';
