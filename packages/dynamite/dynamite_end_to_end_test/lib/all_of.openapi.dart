@@ -5,7 +5,8 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+/// all of test Version: 0.0.1.
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -15,6 +16,7 @@ import 'package:meta/meta.dart' as _i1;
 
 part 'all_of.openapi.g.dart';
 
+/// All of with objects only.
 @BuiltValue(instantiable: false)
 abstract interface class $ObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute1-allOf')
@@ -44,6 +46,7 @@ abstract class ObjectAllOf implements $ObjectAllOfInterface, Built<ObjectAllOf, 
   static Serializer<ObjectAllOf> get serializer => _$objectAllOfSerializer;
 }
 
+/// All of with one object value.
 @BuiltValue(instantiable: false)
 abstract interface class $OneObjectAllOfInterface {
   @BuiltValueField(wireName: 'attribute-allOf')
@@ -71,6 +74,7 @@ abstract class OneObjectAllOf implements $OneObjectAllOfInterface, Built<OneObje
   static Serializer<OneObjectAllOf> get serializer => _$oneObjectAllOfSerializer;
 }
 
+/// All of with an primitive values.
 @BuiltValue(instantiable: false)
 abstract interface class $PrimitiveAllOfInterface {
   @BuiltValueField(wireName: 'int')
@@ -100,6 +104,7 @@ abstract class PrimitiveAllOf implements $PrimitiveAllOfInterface, Built<Primiti
   static Serializer<PrimitiveAllOf> get serializer => _$primitiveAllOfSerializer;
 }
 
+/// All of with object and primitive value.
 @BuiltValue(instantiable: false)
 abstract interface class $MixedAllOfInterface {
   @BuiltValueField(wireName: 'String')
@@ -129,6 +134,7 @@ abstract class MixedAllOf implements $MixedAllOfInterface, Built<MixedAllOf, Mix
   static Serializer<MixedAllOf> get serializer => _$mixedAllOfSerializer;
 }
 
+/// All of with one primitive value.
 @BuiltValue(instantiable: false)
 abstract interface class $OneValueAllOfInterface {
   @BuiltValueField(wireName: 'String')

@@ -12,6 +12,7 @@
     "**/assets",
     "**/l10n/!(en.arb)",
     "**.openapi.dart",
+    "**.openapi.json",
     "external",
     "packages/dynamite/dynamite/example/lib",
     "packages/file_icons/lib/src/data.dart",

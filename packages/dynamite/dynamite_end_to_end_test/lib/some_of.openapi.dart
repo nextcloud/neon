@@ -5,7 +5,8 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+/// oneOf and anyOf test with the same record type Version: 0.0.1.
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
@@ -23,6 +24,8 @@ typedef OneOfIntDoubleOther = ({num? $num, String? string});
 typedef AnyOfIntDoubleOther = ({num? $num, String? string});
 typedef OneValueSomeOfInObject_IntDoubleString = ({num? $num, String? string});
 
+/// Object with someOfs that only contain a single value (or are optimized to such).
+///  Should use the single member directly.
 @BuiltValue(instantiable: false)
 abstract interface class $OneValueSomeOfInObjectInterface {
   @BuiltValueField(wireName: 'OneValue')

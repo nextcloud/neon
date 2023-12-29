@@ -3,6 +3,7 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_value/standard_json_plugin.dart';
 import 'package:dynamite/src/models/openapi/components.dart';
+import 'package:dynamite/src/models/openapi/contact.dart';
 import 'package:dynamite/src/models/openapi/discriminator.dart';
 import 'package:dynamite/src/models/openapi/header.dart';
 import 'package:dynamite/src/models/openapi/info.dart';
@@ -42,6 +43,7 @@ part 'openapi.g.dart';
 
 @SerializersFor([
   Components,
+  Contact,
   Discriminator,
   Header,
   Info,

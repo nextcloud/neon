@@ -5,7 +5,8 @@
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 // ignore_for_file: unused_element
 
-// ignore_for_file: no_leading_underscores_for_library_prefixes
+/// nested ofs test Version: 0.0.1.
+library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
