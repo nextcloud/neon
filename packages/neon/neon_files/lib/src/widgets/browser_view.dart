@@ -13,31 +13,15 @@ import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart';
 
-/// Mode to operate the [FilesBrowserView] in.
-enum FilesBrowserMode {
-  /// Default file browser mode.
-  ///
-  /// When a file is selected it will be opened or downloaded.
-  browser,
-
-  /// Select directory.
-  selectDirectory,
-
-  /// Don't show file actions.
-  noActions,
-}
-
 class FilesBrowserView extends StatefulWidget {
   const FilesBrowserView({
     required this.bloc,
     required this.filesBloc,
-    this.mode = FilesBrowserMode.browser,
     super.key,
   });
 
   final FilesBrowserBloc bloc;
   final FilesBloc filesBloc;
-  final FilesBrowserMode mode;
 
   @override
   State<FilesBrowserView> createState() => _FilesBrowserViewState();
@@ -64,81 +48,63 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
               if (!uriSnapshot.hasData || !tasksSnapshot.hasData) {
                 return const SizedBox();
               }
-              return ValueListenableBuilder(
-                valueListenable: widget.bloc.options.showHiddenFilesOption,
-                builder: (final context, final showHiddenFiles, final _) {
-                  final files = filesSnapshot.data?.where((final file) {
-                    var hideFile = false;
-                    if (widget.mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
-                      hideFile = true;
-                    }
-                    if (!showHiddenFiles && file.isHidden) {
-                      hideFile = true;
-                    }
+              return BackButtonListener(
+                onBackButtonPressed: () async {
+                  final parent = uriSnapshot.requireData.parent;
+                  if (parent != null) {
+                    widget.bloc.setPath(parent);
+                    return true;
+                  }
+                  return false;
+                },
+                child: SortBoxBuilder<FilesSortProperty, WebDavFile>(
+                  sortBox: filesSortBox,
+                  sortProperty: widget.bloc.options.filesSortPropertyOption,
+                  sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
+                  presort: const {
+                    (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
+                  },
+                  input: filesSnapshot.data,
+                  builder: (final context, final sorted) {
+                    final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
 
-                    return !hideFile;
-                  }).toList();
+                    return NeonListView(
+                      scrollKey: 'files-${uriSnapshot.requireData.path}',
+                      itemCount: sorted.length,
+                      itemBuilder: (final context, final index) {
+                        final file = sorted[index];
+                        final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
+                          (final task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
+                        );
 
-                  return BackButtonListener(
-                    onBackButtonPressed: () async {
-                      final parent = uriSnapshot.requireData.parent;
-                      if (parent != null) {
-                        widget.bloc.setPath(parent);
-                        return true;
-                      }
-                      return false;
-                    },
-                    child: SortBoxBuilder<FilesSortProperty, WebDavFile>(
-                      sortBox: filesSortBox,
-                      sortProperty: widget.bloc.options.filesSortPropertyOption,
-                      sortBoxOrder: widget.bloc.options.filesSortBoxOrderOption,
-                      presort: const {
-                        (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
-                      },
-                      input: files,
-                      builder: (final context, final sorted) {
-                        final uploadingTaskTiles = buildUploadTasks(tasksSnapshot.requireData, sorted);
+                        final details = matchingTask != null
+                            ? FileDetails.fromTask(
+                                task: matchingTask,
+                                file: file,
+                              )
+                            : FileDetails.fromWebDav(
+                                file: file,
+                              );
 
-                        return NeonListView(
-                          scrollKey: 'files-${uriSnapshot.requireData.path}',
-                          itemCount: sorted.length,
-                          itemBuilder: (final context, final index) {
-                            final file = sorted[index];
-                            final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                              (final task) => file.name == task.uri.name && widget.bloc.uri.value == task.uri.parent,
-                            );
-
-                            final details = matchingTask != null
-                                ? FileDetails.fromTask(
-                                    task: matchingTask,
-                                    file: file,
-                                  )
-                                : FileDetails.fromWebDav(
-                                    file: file,
-                                  );
-
-                            return FileListTile(
-                              bloc: widget.filesBloc,
-                              browserBloc: widget.bloc,
-                              details: details,
-                              mode: widget.mode,
-                            );
-                          },
-                          isLoading: filesSnapshot.isLoading,
-                          error: filesSnapshot.error,
-                          onRefresh: widget.bloc.refresh,
-                          topScrollingChildren: [
-                            FilesBrowserNavigator(
-                              uri: uriSnapshot.requireData,
-                              bloc: widget.bloc,
-                            ),
-                            ...uploadingTaskTiles,
-                          ],
+                        return FileListTile(
+                          bloc: widget.filesBloc,
+                          browserBloc: widget.bloc,
+                          details: details,
                         );
                       },
-                    ),
-                  );
-                },
+                      isLoading: filesSnapshot.isLoading,
+                      error: filesSnapshot.error,
+                      onRefresh: widget.bloc.refresh,
+                      topScrollingChildren: [
+                        FilesBrowserNavigator(
+                          uri: uriSnapshot.requireData,
+                          bloc: widget.bloc,
+                        ),
+                        ...uploadingTaskTiles,
+                      ],
+                    );
+                  },
+                ),
               );
             },
           ),

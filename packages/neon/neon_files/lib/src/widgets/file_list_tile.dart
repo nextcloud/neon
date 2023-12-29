@@ -7,7 +7,6 @@ import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_files/src/utils/task.dart';
 import 'package:neon_files/src/widgets/actions.dart';
-import 'package:neon_files/src/widgets/browser_view.dart';
 import 'package:neon_files/src/widgets/file_preview.dart';
 import 'package:neon_framework/theme.dart';
 import 'package:neon_framework/widgets.dart';
@@ -17,19 +16,17 @@ class FileListTile extends StatelessWidget {
     required this.bloc,
     required this.browserBloc,
     required this.details,
-    this.mode = FilesBrowserMode.browser,
     super.key,
   });
 
   final FilesBloc bloc;
   final FilesBrowserBloc browserBloc;
   final FileDetails details;
-  final FilesBrowserMode mode;
 
   Future<void> _onTap(final BuildContext context, final FileDetails details) async {
     if (details.isDirectory) {
       browserBloc.setPath(details.uri);
-    } else if (mode == FilesBrowserMode.browser) {
+    } else if (browserBloc.mode == FilesBrowserMode.browser) {
       final sizeWarning = bloc.options.downloadSizeWarning.value;
       if (sizeWarning != null && details.size != null && details.size! > sizeWarning) {
         final decision = await showDownloadConfirmationDialog(context, sizeWarning, details.size!);
@@ -73,7 +70,7 @@ class FileListTile extends StatelessWidget {
           details: details,
           bloc: bloc,
         ),
-        trailing: !details.hasTask && mode == FilesBrowserMode.browser
+        trailing: !details.hasTask && browserBloc.mode == FilesBrowserMode.browser
             ? FileActions(details: details)
             : const SizedBox.square(
                 dimension: largeIconSize,

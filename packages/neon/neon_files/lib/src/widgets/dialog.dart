@@ -212,7 +212,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
   const FilesChooseFolderDialog({
     required this.bloc,
     required this.filesBloc,
-    required this.originalPath,
+    this.originalPath,
     super.key,
   });
 
@@ -220,7 +220,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
   final FilesBloc filesBloc;
 
   /// The initial path to start at.
-  final PathUri originalPath;
+  final PathUri? originalPath;
 
   @override
   Widget build(final BuildContext context) {
@@ -244,7 +244,7 @@ class FilesChooseFolderDialog extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: originalPath != uriSnapshot.data ? () => Navigator.of(context).pop(uriSnapshot.data) : null,
+            onPressed: () => Navigator.of(context).pop(uriSnapshot.data),
             child: Text(
               FilesLocalizations.of(context).folderChoose,
               textAlign: TextAlign.end,
@@ -261,7 +261,6 @@ class FilesChooseFolderDialog extends StatelessWidget {
               child: FilesBrowserView(
                 bloc: bloc,
                 filesBloc: filesBloc,
-                mode: FilesBrowserMode.selectDirectory,
               ),
             ),
           ),

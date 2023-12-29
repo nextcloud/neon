@@ -2,6 +2,7 @@ import 'package:filesize/filesize.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
+import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_files/src/widgets/dialog.dart';
@@ -73,7 +74,11 @@ Future<PathUri?> showChooseFolderDialog(final BuildContext context, final FileDe
   final bloc = NeonProvider.of<FilesBloc>(context);
 
   final originalUri = details.uri;
-  final b = bloc.getNewFilesBrowserBloc(initialUri: originalUri);
+  final b = bloc.getNewFilesBrowserBloc(
+    initialUri: originalUri,
+    mode: FilesBrowserMode.selectDirectory,
+  );
+
   final result = await showDialog<PathUri>(
     context: context,
     builder: (final context) => FilesChooseFolderDialog(
