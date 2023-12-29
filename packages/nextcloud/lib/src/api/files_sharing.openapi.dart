@@ -3136,18 +3136,23 @@ abstract class ShareInfo implements $ShareInfoInterface, Built<ShareInfo, ShareI
 class Share_HideDownload extends EnumClass {
   const Share_HideDownload._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const Share_HideDownload $0 = _$shareHideDownload$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const Share_HideDownload $1 = _$shareHideDownload$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Share_HideDownload> get values => _$shareHideDownloadValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Share_HideDownload valueOf(String name) => _$valueOfShare_HideDownload(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for Share_HideDownload.
@@ -3194,16 +3199,21 @@ class _$Share_HideDownloadSerializer implements PrimitiveSerializer<Share_HideDo
 class Share_ItemType extends EnumClass {
   const Share_ItemType._(super.name);
 
+  /// `file`
   static const Share_ItemType file = _$shareItemTypeFile;
 
+  /// `folder`
   static const Share_ItemType folder = _$shareItemTypeFolder;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Share_ItemType> get values => _$shareItemTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Share_ItemType valueOf(String name) => _$valueOfShare_ItemType(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Share_ItemType.
@@ -3250,18 +3260,23 @@ class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> 
 class Share_MailSend extends EnumClass {
   const Share_MailSend._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const Share_MailSend $0 = _$shareMailSend$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const Share_MailSend $1 = _$shareMailSend$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Share_MailSend> get values => _$shareMailSendValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Share_MailSend valueOf(String name) => _$valueOfShare_MailSend(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for Share_MailSend.

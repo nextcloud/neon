@@ -159,14 +159,18 @@ class $ApiClient {
 class ApiGetAppListApiVersion extends EnumClass {
   const ApiGetAppListApiVersion._(super.name);
 
+  /// `v1`
   static const ApiGetAppListApiVersion v1 = _$apiGetAppListApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ApiGetAppListApiVersion> get values => _$apiGetAppListApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ApiGetAppListApiVersion valueOf(String name) => _$valueOfApiGetAppListApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ApiGetAppListApiVersion.

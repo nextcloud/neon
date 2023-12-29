@@ -483,15 +483,20 @@ typedef GetAnyOf = ({bool? $bool, String? string});
 class GetEnumPattern extends EnumClass {
   const GetEnumPattern._(super.name);
 
+  /// `a`
   static const GetEnumPattern a = _$getEnumPatternA;
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const GetEnumPattern $0 = _$getEnumPattern$0;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<GetEnumPattern> get values => _$getEnumPatternValues;
 
+  /// Returns the enum value associated to the [name].
   static GetEnumPattern valueOf(String name) => _$valueOfGetEnumPattern(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GetEnumPattern.
@@ -541,15 +546,20 @@ typedef GetHeadersAnyOf = ({bool? $bool, String? string});
 class GetHeadersEnumPattern extends EnumClass {
   const GetHeadersEnumPattern._(super.name);
 
+  /// `a`
   static const GetHeadersEnumPattern a = _$getHeadersEnumPatternA;
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const GetHeadersEnumPattern $0 = _$getHeadersEnumPattern$0;
 
+  /// Returns a set with all values this enum contains.
   static BuiltSet<GetHeadersEnumPattern> get values => _$getHeadersEnumPatternValues;
 
+  /// Returns the enum value associated to the [name].
   static GetHeadersEnumPattern valueOf(String name) => _$valueOfGetHeadersEnumPattern(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GetHeadersEnumPattern.

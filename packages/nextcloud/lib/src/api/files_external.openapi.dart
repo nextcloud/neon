@@ -165,14 +165,18 @@ abstract class OCSMeta implements $OCSMetaInterface, Built<OCSMeta, OCSMetaBuild
 class Mount_Type extends EnumClass {
   const Mount_Type._(super.name);
 
+  /// `dir`
   static const Mount_Type dir = _$mountTypeDir;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Mount_Type> get values => _$mountTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Mount_Type valueOf(String name) => _$valueOfMount_Type(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Mount_Type.
@@ -217,16 +221,21 @@ class _$Mount_TypeSerializer implements PrimitiveSerializer<Mount_Type> {
 class Mount_Scope extends EnumClass {
   const Mount_Scope._(super.name);
 
+  /// `system`
   static const Mount_Scope system = _$mountScopeSystem;
 
+  /// `personal`
   static const Mount_Scope personal = _$mountScopePersonal;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Mount_Scope> get values => _$mountScopeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Mount_Scope valueOf(String name) => _$valueOfMount_Scope(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Mount_Scope.
@@ -273,16 +282,21 @@ class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
 class StorageConfig_Type extends EnumClass {
   const StorageConfig_Type._(super.name);
 
+  /// `personal`
   static const StorageConfig_Type personal = _$storageConfigTypePersonal;
 
+  /// `system`
   static const StorageConfig_Type system = _$storageConfigTypeSystem;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<StorageConfig_Type> get values => _$storageConfigTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static StorageConfig_Type valueOf(String name) => _$valueOfStorageConfig_Type(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for StorageConfig_Type.

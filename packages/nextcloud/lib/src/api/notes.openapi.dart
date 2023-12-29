@@ -750,18 +750,24 @@ abstract class Note implements $NoteInterface, Built<Note, NoteBuilder> {
 class Settings_NoteMode extends EnumClass {
   const Settings_NoteMode._(super.name);
 
+  /// `edit`
   static const Settings_NoteMode edit = _$settingsNoteModeEdit;
 
+  /// `preview`
   static const Settings_NoteMode preview = _$settingsNoteModePreview;
 
+  /// `rich`
   static const Settings_NoteMode rich = _$settingsNoteModeRich;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<Settings_NoteMode> get values => _$settingsNoteModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static Settings_NoteMode valueOf(String name) => _$valueOfSettings_NoteMode(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for Settings_NoteMode.

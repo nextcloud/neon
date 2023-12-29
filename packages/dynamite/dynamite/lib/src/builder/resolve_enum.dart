@@ -31,6 +31,7 @@ TypeResult resolveEnum(
 
     final $class = Class(
       (final b) => b
+        ..docs.addAll(schema.formattedDescription)
         ..name = identifier
         ..extend = refer('EnumClass')
         ..constructors.add(
@@ -52,6 +53,7 @@ TypeResult resolveEnum(
             (final enumValue) => Field(
               (final b) {
                 b
+                  ..docs.add('/// `${enumValue.name}`')
                   ..name = enumValue.dartName
                   ..static = true
                   ..modifier = FieldModifier.constant
@@ -74,6 +76,7 @@ TypeResult resolveEnum(
         ..methods.addAll([
           Method(
             (final b) => b
+              ..docs.add('/// Returns a set with all values this enum contains.')
               ..name = 'values'
               ..returns = refer('BuiltSet<$identifier>')
               ..lambda = true
@@ -83,6 +86,7 @@ TypeResult resolveEnum(
           ),
           Method(
             (final b) => b
+              ..docs.add('/// Returns the enum value associated to the [name].')
               ..name = 'valueOf'
               ..returns = refer(identifier)
               ..lambda = true
@@ -98,6 +102,7 @@ TypeResult resolveEnum(
           ),
           Method(
             (final b) => b
+              ..docs.add('/// Returns the serialized value of this enum value.')
               ..returns = refer(subResult.dartType.className)
               ..name = 'value'
               ..type = MethodType.getter

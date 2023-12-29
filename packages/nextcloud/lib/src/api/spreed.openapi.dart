@@ -12925,14 +12925,18 @@ class $TempAvatarClient {
 class AvatarGetAvatarApiVersion extends EnumClass {
   const AvatarGetAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarGetAvatarApiVersion v1 = _$avatarGetAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarGetAvatarApiVersion> get values => _$avatarGetAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarGetAvatarApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarGetAvatarApiVersion.
@@ -12977,14 +12981,18 @@ class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<Avata
 class AvatarUploadAvatarApiVersion extends EnumClass {
   const AvatarUploadAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarUploadAvatarApiVersion v1 = _$avatarUploadAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarUploadAvatarApiVersion> get values => _$avatarUploadAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarUploadAvatarApiVersion valueOf(String name) => _$valueOfAvatarUploadAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarUploadAvatarApiVersion.
@@ -13278,14 +13286,18 @@ abstract class AvatarUploadAvatarResponseApplicationJson
 class AvatarDeleteAvatarApiVersion extends EnumClass {
   const AvatarDeleteAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarDeleteAvatarApiVersion v1 = _$avatarDeleteAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarDeleteAvatarApiVersion> get values => _$avatarDeleteAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarDeleteAvatarApiVersion valueOf(String name) => _$valueOfAvatarDeleteAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarDeleteAvatarApiVersion.
@@ -13407,14 +13419,18 @@ abstract class AvatarDeleteAvatarResponseApplicationJson
 class AvatarEmojiAvatarApiVersion extends EnumClass {
   const AvatarEmojiAvatarApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarEmojiAvatarApiVersion v1 = _$avatarEmojiAvatarApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarEmojiAvatarApiVersion> get values => _$avatarEmojiAvatarApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarEmojiAvatarApiVersion valueOf(String name) => _$valueOfAvatarEmojiAvatarApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarEmojiAvatarApiVersion.
@@ -13536,14 +13552,18 @@ abstract class AvatarEmojiAvatarResponseApplicationJson
 class AvatarGetAvatarDarkApiVersion extends EnumClass {
   const AvatarGetAvatarDarkApiVersion._(super.name);
 
+  /// `v1`
   static const AvatarGetAvatarDarkApiVersion v1 = _$avatarGetAvatarDarkApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<AvatarGetAvatarDarkApiVersion> get values => _$avatarGetAvatarDarkApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static AvatarGetAvatarDarkApiVersion valueOf(String name) => _$valueOfAvatarGetAvatarDarkApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for AvatarGetAvatarDarkApiVersion.
@@ -13588,14 +13608,18 @@ class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<A
 class BotSendMessageApiVersion extends EnumClass {
   const BotSendMessageApiVersion._(super.name);
 
+  /// `v1`
   static const BotSendMessageApiVersion v1 = _$botSendMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotSendMessageApiVersion> get values => _$botSendMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotSendMessageApiVersion valueOf(String name) => _$valueOfBotSendMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotSendMessageApiVersion.
@@ -13716,14 +13740,18 @@ abstract class BotSendMessageResponseApplicationJson
 class BotReactApiVersion extends EnumClass {
   const BotReactApiVersion._(super.name);
 
+  /// `v1`
   static const BotReactApiVersion v1 = _$botReactApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotReactApiVersion> get values => _$botReactApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotReactApiVersion valueOf(String name) => _$valueOfBotReactApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotReactApiVersion.
@@ -13842,14 +13870,18 @@ abstract class BotReactResponseApplicationJson
 class BotDeleteReactionApiVersion extends EnumClass {
   const BotDeleteReactionApiVersion._(super.name);
 
+  /// `v1`
   static const BotDeleteReactionApiVersion v1 = _$botDeleteReactionApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotDeleteReactionApiVersion> get values => _$botDeleteReactionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotDeleteReactionApiVersion valueOf(String name) => _$valueOfBotDeleteReactionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotDeleteReactionApiVersion.
@@ -13971,14 +14003,18 @@ abstract class BotDeleteReactionResponseApplicationJson
 class BotAdminListBotsApiVersion extends EnumClass {
   const BotAdminListBotsApiVersion._(super.name);
 
+  /// `v1`
   static const BotAdminListBotsApiVersion v1 = _$botAdminListBotsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotAdminListBotsApiVersion> get values => _$botAdminListBotsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotAdminListBotsApiVersion valueOf(String name) => _$valueOfBotAdminListBotsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotAdminListBotsApiVersion.
@@ -14176,14 +14212,18 @@ abstract class BotAdminListBotsResponseApplicationJson
 class BotListBotsApiVersion extends EnumClass {
   const BotListBotsApiVersion._(super.name);
 
+  /// `v1`
   static const BotListBotsApiVersion v1 = _$botListBotsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotListBotsApiVersion> get values => _$botListBotsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotListBotsApiVersion valueOf(String name) => _$valueOfBotListBotsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotListBotsApiVersion.
@@ -14303,14 +14343,18 @@ abstract class BotListBotsResponseApplicationJson
 class BotEnableBotApiVersion extends EnumClass {
   const BotEnableBotApiVersion._(super.name);
 
+  /// `v1`
   static const BotEnableBotApiVersion v1 = _$botEnableBotApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotEnableBotApiVersion> get values => _$botEnableBotApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotEnableBotApiVersion valueOf(String name) => _$valueOfBotEnableBotApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotEnableBotApiVersion.
@@ -14430,14 +14474,18 @@ abstract class BotEnableBotResponseApplicationJson
 class BotDisableBotApiVersion extends EnumClass {
   const BotDisableBotApiVersion._(super.name);
 
+  /// `v1`
   static const BotDisableBotApiVersion v1 = _$botDisableBotApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BotDisableBotApiVersion> get values => _$botDisableBotApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BotDisableBotApiVersion valueOf(String name) => _$valueOfBotDisableBotApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BotDisableBotApiVersion.
@@ -14558,25 +14606,32 @@ abstract class BotDisableBotResponseApplicationJson
 class BreakoutRoomConfigureBreakoutRoomsMode extends EnumClass {
   const BreakoutRoomConfigureBreakoutRoomsMode._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const BreakoutRoomConfigureBreakoutRoomsMode $0 = _$breakoutRoomConfigureBreakoutRoomsMode$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const BreakoutRoomConfigureBreakoutRoomsMode $1 = _$breakoutRoomConfigureBreakoutRoomsMode$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const BreakoutRoomConfigureBreakoutRoomsMode $2 = _$breakoutRoomConfigureBreakoutRoomsMode$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const BreakoutRoomConfigureBreakoutRoomsMode $3 = _$breakoutRoomConfigureBreakoutRoomsMode$3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomConfigureBreakoutRoomsMode> get values => _$breakoutRoomConfigureBreakoutRoomsModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomConfigureBreakoutRoomsMode valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsMode(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsMode.
@@ -14631,16 +14686,20 @@ class _$BreakoutRoomConfigureBreakoutRoomsModeSerializer
 class BreakoutRoomConfigureBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomConfigureBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomConfigureBreakoutRoomsApiVersion v1 = _$breakoutRoomConfigureBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomConfigureBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomConfigureBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomConfigureBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomConfigureBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomConfigureBreakoutRoomsApiVersion.
@@ -14768,16 +14827,20 @@ abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
 class BreakoutRoomRemoveBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomRemoveBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomRemoveBreakoutRoomsApiVersion v1 = _$breakoutRoomRemoveBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomRemoveBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomRemoveBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomRemoveBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRemoveBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomRemoveBreakoutRoomsApiVersion.
@@ -14905,16 +14968,20 @@ abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
 class BreakoutRoomBroadcastChatMessageApiVersion extends EnumClass {
   const BreakoutRoomBroadcastChatMessageApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomBroadcastChatMessageApiVersion v1 = _$breakoutRoomBroadcastChatMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomBroadcastChatMessageApiVersion> get values =>
       _$breakoutRoomBroadcastChatMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomBroadcastChatMessageApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomBroadcastChatMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomBroadcastChatMessageApiVersion.
@@ -15042,15 +15109,19 @@ abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
 class BreakoutRoomApplyAttendeeMapApiVersion extends EnumClass {
   const BreakoutRoomApplyAttendeeMapApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomApplyAttendeeMapApiVersion v1 = _$breakoutRoomApplyAttendeeMapApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomApplyAttendeeMapApiVersion> get values => _$breakoutRoomApplyAttendeeMapApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomApplyAttendeeMapApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomApplyAttendeeMapApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomApplyAttendeeMapApiVersion.
@@ -15178,16 +15249,20 @@ abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
 class BreakoutRoomRequestAssistanceApiVersion extends EnumClass {
   const BreakoutRoomRequestAssistanceApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomRequestAssistanceApiVersion v1 = _$breakoutRoomRequestAssistanceApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomRequestAssistanceApiVersion> get values =>
       _$breakoutRoomRequestAssistanceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomRequestAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomRequestAssistanceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomRequestAssistanceApiVersion.
@@ -15315,16 +15390,20 @@ abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
 class BreakoutRoomResetRequestForAssistanceApiVersion extends EnumClass {
   const BreakoutRoomResetRequestForAssistanceApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomResetRequestForAssistanceApiVersion v1 = _$breakoutRoomResetRequestForAssistanceApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomResetRequestForAssistanceApiVersion> get values =>
       _$breakoutRoomResetRequestForAssistanceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomResetRequestForAssistanceApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomResetRequestForAssistanceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomResetRequestForAssistanceApiVersion.
@@ -15452,16 +15531,20 @@ abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
 class BreakoutRoomStartBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomStartBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomStartBreakoutRoomsApiVersion v1 = _$breakoutRoomStartBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomStartBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomStartBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomStartBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStartBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomStartBreakoutRoomsApiVersion.
@@ -15589,16 +15672,20 @@ abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
 class BreakoutRoomStopBreakoutRoomsApiVersion extends EnumClass {
   const BreakoutRoomStopBreakoutRoomsApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomStopBreakoutRoomsApiVersion v1 = _$breakoutRoomStopBreakoutRoomsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomStopBreakoutRoomsApiVersion> get values =>
       _$breakoutRoomStopBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomStopBreakoutRoomsApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomStopBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomStopBreakoutRoomsApiVersion.
@@ -15726,16 +15813,20 @@ abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
 class BreakoutRoomSwitchBreakoutRoomApiVersion extends EnumClass {
   const BreakoutRoomSwitchBreakoutRoomApiVersion._(super.name);
 
+  /// `v1`
   static const BreakoutRoomSwitchBreakoutRoomApiVersion v1 = _$breakoutRoomSwitchBreakoutRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<BreakoutRoomSwitchBreakoutRoomApiVersion> get values =>
       _$breakoutRoomSwitchBreakoutRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static BreakoutRoomSwitchBreakoutRoomApiVersion valueOf(String name) =>
       _$valueOfBreakoutRoomSwitchBreakoutRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for BreakoutRoomSwitchBreakoutRoomApiVersion.
@@ -15863,14 +15954,18 @@ abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
 class CallGetPeersForCallApiVersion extends EnumClass {
   const CallGetPeersForCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallGetPeersForCallApiVersion v4 = _$callGetPeersForCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallGetPeersForCallApiVersion> get values => _$callGetPeersForCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallGetPeersForCallApiVersion valueOf(String name) => _$valueOfCallGetPeersForCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallGetPeersForCallApiVersion.
@@ -16028,14 +16123,18 @@ abstract class CallGetPeersForCallResponseApplicationJson
 class CallUpdateCallFlagsApiVersion extends EnumClass {
   const CallUpdateCallFlagsApiVersion._(super.name);
 
+  /// `v4`
   static const CallUpdateCallFlagsApiVersion v4 = _$callUpdateCallFlagsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallUpdateCallFlagsApiVersion> get values => _$callUpdateCallFlagsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallUpdateCallFlagsApiVersion valueOf(String name) => _$valueOfCallUpdateCallFlagsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallUpdateCallFlagsApiVersion.
@@ -16157,60 +16256,79 @@ abstract class CallUpdateCallFlagsResponseApplicationJson
 class CallJoinCallFlags extends EnumClass {
   const CallJoinCallFlags._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const CallJoinCallFlags $0 = _$callJoinCallFlags$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const CallJoinCallFlags $1 = _$callJoinCallFlags$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const CallJoinCallFlags $2 = _$callJoinCallFlags$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const CallJoinCallFlags $3 = _$callJoinCallFlags$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const CallJoinCallFlags $4 = _$callJoinCallFlags$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const CallJoinCallFlags $5 = _$callJoinCallFlags$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const CallJoinCallFlags $6 = _$callJoinCallFlags$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const CallJoinCallFlags $7 = _$callJoinCallFlags$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const CallJoinCallFlags $8 = _$callJoinCallFlags$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const CallJoinCallFlags $9 = _$callJoinCallFlags$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const CallJoinCallFlags $10 = _$callJoinCallFlags$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const CallJoinCallFlags $11 = _$callJoinCallFlags$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const CallJoinCallFlags $12 = _$callJoinCallFlags$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const CallJoinCallFlags $13 = _$callJoinCallFlags$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const CallJoinCallFlags $14 = _$callJoinCallFlags$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const CallJoinCallFlags $15 = _$callJoinCallFlags$15;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallFlags> get values => _$callJoinCallFlagsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallFlags valueOf(String name) => _$valueOfCallJoinCallFlags(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for CallJoinCallFlags.
@@ -16285,780 +16403,1039 @@ class _$CallJoinCallFlagsSerializer implements PrimitiveSerializer<CallJoinCallF
 class CallJoinCallForcePermissions extends EnumClass {
   const CallJoinCallForcePermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const CallJoinCallForcePermissions $0 = _$callJoinCallForcePermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const CallJoinCallForcePermissions $1 = _$callJoinCallForcePermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const CallJoinCallForcePermissions $2 = _$callJoinCallForcePermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const CallJoinCallForcePermissions $3 = _$callJoinCallForcePermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const CallJoinCallForcePermissions $4 = _$callJoinCallForcePermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const CallJoinCallForcePermissions $5 = _$callJoinCallForcePermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const CallJoinCallForcePermissions $6 = _$callJoinCallForcePermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const CallJoinCallForcePermissions $7 = _$callJoinCallForcePermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const CallJoinCallForcePermissions $8 = _$callJoinCallForcePermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const CallJoinCallForcePermissions $9 = _$callJoinCallForcePermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const CallJoinCallForcePermissions $10 = _$callJoinCallForcePermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const CallJoinCallForcePermissions $11 = _$callJoinCallForcePermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const CallJoinCallForcePermissions $12 = _$callJoinCallForcePermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const CallJoinCallForcePermissions $13 = _$callJoinCallForcePermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const CallJoinCallForcePermissions $14 = _$callJoinCallForcePermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const CallJoinCallForcePermissions $15 = _$callJoinCallForcePermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const CallJoinCallForcePermissions $16 = _$callJoinCallForcePermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const CallJoinCallForcePermissions $17 = _$callJoinCallForcePermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const CallJoinCallForcePermissions $18 = _$callJoinCallForcePermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const CallJoinCallForcePermissions $19 = _$callJoinCallForcePermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const CallJoinCallForcePermissions $20 = _$callJoinCallForcePermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const CallJoinCallForcePermissions $21 = _$callJoinCallForcePermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const CallJoinCallForcePermissions $22 = _$callJoinCallForcePermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const CallJoinCallForcePermissions $23 = _$callJoinCallForcePermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const CallJoinCallForcePermissions $24 = _$callJoinCallForcePermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const CallJoinCallForcePermissions $25 = _$callJoinCallForcePermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const CallJoinCallForcePermissions $26 = _$callJoinCallForcePermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const CallJoinCallForcePermissions $27 = _$callJoinCallForcePermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const CallJoinCallForcePermissions $28 = _$callJoinCallForcePermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const CallJoinCallForcePermissions $29 = _$callJoinCallForcePermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const CallJoinCallForcePermissions $30 = _$callJoinCallForcePermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const CallJoinCallForcePermissions $31 = _$callJoinCallForcePermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const CallJoinCallForcePermissions $32 = _$callJoinCallForcePermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const CallJoinCallForcePermissions $33 = _$callJoinCallForcePermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const CallJoinCallForcePermissions $34 = _$callJoinCallForcePermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const CallJoinCallForcePermissions $35 = _$callJoinCallForcePermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const CallJoinCallForcePermissions $36 = _$callJoinCallForcePermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const CallJoinCallForcePermissions $37 = _$callJoinCallForcePermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const CallJoinCallForcePermissions $38 = _$callJoinCallForcePermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const CallJoinCallForcePermissions $39 = _$callJoinCallForcePermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const CallJoinCallForcePermissions $40 = _$callJoinCallForcePermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const CallJoinCallForcePermissions $41 = _$callJoinCallForcePermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const CallJoinCallForcePermissions $42 = _$callJoinCallForcePermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const CallJoinCallForcePermissions $43 = _$callJoinCallForcePermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const CallJoinCallForcePermissions $44 = _$callJoinCallForcePermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const CallJoinCallForcePermissions $45 = _$callJoinCallForcePermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const CallJoinCallForcePermissions $46 = _$callJoinCallForcePermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const CallJoinCallForcePermissions $47 = _$callJoinCallForcePermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const CallJoinCallForcePermissions $48 = _$callJoinCallForcePermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const CallJoinCallForcePermissions $49 = _$callJoinCallForcePermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const CallJoinCallForcePermissions $50 = _$callJoinCallForcePermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const CallJoinCallForcePermissions $51 = _$callJoinCallForcePermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const CallJoinCallForcePermissions $52 = _$callJoinCallForcePermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const CallJoinCallForcePermissions $53 = _$callJoinCallForcePermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const CallJoinCallForcePermissions $54 = _$callJoinCallForcePermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const CallJoinCallForcePermissions $55 = _$callJoinCallForcePermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const CallJoinCallForcePermissions $56 = _$callJoinCallForcePermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const CallJoinCallForcePermissions $57 = _$callJoinCallForcePermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const CallJoinCallForcePermissions $58 = _$callJoinCallForcePermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const CallJoinCallForcePermissions $59 = _$callJoinCallForcePermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const CallJoinCallForcePermissions $60 = _$callJoinCallForcePermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const CallJoinCallForcePermissions $61 = _$callJoinCallForcePermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const CallJoinCallForcePermissions $62 = _$callJoinCallForcePermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const CallJoinCallForcePermissions $63 = _$callJoinCallForcePermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const CallJoinCallForcePermissions $64 = _$callJoinCallForcePermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const CallJoinCallForcePermissions $65 = _$callJoinCallForcePermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const CallJoinCallForcePermissions $66 = _$callJoinCallForcePermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const CallJoinCallForcePermissions $67 = _$callJoinCallForcePermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const CallJoinCallForcePermissions $68 = _$callJoinCallForcePermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const CallJoinCallForcePermissions $69 = _$callJoinCallForcePermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const CallJoinCallForcePermissions $70 = _$callJoinCallForcePermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const CallJoinCallForcePermissions $71 = _$callJoinCallForcePermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const CallJoinCallForcePermissions $72 = _$callJoinCallForcePermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const CallJoinCallForcePermissions $73 = _$callJoinCallForcePermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const CallJoinCallForcePermissions $74 = _$callJoinCallForcePermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const CallJoinCallForcePermissions $75 = _$callJoinCallForcePermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const CallJoinCallForcePermissions $76 = _$callJoinCallForcePermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const CallJoinCallForcePermissions $77 = _$callJoinCallForcePermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const CallJoinCallForcePermissions $78 = _$callJoinCallForcePermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const CallJoinCallForcePermissions $79 = _$callJoinCallForcePermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const CallJoinCallForcePermissions $80 = _$callJoinCallForcePermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const CallJoinCallForcePermissions $81 = _$callJoinCallForcePermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const CallJoinCallForcePermissions $82 = _$callJoinCallForcePermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const CallJoinCallForcePermissions $83 = _$callJoinCallForcePermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const CallJoinCallForcePermissions $84 = _$callJoinCallForcePermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const CallJoinCallForcePermissions $85 = _$callJoinCallForcePermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const CallJoinCallForcePermissions $86 = _$callJoinCallForcePermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const CallJoinCallForcePermissions $87 = _$callJoinCallForcePermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const CallJoinCallForcePermissions $88 = _$callJoinCallForcePermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const CallJoinCallForcePermissions $89 = _$callJoinCallForcePermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const CallJoinCallForcePermissions $90 = _$callJoinCallForcePermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const CallJoinCallForcePermissions $91 = _$callJoinCallForcePermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const CallJoinCallForcePermissions $92 = _$callJoinCallForcePermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const CallJoinCallForcePermissions $93 = _$callJoinCallForcePermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const CallJoinCallForcePermissions $94 = _$callJoinCallForcePermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const CallJoinCallForcePermissions $95 = _$callJoinCallForcePermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const CallJoinCallForcePermissions $96 = _$callJoinCallForcePermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const CallJoinCallForcePermissions $97 = _$callJoinCallForcePermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const CallJoinCallForcePermissions $98 = _$callJoinCallForcePermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const CallJoinCallForcePermissions $99 = _$callJoinCallForcePermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const CallJoinCallForcePermissions $100 = _$callJoinCallForcePermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const CallJoinCallForcePermissions $101 = _$callJoinCallForcePermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const CallJoinCallForcePermissions $102 = _$callJoinCallForcePermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const CallJoinCallForcePermissions $103 = _$callJoinCallForcePermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const CallJoinCallForcePermissions $104 = _$callJoinCallForcePermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const CallJoinCallForcePermissions $105 = _$callJoinCallForcePermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const CallJoinCallForcePermissions $106 = _$callJoinCallForcePermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const CallJoinCallForcePermissions $107 = _$callJoinCallForcePermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const CallJoinCallForcePermissions $108 = _$callJoinCallForcePermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const CallJoinCallForcePermissions $109 = _$callJoinCallForcePermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const CallJoinCallForcePermissions $110 = _$callJoinCallForcePermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const CallJoinCallForcePermissions $111 = _$callJoinCallForcePermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const CallJoinCallForcePermissions $112 = _$callJoinCallForcePermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const CallJoinCallForcePermissions $113 = _$callJoinCallForcePermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const CallJoinCallForcePermissions $114 = _$callJoinCallForcePermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const CallJoinCallForcePermissions $115 = _$callJoinCallForcePermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const CallJoinCallForcePermissions $116 = _$callJoinCallForcePermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const CallJoinCallForcePermissions $117 = _$callJoinCallForcePermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const CallJoinCallForcePermissions $118 = _$callJoinCallForcePermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const CallJoinCallForcePermissions $119 = _$callJoinCallForcePermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const CallJoinCallForcePermissions $120 = _$callJoinCallForcePermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const CallJoinCallForcePermissions $121 = _$callJoinCallForcePermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const CallJoinCallForcePermissions $122 = _$callJoinCallForcePermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const CallJoinCallForcePermissions $123 = _$callJoinCallForcePermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const CallJoinCallForcePermissions $124 = _$callJoinCallForcePermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const CallJoinCallForcePermissions $125 = _$callJoinCallForcePermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const CallJoinCallForcePermissions $126 = _$callJoinCallForcePermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const CallJoinCallForcePermissions $127 = _$callJoinCallForcePermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const CallJoinCallForcePermissions $128 = _$callJoinCallForcePermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const CallJoinCallForcePermissions $129 = _$callJoinCallForcePermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const CallJoinCallForcePermissions $130 = _$callJoinCallForcePermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const CallJoinCallForcePermissions $131 = _$callJoinCallForcePermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const CallJoinCallForcePermissions $132 = _$callJoinCallForcePermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const CallJoinCallForcePermissions $133 = _$callJoinCallForcePermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const CallJoinCallForcePermissions $134 = _$callJoinCallForcePermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const CallJoinCallForcePermissions $135 = _$callJoinCallForcePermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const CallJoinCallForcePermissions $136 = _$callJoinCallForcePermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const CallJoinCallForcePermissions $137 = _$callJoinCallForcePermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const CallJoinCallForcePermissions $138 = _$callJoinCallForcePermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const CallJoinCallForcePermissions $139 = _$callJoinCallForcePermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const CallJoinCallForcePermissions $140 = _$callJoinCallForcePermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const CallJoinCallForcePermissions $141 = _$callJoinCallForcePermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const CallJoinCallForcePermissions $142 = _$callJoinCallForcePermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const CallJoinCallForcePermissions $143 = _$callJoinCallForcePermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const CallJoinCallForcePermissions $144 = _$callJoinCallForcePermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const CallJoinCallForcePermissions $145 = _$callJoinCallForcePermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const CallJoinCallForcePermissions $146 = _$callJoinCallForcePermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const CallJoinCallForcePermissions $147 = _$callJoinCallForcePermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const CallJoinCallForcePermissions $148 = _$callJoinCallForcePermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const CallJoinCallForcePermissions $149 = _$callJoinCallForcePermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const CallJoinCallForcePermissions $150 = _$callJoinCallForcePermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const CallJoinCallForcePermissions $151 = _$callJoinCallForcePermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const CallJoinCallForcePermissions $152 = _$callJoinCallForcePermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const CallJoinCallForcePermissions $153 = _$callJoinCallForcePermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const CallJoinCallForcePermissions $154 = _$callJoinCallForcePermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const CallJoinCallForcePermissions $155 = _$callJoinCallForcePermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const CallJoinCallForcePermissions $156 = _$callJoinCallForcePermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const CallJoinCallForcePermissions $157 = _$callJoinCallForcePermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const CallJoinCallForcePermissions $158 = _$callJoinCallForcePermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const CallJoinCallForcePermissions $159 = _$callJoinCallForcePermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const CallJoinCallForcePermissions $160 = _$callJoinCallForcePermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const CallJoinCallForcePermissions $161 = _$callJoinCallForcePermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const CallJoinCallForcePermissions $162 = _$callJoinCallForcePermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const CallJoinCallForcePermissions $163 = _$callJoinCallForcePermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const CallJoinCallForcePermissions $164 = _$callJoinCallForcePermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const CallJoinCallForcePermissions $165 = _$callJoinCallForcePermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const CallJoinCallForcePermissions $166 = _$callJoinCallForcePermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const CallJoinCallForcePermissions $167 = _$callJoinCallForcePermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const CallJoinCallForcePermissions $168 = _$callJoinCallForcePermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const CallJoinCallForcePermissions $169 = _$callJoinCallForcePermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const CallJoinCallForcePermissions $170 = _$callJoinCallForcePermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const CallJoinCallForcePermissions $171 = _$callJoinCallForcePermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const CallJoinCallForcePermissions $172 = _$callJoinCallForcePermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const CallJoinCallForcePermissions $173 = _$callJoinCallForcePermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const CallJoinCallForcePermissions $174 = _$callJoinCallForcePermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const CallJoinCallForcePermissions $175 = _$callJoinCallForcePermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const CallJoinCallForcePermissions $176 = _$callJoinCallForcePermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const CallJoinCallForcePermissions $177 = _$callJoinCallForcePermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const CallJoinCallForcePermissions $178 = _$callJoinCallForcePermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const CallJoinCallForcePermissions $179 = _$callJoinCallForcePermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const CallJoinCallForcePermissions $180 = _$callJoinCallForcePermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const CallJoinCallForcePermissions $181 = _$callJoinCallForcePermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const CallJoinCallForcePermissions $182 = _$callJoinCallForcePermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const CallJoinCallForcePermissions $183 = _$callJoinCallForcePermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const CallJoinCallForcePermissions $184 = _$callJoinCallForcePermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const CallJoinCallForcePermissions $185 = _$callJoinCallForcePermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const CallJoinCallForcePermissions $186 = _$callJoinCallForcePermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const CallJoinCallForcePermissions $187 = _$callJoinCallForcePermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const CallJoinCallForcePermissions $188 = _$callJoinCallForcePermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const CallJoinCallForcePermissions $189 = _$callJoinCallForcePermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const CallJoinCallForcePermissions $190 = _$callJoinCallForcePermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const CallJoinCallForcePermissions $191 = _$callJoinCallForcePermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const CallJoinCallForcePermissions $192 = _$callJoinCallForcePermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const CallJoinCallForcePermissions $193 = _$callJoinCallForcePermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const CallJoinCallForcePermissions $194 = _$callJoinCallForcePermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const CallJoinCallForcePermissions $195 = _$callJoinCallForcePermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const CallJoinCallForcePermissions $196 = _$callJoinCallForcePermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const CallJoinCallForcePermissions $197 = _$callJoinCallForcePermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const CallJoinCallForcePermissions $198 = _$callJoinCallForcePermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const CallJoinCallForcePermissions $199 = _$callJoinCallForcePermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const CallJoinCallForcePermissions $200 = _$callJoinCallForcePermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const CallJoinCallForcePermissions $201 = _$callJoinCallForcePermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const CallJoinCallForcePermissions $202 = _$callJoinCallForcePermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const CallJoinCallForcePermissions $203 = _$callJoinCallForcePermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const CallJoinCallForcePermissions $204 = _$callJoinCallForcePermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const CallJoinCallForcePermissions $205 = _$callJoinCallForcePermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const CallJoinCallForcePermissions $206 = _$callJoinCallForcePermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const CallJoinCallForcePermissions $207 = _$callJoinCallForcePermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const CallJoinCallForcePermissions $208 = _$callJoinCallForcePermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const CallJoinCallForcePermissions $209 = _$callJoinCallForcePermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const CallJoinCallForcePermissions $210 = _$callJoinCallForcePermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const CallJoinCallForcePermissions $211 = _$callJoinCallForcePermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const CallJoinCallForcePermissions $212 = _$callJoinCallForcePermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const CallJoinCallForcePermissions $213 = _$callJoinCallForcePermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const CallJoinCallForcePermissions $214 = _$callJoinCallForcePermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const CallJoinCallForcePermissions $215 = _$callJoinCallForcePermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const CallJoinCallForcePermissions $216 = _$callJoinCallForcePermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const CallJoinCallForcePermissions $217 = _$callJoinCallForcePermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const CallJoinCallForcePermissions $218 = _$callJoinCallForcePermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const CallJoinCallForcePermissions $219 = _$callJoinCallForcePermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const CallJoinCallForcePermissions $220 = _$callJoinCallForcePermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const CallJoinCallForcePermissions $221 = _$callJoinCallForcePermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const CallJoinCallForcePermissions $222 = _$callJoinCallForcePermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const CallJoinCallForcePermissions $223 = _$callJoinCallForcePermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const CallJoinCallForcePermissions $224 = _$callJoinCallForcePermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const CallJoinCallForcePermissions $225 = _$callJoinCallForcePermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const CallJoinCallForcePermissions $226 = _$callJoinCallForcePermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const CallJoinCallForcePermissions $227 = _$callJoinCallForcePermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const CallJoinCallForcePermissions $228 = _$callJoinCallForcePermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const CallJoinCallForcePermissions $229 = _$callJoinCallForcePermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const CallJoinCallForcePermissions $230 = _$callJoinCallForcePermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const CallJoinCallForcePermissions $231 = _$callJoinCallForcePermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const CallJoinCallForcePermissions $232 = _$callJoinCallForcePermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const CallJoinCallForcePermissions $233 = _$callJoinCallForcePermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const CallJoinCallForcePermissions $234 = _$callJoinCallForcePermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const CallJoinCallForcePermissions $235 = _$callJoinCallForcePermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const CallJoinCallForcePermissions $236 = _$callJoinCallForcePermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const CallJoinCallForcePermissions $237 = _$callJoinCallForcePermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const CallJoinCallForcePermissions $238 = _$callJoinCallForcePermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const CallJoinCallForcePermissions $239 = _$callJoinCallForcePermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const CallJoinCallForcePermissions $240 = _$callJoinCallForcePermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const CallJoinCallForcePermissions $241 = _$callJoinCallForcePermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const CallJoinCallForcePermissions $242 = _$callJoinCallForcePermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const CallJoinCallForcePermissions $243 = _$callJoinCallForcePermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const CallJoinCallForcePermissions $244 = _$callJoinCallForcePermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const CallJoinCallForcePermissions $245 = _$callJoinCallForcePermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const CallJoinCallForcePermissions $246 = _$callJoinCallForcePermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const CallJoinCallForcePermissions $247 = _$callJoinCallForcePermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const CallJoinCallForcePermissions $248 = _$callJoinCallForcePermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const CallJoinCallForcePermissions $249 = _$callJoinCallForcePermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const CallJoinCallForcePermissions $250 = _$callJoinCallForcePermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const CallJoinCallForcePermissions $251 = _$callJoinCallForcePermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const CallJoinCallForcePermissions $252 = _$callJoinCallForcePermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const CallJoinCallForcePermissions $253 = _$callJoinCallForcePermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const CallJoinCallForcePermissions $254 = _$callJoinCallForcePermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const CallJoinCallForcePermissions $255 = _$callJoinCallForcePermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallForcePermissions> get values => _$callJoinCallForcePermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallForcePermissions valueOf(String name) => _$valueOfCallJoinCallForcePermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for CallJoinCallForcePermissions.
@@ -17613,14 +17990,18 @@ class _$CallJoinCallForcePermissionsSerializer implements PrimitiveSerializer<Ca
 class CallJoinCallApiVersion extends EnumClass {
   const CallJoinCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallJoinCallApiVersion v4 = _$callJoinCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallJoinCallApiVersion> get values => _$callJoinCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallJoinCallApiVersion valueOf(String name) => _$valueOfCallJoinCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallJoinCallApiVersion.
@@ -17740,14 +18121,18 @@ abstract class CallJoinCallResponseApplicationJson
 class CallLeaveCallApiVersion extends EnumClass {
   const CallLeaveCallApiVersion._(super.name);
 
+  /// `v4`
   static const CallLeaveCallApiVersion v4 = _$callLeaveCallApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallLeaveCallApiVersion> get values => _$callLeaveCallApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallLeaveCallApiVersion valueOf(String name) => _$valueOfCallLeaveCallApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallLeaveCallApiVersion.
@@ -17868,14 +18253,18 @@ abstract class CallLeaveCallResponseApplicationJson
 class CallRingAttendeeApiVersion extends EnumClass {
   const CallRingAttendeeApiVersion._(super.name);
 
+  /// `v4`
   static const CallRingAttendeeApiVersion v4 = _$callRingAttendeeApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallRingAttendeeApiVersion> get values => _$callRingAttendeeApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallRingAttendeeApiVersion valueOf(String name) => _$valueOfCallRingAttendeeApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallRingAttendeeApiVersion.
@@ -17996,14 +18385,18 @@ abstract class CallRingAttendeeResponseApplicationJson
 class CallSipDialOutApiVersion extends EnumClass {
   const CallSipDialOutApiVersion._(super.name);
 
+  /// `v4`
   static const CallSipDialOutApiVersion v4 = _$callSipDialOutApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CallSipDialOutApiVersion> get values => _$callSipDialOutApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CallSipDialOutApiVersion valueOf(String name) => _$valueOfCallSipDialOutApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CallSipDialOutApiVersion.
@@ -18163,16 +18556,20 @@ abstract class CallSipDialOutResponseApplicationJson
 class CertificateGetCertificateExpirationApiVersion extends EnumClass {
   const CertificateGetCertificateExpirationApiVersion._(super.name);
 
+  /// `v1`
   static const CertificateGetCertificateExpirationApiVersion v1 = _$certificateGetCertificateExpirationApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<CertificateGetCertificateExpirationApiVersion> get values =>
       _$certificateGetCertificateExpirationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static CertificateGetCertificateExpirationApiVersion valueOf(String name) =>
       _$valueOfCertificateGetCertificateExpirationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for CertificateGetCertificateExpirationApiVersion.
@@ -18340,18 +18737,23 @@ abstract class CertificateGetCertificateExpirationResponseApplicationJson
 class ChatReceiveMessagesLookIntoFuture extends EnumClass {
   const ChatReceiveMessagesLookIntoFuture._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesLookIntoFuture $0 = _$chatReceiveMessagesLookIntoFuture$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesLookIntoFuture $1 = _$chatReceiveMessagesLookIntoFuture$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesLookIntoFuture> get values => _$chatReceiveMessagesLookIntoFutureValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesLookIntoFuture valueOf(String name) => _$valueOfChatReceiveMessagesLookIntoFuture(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesLookIntoFuture.
@@ -18399,18 +18801,23 @@ class _$ChatReceiveMessagesLookIntoFutureSerializer implements PrimitiveSerializ
 class ChatReceiveMessagesSetReadMarker extends EnumClass {
   const ChatReceiveMessagesSetReadMarker._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesSetReadMarker $0 = _$chatReceiveMessagesSetReadMarker$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesSetReadMarker $1 = _$chatReceiveMessagesSetReadMarker$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesSetReadMarker> get values => _$chatReceiveMessagesSetReadMarkerValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesSetReadMarker valueOf(String name) => _$valueOfChatReceiveMessagesSetReadMarker(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesSetReadMarker.
@@ -18458,18 +18865,23 @@ class _$ChatReceiveMessagesSetReadMarkerSerializer implements PrimitiveSerialize
 class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
   const ChatReceiveMessagesIncludeLastKnown._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesIncludeLastKnown $0 = _$chatReceiveMessagesIncludeLastKnown$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesIncludeLastKnown $1 = _$chatReceiveMessagesIncludeLastKnown$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesIncludeLastKnown> get values => _$chatReceiveMessagesIncludeLastKnownValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesIncludeLastKnown valueOf(String name) => _$valueOfChatReceiveMessagesIncludeLastKnown(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesIncludeLastKnown.
@@ -18519,18 +18931,23 @@ class _$ChatReceiveMessagesIncludeLastKnownSerializer
 class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
   const ChatReceiveMessagesNoStatusUpdate._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesNoStatusUpdate $0 = _$chatReceiveMessagesNoStatusUpdate$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesNoStatusUpdate $1 = _$chatReceiveMessagesNoStatusUpdate$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesNoStatusUpdate> get values => _$chatReceiveMessagesNoStatusUpdateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesNoStatusUpdate valueOf(String name) => _$valueOfChatReceiveMessagesNoStatusUpdate(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesNoStatusUpdate.
@@ -18578,20 +18995,25 @@ class _$ChatReceiveMessagesNoStatusUpdateSerializer implements PrimitiveSerializ
 class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
   const ChatReceiveMessagesMarkNotificationsAsRead._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const ChatReceiveMessagesMarkNotificationsAsRead $0 = _$chatReceiveMessagesMarkNotificationsAsRead$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const ChatReceiveMessagesMarkNotificationsAsRead $1 = _$chatReceiveMessagesMarkNotificationsAsRead$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesMarkNotificationsAsRead> get values =>
       _$chatReceiveMessagesMarkNotificationsAsReadValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesMarkNotificationsAsRead valueOf(String name) =>
       _$valueOfChatReceiveMessagesMarkNotificationsAsRead(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for ChatReceiveMessagesMarkNotificationsAsRead.
@@ -18642,14 +19064,18 @@ class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
 class ChatReceiveMessagesApiVersion extends EnumClass {
   const ChatReceiveMessagesApiVersion._(super.name);
 
+  /// `v1`
   static const ChatReceiveMessagesApiVersion v1 = _$chatReceiveMessagesApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatReceiveMessagesApiVersion> get values => _$chatReceiveMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatReceiveMessagesApiVersion valueOf(String name) => _$valueOfChatReceiveMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatReceiveMessagesApiVersion.
@@ -18847,14 +19273,18 @@ abstract class ChatReceiveMessagesResponseApplicationJson
 class ChatSendMessageApiVersion extends EnumClass {
   const ChatSendMessageApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSendMessageApiVersion v1 = _$chatSendMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSendMessageApiVersion> get values => _$chatSendMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSendMessageApiVersion valueOf(String name) => _$valueOfChatSendMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSendMessageApiVersion.
@@ -19012,14 +19442,18 @@ abstract class ChatSendMessageResponseApplicationJson
 class ChatClearHistoryApiVersion extends EnumClass {
   const ChatClearHistoryApiVersion._(super.name);
 
+  /// `v1`
   static const ChatClearHistoryApiVersion v1 = _$chatClearHistoryApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatClearHistoryApiVersion> get values => _$chatClearHistoryApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatClearHistoryApiVersion valueOf(String name) => _$valueOfChatClearHistoryApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatClearHistoryApiVersion.
@@ -19177,14 +19611,18 @@ abstract class ChatClearHistoryResponseApplicationJson
 class ChatDeleteMessageApiVersion extends EnumClass {
   const ChatDeleteMessageApiVersion._(super.name);
 
+  /// `v1`
   static const ChatDeleteMessageApiVersion v1 = _$chatDeleteMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatDeleteMessageApiVersion> get values => _$chatDeleteMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatDeleteMessageApiVersion valueOf(String name) => _$valueOfChatDeleteMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatDeleteMessageApiVersion.
@@ -19343,14 +19781,18 @@ abstract class ChatDeleteMessageResponseApplicationJson
 class ChatGetMessageContextApiVersion extends EnumClass {
   const ChatGetMessageContextApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetMessageContextApiVersion v1 = _$chatGetMessageContextApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetMessageContextApiVersion> get values => _$chatGetMessageContextApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetMessageContextApiVersion valueOf(String name) => _$valueOfChatGetMessageContextApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetMessageContextApiVersion.
@@ -19513,14 +19955,18 @@ abstract class ChatGetMessageContextResponseApplicationJson
 class ChatGetReminderApiVersion extends EnumClass {
   const ChatGetReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetReminderApiVersion v1 = _$chatGetReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetReminderApiVersion> get values => _$chatGetReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetReminderApiVersion valueOf(String name) => _$valueOfChatGetReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetReminderApiVersion.
@@ -19675,14 +20121,18 @@ abstract class ChatGetReminderResponseApplicationJson
 class ChatSetReminderApiVersion extends EnumClass {
   const ChatSetReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSetReminderApiVersion v1 = _$chatSetReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSetReminderApiVersion> get values => _$chatSetReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSetReminderApiVersion valueOf(String name) => _$valueOfChatSetReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSetReminderApiVersion.
@@ -19803,14 +20253,18 @@ abstract class ChatSetReminderResponseApplicationJson
 class ChatDeleteReminderApiVersion extends EnumClass {
   const ChatDeleteReminderApiVersion._(super.name);
 
+  /// `v1`
   static const ChatDeleteReminderApiVersion v1 = _$chatDeleteReminderApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatDeleteReminderApiVersion> get values => _$chatDeleteReminderApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatDeleteReminderApiVersion valueOf(String name) => _$valueOfChatDeleteReminderApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatDeleteReminderApiVersion.
@@ -19932,14 +20386,18 @@ abstract class ChatDeleteReminderResponseApplicationJson
 class ChatSetReadMarkerApiVersion extends EnumClass {
   const ChatSetReadMarkerApiVersion._(super.name);
 
+  /// `v1`
   static const ChatSetReadMarkerApiVersion v1 = _$chatSetReadMarkerApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatSetReadMarkerApiVersion> get values => _$chatSetReadMarkerApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatSetReadMarkerApiVersion valueOf(String name) => _$valueOfChatSetReadMarkerApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatSetReadMarkerApiVersion.
@@ -20098,14 +20556,18 @@ abstract class ChatSetReadMarkerResponseApplicationJson
 class ChatMarkUnreadApiVersion extends EnumClass {
   const ChatMarkUnreadApiVersion._(super.name);
 
+  /// `v1`
   static const ChatMarkUnreadApiVersion v1 = _$chatMarkUnreadApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatMarkUnreadApiVersion> get values => _$chatMarkUnreadApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatMarkUnreadApiVersion valueOf(String name) => _$valueOfChatMarkUnreadApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatMarkUnreadApiVersion.
@@ -20260,14 +20722,18 @@ abstract class ChatMarkUnreadResponseApplicationJson
 class ChatMentionsApiVersion extends EnumClass {
   const ChatMentionsApiVersion._(super.name);
 
+  /// `v1`
   static const ChatMentionsApiVersion v1 = _$chatMentionsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatMentionsApiVersion> get values => _$chatMentionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatMentionsApiVersion valueOf(String name) => _$valueOfChatMentionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatMentionsApiVersion.
@@ -20426,15 +20892,19 @@ abstract class ChatMentionsResponseApplicationJson
 class ChatGetObjectsSharedInRoomApiVersion extends EnumClass {
   const ChatGetObjectsSharedInRoomApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetObjectsSharedInRoomApiVersion v1 = _$chatGetObjectsSharedInRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetObjectsSharedInRoomApiVersion> get values => _$chatGetObjectsSharedInRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetObjectsSharedInRoomApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetObjectsSharedInRoomApiVersion.
@@ -20600,14 +21070,18 @@ abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
 class ChatShareObjectToChatApiVersion extends EnumClass {
   const ChatShareObjectToChatApiVersion._(super.name);
 
+  /// `v1`
   static const ChatShareObjectToChatApiVersion v1 = _$chatShareObjectToChatApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatShareObjectToChatApiVersion> get values => _$chatShareObjectToChatApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatShareObjectToChatApiVersion valueOf(String name) => _$valueOfChatShareObjectToChatApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatShareObjectToChatApiVersion.
@@ -20768,16 +21242,20 @@ abstract class ChatShareObjectToChatResponseApplicationJson
 class ChatGetObjectsSharedInRoomOverviewApiVersion extends EnumClass {
   const ChatGetObjectsSharedInRoomOverviewApiVersion._(super.name);
 
+  /// `v1`
   static const ChatGetObjectsSharedInRoomOverviewApiVersion v1 = _$chatGetObjectsSharedInRoomOverviewApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ChatGetObjectsSharedInRoomOverviewApiVersion> get values =>
       _$chatGetObjectsSharedInRoomOverviewApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ChatGetObjectsSharedInRoomOverviewApiVersion valueOf(String name) =>
       _$valueOfChatGetObjectsSharedInRoomOverviewApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ChatGetObjectsSharedInRoomOverviewApiVersion.
@@ -20905,16 +21383,20 @@ abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
 class FilesIntegrationGetRoomByFileIdApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByFileIdApiVersion._(super.name);
 
+  /// `v1`
   static const FilesIntegrationGetRoomByFileIdApiVersion v1 = _$filesIntegrationGetRoomByFileIdApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<FilesIntegrationGetRoomByFileIdApiVersion> get values =>
       _$filesIntegrationGetRoomByFileIdApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static FilesIntegrationGetRoomByFileIdApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByFileIdApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for FilesIntegrationGetRoomByFileIdApiVersion.
@@ -21081,16 +21563,20 @@ abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
 class FilesIntegrationGetRoomByShareTokenApiVersion extends EnumClass {
   const FilesIntegrationGetRoomByShareTokenApiVersion._(super.name);
 
+  /// `v1`
   static const FilesIntegrationGetRoomByShareTokenApiVersion v1 = _$filesIntegrationGetRoomByShareTokenApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<FilesIntegrationGetRoomByShareTokenApiVersion> get values =>
       _$filesIntegrationGetRoomByShareTokenApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static FilesIntegrationGetRoomByShareTokenApiVersion valueOf(String name) =>
       _$valueOfFilesIntegrationGetRoomByShareTokenApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for FilesIntegrationGetRoomByShareTokenApiVersion.
@@ -21259,14 +21745,18 @@ abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
 class GuestSetDisplayNameApiVersion extends EnumClass {
   const GuestSetDisplayNameApiVersion._(super.name);
 
+  /// `v1`
   static const GuestSetDisplayNameApiVersion v1 = _$guestSetDisplayNameApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<GuestSetDisplayNameApiVersion> get values => _$guestSetDisplayNameApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static GuestSetDisplayNameApiVersion valueOf(String name) => _$valueOfGuestSetDisplayNameApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for GuestSetDisplayNameApiVersion.
@@ -21388,16 +21878,20 @@ abstract class GuestSetDisplayNameResponseApplicationJson
 class HostedSignalingServerRequestTrialApiVersion extends EnumClass {
   const HostedSignalingServerRequestTrialApiVersion._(super.name);
 
+  /// `v1`
   static const HostedSignalingServerRequestTrialApiVersion v1 = _$hostedSignalingServerRequestTrialApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<HostedSignalingServerRequestTrialApiVersion> get values =>
       _$hostedSignalingServerRequestTrialApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static HostedSignalingServerRequestTrialApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerRequestTrialApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for HostedSignalingServerRequestTrialApiVersion.
@@ -21525,16 +22019,20 @@ abstract class HostedSignalingServerRequestTrialResponseApplicationJson
 class HostedSignalingServerDeleteAccountApiVersion extends EnumClass {
   const HostedSignalingServerDeleteAccountApiVersion._(super.name);
 
+  /// `v1`
   static const HostedSignalingServerDeleteAccountApiVersion v1 = _$hostedSignalingServerDeleteAccountApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<HostedSignalingServerDeleteAccountApiVersion> get values =>
       _$hostedSignalingServerDeleteAccountApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static HostedSignalingServerDeleteAccountApiVersion valueOf(String name) =>
       _$valueOfHostedSignalingServerDeleteAccountApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for HostedSignalingServerDeleteAccountApiVersion.
@@ -21662,15 +22160,19 @@ abstract class HostedSignalingServerDeleteAccountResponseApplicationJson
 class MatterbridgeGetBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeGetBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeGetBridgeOfRoomApiVersion v1 = _$matterbridgeGetBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeGetBridgeOfRoomApiVersion> get values => _$matterbridgeGetBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeGetBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeGetBridgeOfRoomApiVersion.
@@ -21900,15 +22402,19 @@ abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
 class MatterbridgeEditBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeEditBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeEditBridgeOfRoomApiVersion v1 = _$matterbridgeEditBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeEditBridgeOfRoomApiVersion> get values => _$matterbridgeEditBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeEditBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeEditBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeEditBridgeOfRoomApiVersion.
@@ -22036,16 +22542,20 @@ abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
 class MatterbridgeDeleteBridgeOfRoomApiVersion extends EnumClass {
   const MatterbridgeDeleteBridgeOfRoomApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeDeleteBridgeOfRoomApiVersion v1 = _$matterbridgeDeleteBridgeOfRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeDeleteBridgeOfRoomApiVersion> get values =>
       _$matterbridgeDeleteBridgeOfRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeDeleteBridgeOfRoomApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeDeleteBridgeOfRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeDeleteBridgeOfRoomApiVersion.
@@ -22173,16 +22683,20 @@ abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
 class MatterbridgeGetBridgeProcessStateApiVersion extends EnumClass {
   const MatterbridgeGetBridgeProcessStateApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeGetBridgeProcessStateApiVersion v1 = _$matterbridgeGetBridgeProcessStateApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeGetBridgeProcessStateApiVersion> get values =>
       _$matterbridgeGetBridgeProcessStateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeGetBridgeProcessStateApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeGetBridgeProcessStateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeGetBridgeProcessStateApiVersion.
@@ -22310,16 +22824,20 @@ abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
 class MatterbridgeSettingsStopAllBridgesApiVersion extends EnumClass {
   const MatterbridgeSettingsStopAllBridgesApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeSettingsStopAllBridgesApiVersion v1 = _$matterbridgeSettingsStopAllBridgesApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeSettingsStopAllBridgesApiVersion> get values =>
       _$matterbridgeSettingsStopAllBridgesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeSettingsStopAllBridgesApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsStopAllBridgesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeSettingsStopAllBridgesApiVersion.
@@ -22447,17 +22965,21 @@ abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
 class MatterbridgeSettingsGetMatterbridgeVersionApiVersion extends EnumClass {
   const MatterbridgeSettingsGetMatterbridgeVersionApiVersion._(super.name);
 
+  /// `v1`
   static const MatterbridgeSettingsGetMatterbridgeVersionApiVersion v1 =
       _$matterbridgeSettingsGetMatterbridgeVersionApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<MatterbridgeSettingsGetMatterbridgeVersionApiVersion> get values =>
       _$matterbridgeSettingsGetMatterbridgeVersionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static MatterbridgeSettingsGetMatterbridgeVersionApiVersion valueOf(String name) =>
       _$valueOfMatterbridgeSettingsGetMatterbridgeVersionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for MatterbridgeSettingsGetMatterbridgeVersionApiVersion.
@@ -22626,18 +23148,23 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
 class PollCreatePollResultMode extends EnumClass {
   const PollCreatePollResultMode._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const PollCreatePollResultMode $0 = _$pollCreatePollResultMode$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const PollCreatePollResultMode $1 = _$pollCreatePollResultMode$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollCreatePollResultMode> get values => _$pollCreatePollResultModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollCreatePollResultMode valueOf(String name) => _$valueOfPollCreatePollResultMode(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for PollCreatePollResultMode.
@@ -22684,14 +23211,18 @@ class _$PollCreatePollResultModeSerializer implements PrimitiveSerializer<PollCr
 class PollCreatePollApiVersion extends EnumClass {
   const PollCreatePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollCreatePollApiVersion v1 = _$pollCreatePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollCreatePollApiVersion> get values => _$pollCreatePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollCreatePollApiVersion valueOf(String name) => _$valueOfPollCreatePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollCreatePollApiVersion.
@@ -22889,14 +23420,18 @@ abstract class PollCreatePollResponseApplicationJson
 class PollShowPollApiVersion extends EnumClass {
   const PollShowPollApiVersion._(super.name);
 
+  /// `v1`
   static const PollShowPollApiVersion v1 = _$pollShowPollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollShowPollApiVersion> get values => _$pollShowPollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollShowPollApiVersion valueOf(String name) => _$valueOfPollShowPollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollShowPollApiVersion.
@@ -23016,14 +23551,18 @@ abstract class PollShowPollResponseApplicationJson
 class PollVotePollApiVersion extends EnumClass {
   const PollVotePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollVotePollApiVersion v1 = _$pollVotePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollVotePollApiVersion> get values => _$pollVotePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollVotePollApiVersion valueOf(String name) => _$valueOfPollVotePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollVotePollApiVersion.
@@ -23143,14 +23682,18 @@ abstract class PollVotePollResponseApplicationJson
 class PollClosePollApiVersion extends EnumClass {
   const PollClosePollApiVersion._(super.name);
 
+  /// `v1`
   static const PollClosePollApiVersion v1 = _$pollClosePollApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PollClosePollApiVersion> get values => _$pollClosePollApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PollClosePollApiVersion valueOf(String name) => _$valueOfPollClosePollApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PollClosePollApiVersion.
@@ -23271,14 +23814,18 @@ abstract class PollClosePollResponseApplicationJson
 class PublicShareAuthCreateRoomApiVersion extends EnumClass {
   const PublicShareAuthCreateRoomApiVersion._(super.name);
 
+  /// `v1`
   static const PublicShareAuthCreateRoomApiVersion v1 = _$publicShareAuthCreateRoomApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PublicShareAuthCreateRoomApiVersion> get values => _$publicShareAuthCreateRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PublicShareAuthCreateRoomApiVersion valueOf(String name) => _$valueOfPublicShareAuthCreateRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PublicShareAuthCreateRoomApiVersion.
@@ -23446,14 +23993,18 @@ abstract class PublicShareAuthCreateRoomResponseApplicationJson
 class ReactionGetReactionsApiVersion extends EnumClass {
   const ReactionGetReactionsApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionGetReactionsApiVersion v1 = _$reactionGetReactionsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionGetReactionsApiVersion> get values => _$reactionGetReactionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionGetReactionsApiVersion valueOf(String name) => _$valueOfReactionGetReactionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionGetReactionsApiVersion.
@@ -23610,14 +24161,18 @@ abstract class ReactionGetReactionsResponseApplicationJson
 class ReactionReactApiVersion extends EnumClass {
   const ReactionReactApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionReactApiVersion v1 = _$reactionReactApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionReactApiVersion> get values => _$reactionReactApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionReactApiVersion valueOf(String name) => _$valueOfReactionReactApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionReactApiVersion.
@@ -23738,14 +24293,18 @@ abstract class ReactionReactResponseApplicationJson
 class ReactionDeleteApiVersion extends EnumClass {
   const ReactionDeleteApiVersion._(super.name);
 
+  /// `v1`
   static const ReactionDeleteApiVersion v1 = _$reactionDeleteApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ReactionDeleteApiVersion> get values => _$reactionDeleteApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ReactionDeleteApiVersion valueOf(String name) => _$valueOfReactionDeleteApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ReactionDeleteApiVersion.
@@ -23866,15 +24425,19 @@ abstract class ReactionDeleteResponseApplicationJson
 class RecordingGetWelcomeMessageApiVersion extends EnumClass {
   const RecordingGetWelcomeMessageApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingGetWelcomeMessageApiVersion v1 = _$recordingGetWelcomeMessageApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingGetWelcomeMessageApiVersion> get values => _$recordingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfRecordingGetWelcomeMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingGetWelcomeMessageApiVersion.
@@ -24041,14 +24604,18 @@ abstract class RecordingGetWelcomeMessageResponseApplicationJson
 class RecordingStartApiVersion extends EnumClass {
   const RecordingStartApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStartApiVersion v1 = _$recordingStartApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStartApiVersion> get values => _$recordingStartApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStartApiVersion valueOf(String name) => _$valueOfRecordingStartApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStartApiVersion.
@@ -24169,14 +24736,18 @@ abstract class RecordingStartResponseApplicationJson
 class RecordingStopApiVersion extends EnumClass {
   const RecordingStopApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStopApiVersion v1 = _$recordingStopApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStopApiVersion> get values => _$recordingStopApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStopApiVersion valueOf(String name) => _$valueOfRecordingStopApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStopApiVersion.
@@ -24297,14 +24868,18 @@ abstract class RecordingStopResponseApplicationJson
 class RecordingStoreApiVersion extends EnumClass {
   const RecordingStoreApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingStoreApiVersion v1 = _$recordingStoreApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingStoreApiVersion> get values => _$recordingStoreApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingStoreApiVersion valueOf(String name) => _$valueOfRecordingStoreApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingStoreApiVersion.
@@ -24425,15 +25000,19 @@ abstract class RecordingStoreResponseApplicationJson
 class RecordingNotificationDismissApiVersion extends EnumClass {
   const RecordingNotificationDismissApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingNotificationDismissApiVersion v1 = _$recordingNotificationDismissApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingNotificationDismissApiVersion> get values => _$recordingNotificationDismissApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingNotificationDismissApiVersion valueOf(String name) =>
       _$valueOfRecordingNotificationDismissApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingNotificationDismissApiVersion.
@@ -24561,14 +25140,18 @@ abstract class RecordingNotificationDismissResponseApplicationJson
 class RecordingShareToChatApiVersion extends EnumClass {
   const RecordingShareToChatApiVersion._(super.name);
 
+  /// `v1`
   static const RecordingShareToChatApiVersion v1 = _$recordingShareToChatApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RecordingShareToChatApiVersion> get values => _$recordingShareToChatApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RecordingShareToChatApiVersion valueOf(String name) => _$valueOfRecordingShareToChatApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RecordingShareToChatApiVersion.
@@ -24691,18 +25274,23 @@ abstract class RecordingShareToChatResponseApplicationJson
 class RoomGetRoomsNoStatusUpdate extends EnumClass {
   const RoomGetRoomsNoStatusUpdate._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomGetRoomsNoStatusUpdate $0 = _$roomGetRoomsNoStatusUpdate$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomGetRoomsNoStatusUpdate $1 = _$roomGetRoomsNoStatusUpdate$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetRoomsNoStatusUpdate> get values => _$roomGetRoomsNoStatusUpdateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetRoomsNoStatusUpdate valueOf(String name) => _$valueOfRoomGetRoomsNoStatusUpdate(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomGetRoomsNoStatusUpdate.
@@ -24749,14 +25337,18 @@ class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<Room
 class RoomGetRoomsApiVersion extends EnumClass {
   const RoomGetRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetRoomsApiVersion v4 = _$roomGetRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetRoomsApiVersion> get values => _$roomGetRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetRoomsApiVersion valueOf(String name) => _$valueOfRoomGetRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetRoomsApiVersion.
@@ -24912,14 +25504,18 @@ abstract class RoomGetRoomsResponseApplicationJson
 class RoomCreateRoomApiVersion extends EnumClass {
   const RoomCreateRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomCreateRoomApiVersion v4 = _$roomCreateRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomCreateRoomApiVersion> get values => _$roomCreateRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomCreateRoomApiVersion valueOf(String name) => _$valueOfRoomCreateRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomCreateRoomApiVersion.
@@ -25040,14 +25636,18 @@ abstract class RoomCreateRoomResponseApplicationJson
 class RoomGetListedRoomsApiVersion extends EnumClass {
   const RoomGetListedRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetListedRoomsApiVersion v4 = _$roomGetListedRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetListedRoomsApiVersion> get values => _$roomGetListedRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetListedRoomsApiVersion valueOf(String name) => _$valueOfRoomGetListedRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetListedRoomsApiVersion.
@@ -25169,16 +25769,20 @@ abstract class RoomGetListedRoomsResponseApplicationJson
 class RoomGetNoteToSelfConversationApiVersion extends EnumClass {
   const RoomGetNoteToSelfConversationApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetNoteToSelfConversationApiVersion v4 = _$roomGetNoteToSelfConversationApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetNoteToSelfConversationApiVersion> get values =>
       _$roomGetNoteToSelfConversationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetNoteToSelfConversationApiVersion valueOf(String name) =>
       _$valueOfRoomGetNoteToSelfConversationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetNoteToSelfConversationApiVersion.
@@ -25345,14 +25949,18 @@ abstract class RoomGetNoteToSelfConversationResponseApplicationJson
 class RoomGetSingleRoomApiVersion extends EnumClass {
   const RoomGetSingleRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetSingleRoomApiVersion v4 = _$roomGetSingleRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetSingleRoomApiVersion> get values => _$roomGetSingleRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetSingleRoomApiVersion valueOf(String name) => _$valueOfRoomGetSingleRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetSingleRoomApiVersion.
@@ -25511,14 +26119,18 @@ abstract class RoomGetSingleRoomResponseApplicationJson
 class RoomRenameRoomApiVersion extends EnumClass {
   const RoomRenameRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRenameRoomApiVersion v4 = _$roomRenameRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRenameRoomApiVersion> get values => _$roomRenameRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRenameRoomApiVersion valueOf(String name) => _$valueOfRoomRenameRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRenameRoomApiVersion.
@@ -25639,14 +26251,18 @@ abstract class RoomRenameRoomResponseApplicationJson
 class RoomDeleteRoomApiVersion extends EnumClass {
   const RoomDeleteRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomDeleteRoomApiVersion v4 = _$roomDeleteRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomDeleteRoomApiVersion> get values => _$roomDeleteRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomDeleteRoomApiVersion valueOf(String name) => _$valueOfRoomDeleteRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomDeleteRoomApiVersion.
@@ -25767,14 +26383,18 @@ abstract class RoomDeleteRoomResponseApplicationJson
 class RoomGetBreakoutRoomsApiVersion extends EnumClass {
   const RoomGetBreakoutRoomsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetBreakoutRoomsApiVersion v4 = _$roomGetBreakoutRoomsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetBreakoutRoomsApiVersion> get values => _$roomGetBreakoutRoomsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetBreakoutRoomsApiVersion valueOf(String name) => _$valueOfRoomGetBreakoutRoomsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetBreakoutRoomsApiVersion.
@@ -25897,14 +26517,18 @@ abstract class RoomGetBreakoutRoomsResponseApplicationJson
 class RoomMakePublicApiVersion extends EnumClass {
   const RoomMakePublicApiVersion._(super.name);
 
+  /// `v4`
   static const RoomMakePublicApiVersion v4 = _$roomMakePublicApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomMakePublicApiVersion> get values => _$roomMakePublicApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomMakePublicApiVersion valueOf(String name) => _$valueOfRoomMakePublicApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomMakePublicApiVersion.
@@ -26025,14 +26649,18 @@ abstract class RoomMakePublicResponseApplicationJson
 class RoomMakePrivateApiVersion extends EnumClass {
   const RoomMakePrivateApiVersion._(super.name);
 
+  /// `v4`
   static const RoomMakePrivateApiVersion v4 = _$roomMakePrivateApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomMakePrivateApiVersion> get values => _$roomMakePrivateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomMakePrivateApiVersion valueOf(String name) => _$valueOfRoomMakePrivateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomMakePrivateApiVersion.
@@ -26153,14 +26781,18 @@ abstract class RoomMakePrivateResponseApplicationJson
 class RoomSetDescriptionApiVersion extends EnumClass {
   const RoomSetDescriptionApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetDescriptionApiVersion v4 = _$roomSetDescriptionApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetDescriptionApiVersion> get values => _$roomSetDescriptionApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetDescriptionApiVersion valueOf(String name) => _$valueOfRoomSetDescriptionApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetDescriptionApiVersion.
@@ -26282,18 +26914,23 @@ abstract class RoomSetDescriptionResponseApplicationJson
 class RoomSetReadOnlyState extends EnumClass {
   const RoomSetReadOnlyState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetReadOnlyState $0 = _$roomSetReadOnlyState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetReadOnlyState $1 = _$roomSetReadOnlyState$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetReadOnlyState> get values => _$roomSetReadOnlyStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetReadOnlyState valueOf(String name) => _$valueOfRoomSetReadOnlyState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetReadOnlyState.
@@ -26340,14 +26977,18 @@ class _$RoomSetReadOnlyStateSerializer implements PrimitiveSerializer<RoomSetRea
 class RoomSetReadOnlyApiVersion extends EnumClass {
   const RoomSetReadOnlyApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetReadOnlyApiVersion v4 = _$roomSetReadOnlyApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetReadOnlyApiVersion> get values => _$roomSetReadOnlyApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetReadOnlyApiVersion valueOf(String name) => _$valueOfRoomSetReadOnlyApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetReadOnlyApiVersion.
@@ -26468,21 +27109,27 @@ abstract class RoomSetReadOnlyResponseApplicationJson
 class RoomSetListableScope extends EnumClass {
   const RoomSetListableScope._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetListableScope $0 = _$roomSetListableScope$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetListableScope $1 = _$roomSetListableScope$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetListableScope $2 = _$roomSetListableScope$2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetListableScope> get values => _$roomSetListableScopeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetListableScope valueOf(String name) => _$valueOfRoomSetListableScope(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetListableScope.
@@ -26531,14 +27178,18 @@ class _$RoomSetListableScopeSerializer implements PrimitiveSerializer<RoomSetLis
 class RoomSetListableApiVersion extends EnumClass {
   const RoomSetListableApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetListableApiVersion v4 = _$roomSetListableApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetListableApiVersion> get values => _$roomSetListableApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetListableApiVersion valueOf(String name) => _$valueOfRoomSetListableApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetListableApiVersion.
@@ -26659,14 +27310,18 @@ abstract class RoomSetListableResponseApplicationJson
 class RoomSetPasswordApiVersion extends EnumClass {
   const RoomSetPasswordApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetPasswordApiVersion v4 = _$roomSetPasswordApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPasswordApiVersion> get values => _$roomSetPasswordApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPasswordApiVersion valueOf(String name) => _$valueOfRoomSetPasswordApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPasswordApiVersion.
@@ -26787,780 +27442,1039 @@ abstract class RoomSetPasswordResponseApplicationJson
 class RoomSetPermissionsPermissions extends EnumClass {
   const RoomSetPermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetPermissionsPermissions $0 = _$roomSetPermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetPermissionsPermissions $1 = _$roomSetPermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetPermissionsPermissions $2 = _$roomSetPermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetPermissionsPermissions $3 = _$roomSetPermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetPermissionsPermissions $4 = _$roomSetPermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetPermissionsPermissions $5 = _$roomSetPermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetPermissionsPermissions $6 = _$roomSetPermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetPermissionsPermissions $7 = _$roomSetPermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetPermissionsPermissions $8 = _$roomSetPermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetPermissionsPermissions $9 = _$roomSetPermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetPermissionsPermissions $10 = _$roomSetPermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetPermissionsPermissions $11 = _$roomSetPermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetPermissionsPermissions $12 = _$roomSetPermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetPermissionsPermissions $13 = _$roomSetPermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetPermissionsPermissions $14 = _$roomSetPermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetPermissionsPermissions $15 = _$roomSetPermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetPermissionsPermissions $16 = _$roomSetPermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetPermissionsPermissions $17 = _$roomSetPermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetPermissionsPermissions $18 = _$roomSetPermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetPermissionsPermissions $19 = _$roomSetPermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetPermissionsPermissions $20 = _$roomSetPermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetPermissionsPermissions $21 = _$roomSetPermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetPermissionsPermissions $22 = _$roomSetPermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetPermissionsPermissions $23 = _$roomSetPermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetPermissionsPermissions $24 = _$roomSetPermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetPermissionsPermissions $25 = _$roomSetPermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetPermissionsPermissions $26 = _$roomSetPermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetPermissionsPermissions $27 = _$roomSetPermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetPermissionsPermissions $28 = _$roomSetPermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetPermissionsPermissions $29 = _$roomSetPermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetPermissionsPermissions $30 = _$roomSetPermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetPermissionsPermissions $31 = _$roomSetPermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetPermissionsPermissions $32 = _$roomSetPermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetPermissionsPermissions $33 = _$roomSetPermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetPermissionsPermissions $34 = _$roomSetPermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetPermissionsPermissions $35 = _$roomSetPermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetPermissionsPermissions $36 = _$roomSetPermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetPermissionsPermissions $37 = _$roomSetPermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetPermissionsPermissions $38 = _$roomSetPermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetPermissionsPermissions $39 = _$roomSetPermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetPermissionsPermissions $40 = _$roomSetPermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetPermissionsPermissions $41 = _$roomSetPermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetPermissionsPermissions $42 = _$roomSetPermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetPermissionsPermissions $43 = _$roomSetPermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetPermissionsPermissions $44 = _$roomSetPermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetPermissionsPermissions $45 = _$roomSetPermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetPermissionsPermissions $46 = _$roomSetPermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetPermissionsPermissions $47 = _$roomSetPermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetPermissionsPermissions $48 = _$roomSetPermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetPermissionsPermissions $49 = _$roomSetPermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetPermissionsPermissions $50 = _$roomSetPermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetPermissionsPermissions $51 = _$roomSetPermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetPermissionsPermissions $52 = _$roomSetPermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetPermissionsPermissions $53 = _$roomSetPermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetPermissionsPermissions $54 = _$roomSetPermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetPermissionsPermissions $55 = _$roomSetPermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetPermissionsPermissions $56 = _$roomSetPermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetPermissionsPermissions $57 = _$roomSetPermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetPermissionsPermissions $58 = _$roomSetPermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetPermissionsPermissions $59 = _$roomSetPermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetPermissionsPermissions $60 = _$roomSetPermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetPermissionsPermissions $61 = _$roomSetPermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetPermissionsPermissions $62 = _$roomSetPermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetPermissionsPermissions $63 = _$roomSetPermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetPermissionsPermissions $64 = _$roomSetPermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetPermissionsPermissions $65 = _$roomSetPermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetPermissionsPermissions $66 = _$roomSetPermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetPermissionsPermissions $67 = _$roomSetPermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetPermissionsPermissions $68 = _$roomSetPermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetPermissionsPermissions $69 = _$roomSetPermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetPermissionsPermissions $70 = _$roomSetPermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetPermissionsPermissions $71 = _$roomSetPermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetPermissionsPermissions $72 = _$roomSetPermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetPermissionsPermissions $73 = _$roomSetPermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetPermissionsPermissions $74 = _$roomSetPermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetPermissionsPermissions $75 = _$roomSetPermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetPermissionsPermissions $76 = _$roomSetPermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetPermissionsPermissions $77 = _$roomSetPermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetPermissionsPermissions $78 = _$roomSetPermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetPermissionsPermissions $79 = _$roomSetPermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetPermissionsPermissions $80 = _$roomSetPermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetPermissionsPermissions $81 = _$roomSetPermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetPermissionsPermissions $82 = _$roomSetPermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetPermissionsPermissions $83 = _$roomSetPermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetPermissionsPermissions $84 = _$roomSetPermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetPermissionsPermissions $85 = _$roomSetPermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetPermissionsPermissions $86 = _$roomSetPermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetPermissionsPermissions $87 = _$roomSetPermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetPermissionsPermissions $88 = _$roomSetPermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetPermissionsPermissions $89 = _$roomSetPermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetPermissionsPermissions $90 = _$roomSetPermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetPermissionsPermissions $91 = _$roomSetPermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetPermissionsPermissions $92 = _$roomSetPermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetPermissionsPermissions $93 = _$roomSetPermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetPermissionsPermissions $94 = _$roomSetPermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetPermissionsPermissions $95 = _$roomSetPermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetPermissionsPermissions $96 = _$roomSetPermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetPermissionsPermissions $97 = _$roomSetPermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetPermissionsPermissions $98 = _$roomSetPermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetPermissionsPermissions $99 = _$roomSetPermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetPermissionsPermissions $100 = _$roomSetPermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetPermissionsPermissions $101 = _$roomSetPermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetPermissionsPermissions $102 = _$roomSetPermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetPermissionsPermissions $103 = _$roomSetPermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetPermissionsPermissions $104 = _$roomSetPermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetPermissionsPermissions $105 = _$roomSetPermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetPermissionsPermissions $106 = _$roomSetPermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetPermissionsPermissions $107 = _$roomSetPermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetPermissionsPermissions $108 = _$roomSetPermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetPermissionsPermissions $109 = _$roomSetPermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetPermissionsPermissions $110 = _$roomSetPermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetPermissionsPermissions $111 = _$roomSetPermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetPermissionsPermissions $112 = _$roomSetPermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetPermissionsPermissions $113 = _$roomSetPermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetPermissionsPermissions $114 = _$roomSetPermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetPermissionsPermissions $115 = _$roomSetPermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetPermissionsPermissions $116 = _$roomSetPermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetPermissionsPermissions $117 = _$roomSetPermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetPermissionsPermissions $118 = _$roomSetPermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetPermissionsPermissions $119 = _$roomSetPermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetPermissionsPermissions $120 = _$roomSetPermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetPermissionsPermissions $121 = _$roomSetPermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetPermissionsPermissions $122 = _$roomSetPermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetPermissionsPermissions $123 = _$roomSetPermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetPermissionsPermissions $124 = _$roomSetPermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetPermissionsPermissions $125 = _$roomSetPermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetPermissionsPermissions $126 = _$roomSetPermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetPermissionsPermissions $127 = _$roomSetPermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetPermissionsPermissions $128 = _$roomSetPermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetPermissionsPermissions $129 = _$roomSetPermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetPermissionsPermissions $130 = _$roomSetPermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetPermissionsPermissions $131 = _$roomSetPermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetPermissionsPermissions $132 = _$roomSetPermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetPermissionsPermissions $133 = _$roomSetPermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetPermissionsPermissions $134 = _$roomSetPermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetPermissionsPermissions $135 = _$roomSetPermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetPermissionsPermissions $136 = _$roomSetPermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetPermissionsPermissions $137 = _$roomSetPermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetPermissionsPermissions $138 = _$roomSetPermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetPermissionsPermissions $139 = _$roomSetPermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetPermissionsPermissions $140 = _$roomSetPermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetPermissionsPermissions $141 = _$roomSetPermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetPermissionsPermissions $142 = _$roomSetPermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetPermissionsPermissions $143 = _$roomSetPermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetPermissionsPermissions $144 = _$roomSetPermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetPermissionsPermissions $145 = _$roomSetPermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetPermissionsPermissions $146 = _$roomSetPermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetPermissionsPermissions $147 = _$roomSetPermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetPermissionsPermissions $148 = _$roomSetPermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetPermissionsPermissions $149 = _$roomSetPermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetPermissionsPermissions $150 = _$roomSetPermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetPermissionsPermissions $151 = _$roomSetPermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetPermissionsPermissions $152 = _$roomSetPermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetPermissionsPermissions $153 = _$roomSetPermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetPermissionsPermissions $154 = _$roomSetPermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetPermissionsPermissions $155 = _$roomSetPermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetPermissionsPermissions $156 = _$roomSetPermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetPermissionsPermissions $157 = _$roomSetPermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetPermissionsPermissions $158 = _$roomSetPermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetPermissionsPermissions $159 = _$roomSetPermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetPermissionsPermissions $160 = _$roomSetPermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetPermissionsPermissions $161 = _$roomSetPermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetPermissionsPermissions $162 = _$roomSetPermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetPermissionsPermissions $163 = _$roomSetPermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetPermissionsPermissions $164 = _$roomSetPermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetPermissionsPermissions $165 = _$roomSetPermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetPermissionsPermissions $166 = _$roomSetPermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetPermissionsPermissions $167 = _$roomSetPermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetPermissionsPermissions $168 = _$roomSetPermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetPermissionsPermissions $169 = _$roomSetPermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetPermissionsPermissions $170 = _$roomSetPermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetPermissionsPermissions $171 = _$roomSetPermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetPermissionsPermissions $172 = _$roomSetPermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetPermissionsPermissions $173 = _$roomSetPermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetPermissionsPermissions $174 = _$roomSetPermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetPermissionsPermissions $175 = _$roomSetPermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetPermissionsPermissions $176 = _$roomSetPermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetPermissionsPermissions $177 = _$roomSetPermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetPermissionsPermissions $178 = _$roomSetPermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetPermissionsPermissions $179 = _$roomSetPermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetPermissionsPermissions $180 = _$roomSetPermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetPermissionsPermissions $181 = _$roomSetPermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetPermissionsPermissions $182 = _$roomSetPermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetPermissionsPermissions $183 = _$roomSetPermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetPermissionsPermissions $184 = _$roomSetPermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetPermissionsPermissions $185 = _$roomSetPermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetPermissionsPermissions $186 = _$roomSetPermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetPermissionsPermissions $187 = _$roomSetPermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetPermissionsPermissions $188 = _$roomSetPermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetPermissionsPermissions $189 = _$roomSetPermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetPermissionsPermissions $190 = _$roomSetPermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetPermissionsPermissions $191 = _$roomSetPermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetPermissionsPermissions $192 = _$roomSetPermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetPermissionsPermissions $193 = _$roomSetPermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetPermissionsPermissions $194 = _$roomSetPermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetPermissionsPermissions $195 = _$roomSetPermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetPermissionsPermissions $196 = _$roomSetPermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetPermissionsPermissions $197 = _$roomSetPermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetPermissionsPermissions $198 = _$roomSetPermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetPermissionsPermissions $199 = _$roomSetPermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetPermissionsPermissions $200 = _$roomSetPermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetPermissionsPermissions $201 = _$roomSetPermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetPermissionsPermissions $202 = _$roomSetPermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetPermissionsPermissions $203 = _$roomSetPermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetPermissionsPermissions $204 = _$roomSetPermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetPermissionsPermissions $205 = _$roomSetPermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetPermissionsPermissions $206 = _$roomSetPermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetPermissionsPermissions $207 = _$roomSetPermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetPermissionsPermissions $208 = _$roomSetPermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetPermissionsPermissions $209 = _$roomSetPermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetPermissionsPermissions $210 = _$roomSetPermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetPermissionsPermissions $211 = _$roomSetPermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetPermissionsPermissions $212 = _$roomSetPermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetPermissionsPermissions $213 = _$roomSetPermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetPermissionsPermissions $214 = _$roomSetPermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetPermissionsPermissions $215 = _$roomSetPermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetPermissionsPermissions $216 = _$roomSetPermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetPermissionsPermissions $217 = _$roomSetPermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetPermissionsPermissions $218 = _$roomSetPermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetPermissionsPermissions $219 = _$roomSetPermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetPermissionsPermissions $220 = _$roomSetPermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetPermissionsPermissions $221 = _$roomSetPermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetPermissionsPermissions $222 = _$roomSetPermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetPermissionsPermissions $223 = _$roomSetPermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetPermissionsPermissions $224 = _$roomSetPermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetPermissionsPermissions $225 = _$roomSetPermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetPermissionsPermissions $226 = _$roomSetPermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetPermissionsPermissions $227 = _$roomSetPermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetPermissionsPermissions $228 = _$roomSetPermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetPermissionsPermissions $229 = _$roomSetPermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetPermissionsPermissions $230 = _$roomSetPermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetPermissionsPermissions $231 = _$roomSetPermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetPermissionsPermissions $232 = _$roomSetPermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetPermissionsPermissions $233 = _$roomSetPermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetPermissionsPermissions $234 = _$roomSetPermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetPermissionsPermissions $235 = _$roomSetPermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetPermissionsPermissions $236 = _$roomSetPermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetPermissionsPermissions $237 = _$roomSetPermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetPermissionsPermissions $238 = _$roomSetPermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetPermissionsPermissions $239 = _$roomSetPermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetPermissionsPermissions $240 = _$roomSetPermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetPermissionsPermissions $241 = _$roomSetPermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetPermissionsPermissions $242 = _$roomSetPermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetPermissionsPermissions $243 = _$roomSetPermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetPermissionsPermissions $244 = _$roomSetPermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetPermissionsPermissions $245 = _$roomSetPermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetPermissionsPermissions $246 = _$roomSetPermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetPermissionsPermissions $247 = _$roomSetPermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetPermissionsPermissions $248 = _$roomSetPermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetPermissionsPermissions $249 = _$roomSetPermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetPermissionsPermissions $250 = _$roomSetPermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetPermissionsPermissions $251 = _$roomSetPermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetPermissionsPermissions $252 = _$roomSetPermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetPermissionsPermissions $253 = _$roomSetPermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetPermissionsPermissions $254 = _$roomSetPermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetPermissionsPermissions $255 = _$roomSetPermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsPermissions> get values => _$roomSetPermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsPermissions valueOf(String name) => _$valueOfRoomSetPermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetPermissionsPermissions.
@@ -28115,17 +29029,22 @@ class _$RoomSetPermissionsPermissionsSerializer implements PrimitiveSerializer<R
 class RoomSetPermissionsMode extends EnumClass {
   const RoomSetPermissionsMode._(super.name);
 
+  /// `call`
   static const RoomSetPermissionsMode call = _$roomSetPermissionsModeCall;
 
+  /// `default`
   @BuiltValueEnumConst(wireName: 'default')
   static const RoomSetPermissionsMode $default = _$roomSetPermissionsMode$default;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsMode> get values => _$roomSetPermissionsModeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsMode valueOf(String name) => _$valueOfRoomSetPermissionsMode(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPermissionsMode.
@@ -28172,14 +29091,18 @@ class _$RoomSetPermissionsModeSerializer implements PrimitiveSerializer<RoomSetP
 class RoomSetPermissionsApiVersion extends EnumClass {
   const RoomSetPermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetPermissionsApiVersion v4 = _$roomSetPermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetPermissionsApiVersion> get values => _$roomSetPermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetPermissionsApiVersion valueOf(String name) => _$valueOfRoomSetPermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetPermissionsApiVersion.
@@ -28301,14 +29224,18 @@ abstract class RoomSetPermissionsResponseApplicationJson
 class RoomGetParticipantsApiVersion extends EnumClass {
   const RoomGetParticipantsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetParticipantsApiVersion v4 = _$roomGetParticipantsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetParticipantsApiVersion> get values => _$roomGetParticipantsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetParticipantsApiVersion valueOf(String name) => _$valueOfRoomGetParticipantsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetParticipantsApiVersion.
@@ -28515,24 +29442,33 @@ abstract class RoomGetParticipantsResponseApplicationJson
 class RoomAddParticipantToRoomSource extends EnumClass {
   const RoomAddParticipantToRoomSource._(super.name);
 
+  /// `users`
   static const RoomAddParticipantToRoomSource users = _$roomAddParticipantToRoomSourceUsers;
 
+  /// `groups`
   static const RoomAddParticipantToRoomSource groups = _$roomAddParticipantToRoomSourceGroups;
 
+  /// `circles`
   static const RoomAddParticipantToRoomSource circles = _$roomAddParticipantToRoomSourceCircles;
 
+  /// `emails`
   static const RoomAddParticipantToRoomSource emails = _$roomAddParticipantToRoomSourceEmails;
 
+  /// `remotes`
   static const RoomAddParticipantToRoomSource remotes = _$roomAddParticipantToRoomSourceRemotes;
 
+  /// `phones`
   static const RoomAddParticipantToRoomSource phones = _$roomAddParticipantToRoomSourcePhones;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddParticipantToRoomSource> get values => _$roomAddParticipantToRoomSourceValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddParticipantToRoomSource valueOf(String name) => _$valueOfRoomAddParticipantToRoomSource(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddParticipantToRoomSource.
@@ -28588,14 +29524,18 @@ class _$RoomAddParticipantToRoomSourceSerializer implements PrimitiveSerializer<
 class RoomAddParticipantToRoomApiVersion extends EnumClass {
   const RoomAddParticipantToRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomAddParticipantToRoomApiVersion v4 = _$roomAddParticipantToRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddParticipantToRoomApiVersion> get values => _$roomAddParticipantToRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddParticipantToRoomApiVersion valueOf(String name) => _$valueOfRoomAddParticipantToRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddParticipantToRoomApiVersion.
@@ -28769,16 +29709,20 @@ abstract class RoomAddParticipantToRoomResponseApplicationJson
 class RoomGetBreakoutRoomParticipantsApiVersion extends EnumClass {
   const RoomGetBreakoutRoomParticipantsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomGetBreakoutRoomParticipantsApiVersion v4 = _$roomGetBreakoutRoomParticipantsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomGetBreakoutRoomParticipantsApiVersion> get values =>
       _$roomGetBreakoutRoomParticipantsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomGetBreakoutRoomParticipantsApiVersion valueOf(String name) =>
       _$valueOfRoomGetBreakoutRoomParticipantsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomGetBreakoutRoomParticipantsApiVersion.
@@ -28945,14 +29889,18 @@ abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
 class RoomRemoveSelfFromRoomApiVersion extends EnumClass {
   const RoomRemoveSelfFromRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveSelfFromRoomApiVersion v4 = _$roomRemoveSelfFromRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveSelfFromRoomApiVersion> get values => _$roomRemoveSelfFromRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveSelfFromRoomApiVersion valueOf(String name) => _$valueOfRoomRemoveSelfFromRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveSelfFromRoomApiVersion.
@@ -29076,15 +30024,19 @@ abstract class RoomRemoveSelfFromRoomResponseApplicationJson
 class RoomRemoveAttendeeFromRoomApiVersion extends EnumClass {
   const RoomRemoveAttendeeFromRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveAttendeeFromRoomApiVersion v4 = _$roomRemoveAttendeeFromRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveAttendeeFromRoomApiVersion> get values => _$roomRemoveAttendeeFromRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveAttendeeFromRoomApiVersion valueOf(String name) =>
       _$valueOfRoomRemoveAttendeeFromRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveAttendeeFromRoomApiVersion.
@@ -29212,19 +30164,25 @@ abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
 class RoomSetAttendeePermissionsMethod extends EnumClass {
   const RoomSetAttendeePermissionsMethod._(super.name);
 
+  /// `set`
   @BuiltValueEnumConst(wireName: 'set')
   static const RoomSetAttendeePermissionsMethod $set = _$roomSetAttendeePermissionsMethod$set;
 
+  /// `remove`
   static const RoomSetAttendeePermissionsMethod remove = _$roomSetAttendeePermissionsMethodRemove;
 
+  /// `add`
   static const RoomSetAttendeePermissionsMethod add = _$roomSetAttendeePermissionsMethodAdd;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsMethod> get values => _$roomSetAttendeePermissionsMethodValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsMethod valueOf(String name) => _$valueOfRoomSetAttendeePermissionsMethod(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAttendeePermissionsMethod.
@@ -29274,781 +30232,1040 @@ class _$RoomSetAttendeePermissionsMethodSerializer implements PrimitiveSerialize
 class RoomSetAttendeePermissionsPermissions extends EnumClass {
   const RoomSetAttendeePermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetAttendeePermissionsPermissions $0 = _$roomSetAttendeePermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetAttendeePermissionsPermissions $1 = _$roomSetAttendeePermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetAttendeePermissionsPermissions $2 = _$roomSetAttendeePermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetAttendeePermissionsPermissions $3 = _$roomSetAttendeePermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetAttendeePermissionsPermissions $4 = _$roomSetAttendeePermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetAttendeePermissionsPermissions $5 = _$roomSetAttendeePermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetAttendeePermissionsPermissions $6 = _$roomSetAttendeePermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetAttendeePermissionsPermissions $7 = _$roomSetAttendeePermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetAttendeePermissionsPermissions $8 = _$roomSetAttendeePermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetAttendeePermissionsPermissions $9 = _$roomSetAttendeePermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetAttendeePermissionsPermissions $10 = _$roomSetAttendeePermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetAttendeePermissionsPermissions $11 = _$roomSetAttendeePermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetAttendeePermissionsPermissions $12 = _$roomSetAttendeePermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetAttendeePermissionsPermissions $13 = _$roomSetAttendeePermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetAttendeePermissionsPermissions $14 = _$roomSetAttendeePermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetAttendeePermissionsPermissions $15 = _$roomSetAttendeePermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetAttendeePermissionsPermissions $16 = _$roomSetAttendeePermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetAttendeePermissionsPermissions $17 = _$roomSetAttendeePermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetAttendeePermissionsPermissions $18 = _$roomSetAttendeePermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetAttendeePermissionsPermissions $19 = _$roomSetAttendeePermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetAttendeePermissionsPermissions $20 = _$roomSetAttendeePermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetAttendeePermissionsPermissions $21 = _$roomSetAttendeePermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetAttendeePermissionsPermissions $22 = _$roomSetAttendeePermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetAttendeePermissionsPermissions $23 = _$roomSetAttendeePermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetAttendeePermissionsPermissions $24 = _$roomSetAttendeePermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetAttendeePermissionsPermissions $25 = _$roomSetAttendeePermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetAttendeePermissionsPermissions $26 = _$roomSetAttendeePermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetAttendeePermissionsPermissions $27 = _$roomSetAttendeePermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetAttendeePermissionsPermissions $28 = _$roomSetAttendeePermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetAttendeePermissionsPermissions $29 = _$roomSetAttendeePermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetAttendeePermissionsPermissions $30 = _$roomSetAttendeePermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetAttendeePermissionsPermissions $31 = _$roomSetAttendeePermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetAttendeePermissionsPermissions $32 = _$roomSetAttendeePermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetAttendeePermissionsPermissions $33 = _$roomSetAttendeePermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetAttendeePermissionsPermissions $34 = _$roomSetAttendeePermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetAttendeePermissionsPermissions $35 = _$roomSetAttendeePermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetAttendeePermissionsPermissions $36 = _$roomSetAttendeePermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetAttendeePermissionsPermissions $37 = _$roomSetAttendeePermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetAttendeePermissionsPermissions $38 = _$roomSetAttendeePermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetAttendeePermissionsPermissions $39 = _$roomSetAttendeePermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetAttendeePermissionsPermissions $40 = _$roomSetAttendeePermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetAttendeePermissionsPermissions $41 = _$roomSetAttendeePermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetAttendeePermissionsPermissions $42 = _$roomSetAttendeePermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetAttendeePermissionsPermissions $43 = _$roomSetAttendeePermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetAttendeePermissionsPermissions $44 = _$roomSetAttendeePermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetAttendeePermissionsPermissions $45 = _$roomSetAttendeePermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetAttendeePermissionsPermissions $46 = _$roomSetAttendeePermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetAttendeePermissionsPermissions $47 = _$roomSetAttendeePermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetAttendeePermissionsPermissions $48 = _$roomSetAttendeePermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetAttendeePermissionsPermissions $49 = _$roomSetAttendeePermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetAttendeePermissionsPermissions $50 = _$roomSetAttendeePermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetAttendeePermissionsPermissions $51 = _$roomSetAttendeePermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetAttendeePermissionsPermissions $52 = _$roomSetAttendeePermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetAttendeePermissionsPermissions $53 = _$roomSetAttendeePermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetAttendeePermissionsPermissions $54 = _$roomSetAttendeePermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetAttendeePermissionsPermissions $55 = _$roomSetAttendeePermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetAttendeePermissionsPermissions $56 = _$roomSetAttendeePermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetAttendeePermissionsPermissions $57 = _$roomSetAttendeePermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetAttendeePermissionsPermissions $58 = _$roomSetAttendeePermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetAttendeePermissionsPermissions $59 = _$roomSetAttendeePermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetAttendeePermissionsPermissions $60 = _$roomSetAttendeePermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetAttendeePermissionsPermissions $61 = _$roomSetAttendeePermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetAttendeePermissionsPermissions $62 = _$roomSetAttendeePermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetAttendeePermissionsPermissions $63 = _$roomSetAttendeePermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetAttendeePermissionsPermissions $64 = _$roomSetAttendeePermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetAttendeePermissionsPermissions $65 = _$roomSetAttendeePermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetAttendeePermissionsPermissions $66 = _$roomSetAttendeePermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetAttendeePermissionsPermissions $67 = _$roomSetAttendeePermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetAttendeePermissionsPermissions $68 = _$roomSetAttendeePermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetAttendeePermissionsPermissions $69 = _$roomSetAttendeePermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetAttendeePermissionsPermissions $70 = _$roomSetAttendeePermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetAttendeePermissionsPermissions $71 = _$roomSetAttendeePermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetAttendeePermissionsPermissions $72 = _$roomSetAttendeePermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetAttendeePermissionsPermissions $73 = _$roomSetAttendeePermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetAttendeePermissionsPermissions $74 = _$roomSetAttendeePermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetAttendeePermissionsPermissions $75 = _$roomSetAttendeePermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetAttendeePermissionsPermissions $76 = _$roomSetAttendeePermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetAttendeePermissionsPermissions $77 = _$roomSetAttendeePermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetAttendeePermissionsPermissions $78 = _$roomSetAttendeePermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetAttendeePermissionsPermissions $79 = _$roomSetAttendeePermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetAttendeePermissionsPermissions $80 = _$roomSetAttendeePermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetAttendeePermissionsPermissions $81 = _$roomSetAttendeePermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetAttendeePermissionsPermissions $82 = _$roomSetAttendeePermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetAttendeePermissionsPermissions $83 = _$roomSetAttendeePermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetAttendeePermissionsPermissions $84 = _$roomSetAttendeePermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetAttendeePermissionsPermissions $85 = _$roomSetAttendeePermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetAttendeePermissionsPermissions $86 = _$roomSetAttendeePermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetAttendeePermissionsPermissions $87 = _$roomSetAttendeePermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetAttendeePermissionsPermissions $88 = _$roomSetAttendeePermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetAttendeePermissionsPermissions $89 = _$roomSetAttendeePermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetAttendeePermissionsPermissions $90 = _$roomSetAttendeePermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetAttendeePermissionsPermissions $91 = _$roomSetAttendeePermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetAttendeePermissionsPermissions $92 = _$roomSetAttendeePermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetAttendeePermissionsPermissions $93 = _$roomSetAttendeePermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetAttendeePermissionsPermissions $94 = _$roomSetAttendeePermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetAttendeePermissionsPermissions $95 = _$roomSetAttendeePermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetAttendeePermissionsPermissions $96 = _$roomSetAttendeePermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetAttendeePermissionsPermissions $97 = _$roomSetAttendeePermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetAttendeePermissionsPermissions $98 = _$roomSetAttendeePermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetAttendeePermissionsPermissions $99 = _$roomSetAttendeePermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetAttendeePermissionsPermissions $100 = _$roomSetAttendeePermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetAttendeePermissionsPermissions $101 = _$roomSetAttendeePermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetAttendeePermissionsPermissions $102 = _$roomSetAttendeePermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetAttendeePermissionsPermissions $103 = _$roomSetAttendeePermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetAttendeePermissionsPermissions $104 = _$roomSetAttendeePermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetAttendeePermissionsPermissions $105 = _$roomSetAttendeePermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetAttendeePermissionsPermissions $106 = _$roomSetAttendeePermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetAttendeePermissionsPermissions $107 = _$roomSetAttendeePermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetAttendeePermissionsPermissions $108 = _$roomSetAttendeePermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetAttendeePermissionsPermissions $109 = _$roomSetAttendeePermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetAttendeePermissionsPermissions $110 = _$roomSetAttendeePermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetAttendeePermissionsPermissions $111 = _$roomSetAttendeePermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetAttendeePermissionsPermissions $112 = _$roomSetAttendeePermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetAttendeePermissionsPermissions $113 = _$roomSetAttendeePermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetAttendeePermissionsPermissions $114 = _$roomSetAttendeePermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetAttendeePermissionsPermissions $115 = _$roomSetAttendeePermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetAttendeePermissionsPermissions $116 = _$roomSetAttendeePermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetAttendeePermissionsPermissions $117 = _$roomSetAttendeePermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetAttendeePermissionsPermissions $118 = _$roomSetAttendeePermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetAttendeePermissionsPermissions $119 = _$roomSetAttendeePermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetAttendeePermissionsPermissions $120 = _$roomSetAttendeePermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetAttendeePermissionsPermissions $121 = _$roomSetAttendeePermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetAttendeePermissionsPermissions $122 = _$roomSetAttendeePermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetAttendeePermissionsPermissions $123 = _$roomSetAttendeePermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetAttendeePermissionsPermissions $124 = _$roomSetAttendeePermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetAttendeePermissionsPermissions $125 = _$roomSetAttendeePermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetAttendeePermissionsPermissions $126 = _$roomSetAttendeePermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetAttendeePermissionsPermissions $127 = _$roomSetAttendeePermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetAttendeePermissionsPermissions $128 = _$roomSetAttendeePermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetAttendeePermissionsPermissions $129 = _$roomSetAttendeePermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetAttendeePermissionsPermissions $130 = _$roomSetAttendeePermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetAttendeePermissionsPermissions $131 = _$roomSetAttendeePermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetAttendeePermissionsPermissions $132 = _$roomSetAttendeePermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetAttendeePermissionsPermissions $133 = _$roomSetAttendeePermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetAttendeePermissionsPermissions $134 = _$roomSetAttendeePermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetAttendeePermissionsPermissions $135 = _$roomSetAttendeePermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetAttendeePermissionsPermissions $136 = _$roomSetAttendeePermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetAttendeePermissionsPermissions $137 = _$roomSetAttendeePermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetAttendeePermissionsPermissions $138 = _$roomSetAttendeePermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetAttendeePermissionsPermissions $139 = _$roomSetAttendeePermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetAttendeePermissionsPermissions $140 = _$roomSetAttendeePermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetAttendeePermissionsPermissions $141 = _$roomSetAttendeePermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetAttendeePermissionsPermissions $142 = _$roomSetAttendeePermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetAttendeePermissionsPermissions $143 = _$roomSetAttendeePermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetAttendeePermissionsPermissions $144 = _$roomSetAttendeePermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetAttendeePermissionsPermissions $145 = _$roomSetAttendeePermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetAttendeePermissionsPermissions $146 = _$roomSetAttendeePermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetAttendeePermissionsPermissions $147 = _$roomSetAttendeePermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetAttendeePermissionsPermissions $148 = _$roomSetAttendeePermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetAttendeePermissionsPermissions $149 = _$roomSetAttendeePermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetAttendeePermissionsPermissions $150 = _$roomSetAttendeePermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetAttendeePermissionsPermissions $151 = _$roomSetAttendeePermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetAttendeePermissionsPermissions $152 = _$roomSetAttendeePermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetAttendeePermissionsPermissions $153 = _$roomSetAttendeePermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetAttendeePermissionsPermissions $154 = _$roomSetAttendeePermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetAttendeePermissionsPermissions $155 = _$roomSetAttendeePermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetAttendeePermissionsPermissions $156 = _$roomSetAttendeePermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetAttendeePermissionsPermissions $157 = _$roomSetAttendeePermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetAttendeePermissionsPermissions $158 = _$roomSetAttendeePermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetAttendeePermissionsPermissions $159 = _$roomSetAttendeePermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetAttendeePermissionsPermissions $160 = _$roomSetAttendeePermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetAttendeePermissionsPermissions $161 = _$roomSetAttendeePermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetAttendeePermissionsPermissions $162 = _$roomSetAttendeePermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetAttendeePermissionsPermissions $163 = _$roomSetAttendeePermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetAttendeePermissionsPermissions $164 = _$roomSetAttendeePermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetAttendeePermissionsPermissions $165 = _$roomSetAttendeePermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetAttendeePermissionsPermissions $166 = _$roomSetAttendeePermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetAttendeePermissionsPermissions $167 = _$roomSetAttendeePermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetAttendeePermissionsPermissions $168 = _$roomSetAttendeePermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetAttendeePermissionsPermissions $169 = _$roomSetAttendeePermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetAttendeePermissionsPermissions $170 = _$roomSetAttendeePermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetAttendeePermissionsPermissions $171 = _$roomSetAttendeePermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetAttendeePermissionsPermissions $172 = _$roomSetAttendeePermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetAttendeePermissionsPermissions $173 = _$roomSetAttendeePermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetAttendeePermissionsPermissions $174 = _$roomSetAttendeePermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetAttendeePermissionsPermissions $175 = _$roomSetAttendeePermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetAttendeePermissionsPermissions $176 = _$roomSetAttendeePermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetAttendeePermissionsPermissions $177 = _$roomSetAttendeePermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetAttendeePermissionsPermissions $178 = _$roomSetAttendeePermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetAttendeePermissionsPermissions $179 = _$roomSetAttendeePermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetAttendeePermissionsPermissions $180 = _$roomSetAttendeePermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetAttendeePermissionsPermissions $181 = _$roomSetAttendeePermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetAttendeePermissionsPermissions $182 = _$roomSetAttendeePermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetAttendeePermissionsPermissions $183 = _$roomSetAttendeePermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetAttendeePermissionsPermissions $184 = _$roomSetAttendeePermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetAttendeePermissionsPermissions $185 = _$roomSetAttendeePermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetAttendeePermissionsPermissions $186 = _$roomSetAttendeePermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetAttendeePermissionsPermissions $187 = _$roomSetAttendeePermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetAttendeePermissionsPermissions $188 = _$roomSetAttendeePermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetAttendeePermissionsPermissions $189 = _$roomSetAttendeePermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetAttendeePermissionsPermissions $190 = _$roomSetAttendeePermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetAttendeePermissionsPermissions $191 = _$roomSetAttendeePermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetAttendeePermissionsPermissions $192 = _$roomSetAttendeePermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetAttendeePermissionsPermissions $193 = _$roomSetAttendeePermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetAttendeePermissionsPermissions $194 = _$roomSetAttendeePermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetAttendeePermissionsPermissions $195 = _$roomSetAttendeePermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetAttendeePermissionsPermissions $196 = _$roomSetAttendeePermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetAttendeePermissionsPermissions $197 = _$roomSetAttendeePermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetAttendeePermissionsPermissions $198 = _$roomSetAttendeePermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetAttendeePermissionsPermissions $199 = _$roomSetAttendeePermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetAttendeePermissionsPermissions $200 = _$roomSetAttendeePermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetAttendeePermissionsPermissions $201 = _$roomSetAttendeePermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetAttendeePermissionsPermissions $202 = _$roomSetAttendeePermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetAttendeePermissionsPermissions $203 = _$roomSetAttendeePermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetAttendeePermissionsPermissions $204 = _$roomSetAttendeePermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetAttendeePermissionsPermissions $205 = _$roomSetAttendeePermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetAttendeePermissionsPermissions $206 = _$roomSetAttendeePermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetAttendeePermissionsPermissions $207 = _$roomSetAttendeePermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetAttendeePermissionsPermissions $208 = _$roomSetAttendeePermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetAttendeePermissionsPermissions $209 = _$roomSetAttendeePermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetAttendeePermissionsPermissions $210 = _$roomSetAttendeePermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetAttendeePermissionsPermissions $211 = _$roomSetAttendeePermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetAttendeePermissionsPermissions $212 = _$roomSetAttendeePermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetAttendeePermissionsPermissions $213 = _$roomSetAttendeePermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetAttendeePermissionsPermissions $214 = _$roomSetAttendeePermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetAttendeePermissionsPermissions $215 = _$roomSetAttendeePermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetAttendeePermissionsPermissions $216 = _$roomSetAttendeePermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetAttendeePermissionsPermissions $217 = _$roomSetAttendeePermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetAttendeePermissionsPermissions $218 = _$roomSetAttendeePermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetAttendeePermissionsPermissions $219 = _$roomSetAttendeePermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetAttendeePermissionsPermissions $220 = _$roomSetAttendeePermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetAttendeePermissionsPermissions $221 = _$roomSetAttendeePermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetAttendeePermissionsPermissions $222 = _$roomSetAttendeePermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetAttendeePermissionsPermissions $223 = _$roomSetAttendeePermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetAttendeePermissionsPermissions $224 = _$roomSetAttendeePermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetAttendeePermissionsPermissions $225 = _$roomSetAttendeePermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetAttendeePermissionsPermissions $226 = _$roomSetAttendeePermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetAttendeePermissionsPermissions $227 = _$roomSetAttendeePermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetAttendeePermissionsPermissions $228 = _$roomSetAttendeePermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetAttendeePermissionsPermissions $229 = _$roomSetAttendeePermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetAttendeePermissionsPermissions $230 = _$roomSetAttendeePermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetAttendeePermissionsPermissions $231 = _$roomSetAttendeePermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetAttendeePermissionsPermissions $232 = _$roomSetAttendeePermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetAttendeePermissionsPermissions $233 = _$roomSetAttendeePermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetAttendeePermissionsPermissions $234 = _$roomSetAttendeePermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetAttendeePermissionsPermissions $235 = _$roomSetAttendeePermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetAttendeePermissionsPermissions $236 = _$roomSetAttendeePermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetAttendeePermissionsPermissions $237 = _$roomSetAttendeePermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetAttendeePermissionsPermissions $238 = _$roomSetAttendeePermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetAttendeePermissionsPermissions $239 = _$roomSetAttendeePermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetAttendeePermissionsPermissions $240 = _$roomSetAttendeePermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetAttendeePermissionsPermissions $241 = _$roomSetAttendeePermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetAttendeePermissionsPermissions $242 = _$roomSetAttendeePermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetAttendeePermissionsPermissions $243 = _$roomSetAttendeePermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetAttendeePermissionsPermissions $244 = _$roomSetAttendeePermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetAttendeePermissionsPermissions $245 = _$roomSetAttendeePermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetAttendeePermissionsPermissions $246 = _$roomSetAttendeePermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetAttendeePermissionsPermissions $247 = _$roomSetAttendeePermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetAttendeePermissionsPermissions $248 = _$roomSetAttendeePermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetAttendeePermissionsPermissions $249 = _$roomSetAttendeePermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetAttendeePermissionsPermissions $250 = _$roomSetAttendeePermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetAttendeePermissionsPermissions $251 = _$roomSetAttendeePermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetAttendeePermissionsPermissions $252 = _$roomSetAttendeePermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetAttendeePermissionsPermissions $253 = _$roomSetAttendeePermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetAttendeePermissionsPermissions $254 = _$roomSetAttendeePermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetAttendeePermissionsPermissions $255 = _$roomSetAttendeePermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsPermissions> get values => _$roomSetAttendeePermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsPermissions valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetAttendeePermissionsPermissions.
@@ -30607,15 +31824,19 @@ class _$RoomSetAttendeePermissionsPermissionsSerializer
 class RoomSetAttendeePermissionsApiVersion extends EnumClass {
   const RoomSetAttendeePermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetAttendeePermissionsApiVersion v4 = _$roomSetAttendeePermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAttendeePermissionsApiVersion> get values => _$roomSetAttendeePermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAttendeePermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAttendeePermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAttendeePermissionsApiVersion.
@@ -30743,20 +31964,26 @@ abstract class RoomSetAttendeePermissionsResponseApplicationJson
 class RoomSetAllAttendeesPermissionsMethod extends EnumClass {
   const RoomSetAllAttendeesPermissionsMethod._(super.name);
 
+  /// `set`
   @BuiltValueEnumConst(wireName: 'set')
   static const RoomSetAllAttendeesPermissionsMethod $set = _$roomSetAllAttendeesPermissionsMethod$set;
 
+  /// `remove`
   static const RoomSetAllAttendeesPermissionsMethod remove = _$roomSetAllAttendeesPermissionsMethodRemove;
 
+  /// `add`
   static const RoomSetAllAttendeesPermissionsMethod add = _$roomSetAllAttendeesPermissionsMethodAdd;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsMethod> get values => _$roomSetAllAttendeesPermissionsMethodValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsMethod valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsMethod(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAllAttendeesPermissionsMethod.
@@ -30809,782 +32036,1041 @@ class _$RoomSetAllAttendeesPermissionsMethodSerializer
 class RoomSetAllAttendeesPermissionsPermissions extends EnumClass {
   const RoomSetAllAttendeesPermissionsPermissions._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetAllAttendeesPermissionsPermissions $0 = _$roomSetAllAttendeesPermissionsPermissions$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetAllAttendeesPermissionsPermissions $1 = _$roomSetAllAttendeesPermissionsPermissions$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetAllAttendeesPermissionsPermissions $2 = _$roomSetAllAttendeesPermissionsPermissions$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const RoomSetAllAttendeesPermissionsPermissions $3 = _$roomSetAllAttendeesPermissionsPermissions$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const RoomSetAllAttendeesPermissionsPermissions $4 = _$roomSetAllAttendeesPermissionsPermissions$4;
 
+  /// `5`
   @BuiltValueEnumConst(wireName: '5')
   static const RoomSetAllAttendeesPermissionsPermissions $5 = _$roomSetAllAttendeesPermissionsPermissions$5;
 
+  /// `6`
   @BuiltValueEnumConst(wireName: '6')
   static const RoomSetAllAttendeesPermissionsPermissions $6 = _$roomSetAllAttendeesPermissionsPermissions$6;
 
+  /// `7`
   @BuiltValueEnumConst(wireName: '7')
   static const RoomSetAllAttendeesPermissionsPermissions $7 = _$roomSetAllAttendeesPermissionsPermissions$7;
 
+  /// `8`
   @BuiltValueEnumConst(wireName: '8')
   static const RoomSetAllAttendeesPermissionsPermissions $8 = _$roomSetAllAttendeesPermissionsPermissions$8;
 
+  /// `9`
   @BuiltValueEnumConst(wireName: '9')
   static const RoomSetAllAttendeesPermissionsPermissions $9 = _$roomSetAllAttendeesPermissionsPermissions$9;
 
+  /// `10`
   @BuiltValueEnumConst(wireName: '10')
   static const RoomSetAllAttendeesPermissionsPermissions $10 = _$roomSetAllAttendeesPermissionsPermissions$10;
 
+  /// `11`
   @BuiltValueEnumConst(wireName: '11')
   static const RoomSetAllAttendeesPermissionsPermissions $11 = _$roomSetAllAttendeesPermissionsPermissions$11;
 
+  /// `12`
   @BuiltValueEnumConst(wireName: '12')
   static const RoomSetAllAttendeesPermissionsPermissions $12 = _$roomSetAllAttendeesPermissionsPermissions$12;
 
+  /// `13`
   @BuiltValueEnumConst(wireName: '13')
   static const RoomSetAllAttendeesPermissionsPermissions $13 = _$roomSetAllAttendeesPermissionsPermissions$13;
 
+  /// `14`
   @BuiltValueEnumConst(wireName: '14')
   static const RoomSetAllAttendeesPermissionsPermissions $14 = _$roomSetAllAttendeesPermissionsPermissions$14;
 
+  /// `15`
   @BuiltValueEnumConst(wireName: '15')
   static const RoomSetAllAttendeesPermissionsPermissions $15 = _$roomSetAllAttendeesPermissionsPermissions$15;
 
+  /// `16`
   @BuiltValueEnumConst(wireName: '16')
   static const RoomSetAllAttendeesPermissionsPermissions $16 = _$roomSetAllAttendeesPermissionsPermissions$16;
 
+  /// `17`
   @BuiltValueEnumConst(wireName: '17')
   static const RoomSetAllAttendeesPermissionsPermissions $17 = _$roomSetAllAttendeesPermissionsPermissions$17;
 
+  /// `18`
   @BuiltValueEnumConst(wireName: '18')
   static const RoomSetAllAttendeesPermissionsPermissions $18 = _$roomSetAllAttendeesPermissionsPermissions$18;
 
+  /// `19`
   @BuiltValueEnumConst(wireName: '19')
   static const RoomSetAllAttendeesPermissionsPermissions $19 = _$roomSetAllAttendeesPermissionsPermissions$19;
 
+  /// `20`
   @BuiltValueEnumConst(wireName: '20')
   static const RoomSetAllAttendeesPermissionsPermissions $20 = _$roomSetAllAttendeesPermissionsPermissions$20;
 
+  /// `21`
   @BuiltValueEnumConst(wireName: '21')
   static const RoomSetAllAttendeesPermissionsPermissions $21 = _$roomSetAllAttendeesPermissionsPermissions$21;
 
+  /// `22`
   @BuiltValueEnumConst(wireName: '22')
   static const RoomSetAllAttendeesPermissionsPermissions $22 = _$roomSetAllAttendeesPermissionsPermissions$22;
 
+  /// `23`
   @BuiltValueEnumConst(wireName: '23')
   static const RoomSetAllAttendeesPermissionsPermissions $23 = _$roomSetAllAttendeesPermissionsPermissions$23;
 
+  /// `24`
   @BuiltValueEnumConst(wireName: '24')
   static const RoomSetAllAttendeesPermissionsPermissions $24 = _$roomSetAllAttendeesPermissionsPermissions$24;
 
+  /// `25`
   @BuiltValueEnumConst(wireName: '25')
   static const RoomSetAllAttendeesPermissionsPermissions $25 = _$roomSetAllAttendeesPermissionsPermissions$25;
 
+  /// `26`
   @BuiltValueEnumConst(wireName: '26')
   static const RoomSetAllAttendeesPermissionsPermissions $26 = _$roomSetAllAttendeesPermissionsPermissions$26;
 
+  /// `27`
   @BuiltValueEnumConst(wireName: '27')
   static const RoomSetAllAttendeesPermissionsPermissions $27 = _$roomSetAllAttendeesPermissionsPermissions$27;
 
+  /// `28`
   @BuiltValueEnumConst(wireName: '28')
   static const RoomSetAllAttendeesPermissionsPermissions $28 = _$roomSetAllAttendeesPermissionsPermissions$28;
 
+  /// `29`
   @BuiltValueEnumConst(wireName: '29')
   static const RoomSetAllAttendeesPermissionsPermissions $29 = _$roomSetAllAttendeesPermissionsPermissions$29;
 
+  /// `30`
   @BuiltValueEnumConst(wireName: '30')
   static const RoomSetAllAttendeesPermissionsPermissions $30 = _$roomSetAllAttendeesPermissionsPermissions$30;
 
+  /// `31`
   @BuiltValueEnumConst(wireName: '31')
   static const RoomSetAllAttendeesPermissionsPermissions $31 = _$roomSetAllAttendeesPermissionsPermissions$31;
 
+  /// `32`
   @BuiltValueEnumConst(wireName: '32')
   static const RoomSetAllAttendeesPermissionsPermissions $32 = _$roomSetAllAttendeesPermissionsPermissions$32;
 
+  /// `33`
   @BuiltValueEnumConst(wireName: '33')
   static const RoomSetAllAttendeesPermissionsPermissions $33 = _$roomSetAllAttendeesPermissionsPermissions$33;
 
+  /// `34`
   @BuiltValueEnumConst(wireName: '34')
   static const RoomSetAllAttendeesPermissionsPermissions $34 = _$roomSetAllAttendeesPermissionsPermissions$34;
 
+  /// `35`
   @BuiltValueEnumConst(wireName: '35')
   static const RoomSetAllAttendeesPermissionsPermissions $35 = _$roomSetAllAttendeesPermissionsPermissions$35;
 
+  /// `36`
   @BuiltValueEnumConst(wireName: '36')
   static const RoomSetAllAttendeesPermissionsPermissions $36 = _$roomSetAllAttendeesPermissionsPermissions$36;
 
+  /// `37`
   @BuiltValueEnumConst(wireName: '37')
   static const RoomSetAllAttendeesPermissionsPermissions $37 = _$roomSetAllAttendeesPermissionsPermissions$37;
 
+  /// `38`
   @BuiltValueEnumConst(wireName: '38')
   static const RoomSetAllAttendeesPermissionsPermissions $38 = _$roomSetAllAttendeesPermissionsPermissions$38;
 
+  /// `39`
   @BuiltValueEnumConst(wireName: '39')
   static const RoomSetAllAttendeesPermissionsPermissions $39 = _$roomSetAllAttendeesPermissionsPermissions$39;
 
+  /// `40`
   @BuiltValueEnumConst(wireName: '40')
   static const RoomSetAllAttendeesPermissionsPermissions $40 = _$roomSetAllAttendeesPermissionsPermissions$40;
 
+  /// `41`
   @BuiltValueEnumConst(wireName: '41')
   static const RoomSetAllAttendeesPermissionsPermissions $41 = _$roomSetAllAttendeesPermissionsPermissions$41;
 
+  /// `42`
   @BuiltValueEnumConst(wireName: '42')
   static const RoomSetAllAttendeesPermissionsPermissions $42 = _$roomSetAllAttendeesPermissionsPermissions$42;
 
+  /// `43`
   @BuiltValueEnumConst(wireName: '43')
   static const RoomSetAllAttendeesPermissionsPermissions $43 = _$roomSetAllAttendeesPermissionsPermissions$43;
 
+  /// `44`
   @BuiltValueEnumConst(wireName: '44')
   static const RoomSetAllAttendeesPermissionsPermissions $44 = _$roomSetAllAttendeesPermissionsPermissions$44;
 
+  /// `45`
   @BuiltValueEnumConst(wireName: '45')
   static const RoomSetAllAttendeesPermissionsPermissions $45 = _$roomSetAllAttendeesPermissionsPermissions$45;
 
+  /// `46`
   @BuiltValueEnumConst(wireName: '46')
   static const RoomSetAllAttendeesPermissionsPermissions $46 = _$roomSetAllAttendeesPermissionsPermissions$46;
 
+  /// `47`
   @BuiltValueEnumConst(wireName: '47')
   static const RoomSetAllAttendeesPermissionsPermissions $47 = _$roomSetAllAttendeesPermissionsPermissions$47;
 
+  /// `48`
   @BuiltValueEnumConst(wireName: '48')
   static const RoomSetAllAttendeesPermissionsPermissions $48 = _$roomSetAllAttendeesPermissionsPermissions$48;
 
+  /// `49`
   @BuiltValueEnumConst(wireName: '49')
   static const RoomSetAllAttendeesPermissionsPermissions $49 = _$roomSetAllAttendeesPermissionsPermissions$49;
 
+  /// `50`
   @BuiltValueEnumConst(wireName: '50')
   static const RoomSetAllAttendeesPermissionsPermissions $50 = _$roomSetAllAttendeesPermissionsPermissions$50;
 
+  /// `51`
   @BuiltValueEnumConst(wireName: '51')
   static const RoomSetAllAttendeesPermissionsPermissions $51 = _$roomSetAllAttendeesPermissionsPermissions$51;
 
+  /// `52`
   @BuiltValueEnumConst(wireName: '52')
   static const RoomSetAllAttendeesPermissionsPermissions $52 = _$roomSetAllAttendeesPermissionsPermissions$52;
 
+  /// `53`
   @BuiltValueEnumConst(wireName: '53')
   static const RoomSetAllAttendeesPermissionsPermissions $53 = _$roomSetAllAttendeesPermissionsPermissions$53;
 
+  /// `54`
   @BuiltValueEnumConst(wireName: '54')
   static const RoomSetAllAttendeesPermissionsPermissions $54 = _$roomSetAllAttendeesPermissionsPermissions$54;
 
+  /// `55`
   @BuiltValueEnumConst(wireName: '55')
   static const RoomSetAllAttendeesPermissionsPermissions $55 = _$roomSetAllAttendeesPermissionsPermissions$55;
 
+  /// `56`
   @BuiltValueEnumConst(wireName: '56')
   static const RoomSetAllAttendeesPermissionsPermissions $56 = _$roomSetAllAttendeesPermissionsPermissions$56;
 
+  /// `57`
   @BuiltValueEnumConst(wireName: '57')
   static const RoomSetAllAttendeesPermissionsPermissions $57 = _$roomSetAllAttendeesPermissionsPermissions$57;
 
+  /// `58`
   @BuiltValueEnumConst(wireName: '58')
   static const RoomSetAllAttendeesPermissionsPermissions $58 = _$roomSetAllAttendeesPermissionsPermissions$58;
 
+  /// `59`
   @BuiltValueEnumConst(wireName: '59')
   static const RoomSetAllAttendeesPermissionsPermissions $59 = _$roomSetAllAttendeesPermissionsPermissions$59;
 
+  /// `60`
   @BuiltValueEnumConst(wireName: '60')
   static const RoomSetAllAttendeesPermissionsPermissions $60 = _$roomSetAllAttendeesPermissionsPermissions$60;
 
+  /// `61`
   @BuiltValueEnumConst(wireName: '61')
   static const RoomSetAllAttendeesPermissionsPermissions $61 = _$roomSetAllAttendeesPermissionsPermissions$61;
 
+  /// `62`
   @BuiltValueEnumConst(wireName: '62')
   static const RoomSetAllAttendeesPermissionsPermissions $62 = _$roomSetAllAttendeesPermissionsPermissions$62;
 
+  /// `63`
   @BuiltValueEnumConst(wireName: '63')
   static const RoomSetAllAttendeesPermissionsPermissions $63 = _$roomSetAllAttendeesPermissionsPermissions$63;
 
+  /// `64`
   @BuiltValueEnumConst(wireName: '64')
   static const RoomSetAllAttendeesPermissionsPermissions $64 = _$roomSetAllAttendeesPermissionsPermissions$64;
 
+  /// `65`
   @BuiltValueEnumConst(wireName: '65')
   static const RoomSetAllAttendeesPermissionsPermissions $65 = _$roomSetAllAttendeesPermissionsPermissions$65;
 
+  /// `66`
   @BuiltValueEnumConst(wireName: '66')
   static const RoomSetAllAttendeesPermissionsPermissions $66 = _$roomSetAllAttendeesPermissionsPermissions$66;
 
+  /// `67`
   @BuiltValueEnumConst(wireName: '67')
   static const RoomSetAllAttendeesPermissionsPermissions $67 = _$roomSetAllAttendeesPermissionsPermissions$67;
 
+  /// `68`
   @BuiltValueEnumConst(wireName: '68')
   static const RoomSetAllAttendeesPermissionsPermissions $68 = _$roomSetAllAttendeesPermissionsPermissions$68;
 
+  /// `69`
   @BuiltValueEnumConst(wireName: '69')
   static const RoomSetAllAttendeesPermissionsPermissions $69 = _$roomSetAllAttendeesPermissionsPermissions$69;
 
+  /// `70`
   @BuiltValueEnumConst(wireName: '70')
   static const RoomSetAllAttendeesPermissionsPermissions $70 = _$roomSetAllAttendeesPermissionsPermissions$70;
 
+  /// `71`
   @BuiltValueEnumConst(wireName: '71')
   static const RoomSetAllAttendeesPermissionsPermissions $71 = _$roomSetAllAttendeesPermissionsPermissions$71;
 
+  /// `72`
   @BuiltValueEnumConst(wireName: '72')
   static const RoomSetAllAttendeesPermissionsPermissions $72 = _$roomSetAllAttendeesPermissionsPermissions$72;
 
+  /// `73`
   @BuiltValueEnumConst(wireName: '73')
   static const RoomSetAllAttendeesPermissionsPermissions $73 = _$roomSetAllAttendeesPermissionsPermissions$73;
 
+  /// `74`
   @BuiltValueEnumConst(wireName: '74')
   static const RoomSetAllAttendeesPermissionsPermissions $74 = _$roomSetAllAttendeesPermissionsPermissions$74;
 
+  /// `75`
   @BuiltValueEnumConst(wireName: '75')
   static const RoomSetAllAttendeesPermissionsPermissions $75 = _$roomSetAllAttendeesPermissionsPermissions$75;
 
+  /// `76`
   @BuiltValueEnumConst(wireName: '76')
   static const RoomSetAllAttendeesPermissionsPermissions $76 = _$roomSetAllAttendeesPermissionsPermissions$76;
 
+  /// `77`
   @BuiltValueEnumConst(wireName: '77')
   static const RoomSetAllAttendeesPermissionsPermissions $77 = _$roomSetAllAttendeesPermissionsPermissions$77;
 
+  /// `78`
   @BuiltValueEnumConst(wireName: '78')
   static const RoomSetAllAttendeesPermissionsPermissions $78 = _$roomSetAllAttendeesPermissionsPermissions$78;
 
+  /// `79`
   @BuiltValueEnumConst(wireName: '79')
   static const RoomSetAllAttendeesPermissionsPermissions $79 = _$roomSetAllAttendeesPermissionsPermissions$79;
 
+  /// `80`
   @BuiltValueEnumConst(wireName: '80')
   static const RoomSetAllAttendeesPermissionsPermissions $80 = _$roomSetAllAttendeesPermissionsPermissions$80;
 
+  /// `81`
   @BuiltValueEnumConst(wireName: '81')
   static const RoomSetAllAttendeesPermissionsPermissions $81 = _$roomSetAllAttendeesPermissionsPermissions$81;
 
+  /// `82`
   @BuiltValueEnumConst(wireName: '82')
   static const RoomSetAllAttendeesPermissionsPermissions $82 = _$roomSetAllAttendeesPermissionsPermissions$82;
 
+  /// `83`
   @BuiltValueEnumConst(wireName: '83')
   static const RoomSetAllAttendeesPermissionsPermissions $83 = _$roomSetAllAttendeesPermissionsPermissions$83;
 
+  /// `84`
   @BuiltValueEnumConst(wireName: '84')
   static const RoomSetAllAttendeesPermissionsPermissions $84 = _$roomSetAllAttendeesPermissionsPermissions$84;
 
+  /// `85`
   @BuiltValueEnumConst(wireName: '85')
   static const RoomSetAllAttendeesPermissionsPermissions $85 = _$roomSetAllAttendeesPermissionsPermissions$85;
 
+  /// `86`
   @BuiltValueEnumConst(wireName: '86')
   static const RoomSetAllAttendeesPermissionsPermissions $86 = _$roomSetAllAttendeesPermissionsPermissions$86;
 
+  /// `87`
   @BuiltValueEnumConst(wireName: '87')
   static const RoomSetAllAttendeesPermissionsPermissions $87 = _$roomSetAllAttendeesPermissionsPermissions$87;
 
+  /// `88`
   @BuiltValueEnumConst(wireName: '88')
   static const RoomSetAllAttendeesPermissionsPermissions $88 = _$roomSetAllAttendeesPermissionsPermissions$88;
 
+  /// `89`
   @BuiltValueEnumConst(wireName: '89')
   static const RoomSetAllAttendeesPermissionsPermissions $89 = _$roomSetAllAttendeesPermissionsPermissions$89;
 
+  /// `90`
   @BuiltValueEnumConst(wireName: '90')
   static const RoomSetAllAttendeesPermissionsPermissions $90 = _$roomSetAllAttendeesPermissionsPermissions$90;
 
+  /// `91`
   @BuiltValueEnumConst(wireName: '91')
   static const RoomSetAllAttendeesPermissionsPermissions $91 = _$roomSetAllAttendeesPermissionsPermissions$91;
 
+  /// `92`
   @BuiltValueEnumConst(wireName: '92')
   static const RoomSetAllAttendeesPermissionsPermissions $92 = _$roomSetAllAttendeesPermissionsPermissions$92;
 
+  /// `93`
   @BuiltValueEnumConst(wireName: '93')
   static const RoomSetAllAttendeesPermissionsPermissions $93 = _$roomSetAllAttendeesPermissionsPermissions$93;
 
+  /// `94`
   @BuiltValueEnumConst(wireName: '94')
   static const RoomSetAllAttendeesPermissionsPermissions $94 = _$roomSetAllAttendeesPermissionsPermissions$94;
 
+  /// `95`
   @BuiltValueEnumConst(wireName: '95')
   static const RoomSetAllAttendeesPermissionsPermissions $95 = _$roomSetAllAttendeesPermissionsPermissions$95;
 
+  /// `96`
   @BuiltValueEnumConst(wireName: '96')
   static const RoomSetAllAttendeesPermissionsPermissions $96 = _$roomSetAllAttendeesPermissionsPermissions$96;
 
+  /// `97`
   @BuiltValueEnumConst(wireName: '97')
   static const RoomSetAllAttendeesPermissionsPermissions $97 = _$roomSetAllAttendeesPermissionsPermissions$97;
 
+  /// `98`
   @BuiltValueEnumConst(wireName: '98')
   static const RoomSetAllAttendeesPermissionsPermissions $98 = _$roomSetAllAttendeesPermissionsPermissions$98;
 
+  /// `99`
   @BuiltValueEnumConst(wireName: '99')
   static const RoomSetAllAttendeesPermissionsPermissions $99 = _$roomSetAllAttendeesPermissionsPermissions$99;
 
+  /// `100`
   @BuiltValueEnumConst(wireName: '100')
   static const RoomSetAllAttendeesPermissionsPermissions $100 = _$roomSetAllAttendeesPermissionsPermissions$100;
 
+  /// `101`
   @BuiltValueEnumConst(wireName: '101')
   static const RoomSetAllAttendeesPermissionsPermissions $101 = _$roomSetAllAttendeesPermissionsPermissions$101;
 
+  /// `102`
   @BuiltValueEnumConst(wireName: '102')
   static const RoomSetAllAttendeesPermissionsPermissions $102 = _$roomSetAllAttendeesPermissionsPermissions$102;
 
+  /// `103`
   @BuiltValueEnumConst(wireName: '103')
   static const RoomSetAllAttendeesPermissionsPermissions $103 = _$roomSetAllAttendeesPermissionsPermissions$103;
 
+  /// `104`
   @BuiltValueEnumConst(wireName: '104')
   static const RoomSetAllAttendeesPermissionsPermissions $104 = _$roomSetAllAttendeesPermissionsPermissions$104;
 
+  /// `105`
   @BuiltValueEnumConst(wireName: '105')
   static const RoomSetAllAttendeesPermissionsPermissions $105 = _$roomSetAllAttendeesPermissionsPermissions$105;
 
+  /// `106`
   @BuiltValueEnumConst(wireName: '106')
   static const RoomSetAllAttendeesPermissionsPermissions $106 = _$roomSetAllAttendeesPermissionsPermissions$106;
 
+  /// `107`
   @BuiltValueEnumConst(wireName: '107')
   static const RoomSetAllAttendeesPermissionsPermissions $107 = _$roomSetAllAttendeesPermissionsPermissions$107;
 
+  /// `108`
   @BuiltValueEnumConst(wireName: '108')
   static const RoomSetAllAttendeesPermissionsPermissions $108 = _$roomSetAllAttendeesPermissionsPermissions$108;
 
+  /// `109`
   @BuiltValueEnumConst(wireName: '109')
   static const RoomSetAllAttendeesPermissionsPermissions $109 = _$roomSetAllAttendeesPermissionsPermissions$109;
 
+  /// `110`
   @BuiltValueEnumConst(wireName: '110')
   static const RoomSetAllAttendeesPermissionsPermissions $110 = _$roomSetAllAttendeesPermissionsPermissions$110;
 
+  /// `111`
   @BuiltValueEnumConst(wireName: '111')
   static const RoomSetAllAttendeesPermissionsPermissions $111 = _$roomSetAllAttendeesPermissionsPermissions$111;
 
+  /// `112`
   @BuiltValueEnumConst(wireName: '112')
   static const RoomSetAllAttendeesPermissionsPermissions $112 = _$roomSetAllAttendeesPermissionsPermissions$112;
 
+  /// `113`
   @BuiltValueEnumConst(wireName: '113')
   static const RoomSetAllAttendeesPermissionsPermissions $113 = _$roomSetAllAttendeesPermissionsPermissions$113;
 
+  /// `114`
   @BuiltValueEnumConst(wireName: '114')
   static const RoomSetAllAttendeesPermissionsPermissions $114 = _$roomSetAllAttendeesPermissionsPermissions$114;
 
+  /// `115`
   @BuiltValueEnumConst(wireName: '115')
   static const RoomSetAllAttendeesPermissionsPermissions $115 = _$roomSetAllAttendeesPermissionsPermissions$115;
 
+  /// `116`
   @BuiltValueEnumConst(wireName: '116')
   static const RoomSetAllAttendeesPermissionsPermissions $116 = _$roomSetAllAttendeesPermissionsPermissions$116;
 
+  /// `117`
   @BuiltValueEnumConst(wireName: '117')
   static const RoomSetAllAttendeesPermissionsPermissions $117 = _$roomSetAllAttendeesPermissionsPermissions$117;
 
+  /// `118`
   @BuiltValueEnumConst(wireName: '118')
   static const RoomSetAllAttendeesPermissionsPermissions $118 = _$roomSetAllAttendeesPermissionsPermissions$118;
 
+  /// `119`
   @BuiltValueEnumConst(wireName: '119')
   static const RoomSetAllAttendeesPermissionsPermissions $119 = _$roomSetAllAttendeesPermissionsPermissions$119;
 
+  /// `120`
   @BuiltValueEnumConst(wireName: '120')
   static const RoomSetAllAttendeesPermissionsPermissions $120 = _$roomSetAllAttendeesPermissionsPermissions$120;
 
+  /// `121`
   @BuiltValueEnumConst(wireName: '121')
   static const RoomSetAllAttendeesPermissionsPermissions $121 = _$roomSetAllAttendeesPermissionsPermissions$121;
 
+  /// `122`
   @BuiltValueEnumConst(wireName: '122')
   static const RoomSetAllAttendeesPermissionsPermissions $122 = _$roomSetAllAttendeesPermissionsPermissions$122;
 
+  /// `123`
   @BuiltValueEnumConst(wireName: '123')
   static const RoomSetAllAttendeesPermissionsPermissions $123 = _$roomSetAllAttendeesPermissionsPermissions$123;
 
+  /// `124`
   @BuiltValueEnumConst(wireName: '124')
   static const RoomSetAllAttendeesPermissionsPermissions $124 = _$roomSetAllAttendeesPermissionsPermissions$124;
 
+  /// `125`
   @BuiltValueEnumConst(wireName: '125')
   static const RoomSetAllAttendeesPermissionsPermissions $125 = _$roomSetAllAttendeesPermissionsPermissions$125;
 
+  /// `126`
   @BuiltValueEnumConst(wireName: '126')
   static const RoomSetAllAttendeesPermissionsPermissions $126 = _$roomSetAllAttendeesPermissionsPermissions$126;
 
+  /// `127`
   @BuiltValueEnumConst(wireName: '127')
   static const RoomSetAllAttendeesPermissionsPermissions $127 = _$roomSetAllAttendeesPermissionsPermissions$127;
 
+  /// `128`
   @BuiltValueEnumConst(wireName: '128')
   static const RoomSetAllAttendeesPermissionsPermissions $128 = _$roomSetAllAttendeesPermissionsPermissions$128;
 
+  /// `129`
   @BuiltValueEnumConst(wireName: '129')
   static const RoomSetAllAttendeesPermissionsPermissions $129 = _$roomSetAllAttendeesPermissionsPermissions$129;
 
+  /// `130`
   @BuiltValueEnumConst(wireName: '130')
   static const RoomSetAllAttendeesPermissionsPermissions $130 = _$roomSetAllAttendeesPermissionsPermissions$130;
 
+  /// `131`
   @BuiltValueEnumConst(wireName: '131')
   static const RoomSetAllAttendeesPermissionsPermissions $131 = _$roomSetAllAttendeesPermissionsPermissions$131;
 
+  /// `132`
   @BuiltValueEnumConst(wireName: '132')
   static const RoomSetAllAttendeesPermissionsPermissions $132 = _$roomSetAllAttendeesPermissionsPermissions$132;
 
+  /// `133`
   @BuiltValueEnumConst(wireName: '133')
   static const RoomSetAllAttendeesPermissionsPermissions $133 = _$roomSetAllAttendeesPermissionsPermissions$133;
 
+  /// `134`
   @BuiltValueEnumConst(wireName: '134')
   static const RoomSetAllAttendeesPermissionsPermissions $134 = _$roomSetAllAttendeesPermissionsPermissions$134;
 
+  /// `135`
   @BuiltValueEnumConst(wireName: '135')
   static const RoomSetAllAttendeesPermissionsPermissions $135 = _$roomSetAllAttendeesPermissionsPermissions$135;
 
+  /// `136`
   @BuiltValueEnumConst(wireName: '136')
   static const RoomSetAllAttendeesPermissionsPermissions $136 = _$roomSetAllAttendeesPermissionsPermissions$136;
 
+  /// `137`
   @BuiltValueEnumConst(wireName: '137')
   static const RoomSetAllAttendeesPermissionsPermissions $137 = _$roomSetAllAttendeesPermissionsPermissions$137;
 
+  /// `138`
   @BuiltValueEnumConst(wireName: '138')
   static const RoomSetAllAttendeesPermissionsPermissions $138 = _$roomSetAllAttendeesPermissionsPermissions$138;
 
+  /// `139`
   @BuiltValueEnumConst(wireName: '139')
   static const RoomSetAllAttendeesPermissionsPermissions $139 = _$roomSetAllAttendeesPermissionsPermissions$139;
 
+  /// `140`
   @BuiltValueEnumConst(wireName: '140')
   static const RoomSetAllAttendeesPermissionsPermissions $140 = _$roomSetAllAttendeesPermissionsPermissions$140;
 
+  /// `141`
   @BuiltValueEnumConst(wireName: '141')
   static const RoomSetAllAttendeesPermissionsPermissions $141 = _$roomSetAllAttendeesPermissionsPermissions$141;
 
+  /// `142`
   @BuiltValueEnumConst(wireName: '142')
   static const RoomSetAllAttendeesPermissionsPermissions $142 = _$roomSetAllAttendeesPermissionsPermissions$142;
 
+  /// `143`
   @BuiltValueEnumConst(wireName: '143')
   static const RoomSetAllAttendeesPermissionsPermissions $143 = _$roomSetAllAttendeesPermissionsPermissions$143;
 
+  /// `144`
   @BuiltValueEnumConst(wireName: '144')
   static const RoomSetAllAttendeesPermissionsPermissions $144 = _$roomSetAllAttendeesPermissionsPermissions$144;
 
+  /// `145`
   @BuiltValueEnumConst(wireName: '145')
   static const RoomSetAllAttendeesPermissionsPermissions $145 = _$roomSetAllAttendeesPermissionsPermissions$145;
 
+  /// `146`
   @BuiltValueEnumConst(wireName: '146')
   static const RoomSetAllAttendeesPermissionsPermissions $146 = _$roomSetAllAttendeesPermissionsPermissions$146;
 
+  /// `147`
   @BuiltValueEnumConst(wireName: '147')
   static const RoomSetAllAttendeesPermissionsPermissions $147 = _$roomSetAllAttendeesPermissionsPermissions$147;
 
+  /// `148`
   @BuiltValueEnumConst(wireName: '148')
   static const RoomSetAllAttendeesPermissionsPermissions $148 = _$roomSetAllAttendeesPermissionsPermissions$148;
 
+  /// `149`
   @BuiltValueEnumConst(wireName: '149')
   static const RoomSetAllAttendeesPermissionsPermissions $149 = _$roomSetAllAttendeesPermissionsPermissions$149;
 
+  /// `150`
   @BuiltValueEnumConst(wireName: '150')
   static const RoomSetAllAttendeesPermissionsPermissions $150 = _$roomSetAllAttendeesPermissionsPermissions$150;
 
+  /// `151`
   @BuiltValueEnumConst(wireName: '151')
   static const RoomSetAllAttendeesPermissionsPermissions $151 = _$roomSetAllAttendeesPermissionsPermissions$151;
 
+  /// `152`
   @BuiltValueEnumConst(wireName: '152')
   static const RoomSetAllAttendeesPermissionsPermissions $152 = _$roomSetAllAttendeesPermissionsPermissions$152;
 
+  /// `153`
   @BuiltValueEnumConst(wireName: '153')
   static const RoomSetAllAttendeesPermissionsPermissions $153 = _$roomSetAllAttendeesPermissionsPermissions$153;
 
+  /// `154`
   @BuiltValueEnumConst(wireName: '154')
   static const RoomSetAllAttendeesPermissionsPermissions $154 = _$roomSetAllAttendeesPermissionsPermissions$154;
 
+  /// `155`
   @BuiltValueEnumConst(wireName: '155')
   static const RoomSetAllAttendeesPermissionsPermissions $155 = _$roomSetAllAttendeesPermissionsPermissions$155;
 
+  /// `156`
   @BuiltValueEnumConst(wireName: '156')
   static const RoomSetAllAttendeesPermissionsPermissions $156 = _$roomSetAllAttendeesPermissionsPermissions$156;
 
+  /// `157`
   @BuiltValueEnumConst(wireName: '157')
   static const RoomSetAllAttendeesPermissionsPermissions $157 = _$roomSetAllAttendeesPermissionsPermissions$157;
 
+  /// `158`
   @BuiltValueEnumConst(wireName: '158')
   static const RoomSetAllAttendeesPermissionsPermissions $158 = _$roomSetAllAttendeesPermissionsPermissions$158;
 
+  /// `159`
   @BuiltValueEnumConst(wireName: '159')
   static const RoomSetAllAttendeesPermissionsPermissions $159 = _$roomSetAllAttendeesPermissionsPermissions$159;
 
+  /// `160`
   @BuiltValueEnumConst(wireName: '160')
   static const RoomSetAllAttendeesPermissionsPermissions $160 = _$roomSetAllAttendeesPermissionsPermissions$160;
 
+  /// `161`
   @BuiltValueEnumConst(wireName: '161')
   static const RoomSetAllAttendeesPermissionsPermissions $161 = _$roomSetAllAttendeesPermissionsPermissions$161;
 
+  /// `162`
   @BuiltValueEnumConst(wireName: '162')
   static const RoomSetAllAttendeesPermissionsPermissions $162 = _$roomSetAllAttendeesPermissionsPermissions$162;
 
+  /// `163`
   @BuiltValueEnumConst(wireName: '163')
   static const RoomSetAllAttendeesPermissionsPermissions $163 = _$roomSetAllAttendeesPermissionsPermissions$163;
 
+  /// `164`
   @BuiltValueEnumConst(wireName: '164')
   static const RoomSetAllAttendeesPermissionsPermissions $164 = _$roomSetAllAttendeesPermissionsPermissions$164;
 
+  /// `165`
   @BuiltValueEnumConst(wireName: '165')
   static const RoomSetAllAttendeesPermissionsPermissions $165 = _$roomSetAllAttendeesPermissionsPermissions$165;
 
+  /// `166`
   @BuiltValueEnumConst(wireName: '166')
   static const RoomSetAllAttendeesPermissionsPermissions $166 = _$roomSetAllAttendeesPermissionsPermissions$166;
 
+  /// `167`
   @BuiltValueEnumConst(wireName: '167')
   static const RoomSetAllAttendeesPermissionsPermissions $167 = _$roomSetAllAttendeesPermissionsPermissions$167;
 
+  /// `168`
   @BuiltValueEnumConst(wireName: '168')
   static const RoomSetAllAttendeesPermissionsPermissions $168 = _$roomSetAllAttendeesPermissionsPermissions$168;
 
+  /// `169`
   @BuiltValueEnumConst(wireName: '169')
   static const RoomSetAllAttendeesPermissionsPermissions $169 = _$roomSetAllAttendeesPermissionsPermissions$169;
 
+  /// `170`
   @BuiltValueEnumConst(wireName: '170')
   static const RoomSetAllAttendeesPermissionsPermissions $170 = _$roomSetAllAttendeesPermissionsPermissions$170;
 
+  /// `171`
   @BuiltValueEnumConst(wireName: '171')
   static const RoomSetAllAttendeesPermissionsPermissions $171 = _$roomSetAllAttendeesPermissionsPermissions$171;
 
+  /// `172`
   @BuiltValueEnumConst(wireName: '172')
   static const RoomSetAllAttendeesPermissionsPermissions $172 = _$roomSetAllAttendeesPermissionsPermissions$172;
 
+  /// `173`
   @BuiltValueEnumConst(wireName: '173')
   static const RoomSetAllAttendeesPermissionsPermissions $173 = _$roomSetAllAttendeesPermissionsPermissions$173;
 
+  /// `174`
   @BuiltValueEnumConst(wireName: '174')
   static const RoomSetAllAttendeesPermissionsPermissions $174 = _$roomSetAllAttendeesPermissionsPermissions$174;
 
+  /// `175`
   @BuiltValueEnumConst(wireName: '175')
   static const RoomSetAllAttendeesPermissionsPermissions $175 = _$roomSetAllAttendeesPermissionsPermissions$175;
 
+  /// `176`
   @BuiltValueEnumConst(wireName: '176')
   static const RoomSetAllAttendeesPermissionsPermissions $176 = _$roomSetAllAttendeesPermissionsPermissions$176;
 
+  /// `177`
   @BuiltValueEnumConst(wireName: '177')
   static const RoomSetAllAttendeesPermissionsPermissions $177 = _$roomSetAllAttendeesPermissionsPermissions$177;
 
+  /// `178`
   @BuiltValueEnumConst(wireName: '178')
   static const RoomSetAllAttendeesPermissionsPermissions $178 = _$roomSetAllAttendeesPermissionsPermissions$178;
 
+  /// `179`
   @BuiltValueEnumConst(wireName: '179')
   static const RoomSetAllAttendeesPermissionsPermissions $179 = _$roomSetAllAttendeesPermissionsPermissions$179;
 
+  /// `180`
   @BuiltValueEnumConst(wireName: '180')
   static const RoomSetAllAttendeesPermissionsPermissions $180 = _$roomSetAllAttendeesPermissionsPermissions$180;
 
+  /// `181`
   @BuiltValueEnumConst(wireName: '181')
   static const RoomSetAllAttendeesPermissionsPermissions $181 = _$roomSetAllAttendeesPermissionsPermissions$181;
 
+  /// `182`
   @BuiltValueEnumConst(wireName: '182')
   static const RoomSetAllAttendeesPermissionsPermissions $182 = _$roomSetAllAttendeesPermissionsPermissions$182;
 
+  /// `183`
   @BuiltValueEnumConst(wireName: '183')
   static const RoomSetAllAttendeesPermissionsPermissions $183 = _$roomSetAllAttendeesPermissionsPermissions$183;
 
+  /// `184`
   @BuiltValueEnumConst(wireName: '184')
   static const RoomSetAllAttendeesPermissionsPermissions $184 = _$roomSetAllAttendeesPermissionsPermissions$184;
 
+  /// `185`
   @BuiltValueEnumConst(wireName: '185')
   static const RoomSetAllAttendeesPermissionsPermissions $185 = _$roomSetAllAttendeesPermissionsPermissions$185;
 
+  /// `186`
   @BuiltValueEnumConst(wireName: '186')
   static const RoomSetAllAttendeesPermissionsPermissions $186 = _$roomSetAllAttendeesPermissionsPermissions$186;
 
+  /// `187`
   @BuiltValueEnumConst(wireName: '187')
   static const RoomSetAllAttendeesPermissionsPermissions $187 = _$roomSetAllAttendeesPermissionsPermissions$187;
 
+  /// `188`
   @BuiltValueEnumConst(wireName: '188')
   static const RoomSetAllAttendeesPermissionsPermissions $188 = _$roomSetAllAttendeesPermissionsPermissions$188;
 
+  /// `189`
   @BuiltValueEnumConst(wireName: '189')
   static const RoomSetAllAttendeesPermissionsPermissions $189 = _$roomSetAllAttendeesPermissionsPermissions$189;
 
+  /// `190`
   @BuiltValueEnumConst(wireName: '190')
   static const RoomSetAllAttendeesPermissionsPermissions $190 = _$roomSetAllAttendeesPermissionsPermissions$190;
 
+  /// `191`
   @BuiltValueEnumConst(wireName: '191')
   static const RoomSetAllAttendeesPermissionsPermissions $191 = _$roomSetAllAttendeesPermissionsPermissions$191;
 
+  /// `192`
   @BuiltValueEnumConst(wireName: '192')
   static const RoomSetAllAttendeesPermissionsPermissions $192 = _$roomSetAllAttendeesPermissionsPermissions$192;
 
+  /// `193`
   @BuiltValueEnumConst(wireName: '193')
   static const RoomSetAllAttendeesPermissionsPermissions $193 = _$roomSetAllAttendeesPermissionsPermissions$193;
 
+  /// `194`
   @BuiltValueEnumConst(wireName: '194')
   static const RoomSetAllAttendeesPermissionsPermissions $194 = _$roomSetAllAttendeesPermissionsPermissions$194;
 
+  /// `195`
   @BuiltValueEnumConst(wireName: '195')
   static const RoomSetAllAttendeesPermissionsPermissions $195 = _$roomSetAllAttendeesPermissionsPermissions$195;
 
+  /// `196`
   @BuiltValueEnumConst(wireName: '196')
   static const RoomSetAllAttendeesPermissionsPermissions $196 = _$roomSetAllAttendeesPermissionsPermissions$196;
 
+  /// `197`
   @BuiltValueEnumConst(wireName: '197')
   static const RoomSetAllAttendeesPermissionsPermissions $197 = _$roomSetAllAttendeesPermissionsPermissions$197;
 
+  /// `198`
   @BuiltValueEnumConst(wireName: '198')
   static const RoomSetAllAttendeesPermissionsPermissions $198 = _$roomSetAllAttendeesPermissionsPermissions$198;
 
+  /// `199`
   @BuiltValueEnumConst(wireName: '199')
   static const RoomSetAllAttendeesPermissionsPermissions $199 = _$roomSetAllAttendeesPermissionsPermissions$199;
 
+  /// `200`
   @BuiltValueEnumConst(wireName: '200')
   static const RoomSetAllAttendeesPermissionsPermissions $200 = _$roomSetAllAttendeesPermissionsPermissions$200;
 
+  /// `201`
   @BuiltValueEnumConst(wireName: '201')
   static const RoomSetAllAttendeesPermissionsPermissions $201 = _$roomSetAllAttendeesPermissionsPermissions$201;
 
+  /// `202`
   @BuiltValueEnumConst(wireName: '202')
   static const RoomSetAllAttendeesPermissionsPermissions $202 = _$roomSetAllAttendeesPermissionsPermissions$202;
 
+  /// `203`
   @BuiltValueEnumConst(wireName: '203')
   static const RoomSetAllAttendeesPermissionsPermissions $203 = _$roomSetAllAttendeesPermissionsPermissions$203;
 
+  /// `204`
   @BuiltValueEnumConst(wireName: '204')
   static const RoomSetAllAttendeesPermissionsPermissions $204 = _$roomSetAllAttendeesPermissionsPermissions$204;
 
+  /// `205`
   @BuiltValueEnumConst(wireName: '205')
   static const RoomSetAllAttendeesPermissionsPermissions $205 = _$roomSetAllAttendeesPermissionsPermissions$205;
 
+  /// `206`
   @BuiltValueEnumConst(wireName: '206')
   static const RoomSetAllAttendeesPermissionsPermissions $206 = _$roomSetAllAttendeesPermissionsPermissions$206;
 
+  /// `207`
   @BuiltValueEnumConst(wireName: '207')
   static const RoomSetAllAttendeesPermissionsPermissions $207 = _$roomSetAllAttendeesPermissionsPermissions$207;
 
+  /// `208`
   @BuiltValueEnumConst(wireName: '208')
   static const RoomSetAllAttendeesPermissionsPermissions $208 = _$roomSetAllAttendeesPermissionsPermissions$208;
 
+  /// `209`
   @BuiltValueEnumConst(wireName: '209')
   static const RoomSetAllAttendeesPermissionsPermissions $209 = _$roomSetAllAttendeesPermissionsPermissions$209;
 
+  /// `210`
   @BuiltValueEnumConst(wireName: '210')
   static const RoomSetAllAttendeesPermissionsPermissions $210 = _$roomSetAllAttendeesPermissionsPermissions$210;
 
+  /// `211`
   @BuiltValueEnumConst(wireName: '211')
   static const RoomSetAllAttendeesPermissionsPermissions $211 = _$roomSetAllAttendeesPermissionsPermissions$211;
 
+  /// `212`
   @BuiltValueEnumConst(wireName: '212')
   static const RoomSetAllAttendeesPermissionsPermissions $212 = _$roomSetAllAttendeesPermissionsPermissions$212;
 
+  /// `213`
   @BuiltValueEnumConst(wireName: '213')
   static const RoomSetAllAttendeesPermissionsPermissions $213 = _$roomSetAllAttendeesPermissionsPermissions$213;
 
+  /// `214`
   @BuiltValueEnumConst(wireName: '214')
   static const RoomSetAllAttendeesPermissionsPermissions $214 = _$roomSetAllAttendeesPermissionsPermissions$214;
 
+  /// `215`
   @BuiltValueEnumConst(wireName: '215')
   static const RoomSetAllAttendeesPermissionsPermissions $215 = _$roomSetAllAttendeesPermissionsPermissions$215;
 
+  /// `216`
   @BuiltValueEnumConst(wireName: '216')
   static const RoomSetAllAttendeesPermissionsPermissions $216 = _$roomSetAllAttendeesPermissionsPermissions$216;
 
+  /// `217`
   @BuiltValueEnumConst(wireName: '217')
   static const RoomSetAllAttendeesPermissionsPermissions $217 = _$roomSetAllAttendeesPermissionsPermissions$217;
 
+  /// `218`
   @BuiltValueEnumConst(wireName: '218')
   static const RoomSetAllAttendeesPermissionsPermissions $218 = _$roomSetAllAttendeesPermissionsPermissions$218;
 
+  /// `219`
   @BuiltValueEnumConst(wireName: '219')
   static const RoomSetAllAttendeesPermissionsPermissions $219 = _$roomSetAllAttendeesPermissionsPermissions$219;
 
+  /// `220`
   @BuiltValueEnumConst(wireName: '220')
   static const RoomSetAllAttendeesPermissionsPermissions $220 = _$roomSetAllAttendeesPermissionsPermissions$220;
 
+  /// `221`
   @BuiltValueEnumConst(wireName: '221')
   static const RoomSetAllAttendeesPermissionsPermissions $221 = _$roomSetAllAttendeesPermissionsPermissions$221;
 
+  /// `222`
   @BuiltValueEnumConst(wireName: '222')
   static const RoomSetAllAttendeesPermissionsPermissions $222 = _$roomSetAllAttendeesPermissionsPermissions$222;
 
+  /// `223`
   @BuiltValueEnumConst(wireName: '223')
   static const RoomSetAllAttendeesPermissionsPermissions $223 = _$roomSetAllAttendeesPermissionsPermissions$223;
 
+  /// `224`
   @BuiltValueEnumConst(wireName: '224')
   static const RoomSetAllAttendeesPermissionsPermissions $224 = _$roomSetAllAttendeesPermissionsPermissions$224;
 
+  /// `225`
   @BuiltValueEnumConst(wireName: '225')
   static const RoomSetAllAttendeesPermissionsPermissions $225 = _$roomSetAllAttendeesPermissionsPermissions$225;
 
+  /// `226`
   @BuiltValueEnumConst(wireName: '226')
   static const RoomSetAllAttendeesPermissionsPermissions $226 = _$roomSetAllAttendeesPermissionsPermissions$226;
 
+  /// `227`
   @BuiltValueEnumConst(wireName: '227')
   static const RoomSetAllAttendeesPermissionsPermissions $227 = _$roomSetAllAttendeesPermissionsPermissions$227;
 
+  /// `228`
   @BuiltValueEnumConst(wireName: '228')
   static const RoomSetAllAttendeesPermissionsPermissions $228 = _$roomSetAllAttendeesPermissionsPermissions$228;
 
+  /// `229`
   @BuiltValueEnumConst(wireName: '229')
   static const RoomSetAllAttendeesPermissionsPermissions $229 = _$roomSetAllAttendeesPermissionsPermissions$229;
 
+  /// `230`
   @BuiltValueEnumConst(wireName: '230')
   static const RoomSetAllAttendeesPermissionsPermissions $230 = _$roomSetAllAttendeesPermissionsPermissions$230;
 
+  /// `231`
   @BuiltValueEnumConst(wireName: '231')
   static const RoomSetAllAttendeesPermissionsPermissions $231 = _$roomSetAllAttendeesPermissionsPermissions$231;
 
+  /// `232`
   @BuiltValueEnumConst(wireName: '232')
   static const RoomSetAllAttendeesPermissionsPermissions $232 = _$roomSetAllAttendeesPermissionsPermissions$232;
 
+  /// `233`
   @BuiltValueEnumConst(wireName: '233')
   static const RoomSetAllAttendeesPermissionsPermissions $233 = _$roomSetAllAttendeesPermissionsPermissions$233;
 
+  /// `234`
   @BuiltValueEnumConst(wireName: '234')
   static const RoomSetAllAttendeesPermissionsPermissions $234 = _$roomSetAllAttendeesPermissionsPermissions$234;
 
+  /// `235`
   @BuiltValueEnumConst(wireName: '235')
   static const RoomSetAllAttendeesPermissionsPermissions $235 = _$roomSetAllAttendeesPermissionsPermissions$235;
 
+  /// `236`
   @BuiltValueEnumConst(wireName: '236')
   static const RoomSetAllAttendeesPermissionsPermissions $236 = _$roomSetAllAttendeesPermissionsPermissions$236;
 
+  /// `237`
   @BuiltValueEnumConst(wireName: '237')
   static const RoomSetAllAttendeesPermissionsPermissions $237 = _$roomSetAllAttendeesPermissionsPermissions$237;
 
+  /// `238`
   @BuiltValueEnumConst(wireName: '238')
   static const RoomSetAllAttendeesPermissionsPermissions $238 = _$roomSetAllAttendeesPermissionsPermissions$238;
 
+  /// `239`
   @BuiltValueEnumConst(wireName: '239')
   static const RoomSetAllAttendeesPermissionsPermissions $239 = _$roomSetAllAttendeesPermissionsPermissions$239;
 
+  /// `240`
   @BuiltValueEnumConst(wireName: '240')
   static const RoomSetAllAttendeesPermissionsPermissions $240 = _$roomSetAllAttendeesPermissionsPermissions$240;
 
+  /// `241`
   @BuiltValueEnumConst(wireName: '241')
   static const RoomSetAllAttendeesPermissionsPermissions $241 = _$roomSetAllAttendeesPermissionsPermissions$241;
 
+  /// `242`
   @BuiltValueEnumConst(wireName: '242')
   static const RoomSetAllAttendeesPermissionsPermissions $242 = _$roomSetAllAttendeesPermissionsPermissions$242;
 
+  /// `243`
   @BuiltValueEnumConst(wireName: '243')
   static const RoomSetAllAttendeesPermissionsPermissions $243 = _$roomSetAllAttendeesPermissionsPermissions$243;
 
+  /// `244`
   @BuiltValueEnumConst(wireName: '244')
   static const RoomSetAllAttendeesPermissionsPermissions $244 = _$roomSetAllAttendeesPermissionsPermissions$244;
 
+  /// `245`
   @BuiltValueEnumConst(wireName: '245')
   static const RoomSetAllAttendeesPermissionsPermissions $245 = _$roomSetAllAttendeesPermissionsPermissions$245;
 
+  /// `246`
   @BuiltValueEnumConst(wireName: '246')
   static const RoomSetAllAttendeesPermissionsPermissions $246 = _$roomSetAllAttendeesPermissionsPermissions$246;
 
+  /// `247`
   @BuiltValueEnumConst(wireName: '247')
   static const RoomSetAllAttendeesPermissionsPermissions $247 = _$roomSetAllAttendeesPermissionsPermissions$247;
 
+  /// `248`
   @BuiltValueEnumConst(wireName: '248')
   static const RoomSetAllAttendeesPermissionsPermissions $248 = _$roomSetAllAttendeesPermissionsPermissions$248;
 
+  /// `249`
   @BuiltValueEnumConst(wireName: '249')
   static const RoomSetAllAttendeesPermissionsPermissions $249 = _$roomSetAllAttendeesPermissionsPermissions$249;
 
+  /// `250`
   @BuiltValueEnumConst(wireName: '250')
   static const RoomSetAllAttendeesPermissionsPermissions $250 = _$roomSetAllAttendeesPermissionsPermissions$250;
 
+  /// `251`
   @BuiltValueEnumConst(wireName: '251')
   static const RoomSetAllAttendeesPermissionsPermissions $251 = _$roomSetAllAttendeesPermissionsPermissions$251;
 
+  /// `252`
   @BuiltValueEnumConst(wireName: '252')
   static const RoomSetAllAttendeesPermissionsPermissions $252 = _$roomSetAllAttendeesPermissionsPermissions$252;
 
+  /// `253`
   @BuiltValueEnumConst(wireName: '253')
   static const RoomSetAllAttendeesPermissionsPermissions $253 = _$roomSetAllAttendeesPermissionsPermissions$253;
 
+  /// `254`
   @BuiltValueEnumConst(wireName: '254')
   static const RoomSetAllAttendeesPermissionsPermissions $254 = _$roomSetAllAttendeesPermissionsPermissions$254;
 
+  /// `255`
   @BuiltValueEnumConst(wireName: '255')
   static const RoomSetAllAttendeesPermissionsPermissions $255 = _$roomSetAllAttendeesPermissionsPermissions$255;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsPermissions> get values =>
       _$roomSetAllAttendeesPermissionsPermissionsValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsPermissions valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsPermissions(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetAllAttendeesPermissionsPermissions.
@@ -32143,16 +33629,20 @@ class _$RoomSetAllAttendeesPermissionsPermissionsSerializer
 class RoomSetAllAttendeesPermissionsApiVersion extends EnumClass {
   const RoomSetAllAttendeesPermissionsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetAllAttendeesPermissionsApiVersion v4 = _$roomSetAllAttendeesPermissionsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetAllAttendeesPermissionsApiVersion> get values =>
       _$roomSetAllAttendeesPermissionsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetAllAttendeesPermissionsApiVersion valueOf(String name) =>
       _$valueOfRoomSetAllAttendeesPermissionsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetAllAttendeesPermissionsApiVersion.
@@ -32280,14 +33770,18 @@ abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
 class RoomJoinRoomApiVersion extends EnumClass {
   const RoomJoinRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomJoinRoomApiVersion v4 = _$roomJoinRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomJoinRoomApiVersion> get values => _$roomJoinRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomJoinRoomApiVersion valueOf(String name) => _$valueOfRoomJoinRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomJoinRoomApiVersion.
@@ -32407,14 +33901,18 @@ abstract class RoomJoinRoomResponseApplicationJson
 class RoomLeaveRoomApiVersion extends EnumClass {
   const RoomLeaveRoomApiVersion._(super.name);
 
+  /// `v4`
   static const RoomLeaveRoomApiVersion v4 = _$roomLeaveRoomApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomLeaveRoomApiVersion> get values => _$roomLeaveRoomApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomLeaveRoomApiVersion valueOf(String name) => _$valueOfRoomLeaveRoomApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomLeaveRoomApiVersion.
@@ -32535,14 +34033,18 @@ abstract class RoomLeaveRoomResponseApplicationJson
 class RoomResendInvitationsApiVersion extends EnumClass {
   const RoomResendInvitationsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomResendInvitationsApiVersion v4 = _$roomResendInvitationsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomResendInvitationsApiVersion> get values => _$roomResendInvitationsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomResendInvitationsApiVersion valueOf(String name) => _$valueOfRoomResendInvitationsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomResendInvitationsApiVersion.
@@ -32666,18 +34168,23 @@ abstract class RoomResendInvitationsResponseApplicationJson
 class RoomSetSessionStateState extends EnumClass {
   const RoomSetSessionStateState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetSessionStateState $0 = _$roomSetSessionStateState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetSessionStateState $1 = _$roomSetSessionStateState$1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetSessionStateState> get values => _$roomSetSessionStateStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetSessionStateState valueOf(String name) => _$valueOfRoomSetSessionStateState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetSessionStateState.
@@ -32724,14 +34231,18 @@ class _$RoomSetSessionStateStateSerializer implements PrimitiveSerializer<RoomSe
 class RoomSetSessionStateApiVersion extends EnumClass {
   const RoomSetSessionStateApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetSessionStateApiVersion v4 = _$roomSetSessionStateApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetSessionStateApiVersion> get values => _$roomSetSessionStateApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetSessionStateApiVersion valueOf(String name) => _$valueOfRoomSetSessionStateApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetSessionStateApiVersion.
@@ -32853,14 +34364,18 @@ abstract class RoomSetSessionStateResponseApplicationJson
 class RoomPromoteModeratorApiVersion extends EnumClass {
   const RoomPromoteModeratorApiVersion._(super.name);
 
+  /// `v4`
   static const RoomPromoteModeratorApiVersion v4 = _$roomPromoteModeratorApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomPromoteModeratorApiVersion> get values => _$roomPromoteModeratorApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomPromoteModeratorApiVersion valueOf(String name) => _$valueOfRoomPromoteModeratorApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomPromoteModeratorApiVersion.
@@ -32983,14 +34498,18 @@ abstract class RoomPromoteModeratorResponseApplicationJson
 class RoomDemoteModeratorApiVersion extends EnumClass {
   const RoomDemoteModeratorApiVersion._(super.name);
 
+  /// `v4`
   static const RoomDemoteModeratorApiVersion v4 = _$roomDemoteModeratorApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomDemoteModeratorApiVersion> get values => _$roomDemoteModeratorApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomDemoteModeratorApiVersion valueOf(String name) => _$valueOfRoomDemoteModeratorApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomDemoteModeratorApiVersion.
@@ -33112,14 +34631,18 @@ abstract class RoomDemoteModeratorResponseApplicationJson
 class RoomAddToFavoritesApiVersion extends EnumClass {
   const RoomAddToFavoritesApiVersion._(super.name);
 
+  /// `v4`
   static const RoomAddToFavoritesApiVersion v4 = _$roomAddToFavoritesApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomAddToFavoritesApiVersion> get values => _$roomAddToFavoritesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomAddToFavoritesApiVersion valueOf(String name) => _$valueOfRoomAddToFavoritesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomAddToFavoritesApiVersion.
@@ -33241,14 +34764,18 @@ abstract class RoomAddToFavoritesResponseApplicationJson
 class RoomRemoveFromFavoritesApiVersion extends EnumClass {
   const RoomRemoveFromFavoritesApiVersion._(super.name);
 
+  /// `v4`
   static const RoomRemoveFromFavoritesApiVersion v4 = _$roomRemoveFromFavoritesApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomRemoveFromFavoritesApiVersion> get values => _$roomRemoveFromFavoritesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomRemoveFromFavoritesApiVersion valueOf(String name) => _$valueOfRoomRemoveFromFavoritesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomRemoveFromFavoritesApiVersion.
@@ -33372,14 +34899,18 @@ abstract class RoomRemoveFromFavoritesResponseApplicationJson
 class RoomSetNotificationLevelApiVersion extends EnumClass {
   const RoomSetNotificationLevelApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetNotificationLevelApiVersion v4 = _$roomSetNotificationLevelApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetNotificationLevelApiVersion> get values => _$roomSetNotificationLevelApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetNotificationLevelApiVersion valueOf(String name) => _$valueOfRoomSetNotificationLevelApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetNotificationLevelApiVersion.
@@ -33504,14 +35035,18 @@ abstract class RoomSetNotificationLevelResponseApplicationJson
 class RoomSetNotificationCallsApiVersion extends EnumClass {
   const RoomSetNotificationCallsApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetNotificationCallsApiVersion v4 = _$roomSetNotificationCallsApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetNotificationCallsApiVersion> get values => _$roomSetNotificationCallsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetNotificationCallsApiVersion valueOf(String name) => _$valueOfRoomSetNotificationCallsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetNotificationCallsApiVersion.
@@ -33636,14 +35171,18 @@ abstract class RoomSetNotificationCallsResponseApplicationJson
 class RoomSetLobbyApiVersion extends EnumClass {
   const RoomSetLobbyApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetLobbyApiVersion v4 = _$roomSetLobbyApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetLobbyApiVersion> get values => _$roomSetLobbyApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetLobbyApiVersion valueOf(String name) => _$valueOfRoomSetLobbyApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetLobbyApiVersion.
@@ -33763,21 +35302,27 @@ abstract class RoomSetLobbyResponseApplicationJson
 class RoomSetsipEnabledState extends EnumClass {
   const RoomSetsipEnabledState._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const RoomSetsipEnabledState $0 = _$roomSetsipEnabledState$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const RoomSetsipEnabledState $1 = _$roomSetsipEnabledState$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const RoomSetsipEnabledState $2 = _$roomSetsipEnabledState$2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetsipEnabledState> get values => _$roomSetsipEnabledStateValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetsipEnabledState valueOf(String name) => _$valueOfRoomSetsipEnabledState(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for RoomSetsipEnabledState.
@@ -33826,14 +35371,18 @@ class _$RoomSetsipEnabledStateSerializer implements PrimitiveSerializer<RoomSets
 class RoomSetsipEnabledApiVersion extends EnumClass {
   const RoomSetsipEnabledApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetsipEnabledApiVersion v4 = _$roomSetsipEnabledApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetsipEnabledApiVersion> get values => _$roomSetsipEnabledApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetsipEnabledApiVersion valueOf(String name) => _$valueOfRoomSetsipEnabledApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetsipEnabledApiVersion.
@@ -33955,14 +35504,18 @@ abstract class RoomSetsipEnabledResponseApplicationJson
 class RoomSetRecordingConsentApiVersion extends EnumClass {
   const RoomSetRecordingConsentApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetRecordingConsentApiVersion v4 = _$roomSetRecordingConsentApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetRecordingConsentApiVersion> get values => _$roomSetRecordingConsentApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetRecordingConsentApiVersion valueOf(String name) => _$valueOfRoomSetRecordingConsentApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetRecordingConsentApiVersion.
@@ -34086,14 +35639,18 @@ abstract class RoomSetRecordingConsentResponseApplicationJson
 class RoomSetMessageExpirationApiVersion extends EnumClass {
   const RoomSetMessageExpirationApiVersion._(super.name);
 
+  /// `v4`
   static const RoomSetMessageExpirationApiVersion v4 = _$roomSetMessageExpirationApiVersionV4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<RoomSetMessageExpirationApiVersion> get values => _$roomSetMessageExpirationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static RoomSetMessageExpirationApiVersion valueOf(String name) => _$valueOfRoomSetMessageExpirationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for RoomSetMessageExpirationApiVersion.
@@ -34218,14 +35775,18 @@ abstract class RoomSetMessageExpirationResponseApplicationJson
 class SettingsSetsipSettingsApiVersion extends EnumClass {
   const SettingsSetsipSettingsApiVersion._(super.name);
 
+  /// `v1`
   static const SettingsSetsipSettingsApiVersion v1 = _$settingsSetsipSettingsApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetsipSettingsApiVersion> get values => _$settingsSetsipSettingsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetsipSettingsApiVersion valueOf(String name) => _$valueOfSettingsSetsipSettingsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetsipSettingsApiVersion.
@@ -34349,24 +35910,31 @@ abstract class SettingsSetsipSettingsResponseApplicationJson
 class SettingsSetUserSettingKey extends EnumClass {
   const SettingsSetUserSettingKey._(super.name);
 
+  /// `attachment_folder`
   @BuiltValueEnumConst(wireName: 'attachment_folder')
   static const SettingsSetUserSettingKey attachmentFolder = _$settingsSetUserSettingKeyAttachmentFolder;
 
+  /// `read_status_privacy`
   @BuiltValueEnumConst(wireName: 'read_status_privacy')
   static const SettingsSetUserSettingKey readStatusPrivacy = _$settingsSetUserSettingKeyReadStatusPrivacy;
 
+  /// `typing_privacy`
   @BuiltValueEnumConst(wireName: 'typing_privacy')
   static const SettingsSetUserSettingKey typingPrivacy = _$settingsSetUserSettingKeyTypingPrivacy;
 
+  /// `play_sounds`
   @BuiltValueEnumConst(wireName: 'play_sounds')
   static const SettingsSetUserSettingKey playSounds = _$settingsSetUserSettingKeyPlaySounds;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetUserSettingKey> get values => _$settingsSetUserSettingKeyValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetUserSettingKey valueOf(String name) => _$valueOfSettingsSetUserSettingKey(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetUserSettingKey.
@@ -34419,14 +35987,18 @@ typedef SettingsSetUserSettingValue = ({int? $int, String? string});
 class SettingsSetUserSettingApiVersion extends EnumClass {
   const SettingsSetUserSettingApiVersion._(super.name);
 
+  /// `v1`
   static const SettingsSetUserSettingApiVersion v1 = _$settingsSetUserSettingApiVersionV1;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsSetUserSettingApiVersion> get values => _$settingsSetUserSettingApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsSetUserSettingApiVersion valueOf(String name) => _$valueOfSettingsSetUserSettingApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsSetUserSettingApiVersion.
@@ -34550,14 +36122,18 @@ abstract class SettingsSetUserSettingResponseApplicationJson
 class SignalingGetSettingsApiVersion extends EnumClass {
   const SignalingGetSettingsApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingGetSettingsApiVersion v3 = _$signalingGetSettingsApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingGetSettingsApiVersion> get values => _$signalingGetSettingsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingGetSettingsApiVersion valueOf(String name) => _$valueOfSignalingGetSettingsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingGetSettingsApiVersion.
@@ -34908,15 +36484,19 @@ abstract class SignalingGetSettingsResponseApplicationJson
 class SignalingGetWelcomeMessageApiVersion extends EnumClass {
   const SignalingGetWelcomeMessageApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingGetWelcomeMessageApiVersion v3 = _$signalingGetWelcomeMessageApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingGetWelcomeMessageApiVersion> get values => _$signalingGetWelcomeMessageApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingGetWelcomeMessageApiVersion valueOf(String name) =>
       _$valueOfSignalingGetWelcomeMessageApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingGetWelcomeMessageApiVersion.
@@ -35044,14 +36624,18 @@ abstract class SignalingGetWelcomeMessageResponseApplicationJson
 class SignalingPullMessagesApiVersion extends EnumClass {
   const SignalingPullMessagesApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingPullMessagesApiVersion v3 = _$signalingPullMessagesApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingPullMessagesApiVersion> get values => _$signalingPullMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingPullMessagesApiVersion valueOf(String name) => _$valueOfSignalingPullMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingPullMessagesApiVersion.
@@ -35262,14 +36846,18 @@ abstract class SignalingPullMessagesResponseApplicationJson
 class SignalingSendMessagesApiVersion extends EnumClass {
   const SignalingSendMessagesApiVersion._(super.name);
 
+  /// `v3`
   static const SignalingSendMessagesApiVersion v3 = _$signalingSendMessagesApiVersionV3;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SignalingSendMessagesApiVersion> get values => _$signalingSendMessagesApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SignalingSendMessagesApiVersion valueOf(String name) => _$valueOfSignalingSendMessagesApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SignalingSendMessagesApiVersion.

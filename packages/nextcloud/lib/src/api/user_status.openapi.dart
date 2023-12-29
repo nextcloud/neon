@@ -1189,17 +1189,22 @@ abstract class HeartbeatHeartbeatResponseApplicationJson
 class ClearAt_Type extends EnumClass {
   const ClearAt_Type._(super.name);
 
+  /// `period`
   static const ClearAt_Type period = _$clearAtTypePeriod;
 
+  /// `end-of`
   @BuiltValueEnumConst(wireName: 'end-of')
   static const ClearAt_Type endOf = _$clearAtTypeEndOf;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ClearAt_Type> get values => _$clearAtTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ClearAt_Type valueOf(String name) => _$valueOfClearAt_Type(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ClearAt_Type.
@@ -1246,16 +1251,21 @@ class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
 class ClearAtTimeType extends EnumClass {
   const ClearAtTimeType._(super.name);
 
+  /// `day`
   static const ClearAtTimeType day = _$clearAtTimeTypeDay;
 
+  /// `week`
   static const ClearAtTimeType week = _$clearAtTimeTypeWeek;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ClearAtTimeType> get values => _$clearAtTimeTypeValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ClearAtTimeType valueOf(String name) => _$valueOfClearAtTimeType(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ClearAtTimeType.

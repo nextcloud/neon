@@ -10138,27 +10138,35 @@ abstract class TextProcessingApiTaskTypesResponseApplicationJson
 class TextProcessingTask_Status extends EnumClass {
   const TextProcessingTask_Status._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const TextProcessingTask_Status $0 = _$textProcessingTaskStatus$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const TextProcessingTask_Status $1 = _$textProcessingTaskStatus$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const TextProcessingTask_Status $2 = _$textProcessingTaskStatus$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const TextProcessingTask_Status $3 = _$textProcessingTaskStatus$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const TextProcessingTask_Status $4 = _$textProcessingTaskStatus$4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<TextProcessingTask_Status> get values => _$textProcessingTaskStatusValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static TextProcessingTask_Status valueOf(String name) => _$valueOfTextProcessingTask_Status(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for TextProcessingTask_Status.
@@ -10840,27 +10848,35 @@ abstract class TextToImageApiIsAvailableResponseApplicationJson
 class TextToImageTask_Status extends EnumClass {
   const TextToImageTask_Status._(super.name);
 
+  /// `0`
   @BuiltValueEnumConst(wireName: '0')
   static const TextToImageTask_Status $0 = _$textToImageTaskStatus$0;
 
+  /// `1`
   @BuiltValueEnumConst(wireName: '1')
   static const TextToImageTask_Status $1 = _$textToImageTaskStatus$1;
 
+  /// `2`
   @BuiltValueEnumConst(wireName: '2')
   static const TextToImageTask_Status $2 = _$textToImageTaskStatus$2;
 
+  /// `3`
   @BuiltValueEnumConst(wireName: '3')
   static const TextToImageTask_Status $3 = _$textToImageTaskStatus$3;
 
+  /// `4`
   @BuiltValueEnumConst(wireName: '4')
   static const TextToImageTask_Status $4 = _$textToImageTaskStatus$4;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<TextToImageTask_Status> get values => _$textToImageTaskStatusValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static TextToImageTask_Status valueOf(String name) => _$valueOfTextToImageTask_Status(name);
 
+  /// Returns the serialized value of this enum value.
   int get value => jsonSerializers.serializeWith(serializer, this)! as int;
 
   /// Serializer for TextToImageTask_Status.

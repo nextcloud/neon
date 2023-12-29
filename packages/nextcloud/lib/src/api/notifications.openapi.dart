@@ -1178,16 +1178,21 @@ class $SettingsClient {
 class ApiGenerateNotificationApiVersion extends EnumClass {
   const ApiGenerateNotificationApiVersion._(super.name);
 
+  /// `v1`
   static const ApiGenerateNotificationApiVersion v1 = _$apiGenerateNotificationApiVersionV1;
 
+  /// `v2`
   static const ApiGenerateNotificationApiVersion v2 = _$apiGenerateNotificationApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<ApiGenerateNotificationApiVersion> get values => _$apiGenerateNotificationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static ApiGenerateNotificationApiVersion valueOf(String name) => _$valueOfApiGenerateNotificationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for ApiGenerateNotificationApiVersion.
@@ -1348,16 +1353,21 @@ abstract class ApiGenerateNotificationResponseApplicationJson
 class EndpointListNotificationsApiVersion extends EnumClass {
   const EndpointListNotificationsApiVersion._(super.name);
 
+  /// `v1`
   static const EndpointListNotificationsApiVersion v1 = _$endpointListNotificationsApiVersionV1;
 
+  /// `v2`
   static const EndpointListNotificationsApiVersion v2 = _$endpointListNotificationsApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<EndpointListNotificationsApiVersion> get values => _$endpointListNotificationsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static EndpointListNotificationsApiVersion valueOf(String name) => _$valueOfEndpointListNotificationsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EndpointListNotificationsApiVersion.
@@ -1609,18 +1619,23 @@ abstract class EndpointListNotificationsResponseApplicationJson
 class EndpointDeleteAllNotificationsApiVersion extends EnumClass {
   const EndpointDeleteAllNotificationsApiVersion._(super.name);
 
+  /// `v1`
   static const EndpointDeleteAllNotificationsApiVersion v1 = _$endpointDeleteAllNotificationsApiVersionV1;
 
+  /// `v2`
   static const EndpointDeleteAllNotificationsApiVersion v2 = _$endpointDeleteAllNotificationsApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<EndpointDeleteAllNotificationsApiVersion> get values =>
       _$endpointDeleteAllNotificationsApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static EndpointDeleteAllNotificationsApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteAllNotificationsApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EndpointDeleteAllNotificationsApiVersion.
@@ -1750,16 +1765,21 @@ abstract class EndpointDeleteAllNotificationsResponseApplicationJson
 class EndpointGetNotificationApiVersion extends EnumClass {
   const EndpointGetNotificationApiVersion._(super.name);
 
+  /// `v1`
   static const EndpointGetNotificationApiVersion v1 = _$endpointGetNotificationApiVersionV1;
 
+  /// `v2`
   static const EndpointGetNotificationApiVersion v2 = _$endpointGetNotificationApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<EndpointGetNotificationApiVersion> get values => _$endpointGetNotificationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static EndpointGetNotificationApiVersion valueOf(String name) => _$valueOfEndpointGetNotificationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EndpointGetNotificationApiVersion.
@@ -1885,17 +1905,22 @@ abstract class EndpointGetNotificationResponseApplicationJson
 class EndpointDeleteNotificationApiVersion extends EnumClass {
   const EndpointDeleteNotificationApiVersion._(super.name);
 
+  /// `v1`
   static const EndpointDeleteNotificationApiVersion v1 = _$endpointDeleteNotificationApiVersionV1;
 
+  /// `v2`
   static const EndpointDeleteNotificationApiVersion v2 = _$endpointDeleteNotificationApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<EndpointDeleteNotificationApiVersion> get values => _$endpointDeleteNotificationApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static EndpointDeleteNotificationApiVersion valueOf(String name) =>
       _$valueOfEndpointDeleteNotificationApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EndpointDeleteNotificationApiVersion.
@@ -2025,16 +2050,21 @@ abstract class EndpointDeleteNotificationResponseApplicationJson
 class EndpointConfirmIdsForUserApiVersion extends EnumClass {
   const EndpointConfirmIdsForUserApiVersion._(super.name);
 
+  /// `v1`
   static const EndpointConfirmIdsForUserApiVersion v1 = _$endpointConfirmIdsForUserApiVersionV1;
 
+  /// `v2`
   static const EndpointConfirmIdsForUserApiVersion v2 = _$endpointConfirmIdsForUserApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<EndpointConfirmIdsForUserApiVersion> get values => _$endpointConfirmIdsForUserApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static EndpointConfirmIdsForUserApiVersion valueOf(String name) => _$valueOfEndpointConfirmIdsForUserApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for EndpointConfirmIdsForUserApiVersion.
@@ -2163,14 +2193,18 @@ abstract class EndpointConfirmIdsForUserResponseApplicationJson
 class PushRegisterDeviceApiVersion extends EnumClass {
   const PushRegisterDeviceApiVersion._(super.name);
 
+  /// `v2`
   static const PushRegisterDeviceApiVersion v2 = _$pushRegisterDeviceApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PushRegisterDeviceApiVersion> get values => _$pushRegisterDeviceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PushRegisterDeviceApiVersion valueOf(String name) => _$valueOfPushRegisterDeviceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PushRegisterDeviceApiVersion.
@@ -2325,14 +2359,18 @@ abstract class PushRegisterDeviceResponseApplicationJson
 class PushRemoveDeviceApiVersion extends EnumClass {
   const PushRemoveDeviceApiVersion._(super.name);
 
+  /// `v2`
   static const PushRemoveDeviceApiVersion v2 = _$pushRemoveDeviceApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<PushRemoveDeviceApiVersion> get values => _$pushRemoveDeviceApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static PushRemoveDeviceApiVersion valueOf(String name) => _$valueOfPushRemoveDeviceApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for PushRemoveDeviceApiVersion.
@@ -2453,14 +2491,18 @@ abstract class PushRemoveDeviceResponseApplicationJson
 class SettingsPersonalApiVersion extends EnumClass {
   const SettingsPersonalApiVersion._(super.name);
 
+  /// `v2`
   static const SettingsPersonalApiVersion v2 = _$settingsPersonalApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsPersonalApiVersion> get values => _$settingsPersonalApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsPersonalApiVersion valueOf(String name) => _$valueOfSettingsPersonalApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsPersonalApiVersion.
@@ -2581,14 +2623,18 @@ abstract class SettingsPersonalResponseApplicationJson
 class SettingsAdminApiVersion extends EnumClass {
   const SettingsAdminApiVersion._(super.name);
 
+  /// `v2`
   static const SettingsAdminApiVersion v2 = _$settingsAdminApiVersionV2;
 
+  /// Returns a set with all values this enum contains.
   // coverage:ignore-start
   static BuiltSet<SettingsAdminApiVersion> get values => _$settingsAdminApiVersionValues;
   // coverage:ignore-end
 
+  /// Returns the enum value associated to the [name].
   static SettingsAdminApiVersion valueOf(String name) => _$valueOfSettingsAdminApiVersion(name);
 
+  /// Returns the serialized value of this enum value.
   String get value => jsonSerializers.serializeWith(serializer, this)! as String;
 
   /// Serializer for SettingsAdminApiVersion.
