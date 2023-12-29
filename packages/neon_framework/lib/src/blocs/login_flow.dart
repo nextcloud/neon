@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -11,12 +9,17 @@ import 'package:nextcloud/core.dart' as core;
 import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc for running the Nextcloud Login Flow V2.
 sealed class LoginFlowBloc implements InteractiveBloc {
   @internal
   factory LoginFlowBloc(final Uri serverURL) => _LoginFlowBloc(serverURL);
 
+  /// Contains the initialization of the login flow.
   BehaviorSubject<Result<core.LoginFlowV2>> get init;
 
+  /// Emits the result of the login flow.
+  ///
+  /// Only gets called when the login flow was successful.
   Stream<core.LoginFlowV2Credentials> get result;
 }
 

@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -12,6 +10,7 @@ import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:nextcloud/uppush.dart' as uppush;
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc for checking NextPush compatibility.
 sealed class NextPushBloc implements Disposable {
   @internal
   factory NextPushBloc(
@@ -25,6 +24,7 @@ sealed class NextPushBloc implements Disposable {
         disabled: disabled,
       );
 
+  /// Emits if NextPush is supported by the server.
   BehaviorSubject<void> get onNextPushSupported;
 }
 

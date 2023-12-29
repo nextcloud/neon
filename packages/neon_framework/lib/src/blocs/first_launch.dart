@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:meta/meta.dart';
@@ -8,6 +6,7 @@ import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc that manages tasks that only need to run at the first launch of the app.
 sealed class FirstLaunchBloc implements Disposable {
   @internal
   factory FirstLaunchBloc({
@@ -15,6 +14,7 @@ sealed class FirstLaunchBloc implements Disposable {
   }) =>
       _FirstLaunchBloc(disabled: disabled);
 
+  /// Emits an event if the first launch tasks should be run.
   BehaviorSubject<void> get onFirstLaunch;
 }
 

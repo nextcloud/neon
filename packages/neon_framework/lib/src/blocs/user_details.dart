@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:meta/meta.dart';
@@ -10,10 +8,12 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc for managing the user details of the account.
 sealed class UserDetailsBloc implements InteractiveBloc {
   @internal
   factory UserDetailsBloc(final Account account) => _UserDetailsBloc(account);
 
+  /// Contains the user details.
   BehaviorSubject<Result<provisioning_api.UserDetails>> get userDetails;
 }
 
