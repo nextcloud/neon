@@ -103,7 +103,6 @@ const _$SettingsCategoriesEnumMap = {
   SettingsCategories.navigation: 'navigation',
   SettingsCategories.pushNotifications: 'push-notifications',
   SettingsCategories.startup: 'startup',
-  SettingsCategories.systemTray: 'system-tray',
   SettingsCategories.accounts: 'accounts',
   SettingsCategories.other: 'other',
 };

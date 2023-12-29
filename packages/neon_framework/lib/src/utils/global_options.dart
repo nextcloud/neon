@@ -78,8 +78,6 @@ class GlobalOptions extends OptionsCollection {
     pushNotificationsDistributor,
     startupMinimized,
     startupMinimizeInsteadOfExit,
-    systemTrayEnabled,
-    systemTrayHideToTrayWhenMinimized,
     rememberLastUsedAccount,
     initialAccount,
     navigationMode,
@@ -193,7 +191,6 @@ class GlobalOptions extends OptionsCollection {
   ///
   /// See:
   ///   * [minimizeInsteadOfExit]: for an option to minimize instead of closing the app.
-  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
   late final startupMinimized = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimized,
@@ -207,44 +204,11 @@ class GlobalOptions extends OptionsCollection {
   ///
   /// See:
   ///   * [startupMinimized]: for an option to startup in the minimized state.
-  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
   late final startupMinimizeInsteadOfExit = ToggleOption(
     storage: storage,
     key: GlobalOptionKeys.startupMinimizeInsteadOfExit,
     label: (final context) => NeonLocalizations.of(context).globalOptionsStartupMinimizeInsteadOfExit,
     defaultValue: false,
-  );
-
-  // TODO: Autostart option
-
-  /// Whether to enable the system tray.
-  ///
-  /// Defaults to `false`.
-  ///
-  /// See:
-  ///   * [systemTrayHideToTrayWhenMinimized]: to minimize the app to system tray.
-  late final systemTrayEnabled = ToggleOption(
-    storage: storage,
-    key: GlobalOptionKeys.systemTrayEnabled,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsSystemTrayEnabled,
-    defaultValue: false,
-  );
-
-  /// Whether to minimize to the system tray or not.
-  ///
-  /// Requires [systemTrayEnabled] to be true.
-  /// Defaults to `true`.
-  ///
-  /// See:
-  ///   * [systemTrayEnabled]: to enable the system tray.
-  ///   * [startupMinimized]: for an option to startup in the minimized state.
-  ///   * [minimizeInsteadOfExit]: for an option to minimize instead of closing the app.
-  late final systemTrayHideToTrayWhenMinimized = ToggleOption.depend(
-    storage: storage,
-    key: GlobalOptionKeys.systemTrayHideToTrayWhenMinimized,
-    label: (final context) => NeonLocalizations.of(context).globalOptionsSystemTrayHideToTrayWhenMinimized,
-    defaultValue: true,
-    enabled: systemTrayEnabled,
   );
 
   /// Whether to remember the last active account.
@@ -307,12 +271,6 @@ enum GlobalOptionKeys implements Storable {
 
   /// The storage key for [GlobalOptions.startupMinimizeInsteadOfExit]
   startupMinimizeInsteadOfExit._('startup-minimize-instead-of-exit'),
-
-  /// The storage key for [GlobalOptions.systemTrayEnabled]
-  systemTrayEnabled._('system-tray-enabled'),
-
-  /// The storage key for [GlobalOptions.systemTrayHideToTrayWhenMinimized]
-  systemTrayHideToTrayWhenMinimized._('system-tray-hide-to-tray-when-minimized'),
 
   /// The storage key for [GlobalOptions.rememberLastUsedAccount]
   rememberLastUsedAccount._('remember-last-used-account'),

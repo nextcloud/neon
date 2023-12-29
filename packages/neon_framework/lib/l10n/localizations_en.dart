@@ -225,9 +225,6 @@ class NeonLocalizationsEn extends NeonLocalizations {
   String get optionsCategoryStartup => 'Startup';
 
   @override
-  String get optionsCategorySystemTray => 'System tray';
-
-  @override
   String get optionsCategoryNavigation => 'Navigation';
 
   @override
@@ -293,12 +290,6 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String get globalOptionsStartupMinimizeInsteadOfExit => 'Minimize instead of exit';
-
-  @override
-  String get globalOptionsSystemTrayEnabled => 'Enable system tray';
-
-  @override
-  String get globalOptionsSystemTrayHideToTrayWhenMinimized => 'Hide to system tray when minimized';
 
   @override
   String get globalOptionsAccountsRememberLastUsedAccount => 'Remember last used account';

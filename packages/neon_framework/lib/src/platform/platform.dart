@@ -62,11 +62,6 @@ abstract interface class NeonPlatform {
   /// The support depends on `https://pub.dev/packages/quick_actions`.
   abstract final bool canUseQuickActions;
 
-  /// Whether this platform support system trays.
-  ///
-  /// The support depends on `https://pub.dev/packages/tray_manager`.
-  abstract final bool canUseSystemTray;
-
   /// Whether this platform supports managing the window.
   ///
   /// The support depends on `https://pub.dev/packages/window_manager`.

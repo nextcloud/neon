@@ -51,9 +51,6 @@ enum SettingsCategories {
   /// Startup category.
   startup,
 
-  /// System tray category.
-  systemTray,
-
   /// Account management category.
   ///
   /// Also includes the `AccountOptions`.
@@ -172,20 +169,6 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               ToggleSettingsTile(
                 option: globalOptions.startupMinimizeInsteadOfExit,
-              ),
-            ],
-          ),
-        ],
-        if (NeonPlatform.instance.canUseWindowManager && NeonPlatform.instance.canUseSystemTray) ...[
-          SettingsCategory(
-            title: Text(NeonLocalizations.of(context).optionsCategorySystemTray),
-            key: ValueKey(SettingsCategories.systemTray.name),
-            tiles: [
-              ToggleSettingsTile(
-                option: globalOptions.systemTrayEnabled,
-              ),
-              ToggleSettingsTile(
-                option: globalOptions.systemTrayHideToTrayWhenMinimized,
               ),
             ],
           ),
