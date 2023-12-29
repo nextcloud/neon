@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -10,8 +12,8 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 import 'package:rxdart/rxdart.dart';
 
-@internal
 sealed class LoginCheckAccountBloc implements InteractiveBloc {
+  @internal
   factory LoginCheckAccountBloc(
     final Uri serverURL,
     final String loginName,

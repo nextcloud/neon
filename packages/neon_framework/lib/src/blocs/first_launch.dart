@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 
 import 'package:meta/meta.dart';
@@ -6,8 +8,8 @@ import 'package:neon_framework/src/models/disposable.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
 import 'package:rxdart/rxdart.dart';
 
-@internal
 sealed class FirstLaunchBloc implements Disposable {
+  @internal
   factory FirstLaunchBloc({
     final bool disabled = false,
   }) =>

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/browser.dart';
 import 'package:neon_files/src/options.dart';
@@ -19,6 +20,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:universal_io/io.dart';
 
 sealed class FilesBloc implements InteractiveBloc {
+  @internal
   factory FilesBloc(
     final FilesOptions options,
     final Account account,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:built_collection/built_collection.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -9,6 +10,7 @@ import 'package:nextcloud/notes.dart' as notes;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesBloc implements InteractiveBloc {
+  @internal
   factory NotesBloc(
     final NotesOptions options,
     final Account account,

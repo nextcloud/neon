@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
@@ -11,6 +12,7 @@ import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesNoteBloc implements InteractiveBloc {
+  @internal
   factory NotesNoteBloc(
     final NotesBloc notesBloc,
     final Account account,

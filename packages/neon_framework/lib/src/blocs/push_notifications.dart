@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:async';
 import 'dart:convert';
 
@@ -14,8 +16,8 @@ import 'package:neon_framework/src/utils/push_utils.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 import 'package:unifiedpush/unifiedpush.dart';
 
-@internal
 sealed class PushNotificationsBloc {
+  @internal
   factory PushNotificationsBloc(
     final AccountsBloc accountsBloc,
     final GlobalOptions globalOptions,

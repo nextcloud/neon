@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:neon_files/src/options.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
@@ -8,6 +9,7 @@ import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 
 sealed class FilesBrowserBloc implements InteractiveBloc {
+  @internal
   factory FilesBrowserBloc(
     final FilesOptions options,
     final Account account, {

@@ -18,8 +18,8 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// The Bloc responsible for managing the [AppImplementation]s.
-@internal
 sealed class AppsBloc implements InteractiveBloc {
+  @internal
   factory AppsBloc(
     final CapabilitiesBloc capabilitiesBloc,
     final AccountsBloc accountsBloc,

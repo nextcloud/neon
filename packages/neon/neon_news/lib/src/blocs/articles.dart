@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:meta/meta.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/utils.dart';
@@ -20,6 +21,7 @@ enum ListType {
 }
 
 sealed class NewsArticlesBloc implements InteractiveBloc {
+  @internal
   factory NewsArticlesBloc(
     final NewsBloc newsBloc,
     final NewsOptions options,
