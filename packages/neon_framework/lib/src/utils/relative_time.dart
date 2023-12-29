@@ -2,18 +2,24 @@ import 'package:meta/meta.dart';
 
 /// Extension for formatting the difference between two [DateTime]s.
 @internal
-extension RelativeTimeFormat on DateTime {
+extension RelativeTimeFormatDateTime on DateTime {
   /// Format the relative time between this and [to].
   ///
   /// If unspecified [DateTime.now] will be used.
-  String formatRelative([final DateTime? to]) {
-    final now = to ?? DateTime.now();
-    var diff = now.difference(toLocal());
+  String formatRelative([final DateTime? to]) => (to ?? DateTime.now()).difference(toLocal()).formatRelative();
+}
+
+/// Extension for formatting difference of a [Duration].
+@internal
+extension RelativeTimeFormatDuration on Duration {
+  /// Format the relative time.
+  String formatRelative() {
+    var diff = this;
     final text = StringBuffer();
 
-    // Sometimes something can be messed up...
     if (diff.isNegative) {
-      if (diff.inMinutes >= 1) {
+      // Only add minus sign when not showing 'now'
+      if (diff.inMinutes <= -1) {
         text.write('-');
       }
       diff = Duration(microseconds: -diff.inMicroseconds);
