@@ -23,6 +23,7 @@ import 'package:uri/uri.dart';
 part 'spreed.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -32,6 +33,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -81,6 +83,7 @@ class $Client extends DynamiteClient {
 }
 
 class $AvatarClient {
+  /// Creates a new [DynamiteClient] for avatar requests.
   $AvatarClient(this._rootClient);
 
   final $Client _rootClient;
@@ -616,6 +619,7 @@ class $AvatarClient {
 }
 
 class $BotClient {
+  /// Creates a new [DynamiteClient] for bot requests.
   $BotClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1435,6 +1439,7 @@ class $BotClient {
 }
 
 class $BreakoutRoomClient {
+  /// Creates a new [DynamiteClient] for breakout_room requests.
   $BreakoutRoomClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2444,6 +2449,7 @@ class $BreakoutRoomClient {
 }
 
 class $CallClient {
+  /// Creates a new [DynamiteClient] for call requests.
   $CallClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3138,6 +3144,7 @@ class $CallClient {
 }
 
 class $CertificateClient {
+  /// Creates a new [DynamiteClient] for certificate requests.
   $CertificateClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3254,6 +3261,7 @@ class $CertificateClient {
 }
 
 class $ChatClient {
+  /// Creates a new [DynamiteClient] for chat requests.
   $ChatClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5045,6 +5053,7 @@ class $ChatClient {
 }
 
 class $FilesIntegrationClient {
+  /// Creates a new [DynamiteClient] for files_integration requests.
   $FilesIntegrationClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5281,6 +5290,7 @@ class $FilesIntegrationClient {
 }
 
 class $GuestClient {
+  /// Creates a new [DynamiteClient] for guest requests.
   $GuestClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5400,6 +5410,7 @@ class $GuestClient {
 }
 
 class $HostedSignalingServerClient {
+  /// Creates a new [DynamiteClient] for hosted_signaling_server requests.
   $HostedSignalingServerClient(this._rootClient);
 
   final $Client _rootClient;
@@ -5655,6 +5666,7 @@ class $HostedSignalingServerClient {
 }
 
 class $MatterbridgeClient {
+  /// Creates a new [DynamiteClient] for matterbridge requests.
   $MatterbridgeClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6099,6 +6111,7 @@ class $MatterbridgeClient {
 }
 
 class $MatterbridgeSettingsClient {
+  /// Creates a new [DynamiteClient] for matterbridge_settings requests.
   $MatterbridgeSettingsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6309,6 +6322,7 @@ class $MatterbridgeSettingsClient {
 }
 
 class $PollClient {
+  /// Creates a new [DynamiteClient] for poll requests.
   $PollClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6795,6 +6809,7 @@ class $PollClient {
 }
 
 class $PublicShareAuthClient {
+  /// Creates a new [DynamiteClient] for public_share_auth requests.
   $PublicShareAuthClient(this._rootClient);
 
   final $Client _rootClient;
@@ -6909,6 +6924,7 @@ class $PublicShareAuthClient {
 }
 
 class $ReactionClient {
+  /// Creates a new [DynamiteClient] for reaction requests.
   $ReactionClient(this._rootClient);
 
   final $Client _rootClient;
@@ -7276,6 +7292,7 @@ class $ReactionClient {
 }
 
 class $RecordingClient {
+  /// Creates a new [DynamiteClient] for recording requests.
   $RecordingClient(this._rootClient);
 
   final $Client _rootClient;
@@ -7954,6 +7971,7 @@ class $RecordingClient {
 }
 
 class $RoomClient {
+  /// Creates a new [DynamiteClient] for room requests.
   $RoomClient(this._rootClient);
 
   final $Client _rootClient;
@@ -12050,6 +12068,7 @@ class $RoomClient {
 }
 
 class $SettingsClient {
+  /// Creates a new [DynamiteClient] for settings requests.
   $SettingsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -12294,6 +12313,7 @@ class $SettingsClient {
 }
 
 class $SignalingClient {
+  /// Creates a new [DynamiteClient] for signaling requests.
   $SignalingClient(this._rootClient);
 
   final $Client _rootClient;
@@ -12734,6 +12754,7 @@ class $SignalingClient {
 }
 
 class $TempAvatarClient {
+  /// Creates a new [DynamiteClient] for temp_avatar requests.
   $TempAvatarClient(this._rootClient);
 
   final $Client _rootClient;

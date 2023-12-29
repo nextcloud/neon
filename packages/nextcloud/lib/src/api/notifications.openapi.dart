@@ -20,6 +20,7 @@ import 'package:uri/uri.dart';
 part 'notifications.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -29,6 +30,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -48,6 +50,7 @@ class $Client extends DynamiteClient {
 }
 
 class $ApiClient {
+  /// Creates a new [DynamiteClient] for api requests.
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -184,6 +187,7 @@ class $ApiClient {
 }
 
 class $EndpointClient {
+  /// Creates a new [DynamiteClient] for endpoint requests.
   $EndpointClient(this._rootClient);
 
   final $Client _rootClient;
@@ -695,6 +699,7 @@ class $EndpointClient {
 }
 
 class $PushClient {
+  /// Creates a new [DynamiteClient] for push requests.
   $PushClient(this._rootClient);
 
   final $Client _rootClient;
@@ -924,6 +929,7 @@ class $PushClient {
 }
 
 class $SettingsClient {
+  /// Creates a new [DynamiteClient] for settings requests.
   $SettingsClient(this._rootClient);
 
   final $Client _rootClient;

@@ -22,6 +22,7 @@ import 'package:uri/uri.dart';
 part 'files_sharing.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -31,6 +32,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -54,6 +56,7 @@ class $Client extends DynamiteClient {
 }
 
 class $DeletedShareapiClient {
+  /// Creates a new [DynamiteClient] for deleted_shareapi requests.
   $DeletedShareapiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -231,6 +234,7 @@ class $DeletedShareapiClient {
 }
 
 class $PublicPreviewClient {
+  /// Creates a new [DynamiteClient] for public_preview requests.
   $PublicPreviewClient(this._rootClient);
 
   final $Client _rootClient;
@@ -464,6 +468,7 @@ class $PublicPreviewClient {
 }
 
 class $RemoteClient {
+  /// Creates a new [DynamiteClient] for remote requests.
   $RemoteClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1002,6 +1007,7 @@ class $RemoteClient {
 }
 
 class $ShareInfoClient {
+  /// Creates a new [DynamiteClient] for share_info requests.
   $ShareInfoClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1117,6 +1123,7 @@ class $ShareInfoClient {
 }
 
 class $ShareapiClient {
+  /// Creates a new [DynamiteClient] for shareapi requests.
   $ShareapiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2078,6 +2085,7 @@ class $ShareapiClient {
 }
 
 class $ShareesapiClient {
+  /// Creates a new [DynamiteClient] for shareesapi requests.
   $ShareesapiClient(this._rootClient);
 
   final $Client _rootClient;

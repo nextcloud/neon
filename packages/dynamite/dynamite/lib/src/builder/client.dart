@@ -26,24 +26,29 @@ Iterable<Class> generateClients(
   yield buildRootClient(spec, state, tags);
 
   for (final tag in tags) {
-    yield buildClient(spec, state, tags, tag);
+    yield buildClient(spec, state, tag);
   }
 }
 
 Class buildRootClient(
   final openapi.OpenAPI spec,
   final State state,
-  final List<String> tags,
+  final Set<openapi.Tag> tags,
 ) =>
     Class(
       (final b) {
+        final rootTag = spec.tags?.firstWhereOrNull((final tag) => tag.name.isEmpty);
+        if (rootTag != null) {
+          b.docs.addAll(rootTag.formattedDescription);
+        }
+
         b
           ..extend = refer('DynamiteClient')
           ..name = r'$Client'
-          ..docs.addAll(spec.formattedTagsFor(null))
           ..constructors.addAll([
             Constructor(
               (final b) => b
+                ..docs.add('/// Creates a new [DynamiteClient] for untagged requests.')
                 ..requiredParameters.add(
                   Parameter(
                     (final b) => b
@@ -88,6 +93,7 @@ Class buildRootClient(
             ),
             Constructor(
               (final b) => b
+                ..docs.add(r'/// Creates a new [$Client] from another [client].')
                 ..name = 'fromClient'
                 ..requiredParameters.add(
                   Parameter(
@@ -110,13 +116,14 @@ super(
             ),
           ]);
 
-        for (final tag in tags.where((final t) => !t.contains('/'))) {
-          final client = clientName(tag);
+        for (final tag in tags) {
+          final client = clientName(tag.name);
 
           b.methods.add(
             Method(
               (final b) => b
-                ..name = toDartName(tag)
+                ..docs.addAll(tag.formattedDescription)
+                ..name = toDartName(tag.name)
                 ..lambda = true
                 ..type = MethodType.getter
                 ..returns = refer(client)
@@ -132,23 +139,25 @@ super(
 Class buildClient(
   final openapi.OpenAPI spec,
   final State state,
-  final List<String> tags,
-  final String tag,
+  final openapi.Tag tag,
 ) =>
     Class(
       (final b) {
+        final name = clientName(tag.name);
         b
-          ..name = clientName(tag)
-          ..docs.addAll(spec.formattedTagsFor(tag))
+          ..docs.addAll(tag.formattedDescription)
+          ..name = name
           ..constructors.add(
             Constructor(
-              (final b) => b.requiredParameters.add(
-                Parameter(
-                  (final b) => b
-                    ..name = '_rootClient'
-                    ..toThis = true,
+              (final b) => b
+                ..docs.add('/// Creates a new [DynamiteClient] for ${tag.name} requests.')
+                ..requiredParameters.add(
+                  Parameter(
+                    (final b) => b
+                      ..name = '_rootClient'
+                      ..toThis = true,
+                  ),
                 ),
-              ),
             ),
           )
           ..fields.add(
@@ -160,20 +169,7 @@ Class buildClient(
             ),
           );
 
-        for (final t in tags.where((final t) => t.startsWith('$tag/'))) {
-          b.methods.add(
-            Method(
-              (final b) => b
-                ..name = toDartName(t.substring('$tag/'.length))
-                ..lambda = true
-                ..type = MethodType.getter
-                ..returns = refer(clientName(t))
-                ..body = Code('${clientName(t)}(_rootClient)'),
-            ),
-          );
-        }
-
-        b.methods.addAll(buildTags(spec, state, tag));
+        b.methods.addAll(buildTags(spec, state, tag.name));
       },
     );
 
@@ -614,23 +610,24 @@ Map<String, openapi.PathItem> generatePaths(final openapi.OpenAPI spec, final St
   return paths;
 }
 
-List<String> generateTags(final openapi.OpenAPI spec) {
-  final tags = <String>[];
+Set<openapi.Tag> generateTags(final openapi.OpenAPI spec) {
+  final tags = <openapi.Tag>[];
 
   if (spec.paths != null) {
     for (final pathItem in spec.paths!.values) {
       for (final operation in pathItem.operations.values) {
         if (operation.tags != null) {
-          for (final tag in operation.tags!) {
-            final tagPart = tag.split('/').first;
-            if (!tags.contains(tagPart)) {
-              tags.add(tagPart);
-            }
-          }
+          tags.addAll(
+            operation.tags!.map((final name) {
+              final tag = spec.tags?.firstWhereOrNull((final tag) => tag.name == name);
+              return tag ?? openapi.Tag((final b) => b..name = name);
+            }),
+          );
         }
       }
     }
   }
 
-  return tags..sort((final a, final b) => a.compareTo(b));
+  tags.sort((final a, final b) => a.name.compareTo(b.name));
+  return tags.toSet();
 }

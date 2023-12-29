@@ -23,6 +23,7 @@ import 'package:uri/uri.dart';
 part 'core.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -32,6 +33,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -45,18 +47,21 @@ class $Client extends DynamiteClient {
 
   $AutoCompleteClient get autoComplete => $AutoCompleteClient(this);
 
+  /// Class AvatarController.
   $AvatarClient get avatar => $AvatarClient(this);
 
   $ClientFlowLoginV2Client get clientFlowLoginV2 => $ClientFlowLoginV2Client(this);
 
   $CollaborationResourcesClient get collaborationResources => $CollaborationResourcesClient(this);
 
+  /// This controller handles guest avatar requests.
   $GuestAvatarClient get guestAvatar => $GuestAvatarClient(this);
 
   $HoverCardClient get hoverCard => $HoverCardClient(this);
 
   $NavigationClient get navigation => $NavigationClient(this);
 
+  /// Controller about the endpoint /ocm-provider/.
   $OcmClient get ocm => $OcmClient(this);
 
   $OcsClient get ocs => $OcsClient(this);
@@ -128,6 +133,7 @@ class $Client extends DynamiteClient {
 }
 
 class $AppPasswordClient {
+  /// Creates a new [DynamiteClient] for app_password requests.
   $AppPasswordClient(this._rootClient);
 
   final $Client _rootClient;
@@ -384,6 +390,7 @@ class $AppPasswordClient {
 }
 
 class $AutoCompleteClient {
+  /// Creates a new [DynamiteClient] for auto_complete requests.
   $AutoCompleteClient(this._rootClient);
 
   final $Client _rootClient;
@@ -526,6 +533,7 @@ class $AutoCompleteClient {
 
 /// Class AvatarController.
 class $AvatarClient {
+  /// Creates a new [DynamiteClient] for avatar requests.
   $AvatarClient(this._rootClient);
 
   final $Client _rootClient;
@@ -712,6 +720,7 @@ class $AvatarClient {
 }
 
 class $ClientFlowLoginV2Client {
+  /// Creates a new [DynamiteClient] for client_flow_login_v2 requests.
   $ClientFlowLoginV2Client(this._rootClient);
 
   final $Client _rootClient;
@@ -860,6 +869,7 @@ class $ClientFlowLoginV2Client {
 }
 
 class $CollaborationResourcesClient {
+  /// Creates a new [DynamiteClient] for collaboration_resources requests.
   $CollaborationResourcesClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1604,6 +1614,7 @@ class $CollaborationResourcesClient {
 
 /// This controller handles guest avatar requests.
 class $GuestAvatarClient {
+  /// Creates a new [DynamiteClient] for guest_avatar requests.
   $GuestAvatarClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1803,6 +1814,7 @@ class $GuestAvatarClient {
 }
 
 class $HoverCardClient {
+  /// Creates a new [DynamiteClient] for hover_card requests.
   $HoverCardClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1902,6 +1914,7 @@ class $HoverCardClient {
 }
 
 class $NavigationClient {
+  /// Creates a new [DynamiteClient] for navigation requests.
   $NavigationClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2097,6 +2110,7 @@ class $NavigationClient {
 
 /// Controller about the endpoint /ocm-provider/.
 class $OcmClient {
+  /// Creates a new [DynamiteClient] for ocm requests.
   $OcmClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2169,6 +2183,7 @@ class $OcmClient {
 }
 
 class $OcsClient {
+  /// Creates a new [DynamiteClient] for ocs requests.
   $OcsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2253,6 +2268,7 @@ class $OcsClient {
 }
 
 class $PreviewClient {
+  /// Creates a new [DynamiteClient] for preview requests.
   $PreviewClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2551,6 +2567,7 @@ class $PreviewClient {
 }
 
 class $ProfileApiClient {
+  /// Creates a new [DynamiteClient] for profile_api requests.
   $ProfileApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2670,6 +2687,7 @@ class $ProfileApiClient {
 }
 
 class $ReferenceClient {
+  /// Creates a new [DynamiteClient] for reference requests.
   $ReferenceClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2754,6 +2772,7 @@ class $ReferenceClient {
 }
 
 class $ReferenceApiClient {
+  /// Creates a new [DynamiteClient] for reference_api requests.
   $ReferenceApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3242,6 +3261,7 @@ class $ReferenceApiClient {
 }
 
 class $TextProcessingApiClient {
+  /// Creates a new [DynamiteClient] for text_processing_api requests.
   $TextProcessingApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -3736,6 +3756,7 @@ class $TextProcessingApiClient {
 }
 
 class $TextToImageApiClient {
+  /// Creates a new [DynamiteClient] for text_to_image_api requests.
   $TextToImageApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -4330,6 +4351,7 @@ class $TextToImageApiClient {
 }
 
 class $TranslationApiClient {
+  /// Creates a new [DynamiteClient] for translation_api requests.
   $TranslationApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -4526,6 +4548,7 @@ class $TranslationApiClient {
 }
 
 class $UnifiedSearchClient {
+  /// Creates a new [DynamiteClient] for unified_search requests.
   $UnifiedSearchClient(this._rootClient);
 
   final $Client _rootClient;
@@ -4765,6 +4788,7 @@ class $UnifiedSearchClient {
 }
 
 class $WhatsNewClient {
+  /// Creates a new [DynamiteClient] for whats_new requests.
   $WhatsNewClient(this._rootClient);
 
   final $Client _rootClient;
@@ -4944,6 +4968,7 @@ class $WhatsNewClient {
 }
 
 class $WipeClient {
+  /// Creates a new [DynamiteClient] for wipe requests.
   $WipeClient(this._rootClient);
 
   final $Client _rootClient;

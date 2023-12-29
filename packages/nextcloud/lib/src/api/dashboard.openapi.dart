@@ -20,6 +20,7 @@ import 'package:uri/uri.dart';
 part 'dashboard.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -29,6 +30,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -42,6 +44,7 @@ class $Client extends DynamiteClient {
 }
 
 class $DashboardApiClient {
+  /// Creates a new [DynamiteClient] for dashboard_api requests.
   $DashboardApiClient(this._rootClient);
 
   final $Client _rootClient;

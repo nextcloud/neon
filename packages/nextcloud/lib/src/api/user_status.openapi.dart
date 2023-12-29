@@ -20,6 +20,7 @@ import 'package:uri/uri.dart';
 part 'user_status.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -29,6 +30,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -48,6 +50,7 @@ class $Client extends DynamiteClient {
 }
 
 class $HeartbeatClient {
+  /// Creates a new [DynamiteClient] for heartbeat requests.
   $HeartbeatClient(this._rootClient);
 
   final $Client _rootClient;
@@ -151,6 +154,7 @@ class $HeartbeatClient {
 }
 
 class $PredefinedStatusClient {
+  /// Creates a new [DynamiteClient] for predefined_status requests.
   $PredefinedStatusClient(this._rootClient);
 
   final $Client _rootClient;
@@ -235,6 +239,7 @@ class $PredefinedStatusClient {
 }
 
 class $StatusesClient {
+  /// Creates a new [DynamiteClient] for statuses requests.
   $StatusesClient(this._rootClient);
 
   final $Client _rootClient;
@@ -433,6 +438,7 @@ class $StatusesClient {
 }
 
 class $UserStatusClient {
+  /// Creates a new [DynamiteClient] for user_status requests.
   $UserStatusClient(this._rootClient);
 
   final $Client _rootClient;

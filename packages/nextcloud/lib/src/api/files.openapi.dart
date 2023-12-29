@@ -22,6 +22,7 @@ import 'package:uri/uri.dart';
 part 'files.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -31,6 +32,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -52,6 +54,7 @@ class $Client extends DynamiteClient {
 }
 
 class $ApiClient {
+  /// Creates a new [DynamiteClient] for api requests.
   $ApiClient(this._rootClient);
 
   final $Client _rootClient;
@@ -161,6 +164,7 @@ class $ApiClient {
 }
 
 class $DirectEditingClient {
+  /// Creates a new [DynamiteClient] for direct_editing requests.
   $DirectEditingClient(this._rootClient);
 
   final $Client _rootClient;
@@ -580,6 +584,7 @@ class $DirectEditingClient {
 }
 
 class $OpenLocalEditorClient {
+  /// Creates a new [DynamiteClient] for open_local_editor requests.
   $OpenLocalEditorClient(this._rootClient);
 
   final $Client _rootClient;
@@ -780,6 +785,7 @@ class $OpenLocalEditorClient {
 }
 
 class $TemplateClient {
+  /// Creates a new [DynamiteClient] for template requests.
   $TemplateClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1080,6 +1086,7 @@ class $TemplateClient {
 }
 
 class $TransferOwnershipClient {
+  /// Creates a new [DynamiteClient] for transfer_ownership requests.
   $TransferOwnershipClient(this._rootClient);
 
   final $Client _rootClient;

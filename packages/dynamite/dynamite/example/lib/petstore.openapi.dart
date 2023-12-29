@@ -20,6 +20,7 @@ import 'package:uri/uri.dart';
 part 'petstore.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -28,6 +29,7 @@ class $Client extends DynamiteClient {
     super.cookieJar,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,

@@ -25,7 +25,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
 
   bool get deprecated;
 
-  BuiltList<String>? get tags;
+  BuiltSet<String>? get tags;
 
   BuiltList<Parameter>? get parameters;
 

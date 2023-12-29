@@ -27,7 +27,7 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
 
   BuiltList<BuiltMap<String, BuiltList<String>>>? get security;
 
-  BuiltList<Tag>? get tags;
+  BuiltSet<Tag>? get tags;
 
   Components? get components;
 
@@ -53,14 +53,6 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
           'Path parameters must only contain alphanumeric characters, underscores or percent encoded values: $path',
         );
       }
-    }
-  }
-
-  Iterable<String> formattedTagsFor(final String? tag) sync* {
-    final matchedTags = tags?.where((final t) => t.name == tag);
-
-    if (matchedTags != null && matchedTags.isNotEmpty) {
-      yield* matchedTags.single.formattedDescription;
     }
   }
 }

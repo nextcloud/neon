@@ -42,7 +42,7 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
     if (value != null) {
       result
         ..add('tags')
-        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(Tag)])));
+        ..add(serializers.serialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)])));
     }
     value = object.components;
     if (value != null) {
@@ -91,8 +91,8 @@ class _$OpenAPISerializer implements StructuredSerializer<OpenAPI> {
               ]))! as BuiltList<Object?>);
           break;
         case 'tags':
-          result.tags.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Tag)]))!
-              as BuiltList<Object?>);
+          result.tags.replace(serializers.deserialize(value, specifiedType: const FullType(BuiltSet, [FullType(Tag)]))!
+              as BuiltSet<Object?>);
           break;
         case 'components':
           result.components
@@ -119,7 +119,7 @@ class _$OpenAPI extends OpenAPI {
   @override
   final BuiltList<BuiltMap<String, BuiltList<String>>>? security;
   @override
-  final BuiltList<Tag>? tags;
+  final BuiltSet<Tag>? tags;
   @override
   final Components? components;
   @override
@@ -208,9 +208,9 @@ class OpenAPIBuilder implements Builder<OpenAPI, OpenAPIBuilder> {
       _$this._security ??= ListBuilder<BuiltMap<String, BuiltList<String>>>();
   set security(ListBuilder<BuiltMap<String, BuiltList<String>>>? security) => _$this._security = security;
 
-  ListBuilder<Tag>? _tags;
-  ListBuilder<Tag> get tags => _$this._tags ??= ListBuilder<Tag>();
-  set tags(ListBuilder<Tag>? tags) => _$this._tags = tags;
+  SetBuilder<Tag>? _tags;
+  SetBuilder<Tag> get tags => _$this._tags ??= SetBuilder<Tag>();
+  set tags(SetBuilder<Tag>? tags) => _$this._tags = tags;
 
   ComponentsBuilder? _components;
   ComponentsBuilder get components => _$this._components ??= ComponentsBuilder();

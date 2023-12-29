@@ -21,6 +21,7 @@ import 'package:uri/uri.dart';
 part 'provisioning_api.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -30,6 +31,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -51,6 +53,7 @@ class $Client extends DynamiteClient {
 }
 
 class $AppConfigClient {
+  /// Creates a new [DynamiteClient] for app_config requests.
   $AppConfigClient(this._rootClient);
 
   final $Client _rootClient;
@@ -566,6 +569,7 @@ class $AppConfigClient {
 }
 
 class $AppsClient {
+  /// Creates a new [DynamiteClient] for apps requests.
   $AppsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -952,6 +956,7 @@ class $AppsClient {
 }
 
 class $GroupsClient {
+  /// Creates a new [DynamiteClient] for groups requests.
   $GroupsClient(this._rootClient);
 
   final $Client _rootClient;
@@ -1893,6 +1898,7 @@ class $GroupsClient {
 }
 
 class $PreferencesClient {
+  /// Creates a new [DynamiteClient] for preferences requests.
   $PreferencesClient(this._rootClient);
 
   final $Client _rootClient;
@@ -2322,6 +2328,7 @@ class $PreferencesClient {
 }
 
 class $UsersClient {
+  /// Creates a new [DynamiteClient] for users requests.
   $UsersClient(this._rootClient);
 
   final $Client _rootClient;

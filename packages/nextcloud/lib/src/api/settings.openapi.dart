@@ -18,6 +18,7 @@ import 'package:universal_io/io.dart';
 part 'settings.openapi.g.dart';
 
 class $Client extends DynamiteClient {
+  /// Creates a new [DynamiteClient] for untagged requests.
   $Client(
     super.baseURL, {
     super.baseHeaders,
@@ -27,6 +28,7 @@ class $Client extends DynamiteClient {
     super.authentications,
   });
 
+  /// Creates a new [$Client] from another [client].
   $Client.fromClient(DynamiteClient client)
       : super(
           client.baseURL,
@@ -40,6 +42,7 @@ class $Client extends DynamiteClient {
 }
 
 class $LogSettingsClient {
+  /// Creates a new [DynamiteClient] for log_settings requests.
   $LogSettingsClient(this._rootClient);
 
   final $Client _rootClient;

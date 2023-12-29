@@ -44,22 +44,10 @@ Serializers _$serializers = (Serializers().toBuilder()
             ])
           ]),
           () => ListBuilder<BuiltMap<String, BuiltList<String>>>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Tag)]), () => ListBuilder<Tag>())
+      ..addBuilderFactory(const FullType(BuiltSet, [FullType(Tag)]), () => SetBuilder<Tag>())
       ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(PathItem)]), () => MapBuilder<String, PathItem>())
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), () => ListBuilder<String>())
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Parameter)]), () => ListBuilder<Parameter>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(Response)]), () => MapBuilder<String, Response>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, [
-            FullType(BuiltMap, [
-              FullType(String),
-              FullType(BuiltList, [FullType(String)])
-            ])
-          ]),
-          () => ListBuilder<BuiltMap<String, BuiltList<String>>>())
       ..addBuilderFactory(
           const FullType(BuiltMap, [FullType(String), FullType(MediaType)]), () => MapBuilder<String, MediaType>())
       ..addBuilderFactory(
@@ -75,7 +63,19 @@ Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(ServerVariable)]),
           () => MapBuilder<String, ServerVariable>())
       ..addBuilderFactory(
-          const FullType(BuiltMap, [FullType(String), FullType(String)]), () => MapBuilder<String, String>()))
+          const FullType(BuiltMap, [FullType(String), FullType(String)]), () => MapBuilder<String, String>())
+      ..addBuilderFactory(const FullType(BuiltSet, [FullType(String)]), () => SetBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, [FullType(Parameter)]), () => ListBuilder<Parameter>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, [FullType(String), FullType(Response)]), () => MapBuilder<String, Response>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, [
+            FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(String)])
+            ])
+          ]),
+          () => ListBuilder<BuiltMap<String, BuiltList<String>>>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint
