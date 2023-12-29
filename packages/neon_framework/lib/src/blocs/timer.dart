@@ -1,24 +1,22 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 import 'dart:ui';
 
 import 'package:meta/meta.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 
+/// Bloc for managing periodic timers.
 sealed class TimerBloc extends Bloc {
-  factory TimerBloc() => instance ??= _TimerBloc._();
+  factory TimerBloc() => _instance ??= _TimerBloc._();
 
   @visibleForTesting
-  factory TimerBloc.mocked(final TimerBloc mock) => instance ??= mock;
+  factory TimerBloc.mocked(final TimerBloc mock) => _instance ??= mock;
 
-  @visibleForTesting
-  static TimerBloc? instance;
+  static TimerBloc? _instance;
 
   @override
   void dispose() {
-    TimerBloc.instance?.dispose();
-    TimerBloc.instance = null;
+    TimerBloc._instance?.dispose();
+    TimerBloc._instance = null;
   }
 
   /// Register a [callback] that will be called periodically.
@@ -29,9 +27,11 @@ sealed class TimerBloc extends Bloc {
   /// You can also use [NeonTimer.cancel].
   void unregisterTimer(final NeonTimer timer);
 
+  /// Registered timers.
   @visibleForTesting
   Map<int, Timer> get timers;
 
+  /// Registered callbacks.
   @visibleForTesting
   Map<int, Set<VoidCallback>> get callbacks;
 }
@@ -70,7 +70,7 @@ class _TimerBloc implements TimerBloc {
     } else {
       callbacks[duration.inSeconds]!.add(callback);
     }
-    return NeonTimer(duration, callback);
+    return NeonTimer._(duration, callback);
   }
 
   @override
@@ -81,15 +81,20 @@ class _TimerBloc implements TimerBloc {
   }
 }
 
+/// A timer containing a [duration] and a [callback].
 class NeonTimer {
-  NeonTimer(
+  NeonTimer._(
     this.duration,
     this.callback,
   );
 
+  /// Duration between executions
   final Duration duration;
+
+  /// Callback to execute.
   final VoidCallback callback;
 
+  /// Cancel the timer.
   void cancel() {
     TimerBloc().unregisterTimer(this);
   }

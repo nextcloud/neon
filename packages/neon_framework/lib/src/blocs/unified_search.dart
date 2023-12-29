@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:collection/collection.dart';
@@ -12,6 +10,7 @@ import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc for managing unified search.
 sealed class UnifiedSearchBloc implements InteractiveBloc {
   @internal
   factory UnifiedSearchBloc(
@@ -23,14 +22,19 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
         account,
       );
 
+  /// Search for a [term].
   void search(final String term);
 
+  /// Enable unified search.
   void enable();
 
+  /// Disable unified search.
   void disable();
 
+  /// Contains whether unified search is currently enabled.
   BehaviorSubject<bool> get enabled;
 
+  /// Contains the unified search results mapped by provider.
   BehaviorSubject<Result<Map<core.UnifiedSearchProvider, Result<core.UnifiedSearchResult>>?>> get results;
 }
 

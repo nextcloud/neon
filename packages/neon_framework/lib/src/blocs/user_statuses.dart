@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -15,12 +13,17 @@ import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:rxdart/rxdart.dart';
 import 'package:window_manager/window_manager.dart';
 
+/// Bloc for managing user statuses.
 sealed class UserStatusesBloc implements Disposable {
   @internal
   factory UserStatusesBloc(final Account account) => _UserStatusesBloc(account);
 
+  /// Load the user status of the user with the [username] on the same server.
+  ///
+  /// Set [force] to true to load the status even if one has already been loaded.
   void load(final String username, {final bool force = false});
 
+  /// All user status mapped by username.
   BehaviorSubject<Map<String, Result<user_status.$PublicInterface?>>> get statuses;
 }
 

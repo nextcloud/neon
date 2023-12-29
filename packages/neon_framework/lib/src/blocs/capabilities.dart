@@ -1,5 +1,3 @@
-// ignore_for_file: public_member_api_docs
-
 import 'dart:async';
 
 import 'package:meta/meta.dart';
@@ -10,11 +8,13 @@ import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:nextcloud/core.dart' as core;
 import 'package:rxdart/rxdart.dart';
 
+/// Bloc that manages the server capabilities
 sealed class CapabilitiesBloc implements InteractiveBloc {
   /// Creates a new capabilities bloc.
   @internal
   factory CapabilitiesBloc(final Account account) => _CapabilitiesBloc(account);
 
+  /// The capabilities of the server.
   BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> get capabilities;
 }
 
