@@ -17,9 +17,9 @@ extension RelativeTimeFormatDuration on Duration {
     var diff = this;
     final text = StringBuffer();
 
-    // Sometimes something can be messed up...
     if (diff.isNegative) {
-      if (diff.inMinutes >= 1) {
+      // Only add minus sign when not showing 'now'
+      if (diff.inMinutes <= -1) {
         text.write('-');
       }
       diff = Duration(microseconds: -diff.inMicroseconds);
