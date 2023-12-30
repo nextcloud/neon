@@ -4,7 +4,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 // ignore_for_file: public_member_api_docs, unreachable_switch_case
 
-@experimental
+@_i4.experimental
 library; // ignore_for_file: no_leading_underscores_for_library_prefixes
 
 import 'dart:convert';
@@ -14,13 +14,13 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart';
-import 'package:uri/uri.dart';
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'notes.openapi.g.dart';
 
@@ -99,7 +99,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getNotes] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<BuiltList<Note>, void> getNotesRaw({
     String? category,
     String? exclude,
@@ -154,7 +154,7 @@ class $Client extends _i1.DynamiteClient {
     }
 
     final _path =
-        UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
+        _i3.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,exclude*,pruneBefore*,chunkSize*,chunkCursor*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<BuiltList<Note>, void>(
       response: executeRequest(
@@ -220,7 +220,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [createNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<Note, void> createNoteRaw({
     String? category,
     String? title,
@@ -270,7 +270,7 @@ class $Client extends _i1.DynamiteClient {
     $favorite ??= 0;
     _parameters['favorite'] = $favorite;
 
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
+    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes{?category*,title*,content*,modified*,favorite*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
@@ -326,7 +326,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<Note, void> getNoteRaw({
     required int id,
     String? exclude,
@@ -366,7 +366,7 @@ class $Client extends _i1.DynamiteClient {
       _headers['If-None-Match'] = const _i2.HeaderEncoder().convert($ifNoneMatch);
     }
 
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?exclude*}').expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'get',
@@ -437,7 +437,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [updateNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<Note, void> updateNoteRaw({
     required int id,
     String? content,
@@ -492,8 +492,9 @@ class $Client extends _i1.DynamiteClient {
       _headers['If-Match'] = const _i2.HeaderEncoder().convert($ifMatch);
     }
 
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
-        .expand(_parameters);
+    final _path =
+        _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}{?content*,modified*,title*,category*,favorite*}')
+            .expand(_parameters);
     return _i1.DynamiteRawResponse<Note, void>(
       response: executeRequest(
         'put',
@@ -534,7 +535,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deleteNote] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<String, void> deleteNoteRaw({required int id}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{
@@ -561,7 +562,7 @@ class $Client extends _i1.DynamiteClient {
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _path = UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
+    final _path = _i3.UriTemplate('/index.php/apps/notes/api/v1/notes/{id}').expand(_parameters);
     return _i1.DynamiteRawResponse<String, void>(
       response: executeRequest(
         'delete',
@@ -600,7 +601,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [getSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<Settings, void> getSettingsRaw() {
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -664,7 +665,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [updateSettings] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<Settings, void> updateSettingsRaw({required Settings settings}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -1014,7 +1015,7 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
@@ -1041,12 +1042,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

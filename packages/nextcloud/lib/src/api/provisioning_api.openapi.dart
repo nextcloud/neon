@@ -10,14 +10,14 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i4;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
 import 'package:collection/collection.dart';
-import 'package:dynamite_runtime/built_value.dart' as _i3;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
 import 'package:dynamite_runtime/http_client.dart' as _i1;
 import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i2;
-import 'package:meta/meta.dart';
-import 'package:uri/uri.dart';
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i3;
 
 part 'provisioning_api.openapi.g.dart';
 
@@ -99,7 +99,7 @@ class $AppConfigClient {
   ///
   /// See:
   ///  * [getApps] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppConfigGetAppsResponseApplicationJson, void> getAppsRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -189,7 +189,7 @@ class $AppConfigClient {
   ///
   /// See:
   ///  * [getKeys] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void> getKeysRaw({
     required String app,
     bool? oCSAPIRequest,
@@ -223,7 +223,7 @@ class $AppConfigClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppConfigGetKeysResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -294,7 +294,7 @@ class $AppConfigClient {
   ///
   /// See:
   ///  * [getValue] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void> getValueRaw({
     required String app,
     required String key,
@@ -337,7 +337,7 @@ class $AppConfigClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?defaultValue*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<AppConfigGetValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -405,7 +405,7 @@ class $AppConfigClient {
   ///
   /// See:
   ///  * [setValue] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void> setValueRaw({
     required String value,
     required String app,
@@ -447,8 +447,8 @@ class $AppConfigClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}{?value*}')
+        .expand(_parameters);
     return _i1.DynamiteRawResponse<AppConfigSetValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -515,7 +515,7 @@ class $AppConfigClient {
   ///
   /// See:
   ///  * [deleteKey] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void> deleteKeyRaw({
     required String app,
     required String key,
@@ -553,7 +553,8 @@ class $AppConfigClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/apps/{app}/{key}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppConfigDeleteKeyResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -621,7 +622,7 @@ class $AppsClient {
   ///
   /// See:
   ///  * [getApps] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void> getAppsRaw({
     String? filter,
     bool? oCSAPIRequest,
@@ -655,7 +656,7 @@ class $AppsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps{?filter*}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppsGetAppsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -716,7 +717,7 @@ class $AppsClient {
   ///
   /// See:
   ///  * [getAppInfo] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void> getAppInfoRaw({
     required String app,
     bool? oCSAPIRequest,
@@ -750,7 +751,7 @@ class $AppsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppsGetAppInfoResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -811,7 +812,7 @@ class $AppsClient {
   ///
   /// See:
   ///  * [enable] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppsEnableResponseApplicationJson, void> enableRaw({
     required String app,
     bool? oCSAPIRequest,
@@ -845,7 +846,7 @@ class $AppsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppsEnableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -906,7 +907,7 @@ class $AppsClient {
   ///
   /// See:
   ///  * [disable] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<AppsDisableResponseApplicationJson, void> disableRaw({
     required String app,
     bool? oCSAPIRequest,
@@ -940,7 +941,7 @@ class $AppsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/apps/{app}').expand(_parameters);
     return _i1.DynamiteRawResponse<AppsDisableResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1012,7 +1013,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getGroups] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void> getGroupsRaw({
     String? search,
     int? limit,
@@ -1056,7 +1057,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups{?search*,limit*,offset*}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1121,7 +1122,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [addGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void> addGroupRaw({
     required String groupid,
     String? displayname,
@@ -1160,7 +1161,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups{?groupid*,displayname*}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsAddGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -1225,7 +1226,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getGroupsDetails] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void> getGroupsDetailsRaw({
     String? search,
     int? limit,
@@ -1269,7 +1270,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/details{?search*,limit*,offset*}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetGroupsDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1330,7 +1331,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getGroupUsers] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void> getGroupUsersRaw({
     required String groupId,
     bool? oCSAPIRequest,
@@ -1369,7 +1370,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetGroupUsersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1438,7 +1439,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getGroupUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void> getGroupUsersDetailsRaw({
     required String groupId,
     String? search,
@@ -1491,8 +1492,8 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/users/details{?search*,limit*,offset*}')
+        .expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetGroupUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1553,7 +1554,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getSubAdminsOfGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void> getSubAdminsOfGroupRaw({
     required String groupId,
     bool? oCSAPIRequest,
@@ -1592,7 +1593,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}/subadmins').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetSubAdminsOfGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1650,7 +1651,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [getGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   @Deprecated('')
   _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void> getGroupRaw({
     required String groupId,
@@ -1690,7 +1691,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsGetGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -1759,7 +1760,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [updateGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void> updateGroupRaw({
     required String key,
     required String value,
@@ -1806,7 +1807,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}{?key*,value*}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsUpdateGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -1867,7 +1868,7 @@ class $GroupsClient {
   ///
   /// See:
   ///  * [deleteGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void> deleteGroupRaw({
     required String groupId,
     bool? oCSAPIRequest,
@@ -1906,7 +1907,7 @@ class $GroupsClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/groups/{groupId}').expand(_parameters);
     return _i1.DynamiteRawResponse<GroupsDeleteGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -1980,7 +1981,7 @@ class $PreferencesClient {
   ///
   /// See:
   ///  * [setPreference] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void> setPreferenceRaw({
     required String configValue,
     required String appId,
@@ -2023,7 +2024,7 @@ class $PreferencesClient {
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}{?configValue*}')
             .expand(_parameters);
     return _i1.DynamiteRawResponse<PreferencesSetPreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2090,7 +2091,7 @@ class $PreferencesClient {
   ///
   /// See:
   ///  * [deletePreference] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void> deletePreferenceRaw({
     required String appId,
     required String configKey,
@@ -2128,8 +2129,8 @@ class $PreferencesClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}/{configKey}')
+        .expand(_parameters);
     return _i1.DynamiteRawResponse<PreferencesDeletePreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -2195,7 +2196,7 @@ class $PreferencesClient {
   ///
   /// See:
   ///  * [setMultiplePreferences] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void> setMultiplePreferencesRaw({
     required ContentString<BuiltMap<String, String>> configs,
     required String appId,
@@ -2239,7 +2240,7 @@ class $PreferencesClient {
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
     final _path =
-        UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
+        _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configs*}').expand(_parameters);
     return _i1.DynamiteRawResponse<PreferencesSetMultiplePreferencesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -2306,7 +2307,7 @@ class $PreferencesClient {
   ///
   /// See:
   ///  * [deleteMultiplePreference] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>
       deleteMultiplePreferenceRaw({
     required BuiltList<String> configKeys,
@@ -2346,7 +2347,7 @@ class $PreferencesClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
+    final _path = _i3.UriTemplate('/ocs/v2.php/apps/provisioning_api/api/v1/config/users/{appId}{?configKeys%5B%5D*}')
         .expand(_parameters);
     return _i1.DynamiteRawResponse<PreferencesDeleteMultiplePreferenceResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
@@ -2422,7 +2423,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getUsers] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void> getUsersRaw({
     String? search,
     int? limit,
@@ -2466,7 +2467,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users{?search*,limit*,offset*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetUsersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2557,7 +2558,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [addUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersAddUserResponseApplicationJson, void> addUserRaw({
     required String userid,
     String? password,
@@ -2630,7 +2631,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate(
+    final _path = _i3.UriTemplate(
       '/ocs/v2.php/cloud/users{?userid*,password*,displayName*,email*,groups%5B%5D*,subadmin%5B%5D*,quota*,language*,manager*}',
     ).expand(_parameters);
     return _i1.DynamiteRawResponse<UsersAddUserResponseApplicationJson, void>(
@@ -2697,7 +2698,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void> getUsersDetailsRaw({
     String? search,
     int? limit,
@@ -2741,7 +2742,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/details{?search*,limit*,offset*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2802,7 +2803,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getDisabledUsersDetails] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void> getDisabledUsersDetailsRaw({
     int? limit,
     int? offset,
@@ -2841,7 +2842,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/disabled{?limit*,offset*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetDisabledUsersDetailsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -2904,7 +2905,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [searchByPhoneNumbers] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void> searchByPhoneNumbersRaw({
     required String location,
     required ContentString<BuiltMap<String, BuiltList<String>>> search,
@@ -2950,7 +2951,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/search/by-phone{?location*,search*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersSearchByPhoneNumbersResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3007,7 +3008,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetUserResponseApplicationJson, void> getUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3041,7 +3042,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3106,7 +3107,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [editUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersEditUserResponseApplicationJson, void> editUserRaw({
     required String key,
     required String value,
@@ -3148,7 +3149,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}{?key*,value*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersEditUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -3205,7 +3206,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [deleteUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void> deleteUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3239,7 +3240,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersDeleteUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -3292,7 +3293,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getCurrentUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetCurrentUserResponseApplicationJson, void> getCurrentUserRaw({bool? oCSAPIRequest}) {
     final _headers = <String, String>{
       'Accept': 'application/json',
@@ -3372,7 +3373,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getEditableFields] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetEditableFieldsResponseApplicationJson, void> getEditableFieldsRaw({
     bool? oCSAPIRequest,
   }) {
@@ -3458,7 +3459,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getEditableFieldsForUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void> getEditableFieldsForUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3492,7 +3493,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/user/fields/{userId}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetEditableFieldsForUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -3561,7 +3562,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [editUserMultiValue] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void> editUserMultiValueRaw({
     required String key,
     required String value,
@@ -3612,7 +3613,8 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
+    final _path =
+        _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/{collectionName}{?key*,value*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersEditUserMultiValueResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -3669,7 +3671,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [wipeUserDevices] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void> wipeUserDevicesRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3703,7 +3705,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/wipe').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersWipeUserDevicesResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -3760,7 +3762,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [enableUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void> enableUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3794,7 +3796,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/enable').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersEnableUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -3851,7 +3853,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [disableUser] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void> disableUserRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3885,7 +3887,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/disable').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersDisableUserResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'put',
@@ -3942,7 +3944,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getUsersGroups] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void> getUsersGroupsRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -3976,7 +3978,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetUsersGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4037,7 +4039,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [addToGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void> addToGroupRaw({
     required String userId,
     String? groupid,
@@ -4076,7 +4078,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersAddToGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4137,7 +4139,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [removeFromGroup] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void> removeFromGroupRaw({
     required String groupid,
     required String userId,
@@ -4175,7 +4177,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/groups{?groupid*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersRemoveFromGroupResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4236,7 +4238,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [getUserSubAdminGroups] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void> getUserSubAdminGroupsRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -4270,7 +4272,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersGetUserSubAdminGroupsResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'get',
@@ -4335,7 +4337,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [addSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void> addSubAdminRaw({
     required String groupid,
     required String userId,
@@ -4373,7 +4375,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersAddSubAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -4438,7 +4440,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [removeSubAdmin] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void> removeSubAdminRaw({
     required String groupid,
     required String userId,
@@ -4476,7 +4478,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/subadmins{?groupid*}').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersRemoveSubAdminResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'delete',
@@ -4533,7 +4535,7 @@ class $UsersClient {
   ///
   /// See:
   ///  * [resendWelcomeMessage] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
+  @_i4.experimental
   _i1.DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void> resendWelcomeMessageRaw({
     required String userId,
     bool? oCSAPIRequest,
@@ -4567,7 +4569,7 @@ class $UsersClient {
     $oCSAPIRequest ??= true;
     _headers['OCS-APIRequest'] = const _i2.HeaderEncoder().convert($oCSAPIRequest);
 
-    final _path = UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
+    final _path = _i3.UriTemplate('/ocs/v2.php/cloud/users/{userId}/welcome').expand(_parameters);
     return _i1.DynamiteRawResponse<UsersResendWelcomeMessageResponseApplicationJson, void>(
       response: _rootClient.executeRequest(
         'post',
@@ -9500,7 +9502,7 @@ class _$f9d75e948689049b3f3e23e024d4be73Serializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -10105,12 +10107,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

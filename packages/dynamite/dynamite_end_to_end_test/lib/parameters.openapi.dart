@@ -12,17 +12,17 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i5;
-import 'package:dynamite_runtime/built_value.dart' as _i4;
-import 'package:dynamite_runtime/http_client.dart' as _i2;
+import 'package:built_value/standard_json_plugin.dart' as _i6;
+import 'package:dynamite_runtime/built_value.dart' as _i5;
+import 'package:dynamite_runtime/http_client.dart' as _i3;
 import 'package:dynamite_runtime/models.dart';
 import 'package:dynamite_runtime/utils.dart' as _i1;
-import 'package:meta/meta.dart' as _i3;
-import 'package:uri/uri.dart';
+import 'package:meta/meta.dart' as _i4;
+import 'package:uri/uri.dart' as _i2;
 
 part 'parameters.openapi.g.dart';
 
-class $Client extends _i2.DynamiteClient {
+class $Client extends _i3.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
@@ -33,7 +33,7 @@ class $Client extends _i2.DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(_i2.DynamiteClient client)
+  $Client.fromClient(_i3.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -66,7 +66,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [$getRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<JsonObject, void>> $get({
+  Future<_i3.DynamiteResponse<JsonObject, void>> $get({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -128,8 +128,8 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [$get] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<JsonObject, void> $getRaw({
+  @_i4.experimental
+  _i3.DynamiteRawResponse<JsonObject, void> $getRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -208,10 +208,10 @@ class $Client extends _i2.DynamiteClient {
     );
     _parameters['enum_pattern'] = $enumPattern;
 
-    final _path = UriTemplate(
+    final _path = _i2.UriTemplate(
       '/{?content_string*,content_parameter*,array*,array_string*,bool*,string*,string_binary*,int*,double*,num*,object*,oneOf*,anyOf*,enum_pattern*}',
     ).expand(_parameters);
-    return _i2.DynamiteRawResponse<JsonObject, void>(
+    return _i3.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -249,7 +249,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getHeadersRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<JsonObject, void>> getHeaders({
+  Future<_i3.DynamiteResponse<JsonObject, void>> getHeaders({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -311,8 +311,8 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getHeaders] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
+  @_i4.experimental
+  _i3.DynamiteRawResponse<JsonObject, void> getHeadersRaw({
     ContentString<BuiltMap<String, JsonObject>>? contentString,
     ContentString<BuiltMap<String, JsonObject>>? contentParameter,
     BuiltList<JsonObject>? array,
@@ -419,7 +419,7 @@ class $Client extends _i2.DynamiteClient {
     }
 
     const _path = '/headers';
-    return _i2.DynamiteRawResponse<JsonObject, void>(
+    return _i3.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -441,7 +441,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameterRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
+  Future<_i3.DynamiteResponse<JsonObject, void>> getPathParameter({required String pathParameter}) async {
     final rawResponse = getPathParameterRaw(
       pathParameter: pathParameter,
     );
@@ -459,8 +459,8 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getPathParameter] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
+  @_i4.experimental
+  _i3.DynamiteRawResponse<JsonObject, void> getPathParameterRaw({required String pathParameter}) {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -469,8 +469,8 @@ class $Client extends _i2.DynamiteClient {
     final $pathParameter = _$jsonSerializers.serialize(pathParameter, specifiedType: const FullType(String));
     _parameters['path_parameter'] = $pathParameter;
 
-    final _path = UriTemplate('/{path_parameter}').expand(_parameters);
-    return _i2.DynamiteRawResponse<JsonObject, void>(
+    final _path = _i2.UriTemplate('/{path_parameter}').expand(_parameters);
+    return _i3.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -492,7 +492,7 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getNamingCollisionsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i2.DynamiteResponse<JsonObject, void>> getNamingCollisions({
+  Future<_i3.DynamiteResponse<JsonObject, void>> getNamingCollisions({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -520,8 +520,8 @@ class $Client extends _i2.DynamiteClient {
   ///
   /// See:
   ///  * [getNamingCollisions] for an operation that returns a `DynamiteResponse` with a stable API.
-  @_i3.experimental
-  _i2.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
+  @_i4.experimental
+  _i3.DynamiteRawResponse<JsonObject, void> getNamingCollisionsRaw({
     required String jsonSerializers,
     required String serializers,
     required String body,
@@ -556,8 +556,8 @@ class $Client extends _i2.DynamiteClient {
       _headers['_headers'] = const _i1.HeaderEncoder().convert($headers);
     }
 
-    final _path = UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
-    return _i2.DynamiteRawResponse<JsonObject, void>(
+    final _path = _i2.UriTemplate('/naming_collisions{?%24jsonSerializers*}').expand(_parameters);
+    return _i3.DynamiteRawResponse<JsonObject, void>(
       response: executeRequest(
         'get',
         _path,
@@ -820,7 +820,7 @@ class _$93403da1a64cb6a7b1597c7a05e9b2beSerializer implements PrimitiveSerialize
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@_i3.visibleForTesting
+@_i4.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(
@@ -845,12 +845,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@_i3.visibleForTesting
+@_i4.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
+      ..add(_i5.DynamiteDoubleSerializer())
+      ..addPlugin(_i6.StandardJsonPlugin())
+      ..addPlugin(const _i5.HeaderPlugin())
+      ..addPlugin(const _i5.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

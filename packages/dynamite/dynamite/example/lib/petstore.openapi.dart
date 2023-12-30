@@ -11,15 +11,15 @@ import 'dart:typed_data';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:built_value/standard_json_plugin.dart' as _i3;
-import 'package:dynamite_runtime/built_value.dart' as _i2;
-import 'package:dynamite_runtime/http_client.dart' as _i1;
-import 'package:meta/meta.dart';
-import 'package:uri/uri.dart';
+import 'package:built_value/standard_json_plugin.dart' as _i5;
+import 'package:dynamite_runtime/built_value.dart' as _i4;
+import 'package:dynamite_runtime/http_client.dart' as _i2;
+import 'package:meta/meta.dart' as _i3;
+import 'package:uri/uri.dart' as _i1;
 
 part 'petstore.openapi.g.dart';
 
-class $Client extends _i1.DynamiteClient {
+class $Client extends _i2.DynamiteClient {
   /// Creates a new `DynamiteClient` for untagged requests.
   $Client(
     super.baseURL, {
@@ -30,7 +30,7 @@ class $Client extends _i1.DynamiteClient {
   });
 
   /// Creates a new [$Client] from another [client].
-  $Client.fromClient(_i1.DynamiteClient client)
+  $Client.fromClient(_i2.DynamiteClient client)
       : super(
           client.baseURL,
           baseHeaders: client.baseHeaders,
@@ -58,7 +58,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [findPetsRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<BuiltList<Pet>, void>> findPets({
+  Future<_i2.DynamiteResponse<BuiltList<Pet>, void>> findPets({
     BuiltList<String>? tags,
     int? limit,
   }) async {
@@ -91,8 +91,8 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [findPets] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
-  _i1.DynamiteRawResponse<BuiltList<Pet>, void> findPetsRaw({
+  @_i3.experimental
+  _i2.DynamiteRawResponse<BuiltList<Pet>, void> findPetsRaw({
     BuiltList<String>? tags,
     int? limit,
   }) {
@@ -107,8 +107,8 @@ class $Client extends _i1.DynamiteClient {
     final $limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     _parameters['limit'] = $limit;
 
-    final _path = UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
-    return _i1.DynamiteRawResponse<BuiltList<Pet>, void>(
+    final _path = _i1.UriTemplate('/pets{?tags*,limit*}').expand(_parameters);
+    return _i2.DynamiteRawResponse<BuiltList<Pet>, void>(
       response: executeRequest(
         'get',
         _path,
@@ -133,7 +133,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [addPetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Pet, void>> addPet({required NewPet newPet}) async {
+  Future<_i2.DynamiteResponse<Pet, void>> addPet({required NewPet newPet}) async {
     final rawResponse = addPetRaw(
       newPet: newPet,
     );
@@ -154,8 +154,8 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [addPet] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
-  _i1.DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
+  @_i3.experimental
+  _i2.DynamiteRawResponse<Pet, void> addPetRaw({required NewPet newPet}) {
     const _headers = <String, String>{
       'Accept': 'application/json',
     };
@@ -164,7 +164,7 @@ class $Client extends _i1.DynamiteClient {
     _headers['Content-Type'] = 'application/json';
     _body = utf8.encode(json.encode(_$jsonSerializers.serialize(newPet, specifiedType: const FullType(NewPet))));
     const _path = '/pets';
-    return _i1.DynamiteRawResponse<Pet, void>(
+    return _i2.DynamiteRawResponse<Pet, void>(
       response: executeRequest(
         'post',
         _path,
@@ -192,7 +192,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [findPetByIdRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<Pet, void>> findPetById({required int id}) async {
+  Future<_i2.DynamiteResponse<Pet, void>> findPetById({required int id}) async {
     final rawResponse = findPetByIdRaw(
       id: id,
     );
@@ -216,8 +216,8 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [findPetById] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
-  _i1.DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
+  @_i3.experimental
+  _i2.DynamiteRawResponse<Pet, void> findPetByIdRaw({required int id}) {
     final _parameters = <String, dynamic>{};
     const _headers = <String, String>{
       'Accept': 'application/json',
@@ -226,8 +226,8 @@ class $Client extends _i1.DynamiteClient {
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _path = UriTemplate('/pets/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<Pet, void>(
+    final _path = _i1.UriTemplate('/pets/{id}').expand(_parameters);
+    return _i2.DynamiteRawResponse<Pet, void>(
       response: executeRequest(
         'get',
         _path,
@@ -255,7 +255,7 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deletePetRaw] for an experimental operation that returns a `DynamiteRawResponse` that can be serialized.
-  Future<_i1.DynamiteResponse<void, void>> deletePet({required int id}) async {
+  Future<_i2.DynamiteResponse<void, void>> deletePet({required int id}) async {
     final rawResponse = deletePetRaw(
       id: id,
     );
@@ -279,16 +279,16 @@ class $Client extends _i1.DynamiteClient {
   ///
   /// See:
   ///  * [deletePet] for an operation that returns a `DynamiteResponse` with a stable API.
-  @experimental
-  _i1.DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
+  @_i3.experimental
+  _i2.DynamiteRawResponse<void, void> deletePetRaw({required int id}) {
     final _parameters = <String, dynamic>{};
     final _headers = <String, String>{};
 
     final $id = _$jsonSerializers.serialize(id, specifiedType: const FullType(int));
     _parameters['id'] = $id;
 
-    final _path = UriTemplate('/pets/{id}').expand(_parameters);
-    return _i1.DynamiteRawResponse<void, void>(
+    final _path = _i1.UriTemplate('/pets/{id}').expand(_parameters);
+    return _i2.DynamiteRawResponse<void, void>(
       response: executeRequest(
         'delete',
         _path,
@@ -394,7 +394,7 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 ///
 /// Serializes values into the `built_value` wire format.
 /// See: [$jsonSerializers] for serializing into json.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $serializers = _$serializers;
 final Serializers _$serializers = (Serializers().toBuilder()
       ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
@@ -411,12 +411,12 @@ final Serializers _$serializers = (Serializers().toBuilder()
 ///
 /// Serializes values into the json. Json serialization is more expensive than the built_value wire format.
 /// See: [$serializers] for serializing into the `built_value` wire format.
-@visibleForTesting
+@_i3.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
 final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
+      ..add(_i4.DynamiteDoubleSerializer())
+      ..addPlugin(_i5.StandardJsonPlugin())
+      ..addPlugin(const _i4.HeaderPlugin())
+      ..addPlugin(const _i4.ContentStringPlugin()))
     .build();
 // coverage:ignore-end

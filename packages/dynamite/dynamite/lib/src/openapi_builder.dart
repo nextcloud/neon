@@ -90,7 +90,6 @@ class OpenAPIBuilder implements Builder {
             Directive.import('package:built_value/serializer.dart'),
             Directive.import('package:collection/collection.dart'),
             Directive.import('package:dynamite_runtime/models.dart'),
-            Directive.import('package:uri/uri.dart'),
           ])
           ..body.addAll(generateClients(spec, state))
           ..body.addAll(generateSchemas(spec, state))
@@ -106,7 +105,7 @@ class OpenAPIBuilder implements Builder {
 
         if (state.buildConfig.experimental) {
           b.annotations.add(
-            refer('experimental'),
+            refer('experimental', 'package:meta/meta.dart'),
           );
         }
       });

@@ -380,7 +380,17 @@ Iterable<Method> buildTags(
             throw Exception('The resulting uri $path is not a valid uri template according to RFC 6570. $e');
           }
 
-          code.writeln("final _path = UriTemplate('$path').expand(_parameters);");
+          final pathDeclaration = declareFinal('_path')
+              .assign(
+                refer('UriTemplate', 'package:uri/uri.dart')
+                    .newInstance([literalString(path)])
+                    .property('expand')
+                    .call([refer('_parameters')]),
+              )
+              .statement
+              .accept(state.emitter);
+
+          code.writeln(pathDeclaration);
         }
 
         if (dataType != null) {
