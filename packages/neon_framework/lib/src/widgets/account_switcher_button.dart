@@ -6,8 +6,8 @@ import 'package:neon_framework/src/models/account.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:neon_framework/src/widgets/account_selection_dialog.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
+import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/user_avatar.dart';
 
 @internal

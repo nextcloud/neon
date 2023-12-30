@@ -4,6 +4,7 @@ import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
 import 'package:neon_files/src/models/file_details.dart';
 import 'package:neon_files/src/widgets/file_preview.dart';
+import 'package:neon_framework/l10n/localizations.dart';
 
 class FilesDetailsPage extends StatelessWidget {
   const FilesDetailsPage({
@@ -61,8 +62,8 @@ class FilesDetailsPage extends StatelessWidget {
                     },
                     if (details.isFavorite != null) ...{
                       FilesLocalizations.of(context).detailsIsFavorite: details.isFavorite!
-                          ? FilesLocalizations.of(context).actionYes
-                          : FilesLocalizations.of(context).actionNo,
+                          ? NeonLocalizations.of(context).actionYes
+                          : NeonLocalizations.of(context).actionNo,
                     },
                   }.entries) ...[
                     DataRow(

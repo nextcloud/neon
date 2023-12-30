@@ -8,17 +8,33 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Mode to operate the `FilesBrowserView` in.
+enum FilesBrowserMode {
+  /// Default file browser mode.
+  ///
+  /// When a file is selected it will be opened or downloaded.
+  browser,
+
+  /// Select directory.
+  selectDirectory,
+
+  /// Do not show file actions.
+  noActions,
+}
+
 sealed class FilesBrowserBloc implements InteractiveBloc {
   @internal
   factory FilesBrowserBloc(
     final FilesOptions options,
     final Account account, {
     final PathUri? initialPath,
+    final FilesBrowserMode? mode,
   }) =>
       _FilesBrowserBloc(
         options,
         account,
         initialPath: initialPath,
+        mode: mode,
       );
 
   void setPath(final PathUri uri);
@@ -30,17 +46,24 @@ sealed class FilesBrowserBloc implements InteractiveBloc {
   BehaviorSubject<PathUri> get uri;
 
   FilesOptions get options;
+
+  /// Mode to operate the `FilesBrowserView` in.
+  FilesBrowserMode get mode;
 }
 
 class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   _FilesBrowserBloc(
     this.options,
     this.account, {
-    final PathUri? initialPath,
-  }) {
-    if (initialPath != null) {
-      uri.add(initialPath);
+    this.initialPath,
+    final FilesBrowserMode? mode,
+  }) : mode = mode ?? FilesBrowserMode.browser {
+    final parent = initialPath?.parent;
+    if (parent != null) {
+      uri.add(parent);
     }
+
+    options.showHiddenFilesOption.addListener(refresh);
 
     unawaited(refresh());
   }
@@ -50,7 +73,14 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
   final Account account;
 
   @override
+  final FilesBrowserMode mode;
+
+  final PathUri? initialPath;
+
+  @override
   void dispose() {
+    options.showHiddenFilesOption.removeListener(refresh);
+
     unawaited(files.close());
     unawaited(uri.close());
     super.dispose();
@@ -80,7 +110,28 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
         ),
         depth: WebDavDepth.one,
       ),
-      (final response) => response.toWebDavFiles().sublist(1),
+      (final response) {
+        final unwrapped = response.toWebDavFiles().sublist(1);
+
+        return unwrapped.where((final file) {
+          // Do not show files when selecting a directory
+          if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
+            return false;
+          }
+
+          // Do not show itself when selecting a directory
+          if (mode == FilesBrowserMode.selectDirectory && initialPath == file.path) {
+            return false;
+          }
+
+          // Do not show hidden files unless the option is enabled
+          if (!options.showHiddenFilesOption.value && file.isHidden) {
+            return false;
+          }
+
+          return true;
+        }).toList();
+      },
       emitEmptyCache: true,
     );
   }

@@ -56,7 +56,7 @@ sealed class FilesBloc implements InteractiveBloc {
 
   FilesBrowserBloc get browser;
 
-  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri});
+  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri, final FilesBrowserMode? mode});
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
@@ -235,13 +235,12 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   @override
-  FilesBrowserBloc getNewFilesBrowserBloc({
-    final PathUri? initialUri,
-  }) =>
+  FilesBrowserBloc getNewFilesBrowserBloc({final PathUri? initialUri, final FilesBrowserMode? mode}) =>
       FilesBrowserBloc(
         options,
         account,
         initialPath: initialUri,
+        mode: mode,
       );
 
   void downloadParallelismListener() {

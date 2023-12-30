@@ -106,25 +106,9 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
           final accountsBloc = NeonProvider.of<AccountsBloc>(context);
           accountsBloc.activeAppsBloc.setActiveApp(app.id);
         } else {
-          final colorScheme = Theme.of(context).colorScheme;
-
-          await showDialog<void>(
+          await showUnimplementedDialog(
             context: context,
-            builder: (final context) => AlertDialog(
-              title: Text(NotificationsLocalizations.of(context).notificationAppNotImplementedYet),
-              actions: [
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: colorScheme.error,
-                    foregroundColor: colorScheme.onError,
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(NotificationsLocalizations.of(context).actionClose),
-                ),
-              ],
-            ),
+            title: NotificationsLocalizations.of(context).notificationAppNotImplementedYet,
           );
         }
       },

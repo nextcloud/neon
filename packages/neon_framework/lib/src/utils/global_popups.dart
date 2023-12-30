@@ -10,7 +10,7 @@ import 'package:neon_framework/src/platform/platform.dart';
 import 'package:neon_framework/src/router.dart';
 import 'package:neon_framework/src/utils/global_options.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:neon_framework/src/widgets/dialog.dart';
 
 /// Singleton class managing global popups.
 @internal
@@ -88,30 +88,9 @@ class GlobalPopups {
             return;
           }
 
-          await showDialog<void>(
+          await showAdaptiveDialog<void>(
             context: _context,
-            builder: (final context) => AlertDialog(
-              title: Text(NeonLocalizations.of(context).nextPushSupported),
-              content: Text(NeonLocalizations.of(context).nextPushSupportedText),
-              actions: [
-                OutlinedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(NeonLocalizations.of(context).actionNo),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    launchUrlString(
-                      'https://f-droid.org/packages/$unifiedPushNextPushID',
-                      mode: LaunchMode.externalApplication,
-                    );
-                  },
-                  child: Text(NeonLocalizations.of(context).nextPushSupportedInstall),
-                ),
-              ],
-            ),
+            builder: (final context) => const NeonUnifiedPushDialog(),
           );
         }),
       ]);

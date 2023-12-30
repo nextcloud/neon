@@ -5,13 +5,7 @@ class NewsLocalizationsEn extends NewsLocalizations {
   NewsLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get actionClose => 'Close';
-
-  @override
   String get actionDelete => 'Delete';
-
-  @override
-  String get actionRemove => 'Remove';
 
   @override
   String get actionRename => 'Rename';
@@ -41,6 +35,9 @@ class NewsLocalizationsEn extends NewsLocalizations {
   String folderDeleteConfirm(String name) {
     return 'Are you sure you want to delete the folder \'$name\'?';
   }
+
+  @override
+  String get actionDeleteTitle => 'Permanently delete?';
 
   @override
   String get folderRename => 'Rename folder';

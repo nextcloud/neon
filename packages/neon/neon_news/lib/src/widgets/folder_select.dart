@@ -11,6 +11,8 @@ class NewsFolderSelect extends StatelessWidget {
   });
 
   final List<news.Folder> folders;
+
+  /// {@macro flutter.material.dropdownButton.onChanged}
   final ValueChanged<news.Folder?> onChanged;
   final news.Folder? value;
 

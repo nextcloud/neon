@@ -13,7 +13,7 @@ import 'package:neon_framework/src/settings/widgets/settings_category.dart';
 import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
 import 'package:neon_framework/src/utils/adaptive.dart';
-import 'package:neon_framework/src/utils/confirmation_dialog.dart';
+import 'package:neon_framework/src/widgets/dialog.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:nextcloud/provisioning_api.dart' as provisioning_api;
 
@@ -46,15 +46,23 @@ class AccountSettingsPage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () async {
-            if (await showConfirmationDialog(
-              context,
-              NeonLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
-            )) {
+            final decision = await showAdaptiveDialog<bool>(
+              context: context,
+              builder: (final context) => NeonConfirmationDialog(
+                icon: const Icon(Icons.logout),
+                title: NeonLocalizations.of(context).accountOptionsRemove,
+                content: Text(
+                  NeonLocalizations.of(context).accountOptionsRemoveConfirm(account.humanReadableID),
+                ),
+              ),
+            );
+
+            if (decision ?? false) {
               final isActive = bloc.activeAccount.valueOrNull == account;
 
+              options.reset();
               bloc.removeAccount(account);
 
-              // ignore: use_build_context_synchronously
               if (!context.mounted) {
                 return;
               }
@@ -71,10 +79,18 @@ class AccountSettingsPage extends StatelessWidget {
         ),
         IconButton(
           onPressed: () async {
-            if (await showConfirmationDialog(
-              context,
-              NeonLocalizations.of(context).settingsResetForConfirmation(name),
-            )) {
+            final content =
+                '${NeonLocalizations.of(context).settingsResetForConfirmation(name)} ${NeonLocalizations.of(context).settingsResetForExplanation}';
+            final decision = await showAdaptiveDialog<bool>(
+              context: context,
+              builder: (final context) => NeonConfirmationDialog(
+                icon: const Icon(Icons.restart_alt),
+                title: NeonLocalizations.of(context).settingsReset,
+                content: Text(content),
+              ),
+            );
+
+            if (decision ?? false) {
               options.reset();
             }
           },

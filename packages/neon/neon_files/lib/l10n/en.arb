@@ -1,7 +1,5 @@
 {
   "@@locale": "en",
-  "actionYes": "Yes",
-  "actionNo": "No",
   "actionDelete": "Delete",
   "actionRename": "Rename",
   "actionMove": "Move",
@@ -43,6 +41,8 @@
       }
     }
   },
+  "actionDeleteTitle": "Permanently delete?",
+  "filesChooseCreate": "Add to Nextcloud",
   "folderCreate": "Create folder",
   "folderName": "Folder name",
   "folderRename": "Rename folder",

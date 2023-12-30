@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/sort_box.dart';
 import 'package:neon_framework/theme.dart';
-import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
 import 'package:neon_news/src/options.dart';
 import 'package:neon_news/src/pages/folder.dart';
 import 'package:neon_news/src/sort/folders.dart';
+import 'package:neon_news/utils/dialog.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFoldersView extends StatelessWidget {
@@ -99,21 +99,15 @@ class NewsFoldersView extends StatelessWidget {
         onSelected: (final action) async {
           switch (action) {
             case NewsFolderAction.delete:
-              if (await showConfirmationDialog(
-                context,
-                NewsLocalizations.of(context).folderDeleteConfirm(folder.name),
-              )) {
+              final result = await showFolderDeleteDialog(context: context, folderName: folder.name);
+              if (result) {
                 bloc.deleteFolder(folder.id);
               }
             case NewsFolderAction.rename:
               if (!context.mounted) {
                 return;
               }
-              final result = await showRenameDialog(
-                context: context,
-                title: NewsLocalizations.of(context).folderRename,
-                value: folder.name,
-              );
+              final result = await showFolderRenameDialog(context: context, folderName: folder.name);
               if (result != null) {
                 bloc.renameFolder(folder.id, result);
               }

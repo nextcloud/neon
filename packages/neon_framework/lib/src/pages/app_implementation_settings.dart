@@ -7,7 +7,7 @@ import 'package:neon_framework/src/settings/widgets/option_settings_tile.dart';
 import 'package:neon_framework/src/settings/widgets/settings_category.dart';
 import 'package:neon_framework/src/settings/widgets/settings_list.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
-import 'package:neon_framework/src/utils/confirmation_dialog.dart';
+import 'package:neon_framework/src/widgets/dialog.dart';
 
 @internal
 class AppImplementationSettingsPage extends StatelessWidget {
@@ -25,10 +25,19 @@ class AppImplementationSettingsPage extends StatelessWidget {
       actions: [
         IconButton(
           onPressed: () async {
-            if (await showConfirmationDialog(
-              context,
-              NeonLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context)),
-            )) {
+            final content =
+                '${NeonLocalizations.of(context).settingsResetForConfirmation(appImplementation.name(context))} ${NeonLocalizations.of(context).settingsResetForClientExplanation}';
+
+            final decision = await showAdaptiveDialog<bool>(
+              context: context,
+              builder: (final context) => NeonConfirmationDialog(
+                icon: const Icon(Icons.restart_alt),
+                title: NeonLocalizations.of(context).settingsReset,
+                content: Text(content),
+              ),
+            );
+
+            if (decision ?? false) {
               appImplementation.options.reset();
             }
           },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neon_files/l10n/localizations.dart';
 import 'package:neon_files/src/blocs/files.dart';
-import 'package:neon_files/src/dialogs/choose_create.dart';
+import 'package:neon_files/src/utils/dialog.dart';
 import 'package:neon_files/src/widgets/browser_view.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
@@ -35,15 +35,7 @@ class _FilesMainPageState extends State<FilesMainPage> {
           filesBloc: bloc,
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            await showDialog<void>(
-              context: context,
-              builder: (final context) => FilesChooseCreateDialog(
-                bloc: bloc,
-                basePath: bloc.browser.uri.value,
-              ),
-            );
-          },
+          onPressed: () async => showFilesCreateModal(context),
           tooltip: FilesLocalizations.of(context).uploadFiles,
           child: const Icon(Icons.add),
         ),

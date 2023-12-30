@@ -269,6 +269,12 @@ abstract class NeonLocalizations {
   /// **'Route not found: {route}'**
   String errorRouteNotFound(String route);
 
+  /// No description provided for @errorDialog.
+  ///
+  /// In en, this message translates to:
+  /// **'An error has occurred'**
+  String get errorDialog;
+
   /// No description provided for @actionYes.
   ///
   /// In en, this message translates to:
@@ -310,6 +316,12 @@ abstract class NeonLocalizations {
   /// In en, this message translates to:
   /// **'Continue'**
   String get actionContinue;
+
+  /// No description provided for @actionCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get actionCancel;
 
   /// No description provided for @firstLaunchGoToSettingsToEnablePushNotifications.
   ///
@@ -389,6 +401,12 @@ abstract class NeonLocalizations {
   /// **'Import settings'**
   String get settingsImport;
 
+  /// No description provided for @settingsReset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset settings?'**
+  String get settingsReset;
+
   /// No description provided for @settingsImportWrongFileExtension.
   ///
   /// In en, this message translates to:
@@ -407,11 +425,29 @@ abstract class NeonLocalizations {
   /// **'Do you want to reset all settings?'**
   String get settingsResetAllConfirmation;
 
+  /// No description provided for @settingsResetAllExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'This will reset all preferences back to their default settings.'**
+  String get settingsResetAllExplanation;
+
   /// No description provided for @settingsResetFor.
   ///
   /// In en, this message translates to:
   /// **'Reset all settings for {name}'**
   String settingsResetFor(String name);
+
+  /// No description provided for @settingsResetForExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'This will reset your account preferences back to their default settings.'**
+  String get settingsResetForExplanation;
+
+  /// No description provided for @settingsResetForClientExplanation.
+  ///
+  /// In en, this message translates to:
+  /// **'This will reset all preferences for the app back to their default settings.'**
+  String get settingsResetForClientExplanation;
 
   /// No description provided for @settingsResetForConfirmation.
   ///

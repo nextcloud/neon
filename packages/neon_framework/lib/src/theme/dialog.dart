@@ -15,6 +15,7 @@ class NeonDialogTheme {
       minWidth: 280,
       maxWidth: 560,
     ),
+    this.padding = const EdgeInsets.all(24),
   });
 
   /// Used to configure the [BoxConstraints] for the [NeonDialog] widget.
@@ -23,13 +24,21 @@ class NeonDialogTheme {
   /// By default it follows the default [m3 dialog specification](https://m3.material.io/components/dialogs/specs).
   final BoxConstraints constraints;
 
+  /// Padding around the content.
+  ///
+  /// This property defaults to providing a padding of 24 pixels on all sides
+  /// to separate the content from the edges of the dialog.
+  final EdgeInsets padding;
+
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
   NeonDialogTheme copyWith({
     final BoxConstraints? constraints,
+    final EdgeInsets? padding,
   }) =>
       NeonDialogTheme(
         constraints: constraints ?? this.constraints,
+        padding: padding ?? this.padding,
       );
 
   /// The data from the closest [NeonDialogTheme] instance given the build context.
@@ -45,11 +54,15 @@ class NeonDialogTheme {
     }
     return NeonDialogTheme(
       constraints: BoxConstraints.lerp(a.constraints, b.constraints, t)!,
+      padding: EdgeInsets.lerp(a.padding, b.padding, t)!,
     );
   }
 
   @override
-  int get hashCode => constraints.hashCode;
+  int get hashCode => Object.hashAll([
+        constraints,
+        padding,
+      ]);
 
   @override
   bool operator ==(final Object other) {
@@ -57,6 +70,6 @@ class NeonDialogTheme {
       return true;
     }
 
-    return other is NeonDialogTheme && other.constraints == constraints;
+    return other is NeonDialogTheme && other.constraints == constraints && other.padding == padding;
   }
 }

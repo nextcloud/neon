@@ -5,9 +5,6 @@ class NotificationsLocalizationsEn extends NotificationsLocalizations {
   NotificationsLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get actionClose => 'Close';
-
-  @override
   String get notificationsDismissAll => 'Dismiss all notifications';
 
   @override

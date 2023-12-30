@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neon_news/l10n/localizations.dart';
 import 'package:neon_news/src/blocs/news.dart';
-import 'package:neon_news/src/dialogs/add_feed.dart';
+import 'package:neon_news/src/widgets/dialog.dart';
 
 class NewsFeedFloatingActionButton extends StatelessWidget {
   const NewsFeedFloatingActionButton({
@@ -16,7 +16,7 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<(String, int?)>(
+          final result = await showAdaptiveDialog<(String, int?)>(
             context: context,
             builder: (final context) => NewsAddFeedDialog(
               bloc: bloc,

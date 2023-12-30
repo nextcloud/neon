@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neon_notes/l10n/localizations.dart';
 import 'package:neon_notes/src/blocs/notes.dart';
-import 'package:neon_notes/src/dialogs/create_note.dart';
+import 'package:neon_notes/src/widgets/dialog.dart';
 
 class NotesFloatingActionButton extends StatelessWidget {
   const NotesFloatingActionButton({
@@ -16,11 +16,11 @@ class NotesFloatingActionButton extends StatelessWidget {
   @override
   Widget build(final BuildContext context) => FloatingActionButton(
         onPressed: () async {
-          final result = await showDialog<(String, String?)>(
+          final result = await showAdaptiveDialog<(String, String?)>(
             context: context,
             builder: (final context) => NotesCreateNoteDialog(
               bloc: bloc,
-              category: category,
+              initialCategory: category,
             ),
           );
           if (result != null) {
