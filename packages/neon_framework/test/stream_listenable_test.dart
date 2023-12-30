@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/utils/stream_listenable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:test/test.dart';
 
 class MockCallbackFunction extends Mock {
   FutureOr<void> call();

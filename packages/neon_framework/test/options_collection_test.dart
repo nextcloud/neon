@@ -1,7 +1,7 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
-import 'package:test/test.dart';
 
 // ignore: missing_override_of_must_be_overridden
 class OptionMock extends Mock implements ToggleOption {}

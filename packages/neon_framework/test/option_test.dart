@@ -3,10 +3,10 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/models/storage.dart';
-import 'package:test/test.dart';
 
 class MockStorage extends Mock implements SettingsStorage {}
 
