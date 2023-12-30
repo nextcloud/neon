@@ -21,7 +21,6 @@ import 'package:neon_framework/src/pages/route_not_found.dart';
 import 'package:neon_framework/src/pages/settings.dart';
 import 'package:neon_framework/src/utils/findable.dart';
 import 'package:neon_framework/src/utils/provider.dart';
-import 'package:neon_framework/src/utils/stream_listenable.dart';
 
 part 'router.g.dart';
 
@@ -33,7 +32,6 @@ GoRouter buildAppRouter({
 }) =>
     GoRouter(
       debugLogDiagnostics: kDebugMode,
-      refreshListenable: StreamListenable(accountsBloc.activeAccount),
       navigatorKey: navigatorKey,
       initialLocation: const HomeRoute().location,
       errorPageBuilder: _buildErrorPage,
@@ -147,9 +145,20 @@ class HomeRoute extends GoRouteData {
   @override
   Widget build(final BuildContext context, final GoRouterState state) {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
-    final account = accountsBloc.activeAccount.valueOrNull!;
+    return StreamBuilder(
+      stream: accountsBloc.activeAccount,
+      builder: (final context, final snapshot) {
+        if (!snapshot.hasData) {
+          return const SizedBox.shrink();
+        }
 
-    return HomePage(key: Key(account.id));
+        final account = snapshot.requireData!;
+        return HomePage(
+          account: account,
+          key: Key(account.id),
+        );
+      },
+    );
   }
 }
 
